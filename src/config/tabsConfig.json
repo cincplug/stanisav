@@ -1,0 +1,26 @@
+{
+  "tabs": [
+    {
+      "id": "controls",
+      "label": "Controls",
+      "component": "ControlsTab"
+    },
+    {
+      "id": "languages",
+      "label": "Languages",
+      "component": "LanguagesTab"
+    },
+    {
+      "id": "filters",
+      "label": "Filters",
+      "component": "FiltersTab"
+    },
+    {
+      "id": "search",
+      "label": "Search",
+      "component": "SearchTab"
+    }
+  ],
+  "defaultTab": "languages",
+  "searchLengthThreshold": 2
+}

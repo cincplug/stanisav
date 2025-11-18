@@ -1,0 +1,77 @@
+{
+  "cdo": {
+    "name": "Min Dong",
+    "nativeName": "閩東語",
+    "group": "sino-tibetan-sinitic",
+    "speakers": 9,
+    "sampleUrl": "",
+    "sr": "",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 38,
+      "caseCount": 0
+    }
+  },
+  "mnp": {
+    "name": "Min Bei",
+    "nativeName": "閩北語",
+    "group": "sino-tibetan-sinitic",
+    "speakers": 10,
+    "sampleUrl": "https://www.youtube.com/watch?v=p-g8XqdFkLg",
+    "sr": "uela sotala ćonin disindainsja jebinćudafanhuu pusuďenzaja sanposan",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 35,
+      "caseCount": 0
+    }
+  },
+  "hwc": {
+    "name": "Hawaiian Creole",
+    "nativeName": "Pidgin",
+    "group": "english-creole",
+    "speakers": 1,
+    "sampleUrl": "",
+    "sr": "",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 24,
+      "caseSystem": "none"
+    }
+  },
+  "kri": {
+    "name": "Krio",
+    "nativeName": "Krio",
+    "group": "english-creole",
+    "speakers": 0.35,
+    "sampleUrl": "",
+    "sr": "",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 25,
+      "caseSystem": "none"
+    }
+  },
+  "srm": {
+    "name": "Saramaccan",
+    "nativeName": "Saamáka",
+    "group": "english-creole",
+    "speakers": 0.058,
+    "sampleUrl": "",
+    "sr": "",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 22,
+      "caseSystem": "none"
+    }
+  }
+}

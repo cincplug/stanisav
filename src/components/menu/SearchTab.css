@@ -1,0 +1,105 @@
+/* Search input container with relative positioning for clear button */
+.search-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Search input styles */
+.search-input {
+  width: 100%;
+  padding: 8px 40px 8px 8px; /* Extra right padding for clear button */
+  background-color: transparent;
+  border: 1px solid var(--color-text);
+  color: var(--color-text);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-normal);
+  font-family: Roboto, sans-serif;
+  font-weight: normal;
+  box-sizing: border-box;
+}
+
+.search-select {
+  width: 100%;
+  padding: 8px;
+  background-color: var(--color-interactive);
+  border: 1px solid var(--color-interactive);
+  color: var(--color-text);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-normal);
+  font-family: Roboto, sans-serif;
+  font-weight: normal;
+  box-sizing: border-box;
+}
+
+/* Clear button positioned inside search input */
+.search-clear-button {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: none;
+  color: var(--color-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+  padding: 0;
+}
+
+.search-clear-button:hover:not(:disabled) {
+  opacity: 1;
+}
+
+.search-clear-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Search threshold message */
+.search-threshold-message {
+  padding: 16px;
+  text-align: center;
+  color: var(--color-text);
+  opacity: 0.7;
+  font-style: italic;
+}
+
+/* Search results */
+.search-results {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Language grid for search results */
+.language-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.language-button-grid {
+  border: 1px solid var(--color-interactive);
+  background-color: var(--color-interactive);
+  color: var(--color-text);
+  padding: 8px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: var(--font-size-normal);
+  font-family: Roboto, sans-serif;
+  text-align: left;
+}
+
+.language-button-grid:hover {
+  background-color: var(--color-interactive-hover);
+}
+
+.language-name {
+  margin-bottom: 2px;
+}

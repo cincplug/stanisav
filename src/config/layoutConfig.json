@@ -1,0 +1,14 @@
+{
+  "layoutConstants": {
+    "multilevel": {
+      "uniformGrid": {
+        "spacing": 10
+      }
+    }
+  },
+  "physicsConstants": {
+    "minDistanceSq": 0.01,
+    "defaultMultiplier": 1.0,
+    "defaultIterations": 300
+  }
+}

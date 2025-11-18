@@ -1,0 +1,406 @@
+/* Import Roboto font */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+:root {
+  --font-size-normal: 0.8rem;
+  --font-size-small: 0.7rem;
+
+  /* Semantic colors */
+  --color-text: #eeeeee;
+  --color-text-active: #ffffff;
+  --color-interactive: #454545;
+  --color-interactive-hover: #646464;
+  --color-interactive-active: #828282;
+  --color-menu-background: #000000dd;
+  --color-new-item: #6a1b9a;
+  --color-new-item-hover: #7b1fa2;
+  --color-new-item-active: #9c27b0;
+  --color-todo-item: #9a1b6a;
+  --color-todo-item-hover: #ab1f72;
+  --color-todo-item-active: #bc2790;
+  --border-radius: 6px;
+  --gap: 6px;
+  --gap-double: calc(var(--gap) * 2);
+
+  /* Layout */
+  --panel-width: 375px;
+}
+
+/* Global scrollbar styles using standard CSS */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-interactive) #000000;
+}
+
+/* React-specific styles */
+#root {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure React app takes full viewport */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #000000;
+}
+
+/* App container styles */
+.app-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: #000000;
+}
+
+.app-container.loading {
+  background-color: #000000;
+}
+
+.app-container.loading .r3f-canvas {
+  visibility: hidden;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: var(--color-interactive);
+  border: none;
+}
+
+/* React Three Fiber canvas styles */
+.r3f-canvas {
+  width: 100%;
+  height: 100%;
+  transition: margin-right 0.3s ease, width 0.3s ease;
+}
+
+.r3f-canvas.menu-collapsed {
+  margin-right: 0;
+  width: 100%;
+}
+
+.r3f-canvas.menu-expanded {
+  margin-right: var(--panel-width);
+  width: calc(100% - var(--panel-width));
+}
+
+/* Loading overlay styles */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0 0 0 / 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  font-size: 1.125rem;
+  z-index: 2000;
+  font-family: Roboto, sans-serif;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.loading-spinner {
+  width: 3rem;
+  height: 3rem;
+  animation: loading-rotate 2s linear infinite;
+}
+
+.loading-circle {
+  animation: loading-dash 1.5s ease-in-out infinite;
+}
+
+.loading-text {
+  text-align: center;
+}
+
+@keyframes loading-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loading-dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+/* Control panel styles for React components */
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: var(--panel-width);
+  height: 100vh;
+  z-index: 1000;
+  background-color: var(--color-menu-background);
+  border-left: 1px solid var(--color-interactive);
+  padding: var(--gap-double);
+  color: var(--color-text);
+  font-family: Roboto, sans-serif;
+  font-size: var(--font-size-normal);
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.control-section {
+  h3 {
+    margin: var(--gap) 0;
+    color: var(--color-text);
+    padding-bottom: 5px;
+  }
+}
+
+.control-item {
+  margin-bottom: 10px;
+
+  label {
+    display: flex;
+    margin-bottom: 5px;
+    font-weight: normal;
+    color: var(--color-text);
+  }
+}
+
+/* Control item variants */
+.control-item.range-control label {
+  justify-content: space-between;
+}
+
+.control-item.checkbox-control label {
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+}
+
+input[type="range"] {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+input[type="color"] {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  padding: 0;
+  background: transparent;
+}
+
+button {
+  background-color: var(--color-interactive);
+  border: 1px solid var(--color-interactive);
+  color: var(--color-text);
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: var(--font-size-normal);
+  font-family: Roboto, sans-serif;
+  font-weight: normal;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.control-group {
+  border: 1px solid var(--color-interactive);
+  border-radius: var(--border-radius);
+  padding: var(--gap);
+  margin-bottom: var(--gap-double);
+  background-color: rgb(255 255 255 / 5%);
+
+  legend {
+    color: var(--color-text);
+    font-weight: bold;
+    padding: 0 8px;
+  }
+}
+
+.controls-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-double);
+}
+
+.controls-grid-colors {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: var(--gap);
+}
+
+/* Shared close button styles */
+.close-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  z-index: 1111;
+  background-color: transparent;
+  border: none;
+  color: var(--color-text);
+  padding: 2px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: var(--font-size-normal);
+  font-family: Roboto, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  width: auto;
+}
+
+.close-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Search input focus styles - browser default focus is used */
+
+/* Control panel header */
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.menu-title {
+  margin: 0;
+}
+
+/* Remaining styles after component extraction */
+.linguistic-filters {
+  border: none;
+  margin: 20px 0 0;
+  padding: 15px 0 0;
+  border-top: 1px solid var(--color-interactive-hover);
+}
+
+.results-fieldset {
+  border: none;
+  margin: 20px 0 0;
+  padding: 0;
+}
+
+.results-legend {
+  margin: 0 0 15px;
+  color: var(--color-text);
+  padding: 0;
+}
+
+.filter-group {
+  margin-bottom: 15px;
+  border: none;
+  padding: 0;
+}
+
+.filter-group-title {
+  font-weight: normal;
+  margin: 0 0 8px;
+  color: var(--color-text);
+  padding: 0;
+}
+
+.checkbox-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+
+  input[type="checkbox"] {
+    display: none;
+  }
+}
+
+.checkbox-button {
+  background-color: var(--color-interactive);
+  color: var(--color-text);
+  padding: 6px 12px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: var(--font-size-normal);
+  font-family: Roboto, sans-serif;
+  font-weight: normal;
+  transition: all 0.2s ease;
+  position: relative;
+  text-transform: capitalize;
+}
+
+.checkbox-button:hover {
+  background-color: var(--color-interactive-hover);
+  border-color: var(--color-interactive-hover);
+}
+
+.checkbox-button:active,
+.checkbox-button.active {
+  background-color: var(--color-interactive-active);
+  border-color: var(--color-interactive-active);
+}
+
+.checkbox-button-group input[type="checkbox"]:checked + .checkbox-button {
+  background-color: var(--color-interactive-active);
+  border-color: var(--color-interactive-active);
+}
+
+.language-features {
+  margin-top: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.feature-tag {
+  background-color: var(--color-interactive-hover);
+  color: var(--color-text);
+  padding: 2px 6px;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-small);
+  font-weight: 300;
+}
+
+.search-section-title {
+  margin: 10px 0 5px;
+  color: var(--color-text);
+}
+
+.search-no-results {
+  padding: 20px;
+  text-align: center;
+  color: var(--color-text);
+}
+
+/* Navigation tab */
+.navigation-content {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.language-count-info {
+  color: var(--color-text);
+  padding: 5px 10px;
+}

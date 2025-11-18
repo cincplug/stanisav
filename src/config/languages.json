@@ -1,0 +1,3639 @@
+{
+  "ach": {
+    "name": "Acholi",
+    "nativeName": "Lwo",
+    "group": "nilo-saharan-nilotic",
+    "speakers": 9,
+    "sampleUrl": "https://youtu.be/PXRarThllE8?si=N3VFCNgWoW2qklxo&t=522",
+    "sr": "lebaćudi Lemeingolo kepeen wa? vaTiarupu-GelegmaDu wa kwana kwana, legmadon wan wuara wuara, njon lingmadon kwa mara mara",
+    "novo": true,
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 30,
+      "caseSystem": "simple"
+    }
+  },
+  "acq": {
+    "name": "Iraqi Arabic",
+    "nativeName": "عراقي، عامية عراقية",
+    "group": "semitic",
+    "speakers": 40,
+    "sampleUrl": "https://youtu.be/3h3fQq7ikh0?si=6r8vsrmV0VFoGvhx&t=258",
+    "sr": "kilimed babuď, haźakom te anni, hajda alj mar aa, vaatlj kaalbelj aalji. auwin mürtafa",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "moderate",
+      "phonemeCount": 28,
+      "caseSystem": "none"
+    }
+  },
+  "adx": {
+    "name": "Amdo Tibetan",
+    "nativeName": "ཨ་མདོའི་སྐད",
+    "group": "tibeto-burman-tibetan",
+    "speakers": 1,
+    "sampleUrl": "https://www.youtube.com/watch?v=M3khTNfSK68&t=123s",
+    "sr": "tanjeldelor aldepo naj nemajćućimare tanjedolon zućizgraj sui njukusumi aam narumaram",
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 39,
+      "caseCount": 0
+    }
+  },
+  "afb": {
+    "name": "Gulf Arabic",
+    "nativeName": "خليجي، عامية خليجية",
+    "group": "semitic",
+    "speakers": 35,
+    "sampleUrl": "https://youtu.be/q80JBlBQywA?si=ia-GIi-2wuvanvCI&t=200",
+    "sr": "llazem, maa nekhtellef, aśaan allfellus",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "moderate",
+      "phonemeCount": 29,
+      "caseSystem": "none"
+    }
+  },
+  "afr": {
+    "name": "Afrikaans",
+    "nativeName": "Afrikaans",
+    "group": "germanic-west",
+    "speakers": 7,
+    "sampleUrl": "https://youtu.be/tq3_AHgrbzI?si=Yn2cdl26RBfEO1jM&t=42",
+    "sr": "malamela idi midia angalæh, or di jongste vrvrkelinge bej di øngstjalen na di fiir dah lange protest optrijedø vaar tijdens mnstens aht hbouwe op di kampøs an di brant hestiekøs",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 45,
+      "caseCount": 0
+    }
+  },
+  "aka": {
+    "name": "Akan",
+    "altName": "Twi",
+    "nativeName": "Akan",
+    "group": "niger-congo-kwa",
+    "speakers": 9,
+    "sampleUrl": "https://youtu.be/rrlI_PvtY0s?si=CkvTdFiD8N5NetNT&t=337",
+    "sr": "Eeo Penji sediaOkana Kae Kaseo vonuja kasi seetin Fi edia Sa Innu. Vidü Koao Eee fotoKasia Misüa Bekane seTeti Vijf",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 32,
+      "caseCount": 0
+    }
+  },
+  "alb": {
+    "name": "Albanian",
+    "nativeName": "Shqip",
+    "group": "albanian",
+    "speakers": 6,
+    "sampleUrl": "https://youtu.be/Lvr3jZb1Y4Q?si=L9W_IxQwYY6LPPZu&t=67",
+    "sr": "baš kia kišta organizuar e da tøće elj ka ćuaj tur teatr ljiftót, me figúra tøndrüšme, ćupanćujo šhonde thanuryšna famíjad",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 29,
+      "caseCount": 3
+    }
+  },
+  "amh": {
+    "name": "Amharic",
+    "nativeName": "አማርኛ",
+    "group": "semitic",
+    "speakers": 32,
+    "sampleUrl": "https://www.youtube.com/watch?v=7hYfXDvrxXM&t=136s",
+    "sr": "bunan wede zemanoui na, mrtena mrtameneta lemasa dygy miradyzoroujaući mdemade!en, savarat andasraulet savarat andarwana",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 31,
+      "caseSystem": "none"
+    }
+  },
+  "apc": {
+    "name": "Levantine Arabic",
+    "nativeName": "شامي، عامية شامية",
+    "group": "semitic",
+    "speakers": 45,
+    "sampleUrl": "https://youtu.be/ljQiylEvyKs?si=5M2SgiOzAFohpNZ2&t=464",
+    "sr": "houwi šehaz, uetek, ktiirman haallo, bs, hada mabjanji inno mišma tu ualdau",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "moderate",
+      "phonemeCount": 26,
+      "caseSystem": "none"
+    }
+  },
+  "ara": {
+    "name": "Standard Arabic",
+    "nativeName": "العربية",
+    "group": "semitic",
+    "speakers": 290,
+    "sampleUrl": "https://www.youtube.com/watch?v=E9EgAU7bTHg&t=510s",
+    "sr": "frdigid bosalala koumuehet kelei-kizaujouwahne, rakamit nin lei fizauiti, rakam telíte teledzauei, rakam arba arbazauei",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 28,
+      "caseSystem": "simple"
+    }
+  },
+  "ary": {
+    "name": "Moroccan Arabic",
+    "nativeName": "دارجة مغربية، العامية المغربية",
+    "group": "semitic",
+    "speakers": 40,
+    "sampleUrl": "https://www.youtube.com/watch?v=TuaEpWiXWWw&t=812s",
+    "sr": "arftji, tu hešt lijem, ljikenakal haržufejao, rzuš",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "moderate",
+      "phonemeCount": 32,
+      "caseSystem": "none"
+    }
+  },
+  "arz": {
+    "name": "Egyptian Arabic",
+    "nativeName": "مصري، عامية مصرية",
+    "group": "semitic",
+    "speakers": 100,
+    "sampleUrl": "https://youtu.be/Zsz0ou4VX2g?si=V-5emGrNrjtmAzKb&t=378",
+    "sr": "taabu uošiptea, vo alatúl alatúl alatúl, ua nia dubbessi bella, šue satus ala taaddu",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "moderate",
+      "phonemeCount": 28,
+      "caseSystem": "none"
+    }
+  },
+  "asm": {
+    "name": "Assamese",
+    "nativeName": "অসমীয়া",
+    "group": "indo-aryan",
+    "speakers": 15,
+    "sampleUrl": "https://youtu.be/vm8Edcbclf8?si=0W218DYbRzQpBj8-&t=86",
+    "sr": "pomara penkolo vdee bukamugue ghehahoo fn bekenua brnega solarndjon",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 23,
+      "caseCount": 3
+    }
+  },
+  "awa": {
+    "name": "Awadhi",
+    "nativeName": "अवधी",
+    "group": "indo-aryan",
+    "speakers": 38,
+    "sampleUrl": "https://www.youtube.com/watch?v=8rjr9FuZrfI&t=572s",
+    "sr": "ftahama darsendargalenja fsm tm tarampa huohelagenmaj de peragurug bidig v-lanamvulidraben vd",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 29,
+      "caseCount": 3
+    }
+  },
+  "aym": {
+    "name": "Aymara",
+    "nativeName": "Aymar aru",
+    "group": "aymaran",
+    "speakers": 2.2,
+    "sampleUrl": "https://youtu.be/vydhTL5SoIs?si=JrZf9E2Gcus4F4DP&t=10",
+    "sr": "walik uĆitawaj, haTasta, kuna Teha, aiMaramm, aRoha haNiuam nairap aĆena Kanha arsusKanti",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 26,
+      "caseSystem": "simple"
+    }
+  },
+  "aze": {
+    "name": "Azerbaijani",
+    "nativeName": "Azərbaycan",
+    "group": "turkic-oghuz",
+    "speakers": 24,
+    "sampleUrl": "https://youtu.be/cZ1Gxx3F6RU?si=31CIwlz2nVBT_ypb&t=244",
+    "sr": "hamre jogurtom, kabontibnabraz, jahcekirin, ondatajah šoldaham japšmom",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 30,
+      "caseSystem": "moderate"
+    }
+  },
+  "bak": {
+    "name": "Bashkir",
+    "nativeName": "Башҡортса",
+    "group": "turkic-kipchak",
+    "speakers": 1.2,
+    "sampleUrl": "https://www.youtube.com/watch?v=qyg1PMOVyBc&t=597s",
+    "sr": "patanøm üljkenulihe kerhabuluan, patešlaj ünejahamaj kiljigende jörhen bijutauš tarejšitken",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 42,
+      "caseSystem": "moderate"
+    }
+  },
+  "bal": {
+    "name": "Balochi",
+    "nativeName": "بلۏچی",
+    "group": "iranian",
+    "speakers": 8,
+    "sampleUrl": "https://youtu.be/OWoKDqJQt1c?si=i93sJEf2bDTnN5YT&t=75",
+    "sr": "wot pužešku duviti zwonahan badarem belučjem, mete čuko medi vuosaga, ja bedeji han gat, mo, vødi rasmu, vødi rusuma, dosta",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 26,
+      "caseCount": 3
+    }
+  },
+  "bam": {
+    "name": "Bambara",
+    "nativeName": "Bamanankan",
+    "group": "niger-congo-mande",
+    "speakers": 14,
+    "sampleUrl": "https://youtu.be/KPHenXXYoxM?si=Kg0I-unLui5FpVQF&t=148",
+    "sr": "ni dalala, kušor ki seii, bidon žeri kanfa, kanji uoćimina. mano dobila dala",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 29,
+      "caseSystem": "none"
+    }
+  },
+  "ban": {
+    "name": "Balinese",
+    "nativeName": "Basa Bali",
+    "group": "austronesian",
+    "speakers": 10,
+    "sampleUrl": "https://youtu.be/0pLlfBUtg7s?si=hnlJZJlD6C0m3s9t&t=674",
+    "sr": "napiKee ijø mBalih tiVi ďuMasø Bilan Dina?",
+    "novo": true,
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 32,
+      "caseCount": 0
+    }
+  },
+  "bej": {
+    "name": "Beja",
+    "nativeName": "Bidhaawyeet",
+    "group": "afroasiatic-cushitic",
+    "speakers": 7,
+    "sampleUrl": "https://youtu.be/-ewqgk_0KvU?si=w1MnJEX_79qocWt3&t=1113",
+    "sr": "onda onluk, aMauersa, ms, Hajedi, oor aDemi, brHetini Phasu Kujna, enj arkaSi aLemi Darne",
+    "novo": true,
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 35,
+      "caseSystem": "simple"
+    }
+  },
+  "bel": {
+    "name": "Belarusian",
+    "nativeName": "Беларуская",
+    "group": "slavic-east",
+    "speakers": 7,
+    "sampleUrl": "https://youtu.be/6hIgRXIAkOM?si=-dINR6jBseRLdfQB&t=512",
+    "sr": "Ну і янó vyhljadáе lаhíчна. šasnáctaje стаhóддзе - hэта чáс, калі ВikaéЛ ад мóра да мóра",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 39,
+      "caseSystem": "moderate"
+    }
+  },
+  "bem": {
+    "name": "Bemba",
+    "nativeName": "Ichibemba",
+    "group": "niger-congo-bantu",
+    "speakers": 4,
+    "sampleUrl": "https://www.youtube.com/watch?v=AqGXY9fohac&t=65s",
+    "sr": "ideero indike kuena tušipuera tapu tapu, nokulla thimtialutia psana psana, multia mkvuimba, noksam bidiśavam bepafindu ifia lekana lekana",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 29,
+      "caseCount": 0
+    }
+  },
+  "ben": {
+    "name": "Bengali",
+    "nativeName": "বাংলা",
+    "group": "indo-aryan",
+    "speakers": 228,
+    "sampleUrl": "https://www.youtube.com/watch?v=RlAOMwMz12c&t=689s",
+    "sr": "askee anćolibhašhaj kothavortabolar gotašušumitej tuagabuleće",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 29,
+      "caseSystem": "simple"
+    }
+  },
+  "bho": {
+    "name": "Bhojpuri",
+    "nativeName": "भोजपुरी",
+    "group": "indo-aryan",
+    "speakers": 52,
+    "sampleUrl": "https://www.youtube.com/watch?v=QR4shS2r4zU&t=1102s",
+    "sr": "Ki vuď purimaviďon badjidahalba džonba ðota ðonga voljata. omnjio pojle ďhal, duluag, nal, jedjerohe, o pedue dagel kul",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 31,
+      "caseCount": 3
+    }
+  },
+  "bik": {
+    "name": "Bikol",
+    "nativeName": "Bikol",
+    "group": "austronesian-philippine",
+    "speakers": 2.5,
+    "sampleUrl": "https://youtu.be/PutMRt1tjgk?si=yKFWzi_J2gS4xazj&t=454",
+    "sr": "MEmo uajze belageNA un faREgo, menonoQUAnti pakaKA eBAA, menobe Ada, maraun-pakaKA eBAA",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 18,
+      "caseCount": 0
+    }
+  },
+  "bod": {
+    "name": "Tibetan",
+    "nativeName": "བོད་ཡིག",
+    "group": "tibeto-burman-tibetan",
+    "speakers": 1.2,
+    "sampleUrl": "https://youtu.be/wQMDw7Odiys?si=g9ZMg0j9yP9YRw6z&t=1680",
+    "sr": "tačip citondamadu navonej njire njire pedečelija tjerahadjizjemadu igjemare",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 36,
+      "caseSystem": "simple"
+    }
+  },
+  "bos": {
+    "name": "Bosnian",
+    "nativeName": "Bosanski",
+    "group": "slavic-south",
+    "speakers": 3,
+    "sampleUrl": "https://youtu.be/P6T6S8OQias?si=pO7bQEYE6UJJZlan&t=164",
+    "sr": "drjemuša, pospanuša, to je pospana kahva, merakuša baš kad je čovjek ono s merakom je pije, rastjeruša kad je neko došo ko nije poželjan i tako, brzo kahvu i alah imánet",
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 30,
+      "caseSystem": "moderate"
+    }
+  },
+  "bre": {
+    "name": "Breton",
+    "nativeName": "Brezhoneg",
+    "group": "celtic",
+    "speakers": 0.2,
+    "sampleUrl": "https://youtu.be/HRVr_y1Qnbs?si=L9QRL0TV-0ZljdNE&t=64",
+    "sr": "betegen devezeké, knige dan düdø, gweladenú, ebrezoneg",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 36,
+      "caseSystem": "none"
+    }
+  },
+  "brh": {
+    "name": "Brahui",
+    "nativeName": "براہوئی",
+    "group": "dravidian-south",
+    "speakers": 4,
+    "sampleUrl": "https://youtu.be/ADYl3-cXAmI?si=NRRHWRTZDDHXxsw3&t=169s",
+    "sr": "bravikal fuaze ćambe, ćambe purdiuakelio tioshobol-teae. ćammbe! tike?",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 26,
+      "caseCount": 0
+    }
+  },
+  "bua": {
+    "name": "Buryat",
+    "nativeName": "Буряад",
+    "group": "mongolic",
+    "speakers": 0.4,
+    "sampleUrl": "https://youtu.be/3iI-8G-72yE?si=NbHRnjD99kBCXGSK&t=320",
+    "sr": "hesødab halar løbuhuju-buloru iďip-tengap-ćalagarad-labav hotedeheen. a so minuente? da da honďinu te, ukrupte",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 30,
+      "caseCount": 8
+    }
+  },
+  "bul": {
+    "name": "Bulgarian",
+    "nativeName": "Български",
+    "group": "slavic-south",
+    "speakers": 9,
+    "sampleUrl": "https://youtu.be/aXk8fHvmawQ?si=iB774kRCJf16XtL0&t=206",
+    "sr": "смисъл ов глаголицт' е биу мауко по-розличен между буквите от и ци е стояуа буквата штa?",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 45,
+      "caseSystem": "none"
+    }
+  },
+  "cak": {
+    "name": "Kaqchikel",
+    "nativeName": "Kaqchikel",
+    "group": "mayan",
+    "speakers": 0.5,
+    "sampleUrl": "https://youtu.be/w9ZhmyA7koE?si=WZFh0pJx02KoT5wX&t=3s",
+    "sr": "hata kaninam ašora pan mala vihrta ačkena bæn, hareśø śena tøhre",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 31,
+      "caseCount": 0
+    }
+  },
+  "cat": {
+    "name": "Catalan",
+    "nativeName": "Català",
+    "group": "romance",
+    "speakers": 9,
+    "sampleUrl": "https://youtu.be/unh2l6MwpFY?si=7eqx0Zxo_H2Dv066&t=500",
+    "sr": "e li vafael molčen karekstambe, a kep markes a gaudi, pero galdinoalio a ferrez. bre, per ke no sa via, kom e zde jako mias, no sabjasi parlava de ueuo",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 26,
+      "caseSystem": "none"
+    }
+  },
+  "ceb": {
+    "name": "Cebuano",
+    "nativeName": "Binisaya",
+    "group": "austronesian",
+    "speakers": 22,
+    "sampleUrl": "https://youtu.be/BDrVaI6iYQg?si=Zzg24--WfO4wK9w4&t=267",
+    "sr": "ug kon Moabot na Gani kanjana Adlaw dilina-ki-Naanlan-njagamanon-Tana, Pa kaMo um_Bisan Unsa kaNako",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 16,
+      "caseSystem": "simple"
+    }
+  },
+  "ces": {
+    "name": "Czech",
+    "nativeName": "Čeština",
+    "group": "slavic-west",
+    "speakers": 11,
+    "sampleUrl": "https://youtu.be/dLTIbGMdy_4?t=4744",
+    "sr": "Ono je teda taky dost zvláštní způsob, jakým se na ten činel hraje. Já si myslím, že obvykle si činel přesně vidíme, jak ten činelista do toho bouchne, rozhodí rukama, můžeme si jenom dát takovou typickou ukázku zvuku? ------ Tak tohle tam dvořák nemá, je to mnohem rafinovanější. Vy tomu i tak jako hezky říkáte? Já tomu říkám šlichání činelu.",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 42,
+      "caseSystem": "moderate",
+      "phonemes": [
+        "p",
+        "b",
+        "t",
+        "d",
+        "c",
+        "ɟ",
+        "k",
+        "g",
+        "f",
+        "v",
+        "s",
+        "z",
+        "ʃ",
+        "ʒ",
+        "x",
+        "ɦ",
+        "m",
+        "n",
+        "ɲ",
+        "l",
+        "r",
+        "ř",
+        "j",
+        "tʃ",
+        "dʒ",
+        "a",
+        "ɛ",
+        "ɪ",
+        "o",
+        "u",
+        "aː",
+        "ɛː",
+        "iː",
+        "oː",
+        "uː",
+        "ou",
+        "au",
+        "eu",
+        "t͡s",
+        "d͡z",
+        "d͡ʒ",
+        "ʦ"
+      ]
+    }
+  },
+  "chr": {
+    "name": "Cherokee",
+    "nativeName": "ᏣᎳᎩ",
+    "group": "iroquoian",
+    "speakers": 0.022,
+    "sampleUrl": "https://youtu.be/makhwucGDhI?si=84aXlCjBnvjJHmhi&t=48",
+    "sr": "na hie tu gehe, u nie ko tele ganni wonizge. sei da / ne let doeit doortlessen doein doortlessen, negae - ten diuoun nan is gedželik",
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "polysynthetic",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 19,
+      "caseCount": 0
+    }
+  },
+  "chv": {
+    "name": "Chuvash",
+    "nativeName": "Чӑвашла",
+    "group": "turkic-siberian",
+    "speakers": 1,
+    "sampleUrl": "https://youtu.be/LI4sGA_9xHc?si=cc9MuInYT29Zwfty&t=88",
+    "sr": "šuldan ktršibjeh, prajekcim dišerakbar, ajgi vlbin žimpirin brjent",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 37,
+      "caseSystem": "moderate"
+    }
+  },
+  "cjy": {
+    "name": "Jin Chinese",
+    "nativeName": "晉語",
+    "group": "sino-tibetan-sinitic",
+    "speakers": 45,
+    "sampleUrl": "https://www.youtube.com/watch?v=iU5YCvRpWD8&t=411s",
+    "sr": "no harmunpujou pala lenji śoutha śobadou feišodøndzja, taurokua dzjdzjśousa zgdjszdja dzongtsouterja",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 33,
+      "caseCount": 0
+    }
+  },
+  "cmn": {
+    "name": "Mandarin Chinese",
+    "altName": "Mandarin",
+    "nativeName": "普通话",
+    "group": "sino-tibetan-sinitic",
+    "speakers": 918,
+    "sampleUrl": "https://youtu.be/pMd-FyI3AiU?si=erPJfWPuXxwCAWdu&t=16",
+    "sr": "tejdze ďuven siguen ensisipjau še čongo vidžau pindaukonda kušike helekuanšikuan bo",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 22,
+      "caseSystem": "none"
+    }
+  },
+  "cos": {
+    "name": "Corsican",
+    "nativeName": "Corsu",
+    "group": "romance",
+    "speakers": 0.15,
+    "sampleUrl": "https://youtu.be/d3ySqMdsMZE?si=S3ovQLNZnXkwJiN8&t=180",
+    "sr": "alo, hugu noši nudizi gura berkeče-una-vela gumunigazjone-djadžida-dioaščije čeunavela-gumunigazjone djaga zaje ljing",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 21,
+      "caseCount": 0
+    }
+  },
+  "cre": {
+    "name": "Cree",
+    "nativeName": "ᓀᐦᐃᔭᐍᐏᐣ",
+    "group": "algonquian",
+    "speakers": 0.1,
+    "sampleUrl": "https://www.youtube.com/watch?v=0rmfrWUNW4M&t=0",
+    "sr": "tanse kiuwau! niga na nas kom on-noh, tauinau na siekáh sonos sauMeiguan kehiu napiju",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "polysynthetic",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 35,
+      "caseCount": 0
+    }
+  },
+  "csb": {
+    "name": "Kashubian",
+    "nativeName": "Kaszëbsczi",
+    "group": "slavic-west",
+    "speakers": 0.1,
+    "sampleUrl": "https://youtu.be/V67dBjgg4Lc?t=264",
+    "sr": "Ne mnje jednak varstvje gramatíčnyh tešjest dužo takih ceh kture jezik kašúpski vyružnjájou, vašćívje go odružnjájou pře všickym on jezika polskégo",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 44,
+      "caseCount": 6
+    }
+  },
+  "cym": {
+    "name": "Welsh",
+    "nativeName": "Cymraeg",
+    "group": "celtic",
+    "speakers": 0.7,
+    "sampleUrl": "https://youtu.be/3ctOrnChEAM?si=Fa9FW5XLyqAew8Hs&t=499",
+    "sr": "do we fljang fenedol anarBenig, dowig fljang satiiš kataDeni arTer Vineroj šoKanol, ašolDin uIdaraš titiJautf, o Heen Linendiaf klaŠyrol grojg arHivajn",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 51,
+      "caseSystem": "none"
+    }
+  },
+  "dan": {
+    "name": "Danish",
+    "nativeName": "Dansk",
+    "group": "germanic-north",
+    "speakers": 6,
+    "sampleUrl": "https://youtu.be/m_hPowc9Ujs?si=L8UoTmNFY9Ngd4kd&t=2087",
+    "sr": "Bevæ illsø i kønst, aså kunstvækatø bevæ ø sai illø, kæn sædes i bevæ-es a tilskuaan, a noo hiit, nüt, o phofokei ane ta Luśiana præsenti ad den i, neign ø ag i nø thjs",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 32,
+      "caseCount": 0
+    }
+  },
+  "deu": {
+    "name": "German",
+    "nativeName": "Deutsch",
+    "group": "germanic-west",
+    "speakers": 76,
+    "sampleUrl": "https://youtu.be/TEDlrOWx22U?si=8CcaWQvxpAHf2vM6&t=370",
+    "sr": "die genaue lage und position aller bohlen wurde vor dem ausbau fotografiert und schriftlich festgehalten, um diese später wieder zuordnen zu können",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 45,
+      "caseCount": 4
+    }
+  },
+  "din": {
+    "name": "Dinka",
+    "nativeName": "Thuɔŋjäŋ",
+    "group": "nilo-saharan-nilotic",
+    "speakers": 2,
+    "sampleUrl": "https://youtu.be/AuobacfL2l4?si=JsTh_Ul6s0KeMeep&t=332",
+    "sr": "? tonge katuin baloie ten. jeba tantu bialum gubanji pinju eneme",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 34,
+      "caseSystem": "simple"
+    }
+  },
+  "eng": {
+    "name": "English",
+    "nativeName": "English",
+    "group": "germanic-west",
+    "speakers": 379,
+    "sampleUrl": "https://youtu.be/s11qjmvTdJ8?si=jX5Ap3niKMUBNNro&t=343",
+    "sr": "Thanks for the butter but now I feel ill. I hope I'll be better by Thursday. Fanks for the bu'er but naw I feew iw. I 'ope I'll be be'er by Fursday",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 44,
+      "caseCount": 0,
+      "phonemes": [
+        "p",
+        "b",
+        "t",
+        "d",
+        "k",
+        "g",
+        "f",
+        "v",
+        "θ",
+        "ð",
+        "s",
+        "z",
+        "ʃ",
+        "ʒ",
+        "h",
+        "m",
+        "n",
+        "ŋ",
+        "l",
+        "r",
+        "j",
+        "w",
+        "tʃ",
+        "dʒ",
+        "iː",
+        "ɪ",
+        "e",
+        "æ",
+        "ɑː",
+        "ɒ",
+        "ɔː",
+        "ʊ",
+        "uː",
+        "ʌ",
+        "ɜː",
+        "ə",
+        "eɪ",
+        "aɪ",
+        "ɔɪ",
+        "aʊ",
+        "əʊ",
+        "ɪə",
+        "eə",
+        "ʊə"
+      ]
+    }
+  },
+  "est": {
+    "name": "Estonian",
+    "nativeName": "Eesti",
+    "group": "uralic-finnic",
+    "speakers": 1.1,
+    "sampleUrl": "https://youtu.be/CII1VjSVY18?si=HYsQHYqpCl9EL1au&t=94",
+    "sr": "inimezedon vinzandilj kolmesajon dijoksul holdanod rananite ja karijamajd. meres meutatot vilzandi tajmestik onli kerekas",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 36,
+      "caseSystem": "complex"
+    }
+  },
+  "eus": {
+    "name": "Basque",
+    "nativeName": "Euskara",
+    "group": "basque",
+    "speakers": 0.75,
+    "sampleUrl": "https://www.youtube.com/watch?v=bHKJRuBI60U&t=68s",
+    "sr": "a finala haga kusto, meretalekoo, souigja kontra mes-ti-kago-sas-pitu-reta lekua.",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 22,
+      "caseSystem": "complex"
+    }
+  },
+  "ewe": {
+    "name": "Ewe",
+    "nativeName": "Eʋegbe",
+    "group": "niger-congo-kwa",
+    "speakers": 8,
+    "sampleUrl": "https://youtu.be/cW85lwzGA-Y?si=23J8svvBebqIKvEh&t=21",
+    "sr": "da kompo buBunama makla toma dumamu Vahu a Pada dzuKwama Knnn",
+    "novo": true,
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 30,
+      "caseCount": 0
+    }
+  },
+  "fao": {
+    "name": "Faroese",
+    "nativeName": "Føroyskt",
+    "group": "germanic-north",
+    "speakers": 0.066,
+    "sampleUrl": "https://youtu.be/rGb8bYQh3y0?si=rnesBno_UZwvmu1-&t=505",
+    "sr": "amvir fjernau? s han sErma iš ju nou ja sErat jHAutju oh kunju Ontø. so teanaroj di aan zetürat, lets go gin-goin hoontoen lafam beah kiedlig",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 38,
+      "caseCount": 4
+    }
+  },
+  "fas": {
+    "name": "Persian",
+    "nativeName": "فارسی",
+    "group": "iranian",
+    "speakers": 83,
+    "sampleUrl": "https://youtu.be/XZlsOVYNyRs?si=CD55C54z2b1ec8Om&t=487",
+    "sr": "jok šloh? gændanundara. baj stogatzio koni kandamera. kandamega, maa kandamega, šudo kandamega",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 29,
+      "caseSystem": "none"
+    }
+  },
+  "fia": {
+    "name": "Nubian",
+    "nativeName": "Nobiin",
+    "group": "nilo-saharan-nubian",
+    "speakers": 0.5,
+    "sampleUrl": "https://youtu.be/nGMQl9slmUM?si=ueAo9FrVYF1TV6rZ&t=205",
+    "sr": "irkita, ada mani, ademi, kongurani, kiruida, aii tanga ďani",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 30,
+      "caseCount": 0
+    }
+  },
+  "fij": {
+    "name": "Fijian",
+    "nativeName": "Na Vosa Vakaviti",
+    "group": "austronesian-pacific",
+    "speakers": 0.35,
+    "sampleUrl": "https://youtu.be/pFXjD9J-JE0?si=5Ql7xjaJn769soDJ&t=8",
+    "sr": "la gutumba ena koromgurimbasanga, asanbagtura norreua, alberanga kaćimnango il suwua.",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 18,
+      "caseSystem": "none"
+    }
+  },
+  "fin": {
+    "name": "Finnish",
+    "nativeName": "Suomi",
+    "group": "uralic-finnic",
+    "speakers": 5,
+    "sampleUrl": "https://youtu.be/qJ5M_uPZHaQ?si=9W-luUo97z3q3Sf_&t=470",
+    "sr": "vuorsea værlehuma-kaknaze ursama kerrani-murlula ana-kefan epa-mukava-olasela lopustø koskø",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 21,
+      "caseSystem": "complex"
+    }
+  },
+  "fra": {
+    "name": "French",
+    "nativeName": "Français",
+    "group": "romance",
+    "speakers": 76,
+    "sampleUrl": "https://youtu.be/gCjkEkoFJEE?si=oKzIsOMKT_9AkmMS&t=245",
+    "sr": "nu zo ula ger, pikokolino, u gagontulazadra budo seze ni. el farara vo kundo fker žon di zontomer",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 37,
+      "caseSystem": "none"
+    }
+  },
+  "fry": {
+    "name": "Frisian",
+    "nativeName": "Frysk",
+    "group": "germanic-west",
+    "speakers": 0.47,
+    "sampleUrl": "https://youtu.be/1vn7zwmRirM?si=r5pvaegfIGCFNCKJ&t=189",
+    "sr": "nee dii hii ziit vanuit a sede kom uut spraken eh set net normaal en hij i ziit van e, na leren di bees aam engel moes. Ee?",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 40,
+      "caseCount": 0
+    }
+  },
+  "ful": {
+    "name": "Fula",
+    "nativeName": "Fulfulde",
+    "group": "niger-congo",
+    "speakers": 25,
+    "sampleUrl": "https://youtu.be/aVkrLzgPz3A?si=WAHqoZEUo-W-hmyN&t=186",
+    "sr": "no kukalaka feonornon, no kukalaka wuenirnon, farnoren, bengalmede",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 21,
+      "caseSystem": "simple"
+    }
+  },
+  "gan": {
+    "name": "Gan Chinese",
+    "nativeName": "贛語",
+    "group": "sino-tibetan-sinitic",
+    "speakers": 22,
+    "sampleUrl": "https://www.youtube.com/watch?v=qUTzZe5JiIY&t=310s",
+    "sr": "pš nevu hol dužundudaundi ješehoua umleuonejnej kajpenćin di ďije kajpenćinćide",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 29,
+      "caseCount": 0
+    }
+  },
+  "gla": {
+    "name": "Scottish Gaelic",
+    "nativeName": "Gàidhlig",
+    "group": "celtic",
+    "speakers": 0.06,
+    "sampleUrl": "https://youtu.be/P4XqeTfNz_U?si=fIV8tERYpbZz0GeJ&t=151",
+    "sr": "e fajfkin klaun pikePítah, eví, tokal vloerige neges. kjirk-misk, váhere, će iMusyhih peršćah kaśén nahé",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 44,
+      "caseSystem": "simple"
+    }
+  },
+  "gle": {
+    "name": "Irish",
+    "nativeName": "Gaeilge",
+    "group": "celtic",
+    "speakers": 1.2,
+    "sampleUrl": "https://youtu.be/QF2IFx3fSUM?si=11fOMOAf7KHUbVbi&t=602",
+    "sr": "mavin auin, musühan garvn kladah, bikinće, kømén madarišky snávam",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 60,
+      "caseSystem": "simple"
+    }
+  },
+  "glg": {
+    "name": "Galician",
+    "nativeName": "Galego",
+    "group": "romance",
+    "speakers": 2.4,
+    "sampleUrl": "https://youtu.be/IouWSB4eUFY?si=ASUm0papSZt59KCt&t=190",
+    "sr": "Uas medidas ke klaro-ke-parabos, šja tedes kespli kardija śente, pujšum: poko komo funkcionas ta taśa turistika i śente kese, ke se rahom, pou ko no i śente stakam fe-lándon huan rezervá zekevá i pora kibre-tino de korunja",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 25,
+      "caseCount": 0
+    }
+  },
+  "gre": {
+    "name": "Greek",
+    "nativeName": "Ελληνικά",
+    "group": "hellenic",
+    "speakers": 13,
+    "sampleUrl": "https://youtu.be/zj96hkYCLXU?si=5t3vkR0bum_q-CIT&t=68",
+    "sr": "sjaf totos in meo. tavendra denodesto-forte-ingome in mades, jetinas falí metaforátos del kopro-orizmó",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 25,
+      "caseCount": 3
+    }
+  },
+  "grn": {
+    "name": "Guaraní",
+    "nativeName": "Avañe'ẽ",
+    "group": "tupian",
+    "speakers": 5,
+    "sampleUrl": "https://youtu.be/4dJdbOZmj60?si=Bx5OjZ-EwwyoAQ_P&t=472",
+    "sr": "ha idjikere? jaWEde koPete iuEda i ome euanjan deve po A. Umi ika a uoua, he i ouEde ko ha i po aha ehuEdahei",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 33,
+      "caseSystem": "simple"
+    }
+  },
+  "guj": {
+    "name": "Gujarati",
+    "nativeName": "ગુજરાતી",
+    "group": "indo-aryan",
+    "speakers": 56,
+    "sampleUrl": "https://www.youtube.com/watch?v=neBRiBLY2ao&t=198s",
+    "sr": "tame tame śuke soka zgaamnibabaće gamnamu daokajakajaźe aap śuke śoka",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 34,
+      "caseSystem": "simple"
+    }
+  },
+  "gul": {
+    "name": "Gullah",
+    "nativeName": "Gullah",
+    "group": "english-creole",
+    "speakers": 0.25,
+    "sampleUrl": "https://youtu.be/39dbRtSpgmY?si=ltVA38zy8pwjpe_u&t=201",
+    "sr": "so deen wajl de čren bin in da tanl, de gaal wiik ap, en ši lak oraund uidi bigaj en sej, greg gordo bakr daun rajs on d groun",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 28,
+      "caseSystem": "none"
+    }
+  },
+  "gyn": {
+    "name": "Guyanese Creole",
+    "nativeName": "Creolese",
+    "group": "english-creole",
+    "speakers": 0.7,
+    "sampleUrl": "https://youtu.be/XNgC_DbQLHo?si=fyUHdgqVMvJg07m8&t=58",
+    "sr": "monki no uič lim fo džom pan. jes, je va luk at a monki, uen i dej ina čri, en i čraj fo soin fram lim to lim, ju eva notise da monki na džos kop an eni lim, i čuus de uan uei noui go gedim mos advantič, oo fo goui uango, is de seem ting ui piipo",
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 30,
+      "caseSystem": "none"
+    }
+  },
+  "hak": {
+    "name": "Hakka Chinese",
+    "nativeName": "客家話",
+    "group": "sino-tibetan-sinitic",
+    "speakers": 48,
+    "sampleUrl": "https://www.youtube.com/watch?v=FqAnl_8tMmI&t=97s",
+    "sr": "elja haka valouediuan zouhurle menalore sava dued samdor",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 19,
+      "caseSystem": "none"
+    }
+  },
+  "hau": {
+    "name": "Hausa",
+    "nativeName": "Hausa",
+    "group": "afroasiatic-chadic",
+    "speakers": 94,
+    "sampleUrl": "https://www.youtube.com/watch?v=27QQR7WEoWo&t=322s",
+    "sr": "ama trun degete arifi samuazákasan bui buk*atjon kusuruáso voráka buide kusur-ua",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 32,
+      "caseSystem": "none"
+    }
+  },
+  "haw": {
+    "name": "Hawaiian",
+    "nativeName": "ʻŌlelo Hawaiʻi",
+    "group": "austronesian-pacific",
+    "speakers": 0.024,
+    "sampleUrl": "https://www.youtube.com/watch?v=yzORFcJkxcs&t=583s",
+    "sr": "ikeno maho illalo hooua eukee puoee hihimano nuuu, nuu i meke i meeiaa",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 13,
+      "caseSystem": "none"
+    }
+  },
+  "heb": {
+    "name": "Hebrew",
+    "nativeName": "עברית",
+    "group": "semitic",
+    "speakers": 9,
+    "sampleUrl": "https://youtu.be/efYGqvgxt6Y?si=QaQxrbSW1tn9p1nK&t=63s",
+    "sr": "pahote kusbarame a kabilota algi lot ba... šuk... bacal gador... šešinej śum",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 25,
+      "caseCount": 0
+    }
+  },
+  "hil": {
+    "name": "Hiligaynon",
+    "nativeName": "Ilonggo",
+    "group": "austronesian-philippine",
+    "speakers": 9,
+    "sampleUrl": "https://www.youtube.com/watch?v=S9MXb1lMD7g&t=21s",
+    "sr": "so hona hona TON: a Unaha word, njaa, TON Ana TONsobo, abo AN, hunhunGAN, aNObela an-hunhunGAN",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 20,
+      "caseSystem": "simple"
+    }
+  },
+  "hin": {
+    "name": "Hindi",
+    "nativeName": "हिन्दी",
+    "group": "indo-aryan",
+    "speakers": 341,
+    "sampleUrl": "https://www.youtube.com/watch?v=-AwjnH5U-Ds&t=423s",
+    "sr": "hare ksande ko pura das kosma danka bďwa gargeabulwatete ar lrwatete",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 46,
+      "caseSystem": "simple"
+    }
+  },
+  "hmn": {
+    "name": "Hmong",
+    "nativeName": "Hmoob",
+    "group": "hmong-mien",
+    "speakers": 4,
+    "sampleUrl": "https://youtu.be/QR_-iAUEP1Q?si=YsmMWQMy7OPdd3wq&t=1020",
+    "sr": "to pahona kje tua dje cadede. tsotsadjenø. kacadjenø će ingena-hajo-uena tomašietje, to lunčašijatje joto śita śite",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 57,
+      "caseSystem": "none"
+    }
+  },
+  "hoc": {
+    "name": "Ho",
+    "nativeName": "𑣜𑣉𑣉",
+    "group": "austroasiatic-munda",
+    "speakers": 1,
+    "sampleUrl": "https://youtu.be/tPqx1bLtyOY?si=IWtWMolI_FscrmUl&t=114",
+    "sr": "ementáre netrabú, abuei, uáren-ćititoa-lágana, ondoad devona-gretoartíja, endo, nabú palajabú",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 25,
+      "caseCount": 0
+    }
+  },
+  "hrv": {
+    "name": "Croatian",
+    "nativeName": "Hrvatski",
+    "group": "slavic-south",
+    "speakers": 4,
+    "sampleUrl": "https://youtu.be/yeSmJyonD7M?si=BT_OfL2sGncq1SSH&t=220",
+    "sr": "na njoj je prekrasno vidjet more leptiriča, bumbara, pčela, i oni tako hredom dolaze, kad odu bumbari dolaze pčele, kad odu pčele taj je cvijet gotovo sasušen ali je on onda tada zreo za žetvu jer če dat najbogatije ulje",
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 30,
+      "caseSystem": "moderate"
+    }
+  },
+  "hun": {
+    "name": "Hungarian",
+    "nativeName": "Magyar",
+    "group": "uralic-ugric",
+    "speakers": 13,
+    "sampleUrl": "https://youtu.be/ZoGsHyJMO9A?si=xg_wQnB05PccylOQ&t=1245",
+    "sr": "piroš naronč roso zuolj dišiouiše piroš naronč megin tros. tehat muš tozahejzeto ďazakii tee kocko hejin vonomi tla ćatok",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 25,
+      "caseSystem": "complex"
+    }
+  },
+  "hye": {
+    "name": "Armenian",
+    "nativeName": "Հայերեն",
+    "group": "armenian",
+    "speakers": 7,
+    "sampleUrl": "https://youtu.be/7tqSIavL-Pg?si=OnzvmESS7Zs5af-a&t=294",
+    "sr": "kanibr amena uše, a sustećimetije pfume, p-dinze",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 36,
+      "caseSystem": "moderate"
+    }
+  },
+  "ibo": {
+    "name": "Igbo",
+    "nativeName": "Igbo",
+    "group": "niger-congo",
+    "speakers": 27,
+    "sampleUrl": "https://youtu.be/UI6E6LGgiGQ?si=goWSlfxJquZ4gk-w&t=621",
+    "sr": "onjao banau gurijahu, da ne genzi gua maran ke be zjonku. makalo mane d ďja puei, i he blumće idena heiju-kuaham",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 28,
+      "caseSystem": "none"
+    }
+  },
+  "iii": {
+    "name": "Yi",
+    "altName": "Nuosu",
+    "nativeName": "ꆈꌠꉙ",
+    "group": "tibeto-burman-other",
+    "speakers": 2,
+    "sampleUrl": "https://www.youtube.com/watch?v=jspE8LPtvG0&t=63s",
+    "sr": "vdodžažmnjo namvuozszo tuozhema vavnjititz džomaznjoho kadinjihefzao",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 42,
+      "caseCount": 0
+    }
+  },
+  "iku": {
+    "name": "Inuktitut",
+    "nativeName": "ᐃᓄᒃᑎᑐᑦ",
+    "group": "eskimo-aleut",
+    "speakers": 0.039,
+    "sampleUrl": "https://youtu.be/OS0I-5AAayw?si=bRCfJxKpX4xjB_mP&t=192",
+    "sr": "njok sok tüma. unnusana süneau kelle? ihad ljeahmeah tüma. asso? houpali sü lakket? ümeak tü laak tüma",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "polysynthetic",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 17,
+      "caseCount": 8
+    }
+  },
+  "ilo": {
+    "name": "Ilocano",
+    "nativeName": "Ilokano",
+    "group": "austronesian-philippine",
+    "speakers": 9,
+    "sampleUrl": "https://www.youtube.com/watch?v=R9026DE5EH8?t=0",
+    "sr": "aBO, digosKAN, jahonaSØNN, øøø wenola LOhahanek digoSØN",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 18,
+      "caseSystem": "simple"
+    }
+  },
+  "ind": {
+    "name": "Indonesian",
+    "nativeName": "Bahasa Indonesia",
+    "group": "austronesian",
+    "speakers": 23,
+    "sampleUrl": "https://www.youtube.com/watch?v=bRtRAu49Qho&t=41s",
+    "sr": "Uo Buo ćabe kri Tiin! diSedigen Tidigen ćabe mera besaldijaSaa, a Tokolonga kanpaĆiguvonga paa-Paa",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 22,
+      "caseSystem": "none"
+    }
+  },
+  "isl": {
+    "name": "Icelandic",
+    "nativeName": "Íslenska",
+    "group": "germanic-north",
+    "speakers": 0.3,
+    "sampleUrl": "https://youtu.be/CYgC3oAkLnQ?si=ZKXglTCbFbNgCpLE&t=233",
+    "sr": "e tejmarat lukt stjampt obanou rejkeneskaar, oo gatak stoura graua erø, røjnes avártelli holorøns kosinø",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 39,
+      "caseCount": 4
+    }
+  },
+  "ita": {
+    "name": "Italian",
+    "nativeName": "Italiano",
+    "group": "romance",
+    "speakers": 65,
+    "sampleUrl": "https://youtu.be/m0X9fuBnkZ8?si=AGWH4h2FnxJC9b1S&t=47",
+    "sr": "kvandono metiame vibracione la korda, londa sonóra passa traverso kvesta parte ke bjamodéto si kjama ponte o pontičéllo",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 30,
+      "caseSystem": "none"
+    }
+  },
+  "jav": {
+    "name": "Javanese",
+    "nativeName": "Basa Jawa",
+    "group": "austronesian",
+    "speakers": 69,
+    "sampleUrl": "https://www.youtube.com/watch?v=M2CZ6TRYtpY&t=130s",
+    "sr": "nanjin, tapećoroles di laquamin, kekel, afirree, sunan-gali ćoko",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 23,
+      "caseSystem": "none"
+    }
+  },
+  "jpn": {
+    "name": "Japanese",
+    "nativeName": "日本語",
+    "group": "japonic",
+    "speakers": 128,
+    "sampleUrl": "https://youtu.be/ZjfKVgpqeEk?si=DKuOJHQ-VHr5EORe&t=409",
+    "sr": "sošte štani søto i kone sne, sošte møšino íći, i kakameno ićiwa, kokono... štadi sne?",
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 15,
+      "caseSystem": "simple"
+    }
+  },
+  "kab": {
+    "name": "Kabyle",
+    "nativeName": "Taqbaylit",
+    "group": "afroasiatic-berber",
+    "speakers": 15,
+    "sampleUrl": "https://youtu.be/CJkijDWHQeQ?si=KngmX8tJTPI-QXxf&t=32",
+    "sr": "tapanej rif, cu fljejfja tarane, ediljdžejhegi notizin zo, no ufgejif, no vvirid",
+    "novo": true,
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 38,
+      "caseCount": 0
+    }
+  },
+  "kan": {
+    "name": "Kannada",
+    "nativeName": "ಕನ್ನಡ",
+    "group": "dravidian-south",
+    "speakers": 44,
+    "sampleUrl": "https://youtu.be/9PsttnrQnYU?si=PgoMDxBXimjOJsbv&t=81",
+    "sr": "dondøvara la ďanara laći kora la konaralanta, ći kortapmare tak šnak, so ari küna worgu bülala",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 34,
+      "caseSystem": "simple"
+    }
+  },
+  "kar": {
+    "name": "Karen S'gaw",
+    "nativeName": "စှီၤ",
+    "group": "tibeto-burman-karen",
+    "speakers": 3,
+    "sampleUrl": "https://youtu.be/1tena4vC_pQ?si=D1pwX0HycmJuLcFA&t=150",
+    "sr": "ja duo čučo bulem ra. nopuani lemra. ja ni nuče kiiinili. nømopodo? oo ja ni tøtivani",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 28,
+      "caseCount": 0
+    }
+  },
+  "kas": {
+    "name": "Kashmiri",
+    "nativeName": "کٲشُر",
+    "group": "indo-aryan",
+    "speakers": 11,
+    "sampleUrl": "https://youtu.be/4GUS3Q0QELo?si=Ld-erRRv97N6NYv_&t=271`",
+    "sr": "tuham lukaś mirlje vultesko, pušišćjasit karamvarja muhbat, varja madlabuhut! vaća",
+    "novo": true,
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 45,
+      "caseSystem": "simple"
+    }
+  },
+  "kat": {
+    "name": "Georgian",
+    "nativeName": "ქართული",
+    "group": "kartvelian",
+    "speakers": 4,
+    "sampleUrl": "https://youtu.be/h5W2eM2smtI?si=gugrhvdPe-6lClM_&t=515",
+    "sr": "e śejle ba, es, amučántis ksoła, u kanak edel šći ćśe sljutáts, ohont-ca-ta, u zoris huana i gamućte a magan hamin-dároesetjim uzovit mok so",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 28,
+      "caseSystem": "simple"
+    }
+  },
+  "kaz": {
+    "name": "Kazakh",
+    "nativeName": "Қазақша",
+    "group": "turkic-kipchak",
+    "speakers": 13,
+    "sampleUrl": "https://www.youtube.com/watch?v=QSp1XWRxkx0&t=156s",
+    "sr": "bez berke hujná berge savá hókaimaz, klijen sek tjemohan, kumik tisida, kuanštada, kanganadá, perke bulsímyz. šakandoz adamvajdijem kambatbajlak, sibijebešhandoz dije aldamajda koldajda",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 28,
+      "caseSystem": "moderate"
+    }
+  },
+  "kbd": {
+    "name": "Kabardian",
+    "nativeName": "Адыгэбзэ",
+    "group": "caucasian",
+    "speakers": 9,
+    "sampleUrl": "https://youtu.be/G6Zk0XXzDnA?si=ZMf1e3PlSzgOQcBG&t=238",
+    "sr": "zar sephem? zerbo hækam um psašljem? lješlje taaś. fljepkam, šadéem, śibidunjongu, super.",
+    "novo": true,
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 55,
+      "caseSystem": "simple"
+    }
+  },
+  "kfa": {
+    "name": "Kodava",
+    "nativeName": "ಕೊಡವ ತಕ್ಕ್",
+    "group": "dravidian-south",
+    "speakers": 0.12,
+    "sampleUrl": "https://youtu.be/Npvt5b61jJM?si=8M6MQclUSkt5is64&t=74",
+    "sr": "nane binde køda, ma nekø pøjen dujlø, ninø?",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 27,
+      "caseCount": 0
+    }
+  },
+  "kha": {
+    "name": "Khasi",
+    "nativeName": "Ka Ktien Khasi",
+    "group": "austroasiatic-mon-khmer",
+    "speakers": 1.4,
+    "sampleUrl": "https://www.youtube.com/watch?v=O_vqf1Vp19I&t=64s",
+    "sr": "Banjadaa bad banten kaajedi die nagbn taare ďimntoii ja ga laueei ðong patenn giban sauan",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 25,
+      "caseCount": 0
+    }
+  },
+  "khm": {
+    "name": "Khmer",
+    "nativeName": "ភាសាខ្មែរ",
+    "group": "austroasiatic-mon-khmer",
+    "speakers": 16,
+    "sampleUrl": "https://www.youtube.com/watch?v=HHGsUxT3vjg&t=126s",
+    "sr": "a souva katlajn, o man dia, nou satova dipa bl",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 21,
+      "caseSystem": "none"
+    }
+  },
+  "kik": {
+    "name": "Kikuyu",
+    "nativeName": "Gĩkũyũ",
+    "group": "niger-congo-bantu",
+    "speakers": 8,
+    "sampleUrl": "https://www.youtube.com/watch?v=SWn1t4o0QC0&t=119s",
+    "sr": "etuakia liao-naomarai-koronea dumarai-kamoo dumaja-maukuroo makialianardua kuma naďa",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 31,
+      "caseCount": 0
+    }
+  },
+  "kin": {
+    "name": "Kinyarwanda",
+    "nativeName": "Ikinyarwanda",
+    "group": "niger-congo-bantu",
+    "speakers": 12,
+    "sampleUrl": "https://www.youtube.com/watch?v=cx3MlE1sA4I&t=712s",
+    "sr": "u mutkume, vuii faša busara, hiui faša vuteekereza",
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 30,
+      "caseSystem": "simple"
+    }
+  },
+  "kir": {
+    "name": "Kyrgyz",
+    "nativeName": "Кыргызча",
+    "group": "turkic-kipchak",
+    "speakers": 4.4,
+    "sampleUrl": "https://youtu.be/8Ly2Q2E-B84?si=SPZ2ZVL7oCXUpk0W&t=841",
+    "sr": "aljinizeer. digen sus, altyn, altyn bujum, tin dedigen-gibilderen-tikemaldar",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 36,
+      "caseSystem": "moderate"
+    }
+  },
+  "kne": {
+    "name": "Kankanaey",
+    "nativeName": "Kankanaey",
+    "group": "austronesian-philippine",
+    "speakers": 7,
+    "sampleUrl": "https://youtu.be/RHLOn-vWwDE?si=czF1D01RpL6rFDF6&t=1124",
+    "sr": "ai gapoTem baGanam paTi om Abot? Ai Tat ta Dunum aBodim tajop Tot abDü aj eeej baBai?",
+    "novo": true,
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 28,
+      "caseSystem": "simple"
+    }
+  },
+  "knr": {
+    "name": "Kanuri",
+    "nativeName": "Kanuri",
+    "group": "nilo-saharan",
+    "speakers": 4,
+    "sampleUrl": "https://youtu.be/tiPK4WIIxOA?si=KaiM4a3-Ol_TYAF6&t=28",
+    "sr": "kala bana knďo, furtun ďi, konoa će ďinsuro umandji",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 29,
+      "caseCount": 6
+    }
+  },
+  "kok": {
+    "name": "Konkani",
+    "nativeName": "कोंकणी",
+    "group": "indo-aryan",
+    "speakers": 18,
+    "sampleUrl": "https://youtu.be/HH4M3gJicH8?si=Cq5WeStm18cb4BUs&t=875",
+    "sr": "tumćamu karami, rokadis güneta, spørdića rupan, satra marć, anara ďukolaman dyra neamďe-natak zatlekuklina tesprdi",
+    "novo": true,
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 40,
+      "caseSystem": "simple"
+    }
+  },
+  "kor": {
+    "name": "Korean",
+    "nativeName": "한국어",
+    "group": "koreanic",
+    "speakers": 77,
+    "sampleUrl": "https://www.youtube.com/watch?v=KJAHpWjbB2k&t=197s",
+    "sr": "pongoro bdrodo čanganďong karaso paros inam geaču kosovoamazo leďemida",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 19,
+      "caseSystem": "simple"
+    }
+  },
+  "kur": {
+    "name": "Kurdish",
+    "nativeName": "Kurdî",
+    "group": "iranian",
+    "speakers": 30,
+    "sampleUrl": "https://youtu.be/mORCaQbggIo?si=fR4WiAigweEhei2Q&t=375",
+    "sr": "Avora bavu djaku vdrjau kastohkarehanji rgnjmamu",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 36,
+      "caseCount": 3
+    }
+  },
+  "lao": {
+    "name": "Lao",
+    "nativeName": "ພາສາລາວ",
+    "group": "kra-dai",
+    "speakers": 16,
+    "sampleUrl": "https://youtu.be/cCO2c_FO0jQ?si=nmaMA4_cKaR463ZS&t=301",
+    "sr": "møte mia naam nok, natenlen hanten man been, pampin koNMak-koNMoi-koNJai leotee dutuninano",
+    "novo": true,
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 35,
+      "caseSystem": "none"
+    }
+  },
+  "lav": {
+    "name": "Latvian",
+    "nativeName": "Latviešu",
+    "group": "baltic",
+    "speakers": 1.5,
+    "sampleUrl": "https://youtu.be/9Alx6BeJ8fI?si=XP2iKh1MgryjkTxL&t=2997",
+    "sr": "vijeno gajeno, tata duad man, ies penos pa zyrsih tris mambus viskartipa. esnos pelažu zyrsih trís, pazeiš tou dame, nosteš uz de četri, actišes kokadavejda mambuši leka figur",
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 33,
+      "caseSystem": "moderate"
+    }
+  },
+  "lep": {
+    "name": "Lepcha",
+    "nativeName": "ᰛᰩᰵ",
+    "group": "tibeto-burman-other",
+    "speakers": 0.08,
+    "sampleUrl": "https://www.youtube.com/watch?v=h7kAY-u6KeQ&t=463s",
+    "sr": "tosa tøtvø tri tatin müller shatabuni onomad dbaboram apok kador",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 31,
+      "caseCount": 0
+    }
+  },
+  "lim": {
+    "name": "Limburgish",
+    "nativeName": "Limburgs",
+    "group": "germanic-west",
+    "speakers": 1.3,
+    "sampleUrl": "https://youtu.be/Y4cAnn5LJcg?si=GFsRWSh3U9EDaRpI&t=261",
+    "sr": "das neet je maas zjuvig vees, het heeks huud ofhe loźes das hil belangrijk, isias ane struktuur van e dejh (ontviklćes) dat hiil hud ontviklćes abat sege dat e hiil hud... fürh posesii thortje nemevedat, dat de deehjud afi kneedjes, dat hjone hjuje hrisi hjoćś",
+    "typology": {
+      "tonality": "tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 45,
+      "caseCount": 0
+    }
+  },
+  "lin": {
+    "name": "Lingala",
+    "nativeName": "Lingála",
+    "group": "niger-congo-bantu",
+    "speakers": 15,
+    "sampleUrl": "https://youtu.be/ux71fidOORg?si=MHxkS-MVKEeJ30OE&t=1451",
+    "sr": "elamba nanga jancoto, anasemartu elamba, elamba ningoo, janzoto nimili",
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 25,
+      "caseCount": 3
+    }
+  },
+  "lit": {
+    "name": "Lithuanian",
+    "nativeName": "Lietuvių",
+    "group": "baltic",
+    "speakers": 3,
+    "sampleUrl": "https://youtu.be/SwCNJHSMAx0?si=TYu92cWAkZo1j-eA&t=206",
+    "sr": "a šće se vazdojak jakaš praina griebunjas, soko sokoratas, patas paće svjatas erke hena sikatrandaj",
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 45,
+      "caseSystem": "moderate"
+    }
+  },
+  "ltz": {
+    "name": "Luxembourgish",
+    "nativeName": "Lëtzebuergesch",
+    "group": "germanic-west",
+    "speakers": 0.4,
+    "sampleUrl": "https://youtu.be/7TWNxeatqMI?si=80sBaS9wzQszY1Rf&t=442",
+    "sr": "šol dorun, az eläeng, ajze luxjuouzen minísta, deen dat bedriwwen huet. an natierlech déi deputéie dan da šamba, dej dat matiš teptun",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 42,
+      "caseCount": 0
+    }
+  },
+  "lua": {
+    "name": "Luba-Kasai",
+    "nativeName": "Tshiluba",
+    "group": "niger-congo-bantu",
+    "speakers": 12,
+    "sampleUrl": "https://youtu.be/MPX20AH679w?si=ksQAOxnf15Scc-6A&t=216",
+    "sr": "baka kemadi kole, bualba baka sanana gibue njumussa nejesu, kaimulukita",
+    "novo": true,
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 32,
+      "caseSystem": "simple"
+    }
+  },
+  "lug": {
+    "name": "Luganda",
+    "nativeName": "Oluganda",
+    "group": "niger-congo-bantu",
+    "speakers": 13,
+    "sampleUrl": "https://youtu.be/u5KhQpbLsuk?si=d6s4OqxaMkuZfiNV&t=437",
+    "sr": "e ćemisanaa, ďakaunga, navi ďal ďalo",
+    "novo": true,
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 30,
+      "caseCount": 0
+    }
+  },
+  "luo": {
+    "name": "Luo",
+    "nativeName": "Dholuo",
+    "group": "nilo-saharan-nilotic",
+    "speakers": 5,
+    "sampleUrl": "https://youtu.be/paYFIFfAlrk?si=6imS_eflrEWqpLkv&t=1637",
+    "sr": "baz luenjininUbido-kaManomo kut oku tundo magiueio, poru-Giduaronegi-Dinjiine, podogi kiak kiNarue-rario po dogi tugo nelue",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 24,
+      "caseSystem": "simple"
+    }
+  },
+  "mag": {
+    "name": "Magahi",
+    "nativeName": "मगही",
+    "group": "indo-aryan",
+    "speakers": 13,
+    "sampleUrl": "https://youtu.be/AmACtCf_5PE?si=5egJYYWt-I_JBykr&t=104",
+    "sr": "tofir ageram gudinæi djavabus komagimein-gemerenam provinem tofirkjabulege",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 30,
+      "caseCount": 3
+    }
+  },
+  "mai": {
+    "name": "Maithili",
+    "nativeName": "मैथिली",
+    "group": "indo-aryan",
+    "speakers": 34,
+    "sampleUrl": "https://www.youtube.com/watch?v=wR_sZ5ZjMbE&t=375s",
+    "sr": "jhaha, avøstahar ďagl! luka ksamøt ells saraa bøbøndøbil kjrølč-haha",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 28,
+      "caseCount": 3
+    }
+  },
+  "mal": {
+    "name": "Malayalam",
+    "nativeName": "മലയാളം",
+    "group": "dravidian-south",
+    "speakers": 34,
+    "sampleUrl": "https://youtu.be/EfIYZvVPyA4?si=i5xbkrxXro-vUbcq&t=894",
+    "sr": "pudiakajletø phaša valere dur greham-akikundø, akikundø mnleamvaretø",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 36,
+      "caseSystem": "simple"
+    }
+  },
+  "mar": {
+    "name": "Marathi",
+    "nativeName": "मराठी",
+    "group": "indo-aryan",
+    "speakers": 83,
+    "sampleUrl": "https://www.youtube.com/watch?v=2iT8XOMfPfY&t=606s",
+    "sr": "apønsawadamadé tutøk pønønøsouablisouadamødi apønďjibulto tisøløk pønigbulagua",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 28,
+      "caseSystem": "simple"
+    }
+  },
+  "mas": {
+    "name": "Maasai",
+    "nativeName": "ɔl Maa",
+    "group": "nilo-saharan-nilotic",
+    "speakers": 1,
+    "sampleUrl": "https://youtu.be/etUt37dgA4o?si=rR2SeAVzJpmA4Lbb&t=64",
+    "sr": "ola djemu rula naďi, na heke-nj-ha kegen bunga, ola jero ro?ganjI, š-denji, nage",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 28,
+      "caseCount": 0
+    }
+  },
+  "min": {
+    "name": "Minangkabau",
+    "nativeName": "Baso Minangkabau",
+    "group": "austronesian-malayo-polynesian",
+    "speakers": 6,
+    "sampleUrl": "https://youtu.be/98uqtsvCWwU?si=KmOEIihpbMQDqtNg&t=267",
+    "sr": "na čukoj aua, jedi baso, daje rafadjuo aua aros menja di bahaso jehola, biah, gluo bal? jela, biah, aa, banja!",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 22,
+      "caseCount": 0
+    }
+  },
+  "mkd": {
+    "name": "Macedonian",
+    "nativeName": "Македонски",
+    "group": "slavic-south",
+    "speakers": 2,
+    "sampleUrl": "https://www.youtube.com/watch?v=bmcjjL2IaBE&t=504s",
+    "sr": "Ова гопофајлија што е, со пиперчиња, то со лулчато, тоа има некој посебно назиф, име некако посебно? Нема, мие ги вликаме пиперки со лук. Тоа е едно, а имаме друго, пиперки со... макало, тоа се праи во тегли, го приготвуваме за зимница. Тие се пфт мали палнати пиперчина со сирење. Па, па, па значи да дојеш да си нараниш очи, душа, тело, суе!",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 31,
+      "caseSystem": "none"
+    }
+  },
+  "mlg": {
+    "name": "Malagasy",
+    "nativeName": "Malagasy",
+    "group": "austronesian-malayo-polynesian",
+    "speakers": 18,
+    "sampleUrl": "https://www.youtube.com/watch?v=1DnDyiLFz1g&t=160s",
+    "sr": "rršnata nan rrua, dia, a tanbačrua, die rraanrrju, padintja, rupčanžyka",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 21,
+      "caseCount": 0
+    }
+  },
+  "mlt": {
+    "name": "Maltese",
+    "nativeName": "Malti",
+    "group": "semitic",
+    "speakers": 0.52,
+    "sampleUrl": "https://youtu.be/B3MnDSCY0mU?si=U6hzm5jolWfxJXZI&t=56",
+    "sr": "halia, ljesefis maa sifšlja aseśtof pofsom aždjik, muš leterboks",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 40,
+      "caseSystem": "none"
+    }
+  },
+  "mni": {
+    "name": "Meitei",
+    "altName": "Manipuri",
+    "nativeName": "ꯃꯩꯇꯩꯂꯣꯟ",
+    "group": "tibeto-burman-other",
+    "speakers": 1.8,
+    "sampleUrl": "https://youtu.be/tOsgiY3NPzk?si=PkCmRHeb87KOcXa3&t=398",
+    "sr": "a duda gi di nu šit tumai pangal punnama kaloinana šit paholi",
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 29,
+      "caseCount": 0
+    }
+  },
+  "mnw": {
+    "name": "Mon",
+    "nativeName": "ဘာသာမန်",
+    "group": "austroasiatic-mon-khmer",
+    "speakers": 0.8,
+    "sampleUrl": "https://www.youtube.com/watch?v=O1ZPWf4O79U&t=593s",
+    "sr": "Oo dazi čuzanavo? Dii hoodohobare źe noe, jagaune paunezgələundjounemja raaner tan tueke djare, səre, garegari śide vono",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 46,
+      "caseCount": 0
+    }
+  },
+  "mon": {
+    "name": "Mongolian",
+    "nativeName": "Монгол",
+    "group": "mongolic",
+    "speakers": 6,
+    "sampleUrl": "https://youtu.be/OMmMedqOWTA?si=vbDctiHk_GlYlvka&t=17",
+    "sr": "æirihin nih nih snaše, monhodoh sah nit honden, uvotøm-hten hatøpećirsyn tikint over",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 26,
+      "caseSystem": "moderate"
+    }
+  },
+  "mri": {
+    "name": "Maori",
+    "nativeName": "Te Reo Māori",
+    "group": "austronesian-pacific",
+    "speakers": 0.185,
+    "sampleUrl": "https://youtu.be/ATBv6M4LlOs?si=KMBp5Y9UCtYkSiqF&t=19",
+    "sr": "faja te ite kahuranji, tjitje tohu kuee, mehi mone taitai",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 14,
+      "caseCount": 0
+    }
+  },
+  "msa": {
+    "name": "Malay",
+    "nativeName": "Bahasa Melayu",
+    "group": "austronesian-malayo-polynesian",
+    "speakers": 19,
+    "sampleUrl": "https://www.youtube.com/watch?v=flj3oBghmEA&t=158s",
+    "sr": "de taPi, Kraďa een bøliJautelah mømbeLi Lejsen baLa, k paj d, BonioLen, møLallu i, Rundingan kytu blanKanijan tida øSa",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 19,
+      "caseSystem": "none"
+    }
+  },
+  "mya": {
+    "name": "Burmese",
+    "nativeName": "မြန်မာဘာသာ",
+    "group": "tibeto-burman-other",
+    "speakers": 33,
+    "sampleUrl": "https://youtu.be/27btjlaJIyE?si=WDh9-M6Y84FZX_hD&t=415s",
+    "sr": "ja-ja. la-la-dodeká mavé. njakalíne njadzigulé. a tandu phipje madzjunajmaré. suvere. kidou zendelouzelou ha. pomeidai doun gju hainei. dingidairei zet djepairei",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 33,
+      "caseSystem": "simple"
+    }
+  },
+  "nah": {
+    "name": "Nahuatl",
+    "nativeName": "Nāhuatl",
+    "group": "uto-aztecan",
+    "speakers": 1.7,
+    "sampleUrl": "https://youtu.be/PbEf5jDd_pk?si=RRY7skeKDobQDqOH&t=6",
+    "sr": "keškikmi cikno tlamač ti jámomá sewahj, sema-Nauakón to nit tla-Nilíllo iníkton tlavíka",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "polysynthetic",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 22,
+      "caseSystem": "none"
+    }
+  },
+  "nan": {
+    "name": "Min Nan Chinese",
+    "nativeName": "閩南語",
+    "group": "sino-tibetan-sinitic",
+    "speakers": 49,
+    "sampleUrl": "https://www.youtube.com/watch?v=e-rY2zkCNtU&t=56s",
+    "sr": "sara ďesitek ďibezitjuokana huaiutokalai delua hjeptinkin surabajeno",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 18,
+      "caseSystem": "none"
+    }
+  },
+  "naq": {
+    "name": "Khoekhoe",
+    "altName": "Nama",
+    "nativeName": "Khoekhoegowab",
+    "group": "khoisan",
+    "speakers": 0.3,
+    "sampleUrl": "https://youtu.be/rSTBr8QbCtg?si=xcdByhXP4HfR3pJD&t=120",
+    "sr": "kajzeri djvo or ajta llita di kir* enkaj *ein hürvn staat güldigen *, hain * erat twimo *",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 115,
+      "caseSystem": "simple"
+    }
+  },
+  "nav": {
+    "name": "Navajo",
+    "nativeName": "Diné bizaad",
+    "group": "athabaskan",
+    "speakers": 0.17,
+    "sampleUrl": "https://youtu.be/YVHD_ZJuNvI?si=9hMXZcjHYAHJStg-&t=19",
+    "sr": "ae bino nátišna aro, našti, aro das obidžnšta, aaeceeja, sco deze nigi",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 47,
+      "caseCount": 0
+    }
+  },
+  "nde": {
+    "name": "Ndebele",
+    "nativeName": "isiNdebele",
+    "group": "niger-congo-bantu",
+    "speakers": 2,
+    "sampleUrl": "https://www.youtube.com/watch?v=HCHk1Y7dGMk&t=276s",
+    "sr": "vamćelebonjana auaman kujbambigan njangoba e amabele asjanginigis piilendavalei alumela",
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 24,
+      "caseSystem": "simple"
+    }
+  },
+  "nep": {
+    "name": "Nepali",
+    "nativeName": "नेपाली",
+    "group": "indo-aryan",
+    "speakers": 16,
+    "sampleUrl": "https://www.youtube.com/watch?v=PkowkAdj6go&t=56s",
+    "sr": "vœda haadina vuenid guteda wuanišuda, goarmada",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 31,
+      "caseSystem": "simple"
+    }
+  },
+  "new": {
+    "name": "Newari",
+    "altName": "Nepal Bhasa",
+    "nativeName": "नेपाल भाषा",
+    "group": "tibeto-burman-other",
+    "speakers": 0.8,
+    "sampleUrl": "https://youtu.be/8uWwkcUah5g?si=SwpZ2QQcaw6CtkDQ&t=1061",
+    "sr": "ćigu buaniwani papaiko? medouwadopadouwani dzigu. dzigu ćee nepali ko?",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 35,
+      "caseCount": 0
+    }
+  },
+  "nld": {
+    "name": "Dutch",
+    "nativeName": "Nederlands",
+    "group": "germanic-west",
+    "speakers": 24,
+    "sampleUrl": "https://youtu.be/nKAqeS8B0Wo?si=mKBJs25yNugVBaLT&t=484",
+    "sr": "Rick noemde het al even, in de literatuur worden die eigenschappen ook wel de mannentepels van de taal genoemd. Waarom? Nou, ze zitten er, ze zien er interessant uit, misschien hadden ze ooit wel een functie, maar wat je er nu aan hebt, is een raadsel.",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 42,
+      "caseCount": 0
+    }
+  },
+  "nor": {
+    "name": "Norwegian",
+    "nativeName": "Norsk",
+    "group": "germanic-north",
+    "speakers": 5,
+    "sampleUrl": "https://youtu.be/nsCVkb_-wbM?si=_YVCp3iIDNwhONqu&t=38",
+    "sr": "suiga žostüdem nu tiklinga som inskavammo, förme framovi šoVijam skæræ aleven komen, tilevaidmødpø, devis kafin po, i, śuśutajo śuśevirø",
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 36,
+      "caseCount": 0
+    }
+  },
+  "nso": {
+    "name": "Sesotho",
+    "altName": "Sepedi",
+    "nativeName": "Sesotho sa Leboa",
+    "group": "niger-congo-bantu",
+    "speakers": 9,
+    "sampleUrl": "https://www.youtube.com/watch?v=XtYb5M171rg&t=0",
+    "sr": "čume lambo arawa puku, lelohuno, ri roeli bella, litslakala laborar, nkanen river lelsakala laborar",
+    "novo": true,
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 35,
+      "caseSystem": "simple"
+    }
+  },
+  "nup": {
+    "name": "Nupe",
+    "nativeName": "Nupe",
+    "group": "niger-congo",
+    "speakers": 6,
+    "sampleUrl": "https://youtu.be/lrTF3pPG78E?si=KPh7r19alFtA-9uJ&t=36",
+    "sr": "tane ďso bajna bkďiď-bďe, u ma sala njukua, taga-djenje gajna oma laje la",
+    "novo": true,
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 30,
+      "caseSystem": "none"
+    }
+  },
+  "nus": {
+    "name": "Nuer",
+    "nativeName": "Thok Naath",
+    "group": "nilo-saharan-nilotic",
+    "speakers": 8,
+    "sampleUrl": "https://youtu.be/EeLYMrHS6S8?si=mPD5aeWPNuz2K2vs&t=256",
+    "sr": "ćaladeuigen, tegenRunde naindjo-korodien, eno, djenoa tege ka pin, a kume mala kume, südan, aresef",
+    "novo": true,
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 35,
+      "caseSystem": "simple"
+    }
+  },
+  "nya": {
+    "name": "Chewa",
+    "nativeName": "Chicheŵa",
+    "group": "niger-congo-bantu",
+    "speakers": 12,
+    "sampleUrl": "https://youtu.be/yyFsmiNXqXg?si=E15Qe03D8BfDP3Z0&t=17s",
+    "sr": "akaka njimbooo kojeamba njikanimbo-koo čuontuo dzamuan nanga tsallilla",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 28,
+      "caseCount": 0
+    }
+  },
+  "nyk": {
+    "name": "Nyaneka",
+    "nativeName": "Olunyaneka",
+    "group": "niger-congo-bantu",
+    "speakers": 9,
+    "sampleUrl": "https://youtu.be/OFGFkZLlQhc?si=s5KQ0Ra2CBDX-UkO&t=119s",
+    "sr": "uongo rało kuavo hadi, j-jde fejko, m-me jange jane nekere, nei hanga. huantu vese, ve kefin gona menveja neneka",
+    "novo": true,
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 32,
+      "caseSystem": "simple"
+    }
+  },
+  "oji": {
+    "name": "Ojibwe",
+    "nativeName": "ᐊᓂᔑᓈᐯᒧᐎᓐ",
+    "group": "algonquian",
+    "speakers": 0.09,
+    "sampleUrl": "https://youtu.be/0xKZR2azCZo?si=m5yhlvI-3hqlalM_&t=13",
+    "sr": "ma da so bun, gita žikeer, ikenoma di gomikini. le kiku džtoua cke džeer, en de setoua džaii ",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "polysynthetic",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 29,
+      "caseSystem": "none"
+    }
+  },
+  "ori": {
+    "name": "Odia",
+    "nativeName": "ଓଡ଼ିଆ",
+    "group": "indo-aryan",
+    "speakers": 38,
+    "sampleUrl": "https://www.youtube.com/watch?v=_WVdSeDcyNc&t=224s",
+    "sr": "ćonombor kostombo soi to khøstom boďokokoro, to køstombore oći",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 32,
+      "caseCount": 3
+    }
+  },
+  "orm": {
+    "name": "Oromo",
+    "nativeName": "Afaan Oromoo",
+    "group": "afroasiatic-cushitic",
+    "speakers": 37,
+    "sampleUrl": "https://www.youtube.com/watch?v=nxNszspT51Y&t=267s",
+    "sr": "a tesin-b fazallpan, børumsa an get dizu, ovaj ćudan diesan bøk købara bad denjidi",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 24,
+      "caseSystem": "simple"
+    }
+  },
+  "pag": {
+    "name": "Pangasinan",
+    "nativeName": "Pangasinan",
+    "group": "austronesian-philippine",
+    "speakers": 1.8,
+    "sampleUrl": "https://youtu.be/3GMegEqrcjI?si=auYIcsDt2yihasdz&t=152",
+    "sr": "sai kasaLAnan, sonjeroVI ød ĆIkaro ÐOZ. BAløt sai ďusumanta TAua gd-sikaRAten labaiTOEN man pa-ta oLLIda",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 19,
+      "caseCount": 0
+    }
+  },
+  "pam": {
+    "name": "Kapampangan",
+    "nativeName": "Kapampangan",
+    "group": "austronesian-philippine",
+    "speakers": 2.9,
+    "sampleUrl": "https://youtu.be/w9-l1apESLw?si=RBCy64DQoti1zQdy&t=849",
+    "sr": "InSAnu hareng makatutuKI, ing usTU pangaSÜlat, agPANG king biNAsa møng dayaloGO?",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 21,
+      "caseCount": 0
+    }
+  },
+  "pan": {
+    "name": "Punjabi",
+    "nativeName": "ਪੰਜਾਬੀ",
+    "group": "indo-aryan",
+    "speakers": 93,
+    "sampleUrl": "https://youtu.be/8uDil2kow30?si=oaWTA8UCjecyyLJ2&t=427",
+    "sr": "vi inukea kenee panďabi vičet ar adekuaďi uprle pasedekøbøne haldi naldi",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 35,
+      "caseSystem": "simple"
+    }
+  },
+  "pol": {
+    "name": "Polish",
+    "nativeName": "Polski",
+    "group": "slavic-west",
+    "speakers": 40,
+    "sampleUrl": "https://youtu.be/oaszOam3vcU?si=WxDJuQsj-CQKxqza&t=574",
+    "sr": "droga na skrůte to znači łatvíjše i še pše, hoć uvažáne často za njebuašćíve sposob oćangnjénćja celu, to znači ak cemje to śa šangnoć, ale zajmja zrobiš to tak jak třeba, to ne probujéme šúkać jakiś přostřeh razvjol, zanji može zrobić zašnje tak dokládnje, bile tyrko dojšć do tego celu.",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 39,
+      "caseSystem": "moderate"
+    }
+  },
+  "por": {
+    "name": "Portuguese",
+    "nativeName": "Português",
+    "group": "romance",
+    "speakers": 221,
+    "sampleUrl": "https://youtu.be/tGvlYsNpY6M?si=vdTCGX6foV037nhM&t=430",
+    "sr": "a kiš tampž-mš-pišin-ždmorta ža frituš. fikaron super št-l-dis ženoh zišti žapruvaejš, ton super savurozuš. a mnje polmy, erom pokinje maiš",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 37,
+      "caseSystem": "none"
+    }
+  },
+  "pus": {
+    "name": "Pashto",
+    "nativeName": "پښتو",
+    "group": "iranian",
+    "speakers": 40,
+    "sampleUrl": "https://www.youtube.com/watch?v=zoDSgaHdiTc&t=818s",
+    "sr": "no crdo pati kigiu? jara pati kigi daurodjuorøravas juonimsou dubei kalapatiśi kaladuosou rupei patiśi kaladuonimsou patiśi",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 45,
+      "caseCount": 3
+    }
+  },
+  "pwo": {
+    "name": "Karen Pwo",
+    "nativeName": "ပှၤ",
+    "group": "tibeto-burman-karen",
+    "speakers": 1.2,
+    "sampleUrl": "https://youtu.be/ld5dcK-4qNM?si=fqLgCceY3ouzwjRk&t=229",
+    "sr": "a ćumojda čuhi lehajhou amitha adaueda čudauhou amitha ončeja apatakaničeja hano",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 26,
+      "caseCount": 0
+    }
+  },
+  "quc": {
+    "name": "K'iche'",
+    "nativeName": "K'iche'",
+    "group": "mayan",
+    "speakers": 1,
+    "sampleUrl": "https://youtu.be/9Ew2S5WCMjE?si=ZZrTa1h1GDc3aNmw&t=34",
+    "sr": "konšikule šokun čekaki čekin tahual šumahkanokh tusarela oou",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 32,
+      "caseCount": 0
+    }
+  },
+  "que": {
+    "name": "Quechua",
+    "nativeName": "Runa Simi",
+    "group": "quechuan",
+    "speakers": 8,
+    "sampleUrl": "https://youtu.be/Eccfa4iNYP8?si=_QuMQvvIHM4XvA8W&t=279",
+    "sr": "uaira, puiju, otaht indirimekoNata halhAita, ječesah tikoka, taki kuna taroWari, hinaWanmi khanjaRiko halhaiTaka",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 26,
+      "caseCount": 0
+    }
+  },
+  "roh": {
+    "name": "Romansh",
+    "nativeName": "Rumantsch",
+    "group": "romance",
+    "speakers": 0.06,
+    "sampleUrl": "https://youtu.be/nFwZWYdAhGg?si=E3MQP-gzZ4aQwqUM&t=490",
+    "sr": "akultí maros nu ene plats ekonsee di žons, era kue feď feď krlef. tike peves bo to, beras di kul tren tu mevas tike tike pešia spok",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 34,
+      "caseCount": 0
+    }
+  },
+  "rom": {
+    "name": "Romani",
+    "nativeName": "Romani ćhib",
+    "group": "indo-aryan",
+    "speakers": 12,
+    "sampleUrl": "https://www.youtube.com/watch?v=rvjtjwTLi9A&t=554s",
+    "sr": "ćaćo dromte arakas amaro panda dopolin te putras hiden muršen te kiden zor de čačes ankljas po gor",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 35,
+      "caseSystem": "simple"
+    }
+  },
+  "ron": {
+    "name": "Romanian",
+    "nativeName": "Română",
+    "group": "romance",
+    "speakers": 24,
+    "sampleUrl": "https://youtu.be/5lNu_ESxQD0?si=RluPxyPYayIUYE7O&t=5465",
+    "sr": "petrućá di sparút? nšć! di ćemoative nu publika skrjesoára, non pas. del sulka no publika. ćel kres to vemi śeluka pabilj se no publiće pentrual će va di kippendru ka nu puate?",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 32,
+      "caseSystem": "simple"
+    }
+  },
+  "run": {
+    "name": "Kirundi",
+    "group": "niger-congo-bantu",
+    "speakers": 22,
+    "sampleUrl": "https://youtu.be/dexSNp6ATUY?si=FWV23vX8kg-0Hv26&t=245",
+    "sr": "baramadze gogo, og, uhindu-kida, i numberombi, vari kovaračamuo, o vara dze hepse, lapurićidim, umberom dzidza",
+    "novo": true,
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 30,
+      "caseSystem": "simple"
+    }
+  },
+  "rus": {
+    "name": "Russian",
+    "nativeName": "Русский",
+    "group": "slavic-east",
+    "speakers": 154,
+    "sampleUrl": "https://youtu.be/bJDYZmo6ZkQ?si=BF5ns9ucPhQ-Dqoj&t=20883",
+    "sr": "Э́то я уби́л тогда́ ста́руху-чино́вницу и сестру́ её Лизаве́ту топоро́м, и огра́бил",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 36,
+      "caseSystem": "moderate"
+    }
+  },
+  "ryu": {
+    "name": "Okinawan",
+    "nativeName": "沖縄口 / ウチナーグチ",
+    "group": "japonic",
+    "speakers": 0.4,
+    "sampleUrl": "https://youtu.be/0T2OnDntxOI?si=0NbM-SW4SkYDtnlq&t=129",
+    "sr": "dokude somne i von narattaka, kumaninone nićida tjen, telüran śikarat kamćihat tjen",
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 24,
+      "caseCount": 0
+    }
+  },
+  "sag": {
+    "name": "Sango",
+    "nativeName": "Sängö",
+    "group": "niger-congo",
+    "speakers": 10,
+    "sampleUrl": "https://youtu.be/ly93UqkqHQ8?si=k-y14juNp4YFQvfz&t=453",
+    "sr": "bada dákuša dljo si kolo sii, lozánge si batakuša najan ďula, na kumbi ni, wao kumbi naato ďab ma kumba toonllu, dazii ijleke ćiśina majje kazon",
+    "novo": true,
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 28,
+      "caseSystem": "none"
+    }
+  },
+  "sat": {
+    "name": "Santali",
+    "nativeName": "ᱥᱟᱱᱛᱟᱲᱤ",
+    "group": "austroasiatic-munda",
+    "speakers": 7,
+    "sampleUrl": "https://www.youtube.com/watch?v=WKifMg7SsEc&t=78s",
+    "sr": "će leka mena bena?",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 27,
+      "caseCount": 0
+    }
+  },
+  "sce": {
+    "name": "Santa",
+    "altName": "Dongxiang",
+    "nativeName": "Santa",
+    "group": "mongolic",
+    "speakers": 0.2,
+    "sampleUrl": "https://youtu.be/QZZaLeHRhAA?si=EbzlF9w5wmL465jP&t=62",
+    "sr": "ingesøsma gonje pænfa sumladže k-čuo njefke khaškala konje dzaje kuluhauo",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "moderate",
+      "phonemeCount": 29,
+      "caseCount": 6,
+      "caseSystem": "moderate"
+    }
+  },
+  "sin": {
+    "name": "Sinhala",
+    "nativeName": "සිංහල",
+    "group": "indo-aryan",
+    "speakers": 17,
+    "sampleUrl": "https://www.youtube.com/watch?v=_rFja9HZbOk&t=378s",
+    "sr": "jegang c erage laiinegak uakrahaaroue jounadu uakrraharoue djenou tzagaradat tjinemadigingen haugedegidinak",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 40,
+      "caseSystem": "simple"
+    }
+  },
+  "slk": {
+    "name": "Slovak",
+    "nativeName": "Slovenčina",
+    "group": "slavic-west",
+    "speakers": 5,
+    "sampleUrl": "https://youtu.be/VO29yOgTMJ4?si=p1jVeeKMArtCdC5A&t=261",
+    "sr": "halyšky spolu z bryndzou poriadnje premiješame, a je v tomto pripadje mohla bit bryndza trošku redšija. minuly se navšak všetki zdroje a tak sme se s tim musely njejako popasovať",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 46,
+      "caseSystem": "moderate"
+    }
+  },
+  "slv": {
+    "name": "Slovenian",
+    "nativeName": "Slovenščina",
+    "group": "slavic-south",
+    "speakers": 2,
+    "sampleUrl": "https://youtu.be/GVdbCjFl2D8?si=EgxXOHs0qRXx6lCA&t=68",
+    "sr": "Evo lahkopevno izjavo, Marko. Kako je biti žiu? Nič novega.",
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 29,
+      "caseSystem": "moderate"
+    }
+  },
+  "smo": {
+    "name": "Samoan",
+    "nativeName": "Gagana Sāmoa",
+    "group": "austronesian-pacific",
+    "speakers": 0.51,
+    "sampleUrl": "https://www.youtube.com/watch?v=ittnMW06of0&t=20s",
+    "sr": "ica uala moganda, aua eloa üle samoa, pa cauela moganda, e peole soo noomho adhokto jonoh panakhi møja",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 14,
+      "caseSystem": "none"
+    }
+  },
+  "sna": {
+    "name": "Shona",
+    "nativeName": "chiShona",
+    "group": "niger-congo-bantu",
+    "speakers": 15,
+    "sampleUrl": "https://www.youtube.com/watch?v=JgibX73Ya3k&t=306s",
+    "sr": "anjaerumun uoko uonouotemei??? mhm. mazimuarenei em-hanza. askana kako penje ragemansako? karepotanedo adhanei d-g-d-g-d",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 36,
+      "caseCount": 0
+    }
+  },
+  "snd": {
+    "name": "Sindhi",
+    "nativeName": "سنڌي",
+    "group": "indo-aryan",
+    "speakers": 25,
+    "sampleUrl": "https://youtu.be/npg-0YOkqJc?si=_Ovi_H66N9Z3UISt&t=40",
+    "sr": "taazan dij lijker mej djokoajdo paterakudinajou hanitajngmasduri mildiadeadi",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 46,
+      "caseCount": 3
+    }
+  },
+  "som": {
+    "name": "Somali",
+    "nativeName": "Soomaali",
+    "group": "afroasiatic-cushitic",
+    "speakers": 16,
+    "sampleUrl": "https://www.youtube.com/watch?v=P4hdxil8gQo&t=318s",
+    "sr": "of diksi kulhajo bahantheid, kof nomarok te ineualakua inšarla, nor kohasomenos naar khof-korhauzo",
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 22,
+      "caseSystem": "simple"
+    }
+  },
+  "sot": {
+    "name": "Sotho",
+    "nativeName": "Sesotho",
+    "group": "niger-congo-bantu",
+    "speakers": 11,
+    "sampleUrl": "https://youtu.be/p9QDYQq6NnE?si=ed5veCLhY1aO-FNt&t=1302",
+    "sr": "čačo gjele hua pop kui mueto miha zavalei, püp sem vra ďeno heki lorop pljezevljtaj ševljekar ka tou prima",
+    "novo": true,
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 35,
+      "caseSystem": "simple"
+    }
+  },
+  "spa": {
+    "name": "Spanish",
+    "nativeName": "Español",
+    "group": "romance",
+    "speakers": 460,
+    "sampleUrl": "https://youtu.be/gG9uyi2rwcU?si=ZUpsn2d2_iLLn1Wm&t=669",
+    "sr": "vamos a velo primero e getee gueta eske: él no dife ke no se kel acorvar el luar. dise ke no se ked akorvar del nombre! de kujo nombre no kjor akordarme. del luar se akuerda, en toa la deskripfión es ke ase, si akuera pefetamente",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 24,
+      "caseSystem": "none"
+    }
+  },
+  "srb": {
+    "name": "Sora",
+    "nativeName": "𑃐𑃦𑃝𑃗𑃐𑃝",
+    "group": "austroasiatic-munda",
+    "speakers": 0.3,
+    "sampleUrl": "https://youtu.be/zkUCNcs6uqI?si=-y0dL_26LxFHQTI0&t=149s",
+    "sr": "Jezero jana zimn, jara simkan ďora purakn, a zora baka nana luti banga ranga",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 26,
+      "caseCount": 0
+    }
+  },
+  "srd": {
+    "name": "Sardinian",
+    "nativeName": "Sardu",
+    "group": "romance-sardinian",
+    "speakers": 1.2,
+    "sampleUrl": "https://youtu.be/5as9jMrmjpU?si=OxBbDbmkzXIKlWbT&t=58",
+    "sr": "suzardu estes a limba ki, mi pjake ta pruzu to e totus a limbas a romancasa, est una limba meta i speciale pro mene",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 23,
+      "caseCount": 0
+    }
+  },
+  "srp": {
+    "name": "Serbian",
+    "nativeName": "Српски",
+    "group": "slavic-south",
+    "speakers": 9,
+    "sampleUrl": "https://youtu.be/uy0tYdLFXuU?si=CYgOAihs1shEpWRn&t=401",
+    "sr": "Samo pazi, nemoj biti lakom: njednu drugu voćku ili stvarku da nisi tako ni slučajno! Ako nešto drugo dineš-darneš, u reci će se praćaknuti štuka, uzleteće tica šljuka, šljuka će sleteti na bukvu, veverica će ispustiti orahovu ljusku, ljuska će pasti na puteljak  kicošu na razdeljak. Kicoš će izvaditi ogledalce da popravi, licne kosu, sa ogledalceta će se odbiti zraka i zaustaviti se na nosu poljara koji spava. Poljar će zviznuti, psi će zarežati, ne vredi ti bežati.",
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 30,
+      "caseSystem": "moderate"
+    }
+  },
+  "ssw": {
+    "name": "Swati",
+    "nativeName": "siSwati",
+    "group": "niger-congo-bantu",
+    "speakers": 2.5,
+    "sampleUrl": "https://youtu.be/4YulGwJpjpQ?t=102",
+    "sr": "uobabani gatbaja_balalalanjetcula. emadjibasoua_palalalanjetcula gepaptcula aguoko",
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 25,
+      "caseSystem": "simple"
+    }
+  },
+  "suk": {
+    "name": "Sukuma",
+    "nativeName": "Kɪsukuma",
+    "group": "niger-congo-bantu",
+    "speakers": 10,
+    "sampleUrl": "https://www.youtube.com/watch?v=dsUH7my4fTs&t=0",
+    "sr": "mlemla vavaba navam majo, elinalia nena lite no pedjilo njili, nalenha zilin saidizi, haćokikuća dalle salama, tanzania",
+    "novo": true,
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 32,
+      "caseSystem": "simple"
+    }
+  },
+  "sun": {
+    "name": "Sundanese",
+    "nativeName": "Basa Sunda",
+    "group": "austronesian",
+    "speakers": 32,
+    "sampleUrl": "https://youtu.be/5E4O2IemTnM?si=3cpa3e2M-eWd7KDf&t=41",
+    "sr": "anďena tu ďupuluhtaun, anďena bd ankat. mrn a jasa bulanga i pugu",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 18,
+      "caseSystem": "none"
+    }
+  },
+  "swa": {
+    "name": "Swahili",
+    "nativeName": "Kiswahili",
+    "group": "niger-congo",
+    "speakers": 87,
+    "sampleUrl": "https://youtu.be/ydRRS0JNpLI?si=gUJOr9g8e67jOTkd&t=459",
+    "sr": "mana medalihini kwamba e kila ďambolina hitaďi uatouini uwezo na udžuzi, iliuaeze kpanji kiwa",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 30,
+      "caseSystem": "simple"
+    }
+  },
+  "swe": {
+    "name": "Swedish",
+    "nativeName": "Svenska",
+    "group": "germanic-north",
+    "speakers": 10,
+    "sampleUrl": "https://www.youtube.com/watch?v=9bJety6xmxM&t=61s",
+    "sr": "uo dee meke benis se tatjo banhanski verme siikok sat, ten es tan alti annølünda, tø muulike partíjina. ervmø fasman kæšju pliev-ron liiknanø",
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 38,
+      "caseCount": 0
+    }
+  },
+  "tam": {
+    "name": "Tamil",
+    "nativeName": "தமிழ்",
+    "group": "dravidian-south",
+    "speakers": 75,
+    "sampleUrl": "https://youtu.be/5poSFYGGkGk?si=qtvHrV8c__2yQ35U&t=168",
+    "sr": "serde beide koudavei arepis pø-noukaćot masala ser-ta-rlong? ćat masa-la-jr-maser-te-kovai-linala,baravai-le?",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 31,
+      "caseSystem": "simple"
+    }
+  },
+  "tat": {
+    "name": "Tatar",
+    "nativeName": "Татарча",
+    "group": "turkic-kipchak",
+    "speakers": 5.2,
+    "sampleUrl": "https://www.youtube.com/watch?v=DGxhL7d-v7U&t=223s",
+    "sr": "Teržimesen üzen oša uzdørøp, matori tripka tlabula",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 39,
+      "caseSystem": "moderate"
+    }
+  },
+  "tcy": {
+    "name": "Tulu",
+    "nativeName": "ತುಳು",
+    "group": "dravidian-south",
+    "speakers": 2,
+    "sampleUrl": "https://youtu.be/ORo4MKKB_8A?si=qa53MFopiKib7Usw&t=85",
+    "sr": "a manelela arama nàkelltjra, enda tumba diu sad melési guada mahko-luma-néhrlije, ako-tomas-rala-héi digerøn tøkeløi-tøhóndøprešne",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 43,
+      "caseSystem": "simple"
+    }
+  },
+  "tel": {
+    "name": "Telugu",
+    "nativeName": "తెలుగు",
+    "group": "dravidian-central",
+    "speakers": 74,
+    "sampleUrl": "https://youtube.com/watch?v=944syVmlEks&t=131s",
+    "sr": "teripatilo darsinćiwalisena alia-lo, sri varahaswami alejo, sri andenejaswami alejo",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 36,
+      "caseSystem": "simple"
+    }
+  },
+  "tgk": {
+    "name": "Tajik",
+    "nativeName": "Тоҷикӣ",
+    "group": "iranian",
+    "speakers": 8,
+    "sampleUrl": "https://www.youtube.com/watch?v=_sDdWR6f7fM&t=555s",
+    "sr": "adu soneazizø, megujan du, stojabjanondaro uški vasmi hubitoži konrohumakan",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 24,
+      "caseCount": 0
+    }
+  },
+  "tgl": {
+    "name": "Tagalog",
+    "nativeName": "Tagalog",
+    "group": "austronesian-philippine",
+    "speakers": 25,
+    "sampleUrl": "https://youtu.be/gA4CX2ylkf0?si=Yviv8MutyjBWG7YX&t=125",
+    "sr": "Ai aBaitopan, isang Asalmakateto-Hanen, sapamo muOsap-nan kaNila dinGuita an di Sohat iBitim kamTan",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 20,
+      "caseSystem": "simple"
+    }
+  },
+  "tha": {
+    "name": "Thai",
+    "nativeName": "ไทย",
+    "group": "kra-dai",
+    "speakers": 71,
+    "sampleUrl": "https://youtu.be/sNODZM60ok0?si=F9bZ_Ic7Iqf1pIN2&t=657",
+    "sr": "hoha meha mahai hon juu maahloj, naha halo Menangrulalo kotja meHen meNekaa, meert Meenaha",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 21,
+      "caseSystem": "none"
+    }
+  },
+  "tir": {
+    "name": "Tigrinya",
+    "nativeName": "ትግርኛ",
+    "group": "semitic",
+    "speakers": 7,
+    "sampleUrl": "https://www.youtube.com/watch?v=VyuK6ggrZCc&t=179s",
+    "sr": "na ameta fkonze uman bekonas, dzjara. zdemogaja, zitz efbogaja",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 28,
+      "caseSystem": "none"
+    }
+  },
+  "ton": {
+    "name": "Tongan",
+    "nativeName": "Lea Fakatonga",
+    "group": "austronesian-pacific",
+    "speakers": 0.2,
+    "sampleUrl": "https://youtu.be/l9v3xCCJ9-w?si=B6JYcI1xunTrcsel&t=35",
+    "sr": "tou tou tauaki ma u pe-ena tu, va ka i, iekajane, ka asi pea moma hae hae",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 17,
+      "caseSystem": "none"
+    }
+  },
+  "tsn": {
+    "name": "Tswana",
+    "nativeName": "Setswana",
+    "group": "niger-congo-bantu",
+    "speakers": 4.1,
+    "sampleUrl": "https://youtu.be/wSi5BVkty8M?si=hT-uqTaZ4UtlRk_A&t=192s",
+    "sr": "som meke som nuskuanaro soma, kem uasare, ovorhaporo kolla",
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 31,
+      "caseCount": 3
+    }
+  },
+  "tuk": {
+    "name": "Turkmen",
+    "nativeName": "Türkmençe",
+    "group": "turkic-oghuz",
+    "speakers": 4.3,
+    "sampleUrl": "https://youtu.be/-5KQjoWjhw0?si=-eY4oxkmcxx_wtWo&t=39s",
+    "sr": "teke jonok tjagargøjok ljong ahalele brholok, kltha brdzo ajgojurüš, aslorgur leleti",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 28,
+      "caseCount": 6
+    }
+  },
+  "tum": {
+    "name": "Tumbuka",
+    "nativeName": "Chitumbuka",
+    "group": "niger-congo-bantu",
+    "speakers": 9,
+    "sampleUrl": "https://youtu.be/9YpuXIgASRI?si=HUvw2WlDNAOAM1k6&t=175",
+    "sr": "va mama vamaronda, va dada vamaronda, va dada fada, va mama ma?a, vamaronda, businesswoman",
+    "novo": true,
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 32,
+      "caseSystem": "simple"
+    }
+  },
+  "tur": {
+    "name": "Turkish",
+    "nativeName": "Türkçe",
+    "group": "turkic-oghuz",
+    "speakers": 76,
+    "sampleUrl": "https://youtu.be/_qhk5ZBY_SI?si=k2dDk8qCL9Qt_E2x&t=349",
+    "sr": "čok skmadan uzalji købølje fčurum, čok skmadan sarma veresørurus, čok søkajsans sarma lerønzøn altøna usøndøn patnamaloroldžaktir, ve ičaldžet hanamen d šrč prdžektř",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 32,
+      "caseSystem": "moderate"
+    }
+  },
+  "uig": {
+    "name": "Uyghur",
+    "nativeName": "ئۇيغۇرچە",
+    "group": "turkic-karluk",
+    "speakers": 12,
+    "sampleUrl": "https://youtu.be/U1XJa71MuVw?si=kU5-Er_48Ojol5bN&t=193",
+    "sr": "bitih khlumš køn mjü-ze, ben basful tu kel bir-tim, men saboi je mebir er suksus-tu-ken samabal-trum",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 24,
+      "caseSystem": "simple"
+    }
+  },
+  "ukr": {
+    "name": "Ukrainian",
+    "nativeName": "Українська",
+    "group": "slavic-east",
+    "speakers": 45,
+    "sampleUrl": "https://www.youtube.com/watch?v=9Ml4InS1KvY&t=439s",
+    "sr": "Нам відо́мо, що у вісімна́eцетому столі́тці, борщ забі́лјували смета́ною або я́йћами, які́ або відва́рјувалi та натира́лi, або влiва́лi увуа́риво-сјури́мi. А щø його́ затира́ли, тобто заправля́ли, тро́хи підсма́женим пшени́чним борошно́м.",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 32,
+      "caseSystem": "moderate",
+      "phonemes": [
+        "p",
+        "b",
+        "t",
+        "d",
+        "k",
+        "g",
+        "f",
+        "v",
+        "s",
+        "z",
+        "ʃ",
+        "ʒ",
+        "x",
+        "ɦ",
+        "m",
+        "n",
+        "l",
+        "r",
+        "j",
+        "t͡s",
+        "d͡z",
+        "t͡ʃ",
+        "i",
+        "ɪ",
+        "e",
+        "a",
+        "u",
+        "o",
+        "pʲ",
+        "bʲ",
+        "mʲ",
+        "fʲ",
+        "vʲ"
+      ]
+    }
+  },
+  "unr": {
+    "name": "Mundari",
+    "nativeName": "मुण्डारी",
+    "group": "austroasiatic-munda",
+    "speakers": 1.2,
+    "sampleUrl": "https://youtu.be/rE28IvuaXqk?si=6_Hqp4oAlOlPRTGL&t=115",
+    "sr": "ďab alelele ektordija daktigan dagelele otanade, afgedobe lelitanada apejuðe rulge torijada, inado anjenkevardi lijetene hoho vatri inți zaarlepe",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 24,
+      "caseCount": 0
+    }
+  },
+  "urd": {
+    "name": "Urdu",
+    "nativeName": "اردو",
+    "group": "indo-aryan",
+    "speakers": 68,
+    "sampleUrl": "https://www.youtube.com/watch?v=0E8KWBufEDs&t=24s",
+    "sr": "taza sabznja taza pæl haljiz duud ormakøn vuaha a sanjisi dasdeabhe",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 46,
+      "caseSystem": "simple"
+    }
+  },
+  "uzb": {
+    "name": "Uzbek",
+    "nativeName": "Oʻzbek",
+    "group": "turkic-karluk",
+    "speakers": 32,
+    "sampleUrl": "https://www.youtube.com/watch?v=eQSFTCaVxBI&t=68s",
+    "sr": "šnaka-tikjes tenna-khamar buguni-čuoje jakšla-müšla, i kigje-bülö, zoualečeleza",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 26,
+      "caseSystem": "simple"
+    }
+  },
+  "ven": {
+    "name": "Venda",
+    "nativeName": "Tshivenḓa",
+    "group": "niger-congo-bantu",
+    "speakers": 7,
+    "sampleUrl": "https://youtu.be/7SOhQ3W1KqY?si=Wmram3PT2XVzITMU&t=819",
+    "sr": "ua doua hapua rauana urhuha huna karusamaj fidzoja ungokuambana, una karusemaj fi, kanakarusami rerroo",
+    "novo": true,
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 35,
+      "caseSystem": "simple"
+    }
+  },
+  "vie": {
+    "name": "Vietnamese",
+    "nativeName": "Tiếng Việt",
+    "group": "austroasiatic-mon-khmer",
+    "speakers": 76,
+    "sampleUrl": "https://youtu.be/Ok7e6RmpmZo?si=K3zN1O4STSQW6Lqu&t=610",
+    "sr": "jenjela noil~~~~ djinoj lhljm namnam gimmiəmiə nəmnəb",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 23,
+      "caseSystem": "none"
+    }
+  },
+  "war": {
+    "name": "Waray",
+    "nativeName": "Winaray",
+    "group": "austronesian-philippine",
+    "speakers": 3.5,
+    "sampleUrl": "https://youtu.be/ZPMZpBDBBRc?si=wWz0lWp99JqOcD3x&t=140",
+    "sr": "dirika bara nunum düman bata-kata, na duduk-dukain bajabas njeneng-sasaka",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 20,
+      "caseSystem": "simple"
+    }
+  },
+  "wol": {
+    "name": "Wolof",
+    "nativeName": "Wolof",
+    "group": "niger-congo-atlantic",
+    "speakers": 5,
+    "sampleUrl": "https://youtu.be/l3y9I9Kf1Sc?si=wFv27NMGn-dIi6k9&t=1036",
+    "sr": "taeila ďuruo mnjente elo fanci veeru septambar",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 34,
+      "caseSystem": "simple"
+    }
+  },
+  "wuu": {
+    "name": "Wu Chinese",
+    "nativeName": "吴语",
+    "group": "sino-tibetan-sinitic",
+    "speakers": 77,
+    "sampleUrl": "https://www.youtube.com/watch?v=zOb8s6GAj5E&t=7s",
+    "sr": "jazønier ir wen wogodonze jagobe ćaďobidonzem voðjulajgobe ðambe",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 31,
+      "caseSystem": "none"
+    }
+  },
+  "xal": {
+    "name": "Kalmyk",
+    "nativeName": "Хальмг",
+    "group": "mongolic",
+    "speakers": 0.15,
+    "sampleUrl": "https://youtu.be/LWGlGZgjpkk?si=hxCbPRt_NwMHoVeo&t=18",
+    "sr": "jene, namrar, mečerloos, er haurar ürsarlauže, kirhšċkok, cajlorsm arhørhøm mčr gelüge, o šugen zalusø, cok-top",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 31,
+      "caseCount": 7
+    }
+  },
+  "xho": {
+    "name": "Xhosa",
+    "nativeName": "isiXhosa",
+    "group": "niger-congo-bantu",
+    "speakers": 8,
+    "sampleUrl": "https://youtu.be/6iFSxAlJsSM?si=kKU9iiVe3pUAxvis&t=9",
+    "sr": "koþohano mama uno t'olo horponge? kalléllo lake ko purtesolo vuimilles t'hosa. kumsii tueke, tek leje obobánďele, gyizi kohlem kollu lekue pitúlli",
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 55,
+      "caseSystem": "simple"
+    }
+  },
+  "yid": {
+    "name": "Yiddish",
+    "nativeName": "ייִדיש",
+    "group": "germanic-west",
+    "speakers": 2,
+    "sampleUrl": "https://youtu.be/rUtH8MGuFXw?si=4XSoGnxAnnaWrnKJ&t=390",
+    "sr": "Er kompozir de všemvaje lideh, oparo ohet niš klopingta vi met welehe fohmat firdere sa viber fa de ojlend",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 22,
+      "caseCount": 4
+    }
+  },
+  "yor": {
+    "name": "Yoruba",
+    "nativeName": "Yorùbá",
+    "group": "niger-congo",
+    "speakers": 44,
+    "sampleUrl": "https://www.youtube.com/watch?v=jV_1iyMC-zw&t=1214s",
+    "sr": "a, oliki djoanatiaManlo fissia puaLenia, late muKi ulija niNau-U? a tiki nu lendu?",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 25,
+      "caseSystem": "none"
+    }
+  },
+  "yua": {
+    "name": "Yucatec Maya",
+    "nativeName": "Màaya T'àan",
+    "group": "mayan",
+    "speakers": 0.8,
+    "sampleUrl": "https://youtu.be/z8eTwjQCCuA?si=T-wkN89rnNpkAOvM&t=58",
+    "sr": "džs majnuo bøšićuou kobuel telega binenega pimuaituei teninvuohe maija",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "flexible",
+      "phonemeCount": 25,
+      "caseSystem": "simple"
+    }
+  },
+  "yue": {
+    "name": "Cantonese",
+    "nativeName": "粵語",
+    "group": "sino-tibetan-sinitic",
+    "speakers": 84,
+    "sampleUrl": "https://www.youtube.com/watch?v=1PPgx7LGo4s&t=655s",
+    "sr": "hau dzalu tonquaa donu hallou, o dzeloi gaua launjizima hounczou gouzoumjuje malamju donuarivanjule",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 20,
+      "caseSystem": "none"
+    }
+  },
+  "zha": {
+    "name": "Zhuang",
+    "nativeName": "Vahcuengh",
+    "group": "kra-dai",
+    "speakers": 18,
+    "sampleUrl": "https://youtu.be/qM0_3b1yQSg?si=SQKcJK7UoE-HYvby&t=9",
+    "sr": "dzelome, demedzelem, tunúnnâu, digome dzelúnǎu, dilimenja, gibo bjadon gjam, inigdon, pinliu",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 41,
+      "caseCount": 0
+    }
+  },
+  "zhx": {
+    "name": "Yue Chinese",
+    "altName": "Taishanese",
+    "nativeName": "台山話",
+    "group": "sino-tibetan-sinitic",
+    "speakers": 0.5,
+    "sampleUrl": "https://www.youtube.com/watch?v=45C7-nLT5Dg&t=112s",
+    "sr": "nei hom hoji fon naiflong meiji penfliangaa",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "rigid",
+      "phonemeCount": 36,
+      "caseCount": 0
+    }
+  },
+  "zul": {
+    "name": "Zulu",
+    "nativeName": "isiZulu",
+    "group": "niger-congo-bantu",
+    "speakers": 12,
+    "sampleUrl": "https://www.youtube.com/watch?v=x_KB_0kRfNQ&t=3448s",
+    "sr": "monguas tandingua ďas baluna banja bantu, uzoba fundelania bantuana, obouzuba fundela pelingua ďasbalouena, o mena mena mena mena mjonegomnem nangede",
+    "typology": {
+      "tonality": "simple-tonal",
+      "morphology": "agglutinative",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 38,
+      "caseSystem": "simple"
+    }
+  },
+  "jam": {
+    "name": "Jamaican Creole",
+    "nativeName": "Patwa",
+    "group": "english-creole",
+    "speakers": 3,
+    "sampleUrl": "https://youtu.be/MUgIZwZe65o?si=QNBAXcAbH6aINmSa&t=282",
+    "sr": "abetse, nemno nuo sao dompling",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 30,
+      "caseSystem": "none"
+    }
+  },
+  "tpi": {
+    "name": "Tok Pisin",
+    "nativeName": "Tok Pisin",
+    "group": "english-creole",
+    "speakers": 4,
+    "sampleUrl": "https://youtu.be/ccL15j22AOQ?si=lVBpK0qdagcpNS68&t=185",
+    "sr": "o? ama amini o amas pela brada, na amas pela susa",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 17,
+      "caseSystem": "none"
+    }
+  },
+  "pcm": {
+    "name": "Nigerian Pidgin",
+    "nativeName": "Naija",
+    "group": "english-creole",
+    "speakers": 75,
+    "sampleUrl": "https://youtu.be/CTXGerFrqKM?si=qdNR4xt2TXYrRWGZ&t=712",
+    "sr": "daš mi moni nau, kom daš, jea kom kom kom daš mi, moni, i mins komaan gimi moni fri of čardž, džos gimi mon, džos cip mi, daš mi moni nau, oo, aj lajk dis jo topoo, jo go daš mi?",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 26,
+      "caseSystem": "none"
+    }
+  },
+  "bis": {
+    "name": "Bislama",
+    "nativeName": "Bislama",
+    "group": "english-creole",
+    "speakers": 0.2,
+    "sampleUrl": "https://youtu.be/-NrSATT7Y7M?si=bAQ1Wu5Vc-8iJ3Iu&t=33",
+    "sr": "naháet toh uot krange... i kušui tnomoi si ueo, uot krangemoord, liee di lagen plo - uot krange",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 18,
+      "caseSystem": "none"
+    }
+  },
+  "srn": {
+    "name": "Sranan Tongo",
+    "nativeName": "Sranantongo",
+    "group": "english-creole",
+    "speakers": 0.5,
+    "sampleUrl": "https://youtu.be/bnHvb_9_zFA?si=j9Av00tLCYkFKHD6&t=1201",
+    "sr": "ina samsana ućuća uaseti, oki, teda mav stret mi ďo pikunu! teda mav, teda mav ftre mi ďo pikunu, to uno tak tak digi-jan-jan-jan-ja-nog-ja-non-ja-nja-njo, kop konorop konoro let abujare",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 24,
+      "caseSystem": "none"
+    }
+  },
+  "hat": {
+    "name": "Haitian Creole",
+    "nativeName": "Kreyòl Ayisyen",
+    "group": "french-creole",
+    "speakers": 12,
+    "sampleUrl": "https://youtu.be/xpD9GeclZPc?si=0NMwZhLLjSRaveXt&t=150",
+    "sr": "la nuge, e šalot mue ra še, ef ui mue genje zonjola mueráše an žulijen",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 32,
+      "caseSystem": "none"
+    }
+  },
+  "mfe": {
+    "name": "Mauritian Creole",
+    "nativeName": "Kreol Morisien",
+    "group": "french-creole",
+    "speakers": 1.2,
+    "sampleUrl": "https://youtu.be/uoQCM3qyz78?si=GTFNAe2YVuYi51MQ&t=196",
+    "sr": "i no ankoo? pam lezet omonim? kiśje mo? to ko ni",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 28,
+      "caseSystem": "none"
+    }
+  },
+  "crs": {
+    "name": "Seychellois Creole",
+    "nativeName": "Kreol Seselwa",
+    "group": "french-creole",
+    "speakers": 0.073,
+    "sampleUrl": "https://youtu.be/R983dDrWSjw?si=MtxUtxeAz0UyhkB_&t=340",
+    "sr": "ee, le uadapei, cifeer, dzi tuďimon, ki lepoďimon i rakonzedmo liskili, ja don longanciso focinon gans",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 27,
+      "caseSystem": "none"
+    }
+  },
+  "rcf": {
+    "name": "Réunion Creole",
+    "nativeName": "Kréol Rénioné",
+    "group": "french-creole",
+    "speakers": 0.56,
+    "sampleUrl": "https://youtu.be/-yQ3E7Ygigs?si=6kb_vmb_DaCOM7LA&t=773",
+    "sr": "are gj źa bjoj źidja bjojd bol, etj izolí. kga kga bja ďi bju, vad izolí? ansjuit, bjod, njbajdijah, fton thek mon",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 29,
+      "caseSystem": "none"
+    }
+  },
+  "gcr": {
+    "name": "Guadeloupean Creole",
+    "nativeName": "Kréyòl Gwadloup",
+    "group": "french-creole",
+    "speakers": 0.4,
+    "sampleUrl": "https://youtu.be/9CKPkN3y91I?si=HeYv_4LMpvsJmMi-&t=541",
+    "sr": "ame mi žan ke, se je fin makaton. ze fini, ojuga di fituur, adoo fhaz ki pani vebe d'histonsieel",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 28,
+      "caseSystem": "none"
+    }
+  },
+  "acf": {
+    "name": "Saint Lucian Creole",
+    "nativeName": "Kwéyòl",
+    "group": "french-creole",
+    "speakers": 0.16,
+    "sampleUrl": "https://youtu.be/VT5mPpelt-4?si=moZlIT3tpUQx1kSr&t=313",
+    "sr": "ksimunipoo, kote žu neon, ifi, k-ce bajza, upasamem, c-heagaja nine",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 28,
+      "caseSystem": "none"
+    }
+  },
+  "kea": {
+    "name": "Kabuverdianu",
+    "nativeName": "Kriolu",
+    "group": "portuguese-creole",
+    "speakers": 0.87,
+    "sampleUrl": "https://youtu.be/hiYG0AoI2CQ?si=GAWXpGAlWgJxyN7c&t=142",
+    "sr": "e subina un kavalu na madiera, ez brinka na reje, i ez brinka ku bisikleta na madiera",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 26,
+      "caseSystem": "none"
+    }
+  },
+  "pap": {
+    "name": "Papiamento",
+    "nativeName": "Papiamentu",
+    "group": "portuguese-creole",
+    "speakers": 0.34,
+    "sampleUrl": "https://youtu.be/xkYoxXr6HVg?si=DiQ4Mk-W8YtIvrta&t=69",
+    "sr": "ningu hende no po bisa: e awa aki mi no ta bebe",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 25,
+      "caseSystem": "none"
+    }
+  },
+  "cri": {
+    "name": "Sãotomense",
+    "nativeName": "Forro",
+    "group": "portuguese-creole",
+    "speakers": 0.07,
+    "sampleUrl": "https://youtu.be/iMXl-GQhprc?si=hotfc8oDCqCZmqN0&t=164",
+    "sr": "noš temsu maj luzon lingvištika tunš leva, apei sar k toordu sartu mees fala tan tubíš",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 26,
+      "caseSystem": "none"
+    }
+  },
+
+  "cbk": {
+    "name": "Chavacano",
+    "nativeName": "Chavacano",
+    "group": "spanish-creole",
+    "speakers": 2.5,
+    "sampleUrl": "https://youtu.be/xgKKyDll20U?si=_AALdmp3hTPaED-w&t=58",
+    "sr": "kuando pa jo ćikito, sabija jo ćabakano, polki mi tata i nana kunmigo ja insinja",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 21,
+      "caseSystem": "none"
+    }
+  },
+  "pln": {
+    "name": "Palenquero",
+    "nativeName": "Lengua",
+    "group": "spanish-creole",
+    "speakers": 0.0025,
+    "sampleUrl": "https://youtu.be/7kwxnJeADj8?si=rvL_g2AR5H0zFJ28&t=198",
+    "sr": "uedeneze kaki kolaua, keke aki kolaua neke keka dja ki kola",
+    "typology": {
+      "tonality": "complex-tonal",
+      "morphology": "isolating",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 23,
+      "caseSystem": "none"
+    }
+  },
+  "sco": {
+    "name": "Scots",
+    "nativeName": "Scots",
+    "group": "germanic-west",
+    "speakers": 1.5,
+    "sampleUrl": "https://youtu.be/sNhUL4SrcRg?si=a6lesioCIYtU2eWz&t=12",
+    "sr": "mebi je lent e skjuul de dis wos sleng ed wosnie aproprie, en mebi ju dine kene spelo wods, en je senli wudn uze in rijtn, bu hu no? skots es e lid, ez gjed ez oni adar",
+    "typology": {
+      "tonality": "non-tonal",
+      "morphology": "fusional",
+      "wordOrderFlexibility": "semi-flexible",
+      "phonemeCount": 40,
+      "caseSystem": "none"
+    }
+  }
+}

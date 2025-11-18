@@ -1,0 +1,28 @@
+/* Tab navigation */
+.tab-navigation {
+  display: flex;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--color-interactive);
+}
+
+.tab-button {
+  background-color: transparent;
+  border: 2px solid var(--color-interactive);
+  border-bottom: none;
+  margin: 0 0 0 -1px;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  color: var(--color-text);
+  padding: var(--gap) var(--gap-double);
+  cursor: pointer;
+  font-size: var(--font-size-normal);
+  font-family: Roboto, sans-serif;
+  width: auto;
+}
+
+.tab-button:hover {
+  border-color: var(--color-interactive-hover);
+}
+.tab-button.active {
+  border-color: var(--color-interactive-active);
+}

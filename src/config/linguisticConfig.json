@@ -1,0 +1,37 @@
+{
+  "caseSystem": {
+    "none": "It relies on word order and prepositions to express grammatical relationships.",
+    "simple": "It uses morphological marking to indicate basic grammatical relationships.",
+    "moderate": "It uses extensive morphological processes to encode grammatical relationships.",
+    "complex": "It uses complex morphological processes to encode grammatical relationships within words.",
+    "particle-based": "It uses postpositional particles to mark grammatical relationships instead of inflectional cases."
+  },
+  "caseCount": {
+    "0": "It relies on word order and prepositions to express grammatical relationships.",
+    "1-4": "It has {count} grammatical cases for basic syntactic distinctions.",
+    "5-8": "It has {count} grammatical cases, including locative distinctions.",
+    "9-15": "It has {count} grammatical cases with extensive spatial and semantic distinctions.",
+    "16+": "It has {count} grammatical cases with complex agglutinative morphology."
+  },
+  "tonality": {
+    "non-tonal": "It is non-tonal, meaning pitch changes don't affect word meaning.",
+    "simple-tonal": "It is tonal with a simple tone system, where pitch affects word meaning.",
+    "complex-tonal": "It is tonal with a complex tone system, where pitch patterns significantly affect word meaning.",
+    "pitch-accent": "It uses pitch accent, where certain syllables are emphasized with pitch changes."
+  },
+  "morphology": {
+    "isolating": "It is isolating, meaning words typically consist of single morphemes.",
+    "agglutinative": "It is agglutinative, meaning it forms words by adding affixes in sequence.",
+    "fusional": "It is fusional, meaning it combines multiple grammatical meanings in single morphemes.",
+    "polysynthetic": "It is polysynthetic, meaning it can express complex ideas in single words."
+  },
+  "wordOrderFlexibility": {
+    "rigid": "It has rigid word order, with fixed grammatical positions.",
+    "semi-flexible": "It has semi-flexible word order, allowing some variation for emphasis.",
+    "flexible": "It has flexible word order, permitting various arrangements for stylistic purposes.",
+    "very-flexible": "It has very flexible word order, with extensive freedom in word arrangement."
+  },
+  "phonemeCount": {
+    "template": "It has {count} phonemes (distinct sounds)."
+  }
+}

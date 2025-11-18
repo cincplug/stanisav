@@ -1,0 +1,49 @@
+{
+  "name": "langalaxy",
+  "version": "1.0.0",
+  "description": "3D Language Galaxy Visualization",
+  "main": "index.html",
+  "scripts": {
+    "lint": "eslint js/ src/ --ext .js,.jsx",
+    "lint:fix": "eslint js/ src/ --ext .js,.jsx --fix",
+    "build": "vite build",
+    "build:legacy": "node build.js",
+    "build:advanced": "npm run lint && npm run build",
+    "minify": "npm run minify:js && npm run minify:css",
+    "minify:js": "echo 'Using Vite for bundling and minification'",
+    "minify:css": "cleancss -o dist/styles.min.css styles/styles.css",
+    "serve": "http-server . -p 8080 -o",
+    "serve:dist": "http-server dist -p 8080 -o",
+    "dev": "vite",
+    "dev:legacy": "npm run lint:fix && npm run serve",
+    "preview": "vite preview",
+    "clean": "rm -rf dist/*",
+    "mp3": "node scripts/mp3.js"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.15.0",
+    "lil-gui": "^0.19.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "three": "^0.160.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.1.0",
+    "clean-css-cli": "^5.6.2",
+    "eslint": "^8.57.0",
+    "http-server": "^14.1.1",
+    "stylelint": "^14.16.1",
+    "stylelint-config-standard": "^29.0.0",
+    "terser": "^5.19.2",
+    "vite": "^4.5.0"
+  },
+  "keywords": [
+    "languages",
+    "visualization",
+    "threejs",
+    "3d"
+  ],
+  "author": "Luka Činč Stanisavljević",
+  "license": "MIT"
+}

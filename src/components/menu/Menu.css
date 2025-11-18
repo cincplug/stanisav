@@ -1,0 +1,51 @@
+/* Control panel styles */
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: var(--panel-width);
+  height: 100vh;
+  background-color: var(--color-menu-background);
+  border-left: 1px solid var(--color-interactive);
+  padding: var(--gap-double);
+  color: var(--color-text);
+  font-family: Roboto, sans-serif;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.radio-control fieldset {
+  border: 1px solid var(--color-interactive);
+  border-radius: 4px;
+  padding: 8px;
+  margin: 0;
+}
+
+.radio-control legend {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0 4px;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.radio-option input[type="radio"] {
+  margin: 0;
+}
+
+.radio-option span {
+  user-select: none;
+}
