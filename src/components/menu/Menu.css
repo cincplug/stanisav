@@ -49,3 +49,7 @@
 .radio-option span {
   user-select: none;
 }
+
+a {
+  color: #ffdd00;
+}

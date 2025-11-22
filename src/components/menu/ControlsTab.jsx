@@ -34,7 +34,7 @@ const ControlGroup = ({ groupName, state, setState }) => {
   );
 };
 
-const ControlsTab = ({ controlGroups: { state, handlers }, onViewAll }) => {
+const ControlsTab = ({ controlGroups: { state, handlers } }) => {
   const uniqueGroups = Array.from(
     new Set(Object.values(guiConfig).map(({ group }) => group))
   ).filter(Boolean);
@@ -50,9 +50,9 @@ const ControlsTab = ({ controlGroups: { state, handlers }, onViewAll }) => {
         />
       ))}
       <div className="control-item">
-        <button className="view-all-button" onClick={onViewAll}>
-          View All Languages
-        </button>
+        <a className="playlist" href="/gopofajlija.m3u">
+          Get Playlist
+        </a>
       </div>
     </div>
   );
