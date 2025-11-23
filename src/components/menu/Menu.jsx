@@ -37,7 +37,7 @@ function Menu({
     useMenuHandlers(onCameraFocus, sceneReady, data, sceneControls);
 
   const { availableGroups, groupedLanguages, handleGroupSelectChange } =
-    useTabHandlers(data, handleGroupFocus);
+    useTabHandlers(data, handleGroupFocus, handleViewAll);
 
   if (isLoading) {
     return null;

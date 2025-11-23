@@ -4,16 +4,15 @@ import {
   getAvailableGroups
 } from "../utils/groupingUtils";
 
-export const useTabHandlers = (data, handleGroupFocus) => {
+export const useTabHandlers = (data, handleGroupFocus, handleViewAll) => {
   const availableGroups = useMemo(() => getAvailableGroups(data), [data]);
   const groupedLanguages = useMemo(() => getGroupedLanguages(data), [data]);
 
   const handleGroupSelectChange = (e) => {
     const groupKey = e.target.value;
     if (groupKey === "all") {
-      // Handle "all" selection if needed
+      handleViewAll();
     } else {
-      // Focus camera on the selected group
       handleGroupFocus(groupKey);
     }
   };
