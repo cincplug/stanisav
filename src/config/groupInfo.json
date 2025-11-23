@@ -1,267 +1,267 @@
 {
-  "afroasiatic-berber": {
-    "name": "Berber",
+  "Berber": {
+    "family": "Afro-Asiatic",
     "color": "#60e1d8"
   },
-  "afroasiatic-chadic": {
-    "name": "Chadic",
+  "Chadic": {
+    "family": "Afro-Asiatic",
     "color": "#fbd398"
   },
-  "afroasiatic-cushitic": {
-    "name": "Cushitic",
+  "Cushitic": {
+    "family": "Afro-Asiatic",
     "color": "#a3a35c"
   },
-  "albanian": {
-    "name": "Albanian",
+  "Albanian": {
+    "family": "Indo-European",
     "color": "#66d7a2"
   },
-  "algonquian": {
-    "name": "Algonquian",
+  "Algonquian": {
+    "family": "Algonquian",
     "color": "#5c7ce8"
   },
-  "armenian": {
-    "name": "Armenian",
+  "Armenian": {
+    "family": "Indo-European",
     "color": "#ffe2d6"
   },
-  "athabaskan": {
-    "name": "Athabaskan",
+  "Athabaskan": {
+    "family": "Na-Dene",
     "color": "#c88a5a",
     "description": "Athabaskan languages of North America"
   },
-  "austroasiatic-mon-khmer": {
-    "name": "Mon-Khmer",
+  "Mon-Khmer": {
+    "family": "Austroasiatic",
     "color": "#8fffb4"
   },
-  "austroasiatic-munda": {
-    "name": "Munda",
+  "Munda": {
+    "family": "Austroasiatic",
     "color": "#5fc787"
   },
-  "austronesian": {
-    "name": "Austronesian",
+  "Austronesian": {
+    "family": "Austronesian",
     "color": "#5db3ff"
   },
-  "austronesian-malayo-polynesian": {
-    "name": "Malayo-Polynesian",
+  "Malayo-Polynesian": {
+    "family": "Austronesian",
     "color": "#f47c1a"
   },
-  "austronesian-pacific": {
-    "name": "Pacific",
+  "Pacific": {
+    "family": "Austronesian",
     "color": "#4de1ff"
   },
-  "austronesian-philippine": {
-    "name": "Philippine",
+  "Philippine": {
+    "family": "Austronesian",
     "color": "#5c9ee8"
   },
-  "aymaran": {
-    "name": "Aymaran",
+  "Aymaran": {
+    "family": "Aymaran",
     "color": "#b9a899"
   },
-  "baltic": {
-    "name": "Baltic",
+  "Baltic": {
+    "family": "Indo-European",
     "color": "#d88fff"
   },
-  "basque": {
-    "name": "Basque",
+  "Basque": {
+    "family": "Basque",
     "color": "#d3f5cc"
   },
-  "caucasian": {
-    "name": "Caucasian",
+  "Caucasian": {
+    "family": "Caucasian",
     "color": "#a690e8"
   },
-  "celtic": {
-    "name": "Celtic",
+  "Celtic": {
+    "family": "Indo-European",
     "color": "#bb942a"
   },
-  "dravidian-central": {
-    "name": "Central Dravidian",
+  "Central Dravidian": {
+    "family": "Dravidian",
     "color": "#ff8870"
   },
-  "dravidian-south": {
-    "name": "South Dravidian",
+  "South Dravidian": {
+    "family": "Dravidian",
     "color": "#fb6a82"
   },
-  "eskimo-aleut": {
-    "name": "Eskimo-Aleut",
+  "Eskimo-Aleut": {
+    "family": "Eskimo-Aleut",
     "color": "#bfc8f2"
   },
-  "germanic-north": {
-    "name": "North Germanic",
+  "North Germanic": {
+    "family": "Indo-European",
     "color": "#dd7a75"
   },
-  "germanic-west": {
-    "name": "West Germanic",
+  "West Germanic": {
+    "family": "Indo-European",
     "color": "#e878ae"
   },
-  "hellenic": {
-    "name": "Hellenic",
+  "Hellenic": {
+    "family": "Indo-European",
     "color": "#ffe8b3"
   },
-  "hmong-mien": {
-    "name": "Hmong-Mien",
+  "Hmong-Mien": {
+    "family": "Hmong-Mien",
     "color": "#ff88b8"
   },
-  "indo-aryan": {
-    "name": "Indo-Aryan",
+  "Indo-Aryan": {
+    "family": "Indo-European",
     "color": "#ff88b5"
   },
-  "iranian": {
-    "name": "Iranian",
+  "Iranian": {
+    "family": "Indo-European",
     "color": "#d17aff"
   },
-  "iroquoian": {
-    "name": "Iroquoian",
+  "Iroquoian": {
+    "family": "Iroquoian",
     "color": "#5c9ee0"
   },
-  "japonic": {
-    "name": "Japonic",
+  "Japonic": {
+    "family": "Japonic",
     "color": "#e56778"
   },
-  "kartvelian": {
-    "name": "Kartvelian",
+  "Kartvelian": {
+    "family": "Kartvelian",
     "color": "#ddb175"
   },
-  "khoisan": {
-    "name": "Khoisan",
+  "Khoisan": {
+    "family": "Khoisan",
     "color": "#d4c96b"
   },
-  "koreanic": {
-    "name": "Koreanic",
+  "Koreanic": {
+    "family": "Koreanic",
     "color": "#a88de6"
   },
-  "kra-dai": {
-    "name": "Kra-Dai",
+  "Kra-Dai": {
+    "family": "Kra-Dai",
     "color": "#9ad97a"
   },
-  "mayan": {
-    "name": "Mayan",
+  "Mayan": {
+    "family": "Mayan",
     "color": "#c9b887"
   },
-  "mongolic": {
-    "name": "Mongolic",
+  "Mongolic": {
+    "family": "Mongolic",
     "color": "#6dd96f"
   },
-  "niger-congo": {
-    "name": "Niger-Congo",
+  "Niger-Congo": {
+    "family": "Niger-Congo",
     "color": "#e0a085"
   },
-  "niger-congo-atlantic": {
-    "name": "Atlantic",
+  "Atlantic": {
+    "family": "Niger-Congo",
     "color": "#f0a58a"
   },
-  "niger-congo-bantu": {
-    "name": "Bantu",
+  "Bantu": {
+    "family": "Niger-Congo",
     "color": "#c98870"
   },
-  "niger-congo-kwa": {
-    "name": "Kwa",
+  "Kwa": {
+    "family": "Niger-Congo",
     "color": "#ffb694"
   },
-  "niger-congo-mande": {
-    "name": "Mande",
+  "Mande": {
+    "family": "Niger-Congo",
     "color": "#a69487"
   },
-  "nilo-saharan": {
-    "name": "Nilo-Saharan",
+  "Nilo-Saharan": {
+    "family": "Nilo-Saharan",
     "color": "#e8a975"
   },
-  "nilo-saharan-nilotic": {
-    "name": "Nilotic",
+  "Nilotic": {
+    "family": "Nilo-Saharan",
     "color": "#f0de84"
   },
-  "nilo-saharan-nubian": {
-    "name": "Nubian",
+  "Nubian": {
+    "family": "Nilo-Saharan",
     "color": "#d99a6b"
   },
-  "quechuan": {
-    "name": "Quechuan",
+  "Quechuan": {
+    "family": "Quechuan",
     "color": "#f07a5c"
   },
-  "romance": {
-    "name": "Romance",
+  "Romance": {
+    "family": "Indo-European",
     "color": "#9cb931"
   },
-  "romance-sardinian": {
-    "name": "Sardinian",
+  "Sardinian": {
+    "family": "Indo-European",
     "color": "#b3d95c"
   },
-  "semitic": {
-    "name": "Semitic",
+  "Semitic": {
+    "family": "Afro-Asiatic",
     "color": "#a2a97d"
   },
-  "sino-tibetan-sinitic": {
-    "name": "Sinitic",
+  "Sinitic": {
+    "family": "Sino-Tibetan",
     "color": "#ff9a57"
   },
-  "slavic-east": {
-    "name": "East Slavic",
+  "East Slavic": {
+    "family": "Indo-European",
     "color": "#7e9cf7"
   },
-  "slavic-south": {
-    "name": "South Slavic",
+  "South Slavic": {
+    "family": "Indo-European",
     "color": "#5cabff"
   },
-  "slavic-west": {
-    "name": "West Slavic",
+  "West Slavic": {
+    "family": "Indo-European",
     "color": "#5cd1ff"
   },
-  "tibeto-burman-karen": {
-    "name": "Karen",
+  "Karen": {
+    "family": "Sino-Tibetan",
     "color": "#a8ca44"
   },
-  "tibeto-burman-other": {
-    "name": "Other Tibeto-Burman",
+  "Other Tibeto-Burman": {
+    "family": "Sino-Tibetan",
     "color": "#31d38d"
   },
-  "tibeto-burman-tibetan": {
-    "name": "Tibetan",
+  "Tibetan": {
+    "family": "Sino-Tibetan",
     "color": "#fff833"
   },
-  "tupian": {
-    "name": "Tupian",
+  "Tupian": {
+    "family": "Tupian",
     "color": "#e09a7d"
   },
-  "turkic-karluk": {
-    "name": "Karluk Turkic",
+  "Karluk Turkic": {
+    "family": "Turkic",
     "color": "#f7a6d1"
   },
-  "turkic-kipchak": {
-    "name": "Kipchak Turkic",
+  "Kipchak Turkic": {
+    "family": "Turkic",
     "color": "#f269a4"
   },
-  "turkic-oghuz": {
-    "name": "Oghuz Turkic",
+  "Oghuz Turkic": {
+    "family": "Turkic",
     "color": "#8cd97d"
   },
-  "turkic-siberian": {
-    "name": "Siberian Turkic",
+  "Siberian Turkic": {
+    "family": "Turkic",
     "color": "#e68aa8"
   },
-  "uralic-finnic": {
-    "name": "Finnic",
+  "Finnic": {
+    "family": "Uralic",
     "color": "#e8b82e"
   },
-  "uralic-ugric": {
-    "name": "Ugric",
+  "Ugric": {
+    "family": "Uralic",
     "color": "#7ab347"
   },
-  "uto-aztecan": {
-    "name": "Uto-Aztecan",
+  "Uto-Aztecan": {
+    "family": "Uto-Aztecan",
     "color": "#d9a66b"
   },
-  "english-creole": {
-    "name": "English Creole",
+  "English Creole": {
+    "family": "Creole",
     "color": "#e6645e"
   },
-  "french-creole": {
-    "name": "French Creole",
+  "French Creole": {
+    "family": "Creole",
     "color": "#00aa99"
   },
-  "portuguese-creole": {
-    "name": "Portuguese Creole",
+  "Portuguese Creole": {
+    "family": "Creole",
     "color": "#d0bf06"
   },
-  "spanish-creole": {
-    "name": "Spanish Creole",
+  "Spanish Creole": {
+    "family": "Creole",
     "color": "#66bb00"
   }
 }

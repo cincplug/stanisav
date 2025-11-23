@@ -38,7 +38,7 @@ function LanguagesTab({
         >
           <option value="all">All Groups</option>
           {availableGroups.map((group) => (
-            <option key={group.key} value={group.key}>
+            <option key={group.name} value={group.name}>
               {group.name}
             </option>
           ))}
@@ -46,21 +46,21 @@ function LanguagesTab({
       </div>
 
       <div className="languages-list">
-        {Object.entries(groupedLanguages).map(([groupKey, group]) => (
-          <div key={groupKey} className="language-group-container">
+        {Object.entries(groupedLanguages).map(([groupName, group]) => (
+          <div key={groupName} className="language-group-container">
             <button
               className={`group-header-button ${
-                selectedGroup === groupKey ? "selected" : ""
+                selectedGroup === groupName ? "selected" : ""
               }`}
-              onClick={() => onGroupFocus(groupKey)}
+              onClick={() => onGroupFocus(groupName)}
             >
-              {group.info.name} Group ({group.languages.length})
+              {groupName} ({group.languages.length})
             </button>
             <input
               type="color"
-              value={groupColors?.[groupKey] || group.info.color}
+              value={groupColors?.[groupName] || group.info.color}
               onChange={(e) => {
-                setGroupColor(groupKey, e.target.value);
+                setGroupColor(groupName, e.target.value);
               }}
               title="Pick group color"
             />

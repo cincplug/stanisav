@@ -9,17 +9,17 @@ export const getGroupedLanguages = (data) => {
   const groups = {};
   const visibleGroups = new Set(Object.values(data.languageGroups));
 
-  groupOrder.forEach((groupKey) => {
-    if (visibleGroups.has(groupKey) && data.groupInfo[groupKey]) {
+  groupOrder.forEach((groupName) => {
+    if (visibleGroups.has(groupName) && data.groupInfo[groupName]) {
       const groupLanguages = Object.keys(data.languageGroups)
-        .filter((code) => data.languageGroups[code] === groupKey)
+        .filter((code) => data.languageGroups[code] === groupName)
         .sort((a, b) =>
           data.languageData[a].name.localeCompare(data.languageData[b].name)
         );
 
       if (groupLanguages.length > 0) {
-        groups[groupKey] = {
-          info: data.groupInfo[groupKey],
+        groups[groupName] = {
+          info: data.groupInfo[groupName],
           languages: groupLanguages
         };
       }
@@ -35,9 +35,9 @@ export const getAvailableGroups = (data) => {
     return [];
   }
   return Object.keys(data.groupInfo)
-    .map((key) => ({
-      key,
-      name: data.groupInfo[key].name
+    .map((name) => ({
+      name,
+      displayName: data.groupInfo[name].family || name
     }))
     .sort((a, b) => a.name.localeCompare(b.name));
 };
@@ -67,21 +67,15 @@ export const formatLanguageList = (items) => {
  */
 export const getGroupInfo = (languageCode) => {
   const languageInfo = languages[languageCode];
-  const groupKey = languageInfo?.group;
-  if (!groupKey) return null;
+  const groupName = languageInfo?.group;
+  if (!groupName) return null;
 
   // Find all languages in the same group
   const languagesInGroup = Object.entries(languages)
-    .filter(([code, info]) => info.group === groupKey && code !== languageCode)
+    .filter(([code, info]) => info.group === groupName && code !== languageCode)
     .map(([_code, info]) => info.name)
     .filter(Boolean)
     .sort();
-
-  // Convert group key to readable name
-  const groupName = groupKey
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
 
   return {
     groupName,

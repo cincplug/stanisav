@@ -40,7 +40,11 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
       return [];
     }
     const results = filterLanguagesByFeatures(data, filteringUtils);
-    return results;
+    // Map group names from language data to results
+    return results.map((result) => ({
+      ...result,
+      groupName: data?.languageData?.[result.code]?.group || "Unknown"
+    }));
   }, [data, filteringUtils]);
 
   return (

@@ -8,7 +8,8 @@ function SearchResults({
   searchTerm,
   searchResults,
   selectedLanguage,
-  onLanguageFocus
+  onLanguageFocus,
+  languageData
 }) {
   const threshold = tabsConfig.searchLengthThreshold;
 
@@ -30,21 +31,24 @@ function SearchResults({
           Search Results ({searchResults.languages.length})
         </legend>
         <div className="language-grid">
-          {searchResults.languages.map((lang) => (
-            <button
-              key={lang.code}
-              className={`language-button-grid ${
-                selectedLanguage === lang.code ? "selected" : ""
-              }`}
-              onClick={() => onLanguageFocus(lang.code)}
-              title={`${lang.name} (${lang.groupName})`}
-            >
-              <div className="language-name">
-                <div>{lang.name}</div>
-                <small>{lang.nativeName}</small>
-              </div>
-            </button>
-          ))}
+          {searchResults.languages.map((lang) => {
+            const groupName = languageData?.[lang.code]?.group || "Unknown";
+            return (
+              <button
+                key={lang.code}
+                className={`language-button-grid ${
+                  selectedLanguage === lang.code ? "selected" : ""
+                }`}
+                onClick={() => onLanguageFocus(lang.code)}
+                title={`${lang.name} (${groupName})`}
+              >
+                <div className="language-name">
+                  <div>{lang.name}</div>
+                  <small>{lang.nativeName}</small>
+                </div>
+              </button>
+            );
+          })}
         </div>
       </fieldset>
     );
@@ -67,7 +71,8 @@ function SearchTab({
   searchResults,
   clearSearch,
   selectedLanguage,
-  onLanguageFocus
+  onLanguageFocus,
+  languageData
 }) {
   const searchInputRef = useRef(null);
   const lastAutoSelectedRef = useRef(null);
@@ -108,6 +113,7 @@ function SearchTab({
       searchInputRef.current.focus();
     }
   };
+
   return (
     <div className="control-section">
       {/* Search Input */}
@@ -139,6 +145,7 @@ function SearchTab({
         searchResults={searchResults}
         selectedLanguage={selectedLanguage}
         onLanguageFocus={onLanguageFocus}
+        languageData={languageData}
       />
     </div>
   );

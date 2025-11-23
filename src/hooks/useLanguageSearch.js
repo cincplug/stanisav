@@ -47,9 +47,9 @@ export function useLanguageSearch(data) {
     const matchingLanguages = Object.keys(data.languageData)
       .map((code) => {
         const language = data.languageData[code];
+        const groupName = language.group;
         const groupMatch =
-          selectedGroup === "all" ||
-          data.languageGroups[code] === selectedGroup;
+          selectedGroup === "all" || groupName === selectedGroup;
 
         if (!groupMatch) {
           return null;
@@ -82,9 +82,7 @@ export function useLanguageSearch(data) {
           code,
           name: language.name,
           nativeName: language.nativeName,
-          group: data.languageGroups[code],
-          groupName:
-            data.groupInfo[data.languageGroups[code]]?.name || "Unknown",
+          groupName,
           score: bestScore,
           matchedIn: nameScore >= nativeNameScore ? "name" : "nativeName"
         };
@@ -94,14 +92,13 @@ export function useLanguageSearch(data) {
 
     // Search in group names
     const matchingGroups = Object.keys(data.groupInfo)
-      .filter((groupKey) => {
-        const groupName = data.groupInfo[groupKey].name.toLowerCase();
-        return groupName.includes(term);
+      .filter((groupName) => {
+        const groupDisplayName = groupName.toLowerCase();
+        return groupDisplayName.includes(term);
       })
-      .map((groupKey) => ({
-        key: groupKey,
-        name: data.groupInfo[groupKey].name,
-        score: calculateRelevanceScore(data.groupInfo[groupKey].name, term)
+      .map((groupName) => ({
+        name: groupName,
+        score: calculateRelevanceScore(groupName, term)
       }))
       .sort((a, b) => b.score - a.score);
 
