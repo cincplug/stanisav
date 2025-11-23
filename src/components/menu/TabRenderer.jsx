@@ -59,6 +59,7 @@ function TabRenderer({
           languageData={languageData}
           availableGroups={availableGroups}
           onGroupSelectChange={handleGroupSelectChange}
+          isActive={activeTab === "languages"}
         />
       )}
 

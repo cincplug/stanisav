@@ -1,4 +1,5 @@
 import "./LanguagesTab.css";
+import { useEffect, useRef } from "react";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 
 function LanguagesTab({
@@ -9,9 +10,20 @@ function LanguagesTab({
   onLanguageFocus,
   languageData,
   availableGroups,
-  onGroupSelectChange
+  onGroupSelectChange,
+  isActive
 }) {
   const { groupColors, setGroupColor } = useLanguageSelection();
+  const buttonRefs = useRef({});
+
+  useEffect(() => {
+    if (isActive && selectedLanguage && buttonRefs.current[selectedLanguage]) {
+      buttonRefs.current[selectedLanguage].scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    }
+  }, [selectedLanguage, isActive]);
 
   return (
     <div className="control-section">
@@ -57,6 +69,7 @@ function LanguagesTab({
               {group.languages.map((langCode) => (
                 <button
                   key={langCode}
+                  ref={(el) => (buttonRefs.current[langCode] = el)}
                   className={`
                     language-item-button ${
                       selectedLanguage === langCode ? "selected" : ""
