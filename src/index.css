@@ -279,6 +279,13 @@ button {
   height: 24px;
 }
 
+.play-all {
+  position: absolute;
+  bottom: var(--gap);
+  left: var(--gap);
+  width: auto;
+}
+
 /* Search input focus styles - browser default focus is used */
 
 /* Control panel header */

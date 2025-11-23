@@ -76,6 +76,7 @@ export const LanguageSelectionProvider = ({ children }) => {
 
         setCurrentAudioElement(audio);
         await audio.play();
+        return audio;
       } catch (error) {
         console.error("Error playing language audio:", error);
         setIsPlayingAudio(false);

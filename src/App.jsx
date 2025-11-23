@@ -5,6 +5,7 @@ import LoadingOverlay from "./components/menu/LoadingOverlay";
 import InfoPanel from "./components/info/InfoPanel";
 import { useAppState } from "./hooks/useAppState";
 import VideoEmbed from "./components/menu/VideoEmbed";
+import { usePlaylist } from "./hooks/usePlaylist";
 
 function App() {
   const {
@@ -38,6 +39,17 @@ function App() {
     handleCameraFocus,
     handleLanguageClick
   } = useAppState();
+
+  const {
+    isPlaying: isPlaylistPlaying,
+    startPlaylist,
+    stopPlaylist
+  } = usePlaylist({
+    data,
+    sceneReady,
+    sceneControls,
+    handleCameraFocus
+  });
 
   const [isVideoOn, setIsVideoOn] = useState(true);
   const { showsVideoPreviews } = sceneControls;
@@ -111,8 +123,15 @@ function App() {
         <LoadingOverlay isLoading={isLoading} />
       )}
 
-      {showsVideoPreviews && sampleUrl && isVideoOn && (
+      {showsVideoPreviews && sampleUrl && isVideoOn ? (
         <VideoEmbed url={sampleUrl} onClose={handleVideoClose} />
+      ) : (
+        <button
+          className="play-all"
+          onClick={isPlaylistPlaying ? stopPlaylist : startPlaylist}
+        >
+          {isPlaylistPlaying ? "Stop" : "Play all"}
+        </button>
       )}
     </div>
   );
