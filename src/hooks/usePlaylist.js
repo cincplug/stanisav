@@ -2,26 +2,19 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { useLanguageSelection } from "../contexts/LanguageSelectionContext";
 import { useLanguageSelectionHandler } from "./useLanguageSelectionHandler";
 
-/**
- * usePlaylist
- * Handles sequential playback of language samples as a playlist.
- * @param {object} params
- *   - data: language data object
- *   - sceneReady: boolean
- *   - sceneControls: object
- *   - handleCameraFocus: function
- *   - showsVideoPreviews: boolean (optional, for UI)
- */
 export function usePlaylist({
   data,
   sceneReady,
   sceneControls,
-  handleCameraFocus
+  handleCameraFocus,
+  selectedLanguage
 }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [playlistSession, setPlaylistSession] = useState(0);
   const playlistRef = useRef([]);
   const audioRef = useRef(null);
+  const lastPlaylistLanguage = useRef(null);
 
   const { playLanguageAudio, stopCurrentAudio } = useLanguageSelection();
   const { selectLanguageWithFocus } = useLanguageSelectionHandler(
@@ -31,7 +24,6 @@ export function usePlaylist({
     sceneControls
   );
 
-  // Build sorted language list (by English name)
   const getSortedLanguageCodes = useCallback(() => {
     if (!data?.languageData) return [];
     return Object.entries(data.languageData)
@@ -41,16 +33,16 @@ export function usePlaylist({
       .map(([code]) => code);
   }, [data]);
 
-  // Start playlist
-  const startPlaylist = useCallback(() => {
+  const startPlaylist = useCallback(async () => {
     const codes = getSortedLanguageCodes();
     if (codes.length === 0) return;
+    await stopCurrentAudio();
     playlistRef.current = codes;
     setCurrentIndex(0);
     setIsPlaying(true);
-  }, [getSortedLanguageCodes]);
+    setPlaylistSession((s) => s + 1);
+  }, [getSortedLanguageCodes, stopCurrentAudio]);
 
-  // Stop playlist
   const stopPlaylist = useCallback(() => {
     setIsPlaying(false);
     setCurrentIndex(0);
@@ -61,12 +53,10 @@ export function usePlaylist({
     }
   }, [stopCurrentAudio]);
 
-  // Handle audio ended event
   const handleAudioEnded = useCallback(() => {
     setCurrentIndex((idx) => idx + 1);
   }, []);
 
-  // Effect: Play current language when playlist is active
   useEffect(() => {
     if (!isPlaying) return;
 
@@ -78,10 +68,12 @@ export function usePlaylist({
     }
 
     const code = codes[currentIndex];
+    lastPlaylistLanguage.current = code;
 
     let cleanup = () => {};
 
     (async () => {
+      await stopCurrentAudio();
       selectLanguageWithFocus(code, false, true);
 
       const audio = await playLanguageAudio(code);
@@ -97,10 +89,18 @@ export function usePlaylist({
     return () => {
       cleanup();
     };
-    // eslint-disable-next-line
-  }, [isPlaying, currentIndex]);
+  }, [isPlaying, currentIndex, playlistSession]);
 
-  // If playlist is stopped externally, clean up
+  useEffect(() => {
+    if (
+      isPlaying &&
+      selectedLanguage &&
+      selectedLanguage !== lastPlaylistLanguage.current
+    ) {
+      stopPlaylist();
+    }
+  }, [selectedLanguage]);
+
   useEffect(() => {
     if (!isPlaying) {
       if (audioRef.current) {

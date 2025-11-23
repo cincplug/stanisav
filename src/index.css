@@ -12,6 +12,7 @@
   --color-interactive-hover: #646464;
   --color-interactive-active: #828282;
   --color-menu-background: #000000dd;
+  --color-video: #ee4422;
   --color-new-item: #6a1b9a;
   --color-new-item-hover: #7b1fa2;
   --color-new-item-active: #9c27b0;
@@ -19,6 +20,7 @@
   --color-todo-item-hover: #ab1f72;
   --color-todo-item-active: #bc2790;
   --border-radius: 6px;
+  --shadow-mild: 0px -1px 1px 0px rgba(0, 0, 0, 0.3);
   --gap: 6px;
   --gap-double: calc(var(--gap) * 2);
 
@@ -281,9 +283,10 @@ button {
 
 .play-all {
   position: absolute;
-  bottom: var(--gap);
-  left: var(--gap);
+  top: var(--gap-double);
+  left: var(--gap-double);
   width: auto;
+  border-radius: var(--border-radius);
 }
 
 /* Search input focus styles - browser default focus is used */

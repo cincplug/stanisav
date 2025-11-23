@@ -1,10 +1,10 @@
 .video-embed-popup {
   position: fixed;
-  left: 24px;
-  bottom: 24px;
+  left: var(--gap-double);
+  bottom: var(--gap-double);
   background: #c8cbce;
   border-radius: 12px;
-  box-shadow: 0px -1px 1px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-mild);
   padding: var(--gap);
   z-index: 1000;
   max-width: 360px;

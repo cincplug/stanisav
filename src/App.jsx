@@ -6,6 +6,7 @@ import InfoPanel from "./components/info/InfoPanel";
 import { useAppState } from "./hooks/useAppState";
 import VideoEmbed from "./components/menu/VideoEmbed";
 import { usePlaylist } from "./hooks/usePlaylist";
+import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
 
 function App() {
   const {
@@ -16,7 +17,6 @@ function App() {
     cameraFocusRequest,
     isMenuCollapsed,
     filteringUtils,
-    selectedLanguage,
     selectedGroup,
     sceneControls,
     colorsControls,
@@ -40,6 +40,8 @@ function App() {
     handleLanguageClick
   } = useAppState();
 
+  const { selectedLanguage } = useLanguageSelection();
+
   const {
     isPlaying: isPlaylistPlaying,
     startPlaylist,
@@ -48,7 +50,8 @@ function App() {
     data,
     sceneReady,
     sceneControls,
-    handleCameraFocus
+    handleCameraFocus,
+    selectedLanguage
   });
 
   const [isVideoOn, setIsVideoOn] = useState(true);
@@ -84,7 +87,6 @@ function App() {
         selectedGroup={selectedGroup}
         onLanguageClick={handleLanguageClick}
       />
-
       {/* Language Info Panel */}
       {!isLoading && sceneReady && (
         <InfoPanel
@@ -98,7 +100,6 @@ function App() {
           data={data}
         />
       )}
-
       {/* React-based Control Panel */}
       {!isLoading && sceneReady ? (
         <Menu
@@ -123,15 +124,15 @@ function App() {
         <LoadingOverlay isLoading={isLoading} />
       )}
 
-      {showsVideoPreviews && sampleUrl && isVideoOn ? (
+      <button
+        className="play-all"
+        onClick={isPlaylistPlaying ? stopPlaylist : startPlaylist}
+      >
+        {isPlaylistPlaying ? "Stop Autoplay" : "Play All"}
+      </button>
+
+      {showsVideoPreviews && sampleUrl && isVideoOn && (
         <VideoEmbed url={sampleUrl} onClose={handleVideoClose} />
-      ) : (
-        <button
-          className="play-all"
-          onClick={isPlaylistPlaying ? stopPlaylist : startPlaylist}
-        >
-          {isPlaylistPlaying ? "Stop" : "Play all"}
-        </button>
       )}
     </div>
   );
