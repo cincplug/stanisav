@@ -27,9 +27,7 @@ export function usePlaylist({
   const getSortedLanguageCodes = useCallback(() => {
     if (!data?.languageData) return [];
     return Object.entries(data.languageData)
-      .sort(([, a], [, b]) =>
-        (a.englishName || "").localeCompare(b.englishName || "")
-      )
+      .sort(([, a], [, b]) => (a.name || "").localeCompare(b.name || ""))
       .map(([code]) => code);
   }, [data]);
 
