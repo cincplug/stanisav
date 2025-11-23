@@ -1,8 +1,10 @@
+import { useState, useMemo } from "react";
 import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
 import LoadingOverlay from "./components/menu/LoadingOverlay";
 import InfoPanel from "./components/info/InfoPanel";
 import { useAppState } from "./hooks/useAppState";
+import VideoEmbed from "./components/menu/VideoEmbed";
 
 function App() {
   const {
@@ -36,6 +38,14 @@ function App() {
     handleCameraFocus,
     handleLanguageClick
   } = useAppState();
+
+  const [showVideo, setShowVideo] = useState(true);
+  const { hasVideoPreview } = sceneControls;
+
+  const sampleUrl = useMemo(() => {
+    if (!data?.languageData || !selectedLanguage) return null;
+    return data.languageData[selectedLanguage]?.sampleUrl || null;
+  }, [data, selectedLanguage]);
 
   return (
     <div className={`app-container ${isLoading ? "loading" : ""}`}>
@@ -91,6 +101,10 @@ function App() {
         />
       ) : (
         <LoadingOverlay isLoading={isLoading} />
+      )}
+
+      {hasVideoPreview && sampleUrl && showVideo && (
+        <VideoEmbed url={sampleUrl} onClose={() => setShowVideo(false)} />
       )}
     </div>
   );

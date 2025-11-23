@@ -257,8 +257,8 @@ button {
 /* Shared close button styles */
 .close-button {
   position: absolute;
-  top: 0.5rem;
-  right: 1rem;
+  top: var(--gap);
+  right: var(--gap);
   z-index: 1111;
   background-color: transparent;
   border: none;
@@ -271,7 +271,6 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(5px);
   width: auto;
 }
 

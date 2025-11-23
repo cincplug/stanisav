@@ -84,6 +84,13 @@
     "isUserEditable": true,
     "group": "Scene"
   },
+  "hasVideoPreview": {
+    "type": "checkbox",
+    "label": "Preview original",
+    "defaultValue": true,
+    "isUserEditable": true,
+    "group": "Scene"
+  },
   "backgroundColor": {
     "type": "color",
     "label": "Background",
