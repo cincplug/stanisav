@@ -54,7 +54,7 @@ function LanguagesTab({
               }`}
               onClick={() => onGroupFocus(groupName)}
             >
-              {groupName} ({group.languages.length})
+              {groupName}
             </button>
             <input
               type="color"
@@ -70,10 +70,10 @@ function LanguagesTab({
                 <button
                   key={langCode}
                   ref={(el) => (buttonRefs.current[langCode] = el)}
-                  className={`
-                    language-item-button ${
-                      selectedLanguage === langCode ? "selected" : ""
-                    } ${!languageData[langCode]?.sr ? "todo-item" : ""}`}
+                  style={{ background: groupColors?.[groupName] }}
+                  className={`language-item-button ${
+                    selectedLanguage === langCode ? "selected" : ""
+                  } ${!languageData[langCode]?.sr ? "todo-item" : ""}`}
                   onClick={() => onLanguageFocus(langCode)}
                 >
                   {languageData[langCode]?.name || langCode}

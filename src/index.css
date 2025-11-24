@@ -1,14 +1,16 @@
 :root {
+  --font-size-big: 1rem;
   --font-size-normal: 0.8rem;
   --font-size-small: 0.7rem;
 
   /* Semantic colors */
   --color-text: #eeeeee;
+  --color-text-dark: #000000;
   --color-text-active: #ffffff;
   --color-interactive: #454545;
   --color-interactive-hover: #646464;
   --color-interactive-active: #828282;
-  --color-menu-background: #000000dd;
+  --color-menu-background: #222222;
   --color-video: #ee4422;
   --color-new-item: #6a1b9a;
   --color-new-item-hover: #7b1fa2;
@@ -20,6 +22,8 @@
   --shadow-mild: 0px -1px 1px 0px rgba(0, 0, 0, 0.3);
   --gap: 6px;
   --gap-double: calc(var(--gap) * 2);
+  --gap-half: calc(var(--gap) / 2);
+  --gap-reduced: calc(var(--gap) / 3 * 2);
 
   /* Layout */
   --panel-width: 375px;

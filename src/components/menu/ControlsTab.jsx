@@ -50,7 +50,7 @@ const ControlsTab = ({ controlGroups: { state, handlers } }) => {
         />
       ))}
       <div className="control-item">
-        <a className="playlist" href="/gopofajlija.m3u">
+        <a className="get-playlist" href="/gopofajlija.m3u">
           Get Playlist
         </a>
       </div>

@@ -53,3 +53,9 @@
 a {
   color: #ffdd00;
 }
+
+.get-playlist {
+  position: absolute;
+  bottom: var(--gap-double);
+  right: var(--gap-double);
+}
