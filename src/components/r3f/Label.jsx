@@ -17,6 +17,16 @@ const Label = ({ children, position, fontSize, backgroundColor }) => {
     }
   });
 
+  // // 👇 Inspect the font being used at runtime
+  // useEffect(() => {
+  //   if (labelRef.current) {
+  //     console.log(
+  //       "Resolved font:",
+  //       labelRef.current.font || "sans-serif (system default)"
+  //     );
+  //   }
+  // }, []);
+
   return (
     <Text
       position={position}
@@ -28,12 +38,8 @@ const Label = ({ children, position, fontSize, backgroundColor }) => {
       anchorY="middle"
       outlineWidth={fontSize * labelPadding}
       outlineColor={isHovered ? "yellow" : backgroundColor}
-      onPointerOver={() => {
-        setIsHovered(true);
-      }}
-      onPointerOut={() => {
-        setIsHovered(false);
-      }}
+      onPointerOver={() => setIsHovered(true)}
+      onPointerOut={() => setIsHovered(false)}
     >
       {children}
     </Text>

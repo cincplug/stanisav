@@ -25,7 +25,6 @@
   border-radius: var(--border-radius);
   cursor: pointer;
   font-size: var(--font-size-big);
-  font-family: sans-serif;
   text-align: left;
 
   &.selected,

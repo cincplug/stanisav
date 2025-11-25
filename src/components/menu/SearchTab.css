@@ -14,7 +14,6 @@
   color: var(--color-text);
   border-radius: var(--border-radius);
   font-size: var(--font-size-normal);
-  font-family: sans-serif;
   font-weight: normal;
   box-sizing: border-box;
 }
@@ -26,9 +25,6 @@
   border: 1px solid var(--color-interactive);
   color: var(--color-text);
   border-radius: var(--border-radius);
-  font-size: var(--font-size-normal);
-  font-family: sans-serif;
-  font-weight: normal;
   box-sizing: border-box;
 }
 
@@ -92,7 +88,6 @@
   border-radius: var(--border-radius);
   cursor: pointer;
   font-size: var(--font-size-normal);
-  font-family: sans-serif;
   text-align: left;
 }
 
