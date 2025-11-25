@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import * as THREE from "three";
 import { ConvexGeometry } from "three/examples/jsm/geometries/ConvexGeometry";
 
-const Blanket = ({ positions, languages }) => {
+const Blanket = ({ positions, languages, color }) => {
   const createConvexBlanket = (positions, languages) => {
     if (!positions || languages.length < 4) {
       return null;
@@ -35,7 +35,7 @@ const Blanket = ({ positions, languages }) => {
 
   return (
     <mesh geometry={geometry} renderOrder={-1}>
-      <meshBasicMaterial wireframe={true} />
+      <meshBasicMaterial color={color} />
     </mesh>
   );
 };

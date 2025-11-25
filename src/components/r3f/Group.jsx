@@ -1,6 +1,5 @@
 import { useMemo, useRef } from "react";
 import Node from "./Node";
-import Blanket from "./Blanket";
 import { useVisualization } from "../../contexts/VisualizationContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import {
@@ -40,12 +39,6 @@ const Group = ({
 
   return (
     <group ref={groupRef} userData={{ groupKey, groupInfo }}>
-      <Blanket
-        positions={positions}
-        languages={languages}
-        groupInfo={groupInfo}
-        color={groupDefaultColor}
-      />
       {languages
         .map((langCode) => {
           const position = positions[langCode];
