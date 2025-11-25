@@ -284,10 +284,14 @@ button {
 
 .play-all {
   position: absolute;
-  top: var(--gap-double);
+  bottom: var(--gap-double);
   left: var(--gap-double);
   width: auto;
+  font-size: var(--font-size-big);
   border-radius: var(--border-radius);
+  background: var(--color-video);
+  border: none;
+  box-shadow: var(--shadow-mild);
 }
 
 /* Search input focus styles - browser default focus is used */

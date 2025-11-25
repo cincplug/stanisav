@@ -1,22 +1,28 @@
 .video-embed-popup {
+  --video-width: calc(100vmax / 4);
+  --video-aspect-ratio: 16 / 9;
+  --video-height: calc(var(--video-width) / (var(--video-aspect-ratio)));
+
   position: fixed;
   left: var(--gap-double);
-  bottom: var(--gap-double);
+  top: var(--gap-double);
+  width: var(--video-width);
+  aspect-ratio: (var(--video-aspect-ratio));
   background: #c8cbce;
   border-radius: 12px;
   box-shadow: var(--shadow-mild);
   padding: var(--gap);
   z-index: 1000;
-  max-width: 360px;
-  max-height: 220px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  max-width: 100%;
+  resize: both;
+  overflow: hidden;
 }
 
 .video-embed-popup iframe {
-  width: 320px;
-  height: 180px;
+  width: 100%;
+  aspect-ratio: var(--video-aspect-ratio);
   border-radius: 8px;
-  background: #000;
 }
