@@ -3,25 +3,26 @@
   display: flex;
   margin-bottom: 15px;
   border-bottom: 1px solid var(--color-interactive);
-}
 
-.tab-button {
-  background-color: transparent;
-  border: 2px solid var(--color-interactive);
-  border-bottom: none;
-  margin: 0 0 0 -1px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  color: var(--color-text);
-  padding: var(--gap) var(--gap-double);
-  cursor: pointer;
-  font-size: var(--font-size-normal);
-  width: auto;
-  outline: none;
-  &:hover,
-  &:focus-visible,
-  &.active {
-    background-color: var(--color-interactive);
+  button {
+    margin: 0 0 0 -1px;
+    background-color: transparent;
+    border: 2px solid var(--color-interactive-active);
+    border-bottom: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    color: var(--color-text);
+    padding: var(--gap) var(--gap-double);
+    cursor: pointer;
+    font-size: var(--font-size-normal);
+    width: auto;
     outline: none;
+    &:hover,
+    &:focus-visible,
+    &.active {
+      background-color: none;
+      outline: none;
+      border-color: var(--color-highlight);
+    }
   }
 }
