@@ -36,14 +36,27 @@ export function usePlaylist({
     if (codes.length === 0) return;
     await stopCurrentAudio();
     playlistRef.current = codes;
-    setCurrentIndex(0);
     setIsPlaying(true);
     setPlaylistSession((s) => s + 1);
-  }, [getSortedLanguageCodes, stopCurrentAudio]);
+    // Don't reset currentIndex if resuming
+    if (currentIndex >= codes.length || currentIndex < 0) {
+      setCurrentIndex(0);
+    }
+  }, [getSortedLanguageCodes, stopCurrentAudio, currentIndex]);
 
-  const stopPlaylist = useCallback(() => {
+  const pausePlaylist = useCallback(() => {
     setIsPlaying(false);
+    stopCurrentAudio();
+    if (audioRef.current) {
+      audioRef.current.removeEventListener("ended", handleAudioEnded);
+      audioRef.current = null;
+    }
+  }, [stopCurrentAudio]);
+
+  // Optional: reset to beginning
+  const resetPlaylist = useCallback(() => {
     setCurrentIndex(0);
+    setIsPlaying(false);
     stopCurrentAudio();
     if (audioRef.current) {
       audioRef.current.removeEventListener("ended", handleAudioEnded);
@@ -53,6 +66,24 @@ export function usePlaylist({
 
   const handleAudioEnded = useCallback(() => {
     setCurrentIndex((idx) => idx + 1);
+  }, []);
+
+  // Go to previous sample
+  const goToPrev = useCallback(() => {
+    setCurrentIndex((idx) => Math.max(0, idx - 1));
+    setPlaylistSession((s) => s + 1);
+  }, []);
+
+  // Go to next sample
+  const goToNext = useCallback(() => {
+    setCurrentIndex((idx) => Math.min(playlistRef.current.length - 1, idx + 1));
+    setPlaylistSession((s) => s + 1);
+  }, []);
+
+  // Go to beginning
+  const goToBegin = useCallback(() => {
+    setCurrentIndex(0);
+    setPlaylistSession((s) => s + 1);
   }, []);
 
   useEffect(() => {
@@ -95,7 +126,7 @@ export function usePlaylist({
       selectedLanguage &&
       selectedLanguage !== lastPlaylistLanguage.current
     ) {
-      stopPlaylist();
+      pausePlaylist();
     }
   }, [selectedLanguage]);
 
@@ -111,6 +142,12 @@ export function usePlaylist({
   return {
     isPlaying,
     startPlaylist,
-    stopPlaylist
+    pausePlaylist,
+    resetPlaylist,
+    goToPrev,
+    goToNext,
+    goToBegin,
+    currentIndex,
+    playlistLength: playlistRef.current.length
   };
 }

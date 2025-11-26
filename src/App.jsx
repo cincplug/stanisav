@@ -3,8 +3,9 @@ import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
 import LoadingOverlay from "./components/menu/LoadingOverlay";
 import InfoPanel from "./components/info/InfoPanel";
-import { useAppState } from "./hooks/useAppState";
 import VideoEmbed from "./components/menu/VideoEmbed";
+import Playlist from "./components/menu/Playlist";
+import { useAppState } from "./hooks/useAppState";
 import { usePlaylist } from "./hooks/usePlaylist";
 import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
 
@@ -45,7 +46,12 @@ function App() {
   const {
     isPlaying: isPlaylistPlaying,
     startPlaylist,
-    stopPlaylist
+    pausePlaylist,
+    goToPrev,
+    goToNext,
+    goToBegin,
+    currentIndex,
+    playlistLength
   } = usePlaylist({
     data,
     sceneReady,
@@ -124,12 +130,12 @@ function App() {
         <LoadingOverlay isLoading={isLoading} />
       )}
 
-      <button
-        className="play-all"
-        onClick={isPlaylistPlaying ? stopPlaylist : startPlaylist}
-      >
-        {isPlaylistPlaying ? "Stop Autoplay" : "Play All"}
-      </button>
+      <Playlist
+        data={data}
+        sceneReady={sceneReady}
+        sceneControls={sceneControls}
+        handleCameraFocus={handleCameraFocus}
+      />
 
       {showsVideoPreviews && sampleUrl && isVideoOn && (
         <VideoEmbed url={sampleUrl} onClose={handleVideoClose} />
