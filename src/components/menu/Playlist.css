@@ -9,52 +9,54 @@
   background: var(--color-menu-background);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-mild);
-  padding: 8px 16px;
-}
+  padding: var(--gap-double);
 
-.playlist-main {
-  font-size: var(--font-size-big);
-  border-radius: var(--border-radius);
-  background: var(--color-video);
-  border: none;
-  box-shadow: var(--shadow-mild);
-  color: var(--color-text);
-  padding: 8px 16px;
-  cursor: pointer;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  button {
+    background-color: var(--color-interactive);
+    border: 1px solid var(--color-interactive);
+    color: var(--color-text);
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-normal);
+    cursor: pointer;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
 
-.playlist-controls button:not(.playlist-main) {
-  background-color: var(--color-interactive);
-  border: 1px solid var(--color-interactive);
-  color: var(--color-text);
-  padding: 8px 12px;
-  border-radius: var(--border-radius);
-  font-size: var(--font-size-normal);
-  cursor: pointer;
-  font-weight: normal;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
 
-.playlist-controls button.active {
-  background-color: var(--color-video);
-  border-color: var(--color-video);
-  color: var(--color-text-active);
-}
+    &:hover,
+    &.active {
+      background-color: var(--color-video);
+      border-color: var(--color-video);
+      color: var(--color-text-active);
+    }
+  }
 
-.playlist-controls button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
+  .playlist-main {
+    font-size: var(--font-size-big);
+    border-radius: var(--border-radius);
+    background: var(--color-video);
+    border: none;
+    box-shadow: var(--shadow-mild);
+    color: var(--color-text);
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.playlist-progress {
-  min-width: fit-content;
-  text-align: center;
-  color: var(--color-text);
-  font-size: var(--font-size-normal);
+  .playlist-progress {
+    min-width: fit-content;
+    text-align: center;
+    color: var(--color-text);
+    font-size: var(--font-size-normal);
+  }
 }

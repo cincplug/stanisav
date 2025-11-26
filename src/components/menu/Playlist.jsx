@@ -54,28 +54,21 @@ export default function Playlist({
       >
         {playIcon}
       </button>
-      {(isPlaying || !isAtStart) && (
-        <>
-          <button
-            onClick={goToBegin}
-            disabled={atBegin}
-            title="Go to beginning"
-          >
-            <BeginIcon />
-          </button>
-          <button onClick={goToPrev} disabled={atBegin} title="Previous">
-            <PrevIcon />
-          </button>
-          <button onClick={goToNext} disabled={atEnd} title="Next">
-            <NextIcon />
-          </button>
-          <span className="playlist-progress">
-            {playlistLength > 0
-              ? `${currentIndex + 1} / ${playlistLength}`
-              : "0 / 0"}
-          </span>
-        </>
-      )}
+
+      <button onClick={goToBegin} disabled={atBegin} title="Go to beginning">
+        <BeginIcon />
+      </button>
+      <button onClick={goToPrev} disabled={atBegin} title="Previous">
+        <PrevIcon />
+      </button>
+      <button onClick={goToNext} disabled={atEnd} title="Next">
+        <NextIcon />
+      </button>
+      <span className="playlist-progress">
+        {playlistLength > 0
+          ? `${currentIndex + 1} / ${playlistLength}`
+          : "0 / 0"}
+      </span>
     </div>
   );
 }
