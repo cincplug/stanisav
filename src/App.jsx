@@ -6,7 +6,6 @@ import InfoPanel from "./components/info/InfoPanel";
 import VideoEmbed from "./components/menu/VideoEmbed";
 import Playlist from "./components/menu/Playlist";
 import { useAppState } from "./hooks/useAppState";
-import { usePlaylist } from "./hooks/usePlaylist";
 import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
 
 function App() {
@@ -42,23 +41,6 @@ function App() {
   } = useAppState();
 
   const { selectedLanguage } = useLanguageSelection();
-
-  const {
-    isPlaying: isPlaylistPlaying,
-    startPlaylist,
-    pausePlaylist,
-    goToPrev,
-    goToNext,
-    goToBegin,
-    currentIndex,
-    playlistLength
-  } = usePlaylist({
-    data,
-    sceneReady,
-    sceneControls,
-    handleCameraFocus,
-    selectedLanguage
-  });
 
   const [isVideoOn, setIsVideoOn] = useState(true);
   const { showsVideoPreviews } = sceneControls;

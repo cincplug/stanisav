@@ -6,6 +6,10 @@
   gap: 8px;
   align-items: center;
   z-index: 10;
+  background: var(--color-menu-background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-mild);
+  padding: 8px 16px;
 }
 
 .playlist-main {
@@ -18,6 +22,9 @@
   padding: 8px 16px;
   cursor: pointer;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .playlist-controls button:not(.playlist-main) {
@@ -29,6 +36,9 @@
   font-size: var(--font-size-normal);
   cursor: pointer;
   font-weight: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .playlist-controls button.active {
@@ -43,9 +53,8 @@
 }
 
 .playlist-progress {
-  min-width: 60px;
+  min-width: fit-content;
   text-align: center;
   color: var(--color-text);
   font-size: var(--font-size-normal);
-  font-weight: bold;
 }

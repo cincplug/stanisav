@@ -1,5 +1,4 @@
 import "./Playlist.css";
-import { useState } from "react";
 import { usePlaylist } from "../../hooks/usePlaylist";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import {
@@ -7,8 +6,7 @@ import {
   PauseIcon,
   BeginIcon,
   PrevIcon,
-  NextIcon,
-  LoopIcon
+  NextIcon
 } from "./MenuIcons";
 
 export default function Playlist({
@@ -17,7 +15,6 @@ export default function Playlist({
   sceneControls,
   handleCameraFocus
 }) {
-  const [loop, setLoop] = useState(false);
   const { selectedLanguage } = useLanguageSelection();
   const {
     isPlaying,
@@ -33,8 +30,7 @@ export default function Playlist({
     sceneReady,
     sceneControls,
     handleCameraFocus,
-    selectedLanguage,
-    loopCurrent: loop
+    selectedLanguage
   });
 
   const atBegin = currentIndex === 0;
@@ -58,14 +54,6 @@ export default function Playlist({
       >
         {playIcon}
       </button>
-      <button
-        onClick={() => setLoop((l) => !l)}
-        className={loop ? "active" : ""}
-        title="Loop current sample"
-        type="button"
-      >
-        <LoopIcon active={loop} />
-      </button>
       {(isPlaying || !isAtStart) && (
         <>
           <button
@@ -78,14 +66,14 @@ export default function Playlist({
           <button onClick={goToPrev} disabled={atBegin} title="Previous">
             <PrevIcon />
           </button>
+          <button onClick={goToNext} disabled={atEnd} title="Next">
+            <NextIcon />
+          </button>
           <span className="playlist-progress">
             {playlistLength > 0
               ? `${currentIndex + 1} / ${playlistLength}`
               : "0 / 0"}
           </span>
-          <button onClick={goToNext} disabled={atEnd} title="Next">
-            <NextIcon />
-          </button>
         </>
       )}
     </div>
