@@ -17,40 +17,20 @@
 }
 
 .language-item-button {
-  width: 100%;
   padding: 4px 8px;
   background-color: var(--color-interactive);
-  border: 1px solid var(--color-interactive);
   color: var(--color-text-dark);
-  border-radius: var(--border-radius);
   cursor: pointer;
   font-size: var(--font-size-big);
   text-align: left;
-
-  &.selected,
-  &:hover {
-    outline: var(--gap-reduced) solid var(--color-interactive-active);
-  }
 }
 
 .todo-item {
   background-color: var(--color-todo-item);
 }
 
-.todo-item:hover {
-  background-color: var(--color-todo-item-hover);
-}
-
-.todo-item.selected {
-  background-color: var(--color-todo-item-active);
-}
-
 .group-header-button {
   background: none;
   border: none;
   padding: 0;
-  &:hover,
-  &.selected {
-    color: var(--color-text-active);
-  }
 }

@@ -33,8 +33,6 @@ export default function Playlist({
     selectedLanguage
   });
 
-  const atBegin = currentIndex === 0;
-  const atEnd = currentIndex >= playlistLength - 1;
   const isAtStart = !isPlaying && currentIndex === 0;
 
   let playLabel = "Resume playlist";
@@ -55,13 +53,13 @@ export default function Playlist({
         {playIcon}
       </button>
 
-      <button onClick={goToBegin} disabled={atBegin} title="Go to beginning">
+      <button onClick={goToBegin} title="Go to beginning">
         <BeginIcon />
       </button>
-      <button onClick={goToPrev} disabled={atBegin} title="Previous">
+      <button onClick={goToPrev} title="Previous">
         <PrevIcon />
       </button>
-      <button onClick={goToNext} disabled={atEnd} title="Next">
+      <button onClick={goToNext} title="Next">
         <NextIcon />
       </button>
       <span className="playlist-progress">

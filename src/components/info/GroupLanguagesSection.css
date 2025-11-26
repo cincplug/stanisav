@@ -14,13 +14,4 @@
   font-weight: bold;
   cursor: pointer;
   text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.group-language-button:hover {
-  color: #ffdd00;
-}
-
-.group-language-button:active {
-  color: #2e6da4;
 }

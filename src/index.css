@@ -8,10 +8,10 @@
   --color-text-dark: #000000;
   --color-text-active: #ffffff;
   --color-interactive: #454545;
-  --color-interactive-hover: #646464;
   --color-interactive-active: #828282;
   --color-menu-background: #222222;
-  --color-video: #ee44aa;
+  --color-highlight: #eecc00;
+  --color-video: #0057b7;
   --color-new-item: #6a1b9a;
   --color-new-item-hover: #7b1fa2;
   --color-new-item-active: #9c27b0;
@@ -20,6 +20,7 @@
   --color-todo-item-active: #bc2790;
   --border-radius: 6px;
   --shadow-mild: 0px -1px 1px 0px rgba(0, 0, 0, 0.3);
+  --outline-width: 3px;
   --gap: 6px;
   --gap-double: calc(var(--gap) * 2);
   --gap-half: calc(var(--gap) / 2);
@@ -55,6 +56,25 @@ body {
   font-family: sans-serif;
 }
 
+button {
+  padding: 8px 16px;
+  background-color: var(--color-interactive);
+  border-radius: var(--border-radius);
+  border: none;
+}
+
+button,
+input,
+select {
+  &:hover,
+  &:focus-visible,
+  &:active,
+  &.active {
+    filter: brightness(1.5) contrast(1.5);
+    outline: var(--outline-width) solid var(--color-highlight);
+  }
+}
+
 /* App container styles */
 .app-container {
   width: 100%;
@@ -71,17 +91,10 @@ body {
   visibility: hidden;
 }
 
-button {
-  padding: 8px 16px;
-  background-color: var(--color-interactive);
-  border: none;
-}
-
 /* React Three Fiber canvas styles */
 .r3f-canvas {
   width: 100%;
   height: 100%;
-  transition: margin-right 0.3s ease, width 0.3s ease;
 }
 
 .r3f-canvas.menu-collapsed {
@@ -219,7 +232,6 @@ input[type="color"] {
 
 button {
   background-color: var(--color-interactive);
-  border: 1px solid var(--color-interactive);
   color: var(--color-text);
   padding: 8px 12px;
   cursor: pointer;
@@ -310,7 +322,6 @@ button {
   border: none;
   margin: 20px 0 0;
   padding: 15px 0 0;
-  border-top: 1px solid var(--color-interactive-hover);
 }
 
 .results-fieldset {
@@ -356,46 +367,8 @@ button {
   cursor: pointer;
   font-size: var(--font-size-normal);
   font-weight: normal;
-  transition: all 0.2s ease;
   position: relative;
   text-transform: capitalize;
-}
-
-.checkbox-button:hover {
-  background-color: var(--color-interactive-hover);
-  border-color: var(--color-interactive-hover);
-}
-
-.checkbox-button:active,
-.checkbox-button.active {
-  background-color: var(--color-interactive-active);
-  border-color: var(--color-interactive-active);
-}
-
-.checkbox-button-group input[type="checkbox"]:checked + .checkbox-button {
-  background-color: var(--color-interactive-active);
-  border-color: var(--color-interactive-active);
-}
-
-.language-features {
-  margin-top: 4px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-}
-
-.feature-tag {
-  background-color: var(--color-interactive-hover);
-  color: var(--color-text);
-  padding: 2px 6px;
-  border-radius: var(--border-radius);
-  font-size: var(--font-size-small);
-  font-weight: 300;
-}
-
-.search-section-title {
-  margin: 10px 0 5px;
-  color: var(--color-text);
 }
 
 .search-no-results {
