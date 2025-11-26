@@ -87,7 +87,7 @@
   "showsVideoPreviews": {
     "type": "checkbox",
     "label": "Preview original",
-    "defaultValue": true,
+    "defaultValue": false,
     "isUserEditable": true,
     "group": "Scene"
   },
