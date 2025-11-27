@@ -41,9 +41,16 @@ function App() {
 
   const { selectedLanguage, stopCurrentAudio } = useLanguageSelection();
 
-  const sampleUrl = useMemo(() => {
-    if (!data?.languageData || !selectedLanguage) return null;
-    return data.languageData[selectedLanguage]?.sampleUrl || null;
+  const { sampleUrl, videoName } = useMemo(() => {
+    if (!data?.languageData || !selectedLanguage) {
+      return { sampleUrl: null, videoName: null };
+    }
+
+    const languageData = data.languageData[selectedLanguage];
+    return {
+      sampleUrl: languageData?.sampleUrl || null,
+      videoName: languageData?.name || null
+    };
   }, [data, selectedLanguage]);
 
   return (
@@ -115,7 +122,7 @@ function App() {
           rel="noreferrer noopener"
           onClick={stopCurrentAudio}
         >
-          Source video
+          {videoName} Source Video
         </a>
       )}
     </div>
