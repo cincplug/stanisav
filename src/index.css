@@ -56,11 +56,15 @@ body {
   font-family: sans-serif;
 }
 
-button {
+button,
+.button {
   padding: 8px 16px;
   background-color: var(--color-interactive);
   border-radius: var(--border-radius);
   border: none;
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: var(--font-size-normal);
 }
 
 button,
@@ -387,4 +391,11 @@ button {
 .language-count-info {
   color: var(--color-text);
   padding: 5px 10px;
+}
+
+.show-video {
+  position: fixed;
+  left: var(--gap-double);
+  top: var(--gap-double);
+  width: var(--video-width);
 }

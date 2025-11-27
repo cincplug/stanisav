@@ -3,7 +3,6 @@ import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
 import LoadingOverlay from "./components/menu/LoadingOverlay";
 import InfoPanel from "./components/info/InfoPanel";
-import VideoEmbed from "./components/menu/VideoEmbed";
 import Playlist from "./components/menu/Playlist";
 import { useAppState } from "./hooks/useAppState";
 import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
@@ -40,9 +39,7 @@ function App() {
     handleLanguageClick
   } = useAppState();
 
-  const { selectedLanguage } = useLanguageSelection();
-
-  const { showsVideoPreviews } = sceneControls;
+  const { selectedLanguage, stopCurrentAudio } = useLanguageSelection();
 
   const sampleUrl = useMemo(() => {
     if (!data?.languageData || !selectedLanguage) return null;
@@ -110,21 +107,17 @@ function App() {
         handleCameraFocus={handleCameraFocus}
       />
 
-      {/* Video Preview logic */}
-      {sampleUrl &&
-        (showsVideoPreviews ? (
-          <VideoEmbed
-            url={sampleUrl}
-            onClose={() => updateSceneControl("showsVideoPreviews", false)}
-          />
-        ) : (
-          <button
-            className="show-video-embed"
-            onClick={() => updateSceneControl("showsVideoPreviews", true)}
-          >
-            Show Video Previews
-          </button>
-        ))}
+      {sampleUrl && (
+        <a
+          className="button show-video"
+          href={sampleUrl}
+          target="_blank"
+          rel="noreferrer noopener"
+          onClick={stopCurrentAudio}
+        >
+          Source video
+        </a>
+      )}
     </div>
   );
 }
