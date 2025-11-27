@@ -52,10 +52,14 @@ export const LanguageSelectionProvider = ({ children }) => {
   // Play audio for a language
   const playLanguageAudio = useCallback(
     async (languageCode) => {
-      const { isLuka } = sceneControls;
+      const { isLuka, playlistDelay } = sceneControls;
 
       try {
         stopCurrentAudio();
+
+        // Wait 0.5s before playing new audio
+        await new Promise((resolve) => setTimeout(resolve, playlistDelay));
+
         const audioUrl = await getLanguageAudioUrl(languageCode, isLuka);
         if (!audioUrl) {
           console.warn(`No audio available for language: ${languageCode}`);
@@ -98,7 +102,7 @@ export const LanguageSelectionProvider = ({ children }) => {
 
       // Play audio if requested
       if (playAudio && languageCode) {
-        playLanguageAudio(languageCode); // No need to pass isLuka
+        playLanguageAudio(languageCode);
       }
     },
     [playLanguageAudio]
