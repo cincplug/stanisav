@@ -20,7 +20,7 @@
   --color-todo-item-active: #bc2790;
   --border-radius: 6px;
   --shadow-mild: 0px -1px 1px 0px rgba(0, 0, 0, 0.3);
-  --outline-width: 3px;
+  --outline-default: 3px solid var(--color-highlight);
   --gap: 6px;
   --gap-double: calc(var(--gap) * 2);
   --gap-half: calc(var(--gap) / 2);
@@ -76,7 +76,7 @@ select,
   &:active,
   &.active {
     filter: brightness(1.2) contrast(1.2);
-    outline: var(--outline-width) solid var(--color-highlight);
+    outline: var(--outline-default);
   }
 }
 

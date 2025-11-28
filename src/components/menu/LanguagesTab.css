@@ -23,6 +23,9 @@
   cursor: pointer;
   font-size: var(--font-size-big);
   text-align: left;
+  &.selected {
+    outline: var(--outline-default);
+  }
 }
 
 .todo-item {
