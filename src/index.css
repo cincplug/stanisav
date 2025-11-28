@@ -18,7 +18,7 @@
   --color-todo-item: #9a1b6a;
   --color-todo-item-hover: #ab1f72;
   --color-todo-item-active: #bc2790;
-  --border-radius: 6px;
+  --border-radius: 7px;
   --shadow-mild: 0px -1px 1px 0px rgba(0, 0, 0, 0.3);
   --outline-default: 3px solid var(--color-highlight);
   --gap: 6px;
@@ -246,18 +246,16 @@ button {
   margin-bottom: 5px;
 }
 
-.control-group {
+fieldset {
   border: 1px solid var(--color-interactive);
   border-radius: var(--border-radius);
   padding: var(--gap);
   margin-bottom: var(--gap-double);
-  background-color: rgb(255 255 255 / 5%);
+}
 
-  legend {
-    color: var(--color-text);
-    font-weight: bold;
-    padding: 0 8px;
-  }
+legend {
+  color: var(--color-text);
+  margin: 0 0 var(--gap-double) -2px;
 }
 
 .controls-grid {
@@ -327,18 +325,6 @@ button {
   border: none;
   margin: 20px 0 0;
   padding: 15px 0 0;
-}
-
-.results-fieldset {
-  border: none;
-  margin: 20px 0 0;
-  padding: 0;
-}
-
-.results-legend {
-  margin: 0 0 15px;
-  color: var(--color-text);
-  padding: 0;
 }
 
 .filter-group {

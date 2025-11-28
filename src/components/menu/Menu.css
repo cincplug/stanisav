@@ -15,14 +15,14 @@
 
 .radio-control fieldset {
   border: 1px solid var(--color-interactive);
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   padding: 8px;
   margin: 0;
 }
 
 .radio-control legend {
-  font-size: 14px;
-  font-weight: 500;
+  font-size: var(--font-size-normal);
+  font-weight: normal;
   padding: 0 4px;
 }
 
