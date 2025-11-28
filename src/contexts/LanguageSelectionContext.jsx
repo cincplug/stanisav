@@ -38,6 +38,7 @@ export const LanguageSelectionProvider = ({ children }) => {
 
   const { controls } = useAppControls();
   const sceneControls = controls.Scene || {};
+  const cameraControls = controls.Camera || {};
 
   // Stop any currently playing audio
   const stopCurrentAudio = useCallback(() => {
@@ -52,13 +53,13 @@ export const LanguageSelectionProvider = ({ children }) => {
   // Play audio for a language
   const playLanguageAudio = useCallback(
     async (languageCode) => {
-      const { isLuka, playlistDelay } = sceneControls;
+      const { isLuka } = sceneControls;
+      const { animationDuration } = cameraControls;
 
       try {
         stopCurrentAudio();
 
-        // Wait 0.5s before playing new audio
-        await new Promise((resolve) => setTimeout(resolve, playlistDelay));
+        await new Promise((resolve) => setTimeout(resolve, animationDuration));
 
         const audioUrl = await getLanguageAudioUrl(languageCode, isLuka);
         if (!audioUrl) {

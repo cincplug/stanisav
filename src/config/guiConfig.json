@@ -64,16 +64,6 @@
     "isUserEditable": true,
     "group": "Scene"
   },
-  "playlistDelay": {
-    "type": "range",
-    "label": "Playlist delay",
-    "min": 0,
-    "max": 2000,
-    "step": 100,
-    "defaultValue": 1000,
-    "isUserEditable": false,
-    "group": "Scene"
-  },
   "backgroundColor": {
     "type": "color",
     "label": "Background",
@@ -127,7 +117,7 @@
     "min": 500,
     "max": 3000,
     "step": 100,
-    "defaultValue": 1500,
+    "defaultValue": 1000,
     "isUserEditable": true,
     "group": "Camera"
   },
