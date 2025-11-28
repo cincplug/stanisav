@@ -7,7 +7,7 @@
   align-items: center;
   z-index: 10;
   background: var(--color-menu-background);
-  border-radius: var(--border-radius);
+  border-radius: calc(var(--border-radius) * 1.5);
   box-shadow: var(--shadow-mild);
   padding: var(--gap-double);
 

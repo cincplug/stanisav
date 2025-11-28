@@ -45,19 +45,18 @@ export default function Playlist({
 
   return (
     <div className="playlist-controls">
+      <button onClick={goToBegin} title="Go to beginning">
+        <BeginIcon />
+      </button>
+      <button onClick={goToPrev} title="Previous">
+        <PrevIcon />
+      </button>
       <button
         className="playlist-main"
         onClick={isPlaying ? pausePlaylist : startPlaylist}
         title={playLabel}
       >
         {playIcon}
-      </button>
-
-      <button onClick={goToBegin} title="Go to beginning">
-        <BeginIcon />
-      </button>
-      <button onClick={goToPrev} title="Previous">
-        <PrevIcon />
       </button>
       <button onClick={goToNext} title="Next">
         <NextIcon />
