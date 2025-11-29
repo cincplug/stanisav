@@ -7,13 +7,7 @@ const {
   languageNode: { labelColor, labelFont, labelPadding }
 } = visualConstants;
 
-const Label = ({
-  children,
-  position,
-  fontSize,
-  backgroundColor,
-  isSelected
-}) => {
+const Label = ({ children, position, fontSize, backgroundColor }) => {
   const labelRef = useRef();
   const [isHovered, setIsHovered] = useState(false);
 
@@ -22,16 +16,6 @@ const Label = ({
       labelRef.current.lookAt(camera.position);
     }
   });
-
-  // // 👇 Inspect the font being used at runtime
-  // useEffect(() => {
-  //   if (labelRef.current) {
-  //     console.log(
-  //       "Resolved font:",
-  //       labelRef.current.font || "sans-serif (system default)"
-  //     );
-  //   }
-  // }, []);
 
   return (
     <group position={position} ref={labelRef}>
@@ -55,7 +39,7 @@ const Label = ({
         anchorX="center"
         anchorY="middle"
         outlineWidth={fontSize * labelPadding}
-        outlineColor={isHovered || isSelected ? "yellow" : backgroundColor}
+        outlineColor={isHovered ? "yellow" : backgroundColor}
         position={[0, 0, 3]}
       >
         {children}
