@@ -1,30 +1,23 @@
 import { useRef, useMemo } from "react";
 import { extend, useFrame } from "@react-three/fiber";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
-import {
-  getNodeRotation,
-  getCameraFacingTilt
-} from "../../utils/geometryUtils.js";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
-import {
-  useAudioAnimation,
-  useRotationAnimation
-} from "../../hooks/useAudioAnimation.js";
+import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
 
 extend({ ParametricGeometry });
 
 const Mesha = ({ color, labelSize, languageCode }) => {
-  const meshRef = useRef();
   const groupRef = useRef();
 
   const { selectedLanguage } = useLanguageSelection();
   const isThisLanguageSelected = selectedLanguage === languageCode;
+  const [xx, yy, zz] = languageCode
+    .toLowerCase()
+    .split("")
+    .map((letter) => (letter.charCodeAt(0) - "a".charCodeAt(0)) / 10);
 
-  const { audioData, rotationStateRef } = useAudioAnimation(
-    languageCode,
-    isThisLanguageSelected
-  );
+  const { audioData } = useAudioAnimation(languageCode, isThisLanguageSelected);
 
   const createAudioReactiveSurface = (
     labelSize,
@@ -51,12 +44,11 @@ const Mesha = ({ color, labelSize, languageCode }) => {
         const fundamentalAmplitude = fundamentalData[bandIndex] || 0;
         const harmonicsAmplitude = harmonicsData[bandIndex] || 0;
         const balancedFundamental = fundamentalAmplitude * fundamentalAmplifier;
-        const balancedHarmonics = harmonicsAmplitude * harmonicsAmplifier;
+        const balancedHarmonics = harmonicsAmplitude * zz;
         const totalAmplitude = balancedFundamental + balancedHarmonics;
         const verticalVariation =
           Math.sin(v * Math.PI * 2) * verticalVariationMultiplier;
-        const baseDeformation =
-          totalAmplitude * maxDeformation * size * (1 + verticalVariation);
+        const baseDeformation = totalAmplitude * maxDeformation * size * yy;
         if (symmetricalMirroring) {
           if (u <= 0.5) {
             y = baseDeformation;
@@ -85,14 +77,6 @@ const Mesha = ({ color, labelSize, languageCode }) => {
     };
   };
 
-  const baseRotation = useMemo(() => {
-    const rotation = getNodeRotation();
-    const tilt = getCameraFacingTilt();
-    return [tilt, rotation[1], rotation[2]];
-  }, []);
-
-  useRotationAnimation(meshRef, baseRotation, audioData, rotationStateRef);
-
   // Make the group face the camera (billboarding effect)
   useFrame(({ camera }) => {
     if (groupRef.current) {
@@ -117,20 +101,38 @@ const Mesha = ({ color, labelSize, languageCode }) => {
 
   return (
     <group ref={groupRef}>
-      {/* Original mesh */}
-      <mesh ref={meshRef}>
+      {/* Point light from center - creates internal glow */}
+      <pointLight
+        position={[xx, 1, 0]}
+        intensity={100 - yy}
+        distance={10}
+        color={color}
+      />
+
+      {/* Ambient fill light - illuminates all surfaces */}
+      <pointLight
+        position={[-xx, 1, zz]}
+        intensity={yy}
+        distance={10}
+        color={color}
+      />
+
+      <mesh position={[0, 0, thickness]} scale={[2, 1, 2]}>
         <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
-        <meshStandardMaterial color={color} side={2} />
+        <meshStandardMaterial color="#44aadd" side={2} />
       </mesh>
 
-      {/* Shifted copy */}
-      <mesh position={[0, 0, thickness]}>
+      <mesh position={[0, 0, -thickness]} scale={[-2, -1, -2]}>
         <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
-        <meshStandardMaterial color={color} side={2} />
+        <meshStandardMaterial color="#dd44aa" side={2} />
       </mesh>
 
-      {/* Flipped and shifted copy */}
-      <mesh position={[0, 0, thickness]} scale={[-1, 1, 1]}>
+      <mesh position={[0, 0, 0]} scale={[-1, 1, 0]}>
+        <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
+        <meshStandardMaterial color={"#ddaa44"} side={2} />
+      </mesh>
+
+      <mesh position={[0, -1, -thickness]} scale={[2, -1, 0.5]}>
         <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
         <meshStandardMaterial color={color} side={2} />
       </mesh>

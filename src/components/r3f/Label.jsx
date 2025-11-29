@@ -7,7 +7,13 @@ const {
   languageNode: { labelColor, labelFont, labelPadding }
 } = visualConstants;
 
-const Label = ({ children, position, fontSize, backgroundColor }) => {
+const Label = ({
+  children,
+  position,
+  fontSize,
+  backgroundColor,
+  isSelected
+}) => {
   const labelRef = useRef();
   const [isHovered, setIsHovered] = useState(false);
 
@@ -49,7 +55,7 @@ const Label = ({ children, position, fontSize, backgroundColor }) => {
         anchorX="center"
         anchorY="middle"
         outlineWidth={fontSize * labelPadding}
-        outlineColor={isHovered ? "yellow" : backgroundColor}
+        outlineColor={isHovered || isSelected ? "yellow" : backgroundColor}
         position={[0, 0, 3]}
       >
         {children}
