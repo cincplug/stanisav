@@ -28,21 +28,33 @@ const Label = ({ children, position, fontSize, backgroundColor }) => {
   // }, []);
 
   return (
-    <Text
-      position={position}
-      ref={labelRef}
-      fontSize={fontSize}
-      color={labelColor}
-      font={labelFont}
-      anchorX="center"
-      anchorY="middle"
-      outlineWidth={fontSize * labelPadding}
-      outlineColor={isHovered ? "yellow" : backgroundColor}
-      onPointerOver={() => setIsHovered(true)}
-      onPointerOut={() => setIsHovered(false)}
-    >
-      {children}
-    </Text>
+    <group position={position} ref={labelRef}>
+      <Text
+        fontSize={fontSize}
+        color="#000000"
+        font={labelFont}
+        anchorX="center"
+        anchorY="middle"
+        outlineWidth={fontSize * labelPadding + labelPadding / 2}
+        outlineColor="#000000"
+        onPointerOver={() => setIsHovered(true)}
+        onPointerOut={() => setIsHovered(false)}
+      >
+        {children}
+      </Text>
+      <Text
+        fontSize={fontSize}
+        color={labelColor}
+        font={labelFont}
+        anchorX="center"
+        anchorY="middle"
+        outlineWidth={fontSize * labelPadding}
+        outlineColor={isHovered ? "yellow" : backgroundColor}
+        position={[0, 0, 3]}
+      >
+        {children}
+      </Text>
+    </group>
   );
 };
 

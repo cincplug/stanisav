@@ -67,7 +67,7 @@
   "backgroundColor": {
     "type": "color",
     "label": "Background",
-    "defaultValue": "#B8BBBE",
+    "defaultValue": "#222222",
     "isUserEditable": false,
     "group": "Colors"
   },
