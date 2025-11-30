@@ -1,267 +1,267 @@
 {
   "Berber": {
     "family": "Afro-Asiatic",
-    "color": "#60e1d8"
+    "color": "#ffb84d"
   },
   "Chadic": {
     "family": "Afro-Asiatic",
-    "color": "#fbd398"
+    "color": "#ff9944"
   },
   "Cushitic": {
     "family": "Afro-Asiatic",
-    "color": "#a3a35c"
+    "color": "#ffa857"
   },
   "Albanian": {
     "family": "Indo-European",
-    "color": "#66d7a2"
+    "color": "#ffcc66"
   },
   "Algonquian": {
     "family": "Algonquian",
-    "color": "#5c7ce8"
+    "color": "#6a9ddd"
   },
   "Armenian": {
     "family": "Indo-European",
-    "color": "#ffe2d6"
+    "color": "#c99aff"
   },
   "Athabaskan": {
     "family": "Na-Dene",
-    "color": "#c88a5a",
+    "color": "#337eff",
     "description": "Athabaskan languages of North America"
   },
   "Mon-Khmer": {
     "family": "Austroasiatic",
-    "color": "#8fffb4"
+    "color": "#44cc77"
   },
   "Munda": {
     "family": "Austroasiatic",
-    "color": "#5fc787"
+    "color": "#55bb66"
   },
   "Austronesian": {
     "family": "Austronesian",
-    "color": "#5db3ff"
+    "color": "#33cc99"
   },
   "Malayo-Polynesian": {
     "family": "Austronesian",
-    "color": "#f47c1a"
+    "color": "#22ddaa"
   },
   "Pacific": {
     "family": "Austronesian",
-    "color": "#4de1ff"
+    "color": "#11eebb"
   },
   "Philippine": {
     "family": "Austronesian",
-    "color": "#5c9ee8"
+    "color": "#46d3dd"
   },
   "Aymaran": {
     "family": "Aymaran",
-    "color": "#b9a899"
+    "color": "#9999dd"
   },
   "Baltic": {
     "family": "Indo-European",
-    "color": "#d88fff"
+    "color": "#e27aff"
   },
   "Basque": {
     "family": "Basque",
-    "color": "#d3f5cc"
+    "color": "#ff9955"
   },
   "Caucasian": {
     "family": "Caucasian",
-    "color": "#a690e8"
+    "color": "#aa88dd"
   },
   "Celtic": {
     "family": "Indo-European",
-    "color": "#bb942a"
+    "color": "#00ffaa"
   },
   "Central Dravidian": {
     "family": "Dravidian",
-    "color": "#ff8870"
+    "color": "#ff7744"
   },
   "South Dravidian": {
     "family": "Dravidian",
-    "color": "#fb6a82"
+    "color": "#ff4f14"
   },
   "Eskimo-Aleut": {
     "family": "Eskimo-Aleut",
-    "color": "#bfc8f2"
+    "color": "#aabbff"
   },
   "North Germanic": {
     "family": "Indo-European",
-    "color": "#dd7a75"
+    "color": "#7081ff"
   },
   "West Germanic": {
     "family": "Indo-European",
-    "color": "#e878ae"
+    "color": "#70baff"
   },
   "Hellenic": {
     "family": "Indo-European",
-    "color": "#ffe8b3"
+    "color": "#ffb300"
   },
   "Hmong-Mien": {
     "family": "Hmong-Mien",
-    "color": "#ff88b8"
+    "color": "#77cc55"
   },
   "Indo-Aryan": {
     "family": "Indo-European",
-    "color": "#ff88b5"
+    "color": "#d37d27"
   },
   "Iranian": {
     "family": "Indo-European",
-    "color": "#d17aff"
+    "color": "#ffd642"
   },
   "Iroquoian": {
     "family": "Iroquoian",
-    "color": "#5c9ee0"
+    "color": "#6699dd"
   },
   "Japonic": {
     "family": "Japonic",
-    "color": "#e56778"
+    "color": "#ff7a9c"
   },
   "Kartvelian": {
     "family": "Kartvelian",
-    "color": "#ddb175"
+    "color": "#c266ff"
   },
   "Khoisan": {
     "family": "Khoisan",
-    "color": "#d4c96b"
+    "color": "#ffbb44"
   },
   "Koreanic": {
     "family": "Koreanic",
-    "color": "#a88de6"
+    "color": "#fd80ff"
   },
   "Kra-Dai": {
     "family": "Kra-Dai",
-    "color": "#9ad97a"
+    "color": "#55cc66"
   },
   "Mayan": {
     "family": "Mayan",
-    "color": "#c9b887"
+    "color": "#66cc55"
   },
   "Mongolic": {
     "family": "Mongolic",
-    "color": "#6dd96f"
+    "color": "#ccaa55"
   },
   "Niger-Congo": {
     "family": "Niger-Congo",
-    "color": "#e0a085"
+    "color": "#77cc66"
   },
   "Atlantic": {
     "family": "Niger-Congo",
-    "color": "#f0a58a"
+    "color": "#42ffd0"
   },
   "Bantu": {
     "family": "Niger-Congo",
-    "color": "#c98870"
+    "color": "#49db14"
   },
   "Kwa": {
     "family": "Niger-Congo",
-    "color": "#ffb694"
+    "color": "#88dd77"
   },
   "Mande": {
     "family": "Niger-Congo",
-    "color": "#a69487"
+    "color": "#99cc77"
   },
   "Nilo-Saharan": {
     "family": "Nilo-Saharan",
-    "color": "#e8a975"
+    "color": "#ff9944"
   },
   "Nilotic": {
     "family": "Nilo-Saharan",
-    "color": "#f0de84"
+    "color": "#ffaa55"
   },
   "Nubian": {
     "family": "Nilo-Saharan",
-    "color": "#d99a6b"
+    "color": "#ff8833"
   },
   "Quechuan": {
     "family": "Quechuan",
-    "color": "#f07a5c"
+    "color": "#aa99ee"
   },
   "Romance": {
     "family": "Indo-European",
-    "color": "#9cb931"
+    "color": "#f9ca3e"
   },
   "Sardinian": {
     "family": "Indo-European",
-    "color": "#b3d95c"
+    "color": "#f3ff4d"
   },
   "Semitic": {
     "family": "Afro-Asiatic",
-    "color": "#a2a97d"
+    "color": "#bbcc66"
   },
   "Sinitic": {
     "family": "Sino-Tibetan",
-    "color": "#ff9a57"
+    "color": "#ffa424"
   },
   "East Slavic": {
     "family": "Indo-European",
-    "color": "#7e9cf7"
+    "color": "#e894ff"
   },
   "South Slavic": {
     "family": "Indo-European",
-    "color": "#5cabff"
+    "color": "#9b70ff"
   },
   "West Slavic": {
     "family": "Indo-European",
-    "color": "#5cd1ff"
+    "color": "#8095ff"
   },
   "Karen": {
     "family": "Sino-Tibetan",
-    "color": "#a8ca44"
+    "color": "#88cc55"
   },
   "Other Tibeto-Burman": {
     "family": "Sino-Tibetan",
-    "color": "#31d38d"
+    "color": "#99bb44"
   },
   "Tibetan": {
     "family": "Sino-Tibetan",
-    "color": "#fff833"
+    "color": "#ddcc44"
   },
   "Tupian": {
     "family": "Tupian",
-    "color": "#e09a7d"
+    "color": "#44cc66"
   },
   "Karluk Turkic": {
     "family": "Turkic",
-    "color": "#f7a6d1"
+    "color": "#dd9e55"
   },
   "Kipchak Turkic": {
     "family": "Turkic",
-    "color": "#f269a4"
+    "color": "#ccaa66"
   },
   "Oghuz Turkic": {
     "family": "Turkic",
-    "color": "#8cd97d"
+    "color": "#eebb55"
   },
   "Siberian Turkic": {
     "family": "Turkic",
-    "color": "#e68aa8"
+    "color": "#9999ee"
   },
   "Finnic": {
     "family": "Uralic",
-    "color": "#e8b82e"
+    "color": "#a5dbfd"
   },
   "Ugric": {
     "family": "Uralic",
-    "color": "#7ab347"
+    "color": "#4bdd99"
   },
   "Uto-Aztecan": {
     "family": "Uto-Aztecan",
-    "color": "#d9a66b"
+    "color": "#ffaa55"
   },
   "English Creole": {
     "family": "Creole",
-    "color": "#e6645e"
+    "color": "#82fd3f"
   },
   "French Creole": {
     "family": "Creole",
-    "color": "#00aa99"
+    "color": "#abdd22"
   },
   "Portuguese Creole": {
     "family": "Creole",
-    "color": "#d0bf06"
+    "color": "#dadd46"
   },
   "Spanish Creole": {
     "family": "Creole",
-    "color": "#66bb00"
+    "color": "#e6783d"
   }
 }

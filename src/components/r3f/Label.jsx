@@ -21,7 +21,6 @@ const Label = ({ children, position, fontSize, backgroundColor }) => {
     <group position={position} ref={labelRef}>
       <Text
         fontSize={fontSize}
-        color="#000000"
         font={labelFont}
         anchorX="center"
         anchorY="middle"
