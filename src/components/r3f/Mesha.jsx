@@ -44,7 +44,7 @@ const Mesha = ({ color, labelSize, languageCode }) => {
       const size = labelSize;
       const z = (u - 0.5) * size;
       const x = (v - 0.5) * size;
-      let y = 0;
+      let y = yy;
 
       if (isSelectedForAudio && audioDataValue.isActive) {
         const { fundamentalData, harmonicsData } = audioDataValue;
