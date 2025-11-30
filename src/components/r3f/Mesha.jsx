@@ -1,4 +1,5 @@
 import { useRef, useMemo } from "react";
+import { Color } from "three";
 import { extend, useFrame } from "@react-three/fiber";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
@@ -12,6 +13,10 @@ const Mesha = ({ color, labelSize, languageCode }) => {
 
   const { selectedLanguage } = useLanguageSelection();
   const isThisLanguageSelected = selectedLanguage === languageCode;
+  const c1 = new Color(color);
+  const c2 = new Color("#ddddff").sub(c1);
+  const c3 = new Color("#ffbbbb").sub(c1);
+  const c4 = new Color("#aaffaa").sub(c1);
 
   const [xx, yy, zz] = languageCode
     .toLowerCase()
@@ -91,38 +96,56 @@ const Mesha = ({ color, labelSize, languageCode }) => {
 
   return (
     <group ref={groupRef}>
+      <ambientLight intensity={1.2} />
+
       <pointLight
-        position={[xx, 1, 0]}
-        intensity={100 - yy}
+        position={[xx / 2, 2, 2]}
+        intensity={20}
         distance={10}
-        color={color}
+        color={c2}
       />
 
       <pointLight
-        position={[-xx, 2, zz]}
-        intensity={yy}
+        position={[-xx / 2, 2, 2]}
+        intensity={20}
         distance={10}
-        color={color}
+        color={c1}
       />
 
-      <mesh position={[0, 1, thickness]} scale={[2, 1 / 3, 3]}>
+      <mesh
+        position={[1, 1, thickness]}
+        scale={[1 / 2, 2 / 3, 3]}
+        rotation={[0, 1 / 20, 0]}
+      >
         <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
-        <meshStandardMaterial color="#44aadd" side={2} />
+        <meshStandardMaterial color={c1} side={2} />
       </mesh>
 
-      <mesh position={[0, 0, -thickness]} scale={[-2, -1 / 2, -2]}>
+      <mesh
+        position={[-1, 1, thickness]}
+        scale={[-1 / 2, 3 / 4, 3]}
+        rotation={[0, -1 / 20, 0]}
+      >
         <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
-        <meshStandardMaterial color="#dd44aa" side={2} />
+        <meshStandardMaterial color={c2} side={2} />
       </mesh>
 
-      <mesh position={[0, 1 / 2, -thickness * 2]} scale={[-2, 1 / 2, 4]}>
+      <mesh
+        position={[0, -1, -thickness]}
+        scale={[-2, -1 / 2, -2]}
+        rotation={[0, 1, 0]}
+      >
         <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
-        <meshStandardMaterial color={"#ddaa44"} side={2} />
+        <meshStandardMaterial color={c3} side={2} />
       </mesh>
 
-      <mesh position={[0, 2, -thickness * 3]} scale={[2, -2, -2]}>
+      <mesh
+        position={[0, -1, -thickness]}
+        scale={[-2, -1 / 2, -2]}
+        rotation={[0, -1, 0]}
+      >
         <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
-        <meshStandardMaterial color={color} side={2} />
+        <meshStandardMaterial color={c4} side={2} />
       </mesh>
     </group>
   );

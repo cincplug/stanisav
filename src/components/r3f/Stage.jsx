@@ -39,9 +39,6 @@ const Stage = ({
     >
       <color attach="background" args={[colorsControls.backgroundColor]} />
 
-      <ambientLight intensity={0.8} />
-      <directionalLight position={[10, 0, 2]} intensity={1.2} />
-
       <OrbitControls
         enableDamping={true}
         dampingFactor={0.05}
