@@ -58,7 +58,7 @@ const Mesha = ({ color, labelSize, languageCode }) => {
         const balancedHarmonics = harmonicsAmplitude * harmonicsModifier;
         const totalAmplitude = balancedFundamental + balancedHarmonics;
 
-        y = totalAmplitude * maxDeformation * size * yy;
+        y = totalAmplitude * maxDeformation * size;
 
         if (symmetricalMirroring && u > 0.5) {
           y *= 1 + verticalVariation;
@@ -87,7 +87,7 @@ const Mesha = ({ color, labelSize, languageCode }) => {
   );
 
   const segments = audioVisualizationConfig.meshDeformation.meshSegments;
-  const thickness = 0.2;
+  const thickness = 2.7;
 
   return (
     <group ref={groupRef}>
@@ -105,22 +105,22 @@ const Mesha = ({ color, labelSize, languageCode }) => {
         color={color}
       />
 
-      <mesh position={[0, 0, thickness]} scale={[2, 1, 2]}>
+      <mesh position={[0, 1, thickness]} scale={[2, 1 / 3, 3]}>
         <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
         <meshStandardMaterial color="#44aadd" side={2} />
       </mesh>
 
-      <mesh position={[0, 0, -thickness]} scale={[-2, -1, -1]}>
+      <mesh position={[0, 0, -thickness]} scale={[-2, -1 / 2, -2]}>
         <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
         <meshStandardMaterial color="#dd44aa" side={2} />
       </mesh>
 
-      <mesh position={[0, 0, -thickness * 2]} scale={[-2, 1 / 2, 3]}>
+      <mesh position={[0, 1 / 2, -thickness * 2]} scale={[-2, 1 / 2, 4]}>
         <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
         <meshStandardMaterial color={"#ddaa44"} side={2} />
       </mesh>
 
-      <mesh position={[0, 1, -thickness]} scale={[2, -1, -1]}>
+      <mesh position={[0, 2, -thickness * 3]} scale={[2, -2, -2]}>
         <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
         <meshStandardMaterial color={color} side={2} />
       </mesh>

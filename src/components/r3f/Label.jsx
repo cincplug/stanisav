@@ -40,7 +40,7 @@ const Label = ({ children, position, fontSize, backgroundColor }) => {
         anchorY="middle"
         outlineWidth={fontSize * labelPadding}
         outlineColor={isHovered ? "yellow" : backgroundColor}
-        position={[0, 0, 3]}
+        position={[0, 0, 1 / 10]}
       >
         {children}
       </Text>
