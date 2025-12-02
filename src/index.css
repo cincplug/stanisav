@@ -25,6 +25,7 @@
   --gap-double: calc(var(--gap) * 2);
   --gap-half: calc(var(--gap) / 2);
   --gap-reduced: calc(var(--gap) / 3 * 2);
+  --tab-border-width: 2px;
 
   /* Layout */
   --panel-width: 375px;
@@ -75,7 +76,6 @@ select,
   &:focus-visible,
   &:active,
   &.active {
-    filter: brightness(1.2) contrast(1.2);
     outline: var(--outline-default);
   }
 }
@@ -294,18 +294,6 @@ legend {
   height: 24px;
 }
 
-.play-all {
-  position: absolute;
-  bottom: var(--gap-double);
-  left: var(--gap-double);
-  width: auto;
-  font-size: var(--font-size-big);
-  border-radius: var(--border-radius);
-  background: var(--color-video);
-  border: none;
-  box-shadow: var(--shadow-mild);
-}
-
 /* Search input focus styles - browser default focus is used */
 
 /* Control panel header */
@@ -382,6 +370,6 @@ legend {
 .show-video {
   position: fixed;
   left: var(--gap-double);
-  top: var(--gap-double);
+  bottom: var(--gap-double);
   width: var(--video-width);
 }

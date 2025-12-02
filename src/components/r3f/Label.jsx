@@ -24,7 +24,7 @@ const Label = ({ children, position, fontSize, backgroundColor }) => {
         font={labelFont}
         anchorX="center"
         anchorY="middle"
-        outlineWidth={fontSize * labelPadding + labelPadding / 2}
+        outlineWidth={fontSize * labelPadding + labelPadding / 3}
         outlineColor="#000000"
         onPointerOver={() => setIsHovered(true)}
         onPointerOut={() => setIsHovered(false)}

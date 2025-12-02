@@ -30,7 +30,7 @@ function TabRenderer({
   clearSearch
 }) {
   return (
-    <>
+    <div class="tabs-inner">
       {activeTab === "controls" && (
         <ControlsTab
           controlGroups={{
@@ -83,7 +83,7 @@ function TabRenderer({
           onLanguageFocus={handleLanguageFocus}
         />
       )}
-    </>
+    </div>
   );
 }
 

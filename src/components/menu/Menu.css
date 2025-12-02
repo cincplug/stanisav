@@ -5,12 +5,18 @@
   right: 0;
   width: var(--panel-width);
   height: 100vh;
+  display: flex;
+  flex-direction: column;
   background-color: var(--color-menu-background);
   border-left: 1px solid var(--color-interactive);
   padding: var(--gap-double);
   color: var(--color-text);
-  overflow-y: auto;
   z-index: 1000;
+}
+
+.tabs-inner {
+  overflow-y: auto;
+  padding: var(--gap-half);
 }
 
 .radio-control fieldset {

@@ -3,6 +3,7 @@
   position: relative;
   display: flex;
   align-items: center;
+  box-sizing: border-box;
 }
 
 /* Search input styles */
