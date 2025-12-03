@@ -30,7 +30,7 @@ function TabRenderer({
   clearSearch
 }) {
   return (
-    <div class="tabs-inner">
+    <div className="tabs-inner">
       {activeTab === "controls" && (
         <ControlsTab
           controlGroups={{
