@@ -18,16 +18,19 @@ const Label = ({ children, position, fontSize, backgroundColor }) => {
   });
 
   return (
-    <group position={position} ref={labelRef}>
+    <group
+      position={position}
+      ref={labelRef}
+      onPointerOver={() => setIsHovered(true)}
+      onPointerOut={() => setIsHovered(false)}
+    >
       <Text
         fontSize={fontSize}
         font={labelFont}
         anchorX="center"
         anchorY="middle"
         outlineWidth={fontSize * labelPadding + labelPadding / 3}
-        outlineColor="#000000"
-        onPointerOver={() => setIsHovered(true)}
-        onPointerOut={() => setIsHovered(false)}
+        outlineColor={labelColor}
       >
         {children}
       </Text>
@@ -42,6 +45,11 @@ const Label = ({ children, position, fontSize, backgroundColor }) => {
         position={[0, 0, 1 / 10]}
       >
         {children}
+        <meshStandardMaterial
+          attach="material"
+          color={labelColor}
+          roughness={0.8}
+        />
       </Text>
     </group>
   );

@@ -96,8 +96,6 @@ const Mesha = ({ color, labelSize, languageCode }) => {
 
   return (
     <group ref={groupRef}>
-      <ambientLight intensity={1.2} />
-
       <pointLight
         position={[xx / 2, 2, 2]}
         intensity={20}
