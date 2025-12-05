@@ -45,7 +45,7 @@ const Stage = ({
         makeDefault={true}
       />
 
-      <ambientLight intensity={1.5} />
+      <ambientLight intensity={2.2} />
 
       <CameraUpdaterNode />
 

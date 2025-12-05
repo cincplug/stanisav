@@ -97,14 +97,14 @@ const Mesha = ({ color, labelSize, languageCode }) => {
   return (
     <group ref={groupRef}>
       <pointLight
-        position={[xx / 2, 2, 2]}
+        position={[xx / 2, 3, 2]}
         intensity={20}
         distance={10}
         color={c2}
       />
 
       <pointLight
-        position={[-xx / 2, 2, 2]}
+        position={[-xx / 2, 0, 2]}
         intensity={20}
         distance={10}
         color={c1}
