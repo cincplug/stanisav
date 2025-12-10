@@ -124,7 +124,7 @@ export const LanguageSelectionProvider = ({ children }) => {
     stopCurrentAudio();
   }, [stopCurrentAudio]);
 
-  const updatefilteringUtils = useCallback(
+  const updateFilteringUtils = useCallback(
     (filters, data) => {
       setFilteringUtils(filters);
 
@@ -170,7 +170,7 @@ export const LanguageSelectionProvider = ({ children }) => {
     clearSelection,
     playLanguageAudio,
     stopCurrentAudio,
-    updatefilteringUtils,
+    updateFilteringUtils,
     groupColors,
     setGroupColor
   };

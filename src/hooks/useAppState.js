@@ -23,7 +23,6 @@ export const useAppState = () => {
   const [cameraFocusRequest, setCameraFocusRequest] = useState(null);
   const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
   const [filteringUtils, setFilteringUtils] = useState({});
-  const [isInfoPanelClosed, setIsInfoPanelClosed] = useState(false);
 
   // Use language selection context
   const { selectedLanguage, selectedGroup, selectLanguage, selectGroup } =
@@ -69,7 +68,6 @@ export const useAppState = () => {
     // Use centralized handler for direct clicks (with audio and camera focus)
     selectLanguageWithFocus(languageCode, true, true);
     // Reset info panel closed state when selecting a new language
-    setIsInfoPanelClosed(false);
   };
 
   return {
@@ -83,7 +81,6 @@ export const useAppState = () => {
     selectedLanguage,
     selectedGroup,
     appControls,
-    isInfoPanelClosed,
 
     // Setters
     setData,
@@ -92,10 +89,9 @@ export const useAppState = () => {
     setNodes,
     setIsMenuCollapsed,
     setFilteringUtils,
-    setIsInfoPanelClosed,
 
     // Handlers
-    updateControl, // Single unified update function
+    updateControl,
     handleCameraFocus,
     handleLanguageClick
   };

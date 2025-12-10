@@ -1,4 +1,3 @@
-import React from "react";
 import tabsConfig from "../../config/tabsConfig.json";
 import "./TabNavigation.css";
 

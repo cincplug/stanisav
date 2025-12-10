@@ -1,4 +1,3 @@
-import React from "react";
 import ControlsTab from "./ControlsTab";
 import SearchTab from "./SearchTab";
 import LanguagesTab from "./LanguagesTab";

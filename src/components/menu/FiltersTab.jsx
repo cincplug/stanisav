@@ -7,7 +7,7 @@ import {
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 
 function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
-  const { filteringUtils, updatefilteringUtils } = useLanguageSelection();
+  const { filteringUtils, updateFilteringUtils } = useLanguageSelection();
   const features = getLinguisticFeatures();
 
   const handleCheckboxChange = (feature, value, checked) => {
@@ -32,7 +32,7 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
       }
     }
 
-    updatefilteringUtils(newFilters, data);
+    updateFilteringUtils(newFilters, data);
   };
 
   const linguisticResults = useMemo(() => {

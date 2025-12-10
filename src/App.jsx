@@ -2,7 +2,6 @@ import { useMemo } from "react";
 import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
 import LoadingOverlay from "./components/menu/LoadingOverlay";
-import InfoPanel from "./components/info/InfoPanel";
 import Playlist from "./components/menu/Playlist";
 import { useAppState } from "./hooks/useAppState";
 import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
@@ -18,7 +17,6 @@ function App() {
     filteringUtils,
     selectedGroup,
     appControls,
-    isInfoPanelClosed,
 
     // Setters
     setData,
@@ -27,7 +25,6 @@ function App() {
     setNodes,
     setIsMenuCollapsed,
     setFilteringUtils,
-    setIsInfoPanelClosed,
 
     // Handlers
     updateControl,
@@ -64,20 +61,7 @@ function App() {
         selectedGroup={selectedGroup}
         onLanguageClick={handleLanguageClick}
       />
-      {/* Language Info Panel */}
-      {!isLoading && sceneReady && (
-        <InfoPanel
-          selectedLanguage={selectedLanguage}
-          isVisible={appControls.showInfo && !isInfoPanelClosed}
-          onClose={() => setIsInfoPanelClosed(true)}
-          showInfo={appControls.showInfo}
-          onToggleShowInfo={(value) => updateControl("showInfo", value)}
-          appControls={appControls}
-          onCameraFocus={handleCameraFocus}
-          data={data}
-        />
-      )}
-      {/* React-based Control Panel */}
+
       {!isLoading && sceneReady ? (
         <Menu
           appControls={appControls}

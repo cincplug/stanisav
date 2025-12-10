@@ -20,7 +20,7 @@
     "no-unused-vars": [
       "warn",
       {
-        "varsIgnorePattern": "^React$",
+        "varsIgnorePattern": "^_",
         "argsIgnorePattern": "^_"
       }
     ],
