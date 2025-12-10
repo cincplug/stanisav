@@ -5,7 +5,7 @@ import { useLanguageSelectionHandler } from "./useLanguageSelectionHandler";
 export function usePlaylist({
   data,
   sceneReady,
-  sceneControls,
+  appControls,
   handleCameraFocus,
   selectedLanguage
 }) {
@@ -21,7 +21,7 @@ export function usePlaylist({
     handleCameraFocus,
     sceneReady,
     data,
-    sceneControls
+    appControls
   );
 
   const getSortedLanguageCodes = useCallback(() => {

@@ -1,23 +1,9 @@
-import { useAppControls } from "../../contexts/AppControlsContext";
-import {
-  getControlValue,
-  getDisplayValue,
-  setControlValue
-} from "../../utils/controlUtils";
-
-const ControlItem = ({ control, groupName, state, setState }) => {
-  const { controls, updateControl } = useAppControls();
+const ControlItem = ({ control, value, onChange }) => {
   const { id, type, label, min, max, step, options } = control;
-  const value = getControlValue(id, groupName, state);
-  const displayValue = getDisplayValue(id, groupName, state);
 
   const handleChange = (newValue) => {
     const processedValue = type === "range" ? parseFloat(newValue) : newValue;
-    setControlValue(id, groupName, processedValue, setState);
-    updateControl(groupName, {
-      ...controls[groupName],
-      [id]: processedValue
-    });
+    onChange(processedValue);
   };
 
   switch (type) {
@@ -52,7 +38,7 @@ const ControlItem = ({ control, groupName, state, setState }) => {
         <div className="control-item range-control">
           <label>
             <span>{label}</span>
-            <span>{displayValue}</span>
+            <span>{value}</span>
           </label>
           <input
             type="range"

@@ -36,9 +36,7 @@ export const LanguageSelectionProvider = ({ children }) => {
   const [filteredLanguages, setFilteredLanguages] = useState(new Set());
   const [groupColors, setGroupColors] = useState(getInitialGroupColors);
 
-  const { controls } = useAppControls();
-  const sceneControls = controls.Scene || {};
-  const cameraControls = controls.Camera || {};
+  const { appControls } = useAppControls();
 
   // Stop any currently playing audio
   const stopCurrentAudio = useCallback(() => {
@@ -53,8 +51,8 @@ export const LanguageSelectionProvider = ({ children }) => {
   // Play audio for a language
   const playLanguageAudio = useCallback(
     async (languageCode) => {
-      const { isLuka } = sceneControls;
-      const { animationDuration } = cameraControls;
+      const { isLuka } = appControls;
+      const { animationDuration } = appControls;
 
       try {
         stopCurrentAudio();
@@ -88,7 +86,7 @@ export const LanguageSelectionProvider = ({ children }) => {
         setCurrentAudioElement(null);
       }
     },
-    [sceneControls, stopCurrentAudio]
+    [appControls, stopCurrentAudio]
   );
 
   // Select a language (with optional audio playback)

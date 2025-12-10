@@ -10,12 +10,7 @@ import TabRenderer from "./TabRenderer";
 import "./Menu.css";
 
 function Menu({
-  sceneControls,
-  onSceneControlChange,
-  colorsControls,
-  onColorsControlChange,
-  cameraControls,
-  onCameraControlChange,
+  onControlChange,
   data,
   isLoading,
   sceneReady,
@@ -27,14 +22,14 @@ function Menu({
   selectedLanguage,
   selectedGroup
 }) {
-  const { controls, updateControl } = useAppControls();
+  const { appControls, updateControl } = useAppControls();
   const [activeTab, setActiveTab] = useState(tabsConfig.defaultTab);
 
   const { searchTerm, setSearchTerm, searchResults, clearSearch } =
     useLanguageSearch(data);
 
   const { handleLanguageFocus, handleGroupFocus, handleViewAll } =
-    useMenuHandlers(onCameraFocus, sceneReady, data, sceneControls);
+    useMenuHandlers(onCameraFocus, sceneReady, data, appControls);
 
   const { availableGroups, groupedLanguages, handleGroupSelectChange } =
     useTabHandlers(data, handleGroupFocus, handleViewAll);
@@ -43,26 +38,13 @@ function Menu({
     return null;
   }
 
-  // Create a combined handler that updates both local state and context
-  const handleControlChange = (group, controlId, value) => {
-    // Update local state through existing handlers
-    switch (group) {
-      case "Scene":
-        onSceneControlChange(controlId, value);
-        break;
-      case "Colors":
-        onColorsControlChange(controlId, value);
-        break;
-      case "Camera":
-        onCameraControlChange(controlId, value);
-        break;
-    }
+  // Unified handler that updates both local state and context
+  const handleControlChange = (controlId, value) => {
+    // Update local state through unified handler
+    onControlChange(controlId, value);
 
     // Update context
-    updateControl(group, {
-      ...controls[group],
-      [controlId]: value
-    });
+    updateControl(controlId, value);
   };
 
   return (
@@ -84,18 +66,8 @@ function Menu({
 
           <TabRenderer
             activeTab={activeTab}
-            sceneControls={sceneControls}
-            onSceneControlChange={(id, value) =>
-              handleControlChange("Scene", id, value)
-            }
-            colorsControls={colorsControls}
-            onColorsControlChange={(id, value) =>
-              handleControlChange("Colors", id, value)
-            }
-            cameraControls={cameraControls}
-            onCameraControlChange={(id, value) =>
-              handleControlChange("Camera", id, value)
-            }
+            appControls={appControls}
+            onControlChange={handleControlChange}
             handleViewAll={handleViewAll}
             groupedLanguages={groupedLanguages}
             selectedLanguage={selectedLanguage}

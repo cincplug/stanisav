@@ -53,8 +53,7 @@ export const useCameraController = ({
   cameraFocusRequest,
   languageNodes,
   data,
-  cameraControls,
-  sceneControls,
+  appControls,
   selectedLanguage
 }) => {
   const { camera, controls } = useThree();
@@ -64,10 +63,9 @@ export const useCameraController = ({
 
   const config = useMemo(
     () => ({
-      ...cameraControls,
-      ...sceneControls
+      ...appControls
     }),
-    [cameraControls, sceneControls]
+    [appControls]
   );
 
   const cameraSystem = useMemo(

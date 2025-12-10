@@ -3,13 +3,11 @@ import guiConfig from "../config/guiConfig.json";
 import { useLanguageSelection } from "../contexts/LanguageSelectionContext";
 import { useLanguageSelectionHandler } from "./useLanguageSelectionHandler";
 
-// Helper function to extract defaults by group name from flat guiConfig
-const getDefaultsByGroup = (groupName) => {
+// Helper function to extract all defaults from flat guiConfig
+const getAllDefaults = () => {
   const defaults = {};
   Object.entries(guiConfig).forEach(([controlId, config]) => {
-    if (config.group === groupName) {
-      defaults[controlId] = config.defaultValue;
-    }
+    defaults[controlId] = config.defaultValue;
   });
   return defaults;
 };
@@ -31,33 +29,12 @@ export const useAppState = () => {
   const { selectedLanguage, selectedGroup, selectLanguage, selectGroup } =
     useLanguageSelection();
 
-  // Scene, Colors, and Camera controls state - extract defaults from guiConfig
-  const [sceneControls, setSceneControls] = useState(() =>
-    getDefaultsByGroup("Scene")
-  );
-  const [colorsControls, setColorsControls] = useState(() =>
-    getDefaultsByGroup("Colors")
-  );
-  const [cameraControls, setCameraControls] = useState(() =>
-    getDefaultsByGroup("Camera")
-  );
+  // Unified app controls state - extract all defaults from guiConfig
+  const [appControls, setAppControls] = useState(() => getAllDefaults());
 
-  const updateSceneControl = (key, value) => {
-    setSceneControls((prev) => ({
-      ...prev,
-      [key]: value
-    }));
-  };
-
-  const updateColorsControl = (key, value) => {
-    setColorsControls((prev) => ({
-      ...prev,
-      [key]: value
-    }));
-  };
-
-  const updateCameraControl = (key, value) => {
-    setCameraControls((prev) => ({
+  // Unified control update function
+  const updateControl = (key, value) => {
+    setAppControls((prev) => ({
       ...prev,
       [key]: value
     }));
@@ -73,7 +50,7 @@ export const useAppState = () => {
     mockCameraFocus,
     true, // sceneReady - always true in useAppState
     data,
-    sceneControls
+    appControls
   );
 
   const handleCameraFocus = (type, target) => {
@@ -81,7 +58,7 @@ export const useAppState = () => {
 
     if (type === "language") {
       const groupKey = data?.languageGroups?.[target];
-      const isLuka = sceneControls?.isLuka ?? true;
+      const isLuka = appControls?.isLuka ?? true;
       selectLanguage(target, false, groupKey, isLuka);
     } else if (type === "group") {
       selectGroup(target);
@@ -105,9 +82,7 @@ export const useAppState = () => {
     filteringUtils,
     selectedLanguage,
     selectedGroup,
-    sceneControls,
-    colorsControls,
-    cameraControls,
+    appControls,
     isInfoPanelClosed,
 
     // Setters
@@ -120,9 +95,7 @@ export const useAppState = () => {
     setIsInfoPanelClosed,
 
     // Handlers
-    updateSceneControl,
-    updateColorsControl,
-    updateCameraControl,
+    updateControl, // Single unified update function
     handleCameraFocus,
     handleLanguageClick
   };

@@ -6,12 +6,8 @@ import FiltersTab from "./FiltersTab";
 
 function TabRenderer({
   activeTab,
-  sceneControls,
-  onSceneControlChange,
-  colorsControls,
-  onColorsControlChange,
-  cameraControls,
-  onCameraControlChange,
+  appControls,
+  onControlChange,
   handleViewAll,
   groupedLanguages,
   selectedLanguage,
@@ -34,15 +30,9 @@ function TabRenderer({
       {activeTab === "controls" && (
         <ControlsTab
           controlGroups={{
-            state: {
-              Scene: sceneControls,
-              Colors: colorsControls,
-              Camera: cameraControls
-            },
+            state: { appControls },
             handlers: {
-              Scene: onSceneControlChange,
-              Colors: onColorsControlChange,
-              Camera: onCameraControlChange
+              onControlChange
             }
           }}
           onViewAll={handleViewAll}

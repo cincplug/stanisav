@@ -14,11 +14,10 @@ const Node = ({
   color,
   linguisticProperties = null
 }) => {
-  const { controls } = useAppControls();
+  const { appControls } = useAppControls();
   const { filteredLanguages, filteringUtils, isPlayingAudio } =
     useLanguageSelection();
-  const { Scene } = controls;
-  const { labelContent, labelSize } = Scene ?? {};
+  const { labelContent, labelSize } = appControls;
 
   const getLabelText = (language, languageCode, labelContent) => {
     switch (labelContent) {

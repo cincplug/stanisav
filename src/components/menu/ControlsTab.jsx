@@ -1,4 +1,4 @@
-import React from "react";
+import { useAppControls } from "../../contexts/AppControlsContext";
 import guiConfig from "../../config/guiConfig.json";
 import ControlItem from "./ControlItem";
 
@@ -9,7 +9,7 @@ const getControlsByGroup = (groupName) =>
     )
     .map(([id, config]) => ({ id, ...config }));
 
-const ControlGroup = ({ groupName, state, setState }) => {
+const ControlGroup = ({ groupName, appControls, updateControl }) => {
   const controls = getControlsByGroup(groupName);
   if (controls.length === 0) return null;
 
@@ -24,9 +24,8 @@ const ControlGroup = ({ groupName, state, setState }) => {
           <ControlItem
             key={control.id}
             control={control}
-            groupName={groupName}
-            state={state}
-            setState={setState}
+            value={appControls[control.id]}
+            onChange={(value) => updateControl(control.id, value)}
           />
         ))}
       </div>
@@ -34,7 +33,9 @@ const ControlGroup = ({ groupName, state, setState }) => {
   );
 };
 
-const ControlsTab = ({ controlGroups: { state, handlers } }) => {
+const ControlsTab = () => {
+  const { appControls, updateControl } = useAppControls();
+
   const uniqueGroups = Array.from(
     new Set(Object.values(guiConfig).map(({ group }) => group))
   ).filter(Boolean);
@@ -45,8 +46,8 @@ const ControlsTab = ({ controlGroups: { state, handlers } }) => {
         <ControlGroup
           key={groupName}
           groupName={groupName}
-          state={state}
-          setState={handlers}
+          appControls={appControls}
+          updateControl={updateControl}
         />
       ))}
       <div className="control-item">

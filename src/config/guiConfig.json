@@ -61,7 +61,7 @@
     "type": "checkbox",
     "label": "Preview original",
     "defaultValue": false,
-    "isUserEditable": true,
+    "isUserEditable": false,
     "group": "Scene"
   },
   "backgroundColor": {

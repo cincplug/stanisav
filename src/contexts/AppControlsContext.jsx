@@ -1,23 +1,19 @@
 import { createContext, useContext, useState } from "react";
 import guiConfig from "../config/guiConfig.json";
 
-// Initialize default values from guiConfig, grouped by 'group'
+// Initialize default values from guiConfig as a flat object
 const getDefaultValues = () => {
-  const groupedDefaults = {};
+  const defaults = {};
   Object.entries(guiConfig).forEach(([controlId, config]) => {
-    const { group, defaultValue } = config;
-    if (!groupedDefaults[group]) {
-      groupedDefaults[group] = {};
-    }
-    groupedDefaults[group][controlId] = defaultValue;
+    defaults[controlId] = config.defaultValue;
   });
-  return groupedDefaults;
+  return defaults;
 };
 
 const AppControlsContext = createContext(null);
 
 export const AppControlsProvider = ({ children }) => {
-  const [controls, setControls] = useState(getDefaultValues);
+  const [appControls, setControls] = useState(getDefaultValues);
 
   const updateControl = (key, value) => {
     setControls((prev) => ({
@@ -27,7 +23,7 @@ export const AppControlsProvider = ({ children }) => {
   };
 
   return (
-    <AppControlsContext.Provider value={{ controls, updateControl }}>
+    <AppControlsContext.Provider value={{ appControls, updateControl }}>
       {children}
     </AppControlsContext.Provider>
   );

@@ -12,7 +12,7 @@ import {
 export default function Playlist({
   data,
   sceneReady,
-  sceneControls,
+  appControls,
   handleCameraFocus
 }) {
   const { selectedLanguage } = useLanguageSelection();
@@ -28,7 +28,7 @@ export default function Playlist({
   } = usePlaylist({
     data,
     sceneReady,
-    sceneControls,
+    appControls,
     handleCameraFocus,
     selectedLanguage
   });

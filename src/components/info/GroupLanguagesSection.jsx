@@ -9,7 +9,7 @@ import "./GroupLanguagesSection.css";
  */
 function GroupLanguagesSection({
   languageCode,
-  sceneControls,
+  appControls,
   onCameraFocus,
   data
 }) {
@@ -17,7 +17,7 @@ function GroupLanguagesSection({
     onCameraFocus,
     true,
     data,
-    sceneControls
+    appControls
   );
   const groupInfo = getGroupInfo(languageCode);
 

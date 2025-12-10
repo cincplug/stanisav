@@ -15,7 +15,7 @@ function InfoPanel({
   onClose,
   showInfo,
   onToggleShowInfo,
-  sceneControls,
+  appControls,
   onCameraFocus,
   data
 }) {
@@ -74,7 +74,7 @@ function InfoPanel({
 
         <GroupLanguagesSection
           languageCode={selectedLanguage}
-          sceneControls={sceneControls}
+          appControls={appControls}
           onCameraFocus={onCameraFocus}
           data={data}
         />

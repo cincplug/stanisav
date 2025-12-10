@@ -5,14 +5,13 @@ import { useLanguageSelection } from "./LanguageSelectionContext";
 const VisualizationContext = createContext(null);
 
 export const VisualizationProvider = ({ children }) => {
-  const { controls } = useAppControls();
+  const { appControls } = useAppControls();
   const { selectedLanguage, selectedGroup, selectLanguage } =
     useLanguageSelection();
 
   const value = {
     // Visual settings
-    sceneControls: controls.Scene || {},
-    colorsControls: controls.Colors || {},
+    appControls,
 
     // Selection state
     selectedLanguage,

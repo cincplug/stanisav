@@ -1,12 +1,11 @@
 import { useEffect, useMemo } from "react";
 import Group from "./Group";
 import { useCameraController } from "../../hooks/useCameraController";
-import { useVisualization } from "../../contexts/VisualizationContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
-import { useAppControls } from "../../contexts/AppControlsContext";
 import { useDataManager } from "../../hooks/useDataManager";
 import { useLayoutManager } from "../../hooks/useLayoutManager";
 import { getGroupedLanguages } from "../../utils/groupingUtils";
+import { useAppControls } from "../../contexts/AppControlsContext";
 
 const Languages = ({
   onDataLoaded,
@@ -15,14 +14,12 @@ const Languages = ({
   onNodesReady,
   cameraFocusRequest
 }) => {
-  const { sceneControls } = useVisualization();
-  const { controls } = useAppControls();
-  const { Camera: cameraControls = {} } = controls;
+  const { appControls } = useAppControls();
 
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
   const { formattedPositions } = useLayoutManager(
     data,
-    sceneControls,
+    appControls,
     onNodesReady
   );
   const groupedLanguages = useMemo(() => getGroupedLanguages(data), [data]);
@@ -43,8 +40,7 @@ const Languages = ({
       cameraFocusRequest,
       languageNodes: formattedPositions,
       data,
-      cameraControls,
-      sceneControls,
+      appControls,
       selectedLanguage
     });
     return null;

@@ -1,7 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useAppControls } from "../../contexts/AppControlsContext";
-import { useVisualization } from "../../contexts/VisualizationContext";
 import Languages from "./Languages";
 import { useCameraUpdater } from "../../hooks/useCameraUpdater";
 
@@ -13,11 +12,9 @@ const Stage = ({
   onNodesReady,
   cameraFocusRequest
 }) => {
-  const { controls } = useAppControls();
-  const { colorsControls } = useVisualization();
-  const cameraControls = controls.Camera || {};
+  const { appControls } = useAppControls();
   const CameraUpdaterNode = () => {
-    useCameraUpdater({ cameraControls });
+    useCameraUpdater({ appControls });
     return null;
   };
   return (
@@ -27,17 +24,17 @@ const Stage = ({
       }`}
       camera={{
         position: [
-          cameraControls.positionX,
-          cameraControls.positionY,
-          cameraControls.positionZ
+          appControls.positionX,
+          appControls.positionY,
+          appControls.positionZ
         ],
-        fov: cameraControls.fov,
-        near: cameraControls.near,
-        far: cameraControls.far
+        fov: appControls.fov,
+        near: appControls.near,
+        far: appControls.far
       }}
-      gl={{ antialias: true, clearColor: colorsControls.backgroundColor }}
+      gl={{ antialias: true, clearColor: appControls.backgroundColor }}
     >
-      <color attach="background" args={[colorsControls.backgroundColor]} />
+      <color attach="background" args={[appControls.backgroundColor]} />
 
       <OrbitControls
         enableDamping={true}

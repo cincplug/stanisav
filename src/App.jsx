@@ -17,9 +17,7 @@ function App() {
     isMenuCollapsed,
     filteringUtils,
     selectedGroup,
-    sceneControls,
-    colorsControls,
-    cameraControls,
+    appControls,
     isInfoPanelClosed,
 
     // Setters
@@ -32,9 +30,7 @@ function App() {
     setIsInfoPanelClosed,
 
     // Handlers
-    updateSceneControl,
-    updateColorsControl,
-    updateCameraControl,
+    updateControl,
     handleCameraFocus,
     handleLanguageClick
   } = useAppState();
@@ -57,9 +53,7 @@ function App() {
     <div className={`app-container ${isLoading ? "loading" : ""}`}>
       <Stage
         isMenuCollapsed={isMenuCollapsed}
-        sceneControls={sceneControls}
-        colorsControls={colorsControls}
-        cameraControls={cameraControls}
+        appControls={appControls}
         onDataLoaded={setData}
         onSceneReady={setSceneReady}
         onLoadingChange={setIsLoading}
@@ -74,11 +68,11 @@ function App() {
       {!isLoading && sceneReady && (
         <InfoPanel
           selectedLanguage={selectedLanguage}
-          isVisible={sceneControls.showInfo && !isInfoPanelClosed}
+          isVisible={appControls.showInfo && !isInfoPanelClosed}
           onClose={() => setIsInfoPanelClosed(true)}
-          showInfo={sceneControls.showInfo}
-          onToggleShowInfo={(value) => updateSceneControl("showInfo", value)}
-          sceneControls={sceneControls}
+          showInfo={appControls.showInfo}
+          onToggleShowInfo={(value) => updateControl("showInfo", value)}
+          appControls={appControls}
           onCameraFocus={handleCameraFocus}
           data={data}
         />
@@ -86,12 +80,8 @@ function App() {
       {/* React-based Control Panel */}
       {!isLoading && sceneReady ? (
         <Menu
-          sceneControls={sceneControls}
-          onSceneControlChange={updateSceneControl}
-          colorsControls={colorsControls}
-          onColorsControlChange={updateColorsControl}
-          cameraControls={cameraControls}
-          onCameraControlChange={updateCameraControl}
+          appControls={appControls}
+          onControlChange={updateControl}
           data={data}
           isLoading={isLoading}
           sceneReady={sceneReady}
@@ -110,7 +100,7 @@ function App() {
       <Playlist
         data={data}
         sceneReady={sceneReady}
-        sceneControls={sceneControls}
+        appControls={appControls}
         handleCameraFocus={handleCameraFocus}
       />
 
