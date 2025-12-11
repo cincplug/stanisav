@@ -27,7 +27,7 @@
       { "value": "group", "label": "Group" },
       { "value": "speakers", "label": "Speakers' number" }
     ],
-    "defaultValue": "alphabetically",
+    "defaultValue": "speakers",
     "isUserEditable": true,
     "group": "Scene"
   },
@@ -43,11 +43,11 @@
     "isUserEditable": true,
     "group": "Scene"
   },
-  "showInfo": {
+  "isReverse": {
     "type": "checkbox",
-    "label": "Show Language Info",
-    "defaultValue": false,
-    "isUserEditable": false,
+    "label": "Reverse order",
+    "defaultValue": true,
+    "isUserEditable": true,
     "group": "Scene"
   },
   "isLuka": {

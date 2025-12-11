@@ -29,7 +29,7 @@ export function usePlaylist({
     if (!data?.languageData) return [];
 
     const { languageData, languageGroups, speakerData } = data;
-    const { sortLanguagesBy, labelContent } = appControls;
+    const { sortLanguagesBy, labelContent, isReverse } = appControls;
     const allLanguages = Object.keys(data.languageData);
     return sortLanguages({
       allLanguages,
@@ -37,7 +37,8 @@ export function usePlaylist({
       languageGroups,
       speakerData,
       sortLanguagesBy,
-      labelContent
+      labelContent,
+      isReverse
     });
   }, [data, appControls]);
 

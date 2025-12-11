@@ -39,7 +39,7 @@ class LayoutEngine {
     const allLanguages = Object.keys(languageData);
 
     // Get configuration from controls or use defaults
-    const { sortLanguagesBy, sphereRadius, labelContent } = controls;
+    const { sortLanguagesBy, sphereRadius, labelContent, isReverse } = controls;
 
     // Sort languages based on selected criteria
     const sortedLanguages = sortLanguages({
@@ -48,7 +48,8 @@ class LayoutEngine {
       languageGroups,
       speakerData,
       sortLanguagesBy,
-      labelContent
+      labelContent,
+      isReverse
     });
 
     const numPoints = sortedLanguages.length;
