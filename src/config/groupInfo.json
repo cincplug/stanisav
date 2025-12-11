@@ -1,16 +1,4 @@
 {
-  "Berber": {
-    "family": "Afro-Asiatic",
-    "color": "#ffb84d"
-  },
-  "Chadic": {
-    "family": "Afro-Asiatic",
-    "color": "#ff9944"
-  },
-  "Cushitic": {
-    "family": "Afro-Asiatic",
-    "color": "#ffa857"
-  },
   "Albanian": {
     "family": "Indo-European",
     "color": "#ffcc66"
@@ -28,29 +16,13 @@
     "color": "#337eff",
     "description": "Athabaskan languages of North America"
   },
-  "Mon-Khmer": {
-    "family": "Austroasiatic",
-    "color": "#44cc77"
-  },
-  "Munda": {
-    "family": "Austroasiatic",
-    "color": "#55bb66"
+  "Atlantic": {
+    "family": "Niger-Congo",
+    "color": "#42ffd0"
   },
   "Austronesian": {
     "family": "Austronesian",
     "color": "#33cc99"
-  },
-  "Malayo-Polynesian": {
-    "family": "Austronesian",
-    "color": "#22ddaa"
-  },
-  "Pacific": {
-    "family": "Austronesian",
-    "color": "#11eebb"
-  },
-  "Philippine": {
-    "family": "Austronesian",
-    "color": "#46d3dd"
   },
   "Aymaran": {
     "family": "Aymaran",
@@ -60,9 +32,17 @@
     "family": "Indo-European",
     "color": "#e27aff"
   },
+  "Bantu": {
+    "family": "Niger-Congo",
+    "color": "#49db14"
+  },
   "Basque": {
     "family": "Basque",
     "color": "#ff9955"
+  },
+  "Berber": {
+    "family": "Afro-Asiatic",
+    "color": "#ffb84d"
   },
   "Caucasian": {
     "family": "Caucasian",
@@ -76,21 +56,33 @@
     "family": "Dravidian",
     "color": "#ff7744"
   },
-  "South Dravidian": {
-    "family": "Dravidian",
-    "color": "#ff4f14"
+  "Chadic": {
+    "family": "Afro-Asiatic",
+    "color": "#ff9944"
+  },
+  "Cushitic": {
+    "family": "Afro-Asiatic",
+    "color": "#ffa857"
+  },
+  "East Slavic": {
+    "family": "Indo-European",
+    "color": "#e894ff"
+  },
+  "English Creole": {
+    "family": "Creole",
+    "color": "#82fd3f"
   },
   "Eskimo-Aleut": {
     "family": "Eskimo-Aleut",
     "color": "#aabbff"
   },
-  "North Germanic": {
-    "family": "Indo-European",
-    "color": "#7081ff"
+  "Finnic": {
+    "family": "Uralic",
+    "color": "#a5dbfd"
   },
-  "West Germanic": {
-    "family": "Indo-European",
-    "color": "#70baff"
+  "French Creole": {
+    "family": "Creole",
+    "color": "#abdd22"
   },
   "Hellenic": {
     "family": "Indo-European",
@@ -116,6 +108,14 @@
     "family": "Japonic",
     "color": "#ff7a9c"
   },
+  "Karen": {
+    "family": "Sino-Tibetan",
+    "color": "#88cc55"
+  },
+  "Karluk Turkic": {
+    "family": "Turkic",
+    "color": "#dd9e55"
+  },
   "Kartvelian": {
     "family": "Kartvelian",
     "color": "#c266ff"
@@ -123,6 +123,10 @@
   "Khoisan": {
     "family": "Khoisan",
     "color": "#ffbb44"
+  },
+  "Kipchak Turkic": {
+    "family": "Turkic",
+    "color": "#ccaa66"
   },
   "Koreanic": {
     "family": "Koreanic",
@@ -132,33 +136,37 @@
     "family": "Kra-Dai",
     "color": "#55cc66"
   },
+  "Kwa": {
+    "family": "Niger-Congo",
+    "color": "#88dd77"
+  },
+  "Malayo-Polynesian": {
+    "family": "Austronesian",
+    "color": "#22ddaa"
+  },
+  "Mande": {
+    "family": "Niger-Congo",
+    "color": "#99cc77"
+  },
   "Mayan": {
     "family": "Mayan",
     "color": "#66cc55"
+  },
+  "Mon-Khmer": {
+    "family": "Austroasiatic",
+    "color": "#44cc77"
   },
   "Mongolic": {
     "family": "Mongolic",
     "color": "#ccaa55"
   },
+  "Munda": {
+    "family": "Austroasiatic",
+    "color": "#55bb66"
+  },
   "Niger-Congo": {
     "family": "Niger-Congo",
     "color": "#77cc66"
-  },
-  "Atlantic": {
-    "family": "Niger-Congo",
-    "color": "#42ffd0"
-  },
-  "Bantu": {
-    "family": "Niger-Congo",
-    "color": "#49db14"
-  },
-  "Kwa": {
-    "family": "Niger-Congo",
-    "color": "#88dd77"
-  },
-  "Mande": {
-    "family": "Niger-Congo",
-    "color": "#99cc77"
   },
   "Nilo-Saharan": {
     "family": "Nilo-Saharan",
@@ -168,9 +176,33 @@
     "family": "Nilo-Saharan",
     "color": "#ffaa55"
   },
+  "North Germanic": {
+    "family": "Indo-European",
+    "color": "#7081ff"
+  },
   "Nubian": {
     "family": "Nilo-Saharan",
     "color": "#ff8833"
+  },
+  "Oghuz Turkic": {
+    "family": "Turkic",
+    "color": "#eebb55"
+  },
+  "Other Tibeto-Burman": {
+    "family": "Sino-Tibetan",
+    "color": "#99bb44"
+  },
+  "Pacific": {
+    "family": "Austronesian",
+    "color": "#11eebb"
+  },
+  "Philippine": {
+    "family": "Austronesian",
+    "color": "#46d3dd"
+  },
+  "Portuguese Creole": {
+    "family": "Creole",
+    "color": "#dadd46"
   },
   "Quechuan": {
     "family": "Quechuan",
@@ -188,29 +220,25 @@
     "family": "Afro-Asiatic",
     "color": "#bbcc66"
   },
+  "Siberian Turkic": {
+    "family": "Turkic",
+    "color": "#9999ee"
+  },
   "Sinitic": {
     "family": "Sino-Tibetan",
     "color": "#ffa424"
   },
-  "East Slavic": {
-    "family": "Indo-European",
-    "color": "#e894ff"
+  "South Dravidian": {
+    "family": "Dravidian",
+    "color": "#ff4f14"
   },
   "South Slavic": {
     "family": "Indo-European",
     "color": "#9b70ff"
   },
-  "West Slavic": {
-    "family": "Indo-European",
-    "color": "#8095ff"
-  },
-  "Karen": {
-    "family": "Sino-Tibetan",
-    "color": "#88cc55"
-  },
-  "Other Tibeto-Burman": {
-    "family": "Sino-Tibetan",
-    "color": "#99bb44"
+  "Spanish Creole": {
+    "family": "Creole",
+    "color": "#e6783d"
   },
   "Tibetan": {
     "family": "Sino-Tibetan",
@@ -220,26 +248,6 @@
     "family": "Tupian",
     "color": "#44cc66"
   },
-  "Karluk Turkic": {
-    "family": "Turkic",
-    "color": "#dd9e55"
-  },
-  "Kipchak Turkic": {
-    "family": "Turkic",
-    "color": "#ccaa66"
-  },
-  "Oghuz Turkic": {
-    "family": "Turkic",
-    "color": "#eebb55"
-  },
-  "Siberian Turkic": {
-    "family": "Turkic",
-    "color": "#9999ee"
-  },
-  "Finnic": {
-    "family": "Uralic",
-    "color": "#a5dbfd"
-  },
   "Ugric": {
     "family": "Uralic",
     "color": "#4bdd99"
@@ -248,20 +256,12 @@
     "family": "Uto-Aztecan",
     "color": "#ffaa55"
   },
-  "English Creole": {
-    "family": "Creole",
-    "color": "#82fd3f"
+  "West Germanic": {
+    "family": "Indo-European",
+    "color": "#70baff"
   },
-  "French Creole": {
-    "family": "Creole",
-    "color": "#abdd22"
-  },
-  "Portuguese Creole": {
-    "family": "Creole",
-    "color": "#dadd46"
-  },
-  "Spanish Creole": {
-    "family": "Creole",
-    "color": "#e6783d"
+  "West Slavic": {
+    "family": "Indo-European",
+    "color": "#8095ff"
   }
 }

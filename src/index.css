@@ -255,7 +255,7 @@ fieldset {
 
 legend {
   color: var(--color-text);
-  margin: 0 0 var(--gap-double) -2px;
+  margin: 0 0 var(--gap) -2px;
 }
 
 .controls-grid {

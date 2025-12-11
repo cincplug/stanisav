@@ -1,10 +1,12 @@
-import groupOrder from "../config/groupOrder.json";
+import groupInfo from "../config/groupInfo.json";
 
 // Helper function to get grouped languages
 export const getGroupedLanguages = (data) => {
   if (!data?.languageGroups || !data?.groupInfo || !data?.languageData) {
     return {};
   }
+
+  const groupOrder = Object.keys(groupInfo);
 
   const groups = {};
   const visibleGroups = new Set(Object.values(data.languageGroups));

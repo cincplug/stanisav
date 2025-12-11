@@ -5,6 +5,7 @@ import LoadingOverlay from "./components/menu/LoadingOverlay";
 import Playlist from "./components/menu/Playlist";
 import { useAppState } from "./hooks/useAppState";
 import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
+import { useAppControls } from "./contexts/AppControlsContext";
 
 function App() {
   const {
@@ -16,7 +17,6 @@ function App() {
     isMenuCollapsed,
     filteringUtils,
     selectedGroup,
-    appControls,
 
     // Setters
     setData,
@@ -27,11 +27,11 @@ function App() {
     setFilteringUtils,
 
     // Handlers
-    updateControl,
     handleCameraFocus,
     handleLanguageClick
   } = useAppState();
 
+  const { appControls, updateControl } = useAppControls();
   const { selectedLanguage, stopCurrentAudio } = useLanguageSelection();
 
   const { sampleUrl, videoName } = useMemo(() => {

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { useLanguageSelection } from "../contexts/LanguageSelectionContext";
 import { useLanguageSelectionHandler } from "./useLanguageSelectionHandler";
+import { sortLanguages } from "../utils/sortLanguages";
 
 export function usePlaylist({
   data,
@@ -26,10 +27,19 @@ export function usePlaylist({
 
   const getSortedLanguageCodes = useCallback(() => {
     if (!data?.languageData) return [];
-    return Object.entries(data.languageData)
-      .sort(([, a], [, b]) => (a.name || "").localeCompare(b.name || ""))
-      .map(([code]) => code);
-  }, [data]);
+
+    const { languageData, languageGroups, speakerData } = data;
+    const { sortLanguagesBy, labelContent } = appControls;
+    const allLanguages = Object.keys(data.languageData);
+    return sortLanguages({
+      allLanguages,
+      languageData,
+      languageGroups,
+      speakerData,
+      sortLanguagesBy,
+      labelContent
+    });
+  }, [data, appControls]);
 
   const startPlaylist = useCallback(async () => {
     const codes = getSortedLanguageCodes();
@@ -53,7 +63,7 @@ export function usePlaylist({
     }
   }, [stopCurrentAudio]);
 
-  // Optional: reset to beginning
+  // Reset to beginning
   const resetPlaylist = useCallback(() => {
     setCurrentIndex(0);
     setIsPlaying(false);
@@ -138,6 +148,14 @@ export function usePlaylist({
       }
     }
   }, [isPlaying, handleAudioEnded]);
+
+  // Reset playlist when sorting or label changes
+  useEffect(() => {
+    const codes = getSortedLanguageCodes();
+    playlistRef.current = codes;
+    setCurrentIndex(0);
+    setIsPlaying(false);
+  }, [appControls?.sortLanguagesBy, appControls?.labelContent]);
 
   return {
     isPlaying,

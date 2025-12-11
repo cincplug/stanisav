@@ -1,16 +1,7 @@
 import { useState } from "react";
-import guiConfig from "../config/guiConfig.json";
 import { useLanguageSelection } from "../contexts/LanguageSelectionContext";
 import { useLanguageSelectionHandler } from "./useLanguageSelectionHandler";
-
-// Helper function to extract all defaults from flat guiConfig
-const getAllDefaults = () => {
-  const defaults = {};
-  Object.entries(guiConfig).forEach(([controlId, config]) => {
-    defaults[controlId] = config.defaultValue;
-  });
-  return defaults;
-};
+import { useAppControls } from "../contexts/AppControlsContext";
 
 /**
  * Custom hook to manage all App-level state and handlers
@@ -28,16 +19,8 @@ export const useAppState = () => {
   const { selectedLanguage, selectedGroup, selectLanguage, selectGroup } =
     useLanguageSelection();
 
-  // Unified app controls state - extract all defaults from guiConfig
-  const [appControls, setAppControls] = useState(() => getAllDefaults());
-
-  // Unified control update function
-  const updateControl = (key, value) => {
-    setAppControls((prev) => ({
-      ...prev,
-      [key]: value
-    }));
-  };
+  // Use appControls from context
+  const { appControls } = useAppControls();
 
   // Create a mock camera focus function for the centralized handler
   const mockCameraFocus = (type, target) => {
@@ -80,7 +63,6 @@ export const useAppState = () => {
     filteringUtils,
     selectedLanguage,
     selectedGroup,
-    appControls,
 
     // Setters
     setData,
@@ -91,7 +73,6 @@ export const useAppState = () => {
     setFilteringUtils,
 
     // Handlers
-    updateControl,
     handleCameraFocus,
     handleLanguageClick
   };

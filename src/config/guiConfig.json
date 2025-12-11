@@ -23,11 +23,11 @@
     "type": "radio",
     "label": "Sort Languages By",
     "options": [
-      { "value": "group", "label": "Group" },
       { "value": "alphabetically", "label": "Alphabetically" },
+      { "value": "group", "label": "Group" },
       { "value": "speakers", "label": "Speakers' number" }
     ],
-    "defaultValue": "group",
+    "defaultValue": "alphabetically",
     "isUserEditable": true,
     "group": "Scene"
   },
