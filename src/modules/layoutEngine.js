@@ -38,7 +38,7 @@ class LayoutEngine {
     const allLanguages = Object.keys(languageData);
 
     // Get configuration from controls or use defaults
-    const { sortLanguagesBy, sphereRadius } = controls;
+    const { sortLanguagesBy, sphereRadius, labelContent } = controls;
 
     // Sort languages based on selected criteria
     const sortedLanguages = this.sortLanguages(
@@ -46,7 +46,8 @@ class LayoutEngine {
       languageData,
       languageGroups,
       speakerData,
-      sortLanguagesBy
+      sortLanguagesBy,
+      labelContent
     );
 
     const numPoints = sortedLanguages.length;
@@ -133,16 +134,25 @@ class LayoutEngine {
     languageData,
     languageGroups,
     speakerData,
-    sortLanguagesBy
+    sortLanguagesBy,
+    labelContent
   ) {
     const sortedLanguages = [...allLanguages];
 
     switch (sortLanguagesBy) {
       case "alphabetically":
         return sortedLanguages.sort((a, b) => {
-          const nameA = languageData[a]?.name;
-          const nameB = languageData[b]?.name;
-          return nameA.localeCompare(nameB);
+          let labelA, labelB;
+          if (labelContent === "isoCode") {
+            labelA = a;
+            labelB = b;
+          } else {
+            labelA = languageData[a]?.[labelContent] || "";
+            labelB = languageData[b]?.[labelContent] || "";
+          }
+          return labelA.localeCompare(labelB, undefined, {
+            sensitivity: "base"
+          });
         });
 
       case "speakers":
