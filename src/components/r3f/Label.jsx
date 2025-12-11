@@ -1,6 +1,7 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
+import * as THREE from "three";
 
 const Label = ({
   children,
@@ -12,6 +13,15 @@ const Label = ({
 }) => {
   const labelRef = useRef();
   const [isHovered, setIsHovered] = useState(false);
+
+  const textMaterial = useMemo(
+    () =>
+      new THREE.MeshStandardMaterial({
+        color: labelColor,
+        roughness: 0.8
+      }),
+    [labelColor]
+  );
 
   useFrame(({ camera }) => {
     if (labelRef.current) {
@@ -42,13 +52,9 @@ const Label = ({
         outlineWidth={(fontSize * 2) / 3}
         outlineColor={isHovered ? "yellow" : backgroundColor}
         position={[0, 0, 1 / 10]}
+        material={textMaterial}
       >
         {children}
-        <meshStandardMaterial
-          attach="material"
-          color={labelColor}
-          roughness={0.8}
-        />
       </Text>
     </group>
   );
