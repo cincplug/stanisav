@@ -50,11 +50,6 @@ const ControlsTab = () => {
           updateControl={updateControl}
         />
       ))}
-      <div className="control-item">
-        <a className="get-playlist" href="/gopofajlija.m3u">
-          Get Playlist
-        </a>
-      </div>
     </div>
   );
 };

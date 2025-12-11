@@ -1,7 +1,6 @@
 import { useCallback } from "react";
 import { useAppControls } from "../../contexts/AppControlsContext.jsx";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
-import visualConstants from "../../config/visualConstants.json";
 import Mesha from "./Mesha.jsx";
 import Label from "./Label.jsx";
 
@@ -17,7 +16,7 @@ const Node = ({
   const { appControls } = useAppControls();
   const { filteredLanguages, filteringUtils, isPlayingAudio } =
     useLanguageSelection();
-  const { labelContent, labelSize } = appControls;
+  const { labelContent, labelSize, backgroundColor } = appControls;
 
   const getLabelText = (language, languageCode, labelContent) => {
     switch (labelContent) {
@@ -64,12 +63,11 @@ const Node = ({
       )}
 
       <Label
-        position={[0, 0, 0]}
-        fontSize={
-          visualConstants.languageNode.labelFontSizeMultiplier * labelSize
-        }
+        fontSize={labelSize}
         isSelected={isSelected}
+        labelColor={backgroundColor}
         backgroundColor={color}
+        outlineWidth={(labelSize * 3) / 4}
       >
         {getLabelText(language, languageCode, labelContent)}
       </Label>

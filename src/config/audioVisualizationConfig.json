@@ -25,11 +25,6 @@
     "symmetricalMirroring": true,
     "meshSegments": 16,
     "updateInterval": 16,
-    "enableSmoothing": true,
-    "audioRotationSpeed": 1,
-    "audioRotationAmplitude": 0.5,
-    "rotationLerpSpeed": 0.8,
-    "rotationDecaySpeed": 0.1,
-    "rotationDecayRate": 0.05
+    "enableSmoothing": true
   }
 }

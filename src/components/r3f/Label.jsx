@@ -1,13 +1,15 @@
 import { useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
-import visualConstants from "../../config/visualConstants.json";
 
-const {
-  languageNode: { labelColor, labelFont, labelPadding }
-} = visualConstants;
-
-const Label = ({ children, position, fontSize, backgroundColor }) => {
+const Label = ({
+  children,
+  position,
+  fontSize,
+  labelColor,
+  backgroundColor,
+  outlineWidth
+}) => {
   const labelRef = useRef();
   const [isHovered, setIsHovered] = useState(false);
 
@@ -26,21 +28,18 @@ const Label = ({ children, position, fontSize, backgroundColor }) => {
     >
       <Text
         fontSize={fontSize}
-        font={labelFont}
         anchorX="center"
         anchorY="middle"
-        outlineWidth={fontSize * labelPadding + labelPadding / 3}
+        outlineWidth={outlineWidth}
         outlineColor={labelColor}
       >
         {children}
       </Text>
       <Text
         fontSize={fontSize}
-        color={labelColor}
-        font={labelFont}
         anchorX="center"
         anchorY="middle"
-        outlineWidth={fontSize * labelPadding}
+        outlineWidth={(fontSize * 2) / 3}
         outlineColor={isHovered ? "yellow" : backgroundColor}
         position={[0, 0, 1 / 10]}
       >
