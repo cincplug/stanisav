@@ -58,7 +58,7 @@ const Node = ({
       {isSelected && isPlayingAudio && (
         <Mesha
           color={color}
-          labelSize={labelSize * 2}
+          labelSize={fontSize * 2}
           linguisticProperties={linguisticProperties}
           isSelected={isSelected}
           languageCode={languageCode}

@@ -35,12 +35,20 @@ const Label = ({
       onPointerOver={() => setIsHovered(true)}
       onPointerOut={() => setIsHovered(false)}
     >
+      {isHovered && (
+        <pointLight
+          position={[0, 0, 2]}
+          intensity={10}
+          distance={10}
+          color={backgroundColor}
+        />
+      )}
       <Text
         fontSize={fontSize}
         anchorX="center"
         anchorY="middle"
         outlineWidth={(fontSize * 2) / 3}
-        outlineColor={isHovered ? "yellow" : backgroundColor}
+        outlineColor={backgroundColor}
         position={[0, 0, 1 / 10]}
         material={textMaterial}
       >
