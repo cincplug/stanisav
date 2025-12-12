@@ -8,8 +8,7 @@ const Label = ({
   position,
   fontSize,
   labelColor,
-  backgroundColor,
-  outlineWidth
+  backgroundColor
 }) => {
   const labelRef = useRef();
   const [isHovered, setIsHovered] = useState(false);
@@ -36,15 +35,6 @@ const Label = ({
       onPointerOver={() => setIsHovered(true)}
       onPointerOut={() => setIsHovered(false)}
     >
-      <Text
-        fontSize={fontSize}
-        anchorX="center"
-        anchorY="middle"
-        outlineWidth={outlineWidth}
-        outlineColor={labelColor}
-      >
-        {children}
-      </Text>
       <Text
         fontSize={fontSize}
         anchorX="center"

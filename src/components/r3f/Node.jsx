@@ -11,7 +11,8 @@ const Node = ({
   onLanguageClick,
   isSelected = false,
   color,
-  linguisticProperties = null
+  linguisticProperties = null,
+  speakerCount
 }) => {
   const { appControls } = useAppControls();
   const { filteredLanguages, filteringUtils, isPlayingAudio } =
@@ -50,6 +51,8 @@ const Node = ({
     [onLanguageClick, languageCode]
   );
 
+  const fontSize = normalizeRange(labelSize * speakerCount);
+
   return (
     <group position={position} onClick={handleClick}>
       {isSelected && isPlayingAudio && (
@@ -63,11 +66,10 @@ const Node = ({
       )}
 
       <Label
-        fontSize={labelSize}
+        fontSize={fontSize}
         isSelected={isSelected}
         labelColor={backgroundColor}
         backgroundColor={color}
-        outlineWidth={(labelSize * 3) / 4}
       >
         {getLabelText(language, languageCode, labelContent)}
       </Label>
@@ -76,3 +78,17 @@ const Node = ({
 };
 
 export default Node;
+
+function normalizeRange(
+  value,
+  min = 1 / 1000,
+  max = 1000,
+  outMin = 1,
+  outMax = 3
+) {
+  const logMin = Math.log(min);
+  const logMax = Math.log(max);
+  const logValue = Math.log(value);
+
+  return outMin + ((logValue - logMin) / (logMax - logMin)) * (outMax - outMin);
+}

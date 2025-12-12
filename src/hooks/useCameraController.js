@@ -2,53 +2,6 @@ import { useEffect, useRef, useMemo, useCallback } from "react";
 import { useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
-const GROUP_DISTANCE_MULTIPLIER = 1.2;
-const DEFAULT_FOCUS_DISTANCE = 50;
-
-const animateCamera = (cameraSystem, targetPosition, lookAtTarget, config) => {
-  const { camera, controls, animationRef } = cameraSystem;
-  if (animationRef.current) {
-    cancelAnimationFrame(animationRef.current);
-  }
-  const startPosition = camera.position.clone();
-  const startTarget = controls?.target?.clone() || new THREE.Vector3();
-  const duration = config.animationDuration;
-  const startTime = Date.now();
-
-  const animate = () => {
-    const elapsed = Date.now() - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    const easeInOut =
-      progress < 0.5
-        ? 2 * progress * progress
-        : 1 - Math.pow(config.easingPower * progress + 2, 3) / 2;
-    camera.position.lerpVectors(startPosition, targetPosition, easeInOut);
-    if (controls && controls.target) {
-      controls.target.lerpVectors(startTarget, lookAtTarget, easeInOut);
-      controls.update();
-    }
-    if (progress < 1) {
-      animationRef.current = requestAnimationFrame(animate);
-    } else {
-      camera.position.copy(targetPosition);
-      if (controls && controls.target) {
-        controls.target.copy(lookAtTarget);
-        controls.update();
-      }
-      animationRef.current = null;
-    }
-  };
-
-  animate();
-};
-
-const calculateCameraPosition = (nodePosition, focusDistance) => {
-  const directionFromCenter = nodePosition.clone().normalize();
-  return nodePosition
-    .clone()
-    .add(directionFromCenter.multiplyScalar(focusDistance));
-};
-
 export const useCameraController = ({
   cameraFocusRequest,
   languageNodes,
@@ -88,7 +41,7 @@ export const useCameraController = ({
         animationRef.current = null;
       }
       const languagePosition = new THREE.Vector3(node.x, node.y, node.z);
-      const focusDistance = config.focusDistance || DEFAULT_FOCUS_DISTANCE;
+      const focusDistance = config.focusDistance;
       const targetCameraPosition = calculateCameraPosition(
         languagePosition,
         focusDistance
@@ -133,7 +86,7 @@ export const useCameraController = ({
       const center = box.getCenter(new THREE.Vector3());
       const size = box.getSize(new THREE.Vector3());
       const maxDim = Math.max(size.x, size.y, size.z);
-      const distance = maxDim * GROUP_DISTANCE_MULTIPLIER;
+      const distance = maxDim;
       const targetCameraPosition = new THREE.Vector3(0, 0, distance);
       animateCamera(cameraSystem, targetCameraPosition, center, config);
     },
@@ -206,4 +159,48 @@ export const useCameraController = ({
     },
     []
   );
+};
+
+const animateCamera = (cameraSystem, targetPosition, lookAtTarget, config) => {
+  const { camera, controls, animationRef } = cameraSystem;
+  if (animationRef.current) {
+    cancelAnimationFrame(animationRef.current);
+  }
+  const startPosition = camera.position.clone();
+  const startTarget = controls?.target?.clone() || new THREE.Vector3();
+  const duration = config.animationDuration;
+  const startTime = Date.now();
+
+  const animate = () => {
+    const elapsed = Date.now() - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const easeInOut =
+      progress < 0.5
+        ? 2 * progress * progress
+        : 1 - Math.pow(config.easingPower * progress + 2, 3) / 2;
+    camera.position.lerpVectors(startPosition, targetPosition, easeInOut);
+    if (controls && controls.target) {
+      controls.target.lerpVectors(startTarget, lookAtTarget, easeInOut);
+      controls.update();
+    }
+    if (progress < 1) {
+      animationRef.current = requestAnimationFrame(animate);
+    } else {
+      camera.position.copy(targetPosition);
+      if (controls && controls.target) {
+        controls.target.copy(lookAtTarget);
+        controls.update();
+      }
+      animationRef.current = null;
+    }
+  };
+
+  animate();
+};
+
+const calculateCameraPosition = (nodePosition, focusDistance) => {
+  const directionFromCenter = nodePosition.clone().normalize();
+  return nodePosition
+    .clone()
+    .add(directionFromCenter.multiplyScalar(focusDistance));
 };
