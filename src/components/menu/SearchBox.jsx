@@ -2,7 +2,13 @@ import { useRef, useEffect } from "react";
 import { CloseIcon } from "./MenuIcons";
 import "./SearchTab.css";
 
-function SearchBox({ searchTerm, setSearchTerm, clearSearch, autoFocus }) {
+function SearchBox({
+  searchTerm,
+  setSearchTerm,
+  clearSearch,
+  autoFocus,
+  onGroupFocus
+}) {
   const searchInputRef = useRef(null);
 
   useEffect(() => {
@@ -19,23 +25,31 @@ function SearchBox({ searchTerm, setSearchTerm, clearSearch, autoFocus }) {
   };
 
   return (
-    <div className="search-input-container">
-      <label htmlFor="language-search">Search languages</label>
-      <input
-        ref={searchInputRef}
-        id="language-search"
-        type="text"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className="search-input"
-      />
+    <div className="controls-grid search-header">
+      <div className="search-input-container">
+        <label htmlFor="language-search">Search</label>
+        <input
+          ref={searchInputRef}
+          id="language-search"
+          type="text"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="search-input"
+        />
+        <button
+          onClick={handleClear}
+          className="search-clear-button"
+          aria-label="Clear search"
+          disabled={!searchTerm}
+        >
+          <CloseIcon />
+        </button>
+      </div>
       <button
-        onClick={handleClear}
-        className="search-clear-button"
-        aria-label="Clear search"
-        disabled={!searchTerm}
+        onClick={() => onGroupFocus("viewAll")}
+        className="view-all-button"
       >
-        <CloseIcon />
+        View all
       </button>
     </div>
   );

@@ -90,6 +90,7 @@ function Menu({
             setSearchTerm={setSearchTerm}
             clearSearch={clearSearch}
             autoFocus={activeTab === "search"}
+            onGroupFocus={handleGroupFocus}
           />
 
           <TabRenderer

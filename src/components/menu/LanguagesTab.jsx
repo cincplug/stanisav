@@ -26,16 +26,6 @@ function LanguagesTab({
 
   return (
     <div className="control-section">
-      {/* Group Filter */}
-      <div className="control-item">
-        <button
-          onClick={() => onGroupFocus("viewAll")}
-          className="view-all-button"
-        >
-          View all languages
-        </button>
-      </div>
-
       <div className="languages-list">
         {Object.entries(groupedLanguages).map(([groupName, group]) => (
           <div key={groupName} className="language-group-container">

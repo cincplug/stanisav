@@ -26,6 +26,7 @@
   --gap-half: calc(var(--gap) / 2);
   --gap-reduced: calc(var(--gap) / 3 * 2);
   --tab-border-width: 2px;
+  --clear-button-size: 20px;
 
   /* Layout */
   --panel-width: 375px;
