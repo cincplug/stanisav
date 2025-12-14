@@ -1,0 +1,86 @@
+import js from "@eslint/js";
+import globals from "globals";
+
+export default [
+  js.configs.recommended,
+
+  {
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module",
+      globals: {
+        ...globals.browser
+      }
+    },
+
+    settings: {
+      react: {
+        version: "detect"
+      }
+    },
+
+    rules: {
+      "no-unused-vars": [
+        "warn",
+        {
+          varsIgnorePattern: "^_",
+          argsIgnorePattern: "^_"
+        }
+      ],
+
+      "no-magic-numbers": [
+        "warn",
+        {
+          ignore: [
+            0, 0.5, 1, -1, 2, -2, 3, -3, 4, 5, 6, 10, 16, 20, 24, 32, 75, 100,
+            255, 1000
+          ],
+          ignoreArrayIndexes: true,
+          enforceConst: true,
+          detectObjects: false
+        }
+      ],
+
+      "prefer-const": "error",
+      "no-var": "error",
+      "eqeqeq": ["error", "always"],
+      "camelcase": ["error", { properties: "always" }],
+      "no-duplicate-imports": "error",
+
+      "no-eval": "error",
+      "no-implied-eval": "error",
+      "no-new-func": "error",
+      "no-script-url": "error",
+
+      "no-alert": "warn",
+      "no-undef": "error",
+      "no-unreachable": "error",
+      "no-redeclare": "error",
+
+      "complexity": ["warn", 15],
+      "max-depth": ["warn", 5],
+      "max-lines-per-function": ["warn", 200],
+      "max-params": ["warn", 10]
+    }
+  },
+
+  {
+    files: ["**/config/**/*.js"],
+    rules: {
+      "no-magic-numbers": "off"
+    }
+  },
+
+  {
+    files: ["**/*.jsx"],
+    rules: {
+      "no-unused-vars": [
+        "warn",
+        {
+          varsIgnorePattern: "^React$|^[A-Z]",
+          argsIgnorePattern: "^_"
+        }
+      ]
+    }
+  }
+];

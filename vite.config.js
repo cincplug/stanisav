@@ -20,6 +20,6 @@ export default defineConfig({
   },
   // Handle legacy JS modules
   optimizeDeps: {
-    include: ["three", "lil-gui"]
+    include: ["three"]
   }
 });
