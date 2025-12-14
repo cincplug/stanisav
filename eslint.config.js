@@ -1,16 +1,27 @@
 import js from "@eslint/js";
 import globals from "globals";
+import react from "eslint-plugin-react";
 
 export default [
   js.configs.recommended,
 
   {
+    files: ["**/*.jsx", "**/*.js"],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true
+        }
+      },
       globals: {
         ...globals.browser
       }
+    },
+
+    plugins: {
+      react
     },
 
     settings: {
@@ -43,8 +54,8 @@ export default [
 
       "prefer-const": "error",
       "no-var": "error",
-      "eqeqeq": ["error", "always"],
-      "camelcase": ["error", { properties: "always" }],
+      eqeqeq: ["error", "always"],
+      camelcase: ["error", { properties: "always" }],
       "no-duplicate-imports": "error",
 
       "no-eval": "error",
@@ -57,7 +68,7 @@ export default [
       "no-unreachable": "error",
       "no-redeclare": "error",
 
-      "complexity": ["warn", 15],
+      complexity: ["warn", 15],
       "max-depth": ["warn", 5],
       "max-lines-per-function": ["warn", 200],
       "max-params": ["warn", 10]
