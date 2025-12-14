@@ -56,43 +56,6 @@ export const useCameraController = ({
     [cameraSystem, languageNodes, config]
   );
 
-  const focusOnGroup = useCallback(
-    (groupId) => {
-      if (!data?.languageGroups) {
-        return;
-      }
-      const groupLanguages = data.languageCodes.filter(
-        (code) => data.languageGroups[code] === groupId
-      );
-      if (groupLanguages.length === 0) {
-        return;
-      }
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-        animationRef.current = null;
-      }
-      const box = new THREE.Box3();
-      let validLanguages = 0;
-      groupLanguages.forEach((code) => {
-        const node = languageNodes[code];
-        if (node) {
-          box.expandByPoint(new THREE.Vector3(node.x, node.y, node.z));
-          validLanguages++;
-        }
-      });
-      if (validLanguages === 0) {
-        return;
-      }
-      const center = box.getCenter(new THREE.Vector3());
-      const size = box.getSize(new THREE.Vector3());
-      const maxDim = Math.max(size.x, size.y, size.z);
-      const distance = maxDim;
-      const targetCameraPosition = new THREE.Vector3(0, 0, distance);
-      animateCamera(cameraSystem, targetCameraPosition, center, config);
-    },
-    [cameraSystem, data, languageNodes, config]
-  );
-
   const viewAllLanguages = useCallback(() => {
     const initialCameraPosition = new THREE.Vector3(
       config.positionX,
@@ -123,9 +86,6 @@ export const useCameraController = ({
       case "language":
         focusOnLanguage(target);
         break;
-      case "group":
-        focusOnGroup(target);
-        break;
       case "viewAll":
         viewAllLanguages();
         break;
@@ -135,7 +95,6 @@ export const useCameraController = ({
     languageNodes,
     data,
     focusOnLanguage,
-    focusOnGroup,
     viewAllLanguages,
     selectedLanguage
   ]);

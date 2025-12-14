@@ -57,6 +57,13 @@
     "isUserEditable": true,
     "group": "Scene"
   },
+  "canEditColors": {
+    "type": "checkbox",
+    "label": "Can edit colors?",
+    "defaultValue": false,
+    "isUserEditable": false,
+    "group": "Scene"
+  },
   "showsVideoPreviews": {
     "type": "checkbox",
     "label": "Preview original",

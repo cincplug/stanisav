@@ -1,19 +1,18 @@
 import "./LanguagesTab.css";
 import { useEffect, useRef } from "react";
+import { useAppControls } from "../../contexts/AppControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 
 function LanguagesTab({
   groupedLanguages,
   selectedLanguage,
-  selectedGroup,
   onGroupFocus,
   onLanguageFocus,
   languageData,
-  availableGroups,
-  onGroupSelectChange,
   isActive
 }) {
   const { groupColors, setGroupColor } = useLanguageSelection();
+  const { appControls } = useAppControls();
   const buttonRefs = useRef({});
 
   useEffect(() => {
@@ -29,41 +28,31 @@ function LanguagesTab({
     <div className="control-section">
       {/* Group Filter */}
       <div className="control-item">
-        <label htmlFor="group-filter">Zoom to Group:</label>
-        <select
-          id="group-filter"
-          value={selectedGroup || "all"}
-          onChange={onGroupSelectChange}
-          className="search-select"
+        <button
+          onClick={() => onGroupFocus("viewAll")}
+          className="view-all-button"
         >
-          <option value="all">All Groups</option>
-          {availableGroups.map((group) => (
-            <option key={group.name} value={group.name}>
-              {group.name}
-            </option>
-          ))}
-        </select>
+          View all languages
+        </button>
       </div>
 
       <div className="languages-list">
         {Object.entries(groupedLanguages).map(([groupName, group]) => (
           <div key={groupName} className="language-group-container">
-            <button
-              className={`group-header-button ${
-                selectedGroup === groupName ? "selected" : ""
-              }`}
-              onClick={() => onGroupFocus(groupName)}
-            >
+            <h3 className={`group-header`}>
               {groupName}
-            </button>
-            <input
-              type="color"
-              value={groupColors?.[groupName] || group.info.color}
-              onChange={(e) => {
-                setGroupColor(groupName, e.target.value);
-              }}
-              title="Pick group color"
-            />
+
+              {appControls.canEditColors && (
+                <input
+                  type="color"
+                  value={groupColors?.[groupName] || group.info.color}
+                  onChange={(e) => {
+                    setGroupColor(groupName, e.target.value);
+                  }}
+                  title="Pick group color"
+                />
+              )}
+            </h3>
 
             <div className="languages-in-group">
               {group.languages.map((langCode) => (
