@@ -4,6 +4,12 @@
   display: flex;
   align-items: center;
   box-sizing: border-box;
+  margin: var(--gap-double) 0;
+  gap: var(--gap-double);
+
+  label {
+    white-space: nowrap;
+  }
 }
 
 /* Search input styles */

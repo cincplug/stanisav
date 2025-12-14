@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAppControls } from "../../contexts/AppControlsContext";
 import { useLanguageSearch } from "../../hooks/useLanguageSearch";
 import { useMenuHandlers } from "../../hooks/useMenuHandlers";
@@ -7,6 +7,7 @@ import { BurgerIcon, CloseIcon } from "./MenuIcons";
 import tabsConfig from "../../config/tabsConfig.json";
 import TabNavigation from "./TabNavigation";
 import TabRenderer from "./TabRenderer";
+import SearchBox from "./SearchBox";
 import "./Menu.css";
 
 function Menu({
@@ -47,6 +48,26 @@ function Menu({
     updateControl(controlId, value);
   };
 
+  // Switch to search tab if searchTerm meets threshold and not already on search tab
+  const threshold = tabsConfig.searchLengthThreshold;
+  useEffect(() => {
+    if (
+      searchTerm &&
+      searchTerm.length >= threshold &&
+      activeTab !== "search"
+    ) {
+      setActiveTab("search");
+    }
+  }, [searchTerm, activeTab, setActiveTab, threshold]);
+
+  // Custom tab change handler to clear search when switching tabs
+  const handleTabChange = (tabId) => {
+    setActiveTab(tabId);
+    if (tabId !== "search") {
+      clearSearch();
+    }
+  };
+
   return (
     <>
       {/* Toggle button - always visible */}
@@ -62,7 +83,14 @@ function Menu({
       {/* Menu panel - hidden when collapsed */}
       {!isCollapsed && (
         <div className="menu">
-          <TabNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
+          <TabNavigation activeTab={activeTab} setActiveTab={handleTabChange} />
+
+          <SearchBox
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            clearSearch={clearSearch}
+            autoFocus={activeTab === "search"}
+          />
 
           <TabRenderer
             activeTab={activeTab}

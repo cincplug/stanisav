@@ -311,8 +311,6 @@ legend {
 /* Remaining styles after component extraction */
 .linguistic-filters {
   border: none;
-  margin: 20px 0 0;
-  padding: 15px 0 0;
 }
 
 .filter-group {

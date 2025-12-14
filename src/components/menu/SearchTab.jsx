@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from "react";
-import { CloseIcon } from "./MenuIcons";
+import { useEffect, useRef } from "react";
 import tabsConfig from "../../config/tabsConfig.json";
 import "./SearchTab.css";
 
@@ -67,22 +66,12 @@ function SearchResults({
 
 function SearchTab({
   searchTerm,
-  setSearchTerm,
   searchResults,
-  clearSearch,
   selectedLanguage,
   onLanguageFocus,
   languageData
 }) {
-  const searchInputRef = useRef(null);
   const lastAutoSelectedRef = useRef(null);
-
-  // Autofocus search input when tab is mounted
-  useEffect(() => {
-    if (searchInputRef.current) {
-      searchInputRef.current.focus();
-    }
-  }, []);
 
   // Handle exact match selection (only once per unique match)
   useEffect(() => {
@@ -105,41 +94,8 @@ function SearchTab({
     }
   }, [searchTerm, searchResults, onLanguageFocus]);
 
-  // Handle clear button click
-  const handleClear = () => {
-    clearSearch();
-    // Focus the search input after clearing
-    if (searchInputRef.current) {
-      searchInputRef.current.focus();
-    }
-  };
-
   return (
     <div className="control-section">
-      {/* Search Input */}
-      <div className="control-item">
-        <label htmlFor="language-search">Search Languages:</label>
-        <div className="search-input-container">
-          <input
-            ref={searchInputRef}
-            id="language-search"
-            type="text"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="search-input"
-          />
-          <button
-            onClick={handleClear}
-            className="search-clear-button"
-            aria-label="Clear search"
-            disabled={!searchTerm}
-          >
-            <CloseIcon />
-          </button>
-        </div>
-      </div>
-
-      {/* Search Results */}
       <SearchResults
         searchTerm={searchTerm}
         searchResults={searchResults}
