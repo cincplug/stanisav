@@ -15,8 +15,7 @@ const Label = ({
   const textMaterial = useMemo(
     () =>
       new MeshStandardMaterial({
-        color: labelColor,
-        roughness: 0.8
+        color: labelColor
       }),
     [labelColor]
   );
