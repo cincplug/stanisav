@@ -1,6 +1,5 @@
 import { useMemo, useRef } from "react";
 import Node from "./Node";
-import { useVisualization } from "../../contexts/VisualizationContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import {
   calculateLanguageFilterStatus,
@@ -17,8 +16,9 @@ const Group = ({
   positions
 }) => {
   const groupRef = useRef();
-  const { selectedLanguage, onLanguageClick } = useVisualization();
-  const { filteringUtils, groupColors } = useLanguageSelection();
+  // Use useLanguageSelection instead of useVisualization
+  const { selectedLanguage, onLanguageClick, filteringUtils, groupColors } =
+    useLanguageSelection();
 
   const languageFilterStatus = useMemo(
     () =>

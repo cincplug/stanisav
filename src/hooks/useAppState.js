@@ -30,7 +30,7 @@ export const useAppState = () => {
   // Use centralized language selection handler
   const { selectLanguageWithFocus } = useLanguageSelectionHandler(
     mockCameraFocus,
-    true, // sceneReady - always true in useAppState
+    true,
     data,
     appControls
   );

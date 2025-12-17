@@ -142,6 +142,11 @@ export const LanguageSelectionProvider = ({ children }) => {
     setGroupColors((prev) => ({ ...prev, [groupKey]: color }));
   }, []);
 
+  const onLanguageClick = useCallback(
+    (code) => selectLanguage(code, true, true),
+    [selectLanguage]
+  );
+
   useEffect(() => {
     return () => {
       stopCurrentAudio();
@@ -172,7 +177,9 @@ export const LanguageSelectionProvider = ({ children }) => {
     stopCurrentAudio,
     updateFilteringUtils,
     groupColors,
-    setGroupColor
+    setGroupColor,
+    appControls,
+    onLanguageClick
   };
 
   return (
