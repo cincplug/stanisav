@@ -21,7 +21,7 @@ const NAME_TYPE_BONUS = {
 // Maximum edit distance to consider for fuzzy matching
 const MAX_EDIT_DISTANCE_RATIO = 0.4; // 40% of search term length
 
-export function useLanguageSearch(data) {
+export function useSearch(data) {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedGroup, setSelectedGroup] = useState("all");
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useControls } from "../../contexts/ControlsContext";
-import { useLanguageSearch } from "../../hooks/useLanguageSearch";
+import { useSearch } from "../../hooks/useSearch";
 import { useMenuHandlers } from "../../hooks/useMenuHandlers";
 import { useTabHandlers } from "../../hooks/useTabHandlers";
 import { BurgerIcon, CloseIcon } from "./MenuIcons";
@@ -27,7 +27,7 @@ function Menu({
   const [activeTab, setActiveTab] = useState(tabsConfig.defaultTab);
 
   const { searchTerm, setSearchTerm, searchResults, clearSearch } =
-    useLanguageSearch(data);
+    useSearch(data);
 
   const { handleLanguageFocus, handleGroupFocus, handleViewAll } =
     useMenuHandlers(onCameraFocus, sceneReady, data, controls);
