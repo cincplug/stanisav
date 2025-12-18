@@ -1,15 +1,15 @@
 import { useEffect } from "react";
 import { useThree } from "@react-three/fiber";
 
-export const useCameraUpdater = ({ appControls }) => {
+export const useCameraUpdater = ({ controls }) => {
   const { camera } = useThree();
 
   useEffect(() => {
     if (camera) {
-      camera.fov = appControls.fov;
-      camera.near = appControls.near;
-      camera.far = appControls.far;
+      camera.fov = controls.fov;
+      camera.near = controls.near;
+      camera.far = controls.far;
       camera.updateProjectionMatrix();
     }
-  }, [camera, appControls.fov, appControls.near, appControls.far]);
+  }, [camera, controls.fov, controls.near, controls.far]);
 };

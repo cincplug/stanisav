@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useAppControls } from "../../contexts/AppControlsContext";
+import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSearch } from "../../hooks/useLanguageSearch";
 import { useMenuHandlers } from "../../hooks/useMenuHandlers";
 import { useTabHandlers } from "../../hooks/useTabHandlers";
@@ -23,14 +23,14 @@ function Menu({
   selectedLanguage,
   selectedGroup
 }) {
-  const { appControls, updateControl } = useAppControls();
+  const { controls, updateControl } = useControls();
   const [activeTab, setActiveTab] = useState(tabsConfig.defaultTab);
 
   const { searchTerm, setSearchTerm, searchResults, clearSearch } =
     useLanguageSearch(data);
 
   const { handleLanguageFocus, handleGroupFocus, handleViewAll } =
-    useMenuHandlers(onCameraFocus, sceneReady, data, appControls);
+    useMenuHandlers(onCameraFocus, sceneReady, data, controls);
 
   const { availableGroups, groupedLanguages, handleGroupSelectChange } =
     useTabHandlers(data, handleGroupFocus, handleViewAll);
@@ -95,7 +95,7 @@ function Menu({
 
           <TabRenderer
             activeTab={activeTab}
-            appControls={appControls}
+            controls={controls}
             onControlChange={handleControlChange}
             handleViewAll={handleViewAll}
             groupedLanguages={groupedLanguages}

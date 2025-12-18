@@ -6,7 +6,7 @@ import { sortLanguages } from "../utils/sortLanguages";
 export function usePlaylist({
   data,
   sceneReady,
-  appControls,
+  controls,
   handleCameraFocus,
   selectedLanguage
 }) {
@@ -22,14 +22,14 @@ export function usePlaylist({
     handleCameraFocus,
     sceneReady,
     data,
-    appControls
+    controls
   );
 
   const getSortedLanguageCodes = useCallback(() => {
     if (!data?.languageData) return [];
 
     const { languageData, languageGroups, speakerData } = data;
-    const { sortLanguagesBy, labelContent, isReverse } = appControls;
+    const { sortLanguagesBy, labelContent, isReverse } = controls;
     const allLanguages = Object.keys(data.languageData);
     return sortLanguages({
       allLanguages,
@@ -40,7 +40,7 @@ export function usePlaylist({
       labelContent,
       isReverse
     });
-  }, [data, appControls]);
+  }, [data, controls]);
 
   const startPlaylist = useCallback(async () => {
     const codes = getSortedLanguageCodes();
@@ -156,7 +156,7 @@ export function usePlaylist({
     playlistRef.current = codes;
     setCurrentIndex(0);
     setIsPlaying(false);
-  }, [appControls?.sortLanguagesBy, appControls?.labelContent]);
+  }, [controls?.sortLanguagesBy, controls?.labelContent]);
 
   return {
     isPlaying,

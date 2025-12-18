@@ -1,4 +1,4 @@
-import { useAppControls } from "../../contexts/AppControlsContext";
+import { useControls } from "../../contexts/ControlsContext";
 import controlsConfig from "../../config/controlsConfig.json";
 import ControlItem from "./ControlItem";
 
@@ -9,9 +9,9 @@ const getControlsByGroup = (groupName) =>
     )
     .map(([id, config]) => ({ id, ...config }));
 
-const ControlGroup = ({ groupName, appControls, updateControl }) => {
-  const controls = getControlsByGroup(groupName);
-  if (controls.length === 0) return null;
+const ControlGroup = ({ groupName, controls, updateControl }) => {
+  const groupControls = getControlsByGroup(groupName);
+  if (groupControls.length === 0) return null;
 
   const gridClass =
     groupName === "Colors" ? "controls-grid-colors" : "controls-grid";
@@ -20,11 +20,11 @@ const ControlGroup = ({ groupName, appControls, updateControl }) => {
     <fieldset className="control-group">
       <legend>{groupName}</legend>
       <div className={gridClass}>
-        {controls.map((control) => (
+        {groupControls.map((control) => (
           <ControlItem
             key={control.id}
             control={control}
-            value={appControls[control.id]}
+            value={controls[control.id]}
             onChange={(value) => updateControl(control.id, value)}
           />
         ))}
@@ -34,7 +34,7 @@ const ControlGroup = ({ groupName, appControls, updateControl }) => {
 };
 
 const ControlsTab = () => {
-  const { appControls, updateControl } = useAppControls();
+  const { controls, updateControl } = useControls();
 
   const uniqueGroups = Array.from(
     new Set(Object.values(controlsConfig).map(({ group }) => group))
@@ -46,7 +46,7 @@ const ControlsTab = () => {
         <ControlGroup
           key={groupName}
           groupName={groupName}
-          appControls={appControls}
+          controls={controls}
           updateControl={updateControl}
         />
       ))}

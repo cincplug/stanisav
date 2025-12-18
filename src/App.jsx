@@ -5,7 +5,7 @@ import LoadingOverlay from "./components/menu/LoadingOverlay";
 import Playlist from "./components/menu/Playlist";
 import { useAppState } from "./hooks/useAppState";
 import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
-import { useAppControls } from "./contexts/AppControlsContext";
+import { useControls } from "./contexts/ControlsContext";
 
 function App() {
   const {
@@ -31,7 +31,7 @@ function App() {
     handleLanguageClick
   } = useAppState();
 
-  const { appControls, updateControl } = useAppControls();
+  const { controls, updateControl } = useControls();
   const { selectedLanguage, stopCurrentAudio } = useLanguageSelection();
 
   const { sampleUrl, videoName } = useMemo(() => {
@@ -50,7 +50,7 @@ function App() {
     <div className={`app-container ${isLoading ? "loading" : ""}`}>
       <Stage
         isMenuCollapsed={isMenuCollapsed}
-        appControls={appControls}
+        controls={controls}
         onDataLoaded={setData}
         onSceneReady={setSceneReady}
         onLoadingChange={setIsLoading}
@@ -64,7 +64,7 @@ function App() {
 
       {!isLoading && sceneReady ? (
         <Menu
-          appControls={appControls}
+          controls={controls}
           onControlChange={updateControl}
           data={data}
           isLoading={isLoading}
@@ -84,7 +84,7 @@ function App() {
       <Playlist
         data={data}
         sceneReady={sceneReady}
-        appControls={appControls}
+        controls={controls}
         handleCameraFocus={handleCameraFocus}
       />
 

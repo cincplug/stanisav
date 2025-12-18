@@ -10,10 +10,10 @@ const getDefaultValues = () => {
   return defaults;
 };
 
-const AppControlsContext = createContext(null);
+const ControlsContext = createContext(null);
 
-export const AppControlsProvider = ({ children }) => {
-  const [appControls, setControls] = useState(getDefaultValues);
+export const ControlsProvider = ({ children }) => {
+  const [controls, setControls] = useState(getDefaultValues);
 
   const updateControl = (key, value) => {
     setControls((prev) => ({
@@ -23,18 +23,16 @@ export const AppControlsProvider = ({ children }) => {
   };
 
   return (
-    <AppControlsContext.Provider value={{ appControls, updateControl }}>
+    <ControlsContext.Provider value={{ controls, updateControl }}>
       {children}
-    </AppControlsContext.Provider>
+    </ControlsContext.Provider>
   );
 };
 
-export const useAppControls = () => {
-  const context = useContext(AppControlsContext);
+export const useControls = () => {
+  const context = useContext(ControlsContext);
   if (!context) {
-    throw new Error(
-      "useAppControls must be used within an AppControlsProvider"
-    );
+    throw new Error("useControls must be used within an ControlsProvider");
   }
   return context;
 };

@@ -11,7 +11,7 @@ import {
 } from "../services/audioService.js";
 import { filterLanguagesByFeatures } from "../utils/filteringUtils";
 import groupInfo from "../config/groupInfo.json";
-import { useAppControls } from "./AppControlsContext.jsx";
+import { useControls } from "./ControlsContext.jsx";
 
 /**
  * Language Selection Context
@@ -36,7 +36,7 @@ export const LanguageSelectionProvider = ({ children }) => {
   const [filteredLanguages, setFilteredLanguages] = useState(new Set());
   const [groupColors, setGroupColors] = useState(getInitialGroupColors);
 
-  const { appControls } = useAppControls();
+  const { controls } = useControls();
 
   // Stop any currently playing audio
   const stopCurrentAudio = useCallback(() => {
@@ -51,8 +51,8 @@ export const LanguageSelectionProvider = ({ children }) => {
   // Play audio for a language
   const playLanguageAudio = useCallback(
     async (languageCode) => {
-      const { isLuka } = appControls;
-      const { animationDuration } = appControls;
+      const { isLuka } = controls;
+      const { animationDuration } = controls;
 
       try {
         stopCurrentAudio();
@@ -86,7 +86,7 @@ export const LanguageSelectionProvider = ({ children }) => {
         setCurrentAudioElement(null);
       }
     },
-    [appControls, stopCurrentAudio]
+    [controls, stopCurrentAudio]
   );
 
   // Select a language (with optional audio playback)
@@ -178,7 +178,7 @@ export const LanguageSelectionProvider = ({ children }) => {
     updateFilteringUtils,
     groupColors,
     setGroupColor,
-    appControls,
+    controls,
     onLanguageClick
   };
 

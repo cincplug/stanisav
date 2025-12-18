@@ -13,7 +13,7 @@ import {
 export default function Playlist({
   data,
   sceneReady,
-  appControls,
+  controls,
   handleCameraFocus,
   onControlChange
 }) {
@@ -30,7 +30,7 @@ export default function Playlist({
   } = usePlaylist({
     data,
     sceneReady,
-    appControls,
+    controls,
     handleCameraFocus,
     selectedLanguage
   });
@@ -64,11 +64,11 @@ export default function Playlist({
         <NextIcon />
       </button>
       <button
-        onClick={() => onControlChange("isLoop", !appControls.isLoop)}
+        onClick={() => onControlChange("isLoop", !controls.isLoop)}
         title="Toggle loop"
-        className={appControls.isLoop ? "active" : ""}
+        className={controls.isLoop ? "active" : ""}
       >
-        <LoopIcon active={appControls.isLoop} />
+        <LoopIcon active={controls.isLoop} />
       </button>
       <span className="playlist-progress">
         {playlistLength > 0

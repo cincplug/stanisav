@@ -8,7 +8,7 @@ export const useLanguageSelectionHandler = (
   onCameraFocus,
   sceneReady,
   data,
-  appControls
+  controls
 ) => {
   const { selectLanguage, selectGroup } = useLanguageSelection();
 
@@ -26,7 +26,7 @@ export const useLanguageSelectionHandler = (
     if (!sceneReady || !languageCode) return;
 
     const groupKey = data?.languageGroups?.[languageCode];
-    const isLuka = appControls?.isLuka ?? true;
+    const isLuka = controls?.isLuka ?? true;
 
     // Update language selection context
     selectLanguage(languageCode, playAudio, groupKey, isLuka);

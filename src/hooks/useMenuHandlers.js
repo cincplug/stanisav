@@ -1,13 +1,8 @@
 import { useLanguageSelectionHandler } from "./useLanguageSelectionHandler";
 
-export const useMenuHandlers = (
-  onCameraFocus,
-  sceneReady,
-  data,
-  appControls
-) => {
+export const useMenuHandlers = (onCameraFocus, sceneReady, data, controls) => {
   const { selectLanguageWithFocus, selectGroupWithFocus, viewAllLanguages } =
-    useLanguageSelectionHandler(onCameraFocus, sceneReady, data, appControls);
+    useLanguageSelectionHandler(onCameraFocus, sceneReady, data, controls);
 
   return {
     handleLanguageFocus: selectLanguageWithFocus,

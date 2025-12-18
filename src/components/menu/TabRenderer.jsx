@@ -5,7 +5,7 @@ import FiltersTab from "./FiltersTab";
 
 function TabRenderer({
   activeTab,
-  appControls,
+  controls,
   onControlChange,
   handleViewAll,
   groupedLanguages,
@@ -29,7 +29,7 @@ function TabRenderer({
       {activeTab === "controls" && (
         <ControlsTab
           controlGroups={{
-            state: { appControls },
+            state: { controls },
             handlers: {
               onControlChange
             }

@@ -5,7 +5,7 @@ import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { useDataManager } from "../../hooks/useDataManager";
 import { useLayoutManager } from "../../hooks/useLayoutManager";
 import { getGroupedLanguages } from "../../utils/groupingUtils";
-import { useAppControls } from "../../contexts/AppControlsContext";
+import { useControls } from "../../contexts/ControlsContext";
 
 const Languages = ({
   onDataLoaded,
@@ -14,14 +14,10 @@ const Languages = ({
   onNodesReady,
   cameraFocusRequest
 }) => {
-  const { appControls } = useAppControls();
+  const { controls } = useControls();
 
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
-  const { formattedPositions } = useLayoutManager(
-    data,
-    appControls,
-    onNodesReady
-  );
+  const { formattedPositions } = useLayoutManager(data, controls, onNodesReady);
   const groupedLanguages = useMemo(() => getGroupedLanguages(data), [data]);
 
   useEffect(() => {
@@ -40,7 +36,7 @@ const Languages = ({
       cameraFocusRequest,
       languageNodes: formattedPositions,
       data,
-      appControls,
+      controls,
       selectedLanguage
     });
     return null;

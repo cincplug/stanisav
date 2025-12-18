@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { useAppControls } from "../../contexts/AppControlsContext";
+import { useControls } from "../../contexts/ControlsContext";
 import Languages from "./Languages";
 import { useCameraUpdater } from "../../hooks/useCameraUpdater";
 
@@ -12,9 +12,9 @@ const Stage = ({
   onNodesReady,
   cameraFocusRequest
 }) => {
-  const { appControls } = useAppControls();
+  const { controls } = useControls();
   const CameraUpdaterNode = () => {
-    useCameraUpdater({ appControls });
+    useCameraUpdater({ controls });
     return null;
   };
   return (
@@ -23,18 +23,14 @@ const Stage = ({
         isMenuCollapsed ? "menu-collapsed" : "menu-expanded"
       }`}
       camera={{
-        position: [
-          appControls.positionX,
-          appControls.positionY,
-          appControls.positionZ
-        ],
-        fov: appControls.fov,
-        near: appControls.near,
-        far: appControls.far
+        position: [controls.positionX, controls.positionY, controls.positionZ],
+        fov: controls.fov,
+        near: controls.near,
+        far: controls.far
       }}
-      gl={{ antialias: true, clearColor: appControls.backgroundColor }}
+      gl={{ antialias: true, clearColor: controls.backgroundColor }}
     >
-      <color attach="background" args={[appControls.backgroundColor]} />
+      <color attach="background" args={[controls.backgroundColor]} />
 
       <OrbitControls
         enableDamping={true}

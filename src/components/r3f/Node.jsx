@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { useAppControls } from "../../contexts/AppControlsContext.jsx";
+import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
 import Mesha from "./Mesha.jsx";
 import Label from "./Label.jsx";
@@ -14,10 +14,10 @@ const Node = ({
   linguisticProperties = null,
   speakerCount
 }) => {
-  const { appControls } = useAppControls();
+  const { controls } = useControls();
   const { filteredLanguages, filteringUtils, isPlayingAudio } =
     useLanguageSelection();
-  const { labelContent, labelSize, backgroundColor } = appControls;
+  const { labelContent, labelSize, backgroundColor } = controls;
 
   const getLabelText = (language, languageCode, labelContent) => {
     switch (labelContent) {

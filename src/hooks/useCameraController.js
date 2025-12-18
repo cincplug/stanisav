@@ -6,28 +6,28 @@ export const useCameraController = ({
   cameraFocusRequest,
   languageNodes,
   data,
-  appControls,
+  controls,
   selectedLanguage
 }) => {
-  const { camera, controls } = useThree();
+  const { camera, controls: threeControls } = useThree();
   const animationRef = useRef(null);
   const lastFocusedRef = useRef(null);
   const initializedViewRef = useRef(false);
 
   const config = useMemo(
     () => ({
-      ...appControls
+      ...controls
     }),
-    [appControls]
+    [controls]
   );
 
   const cameraSystem = useMemo(
     () => ({
       camera,
-      controls,
+      controls: threeControls,
       animationRef
     }),
-    [camera, controls]
+    [camera, threeControls]
   );
 
   const focusOnLanguage = useCallback(

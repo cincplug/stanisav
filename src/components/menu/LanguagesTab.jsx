@@ -1,6 +1,6 @@
 import "./LanguagesTab.css";
 import { useEffect, useRef } from "react";
-import { useAppControls } from "../../contexts/AppControlsContext";
+import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 
 function LanguagesTab({
@@ -12,7 +12,7 @@ function LanguagesTab({
   isActive
 }) {
   const { groupColors, setGroupColor } = useLanguageSelection();
-  const { appControls } = useAppControls();
+  const { controls } = useControls();
   const buttonRefs = useRef({});
 
   useEffect(() => {
@@ -32,7 +32,7 @@ function LanguagesTab({
             <h3 className={`group-header`}>
               {groupName}
 
-              {appControls.canEditColors && (
+              {controls.canEditColors && (
                 <input
                   type="color"
                   value={groupColors?.[groupName] || group.info.color}
