@@ -1,9 +1,9 @@
 import { useAppControls } from "../../contexts/AppControlsContext";
-import guiConfig from "../../config/guiConfig.json";
+import controlsConfig from "../../config/controlsConfig.json";
 import ControlItem from "./ControlItem";
 
 const getControlsByGroup = (groupName) =>
-  Object.entries(guiConfig)
+  Object.entries(controlsConfig)
     .filter(
       ([_id, config]) => config.group === groupName && config.isUserEditable
     )
@@ -37,7 +37,7 @@ const ControlsTab = () => {
   const { appControls, updateControl } = useAppControls();
 
   const uniqueGroups = Array.from(
-    new Set(Object.values(guiConfig).map(({ group }) => group))
+    new Set(Object.values(controlsConfig).map(({ group }) => group))
   ).filter(Boolean);
 
   return (

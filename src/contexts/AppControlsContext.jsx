@@ -1,10 +1,10 @@
 import { createContext, useContext, useState } from "react";
-import guiConfig from "../config/guiConfig.json";
+import controlsConfig from "../config/controlsConfig.json";
 
-// Initialize default values from guiConfig as a flat object
+// Initialize default values from controlsConfig as a flat object
 const getDefaultValues = () => {
   const defaults = {};
-  Object.entries(guiConfig).forEach(([controlId, config]) => {
+  Object.entries(controlsConfig).forEach(([controlId, config]) => {
     defaults[controlId] = config.defaultValue;
   });
   return defaults;

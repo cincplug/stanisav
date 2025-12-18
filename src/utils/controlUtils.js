@@ -1,20 +1,20 @@
-import guiConfig from "../config/guiConfig.json";
+import controlsConfig from "../config/controlsConfig.json";
 
 export const getControlValue = (controlId, groupName, state) => {
-  const control = guiConfig[controlId];
+  const control = controlsConfig[controlId];
   if (!control || control.group !== groupName) return undefined;
   return state[groupName]?.[controlId];
 };
 
 export const setControlValue = (controlId, groupName, value, setState) => {
-  const control = guiConfig[controlId];
+  const control = controlsConfig[controlId];
   if (!control || control.group !== groupName) return;
   const handler = setState[groupName];
   if (handler) handler(controlId, value);
 };
 
 export const getDisplayValue = (controlId, groupName, state) => {
-  const control = guiConfig[controlId];
+  const control = controlsConfig[controlId];
   if (!control || control.group !== groupName) return "";
   const { type, label } = control;
   const value = getControlValue(controlId, groupName, state);
