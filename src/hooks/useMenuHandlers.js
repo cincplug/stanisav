@@ -1,8 +1,7 @@
 import { useLanguageSelection } from "../contexts/LanguageSelectionContext";
 
 export const useMenuHandlers = (onCameraFocus, sceneReady, data, controls) => {
-  const { selectLanguageWithFocus, selectGroupWithFocus, viewAllLanguages } =
-    useLanguageSelection();
+  const { selectLanguageWithFocus, viewAllLanguages } = useLanguageSelection();
 
   const handleLanguageFocus = (
     languageCode,
@@ -19,14 +18,10 @@ export const useMenuHandlers = (onCameraFocus, sceneReady, data, controls) => {
       controls
     );
 
-  const handleGroupFocus = (groupKey, focusCamera = true) =>
-    selectGroupWithFocus(groupKey, focusCamera, onCameraFocus, sceneReady);
-
   const handleViewAll = () => viewAllLanguages(onCameraFocus, sceneReady);
 
   return {
     handleLanguageFocus,
-    handleGroupFocus,
     handleViewAll
   };
 };
