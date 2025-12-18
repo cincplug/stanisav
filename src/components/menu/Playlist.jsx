@@ -6,14 +6,16 @@ import {
   PauseIcon,
   BeginIcon,
   PrevIcon,
-  NextIcon
+  NextIcon,
+  LoopIcon
 } from "./MenuIcons";
 
 export default function Playlist({
   data,
   sceneReady,
   appControls,
-  handleCameraFocus
+  handleCameraFocus,
+  onControlChange
 }) {
   const { selectedLanguage } = useLanguageSelection();
   const {
@@ -60,6 +62,13 @@ export default function Playlist({
       </button>
       <button onClick={goToNext} title="Next">
         <NextIcon />
+      </button>
+      <button
+        onClick={() => onControlChange("isLoop", !appControls.isLoop)}
+        title="Toggle loop"
+        className={appControls.isLoop ? "active" : ""}
+      >
+        <LoopIcon active={appControls.isLoop} />
       </button>
       <span className="playlist-progress">
         {playlistLength > 0

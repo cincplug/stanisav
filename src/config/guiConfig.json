@@ -50,6 +50,13 @@
     "isUserEditable": true,
     "group": "Scene"
   },
+  "isLoop": {
+    "type": "checkbox",
+    "label": "Loop playlist",
+    "defaultValue": true,
+    "isUserEditable": true,
+    "group": "Scene"
+  },
   "isLuka": {
     "type": "checkbox",
     "label": "Luka Reads Samples",
