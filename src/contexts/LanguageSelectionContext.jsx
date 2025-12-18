@@ -107,6 +107,29 @@ export const LanguageSelectionProvider = ({ children }) => {
     [playLanguageAudio]
   );
 
+  const selectLanguageWithFocus = useCallback(
+    (
+      languageCode,
+      playAudio = true,
+      focusCamera = true,
+      onCameraFocus = null,
+      sceneReadyFlag = true,
+      dataParam = null,
+      controlsParam = null
+    ) => {
+      if (!sceneReadyFlag || !languageCode) return;
+
+      const groupKey = dataParam?.languageGroups?.[languageCode] || null;
+
+      selectLanguage(languageCode, playAudio, groupKey);
+
+      if (focusCamera && onCameraFocus) {
+        onCameraFocus("language", languageCode);
+      }
+    },
+    [selectLanguage]
+  );
+
   // Select a group
   const selectGroup = useCallback(
     (groupKey) => {
@@ -117,7 +140,33 @@ export const LanguageSelectionProvider = ({ children }) => {
     [stopCurrentAudio]
   );
 
-  // Clear all selections
+  const selectGroupWithFocus = useCallback(
+    (
+      groupKey,
+      focusCamera = true,
+      onCameraFocus = null,
+      sceneReadyFlag = true
+    ) => {
+      if (!sceneReadyFlag || !groupKey) return;
+
+      selectGroup(groupKey);
+
+      if (focusCamera && onCameraFocus) {
+        onCameraFocus("group", groupKey);
+      }
+    },
+    [selectGroup]
+  );
+
+  const viewAllLanguages = useCallback(
+    (onCameraFocus = null, sceneReadyFlag = true) => {
+      if (onCameraFocus && sceneReadyFlag) {
+        onCameraFocus("viewAll");
+      }
+    },
+    []
+  );
+
   const clearSelection = useCallback(() => {
     setSelectedLanguage(null);
     setSelectedGroup(null);
@@ -172,6 +221,9 @@ export const LanguageSelectionProvider = ({ children }) => {
     filteredLanguages,
     selectLanguage,
     selectGroup,
+    selectLanguageWithFocus,
+    selectGroupWithFocus,
+    viewAllLanguages,
     clearSelection,
     playLanguageAudio,
     stopCurrentAudio,

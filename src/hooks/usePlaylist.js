@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { useLanguageSelection } from "../contexts/LanguageSelectionContext";
-import { useLanguageSelectionHandler } from "./useLanguageSelectionHandler";
 import { sortLanguages } from "../utils/sortLanguages";
 
 export function usePlaylist({
@@ -18,12 +17,7 @@ export function usePlaylist({
   const lastPlaylistLanguage = useRef(null);
 
   const { playLanguageAudio, stopCurrentAudio } = useLanguageSelection();
-  const { selectLanguageWithFocus } = useLanguageSelectionHandler(
-    handleCameraFocus,
-    sceneReady,
-    data,
-    controls
-  );
+  const { selectLanguageWithFocus } = useLanguageSelection();
 
   const getSortedLanguageCodes = useCallback(() => {
     if (!data?.languageData) return [];
@@ -114,7 +108,15 @@ export function usePlaylist({
 
     (async () => {
       await stopCurrentAudio();
-      selectLanguageWithFocus(code, false, true);
+      selectLanguageWithFocus(
+        code,
+        false,
+        true,
+        handleCameraFocus,
+        sceneReady,
+        data,
+        controls
+      );
 
       const audio = await playLanguageAudio(code);
       if (audio) {

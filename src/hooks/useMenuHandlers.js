@@ -1,12 +1,32 @@
-import { useLanguageSelectionHandler } from "./useLanguageSelectionHandler";
+import { useLanguageSelection } from "../contexts/LanguageSelectionContext";
 
 export const useMenuHandlers = (onCameraFocus, sceneReady, data, controls) => {
   const { selectLanguageWithFocus, selectGroupWithFocus, viewAllLanguages } =
-    useLanguageSelectionHandler(onCameraFocus, sceneReady, data, controls);
+    useLanguageSelection();
+
+  const handleLanguageFocus = (
+    languageCode,
+    playAudio = true,
+    focusCamera = true
+  ) =>
+    selectLanguageWithFocus(
+      languageCode,
+      playAudio,
+      focusCamera,
+      onCameraFocus,
+      sceneReady,
+      data,
+      controls
+    );
+
+  const handleGroupFocus = (groupKey, focusCamera = true) =>
+    selectGroupWithFocus(groupKey, focusCamera, onCameraFocus, sceneReady);
+
+  const handleViewAll = () => viewAllLanguages(onCameraFocus, sceneReady);
 
   return {
-    handleLanguageFocus: selectLanguageWithFocus,
-    handleGroupFocus: selectGroupWithFocus,
-    handleViewAll: viewAllLanguages
+    handleLanguageFocus,
+    handleGroupFocus,
+    handleViewAll
   };
 };
