@@ -14,8 +14,8 @@ export default function Playlist({
   data,
   sceneReady,
   controls,
-  handleCameraFocus,
-  onControlChange
+  handleCameraFocus
+  // onControlChange
 }) {
   const { selectedLanguage } = useLanguageSelection();
   const {
@@ -63,13 +63,13 @@ export default function Playlist({
       <button onClick={goToNext} title="Next">
         <NextIcon />
       </button>
-      <button
+      {/* <button
         onClick={() => onControlChange("isLoop", !controls.isLoop)}
         title="Toggle loop"
         className={controls.isLoop ? "active" : ""}
       >
         <LoopIcon active={controls.isLoop} />
-      </button>
+      </button> */}
       <span className="playlist-progress">
         {playlistLength > 0
           ? `${currentIndex + 1} / ${playlistLength}`

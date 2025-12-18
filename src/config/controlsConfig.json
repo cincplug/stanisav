@@ -54,7 +54,7 @@
     "type": "checkbox",
     "label": "Loop playlist",
     "defaultValue": true,
-    "isUserEditable": true,
+    "isUserEditable": false,
     "group": "Scene"
   },
   "isLuka": {
