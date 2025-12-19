@@ -9,25 +9,18 @@ import { useControls } from "./contexts/ControlsContext";
 
 function App() {
   const {
-    // State
     isLoading,
     data,
     sceneReady,
-    cameraFocusRequest,
     isMenuCollapsed,
     filteringUtils,
-
-    // Setters
     setData,
     setSceneReady,
     setIsLoading,
     setNodes,
     setIsMenuCollapsed,
     setFilteringUtils,
-
-    // Handlers
-    handleCameraFocus,
-    handleLanguageClick
+    handleCameraFocus
   } = useAppState();
 
   const { controls, updateControl } = useControls();
@@ -37,7 +30,6 @@ function App() {
     if (!data?.languageData || !selectedLanguage) {
       return { sampleUrl: null, videoName: null };
     }
-
     const languageData = data.languageData[selectedLanguage];
     return {
       sampleUrl: languageData?.sampleUrl || null,
@@ -54,10 +46,7 @@ function App() {
         onSceneReady={setSceneReady}
         onLoadingChange={setIsLoading}
         onNodesReady={setNodes}
-        cameraFocusRequest={cameraFocusRequest}
         filteringUtils={filteringUtils}
-        selectedLanguage={selectedLanguage}
-        onLanguageClick={handleLanguageClick}
       />
 
       {!isLoading && sceneReady ? (
@@ -71,8 +60,7 @@ function App() {
           isCollapsed={isMenuCollapsed}
           onToggleCollapse={() => setIsMenuCollapsed(!isMenuCollapsed)}
           filteringUtils={filteringUtils}
-          onfilteringUtilsChange={setFilteringUtils}
-          selectedLanguage={selectedLanguage}
+          onFilteringUtilsChange={setFilteringUtils}
         />
       ) : (
         <LoadingOverlay isLoading={isLoading} />

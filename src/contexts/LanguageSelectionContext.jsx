@@ -34,6 +34,7 @@ export const LanguageSelectionProvider = ({ children }) => {
   const [filteringUtils, setFilteringUtils] = useState({});
   const [filteredLanguages, setFilteredLanguages] = useState(new Set());
   const [groupColors, setGroupColors] = useState(getInitialGroupColors);
+  const [cameraFocusRequest, setCameraFocusRequest] = useState(null);
 
   const { controls } = useControls();
 
@@ -90,7 +91,7 @@ export const LanguageSelectionProvider = ({ children }) => {
 
   // Select a language (with optional audio playback)
   const selectLanguage = useCallback(
-    (languageCode, playAudio = false, groupKey = null) => {
+    (languageCode, playAudio = false) => {
       setSelectedLanguage(languageCode);
 
       // Play audio if requested
@@ -102,23 +103,10 @@ export const LanguageSelectionProvider = ({ children }) => {
   );
 
   const selectLanguageWithFocus = useCallback(
-    (
-      languageCode,
-      playAudio = true,
-      focusCamera = true,
-      onCameraFocus = null,
-      sceneReadyFlag = true,
-      dataParam = null,
-      controlsParam = null
-    ) => {
-      if (!sceneReadyFlag || !languageCode) return;
-
-      const groupKey = dataParam?.languageGroups?.[languageCode] || null;
-
-      selectLanguage(languageCode, playAudio, groupKey);
-
-      if (focusCamera && onCameraFocus) {
-        onCameraFocus("language", languageCode);
+    (languageCode, playAudio = true, focusCamera = true) => {
+      selectLanguage(languageCode, playAudio);
+      if (focusCamera && languageCode) {
+        setCameraFocusRequest({ type: "language", target: languageCode });
       }
     },
     [selectLanguage]
@@ -140,15 +128,11 @@ export const LanguageSelectionProvider = ({ children }) => {
     setFilteredLanguages(new Set(filteredResults.map((lang) => lang.code)));
   }, []);
 
-  const viewAllLanguages = useCallback(
-    (onCameraFocus = null, sceneReadyFlag = true) => {
-      updateFilteringUtils({}, null);
-      if (onCameraFocus && sceneReadyFlag) {
-        onCameraFocus("viewAll");
-      }
-    },
-    [updateFilteringUtils]
-  );
+  const viewAllLanguages = useCallback(() => {
+    setCameraFocusRequest({ type: "viewAll" });
+    setFilteringUtils({}); // <-- clear filters
+    setFilteredLanguages(new Set());
+  }, []);
 
   const setGroupColor = useCallback((groupKey, color) => {
     setGroupColors((prev) => ({ ...prev, [groupKey]: color }));
@@ -191,7 +175,7 @@ export const LanguageSelectionProvider = ({ children }) => {
     groupColors,
     setGroupColor,
     controls,
-    onLanguageClick
+    cameraFocusRequest
   };
 
   return (

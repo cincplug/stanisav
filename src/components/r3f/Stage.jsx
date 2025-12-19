@@ -1,22 +1,22 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useControls } from "../../contexts/ControlsContext";
-import Languages from "./Languages";
 import { useCameraUpdater } from "../../hooks/useCameraUpdater";
+import Languages from "./Languages";
 
 const Stage = ({
   isMenuCollapsed,
   onDataLoaded,
   onSceneReady,
   onLoadingChange,
-  onNodesReady,
-  cameraFocusRequest
+  onNodesReady
 }) => {
   const { controls } = useControls();
   const CameraUpdaterNode = () => {
     useCameraUpdater({ controls });
     return null;
   };
+
   return (
     <Canvas
       className={`r3f-canvas ${
@@ -47,7 +47,6 @@ const Stage = ({
         onSceneReady={onSceneReady}
         onLoadingChange={onLoadingChange}
         onNodesReady={onNodesReady}
-        cameraFocusRequest={cameraFocusRequest}
       />
     </Canvas>
   );

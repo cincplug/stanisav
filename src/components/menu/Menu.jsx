@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useControls } from "../../contexts/ControlsContext";
 import { useSearch } from "../../hooks/useSearch";
-import { useMenuHandlers } from "../../hooks/useMenuHandlers";
 import { useTabHandlers } from "../../hooks/useTabHandlers";
 import { BurgerIcon, CloseIcon } from "./MenuIcons";
 import tabsConfig from "../../config/tabsConfig.json";
@@ -19,8 +18,7 @@ function Menu({
   isCollapsed,
   onToggleCollapse,
   filteringUtils,
-  onfilteringUtilsChange,
-  selectedLanguage
+  onFilteringUtilsChange
 }) {
   const { controls, updateControl } = useControls();
   const [activeTab, setActiveTab] = useState(tabsConfig.defaultTab);
@@ -28,32 +26,17 @@ function Menu({
   const { searchTerm, setSearchTerm, searchResults, clearSearch } =
     useSearch(data);
 
-  const { handleLanguageFocus, handleViewAll } = useMenuHandlers(
-    onCameraFocus,
-    sceneReady,
-    data,
-    controls
-  );
-
-  const { availableGroups, groupedLanguages } = useTabHandlers(
-    data,
-    handleViewAll
-  );
+  const { availableGroups, groupedLanguages } = useTabHandlers(data);
 
   if (isLoading) {
     return null;
   }
 
-  // Unified handler that updates both local state and context
   const handleControlChange = (controlId, value) => {
-    // Update local state through unified handler
     onControlChange(controlId, value);
-
-    // Update context
     updateControl(controlId, value);
   };
 
-  // Switch to search tab if searchTerm meets threshold and not already on search tab
   const threshold = tabsConfig.searchLengthThreshold;
   useEffect(() => {
     if (
@@ -65,7 +48,6 @@ function Menu({
     }
   }, [searchTerm, activeTab, setActiveTab, threshold]);
 
-  // Custom tab change handler to clear search when switching tabs
   const handleTabChange = (tabId) => {
     setActiveTab(tabId);
     if (tabId !== "search") {
@@ -75,7 +57,6 @@ function Menu({
 
   return (
     <>
-      {/* Toggle button - always visible */}
       <button
         id="menu-toggle"
         onClick={() => onToggleCollapse(!isCollapsed)}
@@ -85,7 +66,6 @@ function Menu({
         {isCollapsed ? <BurgerIcon /> : <CloseIcon />}
       </button>
 
-      {/* Menu panel - hidden when collapsed */}
       {!isCollapsed && (
         <div className="menu">
           <TabNavigation activeTab={activeTab} setActiveTab={handleTabChange} />
@@ -95,23 +75,20 @@ function Menu({
             setSearchTerm={setSearchTerm}
             clearSearch={clearSearch}
             autoFocus={activeTab === "search"}
-            onCameraFocus={onCameraFocus}
             sceneReady={sceneReady}
+            onCameraFocus={onCameraFocus}
           />
 
           <TabRenderer
             activeTab={activeTab}
             controls={controls}
             onControlChange={handleControlChange}
-            handleViewAll={handleViewAll}
             groupedLanguages={groupedLanguages}
-            selectedLanguage={selectedLanguage}
-            handleLanguageFocus={handleLanguageFocus}
             languageData={data?.languages || {}}
             availableGroups={availableGroups}
             data={data}
             filteringUtils={filteringUtils}
-            onfilteringUtilsChange={onfilteringUtilsChange}
+            onFilteringUtilsChange={onFilteringUtilsChange}
             searchTerm={searchTerm}
             setSearchTerm={setSearchTerm}
             searchResults={searchResults}

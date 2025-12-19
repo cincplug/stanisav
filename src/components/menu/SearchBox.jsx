@@ -8,8 +8,8 @@ function SearchBox({
   setSearchTerm,
   clearSearch,
   autoFocus,
-  onCameraFocus,
-  sceneReady
+  sceneReady,
+  onCameraFocus
 }) {
   const searchInputRef = useRef(null);
   const { viewAllLanguages } = useLanguageSelection();
@@ -25,6 +25,10 @@ function SearchBox({
     if (searchInputRef.current) {
       searchInputRef.current.focus();
     }
+  };
+
+  const handleViewAll = () => {
+    viewAllLanguages(onCameraFocus, sceneReady);
   };
 
   return (
@@ -48,10 +52,7 @@ function SearchBox({
           <CloseIcon />
         </button>
       </div>
-      <button
-        onClick={() => viewAllLanguages(onCameraFocus, sceneReady)}
-        className="view-all-button"
-      >
+      <button onClick={handleViewAll} className="view-all-button">
         View all
       </button>
     </div>

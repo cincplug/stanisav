@@ -12,8 +12,7 @@ const Languages = ({
   onDataLoaded,
   onSceneReady,
   onLoadingChange,
-  onNodesReady,
-  cameraFocusRequest
+  onNodesReady
 }) => {
   const { controls } = useControls();
 
@@ -52,7 +51,6 @@ const Languages = ({
   const CameraControllerNode = () => {
     const { selectedLanguage } = useLanguageSelection();
     useCameraController({
-      cameraFocusRequest,
       languageNodes: formattedPositions,
       data,
       controls,

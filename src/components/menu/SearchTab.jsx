@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import tabsConfig from "../../config/tabsConfig.json";
 import "./SearchTab.css";
 
@@ -64,13 +65,8 @@ function SearchResults({
   return null;
 }
 
-function SearchTab({
-  searchTerm,
-  searchResults,
-  selectedLanguage,
-  onLanguageFocus,
-  languageData
-}) {
+function SearchTab({ searchTerm, searchResults, languageData }) {
+  const { selectLanguageWithFocus, selectedLanguage } = useLanguageSelection();
   const lastAutoSelectedRef = useRef(null);
 
   // Handle exact match selection (only once per unique match)
@@ -89,10 +85,10 @@ function SearchTab({
 
       if (exactMatch && lastAutoSelectedRef.current !== exactMatch.code) {
         lastAutoSelectedRef.current = exactMatch.code;
-        onLanguageFocus(exactMatch.code);
+        selectLanguageWithFocus(exactMatch.code);
       }
     }
-  }, [searchTerm, searchResults, onLanguageFocus]);
+  }, [searchTerm, searchResults, selectLanguageWithFocus]);
 
   return (
     <div className="control-section">
@@ -100,7 +96,7 @@ function SearchTab({
         searchTerm={searchTerm}
         searchResults={searchResults}
         selectedLanguage={selectedLanguage}
-        onLanguageFocus={onLanguageFocus}
+        onLanguageFocus={selectLanguageWithFocus}
         languageData={languageData}
       />
     </div>

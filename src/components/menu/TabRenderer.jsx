@@ -7,15 +7,12 @@ function TabRenderer({
   activeTab,
   controls,
   onControlChange,
-  handleViewAll,
   groupedLanguages,
-  selectedLanguage,
-  handleLanguageFocus,
   languageData,
   availableGroups,
   data,
   filteringUtils,
-  onfilteringUtilsChange,
+  onFilteringUtilsChange,
   searchTerm,
   setSearchTerm,
   searchResults,
@@ -31,15 +28,12 @@ function TabRenderer({
               onControlChange
             }
           }}
-          onViewAll={handleViewAll}
         />
       )}
 
       {activeTab === "languages" && (
         <LanguagesTab
           groupedLanguages={groupedLanguages}
-          selectedLanguage={selectedLanguage}
-          onLanguageFocus={handleLanguageFocus}
           languageData={languageData}
           availableGroups={availableGroups}
           isActive={activeTab === "languages"}
@@ -50,9 +44,7 @@ function TabRenderer({
         <FiltersTab
           data={data}
           filteringUtils={filteringUtils}
-          onfilteringUtilsChange={onfilteringUtilsChange}
-          selectedLanguage={selectedLanguage}
-          onLanguageFocus={handleLanguageFocus}
+          onFilteringUtilsChange={onFilteringUtilsChange}
         />
       )}
 
@@ -62,8 +54,7 @@ function TabRenderer({
           setSearchTerm={setSearchTerm}
           searchResults={searchResults}
           clearSearch={clearSearch}
-          selectedLanguage={selectedLanguage}
-          onLanguageFocus={handleLanguageFocus}
+          languageData={languageData}
         />
       )}
     </div>

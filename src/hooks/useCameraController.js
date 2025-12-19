@@ -1,14 +1,15 @@
 import { useEffect, useRef, useMemo, useCallback } from "react";
 import { useThree } from "@react-three/fiber";
 import * as THREE from "three";
+import { useLanguageSelection } from "../contexts/LanguageSelectionContext";
 
 export const useCameraController = ({
-  cameraFocusRequest,
   languageNodes,
   data,
   controls,
   selectedLanguage
 }) => {
+  const { cameraFocusRequest } = useLanguageSelection();
   const { camera, controls: threeControls } = useThree();
   const animationRef = useRef(null);
   const lastFocusedRef = useRef(null);

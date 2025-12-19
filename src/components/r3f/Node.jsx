@@ -8,15 +8,18 @@ const Node = ({
   languageCode,
   language,
   position,
-  onLanguageClick,
   isSelected = false,
   color,
   linguisticProperties = null,
   speakerCount
 }) => {
   const { controls } = useControls();
-  const { filteredLanguages, filteringUtils, isPlayingAudio } =
-    useLanguageSelection();
+  const {
+    filteredLanguages,
+    filteringUtils,
+    isPlayingAudio,
+    selectLanguageWithFocus
+  } = useLanguageSelection();
   const { labelContent, labelSize, backgroundColor } = controls;
 
   const getLabelText = (language, languageCode, labelContent) => {
@@ -43,12 +46,9 @@ const Node = ({
   const handleClick = useCallback(
     (event) => {
       event.stopPropagation();
-
-      if (onLanguageClick) {
-        onLanguageClick(languageCode);
-      }
+      selectLanguageWithFocus(languageCode);
     },
-    [onLanguageClick, languageCode]
+    [selectLanguageWithFocus, languageCode]
   );
 
   const fontSize = normalizeRange(labelSize * speakerCount);
