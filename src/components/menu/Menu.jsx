@@ -20,8 +20,7 @@ function Menu({
   onToggleCollapse,
   filteringUtils,
   onfilteringUtilsChange,
-  selectedLanguage,
-  selectedGroup
+  selectedLanguage
 }) {
   const { controls, updateControl } = useControls();
   const [activeTab, setActiveTab] = useState(tabsConfig.defaultTab);
@@ -32,8 +31,11 @@ function Menu({
   const { handleLanguageFocus, handleGroupFocus, handleViewAll } =
     useMenuHandlers(onCameraFocus, sceneReady, data, controls);
 
-  const { availableGroups, groupedLanguages, handleGroupSelectChange } =
-    useTabHandlers(data, handleGroupFocus, handleViewAll);
+  const { availableGroups, groupedLanguages } = useTabHandlers(
+    data,
+    handleGroupFocus,
+    handleViewAll
+  );
 
   if (isLoading) {
     return null;
@@ -100,12 +102,10 @@ function Menu({
             handleViewAll={handleViewAll}
             groupedLanguages={groupedLanguages}
             selectedLanguage={selectedLanguage}
-            selectedGroup={selectedGroup}
             handleGroupFocus={handleGroupFocus}
             handleLanguageFocus={handleLanguageFocus}
             languageData={data?.languages || {}}
             availableGroups={availableGroups}
-            handleGroupSelectChange={handleGroupSelectChange}
             data={data}
             filteringUtils={filteringUtils}
             onfilteringUtilsChange={onfilteringUtilsChange}

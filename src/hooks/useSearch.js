@@ -23,16 +23,10 @@ const MAX_EDIT_DISTANCE_RATIO = 0.4; // 40% of search term length
 
 export function useSearch(data) {
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedGroup, setSelectedGroup] = useState("all");
 
   const searchResults = useMemo(() => {
-    if (
-      !data ||
-      !data.languageData ||
-      !data.languageGroups ||
-      !data.groupInfo
-    ) {
-      return { languages: [], groups: [] };
+    if (!data || !data.languageData) {
+      return { languages: [] };
     }
 
     const term = searchTerm.toLowerCase().trim();
@@ -40,20 +34,13 @@ export function useSearch(data) {
 
     // If no search term or below threshold, return empty results
     if (!term || term.length < threshold) {
-      return { languages: [], groups: [] };
+      return { languages: [] };
     }
 
     // Search in language names and native names
     const matchingLanguages = Object.keys(data.languageData)
       .map((code) => {
         const language = data.languageData[code];
-        const groupName = language.group;
-        const groupMatch =
-          selectedGroup === "all" || groupName === selectedGroup;
-
-        if (!groupMatch) {
-          return null;
-        }
 
         // Calculate scores for both name and nativeName
         const nameScore = calculateRelevanceScore(language.name, term);
@@ -82,7 +69,6 @@ export function useSearch(data) {
           code,
           name: language.name,
           nativeName: language.nativeName,
-          groupName,
           score: bestScore,
           matchedIn: nameScore >= nativeNameScore ? "name" : "nativeName"
         };
@@ -90,34 +76,18 @@ export function useSearch(data) {
       .filter(Boolean)
       .sort((a, b) => b.score - a.score);
 
-    // Search in group names
-    const matchingGroups = Object.keys(data.groupInfo)
-      .filter((groupName) => {
-        const groupDisplayName = groupName.toLowerCase();
-        return groupDisplayName.includes(term);
-      })
-      .map((groupName) => ({
-        name: groupName,
-        score: calculateRelevanceScore(groupName, term)
-      }))
-      .sort((a, b) => b.score - a.score);
-
     return {
-      languages: matchingLanguages,
-      groups: matchingGroups
+      languages: matchingLanguages
     };
-  }, [data, searchTerm, selectedGroup]);
+  }, [data, searchTerm]);
 
   const clearSearch = () => {
     setSearchTerm("");
-    setSelectedGroup("all");
   };
 
   return {
     searchTerm,
     setSearchTerm,
-    selectedGroup,
-    setSelectedGroup,
     searchResults,
     clearSearch
   };

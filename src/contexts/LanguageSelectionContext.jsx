@@ -29,7 +29,6 @@ export const LanguageSelectionProvider = ({ children }) => {
   };
 
   const [selectedLanguage, setSelectedLanguage] = useState(null);
-  const [selectedGroup, setSelectedGroup] = useState(null);
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
   const [currentAudioElement, setCurrentAudioElement] = useState(null);
   const [filteringUtils, setFilteringUtils] = useState({});
@@ -94,11 +93,6 @@ export const LanguageSelectionProvider = ({ children }) => {
     (languageCode, playAudio = false, groupKey = null) => {
       setSelectedLanguage(languageCode);
 
-      // Auto-select parent group if provided
-      if (groupKey) {
-        setSelectedGroup(groupKey);
-      }
-
       // Play audio if requested
       if (playAudio && languageCode) {
         playLanguageAudio(languageCode);
@@ -130,16 +124,6 @@ export const LanguageSelectionProvider = ({ children }) => {
     [selectLanguage]
   );
 
-  // Select a group
-  const selectGroup = useCallback(
-    (groupKey) => {
-      setSelectedGroup(groupKey);
-      setSelectedLanguage(null);
-      stopCurrentAudio();
-    },
-    [stopCurrentAudio]
-  );
-
   const viewAllLanguages = useCallback(
     (onCameraFocus = null, sceneReadyFlag = true) => {
       if (onCameraFocus && sceneReadyFlag) {
@@ -151,7 +135,6 @@ export const LanguageSelectionProvider = ({ children }) => {
 
   const clearSelection = useCallback(() => {
     setSelectedLanguage(null);
-    setSelectedGroup(null);
     stopCurrentAudio();
   }, [stopCurrentAudio]);
 
@@ -197,12 +180,10 @@ export const LanguageSelectionProvider = ({ children }) => {
 
   const contextValue = {
     selectedLanguage,
-    selectedGroup,
     isPlayingAudio,
     filteringUtils,
     filteredLanguages,
     selectLanguage,
-    selectGroup,
     selectLanguageWithFocus,
     viewAllLanguages,
     clearSelection,

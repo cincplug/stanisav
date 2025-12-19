@@ -16,7 +16,6 @@ function App() {
     cameraFocusRequest,
     isMenuCollapsed,
     filteringUtils,
-    selectedGroup,
 
     // Setters
     setData,
@@ -58,7 +57,6 @@ function App() {
         cameraFocusRequest={cameraFocusRequest}
         filteringUtils={filteringUtils}
         selectedLanguage={selectedLanguage}
-        selectedGroup={selectedGroup}
         onLanguageClick={handleLanguageClick}
       />
 
@@ -75,7 +73,6 @@ function App() {
           filteringUtils={filteringUtils}
           onfilteringUtilsChange={setFilteringUtils}
           selectedLanguage={selectedLanguage}
-          selectedGroup={selectedGroup}
         />
       ) : (
         <LoadingOverlay isLoading={isLoading} />
