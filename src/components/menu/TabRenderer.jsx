@@ -10,7 +10,6 @@ function TabRenderer({
   handleViewAll,
   groupedLanguages,
   selectedLanguage,
-  handleGroupFocus,
   handleLanguageFocus,
   languageData,
   availableGroups,
@@ -40,7 +39,6 @@ function TabRenderer({
         <LanguagesTab
           groupedLanguages={groupedLanguages}
           selectedLanguage={selectedLanguage}
-          onGroupFocus={handleGroupFocus}
           onLanguageFocus={handleLanguageFocus}
           languageData={languageData}
           availableGroups={availableGroups}

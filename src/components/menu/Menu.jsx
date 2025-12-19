@@ -28,12 +28,15 @@ function Menu({
   const { searchTerm, setSearchTerm, searchResults, clearSearch } =
     useSearch(data);
 
-  const { handleLanguageFocus, handleGroupFocus, handleViewAll } =
-    useMenuHandlers(onCameraFocus, sceneReady, data, controls);
+  const { handleLanguageFocus, handleViewAll } = useMenuHandlers(
+    onCameraFocus,
+    sceneReady,
+    data,
+    controls
+  );
 
   const { availableGroups, groupedLanguages } = useTabHandlers(
     data,
-    handleGroupFocus,
     handleViewAll
   );
 
@@ -92,7 +95,8 @@ function Menu({
             setSearchTerm={setSearchTerm}
             clearSearch={clearSearch}
             autoFocus={activeTab === "search"}
-            onGroupFocus={handleGroupFocus}
+            onCameraFocus={onCameraFocus}
+            sceneReady={sceneReady}
           />
 
           <TabRenderer
@@ -102,7 +106,6 @@ function Menu({
             handleViewAll={handleViewAll}
             groupedLanguages={groupedLanguages}
             selectedLanguage={selectedLanguage}
-            handleGroupFocus={handleGroupFocus}
             handleLanguageFocus={handleLanguageFocus}
             languageData={data?.languages || {}}
             availableGroups={availableGroups}

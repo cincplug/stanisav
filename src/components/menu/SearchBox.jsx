@@ -1,15 +1,18 @@
 import { useRef, useEffect } from "react";
 import { CloseIcon } from "./MenuIcons";
 import "./SearchTab.css";
+import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 
 function SearchBox({
   searchTerm,
   setSearchTerm,
   clearSearch,
   autoFocus,
-  onGroupFocus
+  onCameraFocus,
+  sceneReady
 }) {
   const searchInputRef = useRef(null);
+  const { viewAllLanguages } = useLanguageSelection();
 
   useEffect(() => {
     if (autoFocus && searchInputRef.current) {
@@ -46,7 +49,7 @@ function SearchBox({
         </button>
       </div>
       <button
-        onClick={() => onGroupFocus("viewAll")}
+        onClick={() => viewAllLanguages(onCameraFocus, sceneReady)}
         className="view-all-button"
       >
         View all

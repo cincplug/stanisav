@@ -124,32 +124,30 @@ export const LanguageSelectionProvider = ({ children }) => {
     [selectLanguage]
   );
 
-  const viewAllLanguages = useCallback(
-    (onCameraFocus = null, sceneReadyFlag = true) => {
-      if (onCameraFocus && sceneReadyFlag) {
-        onCameraFocus("viewAll");
-      }
-    },
-    []
-  );
-
   const clearSelection = useCallback(() => {
     setSelectedLanguage(null);
     stopCurrentAudio();
   }, [stopCurrentAudio]);
 
-  const updateFilteringUtils = useCallback(
-    (filters, data) => {
-      setFilteringUtils(filters);
+  const updateFilteringUtils = useCallback((filters, data) => {
+    setFilteringUtils(filters);
 
-      if (Object.keys(filters).length === 0) {
-        setFilteredLanguages(new Set());
-        return;
+    if (Object.keys(filters).length === 0) {
+      setFilteredLanguages(new Set());
+      return;
+    }
+    const filteredResults = filterLanguagesByFeatures(data, filters);
+    setFilteredLanguages(new Set(filteredResults.map((lang) => lang.code)));
+  }, []);
+
+  const viewAllLanguages = useCallback(
+    (onCameraFocus = null, sceneReadyFlag = true) => {
+      updateFilteringUtils({}, null);
+      if (onCameraFocus && sceneReadyFlag) {
+        onCameraFocus("viewAll");
       }
-      const filteredResults = filterLanguagesByFeatures(data, filters);
-      setFilteredLanguages(new Set(filteredResults.map((lang) => lang.code)));
     },
-    [filteringUtils]
+    [updateFilteringUtils]
   );
 
   const setGroupColor = useCallback((groupKey, color) => {

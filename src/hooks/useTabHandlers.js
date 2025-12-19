@@ -4,17 +4,13 @@ import {
   getAvailableGroups
 } from "../utils/groupingUtils";
 
-export const useTabHandlers = (data, handleGroupFocus, handleViewAll) => {
+export const useTabHandlers = (data, handleViewAll) => {
   const availableGroups = useMemo(() => getAvailableGroups(data), [data]);
   const groupedLanguages = useMemo(() => getGroupedLanguages(data), [data]);
 
   const handleGroupSelectChange = (e) => {
     const groupKey = e.target.value;
-    if (groupKey === "all") {
-      handleViewAll();
-    } else {
-      handleGroupFocus(groupKey);
-    }
+    handleViewAll();
   };
 
   return {
