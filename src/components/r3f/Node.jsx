@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
+import { usePlaylist } from "../../contexts/PlaylistContext.jsx";
 import Mesha from "./Mesha.jsx";
 import Label from "./Label.jsx";
 
@@ -17,9 +18,9 @@ const Node = ({
   const {
     filteredLanguages,
     filteringUtils,
-    isPlayingAudio,
-    selectLanguageWithFocus
+    selectLanguage
   } = useLanguageSelection();
+  const { startFromLanguage, isPlaying, getCurrentLanguage } = usePlaylist();
   const { labelContent, labelSize, backgroundColor } = controls;
 
   const getLabelText = (language, languageCode, labelContent) => {
@@ -46,16 +47,19 @@ const Node = ({
   const handleClick = useCallback(
     (event) => {
       event.stopPropagation();
-      selectLanguageWithFocus(languageCode);
+      selectLanguage(languageCode);
+      startFromLanguage(languageCode);
     },
-    [selectLanguageWithFocus, languageCode]
+    [selectLanguage, startFromLanguage, languageCode]
   );
 
   const fontSize = normalizeRange(labelSize * speakerCount);
+  const currentPlaylistLanguage = getCurrentLanguage();
+  const isPlayingThis = isPlaying && currentPlaylistLanguage === languageCode;
 
   return (
     <group position={position} onClick={handleClick}>
-      {isSelected && isPlayingAudio && (
+      {isSelected && isPlayingThis && (
         <Mesha
           color={color}
           labelSize={fontSize * 2}

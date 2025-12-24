@@ -20,7 +20,7 @@ const Languages = ({
   const { formattedPositions } = useLayoutManager(data, controls, onNodesReady);
   const groupedLanguages = useMemo(() => getGroupedLanguages(data), [data]);
 
-  const { filteringUtils, selectedLanguage, groupColors, onLanguageClick } =
+  const { filteringUtils, selectedLanguage, groupColors } =
     useLanguageSelection();
 
   const allLanguageCodes = useMemo(
@@ -79,7 +79,6 @@ const Languages = ({
                 language={data.languageData[langCode]}
                 position={[position.x, position.y, position.z]}
                 speakerCount={data.speakerData[langCode] || 1}
-                onLanguageClick={onLanguageClick}
                 isSelected={selectedLanguage === langCode}
                 isFiltered={filterStatus.isFiltered}
                 color={color}

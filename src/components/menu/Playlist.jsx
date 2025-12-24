@@ -1,17 +1,14 @@
-import "./Playlist.css";
-import { usePlaylist } from "../../hooks/usePlaylist";
-import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
+import { usePlaylist } from "../../contexts/PlaylistContext";
 import {
   PlayIcon,
   PauseIcon,
   BeginIcon,
   PrevIcon,
-  NextIcon,
-  LoopIcon
+  NextIcon
 } from "./MenuIcons";
+import "./Playlist.css";
 
 export default function Playlist() {
-  const { selectedLanguage } = useLanguageSelection();
   const {
     isPlaying,
     startPlaylist,
@@ -51,13 +48,6 @@ export default function Playlist() {
       <button onClick={goToNext} title="Next">
         <NextIcon />
       </button>
-      {/* <button
-        onClick={() => onControlChange("isLoop", !controls.isLoop)}
-        title="Toggle loop"
-        className={controls.isLoop ? "active" : ""}
-      >
-        <LoopIcon active={controls.isLoop} />
-      </button> */}
       <span className="playlist-progress">
         {playlistLength > 0
           ? `${currentIndex + 1} / ${playlistLength}`

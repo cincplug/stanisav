@@ -1,22 +1,7 @@
-import {
-  createContext,
-  useContext,
-  useState,
-  useCallback,
-  useEffect
-} from "react";
-import {
-  setupAudioVisualization,
-  getLanguageAudioUrl
-} from "../services/audioService.js";
+import { createContext, useContext, useState, useCallback, useEffect } from "react";
 import { filterLanguagesByFeatures } from "../utils/filteringUtils";
 import groupInfo from "../config/groupInfo.json";
-import { useControls } from "./ControlsContext.jsx";
 
-/**
- * Language Selection Context
- * Manages centralized language selection state and audio playback
- */
 const LanguageSelectionContext = createContext();
 
 export const LanguageSelectionProvider = ({ children }) => {
@@ -36,86 +21,14 @@ export const LanguageSelectionProvider = ({ children }) => {
   const [groupColors, setGroupColors] = useState(getInitialGroupColors);
   const [cameraFocusRequest, setCameraFocusRequest] = useState(null);
 
-  const { controls } = useControls();
-
-  // Stop any currently playing audio
-  const stopCurrentAudio = useCallback(() => {
-    if (currentAudioElement) {
-      currentAudioElement.pause();
-      currentAudioElement.currentTime = 0;
-      setCurrentAudioElement(null);
-      setIsPlayingAudio(false);
-    }
-  }, [currentAudioElement]);
-
-  // Play audio for a language
-  const playLanguageAudio = useCallback(
-    async (languageCode) => {
-      const { isLuka } = controls;
-      const { animationDuration } = controls;
-
-      try {
-        stopCurrentAudio();
-
-        await new Promise((resolve) => setTimeout(resolve, animationDuration));
-
-        const audioUrl = await getLanguageAudioUrl(languageCode, isLuka);
-        if (!audioUrl) {
-          console.warn(`No audio available for language: ${languageCode}`);
-          return;
-        }
-
-        const audio = new Audio(audioUrl);
-        audio.volume = 0.5;
-
-        await setupAudioVisualization(audio);
-
-        audio.addEventListener("play", () => setIsPlayingAudio(true));
-        audio.addEventListener("pause", () => setIsPlayingAudio(false));
-        audio.addEventListener("ended", () => {
-          setIsPlayingAudio(false);
-          setCurrentAudioElement(null);
-        });
-
-        setCurrentAudioElement(audio);
-        await audio.play();
-        return audio;
-      } catch (error) {
-        console.error("Error playing language audio:", error);
-        setIsPlayingAudio(false);
-        setCurrentAudioElement(null);
-      }
-    },
-    [controls, stopCurrentAudio]
-  );
-
-  // Select a language (with optional audio playback)
-  const selectLanguage = useCallback(
-    (languageCode, playAudio = false) => {
-      setSelectedLanguage(languageCode);
-
-      // Play audio if requested
-      if (playAudio && languageCode) {
-        playLanguageAudio(languageCode);
-      }
-    },
-    [playLanguageAudio]
-  );
-
-  const selectLanguageWithFocus = useCallback(
-    (languageCode, playAudio = true, focusCamera = true) => {
-      selectLanguage(languageCode, playAudio);
-      if (focusCamera && languageCode) {
-        setCameraFocusRequest({ type: "language", target: languageCode });
-      }
-    },
-    [selectLanguage]
-  );
+  const selectLanguage = useCallback((languageCode) => {
+    setSelectedLanguage(languageCode);
+    setCameraFocusRequest({ type: "language", target: languageCode });
+  }, []);
 
   const clearSelection = useCallback(() => {
     setSelectedLanguage(null);
-    stopCurrentAudio();
-  }, [stopCurrentAudio]);
+  }, []);
 
   const updateFilteringUtils = useCallback((filters, data) => {
     setFilteringUtils(filters);
@@ -138,17 +51,6 @@ export const LanguageSelectionProvider = ({ children }) => {
     setGroupColors((prev) => ({ ...prev, [groupKey]: color }));
   }, []);
 
-  const onLanguageClick = useCallback(
-    (code) => selectLanguage(code, true, true),
-    [selectLanguage]
-  );
-
-  useEffect(() => {
-    return () => {
-      stopCurrentAudio();
-    };
-  }, [stopCurrentAudio]);
-
   useEffect(() => {
     const updatedScheme = {};
     Object.entries(groupInfo).forEach(([key, info]) => {
@@ -157,24 +59,18 @@ export const LanguageSelectionProvider = ({ children }) => {
         color: groupColors[key] || info.color
       };
     });
-    // console.log("Updated color scheme:", updatedScheme);
   }, [groupColors]);
 
   const contextValue = {
     selectedLanguage,
-    isPlayingAudio,
     filteringUtils,
     filteredLanguages,
     selectLanguage,
-    selectLanguageWithFocus,
     viewAllLanguages,
     clearSelection,
-    playLanguageAudio,
-    stopCurrentAudio,
     updateFilteringUtils,
     groupColors,
     setGroupColor,
-    controls,
     cameraFocusRequest
   };
 

@@ -2,14 +2,16 @@ import "./LanguagesTab.css";
 import { useEffect, useRef } from "react";
 import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
+import { usePlaylist } from "../../contexts/PlaylistContext";
 
 function LanguagesTab({ groupedLanguages, languageData, isActive }) {
   const {
     groupColors,
     setGroupColor,
     selectedLanguage,
-    selectLanguageWithFocus
+    selectLanguage
   } = useLanguageSelection();
+  const { startFromLanguage } = usePlaylist();
   const { controls } = useControls();
   const buttonRefs = useRef({});
 
@@ -51,7 +53,10 @@ function LanguagesTab({ groupedLanguages, languageData, isActive }) {
                   className={`language-item-button ${
                     selectedLanguage === langCode ? "selected" : ""
                   } ${!languageData[langCode]?.sr ? "todo-item" : ""}`}
-                  onClick={() => selectLanguageWithFocus(langCode)}
+                  onClick={() => {
+                    selectLanguage(langCode);
+                    startFromLanguage(langCode);
+                  }}
                 >
                   {languageData[langCode]?.name || langCode}
                 </button>

@@ -23,7 +23,7 @@ function App() {
   } = useAppState();
 
   const { controls, updateControl } = useControls();
-  const { selectedLanguage, stopCurrentAudio } = useLanguageSelection();
+  const { selectedLanguage } = useLanguageSelection();
 
   const { sampleUrl, name } = data?.languageData[selectedLanguage] || {};
 
@@ -61,7 +61,6 @@ function App() {
               href={sampleUrl}
               target="_blank"
               rel="noreferrer noopener"
-              onClick={stopCurrentAudio}
             >
               {name} Source Video
             </a>

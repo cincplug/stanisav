@@ -1,0 +1,213 @@
+import { createContext, useContext, useState, useRef, useEffect, useCallback } from "react";
+import { useAppState } from "./AppStateContext";
+import { useControls } from "./ControlsContext";
+import { useLanguageSelection } from "./LanguageSelectionContext";
+import { sortLanguages } from "../utils/sortLanguages";
+
+const PlaylistContext = createContext(null);
+
+export const PlaylistProvider = ({ children }) => {
+  const { data, sceneReady } = useAppState();
+  const { controls } = useControls();
+  const { selectLanguage } = useLanguageSelection();
+  
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [playlistSession, setPlaylistSession] = useState(0);
+  const playlistRef = useRef([]);
+  const audioRef = useRef(null);
+  const currentAudioElement = useRef(null);
+
+  const getSortedLanguageCodes = useCallback(() => {
+    if (!data?.languageData) return [];
+    const { languageData, languageGroups, speakerData } = data;
+    const { sortLanguagesBy, labelContent, isReverse } = controls;
+    const allLanguages = Object.keys(data.languageData);
+    return sortLanguages({
+      allLanguages,
+      languageData,
+      languageGroups,
+      speakerData,
+      sortLanguagesBy,
+      labelContent,
+      isReverse
+    });
+  }, [data, controls]);
+
+  const stopCurrentAudio = useCallback(() => {
+    if (currentAudioElement.current) {
+      currentAudioElement.current.pause();
+      currentAudioElement.current.currentTime = 0;
+      currentAudioElement.current = null;
+    }
+  }, []);
+
+  const startPlaylist = useCallback(() => {
+    const codes = getSortedLanguageCodes();
+    if (codes.length === 0) return;
+    playlistRef.current = codes;
+    setIsPlaying(true);
+    setPlaylistSession((s) => s + 1);
+    if (currentIndex >= codes.length || currentIndex < 0) {
+      setCurrentIndex(0);
+    }
+  }, [getSortedLanguageCodes, currentIndex]);
+
+  const startFromLanguage = useCallback((languageCode) => {
+    const codes = getSortedLanguageCodes();
+    if (codes.length === 0) return;
+    const index = codes.indexOf(languageCode);
+    if (index === -1) return;
+    playlistRef.current = codes;
+    setCurrentIndex(index);
+    setIsPlaying(true);
+    setPlaylistSession((s) => s + 1);
+  }, [getSortedLanguageCodes]);
+
+  const pausePlaylist = useCallback(() => {
+    setIsPlaying(false);
+    stopCurrentAudio();
+  }, [stopCurrentAudio]);
+
+  const goToPrev = useCallback(() => {
+    setCurrentIndex((idx) => Math.max(0, idx - 1));
+    if (controls.isLoop) {
+      setPlaylistSession((s) => s + 1);
+    }
+  }, [controls.isLoop]);
+
+  const goToNext = useCallback(() => {
+    setCurrentIndex((idx) => {
+      const codes = playlistRef.current;
+      return Math.min(codes.length - 1, idx + 1);
+    });
+    if (controls.isLoop) {
+      setPlaylistSession((s) => s + 1);
+    }
+  }, [controls.isLoop]);
+
+  const goToBegin = useCallback(() => {
+    setCurrentIndex(0);
+    if (controls.isLoop) {
+      setPlaylistSession((s) => s + 1);
+    }
+  }, [controls.isLoop]);
+
+  const handleAudioEnded = useCallback(() => {
+    if (controls.isLoop) {
+      const codes = playlistRef.current;
+      setCurrentIndex((idx) => {
+        const nextIdx = idx + 1;
+        if (nextIdx >= codes.length) {
+          return 0;
+        }
+        return nextIdx;
+      });
+    } else {
+      setIsPlaying(false);
+    }
+  }, [controls.isLoop]);
+
+  useEffect(() => {
+    if (!isPlaying || !sceneReady) return;
+
+    const codes = playlistRef.current;
+    if (codes.length === 0 || currentIndex >= codes.length) {
+      setIsPlaying(false);
+      return;
+    }
+
+    const code = codes[currentIndex];
+    selectLanguage(code);
+    
+    let cleanup = () => {};
+
+    (async () => {
+      const { isLuka, animationDuration } = controls;
+      
+      stopCurrentAudio();
+      
+      await new Promise((resolve) => setTimeout(resolve, animationDuration));
+
+      try {
+        const { getLanguageAudioUrl, setupAudioVisualization } = await import("../services/audioService");
+        const audioUrl = await getLanguageAudioUrl(code, isLuka);
+        
+        if (!audioUrl) {
+          console.warn(`No audio available for language: ${code}`);
+          handleAudioEnded();
+          return;
+        }
+
+        const audio = new Audio(audioUrl);
+        audio.volume = 0.5;
+        await setupAudioVisualization(audio);
+        
+        currentAudioElement.current = audio;
+        audioRef.current = audio;
+        
+        audio.addEventListener("ended", handleAudioEnded);
+        cleanup = () => {
+          audio.removeEventListener("ended", handleAudioEnded);
+        };
+        
+        await audio.play();
+      } catch (error) {
+        console.error("Error playing language audio:", error);
+        handleAudioEnded();
+      }
+    })();
+
+    return () => {
+      cleanup();
+    };
+  }, [isPlaying, currentIndex, playlistSession, sceneReady, controls, stopCurrentAudio, handleAudioEnded, selectLanguage]);
+
+  useEffect(() => {
+    const codes = getSortedLanguageCodes();
+    playlistRef.current = codes;
+    setCurrentIndex(0);
+    setIsPlaying(false);
+  }, [controls?.sortLanguagesBy, controls?.labelContent, controls?.isReverse, getSortedLanguageCodes]);
+
+  useEffect(() => {
+    return () => {
+      stopCurrentAudio();
+    };
+  }, [stopCurrentAudio]);
+
+  const getCurrentLanguage = useCallback(() => {
+    const codes = playlistRef.current;
+    if (currentIndex >= 0 && currentIndex < codes.length) {
+      return codes[currentIndex];
+    }
+    return null;
+  }, [currentIndex]);
+
+  const value = {
+    isPlaying,
+    currentIndex,
+    playlistLength: playlistRef.current.length,
+    startPlaylist,
+    startFromLanguage,
+    pausePlaylist,
+    goToPrev,
+    goToNext,
+    goToBegin,
+    getCurrentLanguage
+  };
+
+  return (
+    <PlaylistContext.Provider value={value}>
+      {children}
+    </PlaylistContext.Provider>
+  );
+};
+
+export const usePlaylist = () => {
+  const context = useContext(PlaylistContext);
+  if (!context) {
+    throw new Error("usePlaylist must be used within a PlaylistProvider");
+  }
+  return context;
+};
