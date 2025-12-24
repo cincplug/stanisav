@@ -33,7 +33,6 @@
     border: none;
     box-shadow: var(--shadow-mild);
     color: var(--color-text);
-    padding: 8px 16px;
     cursor: pointer;
     font-weight: bold;
     display: flex;

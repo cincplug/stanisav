@@ -35,7 +35,7 @@
 /* Global scrollbar styles using standard CSS */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-interactive) #000000;
+  scrollbar-color: var(--color-interactive) var(--color-text-dark);
 }
 
 /* React-specific styles */

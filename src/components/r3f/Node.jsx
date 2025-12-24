@@ -87,7 +87,7 @@ function normalizeRange(
   value,
   min = 1 / 1000,
   max = 1000,
-  outMin = 1,
+  outMin = 2 / 3,
   outMax = 3
 ) {
   const logMin = Math.log(min);
