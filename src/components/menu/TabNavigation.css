@@ -24,10 +24,13 @@
     &.active {
       outline: none;
       border-color: var(--color-highlight);
-      border-bottom: none;
+      border-bottom-color: var(--color-menu-background);
     }
     &.active {
-      height: calc(100% + var(--tab-border-width));
+      position: relative;
+      top: calc(-1.2 * var(--tab-border-width));
+      height: calc(100% + var(--tab-border-width) * 2);
+      z-index: 1;
     }
   }
 }

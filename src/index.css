@@ -18,7 +18,7 @@
   --color-todo-item: #9a1b6a;
   --color-todo-item-hover: #ab1f72;
   --color-todo-item-active: #bc2790;
-  --border-radius: 7px;
+  --border-radius: 8px;
   --shadow-mild: 0px -1px 1px 0px rgba(0, 0, 0, 0.3);
   --outline-default: 3px solid var(--color-highlight);
   --gap: 6px;
