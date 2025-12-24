@@ -2,7 +2,7 @@ import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
 import LoadingOverlay from "./components/menu/LoadingOverlay";
 import Playlist from "./components/menu/Playlist";
-import { useAppState } from "./hooks/useAppState";
+import { useAppState } from "./contexts/AppStateContext";
 import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
 import { useControls } from "./contexts/ControlsContext";
 
@@ -53,12 +53,7 @@ function App() {
             filteringUtils={filteringUtils}
             onFilteringUtilsChange={setFilteringUtils}
           />
-          <Playlist
-            data={data}
-            sceneReady={sceneReady}
-            controls={controls}
-            handleCameraFocus={handleCameraFocus}
-          />
+          <Playlist />
 
           {sampleUrl && (
             <a

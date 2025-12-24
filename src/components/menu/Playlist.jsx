@@ -10,13 +10,7 @@ import {
   LoopIcon
 } from "./MenuIcons";
 
-export default function Playlist({
-  data,
-  sceneReady,
-  controls,
-  handleCameraFocus
-  // onControlChange
-}) {
+export default function Playlist() {
   const { selectedLanguage } = useLanguageSelection();
   const {
     isPlaying,
@@ -27,13 +21,7 @@ export default function Playlist({
     goToBegin,
     currentIndex,
     playlistLength
-  } = usePlaylist({
-    data,
-    sceneReady,
-    controls,
-    handleCameraFocus,
-    selectedLanguage
-  });
+  } = usePlaylist();
 
   const isAtStart = !isPlaying && currentIndex === 0;
 
