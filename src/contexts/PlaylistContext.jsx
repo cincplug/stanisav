@@ -17,6 +17,12 @@ export const PlaylistProvider = ({ children }) => {
   const playlistRef = useRef([]);
   const audioRef = useRef(null);
   const currentAudioElement = useRef(null);
+  const delayTimeoutRef = useRef(null);
+  const isLoopRef = useRef(controls.isLoop);
+
+  useEffect(() => {
+    isLoopRef.current = controls.isLoop;
+  }, [controls.isLoop]);
 
   const getSortedLanguageCodes = useCallback(() => {
     if (!data?.languageData) return [];
@@ -35,6 +41,10 @@ export const PlaylistProvider = ({ children }) => {
   }, [data, controls]);
 
   const stopCurrentAudio = useCallback(() => {
+    if (delayTimeoutRef.current) {
+      clearTimeout(delayTimeoutRef.current);
+      delayTimeoutRef.current = null;
+    }
     if (currentAudioElement.current) {
       currentAudioElement.current.pause();
       currentAudioElement.current.currentTime = 0;
@@ -94,7 +104,7 @@ export const PlaylistProvider = ({ children }) => {
   }, [controls.isLoop]);
 
   const handleAudioEnded = useCallback(() => {
-    if (controls.isLoop) {
+    if (isLoopRef.current) {
       const codes = playlistRef.current;
       setCurrentIndex((idx) => {
         const nextIdx = idx + 1;
@@ -106,7 +116,7 @@ export const PlaylistProvider = ({ children }) => {
     } else {
       setIsPlaying(false);
     }
-  }, [controls.isLoop]);
+  }, []);
 
   useEffect(() => {
     if (!isPlaying || !sceneReady) return;
@@ -122,44 +132,52 @@ export const PlaylistProvider = ({ children }) => {
     
     let cleanup = () => {};
 
-    (async () => {
+    const playAudio = async () => {
       const { isLuka, animationDuration } = controls;
       
       stopCurrentAudio();
       
-      await new Promise((resolve) => setTimeout(resolve, animationDuration));
-
-      try {
-        const { getLanguageAudioUrl, setupAudioVisualization } = await import("../services/audioService");
-        const audioUrl = await getLanguageAudioUrl(code, isLuka);
+      delayTimeoutRef.current = setTimeout(async () => {
+        delayTimeoutRef.current = null;
         
-        if (!audioUrl) {
-          console.warn(`No audio available for language: ${code}`);
+        try {
+          const { getLanguageAudioUrl, setupAudioVisualization } = await import("../services/audioService");
+          const audioUrl = await getLanguageAudioUrl(code, isLuka);
+          
+          if (!audioUrl) {
+            console.warn(`No audio available for language: ${code}`);
+            handleAudioEnded();
+            return;
+          }
+
+          const audio = new Audio(audioUrl);
+          audio.volume = 0.5;
+          await setupAudioVisualization(audio);
+          
+          currentAudioElement.current = audio;
+          audioRef.current = audio;
+          
+          audio.addEventListener("ended", handleAudioEnded);
+          cleanup = () => {
+            audio.removeEventListener("ended", handleAudioEnded);
+          };
+          
+          await audio.play();
+        } catch (error) {
+          console.error("Error playing language audio:", error);
           handleAudioEnded();
-          return;
         }
-
-        const audio = new Audio(audioUrl);
-        audio.volume = 0.5;
-        await setupAudioVisualization(audio);
-        
-        currentAudioElement.current = audio;
-        audioRef.current = audio;
-        
-        audio.addEventListener("ended", handleAudioEnded);
-        cleanup = () => {
-          audio.removeEventListener("ended", handleAudioEnded);
-        };
-        
-        await audio.play();
-      } catch (error) {
-        console.error("Error playing language audio:", error);
-        handleAudioEnded();
-      }
-    })();
+      }, animationDuration);
+    };
+    
+    playAudio();
 
     return () => {
       cleanup();
+      if (delayTimeoutRef.current) {
+        clearTimeout(delayTimeoutRef.current);
+        delayTimeoutRef.current = null;
+      }
     };
   }, [isPlaying, currentIndex, playlistSession, sceneReady, controls, stopCurrentAudio, handleAudioEnded, selectLanguage]);
 
