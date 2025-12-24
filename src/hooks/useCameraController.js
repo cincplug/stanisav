@@ -7,7 +7,7 @@ export const useCameraController = ({
   languageNodes,
   data,
   controls,
-  selectedLanguage
+  selectedLanguage,
 }) => {
   const { cameraFocusRequest } = useLanguageSelection();
   const { camera, controls: threeControls } = useThree();
@@ -17,7 +17,7 @@ export const useCameraController = ({
 
   const config = useMemo(
     () => ({
-      ...controls
+      ...controls,
     }),
     [controls]
   );
@@ -26,7 +26,7 @@ export const useCameraController = ({
     () => ({
       camera,
       controls: threeControls,
-      animationRef
+      animationRef,
     }),
     [camera, threeControls]
   );
@@ -57,7 +57,11 @@ export const useCameraController = ({
     [cameraSystem, languageNodes, config]
   );
 
-  const viewAllLanguages = useCallback(() => {
+  const setInitialCameraPosition = useCallback(() => {
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+      animationRef.current = null;
+    }
     const initialCameraPosition = new THREE.Vector3(
       config.positionX,
       config.positionY,
@@ -74,9 +78,9 @@ export const useCameraController = ({
       Object.keys(languageNodes).length > 0
     ) {
       initializedViewRef.current = true;
-      viewAllLanguages();
+      setInitialCameraPosition();
     }
-  }, [languageNodes, viewAllLanguages]);
+  }, [languageNodes, setInitialCameraPosition]);
 
   useEffect(() => {
     if (!cameraFocusRequest || !languageNodes) {
@@ -88,7 +92,7 @@ export const useCameraController = ({
         focusOnLanguage(target);
         break;
       case "viewAll":
-        viewAllLanguages();
+        setInitialCameraPosition();
         break;
     }
   }, [
@@ -96,8 +100,8 @@ export const useCameraController = ({
     languageNodes,
     data,
     focusOnLanguage,
-    viewAllLanguages,
-    selectedLanguage
+    setInitialCameraPosition,
+    selectedLanguage,
   ]);
 
   useEffect(() => {
@@ -119,13 +123,19 @@ export const useCameraController = ({
     },
     []
   );
+
+  return { setInitialCameraPosition };
 };
 
 const animateCamera = (cameraSystem, targetPosition, lookAtTarget, config) => {
   const { camera, controls, animationRef } = cameraSystem;
-  if (animationRef.current) {
-    cancelAnimationFrame(animationRef.current);
+
+  // Disable OrbitControls during animation to prevent conflicts
+  const wasEnabled = controls?.enabled;
+  if (controls) {
+    controls.enabled = false;
   }
+
   const startPosition = camera.position.clone();
   const startTarget = controls?.target?.clone() || new THREE.Vector3();
   const duration = config.animationDuration;
@@ -137,12 +147,15 @@ const animateCamera = (cameraSystem, targetPosition, lookAtTarget, config) => {
     const easeInOut =
       progress < 0.5
         ? 2 * progress * progress
-        : 1 - Math.pow(config.easingPower * progress + 2, 3) / 2;
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
     camera.position.lerpVectors(startPosition, targetPosition, easeInOut);
+
     if (controls && controls.target) {
       controls.target.lerpVectors(startTarget, lookAtTarget, easeInOut);
       controls.update();
     }
+
     if (progress < 1) {
       animationRef.current = requestAnimationFrame(animate);
     } else {
@@ -151,11 +164,15 @@ const animateCamera = (cameraSystem, targetPosition, lookAtTarget, config) => {
         controls.target.copy(lookAtTarget);
         controls.update();
       }
+      // Re-enable OrbitControls after animation completes
+      if (controls && wasEnabled) {
+        controls.enabled = true;
+      }
       animationRef.current = null;
     }
   };
 
-  animate();
+  animationRef.current = requestAnimationFrame(animate);
 };
 
 const calculateCameraPosition = (nodePosition, focusDistance) => {

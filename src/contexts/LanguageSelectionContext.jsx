@@ -42,6 +42,7 @@ export const LanguageSelectionProvider = ({ children }) => {
   }, []);
 
   const viewAllLanguages = useCallback(() => {
+    setSelectedLanguage(null); // Clear selected language
     setCameraFocusRequest({ type: "viewAll" });
     setFilteringUtils({}); // <-- clear filters
     setFilteredLanguages(new Set());

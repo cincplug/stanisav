@@ -2,6 +2,7 @@ import { useRef, useEffect } from "react";
 import { CloseIcon } from "./MenuIcons";
 import "./SearchTab.css";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
+import { usePlaylist } from "../../contexts/PlaylistContext";
 
 function SearchBox({
   searchTerm,
@@ -13,6 +14,7 @@ function SearchBox({
 }) {
   const searchInputRef = useRef(null);
   const { viewAllLanguages } = useLanguageSelection();
+  const { pausePlaylist } = usePlaylist();
 
   useEffect(() => {
     if (autoFocus && searchInputRef.current) {
@@ -28,7 +30,8 @@ function SearchBox({
   };
 
   const handleViewAll = () => {
-    viewAllLanguages(onCameraFocus, sceneReady);
+    pausePlaylist();
+    viewAllLanguages();
   };
 
   return (

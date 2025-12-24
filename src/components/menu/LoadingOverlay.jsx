@@ -15,7 +15,11 @@ const LoadingOverlay = () => (
           strokeDashoffset="31.416"
         />
       </svg>
-      <div className="loading-text">Loading Language Galaxy...</div>
+      <h1 className="loading-text">
+        Quot linguas calles
+        <br />
+        tot homines vales
+      </h1>
     </div>
   </div>
 );
