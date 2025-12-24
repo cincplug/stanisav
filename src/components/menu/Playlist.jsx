@@ -1,10 +1,12 @@
 import { usePlaylist } from "../../contexts/PlaylistContext";
+import { useControls } from "../../contexts/ControlsContext";
 import {
   PlayIcon,
   PauseIcon,
   BeginIcon,
   PrevIcon,
-  NextIcon
+  NextIcon,
+  LoopIcon
 } from "./MenuIcons";
 import "./Playlist.css";
 
@@ -20,6 +22,8 @@ export default function Playlist() {
     playlistLength
   } = usePlaylist();
 
+  const { controls, updateControl } = useControls();
+
   const isAtStart = !isPlaying && currentIndex === 0;
 
   let playLabel = "Resume playlist";
@@ -29,6 +33,8 @@ export default function Playlist() {
     playLabel = "Pause playlist";
     playIcon = <PauseIcon />;
   }
+
+  const toggleLoop = () => updateControl("isLoop", !controls.isLoop);
 
   return (
     <div className="playlist-controls">
@@ -47,6 +53,13 @@ export default function Playlist() {
       </button>
       <button onClick={goToNext} title="Next">
         <NextIcon />
+      </button>
+      <button
+        onClick={toggleLoop}
+        title="Toggle loop"
+        className={controls.isLoop ? "active" : ""}
+      >
+        <LoopIcon active={controls.isLoop} />
       </button>
       <span className="playlist-progress">
         {playlistLength > 0
