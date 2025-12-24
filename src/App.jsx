@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
 import LoadingOverlay from "./components/menu/LoadingOverlay";
@@ -26,16 +25,7 @@ function App() {
   const { controls, updateControl } = useControls();
   const { selectedLanguage, stopCurrentAudio } = useLanguageSelection();
 
-  const { sampleUrl, videoName } = useMemo(() => {
-    if (!data?.languageData || !selectedLanguage) {
-      return { sampleUrl: null, videoName: null };
-    }
-    const languageData = data.languageData[selectedLanguage];
-    return {
-      sampleUrl: languageData?.sampleUrl || null,
-      videoName: languageData?.name || null
-    };
-  }, [data, selectedLanguage]);
+  const { sampleUrl, name } = data?.languageData[selectedLanguage] || {};
 
   return (
     <div className={`app-container ${isLoading ? "loading" : ""}`}>
@@ -63,7 +53,7 @@ function App() {
           onFilteringUtilsChange={setFilteringUtils}
         />
       ) : (
-        <LoadingOverlay isLoading={isLoading} />
+        <LoadingOverlay />
       )}
 
       <Playlist
@@ -81,7 +71,7 @@ function App() {
           rel="noreferrer noopener"
           onClick={stopCurrentAudio}
         >
-          {videoName} Source Video
+          {name} Source Video
         </a>
       )}
     </div>
