@@ -40,39 +40,40 @@ function App() {
       />
 
       {!isLoading && sceneReady ? (
-        <Menu
-          controls={controls}
-          onControlChange={updateControl}
-          data={data}
-          isLoading={isLoading}
-          sceneReady={sceneReady}
-          onCameraFocus={handleCameraFocus}
-          isCollapsed={isMenuCollapsed}
-          onToggleCollapse={() => setIsMenuCollapsed(!isMenuCollapsed)}
-          filteringUtils={filteringUtils}
-          onFilteringUtilsChange={setFilteringUtils}
-        />
+        <>
+          <Menu
+            controls={controls}
+            onControlChange={updateControl}
+            data={data}
+            isLoading={isLoading}
+            sceneReady={sceneReady}
+            onCameraFocus={handleCameraFocus}
+            isCollapsed={isMenuCollapsed}
+            onToggleCollapse={() => setIsMenuCollapsed(!isMenuCollapsed)}
+            filteringUtils={filteringUtils}
+            onFilteringUtilsChange={setFilteringUtils}
+          />
+          <Playlist
+            data={data}
+            sceneReady={sceneReady}
+            controls={controls}
+            handleCameraFocus={handleCameraFocus}
+          />
+
+          {sampleUrl && (
+            <a
+              className="button show-video"
+              href={sampleUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              onClick={stopCurrentAudio}
+            >
+              {name} Source Video
+            </a>
+          )}
+        </>
       ) : (
         <LoadingOverlay />
-      )}
-
-      <Playlist
-        data={data}
-        sceneReady={sceneReady}
-        controls={controls}
-        handleCameraFocus={handleCameraFocus}
-      />
-
-      {sampleUrl && (
-        <a
-          className="button show-video"
-          href={sampleUrl}
-          target="_blank"
-          rel="noreferrer noopener"
-          onClick={stopCurrentAudio}
-        >
-          {name} Source Video
-        </a>
       )}
     </div>
   );
