@@ -7,7 +7,7 @@ export const useCameraController = ({
   languageNodes,
   data,
   controls,
-  selectedLanguage,
+  selectedLanguage
 }) => {
   const { cameraFocusRequest } = useLanguageSelection();
   const { camera, controls: threeControls } = useThree();
@@ -17,7 +17,7 @@ export const useCameraController = ({
 
   const config = useMemo(
     () => ({
-      ...controls,
+      ...controls
     }),
     [controls]
   );
@@ -26,7 +26,7 @@ export const useCameraController = ({
     () => ({
       camera,
       controls: threeControls,
-      animationRef,
+      animationRef
     }),
     [camera, threeControls]
   );
@@ -101,7 +101,7 @@ export const useCameraController = ({
     data,
     focusOnLanguage,
     setInitialCameraPosition,
-    selectedLanguage,
+    selectedLanguage
   ]);
 
   useEffect(() => {
@@ -130,12 +130,6 @@ export const useCameraController = ({
 const animateCamera = (cameraSystem, targetPosition, lookAtTarget, config) => {
   const { camera, controls, animationRef } = cameraSystem;
 
-  // Disable OrbitControls during animation to prevent conflicts
-  const wasEnabled = controls?.enabled;
-  if (controls) {
-    controls.enabled = false;
-  }
-
   const startPosition = camera.position.clone();
   const startTarget = controls?.target?.clone() || new THREE.Vector3();
   const duration = config.animationDuration;
@@ -163,10 +157,6 @@ const animateCamera = (cameraSystem, targetPosition, lookAtTarget, config) => {
       if (controls && controls.target) {
         controls.target.copy(lookAtTarget);
         controls.update();
-      }
-      // Re-enable OrbitControls after animation completes
-      if (controls && wasEnabled) {
-        controls.enabled = true;
       }
       animationRef.current = null;
     }
