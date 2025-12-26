@@ -4,14 +4,7 @@ import "./SearchTab.css";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
 
-function SearchBox({
-  searchTerm,
-  setSearchTerm,
-  clearSearch,
-  autoFocus,
-  sceneReady,
-  onCameraFocus
-}) {
+function SearchBox({ searchTerm, setSearchTerm, clearSearch, autoFocus }) {
   const searchInputRef = useRef(null);
   const { viewAllLanguages } = useLanguageSelection();
   const { pausePlaylist } = usePlaylist();

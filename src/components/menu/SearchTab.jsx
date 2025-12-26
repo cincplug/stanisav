@@ -1,17 +1,14 @@
 import { useEffect, useRef } from "react";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
+import { usePlaylist } from "../../contexts/PlaylistContext";
 import tabsConfig from "../../config/tabsConfig.json";
 import "./SearchTab.css";
 
 // Search Results Component
-function SearchResults({
-  searchTerm,
-  searchResults,
-  selectedLanguage,
-  onLanguageFocus,
-  languageData
-}) {
+function SearchResults({ searchTerm, searchResults, languageData }) {
   const threshold = tabsConfig.searchLengthThreshold;
+  const { selectLanguage, selectedLanguage } = useLanguageSelection();
+  const { startFromLanguage } = usePlaylist();
 
   if (!searchTerm) return null;
 
@@ -39,7 +36,10 @@ function SearchResults({
                 className={`language-button-grid ${
                   selectedLanguage === lang.code ? "selected" : ""
                 }`}
-                onClick={() => onLanguageFocus(lang.code)}
+                onClick={() => {
+                  selectLanguage(lang.code);
+                  startFromLanguage(lang.code);
+                }}
                 title={`${lang.name} (${groupName})`}
               >
                 <div className="language-name">

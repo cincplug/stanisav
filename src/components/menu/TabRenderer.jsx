@@ -14,7 +14,6 @@ function TabRenderer({
   filteringUtils,
   onFilteringUtilsChange,
   searchTerm,
-  setSearchTerm,
   searchResults,
   clearSearch
 }) {
@@ -51,9 +50,7 @@ function TabRenderer({
       {activeTab === "search" && (
         <SearchTab
           searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
           searchResults={searchResults}
-          clearSearch={clearSearch}
           languageData={languageData}
         />
       )}
