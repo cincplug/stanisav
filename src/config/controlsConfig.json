@@ -85,14 +85,47 @@
     "isUserEditable": false,
     "group": "Colors"
   },
-  "positionX": {
+  "pointLightIntensity": {
+    "group": "Lighting",
     "type": "range",
-    "label": "Camera X",
-    "min": -500,
+    "label": "Point Light Intensity",
+    "min": 0,
+    "max": 50,
+    "step": 0.5,
+    "defaultValue": 6,
+    "isUserEditable": true
+  },
+  "pointLightDecay": {
+    "group": "Lighting",
+    "type": "range",
+    "label": "Point Light Decay",
+    "min": 0,
+    "max": 5,
+    "step": 0.1,
+    "defaultValue": 0.1,
+    "isUserEditable": true
+  },
+  "pointLightDistance": {
+    "group": "Lighting",
+    "type": "range",
+    "label": "Point Light Distance",
+    "min": 0,
     "max": 500,
     "step": 10,
-    "defaultValue": 0,
-    "isUserEditable": true,
+    "defaultValue": 120,
+    "isUserEditable": true
+  },
+  "ambientLightIntensity": {
+    "group": "Lighting",
+    "type": "range",
+    "label": "Ambient Light Intensity",
+    "min": 0,
+    "max": 10,
+    "step": 0.1,
+    "defaultValue": 0.8,
+    "isUserEditable": true
+  },
+  "positionX": {
     "group": "Camera"
   },
   "positionY": {

@@ -1,5 +1,6 @@
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useThree, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import { useRef } from "react";
 import { useControls } from "../../contexts/ControlsContext";
 import { useCameraUpdater } from "../../hooks/useCameraUpdater";
 import Languages from "./Languages";
@@ -9,12 +10,38 @@ const Stage = ({
   onDataLoaded,
   onSceneReady,
   onLoadingChange,
-  onNodesReady
+  onNodesReady,
 }) => {
   const { controls } = useControls();
+
   const CameraUpdaterNode = () => {
     useCameraUpdater({ controls });
     return null;
+  };
+
+  const CameraLight = () => {
+    const { camera } = useThree();
+    const lightRef = useRef();
+
+    useFrame(() => {
+      if (lightRef.current) {
+        const direction = camera.position.clone().normalize();
+        const fixedDistance = controls.positionZ;
+        lightRef.current.position.copy(direction.multiplyScalar(fixedDistance));
+      }
+    });
+
+    return (
+      <>
+        <pointLight
+          ref={lightRef}
+          intensity={controls.pointLightIntensity}
+          decay={controls.pointLightDecay}
+          distance={controls.pointLightDistance}
+        />
+        <ambientLight intensity={controls.ambientLightIntensity} />
+      </>
+    );
   };
 
   return (
@@ -26,7 +53,7 @@ const Stage = ({
         position: [controls.positionX, controls.positionY, controls.positionZ],
         fov: controls.fov,
         near: controls.near,
-        far: controls.far
+        far: controls.far,
       }}
       gl={{ antialias: true, clearColor: controls.backgroundColor }}
     >
@@ -38,7 +65,7 @@ const Stage = ({
         makeDefault={true}
       />
 
-      <ambientLight intensity={2.2} />
+      <CameraLight />
 
       <CameraUpdaterNode />
 
