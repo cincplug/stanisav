@@ -22,7 +22,6 @@ export const getDisplayValue = (controlId, groupName, state) => {
   if (type === "range") {
     if (label.includes("Duration") || label.includes("Delay"))
       return `${value}`;
-    if (controlId === "easingPower") return value.toFixed(1);
     if (typeof value === "number") return value.toFixed(2);
   }
 
