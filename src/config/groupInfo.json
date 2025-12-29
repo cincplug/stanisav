@@ -34,7 +34,7 @@
   },
   "Bantu": {
     "family": "Niger-Congo",
-    "color": "#49db14"
+    "color": "#49eb14"
   },
   "Basque": {
     "family": "Basque",
@@ -94,11 +94,11 @@
   },
   "Indo-Aryan": {
     "family": "Indo-European",
-    "color": "#d37d27"
+    "color": "#da6d57"
   },
   "Iranian": {
     "family": "Indo-European",
-    "color": "#ffd642"
+    "color": "#eff642"
   },
   "Iroquoian": {
     "family": "Iroquoian",
@@ -210,7 +210,7 @@
   },
   "Romance": {
     "family": "Indo-European",
-    "color": "#f9ca3e"
+    "color": "#e9da3e"
   },
   "Sardinian": {
     "family": "Indo-European",
@@ -226,7 +226,7 @@
   },
   "Sinitic": {
     "family": "Sino-Tibetan",
-    "color": "#ffa424"
+    "color": "#ffc404"
   },
   "South Dravidian": {
     "family": "Dravidian",
@@ -234,7 +234,7 @@
   },
   "South Slavic": {
     "family": "Indo-European",
-    "color": "#9b70ff"
+    "color": "#9b90ff"
   },
   "Spanish Creole": {
     "family": "Creole",
