@@ -178,11 +178,11 @@
   "focusDistance": {
     "type": "range",
     "label": "Focus Distance",
-    "min": 10,
-    "max": 200,
+    "min": 20,
+    "max": 100,
     "step": 5,
     "defaultValue": 40,
-    "isUserEditable": false,
+    "isUserEditable": true,
     "group": "Camera"
   },
   "near": {
@@ -192,7 +192,7 @@
     "max": 10,
     "step": 0.1,
     "defaultValue": 0.1,
-    "isUserEditable": true,
+    "isUserEditable": false,
     "group": "Camera"
   },
   "far": {
@@ -202,7 +202,7 @@
     "max": 10000,
     "step": 100,
     "defaultValue": 2000,
-    "isUserEditable": true,
+    "isUserEditable": false,
     "group": "Camera"
   }
 }
