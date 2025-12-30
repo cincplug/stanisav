@@ -4,12 +4,14 @@ import { extend, useFrame } from "@react-three/fiber";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
+import { useControls } from "../../contexts/ControlsContext.jsx";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
 
 extend({ ParametricGeometry });
 
-const Mesha = ({ color, labelSize, languageCode }) => {
+const Mesha = ({ color, labelSize, languageCode, labelText }) => {
   const groupRef = useRef();
+  const { pointLightDistance } = useControls();
 
   const { selectedLanguage } = useLanguageSelection();
   const isThisLanguageSelected = selectedLanguage === languageCode;
@@ -17,6 +19,7 @@ const Mesha = ({ color, labelSize, languageCode }) => {
   const c2 = new Color("#ddddff").sub(c1);
   const c3 = new Color("#ffbbbb").sub(c1);
   const c4 = new Color("#aaffaa").sub(c1);
+  const lightColor = new Color("#ffdd88");
 
   const [xx, yy, zz] = languageCode
     .toLowerCase()
@@ -92,22 +95,23 @@ const Mesha = ({ color, labelSize, languageCode }) => {
   );
 
   const segments = audioVisualizationConfig.meshDeformation.meshSegments;
-  const thickness = 2.7;
+  const thickness = 0;
+  const x = labelText.length / 2;
 
   return (
     <group ref={groupRef}>
       <pointLight
-        position={[xx / 2, 3, 2]}
-        intensity={20}
-        distance={10}
-        color={c2}
+        position={[-x / 2, -1, 2]}
+        intensity={30}
+        distance={pointLightDistance}
+        color={lightColor}
       />
 
       <pointLight
-        position={[-xx / 2, 0, 2]}
-        intensity={20}
-        distance={10}
-        color={c1}
+        position={[x / 2, -1, 2]}
+        intensity={40}
+        distance={pointLightDistance}
+        color={lightColor}
       />
 
       <mesh

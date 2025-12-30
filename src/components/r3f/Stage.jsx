@@ -2,6 +2,7 @@ import { Canvas, useThree, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
 import { useControls } from "../../contexts/ControlsContext";
+import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { useCameraUpdater } from "../../hooks/useCameraUpdater";
 import Languages from "./Languages";
 
@@ -10,9 +11,10 @@ const Stage = ({
   onDataLoaded,
   onSceneReady,
   onLoadingChange,
-  onNodesReady,
+  onNodesReady
 }) => {
   const { controls } = useControls();
+  const { selectedLanguage } = useLanguageSelection();
 
   const CameraUpdaterNode = () => {
     useCameraUpdater({ controls });
@@ -33,12 +35,14 @@ const Stage = ({
 
     return (
       <>
-        <pointLight
-          ref={lightRef}
-          intensity={controls.pointLightIntensity}
-          decay={controls.pointLightDecay}
-          distance={controls.pointLightDistance}
-        />
+        {!selectedLanguage && (
+          <pointLight
+            ref={lightRef}
+            intensity={controls.pointLightIntensity}
+            decay={controls.pointLightDecay}
+            distance={controls.pointLightDistance}
+          />
+        )}
         <ambientLight intensity={controls.ambientLightIntensity} />
       </>
     );
@@ -53,7 +57,7 @@ const Stage = ({
         position: [controls.positionX, controls.positionY, controls.positionZ],
         fov: controls.fov,
         near: controls.near,
-        far: controls.far,
+        far: controls.far
       }}
       gl={{ antialias: true, clearColor: controls.backgroundColor }}
     >

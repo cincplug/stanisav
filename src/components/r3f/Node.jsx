@@ -11,15 +11,11 @@ const Node = ({
   position,
   isSelected = false,
   color,
-  linguisticProperties = null,
   speakerCount
 }) => {
   const { controls } = useControls();
-  const {
-    filteredLanguages,
-    filteringUtils,
-    selectLanguage
-  } = useLanguageSelection();
+  const { filteredLanguages, filteringUtils, selectLanguage } =
+    useLanguageSelection();
   const { startFromLanguage, isPlaying, getCurrentLanguage } = usePlaylist();
   const { labelContent, labelSize, backgroundColor } = controls;
 
@@ -56,6 +52,7 @@ const Node = ({
   const fontSize = normalizeRange(labelSize * speakerCount);
   const currentPlaylistLanguage = getCurrentLanguage();
   const isPlayingThis = isPlaying && currentPlaylistLanguage === languageCode;
+  const labelText = getLabelText(language, languageCode, labelContent);
 
   return (
     <group position={position} onClick={handleClick}>
@@ -63,9 +60,9 @@ const Node = ({
         <Mesha
           color={color}
           labelSize={fontSize * 2}
-          linguisticProperties={linguisticProperties}
           isSelected={isSelected}
           languageCode={languageCode}
+          labelText={labelText}
         />
       )}
 
@@ -75,7 +72,7 @@ const Node = ({
         labelColor={backgroundColor}
         backgroundColor={color}
       >
-        {getLabelText(language, languageCode, labelContent)}
+        {labelText}
       </Label>
     </group>
   );
