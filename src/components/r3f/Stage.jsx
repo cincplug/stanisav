@@ -1,6 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useControls } from "../../contexts/ControlsContext";
+import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
 import { useCameraUpdater } from "../../hooks/useCameraUpdater";
 import StageLight from "./StageLight";
@@ -14,6 +15,7 @@ const Stage = ({
   onNodesReady,
 }) => {
   const { controls } = useControls();
+  const { selectedLanguage } = useLanguageSelection();
   const { isPlaying } = usePlaylist();
 
   const CameraUpdaterNode = () => {
@@ -42,7 +44,8 @@ const Stage = ({
         makeDefault={true}
       />
 
-      {!isPlaying && <StageLight />}
+      {!selectedLanguage && <StageLight />}
+
       <ambientLight intensity={controls.ambientLightIntensity} />
 
       <CameraUpdaterNode />
