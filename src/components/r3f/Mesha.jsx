@@ -11,7 +11,6 @@ extend({ ParametricGeometry });
 
 const Mesha = ({ color, labelSize, languageCode, labelText }) => {
   const groupRef = useRef();
-  const { pointLightDistance } = useControls();
 
   const { selectedLanguage } = useLanguageSelection();
   const isThisLanguageSelected = selectedLanguage === languageCode;
@@ -19,7 +18,6 @@ const Mesha = ({ color, labelSize, languageCode, labelText }) => {
   const c2 = new Color("#ddddff").sub(c1);
   const c3 = new Color("#ffbbbb").sub(c1);
   const c4 = new Color("#aaffaa").sub(c1);
-  const lightColor = new Color("#ffdd88");
 
   const [xx, yy, zz] = languageCode
     .toLowerCase()
@@ -40,7 +38,7 @@ const Mesha = ({ color, labelSize, languageCode, labelText }) => {
       fundamentalAmplifier,
       harmonicsAmplifier,
       verticalVariationMultiplier,
-      symmetricalMirroring
+      symmetricalMirroring,
     } = meshConfig;
 
     return (u, v, target) => {
@@ -96,24 +94,9 @@ const Mesha = ({ color, labelSize, languageCode, labelText }) => {
 
   const segments = audioVisualizationConfig.meshDeformation.meshSegments;
   const thickness = 0;
-  const x = labelText.length / 2;
 
   return (
     <group ref={groupRef}>
-      <pointLight
-        position={[-x / 2, -1, 2]}
-        intensity={30}
-        distance={pointLightDistance}
-        color={lightColor}
-      />
-
-      <pointLight
-        position={[x / 2, -1, 2]}
-        intensity={40}
-        distance={pointLightDistance}
-        color={lightColor}
-      />
-
       <mesh
         position={[1, 1, thickness]}
         scale={[1 / 2, 2 / 3, 3]}

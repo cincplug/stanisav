@@ -3,6 +3,7 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
 import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
+import { usePlaylist } from "../../contexts/PlaylistContext";
 import { useCameraUpdater } from "../../hooks/useCameraUpdater";
 import Languages from "./Languages";
 
@@ -11,10 +12,11 @@ const Stage = ({
   onDataLoaded,
   onSceneReady,
   onLoadingChange,
-  onNodesReady
+  onNodesReady,
 }) => {
   const { controls } = useControls();
   const { selectedLanguage } = useLanguageSelection();
+  const { isPlaying } = usePlaylist();
 
   const CameraUpdaterNode = () => {
     useCameraUpdater({ controls });
@@ -35,7 +37,7 @@ const Stage = ({
 
     return (
       <>
-        {!selectedLanguage && (
+        {!isPlaying && (
           <pointLight
             ref={lightRef}
             intensity={controls.pointLightIntensity}
@@ -57,7 +59,7 @@ const Stage = ({
         position: [controls.positionX, controls.positionY, controls.positionZ],
         fov: controls.fov,
         near: controls.near,
-        far: controls.far
+        far: controls.far,
       }}
       gl={{ antialias: true, clearColor: controls.backgroundColor }}
     >

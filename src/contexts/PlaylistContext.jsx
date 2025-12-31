@@ -1,4 +1,11 @@
-import { createContext, useContext, useState, useRef, useEffect, useCallback } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+} from "react";
 import { useAppState } from "./AppStateContext";
 import { useControls } from "./ControlsContext";
 import { useLanguageSelection } from "./LanguageSelectionContext";
@@ -10,10 +17,11 @@ export const PlaylistProvider = ({ children }) => {
   const { data, sceneReady } = useAppState();
   const { controls } = useControls();
   const { selectLanguage } = useLanguageSelection();
-  
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [playlistSession, setPlaylistSession] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
   const playlistRef = useRef([]);
   const audioRef = useRef(null);
   const currentAudioElement = useRef(null);
@@ -36,7 +44,7 @@ export const PlaylistProvider = ({ children }) => {
       speakerData,
       sortLanguagesBy,
       labelContent,
-      isReverse
+      isReverse,
     });
   }, [data, controls]);
 
@@ -63,19 +71,23 @@ export const PlaylistProvider = ({ children }) => {
     }
   }, [getSortedLanguageCodes, currentIndex]);
 
-  const startFromLanguage = useCallback((languageCode) => {
-    const codes = getSortedLanguageCodes();
-    if (codes.length === 0) return;
-    const index = codes.indexOf(languageCode);
-    if (index === -1) return;
-    playlistRef.current = codes;
-    setCurrentIndex(index);
-    setIsPlaying(true);
-    setPlaylistSession((s) => s + 1);
-  }, [getSortedLanguageCodes]);
+  const startFromLanguage = useCallback(
+    (languageCode) => {
+      const codes = getSortedLanguageCodes();
+      if (codes.length === 0) return;
+      const index = codes.indexOf(languageCode);
+      if (index === -1) return;
+      playlistRef.current = codes;
+      setCurrentIndex(index);
+      setIsPlaying(true);
+      setPlaylistSession((s) => s + 1);
+    },
+    [getSortedLanguageCodes]
+  );
 
   const pausePlaylist = useCallback(() => {
     setIsPlaying(false);
+    setIsAnimating(false);
     stopCurrentAudio();
   }, [stopCurrentAudio]);
 
@@ -129,21 +141,25 @@ export const PlaylistProvider = ({ children }) => {
 
     const code = codes[currentIndex];
     selectLanguage(code);
-    
+
     let cleanup = () => {};
 
     const playAudio = async () => {
       const { isLuka, animationDuration } = controls;
-      
+
       stopCurrentAudio();
-      
+      setIsAnimating(true);
+
       delayTimeoutRef.current = setTimeout(async () => {
         delayTimeoutRef.current = null;
-        
+        setIsAnimating(false);
+
         try {
-          const { getLanguageAudioUrl, setupAudioVisualization } = await import("../services/audioService");
+          const { getLanguageAudioUrl, setupAudioVisualization } = await import(
+            "../services/audioService"
+          );
           const audioUrl = await getLanguageAudioUrl(code, isLuka);
-          
+
           if (!audioUrl) {
             console.warn(`No audio available for language: ${code}`);
             handleAudioEnded();
@@ -153,15 +169,15 @@ export const PlaylistProvider = ({ children }) => {
           const audio = new Audio(audioUrl);
           audio.volume = 0.5;
           await setupAudioVisualization(audio);
-          
+
           currentAudioElement.current = audio;
           audioRef.current = audio;
-          
+
           audio.addEventListener("ended", handleAudioEnded);
           cleanup = () => {
             audio.removeEventListener("ended", handleAudioEnded);
           };
-          
+
           await audio.play();
         } catch (error) {
           console.error("Error playing language audio:", error);
@@ -169,7 +185,7 @@ export const PlaylistProvider = ({ children }) => {
         }
       }, animationDuration);
     };
-    
+
     playAudio();
 
     return () => {
@@ -179,14 +195,28 @@ export const PlaylistProvider = ({ children }) => {
         delayTimeoutRef.current = null;
       }
     };
-  }, [isPlaying, currentIndex, playlistSession, sceneReady, controls, stopCurrentAudio, handleAudioEnded, selectLanguage]);
+  }, [
+    isPlaying,
+    currentIndex,
+    playlistSession,
+    sceneReady,
+    controls,
+    stopCurrentAudio,
+    handleAudioEnded,
+    selectLanguage,
+  ]);
 
   useEffect(() => {
     const codes = getSortedLanguageCodes();
     playlistRef.current = codes;
     setCurrentIndex(0);
     setIsPlaying(false);
-  }, [controls?.sortLanguagesBy, controls?.labelContent, controls?.isReverse, getSortedLanguageCodes]);
+  }, [
+    controls?.sortLanguagesBy,
+    controls?.labelContent,
+    controls?.isReverse,
+    getSortedLanguageCodes,
+  ]);
 
   useEffect(() => {
     return () => {
@@ -204,6 +234,7 @@ export const PlaylistProvider = ({ children }) => {
 
   const value = {
     isPlaying,
+    isAnimating,
     currentIndex,
     playlistLength: playlistRef.current.length,
     startPlaylist,
@@ -212,7 +243,7 @@ export const PlaylistProvider = ({ children }) => {
     goToPrev,
     goToNext,
     goToBegin,
-    getCurrentLanguage
+    getCurrentLanguage,
   };
 
   return (

@@ -1,4 +1,5 @@
 import { useCallback } from "react";
+import { Color } from "three";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
 import { usePlaylist } from "../../contexts/PlaylistContext.jsx";
@@ -11,13 +12,15 @@ const Node = ({
   position,
   isSelected = false,
   color,
-  speakerCount
+  speakerCount,
 }) => {
   const { controls } = useControls();
   const { filteredLanguages, filteringUtils, selectLanguage } =
     useLanguageSelection();
-  const { startFromLanguage, isPlaying, getCurrentLanguage } = usePlaylist();
-  const { labelContent, labelSize, backgroundColor } = controls;
+  const { startFromLanguage, isPlaying, isAnimating, getCurrentLanguage } =
+    usePlaylist();
+  const { labelContent, labelSize, backgroundColor, pointLightDistance } =
+    controls;
 
   const getLabelText = (language, languageCode, labelContent) => {
     switch (labelContent) {
@@ -52,11 +55,31 @@ const Node = ({
   const fontSize = normalizeRange(labelSize * speakerCount);
   const currentPlaylistLanguage = getCurrentLanguage();
   const isPlayingThis = isPlaying && currentPlaylistLanguage === languageCode;
+  const shouldShowMesha = isPlayingThis && !isAnimating;
   const labelText = getLabelText(language, languageCode, labelContent);
+  const lightColor = new Color("#ffdd88");
+  const x = labelText.length / 2;
 
   return (
     <group position={position} onClick={handleClick}>
       {isSelected && isPlayingThis && (
+        <>
+          <pointLight
+            position={[-x / 2, -1, 2]}
+            intensity={30}
+            distance={pointLightDistance}
+            color={lightColor}
+          />
+          <pointLight
+            position={[x / 2, -1, 2]}
+            intensity={40}
+            distance={pointLightDistance}
+            color={lightColor}
+          />
+        </>
+      )}
+
+      {isSelected && shouldShowMesha && (
         <Mesha
           color={color}
           labelSize={fontSize * 2}
