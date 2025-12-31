@@ -235,6 +235,26 @@
     "isUserEditable": true,
     "group": "Mesha"
   },
+  "eyeXPosition": {
+    "type": "range",
+    "label": "Eye X Position",
+    "min": 0,
+    "max": 3,
+    "step": 0.1,
+    "defaultValue": 1,
+    "isUserEditable": true,
+    "group": "Mesha"
+  },
+  "eyeYOffset": {
+    "type": "range",
+    "label": "Eye Y Offset",
+    "min": -2,
+    "max": 2,
+    "step": 0.1,
+    "defaultValue": 0,
+    "isUserEditable": true,
+    "group": "Mesha"
+  },
   "eyeZPositionMultiplier": {
     "type": "range",
     "label": "Eye Z Position",
