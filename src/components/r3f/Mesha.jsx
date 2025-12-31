@@ -10,7 +10,7 @@ import MeshaEye from "./MeshaEye.jsx";
 
 extend({ ParametricGeometry });
 
-const Mesha = ({ color, labelSize, languageCode, labelText }) => {
+const Mesha = ({ color, labelSize, languageCode }) => {
   const groupRef = useRef();
   const leftEyeRef = useRef();
   const rightEyeRef = useRef();
@@ -45,7 +45,7 @@ const Mesha = ({ color, labelSize, languageCode, labelText }) => {
       fundamentalAmplifier,
       harmonicsAmplifier,
       verticalVariationMultiplier,
-      symmetricalMirroring,
+      symmetricalMirroring
     } = meshConfig;
 
     return (u, v, target) => {
@@ -152,7 +152,7 @@ const Mesha = ({ color, labelSize, languageCode, labelText }) => {
         position={[
           controls.eyeXPosition,
           1,
-          thickness + labelSize * controls.eyeZPositionMultiplier,
+          thickness + labelSize * controls.eyeZPositionMultiplier
         ]}
       >
         <MeshaEye position={[0, 0, 0]} color={color} labelSize={labelSize} />
@@ -163,7 +163,7 @@ const Mesha = ({ color, labelSize, languageCode, labelText }) => {
         position={[
           -controls.eyeXPosition,
           1,
-          thickness + labelSize * controls.eyeZPositionMultiplier,
+          thickness + labelSize * controls.eyeZPositionMultiplier
         ]}
       >
         <MeshaEye position={[0, 0, 0]} color={color} labelSize={labelSize} />

@@ -12,14 +12,14 @@ const Node = ({
   position,
   isSelected = false,
   color,
-  speakerCount,
+  speakerCount
 }) => {
   const { controls } = useControls();
   const { filteredLanguages, filteringUtils, selectLanguage } =
     useLanguageSelection();
   const { startFromLanguage, isPlaying, isAnimating, getCurrentLanguage } =
     usePlaylist();
-  const { labelContent, labelSize, backgroundColor } = controls;
+  const { labelContent, labelSize, backgroundColor, meshaSize } = controls;
 
   const getLabelText = (language, languageCode, labelContent) => {
     switch (labelContent) {
@@ -64,7 +64,7 @@ const Node = ({
       {isSelected && shouldShowMesha && (
         <Mesha
           color={color}
-          labelSize={fontSize * 2}
+          labelSize={meshaSize}
           isSelected={isSelected}
           languageCode={languageCode}
           labelText={labelText}
