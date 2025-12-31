@@ -1,9 +1,9 @@
 import { useCallback } from "react";
-import { Color } from "three";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
 import { usePlaylist } from "../../contexts/PlaylistContext.jsx";
 import Mesha from "./Mesha.jsx";
+import NodeLights from "./NodeLights.jsx";
 import Label from "./Label.jsx";
 
 const Node = ({
@@ -19,8 +19,7 @@ const Node = ({
     useLanguageSelection();
   const { startFromLanguage, isPlaying, isAnimating, getCurrentLanguage } =
     usePlaylist();
-  const { labelContent, labelSize, backgroundColor, pointLightDistance } =
-    controls;
+  const { labelContent, labelSize, backgroundColor } = controls;
 
   const getLabelText = (language, languageCode, labelContent) => {
     switch (labelContent) {
@@ -57,27 +56,10 @@ const Node = ({
   const isPlayingThis = isPlaying && currentPlaylistLanguage === languageCode;
   const shouldShowMesha = isPlayingThis && !isAnimating;
   const labelText = getLabelText(language, languageCode, labelContent);
-  const lightColor = new Color("#ffdd88");
-  const x = labelText.length / 2;
 
   return (
     <group position={position} onClick={handleClick}>
-      {isSelected && isPlayingThis && (
-        <>
-          <pointLight
-            position={[-x / 2, -1, 2]}
-            intensity={30}
-            distance={pointLightDistance}
-            color={lightColor}
-          />
-          <pointLight
-            position={[x / 2, -1, 2]}
-            intensity={40}
-            distance={pointLightDistance}
-            color={lightColor}
-          />
-        </>
-      )}
+      {isSelected && <NodeLights labelText={labelText} />}
 
       {isSelected && shouldShowMesha && (
         <Mesha
