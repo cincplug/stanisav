@@ -1,10 +1,9 @@
-import { Canvas, useThree, useFrame } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { useRef } from "react";
 import { useControls } from "../../contexts/ControlsContext";
-import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
 import { useCameraUpdater } from "../../hooks/useCameraUpdater";
+import StageLight from "./StageLight";
 import Languages from "./Languages";
 
 const Stage = ({
@@ -15,39 +14,11 @@ const Stage = ({
   onNodesReady,
 }) => {
   const { controls } = useControls();
-  const { selectedLanguage } = useLanguageSelection();
   const { isPlaying } = usePlaylist();
 
   const CameraUpdaterNode = () => {
     useCameraUpdater({ controls });
     return null;
-  };
-
-  const CameraLight = () => {
-    const { camera } = useThree();
-    const lightRef = useRef();
-
-    useFrame(() => {
-      if (lightRef.current) {
-        const direction = camera.position.clone().normalize();
-        const fixedDistance = controls.positionZ;
-        lightRef.current.position.copy(direction.multiplyScalar(fixedDistance));
-      }
-    });
-
-    return (
-      <>
-        {!isPlaying && (
-          <pointLight
-            ref={lightRef}
-            intensity={controls.pointLightIntensity}
-            decay={controls.pointLightDecay}
-            distance={controls.pointLightDistance}
-          />
-        )}
-        <ambientLight intensity={controls.ambientLightIntensity} />
-      </>
-    );
   };
 
   return (
@@ -71,7 +42,8 @@ const Stage = ({
         makeDefault={true}
       />
 
-      <CameraLight />
+      {!isPlaying && <StageLight />}
+      <ambientLight intensity={controls.ambientLightIntensity} />
 
       <CameraUpdaterNode />
 
