@@ -11,9 +11,15 @@ extend({ ParametricGeometry });
 
 const Mesha = ({ color, labelSize, languageCode, labelText }) => {
   const groupRef = useRef();
+  const leftEyeRef = useRef();
+  const rightEyeRef = useRef();
+  const mesh1Ref = useRef();
+  const mesh2Ref = useRef();
 
   const { selectedLanguage } = useLanguageSelection();
   const isThisLanguageSelected = selectedLanguage === languageCode;
+  const { controls } = useControls();
+
   const c1 = new Color(color);
   const c2 = new Color("#ddddff").sub(c1);
   const c3 = new Color("#ffbbbb").sub(c1);
@@ -79,6 +85,37 @@ const Mesha = ({ color, labelSize, languageCode, labelText }) => {
     if (groupRef.current) {
       groupRef.current.lookAt(camera.position);
     }
+
+    // Calculate average Y position from the two meshes
+    if (
+      mesh1Ref.current &&
+      mesh2Ref.current &&
+      leftEyeRef.current &&
+      rightEyeRef.current
+    ) {
+      const geometry1 = mesh1Ref.current.geometry;
+      const geometry2 = mesh2Ref.current.geometry;
+
+      if (geometry1 && geometry2) {
+        geometry1.computeBoundingBox();
+        geometry2.computeBoundingBox();
+
+        const maxY1 = geometry1.boundingBox.max.y * mesh1Ref.current.scale.y;
+        const maxY2 = geometry2.boundingBox.max.y * mesh2Ref.current.scale.y;
+        const avgY = (maxY1 + maxY2) / 2;
+
+        leftEyeRef.current.position.y = avgY;
+        rightEyeRef.current.position.y = avgY;
+      }
+    }
+
+    // Make eyeballs look at camera
+    if (leftEyeRef.current) {
+      leftEyeRef.current.lookAt(camera.position);
+    }
+    if (rightEyeRef.current) {
+      rightEyeRef.current.lookAt(camera.position);
+    }
   });
 
   const audioReactiveSurface = useMemo(
@@ -95,9 +132,14 @@ const Mesha = ({ color, labelSize, languageCode, labelText }) => {
   const segments = audioVisualizationConfig.meshDeformation.meshSegments;
   const thickness = 0;
 
+  const eyeSize = labelSize * controls.eyeSizeMultiplier;
+  const irisSize = eyeSize * controls.irisSizeMultiplier;
+  const pupilSize = eyeSize * controls.pupilSizeMultiplier;
+
   return (
     <group ref={groupRef}>
       <mesh
+        ref={mesh1Ref}
         position={[1, 1, thickness]}
         scale={[1 / 2, 2 / 3, 3]}
         rotation={[0, 1 / 20, 0]}
@@ -107,6 +149,7 @@ const Mesha = ({ color, labelSize, languageCode, labelText }) => {
       </mesh>
 
       <mesh
+        ref={mesh2Ref}
         position={[-1, 1, thickness]}
         scale={[-1 / 2, 3 / 4, 3]}
         rotation={[0, -1 / 20, 0]}
@@ -114,6 +157,58 @@ const Mesha = ({ color, labelSize, languageCode, labelText }) => {
         <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
         <meshStandardMaterial color={c2} side={2} />
       </mesh>
+
+      {/* Left eyeball */}
+      <group
+        ref={leftEyeRef}
+        position={[
+          1,
+          1,
+          thickness + labelSize * controls.eyeZPositionMultiplier,
+        ]}
+      >
+        {/* White of the eye */}
+        <mesh>
+          <sphereGeometry args={[eyeSize, 32, 32]} />
+          <meshStandardMaterial color="#ffffff" />
+        </mesh>
+        {/* Iris */}
+        <mesh position={[0, 0, eyeSize * controls.irisZPositionMultiplier]}>
+          <sphereGeometry args={[irisSize, 32, 32]} />
+          <meshStandardMaterial color={color} />
+        </mesh>
+        {/* Pupil */}
+        <mesh position={[0, 0, eyeSize * controls.pupilZPositionMultiplier]}>
+          <sphereGeometry args={[pupilSize, 32, 32]} />
+          <meshStandardMaterial color="#000000" />
+        </mesh>
+      </group>
+
+      {/* Right eyeball */}
+      <group
+        ref={rightEyeRef}
+        position={[
+          -1,
+          1,
+          thickness + labelSize * controls.eyeZPositionMultiplier,
+        ]}
+      >
+        {/* White of the eye */}
+        <mesh>
+          <sphereGeometry args={[eyeSize, 32, 32]} />
+          <meshStandardMaterial color="#ffffff" />
+        </mesh>
+        {/* Iris */}
+        <mesh position={[0, 0, eyeSize * controls.irisZPositionMultiplier]}>
+          <sphereGeometry args={[irisSize, 32, 32]} />
+          <meshStandardMaterial color={color} />
+        </mesh>
+        {/* Pupil */}
+        <mesh position={[0, 0, eyeSize * controls.pupilZPositionMultiplier]}>
+          <sphereGeometry args={[pupilSize, 32, 32]} />
+          <meshStandardMaterial color="#000000" />
+        </mesh>
+      </group>
 
       <mesh
         position={[0, -1, -thickness]}
