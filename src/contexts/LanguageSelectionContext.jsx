@@ -1,4 +1,10 @@
-import { createContext, useContext, useState, useCallback, useEffect } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useCallback,
+  useEffect,
+} from "react";
 import { filterLanguagesByFeatures } from "../utils/filteringUtils";
 import groupInfo from "../config/groupInfo.json";
 
@@ -14,8 +20,6 @@ export const LanguageSelectionProvider = ({ children }) => {
   };
 
   const [selectedLanguage, setSelectedLanguage] = useState(null);
-  const [isPlayingAudio, setIsPlayingAudio] = useState(false);
-  const [currentAudioElement, setCurrentAudioElement] = useState(null);
   const [filteringUtils, setFilteringUtils] = useState({});
   const [filteredLanguages, setFilteredLanguages] = useState(new Set());
   const [groupColors, setGroupColors] = useState(getInitialGroupColors);
@@ -57,7 +61,7 @@ export const LanguageSelectionProvider = ({ children }) => {
     Object.entries(groupInfo).forEach(([key, info]) => {
       updatedScheme[key] = {
         ...info,
-        color: groupColors[key] || info.color
+        color: groupColors[key] || info.color,
       };
     });
   }, [groupColors]);
@@ -72,7 +76,7 @@ export const LanguageSelectionProvider = ({ children }) => {
     updateFilteringUtils,
     groupColors,
     setGroupColor,
-    cameraFocusRequest
+    cameraFocusRequest,
   };
 
   return (

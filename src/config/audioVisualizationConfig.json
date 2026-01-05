@@ -23,7 +23,7 @@
     "fundamentalAmplifier": 0.7,
     "harmonicsAmplifier": 1.2,
     "symmetricalMirroring": true,
-    "meshSegments": 16,
+    "meshSegments": 12,
     "updateInterval": 16,
     "enableSmoothing": true
   }

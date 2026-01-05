@@ -20,6 +20,7 @@ const Mesha = ({ color, labelSize, languageCode }) => {
   const { selectedLanguage } = useLanguageSelection();
   const isThisLanguageSelected = selectedLanguage === languageCode;
   const { controls } = useControls();
+  const { eyeYOffset, eyeXPosition, eyeZPositionMultiplier } = controls;
 
   const c1 = new Color(color);
   const c2 = new Color("#ddddff").sub(c1);
@@ -45,7 +46,7 @@ const Mesha = ({ color, labelSize, languageCode }) => {
       fundamentalAmplifier,
       harmonicsAmplifier,
       verticalVariationMultiplier,
-      symmetricalMirroring
+      symmetricalMirroring,
     } = meshConfig;
 
     return (u, v, target) => {
@@ -103,7 +104,7 @@ const Mesha = ({ color, labelSize, languageCode }) => {
 
         const maxY1 = geometry1.boundingBox.max.y * mesh1Ref.current.scale.y;
         const maxY2 = geometry2.boundingBox.max.y * mesh2Ref.current.scale.y;
-        const avgY = (maxY1 + maxY2) / 2 + controls.eyeYOffset;
+        const avgY = (maxY1 + maxY2) / 2 + eyeYOffset;
 
         leftEyeRef.current.position.y = avgY;
         rightEyeRef.current.position.y = avgY;
@@ -150,9 +151,9 @@ const Mesha = ({ color, labelSize, languageCode }) => {
       <group
         ref={leftEyeRef}
         position={[
-          controls.eyeXPosition,
+          eyeXPosition,
           1,
-          thickness + labelSize * controls.eyeZPositionMultiplier
+          thickness + labelSize * eyeZPositionMultiplier,
         ]}
       >
         <MeshaEye position={[0, 0, 0]} color={color} labelSize={labelSize} />
@@ -161,9 +162,9 @@ const Mesha = ({ color, labelSize, languageCode }) => {
       <group
         ref={rightEyeRef}
         position={[
-          -controls.eyeXPosition,
+          -eyeXPosition,
           1,
-          thickness + labelSize * controls.eyeZPositionMultiplier
+          thickness + labelSize * eyeZPositionMultiplier,
         ]}
       >
         <MeshaEye position={[0, 0, 0]} color={color} labelSize={labelSize} />
