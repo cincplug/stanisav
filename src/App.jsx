@@ -5,6 +5,7 @@ import Playlist from "./components/menu/Playlist";
 import { useAppState } from "./contexts/AppStateContext";
 import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
 import { useControls } from "./contexts/ControlsContext";
+import { usePlaylist } from "./contexts/PlaylistContext";
 
 function App() {
   const {
@@ -19,11 +20,12 @@ function App() {
     setNodes,
     setIsMenuCollapsed,
     setFilteringUtils,
-    handleCameraFocus
+    handleCameraFocus,
   } = useAppState();
 
   const { controls, updateControl } = useControls();
   const { selectedLanguage } = useLanguageSelection();
+  const { pausePlaylist } = usePlaylist();
 
   const { sampleUrl, name } = data?.languageData[selectedLanguage] || {};
 
@@ -61,6 +63,7 @@ function App() {
               href={sampleUrl}
               target="_blank"
               rel="noreferrer noopener"
+              onClick={pausePlaylist}
             >
               {name} Source Video
             </a>
