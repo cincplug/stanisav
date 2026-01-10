@@ -5,13 +5,14 @@ import {
 } from "../../utils/filteringUtils";
 import {
   getLinguisticFeatures,
+  getAllFeatures,
   getFeatureLabel,
 } from "../../utils/linguisticUtils";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 
 function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
   const { filteringUtils, updateFilteringUtils } = useLanguageSelection();
-  const features = getLinguisticFeatures();
+  const features = getAllFeatures();
 
   const handleCheckboxChange = (feature, value, checked) => {
     const newFilters = { ...filteringUtils };
@@ -52,8 +53,12 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
   return (
     <div className="control-section">
       <div className="linguistic-filters">
-        {features.map(({ key: feature, label }) => {
-          const values = getFeatureValues(data, feature);
+        {features.map(({ key: feature, label, isNumeric }) => {
+          // For numeric features, get values from pre-computed data
+          // For categorical features, get values from actual data
+          const values = isNumeric
+            ? data?.numericFeatureValues?.[feature] || []
+            : getFeatureValues(data, feature);
           const currentValues = filteringUtils[feature] || [];
           const isAllSelected = !(feature in filteringUtils);
 
@@ -76,21 +81,33 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
                   All
                 </label>
                 {values.map((value) => {
-                  const displayLabel = getFeatureLabel(feature, value);
+                  // For numeric features, use the number directly; for categorical, use label
+                  const displayLabel = isNumeric
+                    ? value
+                    : getFeatureLabel(feature, value);
+                  const valueKey = isNumeric ? value : value;
+                  const isChecked = isNumeric
+                    ? currentValues.map(Number).includes(Number(value))
+                    : currentValues.includes(value);
+
                   return (
-                    <React.Fragment key={value}>
+                    <React.Fragment key={valueKey}>
                       <input
                         type="checkbox"
-                        id={`${feature}-${value}`}
-                        checked={currentValues.includes(value)}
+                        id={`${feature}-${valueKey}`}
+                        checked={isChecked}
                         onChange={(e) =>
-                          handleCheckboxChange(feature, value, e.target.checked)
+                          handleCheckboxChange(
+                            feature,
+                            valueKey,
+                            e.target.checked
+                          )
                         }
                       />
                       <label
-                        htmlFor={`${feature}-${value}`}
+                        htmlFor={`${feature}-${valueKey}`}
                         className={`checkbox-button ${
-                          currentValues.includes(value) ? "active" : ""
+                          isChecked ? "active" : ""
                         }`}
                       >
                         {displayLabel}

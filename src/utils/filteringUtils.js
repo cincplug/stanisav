@@ -33,7 +33,12 @@ export const filterLanguagesByFeatures = (data, filters) => {
         if (!values || !Array.isArray(values) || values.length === 0) {
           return true;
         }
-        return values.includes(features[feature]);
+        // For numeric features, convert both to numbers for comparison
+        const featureValue = features[feature];
+        if (typeof featureValue === "number") {
+          return values.map(Number).includes(featureValue);
+        }
+        return values.includes(featureValue);
       }
     );
 

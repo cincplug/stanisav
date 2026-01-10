@@ -59,3 +59,30 @@ export const getFeatureValuesFromConfig = (feature) => {
   }
   return Object.keys(featureConfig.values);
 };
+
+// Get all numeric features from config (those with template property)
+export const getNumericFeatures = () => {
+  return Object.entries(linguisticConfig)
+    .filter(([_, config]) => config.template)
+    .map(([key, config]) => ({
+      key,
+      label: config.name,
+    }));
+};
+
+// Check if a feature is numeric (has template instead of values)
+export const isNumericFeature = (feature) => {
+  const featureConfig = linguisticConfig[feature];
+  return featureConfig?.template !== undefined;
+};
+
+// Get all features (both categorical and numeric)
+export const getAllFeatures = () => {
+  return Object.entries(linguisticConfig)
+    .filter(([_, config]) => config.values || config.template)
+    .map(([key, config]) => ({
+      key,
+      label: config.name,
+      isNumeric: config.template !== undefined,
+    }));
+};

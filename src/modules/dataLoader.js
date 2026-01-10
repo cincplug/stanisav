@@ -1,5 +1,6 @@
 import languages from "../config/languages.json";
 import groupInfo from "../config/groupInfo.json";
+import linguisticConfig from "../config/linguisticConfig.json";
 
 class DataLoader {
   constructor() {
@@ -15,11 +16,17 @@ class DataLoader {
         languageData: {},
         languageGroups: {},
         speakerData: {},
-        typologicalFeatures: {}
+        typologicalFeatures: {},
+        numericFeatureValues: {},
       };
 
-      const { languageData, languageGroups, speakerData, typologicalFeatures } =
-        this.data;
+      const {
+        languageData,
+        languageGroups,
+        speakerData,
+        typologicalFeatures,
+        numericFeatureValues,
+      } = this.data;
 
       Object.entries(languages).forEach(
         ([code, { group, speakers, typology }]) => {
@@ -30,11 +37,40 @@ class DataLoader {
         }
       );
 
+      // Extract unique values for numeric features
+      this.extractNumericFeatureValues(
+        numericFeatureValues,
+        typologicalFeatures
+      );
+
       return this.data;
     } catch (error) {
       console.error("Error loading data files:", error);
       throw error;
     }
+  }
+
+  /**
+   * Extract unique numeric values for features with template property
+   */
+  extractNumericFeatureValues(numericFeatureValues, typologicalFeatures) {
+    // Identify numeric features from config (those with template instead of values)
+    const numericFeatures = Object.entries(linguisticConfig)
+      .filter(([_, config]) => config.template)
+      .map(([key]) => key);
+
+    // Collect unique values for each numeric feature
+    numericFeatures.forEach((feature) => {
+      const uniqueValues = new Set();
+      Object.values(typologicalFeatures).forEach((typology) => {
+        if (typology[feature] !== undefined && typology[feature] !== null) {
+          uniqueValues.add(typology[feature]);
+        }
+      });
+      numericFeatureValues[feature] = Array.from(uniqueValues).sort(
+        (a, b) => a - b
+      );
+    });
   }
 
   /**
