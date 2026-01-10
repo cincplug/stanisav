@@ -51,12 +51,12 @@ class DataLoader {
   }
 
   /**
-   * Extract unique numeric values for features with template property
+   * Extract unique numeric values for features without values property
    */
   extractNumericFeatureValues(numericFeatureValues, typologicalFeatures) {
-    // Identify numeric features from config (those with template instead of values)
+    // Identify numeric features from config (those without values object)
     const numericFeatures = Object.entries(linguisticConfig)
-      .filter(([_, config]) => config.template)
+      .filter(([_, config]) => !config.values)
       .map(([key]) => key);
 
     // Collect unique values for each numeric feature
