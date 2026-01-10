@@ -1,26 +1,85 @@
 {
   "tonality": {
-    "non-tonal": "It is non-tonal, meaning pitch changes don't affect word meaning.",
-    "simple-tonal": "It is tonal with a simple tone system, where pitch affects word meaning.",
-    "complex-tonal": "It is tonal with a complex tone system, where pitch patterns significantly affect word meaning.",
-    "pitch-accent": "It uses pitch accent, where certain syllables are emphasized with pitch changes."
+    "name": "Tonality",
+    "values": {
+      "non-tonal": {
+        "label": "Non-tonal",
+        "description": "Pitch changes don't affect word meaning.",
+        "score": 1
+      },
+      "pitch-accent": {
+        "label": "Pitch-accent",
+        "description": "It uses pitch accent, where certain syllables are emphasized with pitch changes.",
+        "score": 1.8
+      },
+      "simple-tonal": {
+        "label": "Simple tonal",
+        "description": "Pitch changes moderately affect word meaning.",
+        "score": 3
+      },
+      "complex-tonal": {
+        "label": "Complex tonal",
+        "description": "Pitch patterns significantly affect word meaning.",
+        "score": 4
+      }
+    }
   },
   "morphology": {
-    "isolating": "It is isolating, meaning words typically consist of single morphemes.",
-    "agglutinative": "It is agglutinative, meaning it forms words by adding affixes in sequence.",
-    "fusional": "It is fusional, meaning it combines multiple grammatical meanings in single morphemes.",
-    "polysynthetic": "It is polysynthetic, meaning it can express complex ideas in single words."
+    "name": "Morphology",
+    "values": {
+      "isolating": {
+        "label": "Isolating",
+        "description": "Words typically consist of single morphemes.",
+        "score": 1
+      },
+      "agglutinative": {
+        "label": "Agglutinative",
+        "description": "Words are formed by adding affixes in sequence.",
+        "score": 2.5
+      },
+      "fusional": {
+        "label": "Fusional",
+        "description": "Multiple grammatical meanings are combined in single morphemes.",
+        "score": 3.2
+      },
+      "polysynthetic": {
+        "label": "Polysynthetic",
+        "description": "Complex ideas can be expressed in single words.",
+        "score": 4
+      }
+    }
   },
   "wordOrderFlexibility": {
-    "rigid": "It has rigid word order, with fixed grammatical positions.",
-    "semi-flexible": "It has semi-flexible word order, allowing some variation for emphasis.",
-    "flexible": "It has flexible word order, permitting various arrangements for stylistic purposes.",
-    "very-flexible": "It has very flexible word order, with extensive freedom in word arrangement."
+    "name": "Word Order Flexibility",
+    "values": {
+      "rigid": {
+        "label": "Rigid",
+        "description": "Words have fixed grammatical positions.",
+        "score": 1
+      },
+      "semi-flexible": {
+        "label": "Semi-flexible",
+        "description": "Some variation of word order is allowed for emphasis.",
+        "score": 2
+      },
+      "flexible": {
+        "label": "Flexible",
+        "description": "Various word arrangements are allowed for stylistic purposes.",
+        "score": 3
+      },
+      "very-flexible": {
+        "label": "Very flexible",
+        "description": "Freedom in word arrangement is very extensive.",
+        "score": 4
+      }
+    }
   },
   "caseCount": {
+    "name": "Case Count",
     "template": "It has {count} grammatical cases."
   },
   "phonemeCount": {
+    "name": "Phoneme Count",
     "template": "It has {count} phonemes (distinct sounds)."
   }
 }
