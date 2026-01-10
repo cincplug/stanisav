@@ -19,13 +19,6 @@ export const getFeatureValues = (data, feature) => {
   return Array.from(values).sort();
 };
 
-// Get all available linguistic features
-export const getLinguisticFeatures = () => [
-  { key: "tonality", label: "Tonality" },
-  { key: "morphology", label: "Morphology" },
-  { key: "wordOrderFlexibility", label: "Word Order" }
-];
-
 // Filter languages by multiple linguistic criteria (OR logic within features, AND logic between features)
 export const filterLanguagesByFeatures = (data, filters) => {
   if (!data?.typologicalFeatures || !data?.languageData) {
@@ -50,10 +43,10 @@ export const filterLanguagesByFeatures = (data, filters) => {
 
       results.push({
         code,
-        name: data.languageData[code].name, // Access the name property
+        name: data.languageData[code].name,
         groupName: groupInfo?.name || "Unknown",
         groupKey,
-        features
+        features,
       });
     }
   });

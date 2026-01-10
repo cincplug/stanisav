@@ -1,9 +1,12 @@
 import React, { useMemo } from "react";
 import {
-  getLinguisticFeatures,
   getFeatureValues,
-  filterLanguagesByFeatures
+  filterLanguagesByFeatures,
 } from "../../utils/filteringUtils";
+import {
+  getLinguisticFeatures,
+  getFeatureLabel,
+} from "../../utils/linguisticUtils";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 
 function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
@@ -40,10 +43,9 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
       return [];
     }
     const results = filterLanguagesByFeatures(data, filteringUtils);
-    // Map group names from language data to results
     return results.map((result) => ({
       ...result,
-      groupName: data?.languageData?.[result.code]?.group || "Unknown"
+      groupName: data?.languageData?.[result.code]?.group || "Unknown",
     }));
   }, [data, filteringUtils]);
 
@@ -73,26 +75,29 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
                 >
                   All
                 </label>
-                {values.map((value) => (
-                  <React.Fragment key={value}>
-                    <input
-                      type="checkbox"
-                      id={`${feature}-${value}`}
-                      checked={currentValues.includes(value)}
-                      onChange={(e) =>
-                        handleCheckboxChange(feature, value, e.target.checked)
-                      }
-                    />
-                    <label
-                      htmlFor={`${feature}-${value}`}
-                      className={`checkbox-button ${
-                        currentValues.includes(value) ? "active" : ""
-                      }`}
-                    >
-                      {value}
-                    </label>
-                  </React.Fragment>
-                ))}
+                {values.map((value) => {
+                  const displayLabel = getFeatureLabel(feature, value);
+                  return (
+                    <React.Fragment key={value}>
+                      <input
+                        type="checkbox"
+                        id={`${feature}-${value}`}
+                        checked={currentValues.includes(value)}
+                        onChange={(e) =>
+                          handleCheckboxChange(feature, value, e.target.checked)
+                        }
+                      />
+                      <label
+                        htmlFor={`${feature}-${value}`}
+                        className={`checkbox-button ${
+                          currentValues.includes(value) ? "active" : ""
+                        }`}
+                      >
+                        {displayLabel}
+                      </label>
+                    </React.Fragment>
+                  );
+                })}
               </div>
             </div>
           );
