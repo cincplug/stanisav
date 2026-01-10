@@ -114,7 +114,7 @@ select,
 }
 
 /* Loading overlay styles */
-.loading-overlay {
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -126,7 +126,6 @@ select,
   justify-content: center;
   color: var(--color-text);
   font-size: 1.125rem;
-  z-index: 2000;
 }
 
 .loading-content {

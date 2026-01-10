@@ -46,10 +46,15 @@ export const LanguageSelectionProvider = ({ children }) => {
   }, []);
 
   const viewAllLanguages = useCallback(() => {
-    setSelectedLanguage(null); // Clear selected language
+    setSelectedLanguage(null);
     setCameraFocusRequest({ type: "viewAll" });
-    setFilteringUtils({}); // <-- clear filters
+    setFilteringUtils({});
     setFilteredLanguages(new Set());
+  }, []);
+
+  const resetCameraView = useCallback(() => {
+    setSelectedLanguage(null);
+    setCameraFocusRequest({ type: "viewAll" });
   }, []);
 
   const setGroupColor = useCallback((groupKey, color) => {
@@ -72,6 +77,7 @@ export const LanguageSelectionProvider = ({ children }) => {
     filteredLanguages,
     selectLanguage,
     viewAllLanguages,
+    resetCameraView,
     clearSelection,
     updateFilteringUtils,
     groupColors,

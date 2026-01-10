@@ -13,6 +13,7 @@ const Stage = ({
   onSceneReady,
   onLoadingChange,
   onNodesReady,
+  onEmptyFilterChange,
 }) => {
   const { controls } = useControls();
   const { selectedLanguage } = useLanguageSelection();
@@ -55,6 +56,7 @@ const Stage = ({
         onSceneReady={onSceneReady}
         onLoadingChange={onLoadingChange}
         onNodesReady={onNodesReady}
+        onEmptyFilterChange={onEmptyFilterChange}
       />
     </Canvas>
   );

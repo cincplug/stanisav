@@ -12,7 +12,8 @@ const Languages = ({
   onDataLoaded,
   onSceneReady,
   onLoadingChange,
-  onNodesReady
+  onNodesReady,
+  onEmptyFilterChange,
 }) => {
   const { controls } = useControls();
 
@@ -38,60 +39,70 @@ const Languages = ({
     [allLanguageCodes, data?.typologicalFeatures, filteringUtils]
   );
 
+  // Check if filters are active and result in no languages
+  const hasActiveFilters = Object.keys(filteringUtils).length > 0;
+  const visibleLanguages = Object.values(languageFilterStatus).filter(
+    (status) => status?.isVisible
+  );
+  const showEmptyMessage = hasActiveFilters && visibleLanguages.length === 0;
+
+  // Call camera controller hook at top level
+  useCameraController({
+    languageNodes: formattedPositions,
+    data,
+    controls,
+    selectedLanguage,
+  });
+
   useEffect(() => {
     if (isInitialized && data && Object.keys(formattedPositions).length > 0) {
       onSceneReady(true);
     }
   }, [isInitialized, data, formattedPositions, onSceneReady]);
 
+  useEffect(() => {
+    if (onEmptyFilterChange) {
+      onEmptyFilterChange(showEmptyMessage);
+    }
+  }, [showEmptyMessage, onEmptyFilterChange]);
+
   if (!data || !isInitialized || Object.keys(formattedPositions).length === 0) {
     return null;
   }
 
-  const CameraControllerNode = () => {
-    const { selectedLanguage } = useLanguageSelection();
-    useCameraController({
-      languageNodes: formattedPositions,
-      data,
-      controls,
-      selectedLanguage
-    });
-    return null;
-  };
-
   return (
     <group>
-      <CameraControllerNode />
+      {!showEmptyMessage &&
+        Object.entries(groupedLanguages).map(
+          ([groupKey, { info, languages }]) =>
+            languages
+              .map((langCode) => {
+                const position = formattedPositions[langCode];
+                const filterStatus = languageFilterStatus[langCode];
+                if (!position || !filterStatus?.isVisible) return null;
 
-      {Object.entries(groupedLanguages).map(([groupKey, { info, languages }]) =>
-        languages
-          .map((langCode) => {
-            const position = formattedPositions[langCode];
-            const filterStatus = languageFilterStatus[langCode];
-            if (!position || !filterStatus?.isVisible) return null;
+                const color = groupColors?.[groupKey] || info?.color;
 
-            const color = groupColors?.[groupKey] || info?.color;
-
-            return (
-              <Node
-                key={langCode}
-                languageCode={langCode}
-                language={data.languageData[langCode]}
-                position={[position.x, position.y, position.z]}
-                speakerCount={data.speakerData[langCode] || 1}
-                isSelected={selectedLanguage === langCode}
-                isFiltered={filterStatus.isFiltered}
-                color={color}
-                linguisticProperties={
-                  data.typologicalFeatures
-                    ? data.typologicalFeatures[langCode]
-                    : null
-                }
-              />
-            );
-          })
-          .filter(Boolean)
-      )}
+                return (
+                  <Node
+                    key={langCode}
+                    languageCode={langCode}
+                    language={data.languageData[langCode]}
+                    position={[position.x, position.y, position.z]}
+                    speakerCount={data.speakerData[langCode] || 1}
+                    isSelected={selectedLanguage === langCode}
+                    isFiltered={filterStatus.isFiltered}
+                    color={color}
+                    linguisticProperties={
+                      data.typologicalFeatures
+                        ? data.typologicalFeatures[langCode]
+                        : null
+                    }
+                  />
+                );
+              })
+              .filter(Boolean)
+        )}
     </group>
   );
 };

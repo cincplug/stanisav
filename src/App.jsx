@@ -1,6 +1,7 @@
+import { useState } from "react";
 import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
-import LoadingOverlay from "./components/menu/LoadingOverlay";
+import LoadingOverlay from "./components/menu/Overlay";
 import Playlist from "./components/menu/Playlist";
 import { useAppState } from "./contexts/AppStateContext";
 import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
@@ -26,6 +27,7 @@ function App() {
   const { controls, updateControl } = useControls();
   const { selectedLanguage } = useLanguageSelection();
   const { pausePlaylist } = usePlaylist();
+  const [isEmptyFilter, setIsEmptyFilter] = useState(false);
 
   const { sampleUrl, name } = data?.languageData[selectedLanguage] || {};
 
@@ -39,10 +41,12 @@ function App() {
         onLoadingChange={setIsLoading}
         onNodesReady={setNodes}
         filteringUtils={filteringUtils}
+        onEmptyFilterChange={setIsEmptyFilter}
       />
 
       {!isLoading && sceneReady ? (
         <>
+          {isEmptyFilter && <LoadingOverlay variant="emptyFilter" />}
           <Menu
             controls={controls}
             onControlChange={updateControl}

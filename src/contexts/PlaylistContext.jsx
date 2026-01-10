@@ -16,7 +16,8 @@ const PlaylistContext = createContext(null);
 export const PlaylistProvider = ({ children }) => {
   const { data, sceneReady } = useAppState();
   const { controls } = useControls();
-  const { selectLanguage } = useLanguageSelection();
+  const { selectLanguage, filteredLanguages, filteringUtils, resetCameraView } =
+    useLanguageSelection();
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -36,7 +37,13 @@ export const PlaylistProvider = ({ children }) => {
     if (!data?.languageData) return [];
     const { languageData, languageGroups, speakerData } = data;
     const { sortLanguagesBy, labelContent, isReverse } = controls;
-    const allLanguages = Object.keys(data.languageData);
+    let allLanguages = Object.keys(data.languageData);
+
+    // Filter by active filters if any
+    if (Object.keys(filteringUtils).length > 0 && filteredLanguages.size > 0) {
+      allLanguages = allLanguages.filter((code) => filteredLanguages.has(code));
+    }
+
     return sortLanguages({
       allLanguages,
       languageData,
@@ -46,7 +53,7 @@ export const PlaylistProvider = ({ children }) => {
       labelContent,
       isReverse,
     });
-  }, [data, controls]);
+  }, [data, controls, filteringUtils, filteredLanguages]);
 
   const stopCurrentAudio = useCallback(() => {
     if (delayTimeoutRef.current) {
@@ -210,12 +217,18 @@ export const PlaylistProvider = ({ children }) => {
     const codes = getSortedLanguageCodes();
     playlistRef.current = codes;
     setCurrentIndex(0);
-    setIsPlaying(false);
+
+    // Stop playlist and reset camera when filters change
+    if (isPlaying) {
+      pausePlaylist();
+      resetCameraView();
+    }
   }, [
     controls?.sortLanguagesBy,
     controls?.labelContent,
     controls?.isReverse,
     getSortedLanguageCodes,
+    filteringUtils,
   ]);
 
   useEffect(() => {

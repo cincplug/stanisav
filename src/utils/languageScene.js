@@ -22,10 +22,14 @@ export const calculateLanguageFilterStatus = (
         if (!values || !Array.isArray(values) || values.length === 0) {
           return true;
         }
-        return values.includes(features[feature]);
+        const featureValue = features[feature];
+        if (typeof featureValue === "number") {
+          return values.map(Number).includes(featureValue);
+        }
+        return values.includes(featureValue);
       }
     );
-    acc[langCode] = { isVisible: true, isFiltered: !matchesFilters };
+    acc[langCode] = { isVisible: matchesFilters, isFiltered: !matchesFilters };
     return acc;
   }, {});
 };
@@ -46,6 +50,6 @@ export const calculateGroupBounds = (positions, languages) => {
   const radius = Math.max(size.x, size.y, size.z) / 2;
   return {
     center: [center.x, center.y, center.z],
-    radius: Math.max(radius, 10)
+    radius: Math.max(radius, 10),
   };
 };
