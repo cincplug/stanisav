@@ -416,7 +416,7 @@
     "sampleUrl": "https://youtu.be/P6T6S8OQias?si=pO7bQEYE6UJJZlan&t=164",
     "sr": "drjemuša, pospanuša, to je pospana kahva, merakuša baš kad je čovjek ono s merakom je pije, rastjeruša kad je neko došo ko nije poželjan i tako, brzo kahvu i alah imánet",
     "typology": {
-      "tonality": "simple-tonal",
+      "tonality": "pitch-accent",
       "morphology": "fusional",
       "wordOrderFlexibility": "flexible",
       "phonemeCount": 30,
@@ -672,7 +672,7 @@
     "sampleUrl": "https://youtu.be/m_hPowc9Ujs?si=L8UoTmNFY9Ngd4kd&t=2087",
     "sr": "Bevæ illsø i kønst, aså kunstvækatø bevæ ø sai illø, kæn sædes i bevæ-es a tilskuaan, a noo hiit, nüt, o phofokei ane ta Luśiana præsenti ad den i, neign ø ag i nø thjs",
     "typology": {
-      "tonality": "non-tonal",
+      "tonality": "pitch-accent",
       "morphology": "fusional",
       "wordOrderFlexibility": "semi-flexible",
       "phonemeCount": 32,
@@ -747,7 +747,7 @@
     "sampleUrl": "https://www.youtube.com/watch?v=bHKJRuBI60U&t=68s",
     "sr": "a finala haga kusto, meretalekoo, souigja kontra mes-ti-kago-sas-pitu-reta lekua.",
     "typology": {
-      "tonality": "non-tonal",
+      "tonality": "pitch-accent",
       "morphology": "agglutinative",
       "wordOrderFlexibility": "flexible",
       "phonemeCount": 22,
@@ -793,7 +793,7 @@
     "sampleUrl": "https://youtu.be/XZlsOVYNyRs?si=CD55C54z2b1ec8Om&t=487",
     "sr": "jok šloh? gændanundara. baj stogatzio koni kandamera. kandamega, maa kandamega, šudo kandamega",
     "typology": {
-      "tonality": "non-tonal",
+      "tonality": "pitch-accent",
       "morphology": "fusional",
       "wordOrderFlexibility": "flexible",
       "phonemeCount": 29,
@@ -1153,7 +1153,7 @@
     "sampleUrl": "https://youtu.be/yeSmJyonD7M?si=BT_OfL2sGncq1SSH&t=220",
     "sr": "na njoj je prekrasno vidjet more leptiriča, bumbara, pčela, i oni tako hredom dolaze, kad odu bumbari dolaze pčele, kad odu pčele taj je cvijet gotovo sasušen ali je on onda tada zreo za žetvu jer če dat najbogatije ulje",
     "typology": {
-      "tonality": "simple-tonal",
+      "tonality": "pitch-accent",
       "morphology": "fusional",
       "wordOrderFlexibility": "flexible",
       "phonemeCount": 30,
@@ -1319,7 +1319,7 @@
     "sampleUrl": "https://youtu.be/ZjfKVgpqeEk?si=DKuOJHQ-VHr5EORe&t=409",
     "sr": "sošte štani søto i kone sne, sošte møšino íći, i kakameno ićiwa, kokono... štadi sne?",
     "typology": {
-      "tonality": "simple-tonal",
+      "tonality": "pitch-accent",
       "morphology": "agglutinative",
       "wordOrderFlexibility": "rigid",
       "phonemeCount": 15,
@@ -1579,7 +1579,7 @@
     "sampleUrl": "https://www.youtube.com/watch?v=KJAHpWjbB2k&t=197s",
     "sr": "pongoro bdrodo čanganďong karaso paros inam geaču kosovoamazo leďemida",
     "typology": {
-      "tonality": "non-tonal",
+      "tonality": "pitch-accent",
       "morphology": "agglutinative",
       "wordOrderFlexibility": "semi-flexible",
       "phonemeCount": 19,
@@ -1625,7 +1625,7 @@
     "sampleUrl": "https://youtu.be/9Alx6BeJ8fI?si=XP2iKh1MgryjkTxL&t=2997",
     "sr": "vijeno gajeno, tata duad man, ies penos pa zyrsih tris mambus viskartipa. esnos pelažu zyrsih trís, pazeiš tou dame, nosteš uz de četri, actišes kokadavejda mambuši leka figur",
     "typology": {
-      "tonality": "simple-tonal",
+      "tonality": "pitch-accent",
       "morphology": "fusional",
       "wordOrderFlexibility": "semi-flexible",
       "phonemeCount": 33,
@@ -1655,7 +1655,7 @@
     "sampleUrl": "https://youtu.be/Y4cAnn5LJcg?si=GFsRWSh3U9EDaRpI&t=261",
     "sr": "das neet je maas zjuvig vees, het heeks huud ofhe loźes das hil belangrijk, isias ane struktuur van e dejh (ontviklćes) dat hiil hud ontviklćes abat sege dat e hiil hud... fürh posesii thortje nemevedat, dat de deehjud afi kneedjes, dat hjone hjuje hrisi hjoćś",
     "typology": {
-      "tonality": "tonal",
+      "tonality": "pitch-accent",
       "morphology": "fusional",
       "wordOrderFlexibility": "semi-flexible",
       "phonemeCount": 45,
@@ -1685,7 +1685,7 @@
     "sampleUrl": "https://youtu.be/SwCNJHSMAx0?si=TYu92cWAkZo1j-eA&t=206",
     "sr": "a šće se vazdojak jakaš praina griebunjas, soko sokoratas, patas paće svjatas erke hena sikatrandaj",
     "typology": {
-      "tonality": "simple-tonal",
+      "tonality": "pitch-accent",
       "morphology": "fusional",
       "wordOrderFlexibility": "flexible",
       "phonemeCount": 45,
@@ -2110,7 +2110,7 @@
     "sampleUrl": "https://youtu.be/nsCVkb_-wbM?si=dUYsDzaN46-WBlMD&t=47",
     "sr": "suiga žostüdem nu tiklinga som inskavammo, förme framovi šoVijam skæræ aleven komen, tilevaidmødpø, devis kafin po, i, śuśutajo śuśevirø",
     "typology": {
-      "tonality": "simple-tonal",
+      "tonality": "pitch-accent",
       "morphology": "fusional",
       "wordOrderFlexibility": "semi-flexible",
       "phonemeCount": 36,
@@ -2280,7 +2280,7 @@
     "sampleUrl": "https://youtu.be/8uDil2kow30?si=oaWTA8UCjecyyLJ2&t=427",
     "sr": "vi inukea kenee panďabi vičet ar adekuaďi uprle pasedekøbøne haldi naldi",
     "typology": {
-      "tonality": "non-tonal",
+      "tonality": "pitch-accent",
       "morphology": "fusional",
       "wordOrderFlexibility": "flexible",
       "phonemeCount": 35,
@@ -2552,7 +2552,7 @@
     "sampleUrl": "https://youtu.be/GVdbCjFl2D8?si=EgxXOHs0qRXx6lCA&t=68",
     "sr": "Evo lahkopevno izjavo, Marko. Kako je biti žiu? Nič novega.",
     "typology": {
-      "tonality": "simple-tonal",
+      "tonality": "pitch-accent",
       "morphology": "fusional",
       "wordOrderFlexibility": "flexible",
       "phonemeCount": 29,
@@ -2688,7 +2688,7 @@
     "sampleUrl": "https://youtu.be/uy0tYdLFXuU?si=CYgOAihs1shEpWRn&t=401",
     "sr": "Samo pazi, nemoj biti lakom: njednu drugu voćku ili stvarku da nisi tako ni slučajno! Ako nešto drugo dineš-darneš, u reci će se praćaknuti štuka, uzleteće tica šljuka, šljuka će sleteti na bukvu, veverica će ispustiti orahovu ljusku, ljuska će pasti na puteljak  kicošu na razdeljak. Kicoš će izvaditi ogledalce da popravi, licne kosu, sa ogledalceta će se odbiti zraka i zaustaviti se na nosu poljara koji spava. Poljar će zviznuti, psi će zarežati, ne vredi ti bežati.",
     "typology": {
-      "tonality": "simple-tonal",
+      "tonality": "pitch-accent",
       "morphology": "fusional",
       "wordOrderFlexibility": "flexible",
       "phonemeCount": 30,
@@ -2764,7 +2764,7 @@
     "sampleUrl": "https://www.youtube.com/watch?v=9bJety6xmxM&t=61s",
     "sr": "uo dee meke benis se tatjo banhanski verme siikok sat, ten es tan alti annølünda, tø muulike partíjina. ervmø fasman kæšju pliev-ron liiknanø",
     "typology": {
-      "tonality": "simple-tonal",
+      "tonality": "pitch-accent",
       "morphology": "fusional",
       "wordOrderFlexibility": "semi-flexible",
       "phonemeCount": 38,
@@ -2960,7 +2960,7 @@
     "sampleUrl": "https://youtu.be/_qhk5ZBY_SI?si=k2dDk8qCL9Qt_E2x&t=349",
     "sr": "čok skmadan uzalji købølje fčurum, čok skmadan sarma veresørurus, čok søkajsans sarma lerønzøn altøna usøndøn patnamaloroldžaktir, ve ičaldžet hanamen d šrč prdžektř",
     "typology": {
-      "tonality": "non-tonal",
+      "tonality": "pitch-accent",
       "morphology": "agglutinative",
       "wordOrderFlexibility": "semi-flexible",
       "phonemeCount": 32,
@@ -3111,7 +3111,7 @@
     "sampleUrl": "https://www.youtube.com/watch?v=zOb8s6GAj5E&t=7s",
     "sr": "jazønier ir wen wogodonze jagobe ćaďobidonzem voðjulajgobe ðambe",
     "typology": {
-      "tonality": "complex-tonal",
+      "tonality": "pitch-accent",
       "morphology": "isolating",
       "wordOrderFlexibility": "rigid",
       "phonemeCount": 31,
