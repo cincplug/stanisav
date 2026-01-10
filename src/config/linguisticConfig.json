@@ -1,18 +1,4 @@
 {
-  "caseSystem": {
-    "none": "It relies on word order and prepositions to express grammatical relationships.",
-    "simple": "It uses morphological marking to indicate basic grammatical relationships.",
-    "moderate": "It uses extensive morphological processes to encode grammatical relationships.",
-    "complex": "It uses complex morphological processes to encode grammatical relationships within words.",
-    "particle-based": "It uses postpositional particles to mark grammatical relationships instead of inflectional cases."
-  },
-  "caseCount": {
-    "0": "It relies on word order and prepositions to express grammatical relationships.",
-    "1-4": "It has {count} grammatical cases for basic syntactic distinctions.",
-    "5-8": "It has {count} grammatical cases, including locative distinctions.",
-    "9-15": "It has {count} grammatical cases with extensive spatial and semantic distinctions.",
-    "16+": "It has {count} grammatical cases with complex agglutinative morphology."
-  },
   "tonality": {
     "non-tonal": "It is non-tonal, meaning pitch changes don't affect word meaning.",
     "simple-tonal": "It is tonal with a simple tone system, where pitch affects word meaning.",
@@ -30,6 +16,9 @@
     "semi-flexible": "It has semi-flexible word order, allowing some variation for emphasis.",
     "flexible": "It has flexible word order, permitting various arrangements for stylistic purposes.",
     "very-flexible": "It has very flexible word order, with extensive freedom in word arrangement."
+  },
+  "caseCount": {
+    "template": "It has {count} grammatical cases."
   },
   "phonemeCount": {
     "template": "It has {count} phonemes (distinct sounds)."
