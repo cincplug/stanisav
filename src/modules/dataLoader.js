@@ -56,6 +56,9 @@ class DataLoader {
         typologicalFeatures[code] = typology;
       });
 
+      // Add groupInfo to typologicalFeatures for easy access in sorting/filtering
+      typologicalFeatures._groupInfo = groupInfo;
+
       // Extract unique values for numeric features
       this.extractNumericFeatureValues(
         numericFeatureValues,

@@ -24,7 +24,8 @@
     "label": "Sort Languages By",
     "options": [
       { "value": "alphabetically", "label": "Alphabetically" },
-      { "value": "group", "label": "Group" },
+      { "value": "family", "label": "Language Family" },
+      { "value": "group", "label": "Language Group" },
       { "value": "speakers", "label": "Speakers' number" },
       { "value": "tonality", "label": "Tonality" },
       { "value": "morphology", "label": "Morphology" },

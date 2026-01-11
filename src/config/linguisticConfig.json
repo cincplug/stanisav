@@ -1,4 +1,7 @@
 {
+  "family": {
+    "name": "Language Family"
+  },
   "group": {
     "name": "Language Group"
   },

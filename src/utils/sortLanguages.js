@@ -32,6 +32,29 @@ export function sortLanguages({
           return speakersB - speakersA;
         });
 
+      case "family":
+        return allLanguages.sort((a, b) => {
+          const groupA = languageGroups[a];
+          const groupB = languageGroups[b];
+          const familyA =
+            typologicalFeatures?._groupInfo?.[groupA]?.family || groupA;
+          const familyB =
+            typologicalFeatures?._groupInfo?.[groupB]?.family || groupB;
+
+          if (familyA !== familyB) {
+            return familyA.localeCompare(familyB);
+          }
+
+          // If same family, sort by group
+          if (groupA !== groupB) {
+            return groupA.localeCompare(groupB);
+          }
+
+          const nameA = languageData[a]?.name;
+          const nameB = languageData[b]?.name;
+          return nameA.localeCompare(nameB);
+        });
+
       case "group":
         return allLanguages.sort((a, b) => {
           const groupA = languageGroups[a];

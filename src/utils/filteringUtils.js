@@ -8,7 +8,20 @@ export const getFeatureValues = (data, feature) => {
   if (!data) {
     return [];
   }
-
+  // Special handling for family filter
+  if (feature === "family") {
+    if (!data.languageGroups || !data.groupInfo) {
+      return [];
+    }
+    const families = new Set();
+    Object.values(data.languageGroups).forEach((group) => {
+      const family = data.groupInfo[group]?.family;
+      if (family) {
+        families.add(family);
+      }
+    });
+    return Array.from(families).sort();
+  }
   // Special handling for group filter
   if (feature === "group") {
     if (!data.languageGroups) {
@@ -48,7 +61,12 @@ export const filterLanguagesByFeatures = (data, filters) => {
         if (!values || !Array.isArray(values) || values.length === 0) {
           return true;
         }
-
+        // Special handling for family filter
+        if (feature === "family") {
+          const languageGroup = data.languageGroups?.[code];
+          const languageFamily = data.groupInfo?.[languageGroup]?.family;
+          return values.includes(languageFamily);
+        }
         // Special handling for group filter
         if (feature === "group") {
           const languageGroup = data.languageGroups?.[code];

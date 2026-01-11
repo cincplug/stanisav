@@ -19,7 +19,13 @@ export const calculateLanguageFilterStatus = (
         if (!values || !Array.isArray(values) || values.length === 0) {
           return true;
         }
-
+        // Special handling for family filter
+        if (feature === "family") {
+          const languageGroup = languageGroups?.[langCode];
+          const languageFamily =
+            typologicalFeatures?._groupInfo?.[languageGroup]?.family;
+          return values.includes(languageFamily);
+        }
         // Special handling for group filter
         if (feature === "group") {
           const languageGroup = languageGroups?.[langCode];
