@@ -1,14 +1,10 @@
 {
-  "layoutConstants": {
-    "multilevel": {
-      "uniformGrid": {
-        "spacing": 10
-      }
+  "labelSizeNormalization": {
+    "outMin": 0.67,
+    "outMax": 3,
+    "speakersReference": {
+      "min": 0.001,
+      "max": 1000
     }
-  },
-  "physicsConstants": {
-    "minDistanceSq": 0.01,
-    "defaultMultiplier": 1.0,
-    "defaultIterations": 300
   }
 }
