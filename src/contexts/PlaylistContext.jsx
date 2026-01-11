@@ -35,7 +35,8 @@ export const PlaylistProvider = ({ children }) => {
 
   const getSortedLanguageCodes = useCallback(() => {
     if (!data?.languageData) return [];
-    const { languageData, languageGroups, speakerData } = data;
+    const { languageData, languageGroups, speakerData, typologicalFeatures } =
+      data;
     const { sortLanguagesBy, labelContent, isReverse } = controls;
     let allLanguages = Object.keys(data.languageData);
 
@@ -49,6 +50,7 @@ export const PlaylistProvider = ({ children }) => {
       languageData,
       languageGroups,
       speakerData,
+      typologicalFeatures,
       sortLanguagesBy,
       labelContent,
       isReverse,

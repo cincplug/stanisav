@@ -5,7 +5,21 @@
 
 // Get unique values for a linguistic feature across all languages
 export const getFeatureValues = (data, feature) => {
-  if (!data?.typologicalFeatures) {
+  if (!data) {
+    return [];
+  }
+
+  // Special handling for group filter
+  if (feature === "group") {
+    if (!data.languageGroups) {
+      return [];
+    }
+    const values = new Set(Object.values(data.languageGroups));
+    return Array.from(values).sort();
+  }
+
+  // Handle typological features
+  if (!data.typologicalFeatures) {
     return [];
   }
 
@@ -21,19 +35,32 @@ export const getFeatureValues = (data, feature) => {
 
 // Filter languages by multiple linguistic criteria (OR logic within features, AND logic between features)
 export const filterLanguagesByFeatures = (data, filters) => {
-  if (!data?.typologicalFeatures || !data?.languageData) {
+  if (!data?.languageData) {
     return [];
   }
 
   const results = [];
+  const languageCodes = Object.keys(data.languageData);
 
-  Object.entries(data.typologicalFeatures).forEach(([code, features]) => {
+  languageCodes.forEach((code) => {
     const matchesFilters = Object.entries(filters).every(
       ([feature, values]) => {
         if (!values || !Array.isArray(values) || values.length === 0) {
           return true;
         }
-        // For numeric features, convert both to numbers for comparison
+
+        // Special handling for group filter
+        if (feature === "group") {
+          const languageGroup = data.languageGroups?.[code];
+          return values.includes(languageGroup);
+        }
+
+        // Handle typological features
+        const features = data.typologicalFeatures?.[code];
+        if (!features) {
+          return false;
+        }
+
         const featureValue = features[feature];
         if (typeof featureValue === "number") {
           return values.map(Number).includes(featureValue);
@@ -49,9 +76,9 @@ export const filterLanguagesByFeatures = (data, filters) => {
       results.push({
         code,
         name: data.languageData[code].name,
-        groupName: groupInfo?.name || "Unknown",
+        groupName: groupInfo?.name || groupKey || "Unknown",
         groupKey,
-        features,
+        features: data.typologicalFeatures?.[code] || {},
       });
     }
   });

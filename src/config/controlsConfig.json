@@ -25,7 +25,12 @@
     "options": [
       { "value": "alphabetically", "label": "Alphabetically" },
       { "value": "group", "label": "Group" },
-      { "value": "speakers", "label": "Speakers' number" }
+      { "value": "speakers", "label": "Speakers' number" },
+      { "value": "tonality", "label": "Tonality" },
+      { "value": "morphology", "label": "Morphology" },
+      { "value": "wordOrderFlexibility", "label": "Word Order Flexibility" },
+      { "value": "phonemeCount", "label": "Phoneme Count" },
+      { "value": "caseCount", "label": "Case Count" }
     ],
     "defaultValue": "alphabetically",
     "isUserEditable": true,

@@ -17,6 +17,11 @@ export const getLinguisticFeatures = () => {
 
 // Get feature label from config
 export const getFeatureLabel = (feature, value) => {
+  // Special handling for group - just return the group name as-is
+  if (feature === "group") {
+    return value;
+  }
+
   const featureConfig = linguisticConfig[feature];
   if (!featureConfig?.values?.[value]) {
     return value; // fallback to raw value
@@ -79,10 +84,11 @@ export const isNumericFeature = (feature) => {
 // Get all features (both categorical and numeric)
 export const getAllFeatures = () => {
   return Object.entries(linguisticConfig)
-    .filter(([_, config]) => config.values || config.template)
+    .filter(([_, config]) => config.values || config.template || config.name)
     .map(([key, config]) => ({
       key,
       label: config.name,
       isNumeric: config.template !== undefined,
+      isGroup: key === "group",
     }));
 };

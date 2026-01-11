@@ -1,4 +1,7 @@
 {
+  "group": {
+    "name": "Language Group"
+  },
   "tonality": {
     "name": "Tonality",
     "values": {

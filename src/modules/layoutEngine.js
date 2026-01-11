@@ -4,7 +4,7 @@ import { sortLanguages } from "../utils/sortLanguages";
 class LayoutEngine {
   constructor() {
     this.algorithms = {
-      "multilevel-layout": this.multilevelLayout.bind(this)
+      "multilevel-layout": this.multilevelLayout.bind(this),
     };
 
     this.currentAlgorithm = "multilevel-layout";
@@ -35,7 +35,8 @@ class LayoutEngine {
    * with spatially continuous ordering
    */
   multilevelLayout(data, controls = {}) {
-    const { languageData, languageGroups, speakerData } = data;
+    const { languageData, languageGroups, speakerData, typologicalFeatures } =
+      data;
     const allLanguages = Object.keys(languageData);
 
     // Get configuration from controls or use defaults
@@ -47,9 +48,10 @@ class LayoutEngine {
       languageData,
       languageGroups,
       speakerData,
+      typologicalFeatures,
       sortLanguagesBy,
       labelContent,
-      isReverse
+      isReverse,
     });
 
     const numPoints = sortedLanguages.length;

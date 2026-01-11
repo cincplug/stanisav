@@ -34,9 +34,15 @@ const Languages = ({
       calculateLanguageFilterStatus(
         allLanguageCodes,
         data?.typologicalFeatures,
-        filteringUtils
+        filteringUtils,
+        data?.languageGroups
       ),
-    [allLanguageCodes, data?.typologicalFeatures, filteringUtils]
+    [
+      allLanguageCodes,
+      data?.typologicalFeatures,
+      filteringUtils,
+      data?.languageGroups,
+    ]
   );
 
   // Check if filters are active and result in no languages
