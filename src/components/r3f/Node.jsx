@@ -105,6 +105,7 @@ const Node = ({
           isSelected={isSelected}
           languageCode={languageCode}
           labelText={labelText}
+          linguisticProperties={linguisticProperties}
         />
       )}
 
