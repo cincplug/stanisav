@@ -264,11 +264,14 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
           // Use absolute x-coordinate for symmetry: items with same |x| get same band
           // |cos(angle)| ranges from 0 (front/back) to 1 (left/right)
           const xSymmetry = Math.abs(Math.cos(angle));
-          const bandIndex = Math.floor(
-            xSymmetry * (fundamentalData.length - 1)
-          );
+          // Focus on lower frequency range (bass, guitar, voice) - use only first sixth of spectrum
+          const maxBandIndex = Math.floor(fundamentalData.length / 6);
+          const bandIndex = Math.floor(xSymmetry * maxBandIndex);
           const amplitude = fundamentalData[bandIndex] || 0;
-          sphere.position.y = -2 + amplitude * 5.0;
+          sphere.position.y = -7 + amplitude * 5.0;
+          // Scale based on amplitude: base size + amplitude-based growth
+          const scale = 0.5 + amplitude;
+          sphere.scale.set(scale, scale * 2, scale / 2);
         }
       });
     }
@@ -283,9 +286,14 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
           const angle = (i / count) * Math.PI * 2;
           // Use absolute x-coordinate for symmetry
           const xSymmetry = Math.abs(Math.cos(angle));
-          const bandIndex = Math.floor(xSymmetry * (harmonicsData.length - 1));
+          // Focus on lower frequency range for harmonics as well
+          const maxBandIndex = Math.floor(harmonicsData.length / 6);
+          const bandIndex = Math.floor(xSymmetry * maxBandIndex);
           const amplitude = harmonicsData[bandIndex] || 0;
           cone.position.y = 3.5 + amplitude * 5.0;
+          // Scale based on amplitude: base size + amplitude-based growth
+          const scale = 0.5 + amplitude * 2.0;
+          cone.scale.set(scale, scale, scale);
         }
       });
     }
@@ -316,7 +324,7 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
       const angle = (i / count) * Math.PI * 2;
       const x = Math.cos(angle) * radius;
       const z = Math.sin(angle) * radius;
-      spheres.push({ x, y: -2, z, angle, key: `phoneme-${i}` });
+      spheres.push({ x, y: -3.5, z, angle, key: `phoneme-${i}` });
     }
     return spheres;
   }, [linguisticProperties?.phonemeCount, labelSize]);
@@ -330,7 +338,7 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
     const cones = [];
     for (let i = 0; i < count; i++) {
       const angle = (i / count) * Math.PI * 2;
-      const x = Math.cos(angle) * radius;
+      const x = (Math.cos(angle) * radius) / 2;
       const z = Math.sin(angle) * radius;
       cones.push({ x, y: 3.5, z, angle, key: `case-${i}` });
     }
@@ -434,11 +442,11 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
           ref={(el) => (phonemeSpheresRef.current[i] = el)}
           position={[sphere.x, sphere.y, sphere.z]}
         >
-          <sphereGeometry args={[0.4, 8, 8]} />
+          <sphereGeometry args={[0.4, 7, 8]} />
           <meshStandardMaterial
-            color={color}
+            color={c3}
             emissive={color}
-            emissiveIntensity={0.3}
+            emissiveIntensity={0.9}
           />
         </mesh>
       ))}
