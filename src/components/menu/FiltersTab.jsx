@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import {
   getFeatureValues,
   filterLanguagesByFeatures,
@@ -13,9 +13,10 @@ import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
   const { filteringUtils, updateFilteringUtils } = useLanguageSelection();
   const features = getAllFeatures();
+  const [allowMultipleChoices, setAllowMultipleChoices] = useState(false);
 
   const handleCheckboxChange = (feature, value, checked) => {
-    const newFilters = { ...filteringUtils };
+    let newFilters = { ...filteringUtils };
 
     const currentValues = newFilters[feature] || [];
 
@@ -25,7 +26,12 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
       }
     } else {
       if (checked) {
-        newFilters[feature] = [...currentValues, value];
+        // If multiple choices is disabled, only allow one selection across all categories
+        if (!allowMultipleChoices) {
+          newFilters = { [feature]: [value] };
+        } else {
+          newFilters[feature] = [...currentValues, value];
+        }
       } else {
         const updatedValues = currentValues.filter((v) => v !== value);
         if (updatedValues.length === 0) {
@@ -53,6 +59,22 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
   return (
     <div className="control-section">
       <div className="linguistic-filters">
+        {/* Filter mode controls */}
+        <div className="filter-group">
+          <div className="controls-grid">
+            <div className="control-item checkbox-control">
+              <label>
+                <input
+                  type="checkbox"
+                  checked={allowMultipleChoices}
+                  onChange={(e) => setAllowMultipleChoices(e.target.checked)}
+                />
+                <span>Allow multiple choices</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
         {features.map(({ key: feature, label, isNumeric }) => {
           // For numeric features, get values from pre-computed data
           // For categorical features, get values from actual data
@@ -64,7 +86,7 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
 
           return (
             <div key={feature} className="filter-group">
-              <h4 className="filter-group-title">{label}</h4>
+              <h4 className="filter-group-title">Filter by {label}</h4>
               <div className="checkbox-button-group">
                 <input
                   type="checkbox"
