@@ -1,4 +1,4 @@
-import * as THREE from "three";
+import { Box3, Vector3 } from "three";
 
 export const calculateLanguageFilterStatus = (
   languages,
@@ -55,18 +55,60 @@ export const calculateGroupBounds = (positions, languages) => {
   if (!positions || languages.length === 0) {
     return { center: [0, 0, 0], radius: 10 };
   }
-  const bounds = new THREE.Box3();
+  const bounds = new Box3();
   languages.forEach((langCode) => {
     const pos = positions[langCode];
     if (pos) {
-      bounds.expandByPoint(new THREE.Vector3(pos.x, pos.y, pos.z));
+      bounds.expandByPoint(new Vector3(pos.x, pos.y, pos.z));
     }
   });
-  const center = bounds.getCenter(new THREE.Vector3());
-  const size = bounds.getSize(new THREE.Vector3());
+  const center = bounds.getCenter(new Vector3());
+  const size = bounds.getSize(new Vector3());
   const radius = Math.max(size.x, size.y, size.z) / 2;
   return {
     center: [center.x, center.y, center.z],
     radius: Math.max(radius, 10),
+  };
+};
+export const calculateLabelSizeConfig = (
+  sortLanguagesBy,
+  data,
+  layoutConfig
+) => {
+  const { outMin, outMax } = layoutConfig.labelSizeNormalization;
+
+  // Determine which data source to use
+  let values = [];
+
+  if (sortLanguagesBy === "phonemeCount" || sortLanguagesBy === "caseCount") {
+    // Get values from typological features
+    if (data?.typologicalFeatures) {
+      Object.values(data.typologicalFeatures).forEach((features) => {
+        const val = features[sortLanguagesBy];
+        if (val !== undefined && val !== null) {
+          values.push(val);
+        }
+      });
+    }
+  } else {
+    // Get speaker counts
+    if (data?.speakerData) {
+      values = Object.values(data.speakerData).filter(
+        (v) => v !== undefined && v !== null
+      );
+    }
+  }
+
+  if (values.length === 0) {
+    return { uniqueValues: [1], outMin, outMax };
+  }
+
+  // Get unique values and sort them
+  const uniqueValues = [...new Set(values)].sort((a, b) => a - b);
+
+  return {
+    uniqueValues,
+    outMin,
+    outMax,
   };
 };

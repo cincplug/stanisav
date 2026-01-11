@@ -7,6 +7,7 @@ import Mesha from "./Mesha.jsx";
 import NodeLights from "./NodeLights.jsx";
 import Label from "./Label.jsx";
 import layoutConfig from "../../config/layoutConfig.json";
+import { calculateLabelSizeConfig } from "../../utils/sceneUtils.js";
 
 const Node = ({
   languageCode,
@@ -32,48 +33,10 @@ const Node = ({
   } = controls;
 
   // Calculate dynamic min/max for the current numeric category
-  const rangeConfig = useMemo(() => {
-    const { outMin, outMax, speakersReference } =
-      layoutConfig.labelSizeNormalization;
-
-    // For speakers, use the reference values
-    if (sortLanguagesBy !== "phonemeCount" && sortLanguagesBy !== "caseCount") {
-      return {
-        min: speakersReference.min,
-        max: speakersReference.max,
-        outMin,
-        outMax,
-      };
-    }
-
-    // For other numeric features, calculate from actual data
-    const values = [];
-    if (data?.typologicalFeatures) {
-      Object.values(data.typologicalFeatures).forEach((features) => {
-        const val = features[sortLanguagesBy];
-        if (val !== undefined && val !== null) {
-          values.push(val);
-        }
-      });
-    }
-
-    if (values.length === 0) {
-      return { min: 1, max: 100, outMin, outMax };
-    }
-
-    const min = Math.min(...values);
-    const max = Math.max(...values);
-
-    // Add small padding to avoid edge cases
-    const padding = (max - min) * 0.1 || 1;
-
-    return {
-      min: Math.max(0.001, min - padding),
-      max: max + padding,
-      outMin,
-      outMax,
-    };
-  }, [sortLanguagesBy, data]);
+  const rangeConfig = useMemo(
+    () => calculateLabelSizeConfig(sortLanguagesBy, data, layoutConfig),
+    [sortLanguagesBy, data]
+  );
 
   const getLabelText = (language, languageCode, labelContent) => {
     switch (labelContent) {
@@ -117,13 +80,15 @@ const Node = ({
 
   const sizeValue = getSizeValue();
 
-  const fontSize = normalizeRange(
-    labelSize * sizeValue,
-    rangeConfig.min,
-    rangeConfig.max,
-    rangeConfig.outMin,
-    rangeConfig.outMax
-  );
+  // Linear scaling based on rank of unique values
+  const rank = rangeConfig.uniqueValues.indexOf(sizeValue);
+  const totalRanks = rangeConfig.uniqueValues.length - 1;
+  const normalizedRank = totalRanks > 0 ? rank / totalRanks : 0;
+  const sizeMultiplier =
+    rangeConfig.outMin +
+    normalizedRank * (rangeConfig.outMax - rangeConfig.outMin);
+  const fontSize = labelSize * sizeMultiplier;
+
   const currentPlaylistLanguage = getCurrentLanguage();
   const isPlayingThis = isPlaying && currentPlaylistLanguage === languageCode;
   const shouldShowMesha = isPlayingThis && !isAnimating;
@@ -156,11 +121,3 @@ const Node = ({
 };
 
 export default Node;
-
-function normalizeRange(value, min, max, outMin, outMax) {
-  const logMin = Math.log(min);
-  const logMax = Math.log(max);
-  const logValue = Math.log(value);
-
-  return outMin + ((logValue - logMin) / (logMax - logMin)) * (outMax - outMin);
-}
