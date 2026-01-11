@@ -5,7 +5,7 @@ import { useCameraController } from "../../hooks/useCameraController";
 import { useDataManager } from "../../hooks/useDataManager";
 import { useLayoutManager } from "../../hooks/useLayoutManager";
 import { getGroupedLanguages } from "../../utils/groupingUtils";
-import { calculateLanguageFilterStatus } from "../../utils/languageScene";
+import { calculateLanguageFilterStatus } from "../../utils/sceneUtils";
 import Node from "./Node";
 
 const Languages = ({

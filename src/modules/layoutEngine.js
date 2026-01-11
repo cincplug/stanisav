@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { sortLanguages } from "../utils/sortLanguages";
+import { sortLanguages } from "../utils/sortingUtils";
 
 class LayoutEngine {
   constructor() {

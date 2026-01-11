@@ -9,7 +9,7 @@ import {
 import { useAppState } from "./AppStateContext";
 import { useControls } from "./ControlsContext";
 import { useLanguageSelection } from "./LanguageSelectionContext";
-import { sortLanguages } from "../utils/sortLanguages";
+import { sortLanguages } from "../utils/sortingUtils";
 
 const PlaylistContext = createContext(null);
 
