@@ -58,6 +58,14 @@ body {
   font-family: sans-serif;
 }
 
+/* Ensure form elements inherit font */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
 button,
 .button {
   padding: 8px 16px;
@@ -370,4 +378,8 @@ legend {
   left: var(--gap-double);
   bottom: var(--gap-double);
   width: var(--video-width);
+}
+
+.text-dark {
+  color: var(--color-text-dark);
 }

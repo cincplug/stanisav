@@ -27,8 +27,6 @@
   background-color: var(--color-interactive);
   color: var(--color-text-dark);
   cursor: pointer;
-  font-size: var(--font-size-big);
-  text-align: left;
   &.selected {
     outline: var(--outline-default);
   }

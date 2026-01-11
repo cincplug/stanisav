@@ -90,6 +90,12 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
                     ? currentValues.map(Number).includes(Number(value))
                     : currentValues.includes(value);
 
+                  // Get color for group/family filters
+                  let buttonColor = null;
+                  if (feature === "group") {
+                    buttonColor = data?.groupInfo?.[value]?.color;
+                  }
+
                   return (
                     <React.Fragment key={valueKey}>
                       <input
@@ -106,9 +112,15 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
                       />
                       <label
                         htmlFor={`${feature}-${valueKey}`}
-                        className={`checkbox-button ${
-                          isChecked ? "active" : ""
-                        }`}
+                        className={`checkbox-button 
+                          ${buttonColor ? "text-dark" : ""} 
+                          ${isChecked ? "active" : ""}
+                          `}
+                        style={
+                          buttonColor
+                            ? { backgroundColor: buttonColor }
+                            : undefined
+                        }
                       >
                         {displayLabel}
                       </label>

@@ -1,10 +1,4 @@
 {
-  "family": {
-    "name": "Language Family"
-  },
-  "group": {
-    "name": "Language Group"
-  },
   "tonality": {
     "name": "Tonality",
     "values": {
@@ -87,5 +81,11 @@
   "phonemeCount": {
     "name": "Phoneme Count",
     "template": "It has {count} phonemes (distinct sounds)."
+  },
+  "family": {
+    "name": "Language Family"
+  },
+  "group": {
+    "name": "Language Group"
   }
 }
