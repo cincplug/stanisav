@@ -7,6 +7,7 @@ import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeom
 import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
+import linguisticConfig from "../../config/linguisticConfig.json";
 import MeshaEye from "./MeshaEye.jsx";
 
 extend({ ParametricGeometry });
@@ -47,50 +48,34 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
     ctx.strokeStyle = color;
     ctx.lineWidth = 2;
 
-    // Different wave patterns representing tonal complexity
-    switch (tonality) {
-      case "non-tonal":
-        // Straight horizontal lines (no pitch variation)
-        for (let i = 16; i <= 48; i += 16) {
-          ctx.beginPath();
-          ctx.moveTo(0, i);
-          ctx.lineTo(64, i);
-          ctx.stroke();
-        }
-        break;
-      case "pitch-accent":
-        // Single accent mark pattern
-        for (let i = 0; i < 64; i += 16) {
-          ctx.beginPath();
-          ctx.moveTo(i, 48);
-          ctx.lineTo(i + 8, 32);
-          ctx.lineTo(i + 16, 48);
-          ctx.stroke();
-        }
-        break;
-      case "simple-tonal":
-        // Simple wave pattern (low frequency)
+    // Use score to determine wave complexity
+    const score = linguisticConfig.tonality.values[tonality]?.score || 1;
+
+    if (score === 1) {
+      // Non-tonal: straight horizontal lines
+      for (let i = 16; i <= 48; i += 16) {
         ctx.beginPath();
-        for (let x = 0; x <= 64; x++) {
-          const y = 32 + Math.sin((x * Math.PI) / 16) * 12;
-          if (x === 0) ctx.moveTo(x, y);
-          else ctx.lineTo(x, y);
-        }
+        ctx.moveTo(0, i);
+        ctx.lineTo(64, i);
         ctx.stroke();
-        break;
-      case "complex-tonal":
-        // Complex overlapping waves (high frequency)
-        ctx.beginPath();
-        for (let x = 0; x <= 64; x++) {
-          const y =
-            32 +
-            Math.sin((x * Math.PI) / 8) * 8 +
-            Math.sin((x * Math.PI) / 4) * 6;
-          if (x === 0) ctx.moveTo(x, y);
-          else ctx.lineTo(x, y);
+      }
+    } else {
+      // Tonal: generate waves based on score
+      // Score determines number of overlapping waves and frequency
+      const numWaves = Math.floor(score / 2);
+      ctx.beginPath();
+      for (let x = 0; x <= 64; x++) {
+        let y = 32;
+        // Add multiple sine waves based on complexity
+        for (let w = 0; w < numWaves; w++) {
+          const frequency = ((w + 1) * score) / 4;
+          const amplitude = 12 / (w + 1);
+          y += Math.sin((x * Math.PI * frequency) / 16) * amplitude;
         }
-        ctx.stroke();
-        break;
+        if (x === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
     }
     return canvas;
   };
@@ -104,38 +89,31 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
     ctx.fillRect(0, 0, 64, 64);
     ctx.fillStyle = color;
 
-    // Different patterns representing morphological complexity
-    switch (morphology) {
-      case "isolating":
-        // Separate blocks (one morpheme per word)
-        for (let i = 0; i < 3; i++) {
-          ctx.fillRect(i * 20 + 4, 24, 12, 16);
-        }
-        break;
-      case "agglutinative":
-        // Connected blocks in sequence
-        for (let i = 0; i < 4; i++) {
-          ctx.fillRect(i * 16, 24, 14, 16);
-        }
-        break;
-      case "fusional":
-        // Overlapping/merged shapes
-        ctx.fillRect(8, 24, 16, 16);
-        ctx.fillRect(20, 24, 16, 16);
-        ctx.fillRect(32, 24, 16, 16);
+    // Use score to determine morphological pattern complexity
+    const score = linguisticConfig.morphology.values[morphology]?.score || 1;
+
+    // Score determines number and overlap of blocks
+    const numBlocks = Math.ceil(score * 1.5); // 1→2, 2.5→4, 3.2→5, 4→6
+    const blockWidth = 64 / numBlocks;
+    const overlap = (score - 1) / 3; // 0 to 1, determines overlap amount
+
+    // Draw blocks with increasing overlap based on score
+    for (let i = 0; i < numBlocks; i++) {
+      const x = i * blockWidth * (1 - overlap * 0.3);
+      const width = blockWidth * (1 + overlap * 0.2);
+      const height = 16;
+      const y = 24;
+
+      if (overlap > 0.5) {
+        // Fusional/Polysynthetic: add semi-transparent overlapping layer
         ctx.globalAlpha = 0.5;
-        ctx.fillRect(14, 20, 16, 24);
-        ctx.fillRect(26, 20, 16, 24);
-        break;
-      case "polysynthetic":
-        // Dense grid pattern (complex words)
-        for (let x = 0; x < 64; x += 8) {
-          for (let y = 0; y < 64; y += 8) {
-            ctx.fillRect(x + 1, y + 1, 5, 5);
-          }
-        }
-        break;
+        ctx.fillRect(x + width * 0.2, y - 4, width * 0.8, height + 8);
+        ctx.globalAlpha = 1.0;
+      }
+
+      ctx.fillRect(x, y, width * 0.9, height);
     }
+
     return canvas;
   };
 
@@ -157,19 +135,11 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
 
   // Get word order flexibility amplitude multiplier
   const wordOrderAmplitude = useMemo(() => {
+    // Use score directly to determine amplitude (score ranges from 1 to 4)
     const flexibility = linguisticProperties?.wordOrderFlexibility;
-    switch (flexibility) {
-      case "rigid":
-        return 0.5;
-      case "semi-flexible":
-        return 0.75;
-      case "flexible":
-        return 1.0;
-      case "very-flexible":
-        return 1.25;
-      default:
-        return 1.0;
-    }
+    const score =
+      linguisticConfig.wordOrderFlexibility.values[flexibility]?.score || 1;
+    return 1 + score * 0.5;
   }, [linguisticProperties?.wordOrderFlexibility]);
 
   const createAudioReactiveSurface = (
