@@ -30,10 +30,8 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
   const c3 = new Color("#ffbbbb").sub(c1);
   const c4 = new Color("#aaffaa").sub(c1);
 
-  const [xx, yy, zz] = languageCode
-    .toLowerCase()
-    .split("")
-    .map((c) => (c.charCodeAt(0) - 100) / 10 + 1);
+  const tonalityScore =
+    linguisticConfig.tonality.values[linguisticProperties?.tonality]?.score;
 
   const { audioData } = useAudioAnimation(languageCode, isThisLanguageSelected);
 
@@ -43,15 +41,14 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
     canvas.width = 64;
     canvas.height = 64;
     const ctx = canvas.getContext("2d");
-    ctx.fillStyle = "#ffffff";
+    ctx.fillStyle = c2;
     ctx.fillRect(0, 0, 64, 64);
     ctx.strokeStyle = color;
     ctx.lineWidth = 2;
 
     // Use score to determine wave complexity
-    const score = linguisticConfig.tonality.values[tonality]?.score || 1;
 
-    if (score === 1) {
+    if (tonalityScore === 1) {
       // Non-tonal: straight horizontal lines
       for (let i = 16; i <= 48; i += 16) {
         ctx.beginPath();
@@ -62,13 +59,13 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
     } else {
       // Tonal: generate waves based on score
       // Score determines number of overlapping waves and frequency
-      const numWaves = Math.floor(score / 2);
+      const numWaves = Math.floor(tonalityScore / 2);
       ctx.beginPath();
       for (let x = 0; x <= 64; x++) {
         let y = 32;
         // Add multiple sine waves based on complexity
         for (let w = 0; w < numWaves; w++) {
-          const frequency = ((w + 1) * score) / 4;
+          const frequency = ((w + 1) * tonalityScore) / 4;
           const amplitude = 12 / (w + 1);
           y += Math.sin((x * Math.PI * frequency) / 16) * amplitude;
         }
@@ -85,7 +82,7 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
     canvas.width = 64;
     canvas.height = 64;
     const ctx = canvas.getContext("2d");
-    ctx.fillStyle = "#ffffff";
+    ctx.fillStyle = c1;
     ctx.fillRect(0, 0, 64, 64);
     ctx.fillStyle = color;
 
@@ -161,7 +158,7 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
       const size = labelSize;
       const z = (u - 0.5) * size;
       const x = (v - 0.5) * size;
-      let y = yy;
+      let y = wordOrderAmplitude;
 
       if (isSelectedForAudio && audioDataValue.isActive) {
         const { fundamentalData, harmonicsData } = audioDataValue;
@@ -176,7 +173,9 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
 
         const balancedFundamental = fundamentalAmplitude * fundamentalAmplifier;
         const harmonicsModifier =
-          symmetricalMirroring && u > 0.5 ? harmonicsAmplifier : zz;
+          symmetricalMirroring && u > 0.5
+            ? harmonicsAmplifier
+            : tonalityScore / 10;
         const balancedHarmonics = harmonicsAmplitude * harmonicsModifier;
         const totalAmplitude = balancedFundamental + balancedHarmonics;
 
