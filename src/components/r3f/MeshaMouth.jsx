@@ -17,22 +17,37 @@ const MeshaMouth = ({
 }) => {
   const teethSpheresRef = useRef([]);
   const c3 = new Color("#ffbbbb").sub(new Color(color));
-  const c4 = new Color("#aaffaa").sub(new Color(color));
 
-  const thickness = 0;
+  // Create a unified mouth surface that combines the characteristics of both original meshes
+  const createUnifiedMouthSurface = () => {
+    return (u, v, target) => {
+      // Get the base surface
+      audioReactiveSurface(u, v, target);
+    };
+  };
+
+  const unifiedMouthSurface = useMemo(
+    () => createUnifiedMouthSurface(),
+    [audioReactiveSurface]
+  );
+
+  // Calculate averaged position, scale, and rotation
+  const avgPosition = [0, -1, 4];
+  const avgScale = [2 / 3, (-1 / 4) * wordOrderAmplitude, -2];
+  const avgRotation = [-1 / 3, -Math.PI, 0];
 
   // Generate teeth (phoneme spheres) in a circle below the mesh
   const teethSpheres = useMemo(() => {
     const count = linguisticProperties?.phonemeCount || 0;
     if (count === 0) return [];
 
-    const radius = labelSize * 1.2;
+    const radius = labelSize;
     const spheres = [];
     for (let i = 0; i < count; i++) {
       const angle = (i / count) * Math.PI * 2;
       const x = Math.cos(angle) * radius;
       const z = Math.sin(angle) * radius;
-      spheres.push({ x, y: -3.5, z, angle, key: `tooth-${i}` });
+      spheres.push({ x, y: 1, z, angle, key: `tooth-${i}` });
     }
     return spheres;
   }, [linguisticProperties?.phonemeCount, labelSize]);
@@ -53,8 +68,8 @@ const MeshaMouth = ({
           const maxBandIndex = Math.floor(fundamentalData.length / 6);
           const bandIndex = Math.floor(xSymmetry * maxBandIndex);
           const amplitude = fundamentalData[bandIndex] || 0;
-          sphere.position.y = -7 + amplitude * 5.0;
-          const scale = 0.5 + amplitude;
+          sphere.position.y = -amplitude * 5.0;
+          const scale = amplitude * 2;
           sphere.scale.set(scale, scale * 2, scale / 2);
         }
       });
@@ -63,24 +78,10 @@ const MeshaMouth = ({
 
   return (
     <>
-      {/* Third mesh with word order flexibility affecting amplitude */}
-      <mesh
-        position={[0, -1, -thickness]}
-        scale={[-2, (-1 / 2) * wordOrderAmplitude, -2]}
-        rotation={[0, 1, 0]}
-      >
-        <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
-        <meshStandardMaterial color={c3} side={2} />
-      </mesh>
-
-      {/* Fourth mesh with word order flexibility affecting amplitude */}
-      <mesh
-        position={[0, -1, -thickness]}
-        scale={[-2, (-1 / 2) * wordOrderAmplitude, -2]}
-        rotation={[0, -1, 0]}
-      >
-        <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
-        <meshStandardMaterial color={c4} side={2} />
+      {/* Unified mouth mesh */}
+      <mesh position={avgPosition} scale={avgScale} rotation={avgRotation}>
+        <parametricGeometry args={[unifiedMouthSurface, segments, segments]} />
+        <meshStandardMaterial color={c3} side={2} vertexColors={false} />
       </mesh>
 
       {/* Teeth (phoneme count spheres) below meshes */}
@@ -91,11 +92,7 @@ const MeshaMouth = ({
           position={[sphere.x, sphere.y, sphere.z]}
         >
           <sphereGeometry args={[0.4, 7, 8]} />
-          <meshStandardMaterial
-            color={c3}
-            emissive={color}
-            emissiveIntensity={0.9}
-          />
+          <meshStandardMaterial color={"#ffffff"} />
         </mesh>
       ))}
     </>

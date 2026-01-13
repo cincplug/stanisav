@@ -15,6 +15,7 @@ extend({ ParametricGeometry });
 
 const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
   const groupRef = useRef();
+  const rotationGroupRef = useRef(); // New ref for rotation
   const leftEyeRef = useRef();
   const rightEyeRef = useRef();
   const meshaCheekRef = useRef();
@@ -90,9 +91,19 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
     };
   };
 
-  useFrame(({ camera }) => {
+  useFrame(({ camera, clock }) => {
     if (groupRef.current) {
       groupRef.current.lookAt(camera.position);
+    }
+
+    // Apply rotation to inner group
+    if (rotationGroupRef.current) {
+      const time = clock.getElapsedTime();
+      const rotationSpeed = 0.3;
+      const rotationAmplitude = Math.PI / 6;
+      const rotationY = Math.sin(time * rotationSpeed) * rotationAmplitude;
+
+      rotationGroupRef.current.rotation.y = rotationY;
     }
 
     // Calculate average Y position from the two meshes in MeshaCheek
@@ -151,7 +162,6 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
   );
 
   const segments = audioVisualizationConfig.meshDeformation.meshSegments;
-  const thickness = 0;
 
   // Generate case cones in a circle above the mesh
   const caseCones = useMemo(() => {
@@ -171,66 +181,60 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
 
   return (
     <group ref={groupRef}>
-      <MeshaCheek
-        ref={meshaCheekRef}
-        color={color}
-        labelSize={labelSize}
-        isThisLanguageSelected={isThisLanguageSelected}
-        audioData={audioData}
-        linguisticProperties={linguisticProperties}
-        audioReactiveSurface={audioReactiveSurface}
-        segments={segments}
-      />
+      <group ref={rotationGroupRef}>
+        <MeshaCheek
+          ref={meshaCheekRef}
+          color={color}
+          labelSize={labelSize}
+          isThisLanguageSelected={isThisLanguageSelected}
+          audioData={audioData}
+          linguisticProperties={linguisticProperties}
+          audioReactiveSurface={audioReactiveSurface}
+          segments={segments}
+        />
 
-      <group
-        ref={leftEyeRef}
-        position={[
-          eyeXPosition,
-          1,
-          thickness + labelSize * eyeZPositionMultiplier,
-        ]}
-      >
-        <MeshaEye position={[0, 0, 0]} color={color} labelSize={labelSize} />
-      </group>
-
-      <group
-        ref={rightEyeRef}
-        position={[
-          -eyeXPosition,
-          1,
-          thickness + labelSize * eyeZPositionMultiplier,
-        ]}
-      >
-        <MeshaEye position={[0, 0, 0]} color={color} labelSize={labelSize} />
-      </group>
-
-      <MeshaMouth
-        color={color}
-        audioReactiveSurface={audioReactiveSurface}
-        segments={segments}
-        wordOrderAmplitude={wordOrderAmplitude}
-        labelSize={labelSize}
-        linguisticProperties={linguisticProperties}
-        isThisLanguageSelected={isThisLanguageSelected}
-        audioData={audioData}
-      />
-
-      {/* Case count cones above meshes */}
-      {caseCones.map((cone, i) => (
-        <mesh
-          key={cone.key}
-          ref={(el) => (caseConesRef.current[i] = el)}
-          position={[cone.x, cone.y, cone.z]}
-          rotation={[0, 0, 0]}
+        <group
+          ref={leftEyeRef}
+          position={[eyeXPosition, 1, labelSize * eyeZPositionMultiplier]}
         >
-          <coneGeometry args={[0.5, 1.5, 6]} />
-          <meshStandardMaterial
-            color={c3}
-            emissive={c3}
-            emissiveIntensity={0.2}
-          />
-        </mesh>
-      ))}
+          <MeshaEye position={[0, 0, 0]} color={color} labelSize={labelSize} />
+        </group>
+
+        <group
+          ref={rightEyeRef}
+          position={[-eyeXPosition, 1, labelSize * eyeZPositionMultiplier]}
+        >
+          <MeshaEye position={[0, 0, 0]} color={color} labelSize={labelSize} />
+        </group>
+
+        <MeshaMouth
+          color={color}
+          audioReactiveSurface={audioReactiveSurface}
+          segments={segments}
+          wordOrderAmplitude={wordOrderAmplitude}
+          labelSize={labelSize}
+          linguisticProperties={linguisticProperties}
+          isThisLanguageSelected={isThisLanguageSelected}
+          audioData={audioData}
+        />
+
+        {/* Case count cones above meshes */}
+        {caseCones.map((cone, i) => (
+          <mesh
+            key={cone.key}
+            ref={(el) => (caseConesRef.current[i] = el)}
+            position={[cone.x, cone.y, cone.z]}
+            rotation={[0, 0, 0]}
+          >
+            <coneGeometry args={[0.5, 1.5, 6]} />
+            <meshStandardMaterial
+              color={c3}
+              emissive={c3}
+              emissiveIntensity={0.2}
+            />
+          </mesh>
+        ))}
+      </group>
     </group>
   );
 };
