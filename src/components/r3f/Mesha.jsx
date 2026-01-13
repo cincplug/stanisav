@@ -41,9 +41,9 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
     canvas.width = 64;
     canvas.height = 64;
     const ctx = canvas.getContext("2d");
-    ctx.fillStyle = c2;
+    ctx.fillStyle = color;
     ctx.fillRect(0, 0, 64, 64);
-    ctx.strokeStyle = color;
+    ctx.strokeStyle = `#${c1.getHexString()}`;
     ctx.lineWidth = 2;
 
     // Use score to determine wave complexity
@@ -82,9 +82,9 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
     canvas.width = 64;
     canvas.height = 64;
     const ctx = canvas.getContext("2d");
-    ctx.fillStyle = c1;
-    ctx.fillRect(0, 0, 64, 64);
     ctx.fillStyle = color;
+    ctx.fillRect(0, 0, 64, 64);
+    ctx.fillStyle = `#${c2.getHexString()}`;
 
     // Use score to determine morphological pattern complexity
     const score = linguisticConfig.morphology.values[morphology]?.score || 1;
@@ -325,7 +325,6 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
       >
         <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
         <meshStandardMaterial
-          color={c1}
           side={2}
           map={
             tonalityTexture
@@ -348,7 +347,6 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
       >
         <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
         <meshStandardMaterial
-          color={c2}
           side={2}
           map={
             morphologyTexture
