@@ -8,18 +8,7 @@ import linguisticConfig from "../../config/linguisticConfig.json";
 extend({ ParametricGeometry });
 
 const MeshaCheek = forwardRef(
-  (
-    {
-      color,
-      labelSize,
-      isThisLanguageSelected,
-      audioData,
-      linguisticProperties,
-      audioReactiveSurface,
-      segments,
-    },
-    ref
-  ) => {
+  ({ color, linguisticProperties, audioReactiveSurface, segments }, ref) => {
     const mesh1Ref = useRef();
     const mesh2Ref = useRef();
 
@@ -55,13 +44,13 @@ const MeshaCheek = forwardRef(
         }
       } else {
         // Tonal: generate waves based on score
-        const numWaves = Math.floor(tonalityScore / 2);
+        const numWaves = Math.floor(tonalityScore);
         ctx.beginPath();
         for (let x = 0; x <= 64; x++) {
           let y = 32;
           for (let w = 0; w < numWaves; w++) {
-            const frequency = ((w + 1) * tonalityScore) / 4;
-            const amplitude = 12 / (w + 1);
+            const frequency = (w + 1) * tonalityScore;
+            const amplitude = 24 / (w + 1);
             y += Math.sin((x * Math.PI * frequency) / 16) * amplitude;
           }
           if (x === 0) ctx.moveTo(x, y);
@@ -124,31 +113,7 @@ const MeshaCheek = forwardRef(
 
     return (
       <>
-        {/* First mesh with tonality texture */}
-        <mesh
-          ref={mesh1Ref}
-          position={[1, 1, thickness]}
-          scale={[1 / 2, 2 / 3, 3]}
-          rotation={[0, 1 / 20, 0]}
-        >
-          <parametricGeometry
-            args={[audioReactiveSurface, segments, segments]}
-          />
-          <meshStandardMaterial
-            side={2}
-            map={
-              tonalityTexture
-                ? (() => {
-                    const texture = new THREE.CanvasTexture(tonalityTexture);
-                    texture.needsUpdate = true;
-                    return texture;
-                  })()
-                : null
-            }
-          />
-        </mesh>
-
-        {/* Second mesh with morphology texture */}
+        {/* morphology */}
         <mesh
           ref={mesh2Ref}
           position={[-1, 1, thickness]}
@@ -164,6 +129,30 @@ const MeshaCheek = forwardRef(
               morphologyTexture
                 ? (() => {
                     const texture = new THREE.CanvasTexture(morphologyTexture);
+                    texture.needsUpdate = true;
+                    return texture;
+                  })()
+                : null
+            }
+          />
+        </mesh>
+
+        {/* tonality */}
+        <mesh
+          ref={mesh1Ref}
+          position={[1, 1, thickness]}
+          scale={[1 / 2, 2 / 3, 3]}
+          rotation={[0, 1 / 20, 0]}
+        >
+          <parametricGeometry
+            args={[audioReactiveSurface, segments, segments]}
+          />
+          <meshStandardMaterial
+            side={2}
+            map={
+              tonalityTexture
+                ? (() => {
+                    const texture = new THREE.CanvasTexture(tonalityTexture);
                     texture.needsUpdate = true;
                     return texture;
                   })()
