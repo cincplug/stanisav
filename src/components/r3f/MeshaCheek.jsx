@@ -23,63 +23,13 @@ const MeshaCheek = forwardRef(
       [colorObj]
     );
 
-    const getWordOrderTexture = (wordOrder) => {
-      const size = 64;
-      const canvas = document.createElement("canvas");
-      canvas.width = size;
-      canvas.height = size;
-      const ctx = canvas.getContext("2d");
+    // For morphology cheek (left)
+    const morphBgColor = secondaryColor;
+    const morphFgColor = colorObj;
 
-      // Use the secondary color for background
-      ctx.fillStyle = `#${secondaryColor.getHexString()}`;
-      ctx.fillRect(0, 0, size, size);
-
-      // Use darker/contrasting color for shapes - invert the secondary color
-      const shapeColor = new Color(1, 1, 1).sub(secondaryColor);
-      ctx.fillStyle = `#${shapeColor.getHexString()}`;
-
-      // Define shapes for S, V, O
-      const shapes = {
-        S: (x, y, shapeSize) => {
-          // Square for Subject
-          ctx.fillRect(
-            x - shapeSize / 2,
-            y - shapeSize / 2,
-            shapeSize,
-            shapeSize
-          );
-        },
-        V: (x, y, shapeSize) => {
-          // Triangle for Verb
-          ctx.beginPath();
-          ctx.moveTo(x, y - shapeSize / 2);
-          ctx.lineTo(x + shapeSize / 2, y + shapeSize / 2);
-          ctx.lineTo(x - shapeSize / 2, y + shapeSize / 2);
-          ctx.closePath();
-          ctx.fill();
-        },
-        O: (x, y, shapeSize) => {
-          // Circle for Object
-          ctx.beginPath();
-          ctx.arc(x, y, shapeSize / 2, 0, Math.PI * 2);
-          ctx.fill();
-        },
-      };
-
-      const order = wordOrder.split("");
-      const spacing = size / (order.length + 1);
-      const shapeSize = size / (order.length + 2);
-
-      order.forEach((char, i) => {
-        const x = spacing * (i + 1);
-        const y = size / 2;
-        if (shapes[char]) {
-          shapes[char](x, y, shapeSize);
-        }
-      });
-
-      return canvas;
-    };
+    // For word order cheek (right), swap colors
+    const wordOrderBgColor = colorObj;
+    const wordOrderFgColor = secondaryColor;
 
     const getMorphologyTexture = (morphology) => {
       const size = 64;
@@ -88,9 +38,9 @@ const MeshaCheek = forwardRef(
       canvas.height = size;
       const ctx = canvas.getContext("2d");
 
-      ctx.fillStyle = `#${secondaryColor.getHexString()}`;
+      ctx.fillStyle = `#${morphBgColor.getHexString()}`;
       ctx.fillRect(0, 0, size, size);
-      ctx.fillStyle = `#${colorObj.getHexString()}`;
+      ctx.fillStyle = `#${morphFgColor.getHexString()}`;
 
       const score = linguisticConfig.morphology.values[morphology]?.score || 1;
       const numBlocks = Math.ceil(score * 1.5);
@@ -120,22 +70,50 @@ const MeshaCheek = forwardRef(
       return canvas;
     };
 
-    const wordOrderTexture = useMemo(() => {
-      if (!linguisticProperties?.wordOrder) return null;
-      return getWordOrderTexture(linguisticProperties.wordOrder);
-    }, [linguisticProperties?.wordOrder, colorObj, secondaryColor]);
+    // New: Word order text texture, repeated
+    const getWordOrderTextTexture = (wordOrder) => {
+      const size = 64;
+      const canvas = document.createElement("canvas");
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext("2d");
+
+      ctx.fillStyle = `#${wordOrderBgColor.getHexString()}`;
+      ctx.fillRect(0, 0, size, size);
+
+      ctx.fillStyle = `#${wordOrderFgColor.getHexString()}`;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+
+      const text = wordOrder.toLowerCase();
+      const step = size / 4;
+      for (let y = 0; y < size; y += step) {
+        for (let x = step; x < size; x += step) {
+          ctx.save();
+          ctx.translate(x, y);
+          ctx.scale(-1, 1);
+          ctx.rotate(-Math.PI / 2); // 90 degrees
+          ctx.fillText(text, 0, 0);
+          ctx.restore();
+        }
+      }
+
+      return canvas;
+    };
 
     const morphologyTexture = useMemo(() => {
       if (!linguisticProperties?.morphology) return null;
       return getMorphologyTexture(linguisticProperties.morphology);
-    }, [linguisticProperties?.morphology, colorObj, secondaryColor]);
+    }, [linguisticProperties?.morphology, morphBgColor, morphFgColor]);
+
+    const wordOrderTexture = useMemo(() => {
+      if (!linguisticProperties?.wordOrder) return null;
+      return getWordOrderTextTexture(linguisticProperties.wordOrder);
+    }, [linguisticProperties?.wordOrder, wordOrderBgColor, wordOrderFgColor]);
 
     const createTexture = (canvas) => {
       if (!canvas) return null;
       const texture = new THREE.CanvasTexture(canvas);
-      texture.needsUpdate = true;
-      texture.wrapS = THREE.RepeatWrapping;
-      texture.wrapT = THREE.RepeatWrapping;
       return texture;
     };
 
@@ -144,8 +122,8 @@ const MeshaCheek = forwardRef(
         {/* Left cheek (morphology) */}
         <mesh
           ref={mesh2Ref}
-          position={[-1, 1, 0]}
-          scale={[-1 / 2, 3 / 4, 3]}
+          position={[-1, 1, 1]}
+          scale={[-1 / 2, 3 / 4, 1]}
           rotation={[0, -1 / 20, 0]}
         >
           <parametricGeometry
@@ -158,11 +136,11 @@ const MeshaCheek = forwardRef(
           />
         </mesh>
 
-        {/* Right cheek (word order) */}
+        {/* Right cheek (word order, uses swapped colors and text) */}
         <mesh
           ref={mesh1Ref}
-          position={[1, 1, 0]}
-          scale={[1 / 2, 3 / 4, 3]}
+          position={[1, 1, 1]}
+          scale={[1 / 2, 3 / 4, 1]}
           rotation={[0, 1 / 20, 0]}
         >
           <parametricGeometry
