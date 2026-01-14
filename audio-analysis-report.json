@@ -1,0 +1,2336 @@
+{
+  "summary": {
+    "totalFiles": 232,
+    "avgLufs": -14.56336206896552,
+    "minLufs": -22.17,
+    "maxLufs": -9.07,
+    "avgPeak": -244.05107407327586,
+    "maxPeak": -26.034363,
+    "avgDynamicRange": 5.301293103448275,
+    "avgBitrate": 122.52155172413794,
+    "targetLufs": -16,
+    "recommendedAdjustment": -1.4366379310344808
+  },
+  "files": [
+    {
+      "filename": "acf-luka.mp3",
+      "duration": 7.31,
+      "peakLevel": -41.448617,
+      "rmsLevel": -48.387593,
+      "lufs": -14.97,
+      "truePeak": -2.33,
+      "dynamicRange": 3.3,
+      "bitrate": 119
+    },
+    {
+      "filename": "ach-luka.mp3",
+      "duration": 9.93,
+      "peakLevel": -81.661406,
+      "rmsLevel": -90.79518,
+      "lufs": -16.64,
+      "truePeak": -1.47,
+      "dynamicRange": 3.8,
+      "bitrate": 126
+    },
+    {
+      "filename": "acq-luka.mp3",
+      "duration": 8.39,
+      "peakLevel": -99.16587,
+      "rmsLevel": -107.646639,
+      "lufs": -12.64,
+      "truePeak": 0.42,
+      "dynamicRange": 3.1,
+      "bitrate": 114
+    },
+    {
+      "filename": "adx-luka.mp3",
+      "duration": 7.92,
+      "peakLevel": -50.138039,
+      "rmsLevel": -54.549453,
+      "lufs": -12.24,
+      "truePeak": -0.53,
+      "dynamicRange": 0.8,
+      "bitrate": 123
+    },
+    {
+      "filename": "afb-luka.mp3",
+      "duration": 4.73,
+      "peakLevel": -44.388328,
+      "rmsLevel": -47.171304,
+      "lufs": -14.82,
+      "truePeak": -1.75,
+      "dynamicRange": 1.8,
+      "bitrate": 117
+    },
+    {
+      "filename": "afr-luka.mp3",
+      "duration": 18.05,
+      "peakLevel": -73.349066,
+      "rmsLevel": -79.99681,
+      "lufs": -14.17,
+      "truePeak": -0.01,
+      "dynamicRange": 10.5,
+      "bitrate": 112
+    },
+    {
+      "filename": "aka-luka.mp3",
+      "duration": 11.31,
+      "peakLevel": -39.277709,
+      "rmsLevel": -45.835464,
+      "lufs": -14.82,
+      "truePeak": 0.17,
+      "dynamicRange": 2.6,
+      "bitrate": 117
+    },
+    {
+      "filename": "alb-luka.mp3",
+      "duration": 13.66,
+      "peakLevel": -46.291292,
+      "rmsLevel": -56.469401,
+      "lufs": -14.56,
+      "truePeak": -1.64,
+      "dynamicRange": 4,
+      "bitrate": 123
+    },
+    {
+      "filename": "amh-luka.mp3",
+      "duration": 10.29,
+      "peakLevel": -43.206446,
+      "rmsLevel": -47.929303,
+      "lufs": -15.48,
+      "truePeak": -1.46,
+      "dynamicRange": 2.9,
+      "bitrate": 133
+    },
+    {
+      "filename": "apc-luka.mp3",
+      "duration": 10.76,
+      "peakLevel": -95.431802,
+      "rmsLevel": -97.424508,
+      "lufs": -13.26,
+      "truePeak": 0.99,
+      "dynamicRange": 7.2,
+      "bitrate": 114
+    },
+    {
+      "filename": "ara-luka.mp3",
+      "duration": 14.11,
+      "peakLevel": -81.283774,
+      "rmsLevel": -87.540007,
+      "lufs": -15.65,
+      "truePeak": 1.48,
+      "dynamicRange": 9.3,
+      "bitrate": 117
+    },
+    {
+      "filename": "ary-luka.mp3",
+      "duration": 5.41,
+      "peakLevel": -93.634957,
+      "rmsLevel": -103.346376,
+      "lufs": -16.54,
+      "truePeak": -2.77,
+      "dynamicRange": 4,
+      "bitrate": 114
+    },
+    {
+      "filename": "arz-luka.mp3",
+      "duration": 8.88,
+      "peakLevel": -77.50869,
+      "rmsLevel": -83.905265,
+      "lufs": -13.79,
+      "truePeak": -0.08,
+      "dynamicRange": 6.4,
+      "bitrate": 118
+    },
+    {
+      "filename": "asm-luka.mp3",
+      "duration": 5.38,
+      "peakLevel": -53.559991,
+      "rmsLevel": -60.458137,
+      "lufs": -12.31,
+      "truePeak": -1.36,
+      "dynamicRange": 1.7,
+      "bitrate": 166
+    },
+    {
+      "filename": "awa-luka.mp3",
+      "duration": 7.52,
+      "peakLevel": -42.100349,
+      "rmsLevel": -48.645303,
+      "lufs": -16.49,
+      "truePeak": -1.23,
+      "dynamicRange": 3.7,
+      "bitrate": 130
+    },
+    {
+      "filename": "aym-luka.mp3",
+      "duration": 10.71,
+      "peakLevel": -52.899573,
+      "rmsLevel": -53.944505,
+      "lufs": -14.46,
+      "truePeak": -0.4,
+      "dynamicRange": 2,
+      "bitrate": 117
+    },
+    {
+      "filename": "aze-luka.mp3",
+      "duration": 9.25,
+      "peakLevel": -80.294295,
+      "rmsLevel": -87.235339,
+      "lufs": -15.07,
+      "truePeak": 0.36,
+      "dynamicRange": 6.8,
+      "bitrate": 127
+    },
+    {
+      "filename": "bak-luka.mp3",
+      "duration": 9.61,
+      "peakLevel": -79.848047,
+      "rmsLevel": -88.118598,
+      "lufs": -13.16,
+      "truePeak": 0.5,
+      "dynamicRange": 16.6,
+      "bitrate": 140
+    },
+    {
+      "filename": "bal-luka.mp3",
+      "duration": 13.11,
+      "peakLevel": -40.710846,
+      "rmsLevel": -46.578911,
+      "lufs": -12.93,
+      "truePeak": -0.33,
+      "dynamicRange": 2.2,
+      "bitrate": 116
+    },
+    {
+      "filename": "bam-luka.mp3",
+      "duration": 9.14,
+      "peakLevel": -57.298199,
+      "rmsLevel": -61.2206,
+      "lufs": -13.29,
+      "truePeak": 0.75,
+      "dynamicRange": 3.7,
+      "bitrate": 115
+    },
+    {
+      "filename": "ban-luka.mp3",
+      "duration": 4.05,
+      "peakLevel": -46.965217,
+      "rmsLevel": -52.607094,
+      "lufs": -13.33,
+      "truePeak": -0.11,
+      "dynamicRange": 0.3,
+      "bitrate": 112
+    },
+    {
+      "filename": "bej-luka.mp3",
+      "duration": 11.08,
+      "peakLevel": -39.106217,
+      "rmsLevel": -45.087335,
+      "lufs": -15.52,
+      "truePeak": 0.75,
+      "dynamicRange": 4.8,
+      "bitrate": 116
+    },
+    {
+      "filename": "bel-luka.mp3",
+      "duration": 10.68,
+      "peakLevel": -81.875813,
+      "rmsLevel": -86.968668,
+      "lufs": -13.39,
+      "truePeak": -0.31,
+      "dynamicRange": 4,
+      "bitrate": 114
+    },
+    {
+      "filename": "bem-luka.mp3",
+      "duration": 17.84,
+      "peakLevel": -129.713567,
+      "rmsLevel": -129.724643,
+      "lufs": -14.15,
+      "truePeak": 0.27,
+      "dynamicRange": 13.5,
+      "bitrate": 129
+    },
+    {
+      "filename": "ben-luka.mp3",
+      "duration": 5.56,
+      "peakLevel": -79.047286,
+      "rmsLevel": -87.455155,
+      "lufs": -14.23,
+      "truePeak": -0.14,
+      "dynamicRange": 4.1,
+      "bitrate": 135
+    },
+    {
+      "filename": "bho-luka.mp3",
+      "duration": 11.6,
+      "peakLevel": -112.749729,
+      "rmsLevel": -113.512593,
+      "lufs": -13.69,
+      "truePeak": 2,
+      "dynamicRange": 8.7,
+      "bitrate": 116
+    },
+    {
+      "filename": "bik-luka.mp3",
+      "duration": 9.43,
+      "peakLevel": -55.24846,
+      "rmsLevel": -63.443882,
+      "lufs": -14.51,
+      "truePeak": -2.75,
+      "dynamicRange": 2.8,
+      "bitrate": 119
+    },
+    {
+      "filename": "bis-luka.mp3",
+      "duration": 7.16,
+      "peakLevel": -37.687366,
+      "rmsLevel": -43.667264,
+      "lufs": -15.82,
+      "truePeak": -0.64,
+      "dynamicRange": 0.8,
+      "bitrate": 129
+    },
+    {
+      "filename": "bod-luka.mp3",
+      "duration": 6.43,
+      "peakLevel": -90.432602,
+      "rmsLevel": -99.067335,
+      "lufs": -22.17,
+      "truePeak": -1.02,
+      "dynamicRange": 1.3,
+      "bitrate": 110
+    },
+    {
+      "filename": "bos-luka.mp3",
+      "duration": 21.73,
+      "peakLevel": -6153.053111,
+      "rmsLevel": -115.218026,
+      "lufs": -21.61,
+      "truePeak": -1.76,
+      "dynamicRange": 4.2,
+      "bitrate": 113
+    },
+    {
+      "filename": "bre-luka.mp3",
+      "duration": 5.28,
+      "peakLevel": -41.918114,
+      "rmsLevel": -47.598738,
+      "lufs": -14.64,
+      "truePeak": -1.19,
+      "dynamicRange": 1.6,
+      "bitrate": 121
+    },
+    {
+      "filename": "brh-luka.mp3",
+      "duration": 9.9,
+      "peakLevel": -118.376934,
+      "rmsLevel": -136.109569,
+      "lufs": -15.1,
+      "truePeak": -1.79,
+      "dynamicRange": 5.5,
+      "bitrate": 113
+    },
+    {
+      "filename": "bua-luka.mp3",
+      "duration": 9.33,
+      "peakLevel": -31.834956,
+      "rmsLevel": -37.075779,
+      "lufs": -16.54,
+      "truePeak": -2.31,
+      "dynamicRange": 1.2,
+      "bitrate": 125
+    },
+    {
+      "filename": "bul-luka.mp3",
+      "duration": 8.52,
+      "peakLevel": -63.588229,
+      "rmsLevel": -72.108033,
+      "lufs": -15.32,
+      "truePeak": 0.29,
+      "dynamicRange": 2.9,
+      "bitrate": 127
+    },
+    {
+      "filename": "cak-luka.mp3",
+      "duration": 6.3,
+      "peakLevel": -54.088964,
+      "rmsLevel": -67.138852,
+      "lufs": -12.97,
+      "truePeak": 0.99,
+      "dynamicRange": 0.9,
+      "bitrate": 121
+    },
+    {
+      "filename": "cat-luka.mp3",
+      "duration": 13.95,
+      "peakLevel": -86.954937,
+      "rmsLevel": -94.6224,
+      "lufs": -13.29,
+      "truePeak": 0.01,
+      "dynamicRange": 11.8,
+      "bitrate": 125
+    },
+    {
+      "filename": "cbk-luka.mp3",
+      "duration": 11.91,
+      "peakLevel": -90.416658,
+      "rmsLevel": -96.18489,
+      "lufs": -17.39,
+      "truePeak": -2.04,
+      "dynamicRange": 13.9,
+      "bitrate": 145
+    },
+    {
+      "filename": "ceb-luka.mp3",
+      "duration": 7.31,
+      "peakLevel": -43.229215,
+      "rmsLevel": -49.294025,
+      "lufs": -18.52,
+      "truePeak": -2.92,
+      "dynamicRange": 1,
+      "bitrate": 121
+    },
+    {
+      "filename": "ces-luka.mp3",
+      "duration": 26.23,
+      "peakLevel": -83.296173,
+      "rmsLevel": -90.269921,
+      "lufs": -14.35,
+      "truePeak": 1.35,
+      "dynamicRange": 12.1,
+      "bitrate": 118
+    },
+    {
+      "filename": "chr-luka.mp3",
+      "duration": 16.33,
+      "peakLevel": -87.796969,
+      "rmsLevel": -95.052409,
+      "lufs": -18.72,
+      "truePeak": -0.94,
+      "dynamicRange": 13.1,
+      "bitrate": 97
+    },
+    {
+      "filename": "chv-luka.mp3",
+      "duration": 7.71,
+      "peakLevel": -53.974546,
+      "rmsLevel": -54.724907,
+      "lufs": -17.2,
+      "truePeak": -0.7,
+      "dynamicRange": 4,
+      "bitrate": 101
+    },
+    {
+      "filename": "cjy-luka.mp3",
+      "duration": 8.25,
+      "peakLevel": -38.633857,
+      "rmsLevel": -44.57741,
+      "lufs": -16.47,
+      "truePeak": -1.04,
+      "dynamicRange": 2.9,
+      "bitrate": 134
+    },
+    {
+      "filename": "cmn-luka.mp3",
+      "duration": 5.96,
+      "peakLevel": -39.896598,
+      "rmsLevel": -48.043383,
+      "lufs": -12.44,
+      "truePeak": 0.35,
+      "dynamicRange": 1.3,
+      "bitrate": 119
+    },
+    {
+      "filename": "cos-luka.mp3",
+      "duration": 8.07,
+      "peakLevel": -32.721809,
+      "rmsLevel": -37.630493,
+      "lufs": -16.54,
+      "truePeak": -0.47,
+      "dynamicRange": 3.2,
+      "bitrate": 128
+    },
+    {
+      "filename": "cre-luka.mp3",
+      "duration": 8.05,
+      "peakLevel": -42.460258,
+      "rmsLevel": -48.032959,
+      "lufs": -17.07,
+      "truePeak": -2.39,
+      "dynamicRange": 4.7,
+      "bitrate": 118
+    },
+    {
+      "filename": "cri-luka.mp3",
+      "duration": 8.78,
+      "peakLevel": -48.089189,
+      "rmsLevel": -50.481043,
+      "lufs": -14.63,
+      "truePeak": -1.52,
+      "dynamicRange": 2.6,
+      "bitrate": 124
+    },
+    {
+      "filename": "crs-luka.mp3",
+      "duration": 15.07,
+      "peakLevel": -88.196196,
+      "rmsLevel": -91.836624,
+      "lufs": -13.26,
+      "truePeak": 2.3,
+      "dynamicRange": 19.7,
+      "bitrate": 114
+    },
+    {
+      "filename": "csb-luka.mp3",
+      "duration": 14.94,
+      "peakLevel": -59.930121,
+      "rmsLevel": -68.023921,
+      "lufs": -16.04,
+      "truePeak": -0.57,
+      "dynamicRange": 3.5,
+      "bitrate": 122
+    },
+    {
+      "filename": "cym-luka.mp3",
+      "duration": 18.7,
+      "peakLevel": -39.977775,
+      "rmsLevel": -45.710433,
+      "lufs": -17.18,
+      "truePeak": -0.85,
+      "dynamicRange": 9.2,
+      "bitrate": 121
+    },
+    {
+      "filename": "dan-luka.mp3",
+      "duration": 15.26,
+      "peakLevel": -80.201798,
+      "rmsLevel": -93.723222,
+      "lufs": -16.19,
+      "truePeak": -0.78,
+      "dynamicRange": 3.9,
+      "bitrate": 117
+    },
+    {
+      "filename": "deu-luka.mp3",
+      "duration": 13.27,
+      "peakLevel": -32.170034,
+      "rmsLevel": -37.049568,
+      "lufs": -16.28,
+      "truePeak": -1.83,
+      "dynamicRange": 2,
+      "bitrate": 118
+    },
+    {
+      "filename": "din-luka.mp3",
+      "duration": 6.53,
+      "peakLevel": -32.955355,
+      "rmsLevel": -39.560015,
+      "lufs": -15.52,
+      "truePeak": -1.49,
+      "dynamicRange": 2.8,
+      "bitrate": 124
+    },
+    {
+      "filename": "eng-luka.mp3",
+      "duration": 6.95,
+      "peakLevel": -54.319034,
+      "rmsLevel": -80.707234,
+      "lufs": -11.28,
+      "truePeak": 2.11,
+      "dynamicRange": 2.2,
+      "bitrate": 115
+    },
+    {
+      "filename": "est-luka.mp3",
+      "duration": 10.53,
+      "peakLevel": -42.614511,
+      "rmsLevel": -47.432031,
+      "lufs": -14.91,
+      "truePeak": -0.2,
+      "dynamicRange": 7.9,
+      "bitrate": 125
+    },
+    {
+      "filename": "eus-luka.mp3",
+      "duration": 8.65,
+      "peakLevel": -42.864794,
+      "rmsLevel": -48.635549,
+      "lufs": -15.77,
+      "truePeak": -1.73,
+      "dynamicRange": 5.6,
+      "bitrate": 120
+    },
+    {
+      "filename": "ewe-luka.mp3",
+      "duration": 6.5,
+      "peakLevel": -49.35735,
+      "rmsLevel": -75.525927,
+      "lufs": -13.68,
+      "truePeak": -1.51,
+      "dynamicRange": 3.3,
+      "bitrate": 113
+    },
+    {
+      "filename": "fao-luka.mp3",
+      "duration": 10.55,
+      "peakLevel": -45.337782,
+      "rmsLevel": -51.430934,
+      "lufs": -14.19,
+      "truePeak": -0.06,
+      "dynamicRange": 4.4,
+      "bitrate": 134
+    },
+    {
+      "filename": "fas-luka.mp3",
+      "duration": 8.44,
+      "peakLevel": -95.90954,
+      "rmsLevel": -100.597967,
+      "lufs": -15.67,
+      "truePeak": -1.27,
+      "dynamicRange": 3.3,
+      "bitrate": 116
+    },
+    {
+      "filename": "fia-luka.mp3",
+      "duration": 7.24,
+      "peakLevel": -45.941263,
+      "rmsLevel": -50.090751,
+      "lufs": -18.89,
+      "truePeak": -4.17,
+      "dynamicRange": 3,
+      "bitrate": 124
+    },
+    {
+      "filename": "fij-luka.mp3",
+      "duration": 9.85,
+      "peakLevel": -50.904203,
+      "rmsLevel": -59.86929,
+      "lufs": -13.4,
+      "truePeak": 0.49,
+      "dynamicRange": 1.3,
+      "bitrate": 114
+    },
+    {
+      "filename": "fin-luka.mp3",
+      "duration": 5.96,
+      "peakLevel": -38.663771,
+      "rmsLevel": -45.282914,
+      "lufs": -13.64,
+      "truePeak": 0.11,
+      "dynamicRange": 0.2,
+      "bitrate": 120
+    },
+    {
+      "filename": "fra-luka.mp3",
+      "duration": 10.45,
+      "peakLevel": -41.247579,
+      "rmsLevel": -47.04058,
+      "lufs": -13.45,
+      "truePeak": 1.59,
+      "dynamicRange": 4.8,
+      "bitrate": 145
+    },
+    {
+      "filename": "fry-luka.mp3",
+      "duration": 11.28,
+      "peakLevel": -73.833067,
+      "rmsLevel": -82.997058,
+      "lufs": -11.82,
+      "truePeak": 2.42,
+      "dynamicRange": 2.8,
+      "bitrate": 116
+    },
+    {
+      "filename": "ful-luka.mp3",
+      "duration": 16.51,
+      "peakLevel": -44.885424,
+      "rmsLevel": -50.885415,
+      "lufs": -14.82,
+      "truePeak": 1.09,
+      "dynamicRange": 11.3,
+      "bitrate": 111
+    },
+    {
+      "filename": "gan-luka.mp3",
+      "duration": 8.25,
+      "peakLevel": -41.415861,
+      "rmsLevel": -46.082366,
+      "lufs": -14.63,
+      "truePeak": 0.66,
+      "dynamicRange": 2.2,
+      "bitrate": 118
+    },
+    {
+      "filename": "gcr-luka.mp3",
+      "duration": 11.76,
+      "peakLevel": -62.183726,
+      "rmsLevel": -70.330424,
+      "lufs": -14.34,
+      "truePeak": 0.22,
+      "dynamicRange": 18.2,
+      "bitrate": 116
+    },
+    {
+      "filename": "gla-luka.mp3",
+      "duration": 16.69,
+      "peakLevel": -44.833495,
+      "rmsLevel": -48.5283,
+      "lufs": -15.32,
+      "truePeak": -1.07,
+      "dynamicRange": 4.6,
+      "bitrate": 119
+    },
+    {
+      "filename": "gle-luka.mp3",
+      "duration": 8.88,
+      "peakLevel": -42.852609,
+      "rmsLevel": -50.94256,
+      "lufs": -13.16,
+      "truePeak": 2.67,
+      "dynamicRange": 2.7,
+      "bitrate": 160
+    },
+    {
+      "filename": "glg-luka.mp3",
+      "duration": 12.51,
+      "peakLevel": -37.230937,
+      "rmsLevel": -43.377428,
+      "lufs": -16.9,
+      "truePeak": 0.27,
+      "dynamicRange": 3.8,
+      "bitrate": 121
+    },
+    {
+      "filename": "gre-luka.mp3",
+      "duration": 13.3,
+      "peakLevel": -79.576413,
+      "rmsLevel": -87.462731,
+      "lufs": -16.03,
+      "truePeak": -0.91,
+      "dynamicRange": 9.7,
+      "bitrate": 145
+    },
+    {
+      "filename": "grn-luka.mp3",
+      "duration": 12.07,
+      "peakLevel": -53.772394,
+      "rmsLevel": -58.364667,
+      "lufs": -14.46,
+      "truePeak": 1.38,
+      "dynamicRange": 4.4,
+      "bitrate": 128
+    },
+    {
+      "filename": "guj-luka.mp3",
+      "duration": 6.64,
+      "peakLevel": -37.393384,
+      "rmsLevel": -37.983667,
+      "lufs": -15.78,
+      "truePeak": -2.49,
+      "dynamicRange": 1.4,
+      "bitrate": 120
+    },
+    {
+      "filename": "gul-luka.mp3",
+      "duration": 12.02,
+      "peakLevel": -81.718076,
+      "rmsLevel": -89.463669,
+      "lufs": -15.07,
+      "truePeak": 0.02,
+      "dynamicRange": 19.5,
+      "bitrate": 119
+    },
+    {
+      "filename": "gyn-luka.mp3",
+      "duration": 25.52,
+      "peakLevel": -77.869119,
+      "rmsLevel": -84.491658,
+      "lufs": -13.01,
+      "truePeak": 1.29,
+      "dynamicRange": 11.6,
+      "bitrate": 119
+    },
+    {
+      "filename": "hak-luka.mp3",
+      "duration": 9.04,
+      "peakLevel": -6153.053111,
+      "rmsLevel": -118.173681,
+      "lufs": -15.23,
+      "truePeak": 0.36,
+      "dynamicRange": 2,
+      "bitrate": 115
+    },
+    {
+      "filename": "hat-luka.mp3",
+      "duration": 8.02,
+      "peakLevel": -73.815688,
+      "rmsLevel": -81.333339,
+      "lufs": -14.28,
+      "truePeak": -1.39,
+      "dynamicRange": 4.5,
+      "bitrate": 111
+    },
+    {
+      "filename": "hau-luka.mp3",
+      "duration": 8.02,
+      "peakLevel": -99.056785,
+      "rmsLevel": -108.633856,
+      "lufs": -15.08,
+      "truePeak": 1.48,
+      "dynamicRange": 7.8,
+      "bitrate": 124
+    },
+    {
+      "filename": "haw-luka.mp3",
+      "duration": 6.97,
+      "peakLevel": -43.182745,
+      "rmsLevel": -48.282488,
+      "lufs": -9.07,
+      "truePeak": 2.28,
+      "dynamicRange": 1,
+      "bitrate": 116
+    },
+    {
+      "filename": "heb-luka.mp3",
+      "duration": 12.17,
+      "peakLevel": -45.796801,
+      "rmsLevel": -55.090609,
+      "lufs": -13.92,
+      "truePeak": 0.59,
+      "dynamicRange": 5.7,
+      "bitrate": 117
+    },
+    {
+      "filename": "hil-luka.mp3",
+      "duration": 8.93,
+      "peakLevel": -69.128972,
+      "rmsLevel": -76.891332,
+      "lufs": -13.97,
+      "truePeak": 0.19,
+      "dynamicRange": 1.9,
+      "bitrate": 123
+    },
+    {
+      "filename": "hin-luka.mp3",
+      "duration": 6.64,
+      "peakLevel": -37.087999,
+      "rmsLevel": -42.449606,
+      "lufs": -14.27,
+      "truePeak": -1.55,
+      "dynamicRange": 0.9,
+      "bitrate": 129
+    },
+    {
+      "filename": "hmn-luka.mp3",
+      "duration": 12.25,
+      "peakLevel": -43.576999,
+      "rmsLevel": -48.2707,
+      "lufs": -14.13,
+      "truePeak": 0.33,
+      "dynamicRange": 8.3,
+      "bitrate": 119
+    },
+    {
+      "filename": "hoc-luka.mp3",
+      "duration": 8.02,
+      "peakLevel": -67.585372,
+      "rmsLevel": -76.081682,
+      "lufs": -15.11,
+      "truePeak": -0.85,
+      "dynamicRange": 2.8,
+      "bitrate": 117
+    },
+    {
+      "filename": "hrv-luka.mp3",
+      "duration": 17.06,
+      "peakLevel": -53.272285,
+      "rmsLevel": -54.973217,
+      "lufs": -13.14,
+      "truePeak": 2.36,
+      "dynamicRange": 4.4,
+      "bitrate": 136
+    },
+    {
+      "filename": "hun-luka.mp3",
+      "duration": 8.57,
+      "peakLevel": -63.108266,
+      "rmsLevel": -72.656039,
+      "lufs": -15.4,
+      "truePeak": 0.18,
+      "dynamicRange": 2.4,
+      "bitrate": 147
+    },
+    {
+      "filename": "hye-luka.mp3",
+      "duration": 6.09,
+      "peakLevel": -37.115299,
+      "rmsLevel": -42.789371,
+      "lufs": -15.21,
+      "truePeak": -0.58,
+      "dynamicRange": 0.2,
+      "bitrate": 101
+    },
+    {
+      "filename": "ibo-luka.mp3",
+      "duration": 10.08,
+      "peakLevel": -53.067018,
+      "rmsLevel": -58.468979,
+      "lufs": -16.25,
+      "truePeak": -2.1,
+      "dynamicRange": 5.3,
+      "bitrate": 112
+    },
+    {
+      "filename": "iii-luka.mp3",
+      "duration": 11.21,
+      "peakLevel": -75.860645,
+      "rmsLevel": -83.465632,
+      "lufs": -12.96,
+      "truePeak": 0.12,
+      "dynamicRange": 3.9,
+      "bitrate": 114
+    },
+    {
+      "filename": "iku-luka.mp3",
+      "duration": 11.86,
+      "peakLevel": -58.957139,
+      "rmsLevel": -66.135589,
+      "lufs": -13.36,
+      "truePeak": 1.44,
+      "dynamicRange": 2,
+      "bitrate": 122
+    },
+    {
+      "filename": "ilo-luka.mp3",
+      "duration": 5.72,
+      "peakLevel": -87.873061,
+      "rmsLevel": -92.513247,
+      "lufs": -11.54,
+      "truePeak": 0.14,
+      "dynamicRange": 2.3,
+      "bitrate": 114
+    },
+    {
+      "filename": "ind-luka.mp3",
+      "duration": 11.23,
+      "peakLevel": -68.599571,
+      "rmsLevel": -76.879815,
+      "lufs": -13.93,
+      "truePeak": 0.85,
+      "dynamicRange": 4.1,
+      "bitrate": 111
+    },
+    {
+      "filename": "isl-luka.mp3",
+      "duration": 8.96,
+      "peakLevel": -43.266441,
+      "rmsLevel": -48.934972,
+      "lufs": -13.94,
+      "truePeak": -0.36,
+      "dynamicRange": 5,
+      "bitrate": 126
+    },
+    {
+      "filename": "ita-luka.mp3",
+      "duration": 11,
+      "peakLevel": -46.086819,
+      "rmsLevel": -50.453273,
+      "lufs": -12.7,
+      "truePeak": 0.65,
+      "dynamicRange": 3.8,
+      "bitrate": 118
+    },
+    {
+      "filename": "jam-luka.mp3",
+      "duration": 4.05,
+      "peakLevel": -44.754477,
+      "rmsLevel": -49.432904,
+      "lufs": -12.3,
+      "truePeak": -0.41,
+      "dynamicRange": 0.9,
+      "bitrate": 120
+    },
+    {
+      "filename": "jav-luka.mp3",
+      "duration": 8.62,
+      "peakLevel": -69.021226,
+      "rmsLevel": -80.287847,
+      "lufs": -13.53,
+      "truePeak": -2.1,
+      "dynamicRange": 4.3,
+      "bitrate": 114
+    },
+    {
+      "filename": "jpn-luka.mp3",
+      "duration": 12.59,
+      "peakLevel": -47.163837,
+      "rmsLevel": -51.680281,
+      "lufs": -15.42,
+      "truePeak": -0.1,
+      "dynamicRange": 10.3,
+      "bitrate": 122
+    },
+    {
+      "filename": "kab-luka.mp3",
+      "duration": 10.03,
+      "peakLevel": -97.209605,
+      "rmsLevel": -104.868234,
+      "lufs": -17.46,
+      "truePeak": -0.76,
+      "dynamicRange": 13,
+      "bitrate": 110
+    },
+    {
+      "filename": "kan-luka.mp3",
+      "duration": 7.92,
+      "peakLevel": -43.647937,
+      "rmsLevel": -50.057867,
+      "lufs": -18,
+      "truePeak": 0.94,
+      "dynamicRange": 3,
+      "bitrate": 123
+    },
+    {
+      "filename": "kar-luka.mp3",
+      "duration": 8.7,
+      "peakLevel": -33.363919,
+      "rmsLevel": -55.410196,
+      "lufs": -15.1,
+      "truePeak": -1.78,
+      "dynamicRange": 0.9,
+      "bitrate": 120
+    },
+    {
+      "filename": "kas-luka.mp3",
+      "duration": 6.58,
+      "peakLevel": -46.989401,
+      "rmsLevel": -52.542211,
+      "lufs": -14.63,
+      "truePeak": 0.22,
+      "dynamicRange": 2.1,
+      "bitrate": 123
+    },
+    {
+      "filename": "kat-luka.mp3",
+      "duration": 11.76,
+      "peakLevel": -30.366345,
+      "rmsLevel": -38.991456,
+      "lufs": -18.6,
+      "truePeak": -0.82,
+      "dynamicRange": 4.6,
+      "bitrate": 102
+    },
+    {
+      "filename": "kaz-luka.mp3",
+      "duration": 15.12,
+      "peakLevel": -28.210975,
+      "rmsLevel": -36.532389,
+      "lufs": -13.9,
+      "truePeak": 0.43,
+      "dynamicRange": 1.9,
+      "bitrate": 129
+    },
+    {
+      "filename": "kbd-luka.mp3",
+      "duration": 8.75,
+      "peakLevel": -107.335929,
+      "rmsLevel": -113.02999,
+      "lufs": -16.82,
+      "truePeak": -0.05,
+      "dynamicRange": 6.1,
+      "bitrate": 122
+    },
+    {
+      "filename": "kea-luka.mp3",
+      "duration": 9.8,
+      "peakLevel": -68.733418,
+      "rmsLevel": -77.085483,
+      "lufs": -16.53,
+      "truePeak": -0.51,
+      "dynamicRange": 8.8,
+      "bitrate": 126
+    },
+    {
+      "filename": "kfa-luka.mp3",
+      "duration": 5.2,
+      "peakLevel": -51.228862,
+      "rmsLevel": -56.766851,
+      "lufs": -9.75,
+      "truePeak": 1.71,
+      "dynamicRange": 1.1,
+      "bitrate": 119
+    },
+    {
+      "filename": "kha-luka.mp3",
+      "duration": 8.67,
+      "peakLevel": -96.131435,
+      "rmsLevel": -107.300615,
+      "lufs": -13.12,
+      "truePeak": 1.87,
+      "dynamicRange": 4.5,
+      "bitrate": 122
+    },
+    {
+      "filename": "khm-luka.mp3",
+      "duration": 6.66,
+      "peakLevel": -40.170535,
+      "rmsLevel": -49.534025,
+      "lufs": -19.19,
+      "truePeak": -0.92,
+      "dynamicRange": 1.6,
+      "bitrate": 128
+    },
+    {
+      "filename": "kik-luka.mp3",
+      "duration": 6.64,
+      "peakLevel": -37.784191,
+      "rmsLevel": -46.511902,
+      "lufs": -11.76,
+      "truePeak": 1.27,
+      "dynamicRange": 1.2,
+      "bitrate": 122
+    },
+    {
+      "filename": "kin-luka.mp3",
+      "duration": 5.77,
+      "peakLevel": -44.962761,
+      "rmsLevel": -48.481648,
+      "lufs": -14.22,
+      "truePeak": -0.29,
+      "dynamicRange": 1.8,
+      "bitrate": 132
+    },
+    {
+      "filename": "kir-luka.mp3",
+      "duration": 8.07,
+      "peakLevel": -47.12815,
+      "rmsLevel": -59.636828,
+      "lufs": -15.75,
+      "truePeak": -1.92,
+      "dynamicRange": 3.3,
+      "bitrate": 113
+    },
+    {
+      "filename": "kne-luka.mp3",
+      "duration": 6.92,
+      "peakLevel": -45.023591,
+      "rmsLevel": -54.589772,
+      "lufs": -10.77,
+      "truePeak": 2.11,
+      "dynamicRange": 1.9,
+      "bitrate": 118
+    },
+    {
+      "filename": "knr-luka.mp3",
+      "duration": 7.03,
+      "peakLevel": -41.113642,
+      "rmsLevel": -64.364684,
+      "lufs": -13.52,
+      "truePeak": -1.21,
+      "dynamicRange": 3.4,
+      "bitrate": 112
+    },
+    {
+      "filename": "kok-luka.mp3",
+      "duration": 14.08,
+      "peakLevel": -49.779609,
+      "rmsLevel": -77.313531,
+      "lufs": -13.26,
+      "truePeak": 1.09,
+      "dynamicRange": 14.4,
+      "bitrate": 119
+    },
+    {
+      "filename": "kor-luka.mp3",
+      "duration": 6.4,
+      "peakLevel": -32.657234,
+      "rmsLevel": -40.66872,
+      "lufs": -13.96,
+      "truePeak": -1.13,
+      "dynamicRange": 2.5,
+      "bitrate": 115
+    },
+    {
+      "filename": "kur-luka.mp3",
+      "duration": 12.56,
+      "peakLevel": -83.067849,
+      "rmsLevel": -92.044443,
+      "lufs": -17.4,
+      "truePeak": -1.99,
+      "dynamicRange": 18.4,
+      "bitrate": 111
+    },
+    {
+      "filename": "lao-luka.mp3",
+      "duration": 8.02,
+      "peakLevel": -48.601194,
+      "rmsLevel": -55.218833,
+      "lufs": -12.35,
+      "truePeak": 1.8,
+      "dynamicRange": 4.8,
+      "bitrate": 117
+    },
+    {
+      "filename": "lav-luka.mp3",
+      "duration": 18.42,
+      "peakLevel": -6153.053111,
+      "rmsLevel": -66.9216,
+      "lufs": -15.88,
+      "truePeak": -1.84,
+      "dynamicRange": 13.5,
+      "bitrate": 114
+    },
+    {
+      "filename": "lep-luka.mp3",
+      "duration": 5.43,
+      "peakLevel": -38.909388,
+      "rmsLevel": -45.785995,
+      "lufs": -14.62,
+      "truePeak": -0.21,
+      "dynamicRange": 0.7,
+      "bitrate": 124
+    },
+    {
+      "filename": "lim-luka.mp3",
+      "duration": 19.77,
+      "peakLevel": -101.69013,
+      "rmsLevel": -105.142729,
+      "lufs": -16.76,
+      "truePeak": -0.2,
+      "dynamicRange": 4.1,
+      "bitrate": 120
+    },
+    {
+      "filename": "lin-luka.mp3",
+      "duration": 8.1,
+      "peakLevel": -43.775752,
+      "rmsLevel": -48.289944,
+      "lufs": -14.36,
+      "truePeak": -1.04,
+      "dynamicRange": 2.6,
+      "bitrate": 118
+    },
+    {
+      "filename": "lit-luka.mp3",
+      "duration": 14.39,
+      "peakLevel": -63.531134,
+      "rmsLevel": -72.312035,
+      "lufs": -13.91,
+      "truePeak": -0.49,
+      "dynamicRange": 1.8,
+      "bitrate": 146
+    },
+    {
+      "filename": "ltz-luka.mp3",
+      "duration": 14.37,
+      "peakLevel": -36.568231,
+      "rmsLevel": -42.177514,
+      "lufs": -13.91,
+      "truePeak": -0.08,
+      "dynamicRange": 2,
+      "bitrate": 119
+    },
+    {
+      "filename": "lua-luka.mp3",
+      "duration": 8.52,
+      "peakLevel": -86.022032,
+      "rmsLevel": -92.56818,
+      "lufs": -15.85,
+      "truePeak": -0.71,
+      "dynamicRange": 4.7,
+      "bitrate": 122
+    },
+    {
+      "filename": "lug-luka.mp3",
+      "duration": 4.55,
+      "peakLevel": -34.154776,
+      "rmsLevel": -38.092147,
+      "lufs": -14.49,
+      "truePeak": -0.13,
+      "dynamicRange": 1,
+      "bitrate": 123
+    },
+    {
+      "filename": "luo-luka.mp3",
+      "duration": 11.23,
+      "peakLevel": -51.044294,
+      "rmsLevel": -54.688836,
+      "lufs": -14.61,
+      "truePeak": 0.53,
+      "dynamicRange": 2.6,
+      "bitrate": 117
+    },
+    {
+      "filename": "mag-luka.mp3",
+      "duration": 6.66,
+      "peakLevel": -53.54571,
+      "rmsLevel": -63.655585,
+      "lufs": -15.39,
+      "truePeak": -1.6,
+      "dynamicRange": 4.5,
+      "bitrate": 131
+    },
+    {
+      "filename": "mai-luka.mp3",
+      "duration": 8.83,
+      "peakLevel": -47.23475,
+      "rmsLevel": -53.942722,
+      "lufs": -13.8,
+      "truePeak": 2.11,
+      "dynamicRange": 5,
+      "bitrate": 123
+    },
+    {
+      "filename": "mal-luka.mp3",
+      "duration": 7.86,
+      "peakLevel": -42.830289,
+      "rmsLevel": -47.709234,
+      "lufs": -13.54,
+      "truePeak": 0.58,
+      "dynamicRange": 1.8,
+      "bitrate": 125
+    },
+    {
+      "filename": "mar-luka.mp3",
+      "duration": 6.77,
+      "peakLevel": -43.444515,
+      "rmsLevel": -47.332129,
+      "lufs": -13.39,
+      "truePeak": 0.34,
+      "dynamicRange": 2.9,
+      "bitrate": 137
+    },
+    {
+      "filename": "mas-luka.mp3",
+      "duration": 15.52,
+      "peakLevel": -79.940396,
+      "rmsLevel": -89.777578,
+      "lufs": -13.19,
+      "truePeak": 0.98,
+      "dynamicRange": 3,
+      "bitrate": 150
+    },
+    {
+      "filename": "mfe-luka.mp3",
+      "duration": 5.98,
+      "peakLevel": -77.900836,
+      "rmsLevel": -87.993713,
+      "lufs": -15.06,
+      "truePeak": -1.94,
+      "dynamicRange": 1.1,
+      "bitrate": 117
+    },
+    {
+      "filename": "min-luka.mp3",
+      "duration": 8.02,
+      "peakLevel": -36.093868,
+      "rmsLevel": -44.489969,
+      "lufs": -14.5,
+      "truePeak": 1.15,
+      "dynamicRange": 2.8,
+      "bitrate": 118
+    },
+    {
+      "filename": "mkd-luka.mp3",
+      "duration": 35.97,
+      "peakLevel": -98.083211,
+      "rmsLevel": -105.380981,
+      "lufs": -13.71,
+      "truePeak": 1.33,
+      "dynamicRange": 14.2,
+      "bitrate": 119
+    },
+    {
+      "filename": "mlg-luka.mp3",
+      "duration": 7.5,
+      "peakLevel": -41.895588,
+      "rmsLevel": -47.899354,
+      "lufs": -16.88,
+      "truePeak": 0.19,
+      "dynamicRange": 4.6,
+      "bitrate": 124
+    },
+    {
+      "filename": "mlt-luka.mp3",
+      "duration": 6.61,
+      "peakLevel": -120.310867,
+      "rmsLevel": -129.174073,
+      "lufs": -13.28,
+      "truePeak": 0.33,
+      "dynamicRange": 1,
+      "bitrate": 113
+    },
+    {
+      "filename": "mni-luka.mp3",
+      "duration": 9.06,
+      "peakLevel": -86.987578,
+      "rmsLevel": -93.618738,
+      "lufs": -13.79,
+      "truePeak": 0.28,
+      "dynamicRange": 17.7,
+      "bitrate": 120
+    },
+    {
+      "filename": "mnw-luka.mp3",
+      "duration": 11.99,
+      "peakLevel": -42.049636,
+      "rmsLevel": -47.230869,
+      "lufs": -10.95,
+      "truePeak": 3.48,
+      "dynamicRange": 1.6,
+      "bitrate": 128
+    },
+    {
+      "filename": "mon-luka.mp3",
+      "duration": 9.12,
+      "peakLevel": -42.686366,
+      "rmsLevel": -49.542277,
+      "lufs": -15.7,
+      "truePeak": -0.32,
+      "dynamicRange": 21.8,
+      "bitrate": 116
+    },
+    {
+      "filename": "mri-luka.mp3",
+      "duration": 8.62,
+      "peakLevel": -6153.053111,
+      "rmsLevel": -118.959908,
+      "lufs": -13.62,
+      "truePeak": 0.75,
+      "dynamicRange": 4.1,
+      "bitrate": 111
+    },
+    {
+      "filename": "msa-luka.mp3",
+      "duration": 10.76,
+      "peakLevel": -42.874901,
+      "rmsLevel": -47.650006,
+      "lufs": -14.34,
+      "truePeak": -1.89,
+      "dynamicRange": 2.4,
+      "bitrate": 118
+    },
+    {
+      "filename": "mya-luka.mp3",
+      "duration": 12.23,
+      "peakLevel": -42.233976,
+      "rmsLevel": -49.231157,
+      "lufs": -14.55,
+      "truePeak": -0.05,
+      "dynamicRange": 2.6,
+      "bitrate": 120
+    },
+    {
+      "filename": "nah-luka.mp3",
+      "duration": 13.71,
+      "peakLevel": -6153.053111,
+      "rmsLevel": -129.342153,
+      "lufs": -16.68,
+      "truePeak": -1.06,
+      "dynamicRange": 16.6,
+      "bitrate": 120
+    },
+    {
+      "filename": "nan-luka.mp3",
+      "duration": 5.62,
+      "peakLevel": -42.470327,
+      "rmsLevel": -47.392029,
+      "lufs": -17.61,
+      "truePeak": -0.14,
+      "dynamicRange": 2.3,
+      "bitrate": 141
+    },
+    {
+      "filename": "naq-luka.mp3",
+      "duration": 8.54,
+      "peakLevel": -39.938455,
+      "rmsLevel": -43.858218,
+      "lufs": -14.87,
+      "truePeak": -0.15,
+      "dynamicRange": 2.9,
+      "bitrate": 121
+    },
+    {
+      "filename": "nav-luka.mp3",
+      "duration": 10.66,
+      "peakLevel": -56.259352,
+      "rmsLevel": -77.279239,
+      "lufs": -14.43,
+      "truePeak": -0.24,
+      "dynamicRange": 6.4,
+      "bitrate": 114
+    },
+    {
+      "filename": "nde-luka.mp3",
+      "duration": 9.3,
+      "peakLevel": -31.84968,
+      "rmsLevel": -37.314961,
+      "lufs": -15.79,
+      "truePeak": 0.24,
+      "dynamicRange": 3.1,
+      "bitrate": 117
+    },
+    {
+      "filename": "nep-luka.mp3",
+      "duration": 5.85,
+      "peakLevel": -82.429277,
+      "rmsLevel": -85.971298,
+      "lufs": -15.35,
+      "truePeak": -0.55,
+      "dynamicRange": 3.6,
+      "bitrate": 114
+    },
+    {
+      "filename": "new-luka.mp3",
+      "duration": 8.02,
+      "peakLevel": -47.386055,
+      "rmsLevel": -53.479247,
+      "lufs": -16.2,
+      "truePeak": -2.53,
+      "dynamicRange": 1.8,
+      "bitrate": 124
+    },
+    {
+      "filename": "nld-luka.mp3",
+      "duration": 19.23,
+      "peakLevel": -54.927633,
+      "rmsLevel": -61.885863,
+      "lufs": -15.12,
+      "truePeak": 2.46,
+      "dynamicRange": 3.5,
+      "bitrate": 121
+    },
+    {
+      "filename": "nor-luka.mp3",
+      "duration": 12.49,
+      "peakLevel": -72.912536,
+      "rmsLevel": -78.990294,
+      "lufs": -14.31,
+      "truePeak": -0.36,
+      "dynamicRange": 5.2,
+      "bitrate": 116
+    },
+    {
+      "filename": "nso-luka.mp3",
+      "duration": 7.52,
+      "peakLevel": -71.411282,
+      "rmsLevel": -72.170101,
+      "lufs": -13.61,
+      "truePeak": -0.77,
+      "dynamicRange": 2.4,
+      "bitrate": 115
+    },
+    {
+      "filename": "nup-luka.mp3",
+      "duration": 6.84,
+      "peakLevel": -42.532673,
+      "rmsLevel": -47.938782,
+      "lufs": -13.3,
+      "truePeak": -0.48,
+      "dynamicRange": 1.3,
+      "bitrate": 118
+    },
+    {
+      "filename": "nus-luka.mp3",
+      "duration": 9.04,
+      "peakLevel": -41.056227,
+      "rmsLevel": -45.083117,
+      "lufs": -14.76,
+      "truePeak": -0.06,
+      "dynamicRange": 2.5,
+      "bitrate": 119
+    },
+    {
+      "filename": "nya-luka.mp3",
+      "duration": 6.82,
+      "peakLevel": -33.559217,
+      "rmsLevel": -41.687482,
+      "lufs": -14.37,
+      "truePeak": -2.12,
+      "dynamicRange": 2.3,
+      "bitrate": 131
+    },
+    {
+      "filename": "nyk-luka.mp3",
+      "duration": 10.53,
+      "peakLevel": -39.904879,
+      "rmsLevel": -47.066633,
+      "lufs": -15.1,
+      "truePeak": 0.09,
+      "dynamicRange": 3.3,
+      "bitrate": 119
+    },
+    {
+      "filename": "oji-luka.mp3",
+      "duration": 9.87,
+      "peakLevel": -72.446499,
+      "rmsLevel": -79.397325,
+      "lufs": -15.66,
+      "truePeak": 0.44,
+      "dynamicRange": 7,
+      "bitrate": 119
+    },
+    {
+      "filename": "ori-luka.mp3",
+      "duration": 10.76,
+      "peakLevel": -85.341842,
+      "rmsLevel": -92.699666,
+      "lufs": -15.88,
+      "truePeak": -0.61,
+      "dynamicRange": 16.4,
+      "bitrate": 140
+    },
+    {
+      "filename": "orm-luka.mp3",
+      "duration": 7.78,
+      "peakLevel": -26.034363,
+      "rmsLevel": -30.824218,
+      "lufs": -12.56,
+      "truePeak": 0.37,
+      "dynamicRange": 0.7,
+      "bitrate": 125
+    },
+    {
+      "filename": "pag-luka.mp3",
+      "duration": 10.34,
+      "peakLevel": -78.738764,
+      "rmsLevel": -92.250547,
+      "lufs": -15.37,
+      "truePeak": -0.44,
+      "dynamicRange": 3.3,
+      "bitrate": 115
+    },
+    {
+      "filename": "pam-luka.mp3",
+      "duration": 9.59,
+      "peakLevel": -82.334805,
+      "rmsLevel": -89.109719,
+      "lufs": -13.16,
+      "truePeak": -0.13,
+      "dynamicRange": 7,
+      "bitrate": 142
+    },
+    {
+      "filename": "pan-luka.mp3",
+      "duration": 7.71,
+      "peakLevel": -50.163516,
+      "rmsLevel": -60.594651,
+      "lufs": -14.82,
+      "truePeak": -0.27,
+      "dynamicRange": 4.4,
+      "bitrate": 127
+    },
+    {
+      "filename": "pap-luka.mp3",
+      "duration": 16.72,
+      "peakLevel": -83.383881,
+      "rmsLevel": -93.009412,
+      "lufs": -16.82,
+      "truePeak": -2.19,
+      "dynamicRange": 6.8,
+      "bitrate": 116
+    },
+    {
+      "filename": "pcm-luka.mp3",
+      "duration": 17.03,
+      "peakLevel": -117.216182,
+      "rmsLevel": -120.584538,
+      "lufs": -11.09,
+      "truePeak": 2.45,
+      "dynamicRange": 9.2,
+      "bitrate": 149
+    },
+    {
+      "filename": "pln-luka.mp3",
+      "duration": 5.8,
+      "peakLevel": -46.974984,
+      "rmsLevel": -55.109301,
+      "lufs": -13.25,
+      "truePeak": -0.69,
+      "dynamicRange": 4,
+      "bitrate": 121
+    },
+    {
+      "filename": "pol-luka.mp3",
+      "duration": 24.89,
+      "peakLevel": -73.312153,
+      "rmsLevel": -81.517822,
+      "lufs": -14.11,
+      "truePeak": 2.16,
+      "dynamicRange": 9.1,
+      "bitrate": 120
+    },
+    {
+      "filename": "por-luka.mp3",
+      "duration": 12.2,
+      "peakLevel": -34.503718,
+      "rmsLevel": -38.368901,
+      "lufs": -15.47,
+      "truePeak": -0.5,
+      "dynamicRange": 1.1,
+      "bitrate": 118
+    },
+    {
+      "filename": "pus-luka.mp3",
+      "duration": 11.91,
+      "peakLevel": -87.683894,
+      "rmsLevel": -93.29598,
+      "lufs": -10.64,
+      "truePeak": 2.45,
+      "dynamicRange": 6.5,
+      "bitrate": 119
+    },
+    {
+      "filename": "pwo-luka.mp3",
+      "duration": 9.8,
+      "peakLevel": -84.040188,
+      "rmsLevel": -89.393605,
+      "lufs": -12.26,
+      "truePeak": 0.88,
+      "dynamicRange": 2.4,
+      "bitrate": 120
+    },
+    {
+      "filename": "quc-luka.mp3",
+      "duration": 6.22,
+      "peakLevel": -32.16434,
+      "rmsLevel": -38.645185,
+      "lufs": -12.51,
+      "truePeak": 0.1,
+      "dynamicRange": 1.8,
+      "bitrate": 122
+    },
+    {
+      "filename": "que-luka.mp3",
+      "duration": 16.4,
+      "peakLevel": -109.681401,
+      "rmsLevel": -110.921662,
+      "lufs": -17.07,
+      "truePeak": -0.16,
+      "dynamicRange": 12.6,
+      "bitrate": 158
+    },
+    {
+      "filename": "rcf-luka.mp3",
+      "duration": 12.43,
+      "peakLevel": -73.866214,
+      "rmsLevel": -84.592305,
+      "lufs": -13.64,
+      "truePeak": -0.24,
+      "dynamicRange": 5,
+      "bitrate": 149
+    },
+    {
+      "filename": "roh-luka.mp3",
+      "duration": 10.29,
+      "peakLevel": -42.039079,
+      "rmsLevel": -47.286997,
+      "lufs": -16.19,
+      "truePeak": -1.91,
+      "dynamicRange": 2,
+      "bitrate": 116
+    },
+    {
+      "filename": "rom-luka.mp3",
+      "duration": 9.93,
+      "peakLevel": -55.999375,
+      "rmsLevel": -61.828599,
+      "lufs": -13.66,
+      "truePeak": -0.32,
+      "dynamicRange": 4.3,
+      "bitrate": 124
+    },
+    {
+      "filename": "ron-luka.mp3",
+      "duration": 14.18,
+      "peakLevel": -6153.053111,
+      "rmsLevel": -129.101019,
+      "lufs": -15.54,
+      "truePeak": -0.21,
+      "dynamicRange": 4.3,
+      "bitrate": 117
+    },
+    {
+      "filename": "run-luka.mp3",
+      "duration": 11.08,
+      "peakLevel": -89.643845,
+      "rmsLevel": -95.178781,
+      "lufs": -16.01,
+      "truePeak": -1.82,
+      "dynamicRange": 4,
+      "bitrate": 161
+    },
+    {
+      "filename": "rus-luka.mp3",
+      "duration": 17.4,
+      "peakLevel": -45.8486,
+      "rmsLevel": -47.562028,
+      "lufs": -18.36,
+      "truePeak": 1.21,
+      "dynamicRange": 19.8,
+      "bitrate": 112
+    },
+    {
+      "filename": "ryu-luka.mp3",
+      "duration": 8.12,
+      "peakLevel": -118.737369,
+      "rmsLevel": -122.008298,
+      "lufs": -16.95,
+      "truePeak": -2.01,
+      "dynamicRange": 4.7,
+      "bitrate": 127
+    },
+    {
+      "filename": "sag-luka.mp3",
+      "duration": 12.46,
+      "peakLevel": -90.249245,
+      "rmsLevel": -97.925098,
+      "lufs": -14.64,
+      "truePeak": 0.08,
+      "dynamicRange": 9,
+      "bitrate": 117
+    },
+    {
+      "filename": "sat-luka.mp3",
+      "duration": 11.23,
+      "peakLevel": -41.450416,
+      "rmsLevel": -48.158473,
+      "lufs": -19.47,
+      "truePeak": -1.46,
+      "dynamicRange": 4.7,
+      "bitrate": 111
+    },
+    {
+      "filename": "sce-luka.mp3",
+      "duration": 11.76,
+      "peakLevel": -73.903876,
+      "rmsLevel": -80.025569,
+      "lufs": -15.77,
+      "truePeak": -0.72,
+      "dynamicRange": 13.4,
+      "bitrate": 123
+    },
+    {
+      "filename": "sco-luka.mp3",
+      "duration": 12.62,
+      "peakLevel": -88.979272,
+      "rmsLevel": -94.015271,
+      "lufs": -13.55,
+      "truePeak": 1.77,
+      "dynamicRange": 3.4,
+      "bitrate": 123
+    },
+    {
+      "filename": "sin-luka.mp3",
+      "duration": 8.91,
+      "peakLevel": -56.060208,
+      "rmsLevel": -67.23802,
+      "lufs": -15.96,
+      "truePeak": -0.87,
+      "dynamicRange": 3.4,
+      "bitrate": 121
+    },
+    {
+      "filename": "slk-luka.mp3",
+      "duration": 13.48,
+      "peakLevel": -32.457947,
+      "rmsLevel": -36.343301,
+      "lufs": -13.68,
+      "truePeak": 1.11,
+      "dynamicRange": 2.6,
+      "bitrate": 127
+    },
+    {
+      "filename": "slv-luka.mp3",
+      "duration": 9.17,
+      "peakLevel": -73.041965,
+      "rmsLevel": -82.984854,
+      "lufs": -13.52,
+      "truePeak": 0.84,
+      "dynamicRange": 5.3,
+      "bitrate": 157
+    },
+    {
+      "filename": "smo-luka.mp3",
+      "duration": 14.13,
+      "peakLevel": -76.900059,
+      "rmsLevel": -86.124072,
+      "lufs": -11.04,
+      "truePeak": 4.05,
+      "dynamicRange": 16.4,
+      "bitrate": 114
+    },
+    {
+      "filename": "sna-luka.mp3",
+      "duration": 11.94,
+      "peakLevel": -80.926357,
+      "rmsLevel": -95.332549,
+      "lufs": -13.75,
+      "truePeak": 0.86,
+      "dynamicRange": 3.7,
+      "bitrate": 120
+    },
+    {
+      "filename": "snd-luka.mp3",
+      "duration": 6.48,
+      "peakLevel": -42.08028,
+      "rmsLevel": -49.72468,
+      "lufs": -14.14,
+      "truePeak": 0.49,
+      "dynamicRange": 6.9,
+      "bitrate": 125
+    },
+    {
+      "filename": "som-luka.mp3",
+      "duration": 14.39,
+      "peakLevel": -93.26933,
+      "rmsLevel": -104.788905,
+      "lufs": -15.63,
+      "truePeak": -2.17,
+      "dynamicRange": 3.5,
+      "bitrate": 127
+    },
+    {
+      "filename": "sot-luka.mp3",
+      "duration": 7.55,
+      "peakLevel": -51.857321,
+      "rmsLevel": -55.90467,
+      "lufs": -11.45,
+      "truePeak": 1.32,
+      "dynamicRange": 3,
+      "bitrate": 119
+    },
+    {
+      "filename": "spa-luka.mp3",
+      "duration": 16.61,
+      "peakLevel": -90.830011,
+      "rmsLevel": -94.027973,
+      "lufs": -17.5,
+      "truePeak": -0.46,
+      "dynamicRange": 5.6,
+      "bitrate": 129
+    },
+    {
+      "filename": "srb-luka.mp3",
+      "duration": 7.63,
+      "peakLevel": -29.633867,
+      "rmsLevel": -33.974119,
+      "lufs": -13.93,
+      "truePeak": 1.3,
+      "dynamicRange": 3.7,
+      "bitrate": 116
+    },
+    {
+      "filename": "srd-luka.mp3",
+      "duration": 13.14,
+      "peakLevel": -67.927771,
+      "rmsLevel": -74.595937,
+      "lufs": -16.28,
+      "truePeak": 1.72,
+      "dynamicRange": 6.8,
+      "bitrate": 166
+    },
+    {
+      "filename": "srn-luka.mp3",
+      "duration": 13.4,
+      "peakLevel": -54.862128,
+      "rmsLevel": -83.468965,
+      "lufs": -13.63,
+      "truePeak": 0.39,
+      "dynamicRange": 5.8,
+      "bitrate": 120
+    },
+    {
+      "filename": "srp-luka.mp3",
+      "duration": 33.18,
+      "peakLevel": -41.877867,
+      "rmsLevel": -49.877093,
+      "lufs": -16.52,
+      "truePeak": -0.96,
+      "dynamicRange": 7.4,
+      "bitrate": 166
+    },
+    {
+      "filename": "ssw-luka.mp3",
+      "duration": 7.65,
+      "peakLevel": -42.581067,
+      "rmsLevel": -48.146191,
+      "lufs": -17.89,
+      "truePeak": -3.89,
+      "dynamicRange": 1.2,
+      "bitrate": 131
+    },
+    {
+      "filename": "suk-luka.mp3",
+      "duration": 10.68,
+      "peakLevel": -27.965154,
+      "rmsLevel": -32.505186,
+      "lufs": -14.62,
+      "truePeak": -0.06,
+      "dynamicRange": 3.1,
+      "bitrate": 116
+    },
+    {
+      "filename": "sun-luka.mp3",
+      "duration": 6.48,
+      "peakLevel": -41.190379,
+      "rmsLevel": -47.970697,
+      "lufs": -14.59,
+      "truePeak": -2.33,
+      "dynamicRange": 0.6,
+      "bitrate": 115
+    },
+    {
+      "filename": "swa-luka.mp3",
+      "duration": 10.95,
+      "peakLevel": -45.434792,
+      "rmsLevel": -50.744845,
+      "lufs": -13.36,
+      "truePeak": 0.37,
+      "dynamicRange": 5.1,
+      "bitrate": 115
+    },
+    {
+      "filename": "swe-luka.mp3",
+      "duration": 12.36,
+      "peakLevel": -48.374339,
+      "rmsLevel": -70.92745,
+      "lufs": -15.28,
+      "truePeak": -0.14,
+      "dynamicRange": 2,
+      "bitrate": 119
+    },
+    {
+      "filename": "tam-luka.mp3",
+      "duration": 12.98,
+      "peakLevel": -38.901394,
+      "rmsLevel": -45.083552,
+      "lufs": -13.6,
+      "truePeak": 1.39,
+      "dynamicRange": 4.7,
+      "bitrate": 114
+    },
+    {
+      "filename": "tat-luka.mp3",
+      "duration": 5.77,
+      "peakLevel": -78.306456,
+      "rmsLevel": -81.960954,
+      "lufs": -11.45,
+      "truePeak": 1.36,
+      "dynamicRange": 2.1,
+      "bitrate": 115
+    },
+    {
+      "filename": "tcy-luka.mp3",
+      "duration": 11.78,
+      "peakLevel": -42.217375,
+      "rmsLevel": -49.245429,
+      "lufs": -12.88,
+      "truePeak": 3.13,
+      "dynamicRange": 3.8,
+      "bitrate": 127
+    },
+    {
+      "filename": "tel-luka.mp3",
+      "duration": 14.5,
+      "peakLevel": -56.201766,
+      "rmsLevel": -64.099695,
+      "lufs": -12.91,
+      "truePeak": 1.74,
+      "dynamicRange": 8.2,
+      "bitrate": 166
+    },
+    {
+      "filename": "tgk-luka.mp3",
+      "duration": 7.94,
+      "peakLevel": -103.330873,
+      "rmsLevel": -112.893832,
+      "lufs": -14.38,
+      "truePeak": 1.46,
+      "dynamicRange": 6.6,
+      "bitrate": 116
+    },
+    {
+      "filename": "tgl-luka.mp3",
+      "duration": 7.84,
+      "peakLevel": -33.668826,
+      "rmsLevel": -38.926807,
+      "lufs": -14.9,
+      "truePeak": 0.07,
+      "dynamicRange": 2.8,
+      "bitrate": 116
+    },
+    {
+      "filename": "tha-luka.mp3",
+      "duration": 10.14,
+      "peakLevel": -39.123339,
+      "rmsLevel": -65.697094,
+      "lufs": -10.6,
+      "truePeak": 2.97,
+      "dynamicRange": 15,
+      "bitrate": 121
+    },
+    {
+      "filename": "tir-luka.mp3",
+      "duration": 8.57,
+      "peakLevel": -79.34764,
+      "rmsLevel": -88.824197,
+      "lufs": -11.29,
+      "truePeak": 2.71,
+      "dynamicRange": 5.2,
+      "bitrate": 111
+    },
+    {
+      "filename": "ton-luka.mp3",
+      "duration": 7.78,
+      "peakLevel": -70.303524,
+      "rmsLevel": -77.432389,
+      "lufs": -12.17,
+      "truePeak": 1.05,
+      "dynamicRange": 2.6,
+      "bitrate": 125
+    },
+    {
+      "filename": "tpi-luka.mp3",
+      "duration": 7.65,
+      "peakLevel": -50.18159,
+      "rmsLevel": -52.062377,
+      "lufs": -15.18,
+      "truePeak": 0.5,
+      "dynamicRange": 5.4,
+      "bitrate": 117
+    },
+    {
+      "filename": "tsn-luka.mp3",
+      "duration": 22.57,
+      "peakLevel": -42.055722,
+      "rmsLevel": -49.572199,
+      "lufs": -9.97,
+      "truePeak": 3.08,
+      "dynamicRange": 21.7,
+      "bitrate": 135
+    },
+    {
+      "filename": "tuk-luka.mp3",
+      "duration": 9.43,
+      "peakLevel": -76.187318,
+      "rmsLevel": -84.70382,
+      "lufs": -14.26,
+      "truePeak": -0.72,
+      "dynamicRange": 7.2,
+      "bitrate": 121
+    },
+    {
+      "filename": "tum-luka.mp3",
+      "duration": 7.18,
+      "peakLevel": -44.777009,
+      "rmsLevel": -49.394466,
+      "lufs": -14.73,
+      "truePeak": -0.35,
+      "dynamicRange": 1.6,
+      "bitrate": 118
+    },
+    {
+      "filename": "tur-luka.mp3",
+      "duration": 12.38,
+      "peakLevel": -53.192197,
+      "rmsLevel": -57.111374,
+      "lufs": -14.98,
+      "truePeak": 0.9,
+      "dynamicRange": 6.7,
+      "bitrate": 118
+    },
+    {
+      "filename": "uig-luka.mp3",
+      "duration": 9.61,
+      "peakLevel": -72.918447,
+      "rmsLevel": -80.281459,
+      "lufs": -13.12,
+      "truePeak": 0.67,
+      "dynamicRange": 4.1,
+      "bitrate": 146
+    },
+    {
+      "filename": "ukr-luka.mp3",
+      "duration": 19.83,
+      "peakLevel": -84.793684,
+      "rmsLevel": -94.908408,
+      "lufs": -14.74,
+      "truePeak": -2.04,
+      "dynamicRange": 4.1,
+      "bitrate": 119
+    },
+    {
+      "filename": "unr-luka.mp3",
+      "duration": 15.33,
+      "peakLevel": -45.077414,
+      "rmsLevel": -49.644576,
+      "lufs": -13.54,
+      "truePeak": -0.55,
+      "dynamicRange": 5.2,
+      "bitrate": 116
+    },
+    {
+      "filename": "urd-luka.mp3",
+      "duration": 12.8,
+      "peakLevel": -6153.053111,
+      "rmsLevel": -118.502601,
+      "lufs": -15.29,
+      "truePeak": -0.57,
+      "dynamicRange": 18.7,
+      "bitrate": 120
+    },
+    {
+      "filename": "uzb-luka.mp3",
+      "duration": 10.16,
+      "peakLevel": -92.056323,
+      "rmsLevel": -99.474967,
+      "lufs": -12.33,
+      "truePeak": 1.54,
+      "dynamicRange": 10.2,
+      "bitrate": 137
+    },
+    {
+      "filename": "ven-luka.mp3",
+      "duration": 10.63,
+      "peakLevel": -40.551358,
+      "rmsLevel": -47.602221,
+      "lufs": -15.11,
+      "truePeak": -0.82,
+      "dynamicRange": 2.8,
+      "bitrate": 116
+    },
+    {
+      "filename": "vie-luka.mp3",
+      "duration": 4.65,
+      "peakLevel": -61.466032,
+      "rmsLevel": -70.794338,
+      "lufs": -12.01,
+      "truePeak": -1.29,
+      "dynamicRange": 1.6,
+      "bitrate": 137
+    },
+    {
+      "filename": "war-luka.mp3",
+      "duration": 6.95,
+      "peakLevel": -91.748624,
+      "rmsLevel": -96.020044,
+      "lufs": -11.53,
+      "truePeak": 2.72,
+      "dynamicRange": 3.7,
+      "bitrate": 118
+    },
+    {
+      "filename": "wol-luka.mp3",
+      "duration": 8.72,
+      "peakLevel": -41.260182,
+      "rmsLevel": -70.40909,
+      "lufs": -13.42,
+      "truePeak": 1.06,
+      "dynamicRange": 23.1,
+      "bitrate": 113
+    },
+    {
+      "filename": "wuu-luka.mp3",
+      "duration": 5.75,
+      "peakLevel": -79.973807,
+      "rmsLevel": -86.786707,
+      "lufs": -15.08,
+      "truePeak": 0.59,
+      "dynamicRange": 4.8,
+      "bitrate": 120
+    },
+    {
+      "filename": "xal-luka.mp3",
+      "duration": 13.61,
+      "peakLevel": -43.81144,
+      "rmsLevel": -47.995699,
+      "lufs": -16.44,
+      "truePeak": -1.54,
+      "dynamicRange": 2.9,
+      "bitrate": 115
+    },
+    {
+      "filename": "xho-luka.mp3",
+      "duration": 10.42,
+      "peakLevel": -43.79366,
+      "rmsLevel": -49.286983,
+      "lufs": -14.91,
+      "truePeak": -0.07,
+      "dynamicRange": 2.4,
+      "bitrate": 120
+    },
+    {
+      "filename": "yid-luka.mp3",
+      "duration": 9.87,
+      "peakLevel": -78.727873,
+      "rmsLevel": -88.610154,
+      "lufs": -14.11,
+      "truePeak": 1.44,
+      "dynamicRange": 2.7,
+      "bitrate": 113
+    },
+    {
+      "filename": "yor-luka.mp3",
+      "duration": 8.96,
+      "peakLevel": -46.28762,
+      "rmsLevel": -53.874002,
+      "lufs": -14.51,
+      "truePeak": -0.44,
+      "dynamicRange": 5.2,
+      "bitrate": 117
+    },
+    {
+      "filename": "yua-luka.mp3",
+      "duration": 6.3,
+      "peakLevel": -90.721429,
+      "rmsLevel": -96.10489,
+      "lufs": -13.91,
+      "truePeak": -1.73,
+      "dynamicRange": 2.8,
+      "bitrate": 143
+    },
+    {
+      "filename": "yue-luka.mp3",
+      "duration": 10,
+      "peakLevel": -51.363144,
+      "rmsLevel": -78.907511,
+      "lufs": -12.88,
+      "truePeak": 1.14,
+      "dynamicRange": 9.2,
+      "bitrate": 112
+    },
+    {
+      "filename": "zha-luka.mp3",
+      "duration": 9.12,
+      "peakLevel": -88.56939,
+      "rmsLevel": -95.35639,
+      "lufs": -13.11,
+      "truePeak": -0.44,
+      "dynamicRange": 5.2,
+      "bitrate": 112
+    },
+    {
+      "filename": "zhx-luka.mp3",
+      "duration": 14.05,
+      "peakLevel": -86.485682,
+      "rmsLevel": -91.931467,
+      "lufs": -14.08,
+      "truePeak": -0.56,
+      "dynamicRange": 14.4,
+      "bitrate": 118
+    },
+    {
+      "filename": "zul-luka.mp3",
+      "duration": 21.03,
+      "peakLevel": -85.981193,
+      "rmsLevel": -96.551292,
+      "lufs": -14.06,
+      "truePeak": 1.99,
+      "dynamicRange": 2.9,
+      "bitrate": 123
+    }
+  ]
+}
