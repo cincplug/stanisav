@@ -29,6 +29,7 @@
       { "value": "speakers", "label": "Speakers' number" },
       { "value": "tonality", "label": "Tonality" },
       { "value": "morphology", "label": "Morphology" },
+      { "value": "wordOrder", "label": "Word Order" },
       { "value": "wordOrderFlexibility", "label": "Word Order Flexibility" },
       { "value": "phonemeCount", "label": "Phoneme Count" },
       { "value": "caseCount", "label": "Case Count" }

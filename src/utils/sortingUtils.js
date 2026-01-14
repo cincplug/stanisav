@@ -73,6 +73,7 @@ export function sortLanguages({
       case "tonality":
       case "morphology":
       case "wordOrderFlexibility":
+      case "wordOrder":
         return allLanguages.sort((a, b) => {
           const featureA = typologicalFeatures?.[a]?.[sortLanguagesBy];
           const featureB = typologicalFeatures?.[b]?.[sortLanguagesBy];
