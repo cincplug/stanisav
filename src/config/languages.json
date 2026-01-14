@@ -9,9 +9,10 @@
     "novo": true,
     "tonality": "complex-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 30,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "flexible"
   },
   "acq": {
     "name": "Iraqi Arabic",
@@ -22,9 +23,10 @@
     "sr": "kilimed babuď, haźakom te anni, hajda alj mar aa, vaatlj kaalbelj aalji. auwin mürtafa",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "moderate",
     "phonemeCount": 28,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "moderate"
   },
   "adx": {
     "name": "Amdo Tibetan",
@@ -35,9 +37,10 @@
     "sr": "tanjeldelor aldepo naj nemajćućimare tanjedolon zućizgraj sui njukusumi aam narumaram",
     "tonality": "simple-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 39,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "afb": {
     "name": "Gulf Arabic",
@@ -48,9 +51,10 @@
     "sr": "llazem, maa nekhtellef, aśaan allfellus",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "moderate",
     "phonemeCount": 29,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "moderate"
   },
   "afr": {
     "name": "Afrikaans",
@@ -61,9 +65,10 @@
     "sr": "malamela idi midia angalæh, or di jongste vrvrkelinge bej di øngstjalen na di fiir dah lange protest optrijedø vaar tijdens mnstens aht hbouwe op di kampøs an di brant hestiekøs",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 45,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "aka": {
     "name": "Akan",
@@ -75,9 +80,10 @@
     "sr": "Eeo Penji sediaOkana Kae Kaseo vonuja kasi seetin Fi edia Sa Innu. Vidü Koao Eee fotoKasia Misüa Bekane seTeti Vijf",
     "tonality": "complex-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 32,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "rigid"
   },
   "alb": {
     "name": "Albanian",
@@ -88,9 +94,10 @@
     "sr": "sistemi presidencialj na šeboade turćija mereferendumi ne vete. šomica e demokrat, vad ve ljiberal ve fronse modelji maižviluare demokracisa njivendi nabot, jan vet štede de baš kuarat amerikas",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 29,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "flexible"
   },
   "amh": {
     "name": "Amharic",
@@ -101,9 +108,10 @@
     "sr": "bunan wede zemanoui na, mrtena mrtameneta lemasa dygy miradyzoroujaući mdemade!en, savarat andasraulet savarat andarwana",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 31,
-    "caseCount": 4
+    "caseCount": 4,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "apc": {
     "name": "Levantine Arabic",
@@ -114,9 +122,10 @@
     "sr": "houwi šehaz, uetek, ktiirman haallo, bs, hada mabjanji inno mišma tu ualdau",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "moderate",
     "phonemeCount": 26,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "moderate"
   },
   "ara": {
     "name": "Standard Arabic",
@@ -127,9 +136,10 @@
     "sr": "frdigid bosalala koumuehet kelei-kizaujouwahne, rakamit nin lei fizauiti, rakam telíte teledzauei, rakam arba arbazauei",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 28,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "flexible"
   },
   "ary": {
     "name": "Moroccan Arabic",
@@ -140,9 +150,10 @@
     "sr": "arftji, tu hešt lijem, ljikenakal haržufejao, rzuš",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "moderate",
     "phonemeCount": 32,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "moderate"
   },
   "arz": {
     "name": "Egyptian Arabic",
@@ -153,9 +164,10 @@
     "sr": "taabu uošiptea, vo alatúl alatúl alatúl, ua nia dubbessi bella, šue satus ala taaddu",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "moderate",
     "phonemeCount": 28,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "moderate"
   },
   "asm": {
     "name": "Assamese",
@@ -166,9 +178,10 @@
     "sr": "pomara penkolo vdee bukamugue ghehahoo fn bekenua brnega solarndjon",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 23,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "awa": {
     "name": "Awadhi",
@@ -179,9 +192,10 @@
     "sr": "ftahama darsendargalenja fsm tm tarampa huohelagenmaj de peragurug bidig v-lanamvulidraben vd",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 29,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "aym": {
     "name": "Aymara",
@@ -192,9 +206,10 @@
     "sr": "walik uĆitawaj, haTasta, kuna Teha, aiMaramm, aRoha haNiuam nairap aĆena Kanha arsusKanti",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 26,
-    "caseCount": 14
+    "caseCount": 14,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "aze": {
     "name": "Azerbaijani",
@@ -205,9 +220,10 @@
     "sr": "hamre jogurtom, kabontibnabraz, jahcekirin, ondatajah šoldaham japšmom",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 30,
-    "caseCount": 6
+    "caseCount": 6,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "bak": {
     "name": "Bashkir",
@@ -218,9 +234,10 @@
     "sr": "patanøm üljkenulihe kerhabuluan, patešlaj ünejahamaj kiljigende jörhen bijutauš tarejšitken",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 42,
-    "caseCount": 6
+    "caseCount": 6,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "bal": {
     "name": "Balochi",
@@ -231,9 +248,10 @@
     "sr": "wot pužešku duviti zwonahan badarem belučjem, mete čuko medi vuosaga, ja bedeji han gat, mo, vødi rasmu, vødi rusuma, dosta",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 26,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "bam": {
     "name": "Bambara",
@@ -244,9 +262,10 @@
     "sr": "ni dalala, kušor ki seii, bidon žeri kanfa, kanji uoćimina. mano dobila dala",
     "tonality": "complex-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 29,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "ban": {
     "name": "Balinese",
@@ -258,9 +277,10 @@
     "novo": true,
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 32,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "bej": {
     "name": "Beja",
@@ -272,9 +292,10 @@
     "novo": true,
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 35,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "bel": {
     "name": "Belarusian",
@@ -285,9 +306,10 @@
     "sr": "Ну і янó vyhljadáе lаhíчна. šasnáctaje стаhóддзе - hэта чáс, калі ВikaéЛ ад мóра да мóра",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 39,
-    "caseCount": 6
+    "caseCount": 6,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "flexible"
   },
   "bem": {
     "name": "Bemba",
@@ -298,9 +320,10 @@
     "sr": "ideero indike kuena tušipuera tapu tapu, nokulla thimtialutia psana psana, multia mkvuimba, noksam bidiśavam bepafindu ifia lekana lekana",
     "tonality": "complex-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 29,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "ben": {
     "name": "Bengali",
@@ -311,9 +334,10 @@
     "sr": "askee anćolibhašhaj kothavortabolar gotašušumitej tuagabuleće",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 29,
-    "caseCount": 4
+    "caseCount": 4,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "bho": {
     "name": "Bhojpuri",
@@ -324,9 +348,10 @@
     "sr": "Ki vuď purimaviďon badjidahalba džonba ðota ðonga voljata. omnjio pojle ďhal, duluag, nal, jedjerohe, o pedue dagel kul",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 31,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "bik": {
     "name": "Bikol",
@@ -337,9 +362,10 @@
     "sr": "MEmo uajze belageNA un faREgo, menonoQUAnti pakaKA eBAA, menobe Ada, maraun-pakaKA eBAA",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 18,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "bod": {
     "name": "Tibetan",
@@ -350,9 +376,10 @@
     "sr": "tačip citondamadu navonej njire njire pedečelija tjerahadjizjemadu igjemare",
     "tonality": "complex-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 36,
-    "caseCount": 6
+    "caseCount": 6,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "bos": {
     "name": "Bosnian",
@@ -363,9 +390,10 @@
     "sr": "drjemuša, pospanuša, to je pospana kahva, merakuša baš kad je čovjek ono s merakom je pije, rastjeruša kad je neko došo ko nije poželjan i tako, brzo kahvu i alah imánet",
     "tonality": "pitch-accent",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 30,
-    "caseCount": 7
+    "caseCount": 7,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "flexible"
   },
   "bre": {
     "name": "Breton",
@@ -376,9 +404,10 @@
     "sr": "betegen devezeké, knige dan düdø, gweladenú, ebrezoneg",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 36,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "brh": {
     "name": "Brahui",
@@ -389,9 +418,10 @@
     "sr": "bravikal fuaze ćambe, ćambe purdiuakelio tioshobol-teae. ćammbe! tike?",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 26,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "bua": {
     "name": "Buryat",
@@ -402,9 +432,10 @@
     "sr": "hesødab halar løbuhuju-buloru iďip-tengap-ćalagarad-labav hotedeheen. a so minuente? da da honďinu te, ukrupte",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 30,
-    "caseCount": 8
+    "caseCount": 8,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "bul": {
     "name": "Bulgarian",
@@ -415,9 +446,10 @@
     "sr": "смисъл ов глаголицт' е биу мауко по-розличен между буквите от и ци е стояуа буквата штa?",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 45,
-    "caseCount": 1
+    "caseCount": 1,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "cak": {
     "name": "Kaqchikel",
@@ -428,9 +460,10 @@
     "sr": "hata kaninam ašora pan mala vihrta ačkena bæn, hareśø śena tøhre",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 31,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "flexible"
   },
   "cat": {
     "name": "Catalan",
@@ -441,9 +474,10 @@
     "sr": "e li vafael molčen karekstambe, a kep markes a gaudi, pero galdinoalio a ferrez. bre, per ke no sa via, kom e zde jako mias, no sabjasi parlava de ueuo",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 26,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "ceb": {
     "name": "Cebuano",
@@ -454,9 +488,10 @@
     "sr": "ug kon Moabot na Gani kanjana Adlaw dilina-ki-Naanlan-njagamanon-Tana, Pa kaMo um_Bisan Unsa kaNako",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 16,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "flexible"
   },
   "ces": {
     "name": "Czech",
@@ -467,9 +502,10 @@
     "sr": "Ono je teda taky dost zvláštní způsob, jakým se na ten činel hraje. Já si myslím, že obvykle si činel přesně vidíme, jak ten činelista do toho bouchne, rozhodí rukama, můžeme si jenom dát takovou typickou ukázku zvuku? ------ Tak tohle tam dvořák nemá, je to mnohem rafinovanější. Vy tomu i tak jako hezky říkáte? Já tomu říkám šlichání činelu.",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 42,
-    "caseCount": 7
+    "caseCount": 7,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "flexible"
   },
   "chr": {
     "name": "Cherokee",
@@ -480,9 +516,10 @@
     "sr": "na hie tu gehe, u nie ko tele ganni wonizge. sei da / ne let doeit doortlessen doein doortlessen, negae - ten diuoun nan is gedželik",
     "tonality": "simple-tonal",
     "morphology": "polysynthetic",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 19,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "chv": {
     "name": "Chuvash",
@@ -493,9 +530,10 @@
     "sr": "šuldan ktršibjeh, prajekcim dišerakbar, ajgi vlbin žimpirin brjent",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 37,
-    "caseCount": 8
+    "caseCount": 8,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "cjy": {
     "name": "Jin Chinese",
@@ -506,9 +544,10 @@
     "sr": "no harmunpujou pala lenji śoutha śobadou feišodøndzja, taurokua dzjdzjśousa zgdjszdja dzongtsouterja",
     "tonality": "complex-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 33,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "rigid"
   },
   "cmn": {
     "name": "Mandarin Chinese",
@@ -520,9 +559,10 @@
     "sr": "uela sotala ćonin disindainsja jebinćudafanhuu pusuďenzaja sanposan",
     "tonality": "complex-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 22,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "rigid"
   },
   "cos": {
     "name": "Corsican",
@@ -533,9 +573,10 @@
     "sr": "alo, hugu noši nudizi gura berkeče-una-vela gumunigazjone-djadžida-dioaščije čeunavela-gumunigazjone djaga zaje ljing",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 21,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "cre": {
     "name": "Cree",
@@ -546,9 +587,10 @@
     "sr": "tanse kiuwau! niga na nas kom on-noh, tauinau na siekáh sonos sauMeiguan kehiu napiju",
     "tonality": "non-tonal",
     "morphology": "polysynthetic",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 35,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "csb": {
     "name": "Kashubian",
@@ -559,9 +601,10 @@
     "sr": "Ne mnje jednak varstvje gramatíčnyh tešjest dužo takih ceh kture jezik kašúpski vyružnjájou, vašćívje go odružnjájou pře všickym on jezika polskégo",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 44,
-    "caseCount": 6
+    "caseCount": 6,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "flexible"
   },
   "cym": {
     "name": "Welsh",
@@ -572,9 +615,10 @@
     "sr": "do we fljang fenedol anarBenig, dowig fljang satiiš kataDeni arTer Vineroj šoKanol, ašolDin uIdaraš titiJautf, o Heen Linendiaf klaŠyrol grojg arHivajn",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 51,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "dan": {
     "name": "Danish",
@@ -585,9 +629,10 @@
     "sr": "Bevæ illsø i kønst, aså kunstvækatø bevæ ø sai illø, kæn sædes i bevæ-es a tilskuaan, a noo hiit, nüt, o phofokei ane ta Luśiana præsenti ad den i, neign ø ag i nø thjs",
     "tonality": "pitch-accent",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 32,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "deu": {
     "name": "German",
@@ -598,9 +643,10 @@
     "sr": "die genaue lage und position aller bohlen wurde vor dem ausbau fotografiert und schriftlich festgehalten, um diese später wieder zuordnen zu können",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 45,
-    "caseCount": 4
+    "caseCount": 4,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "din": {
     "name": "Dinka",
@@ -611,9 +657,10 @@
     "sr": "? tonge katuin baloie ten. jeba tantu bialum gubanji pinju eneme",
     "tonality": "complex-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 34,
-    "caseCount": 4
+    "caseCount": 4,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "flexible"
   },
   "eng": {
     "name": "English",
@@ -624,9 +671,10 @@
     "sr": "Thanks for the butter but now I feel ill. I hope I'll be better by Thursday. Fanks for the bu'er but naw I feew iw. I 'ope I'll be be'er by Fursday",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 44,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "rigid"
   },
   "est": {
     "name": "Estonian",
@@ -637,9 +685,10 @@
     "sr": "inimezedon vinzandilj kolmesajon dijoksul holdanod rananite ja karijamajd. meres meutatot vilzandi tajmestik onli kerekas",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 36,
-    "caseCount": 14
+    "caseCount": 14,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "flexible"
   },
   "eus": {
     "name": "Basque",
@@ -650,9 +699,10 @@
     "sr": "a finala haga kusto, meretalekoo, souigja kontra mes-ti-kago-sas-pitu-reta lekua.",
     "tonality": "pitch-accent",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 22,
-    "caseCount": 17
+    "caseCount": 17,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "ewe": {
     "name": "Ewe",
@@ -664,9 +714,10 @@
     "novo": true,
     "tonality": "complex-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 30,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "rigid"
   },
   "fao": {
     "name": "Faroese",
@@ -677,9 +728,10 @@
     "sr": "amvir fjernau? s han sErma iš ju nou ja sErat jHAutju oh kunju Ontø. so teanaroj di aan zetürat, lets go gin-goin hoontoen lafam beah kiedlig",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 38,
-    "caseCount": 4
+    "caseCount": 4,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "fas": {
     "name": "Persian",
@@ -690,9 +742,10 @@
     "sr": "jok šloh? gændanundara. baj stogatzio koni kandamera. kandamega, maa kandamega, šudo kandamega",
     "tonality": "pitch-accent",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 29,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "fia": {
     "name": "Nubian",
@@ -703,9 +756,10 @@
     "sr": "irkita, ada mani, ademi, kongurani, kiruida, aii tanga ďani",
     "tonality": "complex-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 30,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "fij": {
     "name": "Fijian",
@@ -716,9 +770,10 @@
     "sr": "la gutumba ena koromgurimbasanga, asanbagtura norreua, alberanga kaćimnango il suwua.",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 18,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "VOS",
+    "wordOrderFlexibility": "flexible"
   },
   "fin": {
     "name": "Finnish",
@@ -729,9 +784,10 @@
     "sr": "vuorsea værlehuma-kaknaze ursama kerrani-murlula ana-kefan epa-mukava-olasela lopustø koskø",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 21,
-    "caseCount": 15
+    "caseCount": 15,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "flexible"
   },
   "fra": {
     "name": "French",
@@ -742,9 +798,10 @@
     "sr": "nu zo ula ger, pikokolino, u gagontulazadra budo seze ni. el farara vo kundo fker žon di zontomer",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 37,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "rigid"
   },
   "fry": {
     "name": "Frisian",
@@ -755,9 +812,10 @@
     "sr": "nee dii hii ziit vanuit a sede kom uut spraken eh set net normaal en hij i ziit van e, na leren di bees aam engel moes. Ee?",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 40,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "ful": {
     "name": "Fula",
@@ -768,9 +826,10 @@
     "sr": "no kukalaka feonornon, no kukalaka wuenirnon, farnoren, bengalmede",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 21,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "gan": {
     "name": "Gan Chinese",
@@ -781,9 +840,10 @@
     "sr": "pš nevu hol dužundudaundi ješehoua umleuonejnej kajpenćin di ďije kajpenćinćide",
     "tonality": "complex-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 29,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "rigid"
   },
   "gla": {
     "name": "Scottish Gaelic",
@@ -794,9 +854,10 @@
     "sr": "e fajfkin klaun pikePítah, eví, tokal vloerige neges. kjirk-misk, váhere, će iMusyhih peršćah kaśén nahé",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 44,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "flexible"
   },
   "gle": {
     "name": "Irish",
@@ -807,9 +868,10 @@
     "sr": "mavin auin, musühan garvn kladah, bikinće, kømén madarišky snávam",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 60,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "flexible"
   },
   "glg": {
     "name": "Galician",
@@ -820,9 +882,10 @@
     "sr": "Uas medidas ke klaro-ke-parabos, šja tedes kespli kardija śente, pujšum: poko komo funkcionas ta taśa turistika i śente kese, ke se rahom, pou ko no i śente stakam fe-lándon huan rezervá zekevá i pora kibre-tino de korunja",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 25,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "gre": {
     "name": "Greek",
@@ -833,9 +896,10 @@
     "sr": "sjaf totos in meo. tavendra denodesto-forte-ingome in mades, jetinas falí metaforátos del kopro-orizmó",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 25,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "flexible"
   },
   "grn": {
     "name": "Guaraní",
@@ -846,9 +910,10 @@
     "sr": "ha idjikere? jaWEde koPete iuEda i ome euanjan deve po A. Umi ika a uoua, he i ouEde ko ha i po aha ehuEdahei",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 33,
-    "caseCount": 6
+    "caseCount": 6,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "flexible"
   },
   "guj": {
     "name": "Gujarati",
@@ -859,9 +924,10 @@
     "sr": "tame tame śuke soka zgaamnibabaće gamnamu daokajakajaźe aap śuke śoka",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 34,
-    "caseCount": 4
+    "caseCount": 4,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "gul": {
     "name": "Gullah",
@@ -872,9 +938,10 @@
     "sr": "so deen wajl de čren bin in da tanl, de gaal wiik ap, en ši lak oraund uidi bigaj en sej, greg gordo bakr daun rajs on d groun",
     "tonality": "non-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 28,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "gyn": {
     "name": "Guyanese Creole",
@@ -885,9 +952,10 @@
     "sr": "monki no uič lim fo džom pan. jes, je va luk at a monki, uen i dej ina čri, en i čraj fo soin fram lim to lim, ju eva notise da monki na džos kop an eni lim, i čuus de uan uei noui go gedim mos advantič, oo fo goui uango, is de seem ting ui piipo",
     "tonality": "simple-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 30,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "hak": {
     "name": "Hakka Chinese",
@@ -898,9 +966,10 @@
     "sr": "elja haka valouediuan zouhurle menalore sava dued samdor",
     "tonality": "complex-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 19,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "rigid"
   },
   "hau": {
     "name": "Hausa",
@@ -911,9 +980,10 @@
     "sr": "ama trun degete arifi samuazákasan bui buk*atjon kusuruáso voráka buide kusur-ua",
     "tonality": "complex-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 32,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "haw": {
     "name": "Hawaiian",
@@ -924,9 +994,10 @@
     "sr": "ikeno maho illalo hooua eukee puoee hihimano nuuu, nuu i meke i meeiaa",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 13,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "flexible"
   },
   "heb": {
     "name": "Hebrew",
@@ -937,9 +1008,10 @@
     "sr": "pahote kusbarame a kabilota algi lot ba... šuk... bacal gador... šešinej śum",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 25,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "flexible"
   },
   "hil": {
     "name": "Hiligaynon",
@@ -950,9 +1022,10 @@
     "sr": "so hona hona TON: a Unaha word, njaa, TON Ana TONsobo, abo AN, hunhunGAN, aNObela an-hunhunGAN",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 20,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "flexible"
   },
   "hin": {
     "name": "Hindi",
@@ -963,9 +1036,10 @@
     "sr": "hare ksande ko pura das kosma danka bďwa gargeabulwatete ar lrwatete",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 46,
-    "caseCount": 4
+    "caseCount": 4,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "hmn": {
     "name": "Hmong",
@@ -976,9 +1050,10 @@
     "sr": "to pahona kje tua dje cadede. tsotsadjenø. kacadjenø će ingena-hajo-uena tomašietje, to lunčašijatje joto śita śite",
     "tonality": "complex-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 57,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "rigid"
   },
   "hoc": {
     "name": "Ho",
@@ -989,9 +1064,10 @@
     "sr": "ementáre netrabú, abuei, uáren-ćititoa-lágana, ondoad devona-gretoartíja, endo, nabú palajabú",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 25,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "hrv": {
     "name": "Croatian",
@@ -1002,9 +1078,10 @@
     "sr": "na njoj je prekrasno vidjet more leptiriča, bumbara, pčela, i oni tako hredom dolaze, kad odu bumbari dolaze pčele, kad odu pčele taj je cvijet gotovo sasušen ali je on onda tada zreo za žetvu jer če dat najbogatije ulje",
     "tonality": "pitch-accent",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 30,
-    "caseCount": 7
+    "caseCount": 7,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "flexible"
   },
   "hun": {
     "name": "Hungarian",
@@ -1015,9 +1092,10 @@
     "sr": "piroš naronč roso zuolj dišiouiše piroš naronč megin tros. tehat muš tozahejzeto ďazakii tee kocko hejin vonomi tla ćatok",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 25,
-    "caseCount": 18
+    "caseCount": 18,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "flexible"
   },
   "hye": {
     "name": "Armenian",
@@ -1028,9 +1106,10 @@
     "sr": "kanibr amena uše, a sustećimetije pfume, p-dinze",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 36,
-    "caseCount": 7
+    "caseCount": 7,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "ibo": {
     "name": "Igbo",
@@ -1041,9 +1120,10 @@
     "sr": "onjao banau gurijahu, da ne genzi gua maran ke be zjonku. makalo mane d ďja puei, i he blumće idena heiju-kuaham",
     "tonality": "complex-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 28,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "iii": {
     "name": "Yi",
@@ -1055,9 +1135,10 @@
     "sr": "vdodžažmnjo namvuozszo tuozhema vavnjititz džomaznjoho kadinjihefzao",
     "tonality": "complex-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 42,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "rigid"
   },
   "iku": {
     "name": "Inuktitut",
@@ -1068,9 +1149,10 @@
     "sr": "njok sok tüma. unnusana süneau kelle? ihad ljeahmeah tüma. asso? houpali sü lakket? ümeak tü laak tüma",
     "tonality": "non-tonal",
     "morphology": "polysynthetic",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 17,
-    "caseCount": 8
+    "caseCount": 8,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "ilo": {
     "name": "Ilocano",
@@ -1081,9 +1163,10 @@
     "sr": "aBO, digosKAN, jahonaSØNN, øøø wenola LOhahanek digoSØN",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 18,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "flexible"
   },
   "ind": {
     "name": "Indonesian",
@@ -1094,9 +1177,10 @@
     "sr": "Uo Buo ćabe kri Tiin! diSedigen Tidigen ćabe mera besaldijaSaa, a Tokolonga kanpaĆiguvonga paa-Paa",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 22,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "isl": {
     "name": "Icelandic",
@@ -1107,9 +1191,10 @@
     "sr": "e tejmarat lukt stjampt obanou rejkeneskaar, oo gatak stoura graua erø, røjnes avártelli holorøns kosinø",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 39,
-    "caseCount": 4
+    "caseCount": 4,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "ita": {
     "name": "Italian",
@@ -1120,9 +1205,10 @@
     "sr": "kvandono metiame vibracione la korda, londa sonóra passa traverso kvesta parte ke bjamodéto si kjama ponte o pontičéllo",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 30,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "jav": {
     "name": "Javanese",
@@ -1133,9 +1219,10 @@
     "sr": "nanjin, tapećoroles di laquamin, kekel, afirree, sunan-gali ćoko",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 23,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "jpn": {
     "name": "Japanese",
@@ -1146,9 +1233,10 @@
     "sr": "sošte štani søto i kone sne, sošte møšino íći, i kakameno ićiwa, kokono... štadi sne?",
     "tonality": "pitch-accent",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 15,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "rigid"
   },
   "kab": {
     "name": "Kabyle",
@@ -1160,9 +1248,10 @@
     "novo": true,
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 38,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "flexible"
   },
   "kan": {
     "name": "Kannada",
@@ -1173,9 +1262,10 @@
     "sr": "dondøvara la ďanara laći kora la konaralanta, ći kortapmare tak šnak, so ari küna worgu bülala",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 34,
-    "caseCount": 7
+    "caseCount": 7,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "kar": {
     "name": "Karen S'gaw",
@@ -1186,9 +1276,10 @@
     "sr": "ja duo čučo bulem ra. nopuani lemra. ja ni nuče kiiinili. nømopodo? oo ja ni tøtivani",
     "tonality": "complex-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 28,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "rigid"
   },
   "kas": {
     "name": "Kashmiri",
@@ -1200,9 +1291,10 @@
     "novo": true,
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 45,
-    "caseCount": 6
+    "caseCount": 6,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "kat": {
     "name": "Georgian",
@@ -1213,9 +1305,10 @@
     "sr": "e śejle ba, es, amučántis ksoła, u kanak edel šći ćśe sljutáts, ohont-ca-ta, u zoris huana i gamućte a magan hamin-dároesetjim uzovit mok so",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 28,
-    "caseCount": 7
+    "caseCount": 7,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "kaz": {
     "name": "Kazakh",
@@ -1226,9 +1319,10 @@
     "sr": "bez berke hujná berge savá hókaimaz, klijen sek tjemohan, kumik tisida, kuanštada, kanganadá, perke bulsímyz. šakandoz adamvajdijem kambatbajlak, sibijebešhandoz dije aldamajda koldajda",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 28,
-    "caseCount": 6
+    "caseCount": 6,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "kbd": {
     "name": "Kabardian",
@@ -1240,9 +1334,10 @@
     "novo": true,
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 55,
-    "caseCount": 4
+    "caseCount": 4,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "kfa": {
     "name": "Kodava",
@@ -1253,9 +1348,10 @@
     "sr": "nane binde køda, ma nekø pøjen dujlø, ninø?",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 27,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "kha": {
     "name": "Khasi",
@@ -1266,9 +1362,10 @@
     "sr": "Banjadaa bad banten kaajedi die nagbn taare ďimntoii ja ga laueei ðong patenn giban sauan",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 25,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "flexible"
   },
   "khm": {
     "name": "Khmer",
@@ -1279,9 +1376,10 @@
     "sr": "a souva katlajn, o man dia, nou satova dipa bl",
     "tonality": "non-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 21,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "rigid"
   },
   "kik": {
     "name": "Kikuyu",
@@ -1292,9 +1390,10 @@
     "sr": "etuakia liao-naomarai-koronea dumarai-kamoo dumaja-maukuroo makialianardua kuma naďa",
     "tonality": "complex-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 31,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "kin": {
     "name": "Kinyarwanda",
@@ -1305,9 +1404,10 @@
     "sr": "u mutkume, vuii faša busara, hiui faša vuteekereza",
     "tonality": "simple-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 30,
-    "caseCount": 2
+    "caseCount": 2,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "kir": {
     "name": "Kyrgyz",
@@ -1318,9 +1418,10 @@
     "sr": "aljinizeer. digen sus, altyn, altyn bujum, tin dedigen-gibilderen-tikemaldar",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 36,
-    "caseCount": 6
+    "caseCount": 6,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "kne": {
     "name": "Kankanaey",
@@ -1332,9 +1433,10 @@
     "novo": true,
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 28,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "flexible"
   },
   "knr": {
     "name": "Kanuri",
@@ -1345,9 +1447,10 @@
     "sr": "kala bana knďo, furtun ďi, konoa će ďinsuro umandji",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 29,
-    "caseCount": 6
+    "caseCount": 6,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "kok": {
     "name": "Konkani",
@@ -1359,9 +1462,10 @@
     "novo": true,
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 40,
-    "caseCount": 6
+    "caseCount": 6,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "kor": {
     "name": "Korean",
@@ -1372,9 +1476,10 @@
     "sr": "pongoro bdrodo čanganďong karaso paros inam geaču kosovoamazo leďemida",
     "tonality": "pitch-accent",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 19,
-    "caseCount": 7
+    "caseCount": 7,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "kur": {
     "name": "Kurdish",
@@ -1385,9 +1490,10 @@
     "sr": "Avora bavu djaku vdrjau kastohkarehanji rgnjmamu",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 36,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "lao": {
     "name": "Lao",
@@ -1399,9 +1505,10 @@
     "novo": true,
     "tonality": "complex-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 35,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "rigid"
   },
   "lav": {
     "name": "Latvian",
@@ -1412,9 +1519,10 @@
     "sr": "vijeno gajeno, tata duad man, ies penos pa zyrsih tris mambus viskartipa. esnos pelažu zyrsih trís, pazeiš tou dame, nosteš uz de četri, actišes kokadavejda mambuši leka figur",
     "tonality": "pitch-accent",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 33,
-    "caseCount": 7
+    "caseCount": 7,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "lep": {
     "name": "Lepcha",
@@ -1425,9 +1533,10 @@
     "sr": "tosa tøtvø tri tatin müller shatabuni onomad dbaboram apok kador",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 31,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "lim": {
     "name": "Limburgish",
@@ -1438,9 +1547,10 @@
     "sr": "das neet je maas zjuvig vees, het heeks huud ofhe loźes das hil belangrijk, isias ane struktuur van e dejh (ontviklćes) dat hiil hud ontviklćes abat sege dat e hiil hud... fürh posesii thortje nemevedat, dat de deehjud afi kneedjes, dat hjone hjuje hrisi hjoćś",
     "tonality": "pitch-accent",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 45,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "lin": {
     "name": "Lingala",
@@ -1451,9 +1561,10 @@
     "sr": "elamba nanga jancoto, anasemartu elamba, elamba ningoo, janzoto nimili",
     "tonality": "simple-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 25,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "lit": {
     "name": "Lithuanian",
@@ -1464,9 +1575,10 @@
     "sr": "a šće se vazdojak jakaš praina griebunjas, soko sokoratas, patas paće svjatas erke hena sikatrandaj",
     "tonality": "pitch-accent",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 45,
-    "caseCount": 7
+    "caseCount": 7,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "flexible"
   },
   "ltz": {
     "name": "Luxembourgish",
@@ -1477,9 +1589,10 @@
     "sr": "šol dorun, az eläeng, ajze luxjuouzen minísta, deen dat bedriwwen huet. an natierlech déi deputéie dan da šamba, dej dat matiš teptun",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 42,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "lua": {
     "name": "Luba-Kasai",
@@ -1491,9 +1604,10 @@
     "novo": true,
     "tonality": "simple-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 32,
-    "caseCount": 2
+    "caseCount": 2,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "lug": {
     "name": "Luganda",
@@ -1505,9 +1619,10 @@
     "novo": true,
     "tonality": "simple-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 30,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "luo": {
     "name": "Luo",
@@ -1518,9 +1633,10 @@
     "sr": "baz luenjininUbido-kaManomo kut oku tundo magiueio, poru-Giduaronegi-Dinjiine, podogi kiak kiNarue-rario po dogi tugo nelue",
     "tonality": "complex-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 24,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "flexible"
   },
   "mag": {
     "name": "Magahi",
@@ -1531,9 +1647,10 @@
     "sr": "tofir ageram gudinæi djavabus komagimein-gemerenam provinem tofirkjabulege",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 30,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "mai": {
     "name": "Maithili",
@@ -1544,9 +1661,10 @@
     "sr": "jhaha, avøstahar ďagl! luka ksamøt ells saraa bøbøndøbil kjrølč-haha",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 28,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "mal": {
     "name": "Malayalam",
@@ -1557,9 +1675,10 @@
     "sr": "pudiakajletø phaša valere dur greham-akikundø, akikundø mnleamvaretø",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 36,
-    "caseCount": 7
+    "caseCount": 7,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "mar": {
     "name": "Marathi",
@@ -1570,9 +1689,10 @@
     "sr": "apønsawadamadé tutøk pønønøsouablisouadamødi apønďjibulto tisøløk pønigbulagua",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 28,
-    "caseCount": 8
+    "caseCount": 8,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "mas": {
     "name": "Maasai",
@@ -1583,9 +1703,10 @@
     "sr": "ola djemu rula naďi, na heke-nj-ha kegen bunga, ola jero ro?ganjI, š-denji, nage",
     "tonality": "complex-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 28,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "flexible"
   },
   "min": {
     "name": "Minangkabau",
@@ -1596,9 +1717,10 @@
     "sr": "na čukoj aua, jedi baso, daje rafadjuo aua aros menja di bahaso jehola, biah, gluo bal? jela, biah, aa, banja!",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 22,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "mkd": {
     "name": "Macedonian",
@@ -1609,9 +1731,10 @@
     "sr": "Ова гопофајлија што е, со пиперчиња, то со лулчато, тоа има некој посебно назиф, име некако посебно? Нема, мие ги вликаме пиперки со лук. Тоа е едно, а имаме друго, пиперки со... макало, тоа се праи во тегли, го приготвуваме за зимница. Тие се пфт мали палнати пиперчина со сирење. Па, па, па значи да дојеш да си нараниш очи, душа, тело, суе!",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 31,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "mlg": {
     "name": "Malagasy",
@@ -1622,9 +1745,10 @@
     "sr": "rršnata nan rrua, dia, a tanbačrua, die rraanrrju, padintja, rupčanžyka",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 21,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "VOS",
+    "wordOrderFlexibility": "flexible"
   },
   "mlt": {
     "name": "Maltese",
@@ -1635,9 +1759,10 @@
     "sr": "halia, ljesefis maa sifšlja aseśtof pofsom aždjik, muš leterboks",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 40,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "mni": {
     "name": "Meitei",
@@ -1649,9 +1774,10 @@
     "sr": "a duda gi di nu šit tumai pangal punnama kaloinana šit paholi",
     "tonality": "simple-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 29,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "mnw": {
     "name": "Mon",
@@ -1662,9 +1788,10 @@
     "sr": "Oo dazi čuzanavo? Dii hoodohobare źe noe, jagaune paunezgələundjounemja raaner tan tueke djare, səre, garegari śide vono",
     "tonality": "complex-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 46,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "rigid"
   },
   "mon": {
     "name": "Mongolian",
@@ -1675,9 +1802,10 @@
     "sr": "æirihin nih nih snaše, monhodoh sah nit honden, uvotøm-hten hatøpećirsyn tikint over",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 26,
-    "caseCount": 6
+    "caseCount": 6,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "mri": {
     "name": "Maori",
@@ -1688,9 +1816,10 @@
     "sr": "faja te ite kahuranji, tjitje tohu kuee, mehi mone taitai",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 14,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "flexible"
   },
   "msa": {
     "name": "Malay",
@@ -1701,9 +1830,10 @@
     "sr": "de taPi, Kraďa een bøliJautelah mømbeLi Lejsen baLa, k paj d, BonioLen, møLallu i, Rundingan kytu blanKanijan tida øSa",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 19,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "mya": {
     "name": "Burmese",
@@ -1714,9 +1844,10 @@
     "sr": "ja-ja. la-la-dodeká mavé. njakalíne njadzigulé. a tandu phipje madzjunajmaré. suvere. kidou zendelouzelou ha. pomeidai doun gju hainei. dingidairei zet djepairei",
     "tonality": "complex-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 33,
-    "caseCount": 4
+    "caseCount": 4,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "nah": {
     "name": "Nahuatl",
@@ -1727,9 +1858,10 @@
     "sr": "keškikmi cikno tlamač ti jámomá sewahj, sema-Nauakón to nit tla-Nilíllo iníkton tlavíka",
     "tonality": "non-tonal",
     "morphology": "polysynthetic",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 22,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "flexible"
   },
   "nan": {
     "name": "Min Nan Chinese",
@@ -1740,9 +1872,10 @@
     "sr": "sara ďesitek ďibezitjuokana huaiutokalai delua hjeptinkin surabajeno",
     "tonality": "complex-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 18,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "rigid"
   },
   "naq": {
     "name": "Khoekhoe",
@@ -1754,9 +1887,10 @@
     "sr": "kajzeri djvo or ajta llita di kir* enkaj *ein hürvn staat güldigen *, hain * erat twimo *",
     "tonality": "complex-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 115,
-    "caseCount": 5
+    "caseCount": 5,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "nav": {
     "name": "Navajo",
@@ -1767,9 +1901,10 @@
     "sr": "ae bino nátišna aro, našti, aro das obidžnšta, aaeceeja, sco deze nigi",
     "tonality": "complex-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 47,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "nde": {
     "name": "Ndebele",
@@ -1780,9 +1915,10 @@
     "sr": "vamćelebonjana auaman kujbambigan njangoba e amabele asjanginigis piilendavalei alumela",
     "tonality": "simple-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 24,
-    "caseCount": 2
+    "caseCount": 2,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "nep": {
     "name": "Nepali",
@@ -1793,9 +1929,10 @@
     "sr": "vœda haadina vuenid guteda wuanišuda, goarmada",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 31,
-    "caseCount": 7
+    "caseCount": 7,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "new": {
     "name": "Newari",
@@ -1807,9 +1944,10 @@
     "sr": "ćigu buaniwani papaiko? medouwadopadouwani dzigu. dzigu ćee nepali ko?",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 35,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "nld": {
     "name": "Dutch",
@@ -1820,9 +1958,10 @@
     "sr": "Rick noemde het al even, in de literatuur worden die eigenschappen ook wel de mannentepels van de taal genoemd. Waarom? Nou, ze zitten er, ze zien er interessant uit, misschien hadden ze ooit wel een functie, maar wat je er nu aan hebt, is een raadsel.",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 42,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "nor": {
     "name": "Norwegian",
@@ -1833,9 +1972,10 @@
     "sr": "suiga žostüdem nu tiklinga som inskavammo, förme framovi šoVijam skæræ aleven komen, tilevaidmødpø, devis kafin po, i, śuśutajo śuśevirø",
     "tonality": "pitch-accent",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 36,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "nso": {
     "name": "Sesotho",
@@ -1848,9 +1988,10 @@
     "novo": true,
     "tonality": "simple-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 35,
-    "caseCount": 2
+    "caseCount": 2,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "nup": {
     "name": "Nupe",
@@ -1862,9 +2003,10 @@
     "novo": true,
     "tonality": "complex-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 30,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "rigid"
   },
   "nus": {
     "name": "Nuer",
@@ -1876,9 +2018,10 @@
     "novo": true,
     "tonality": "complex-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 35,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "flexible"
   },
   "nya": {
     "name": "Chewa",
@@ -1889,9 +2032,10 @@
     "sr": "akaka njimbooo kojeamba njikanimbo-koo čuontuo dzamuan nanga tsallilla",
     "tonality": "complex-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 28,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "nyk": {
     "name": "Nyaneka",
@@ -1903,9 +2047,10 @@
     "novo": true,
     "tonality": "simple-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 32,
-    "caseCount": 2
+    "caseCount": 2,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "oji": {
     "name": "Ojibwe",
@@ -1916,9 +2061,10 @@
     "sr": "ma da so bun, gita žikeer, ikenoma di gomikini. le kiku džtoua cke džeer, en de setoua džaii ",
     "tonality": "non-tonal",
     "morphology": "polysynthetic",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 29,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "flexible"
   },
   "ori": {
     "name": "Odia",
@@ -1929,9 +2075,10 @@
     "sr": "ćonombor kostombo soi to khøstom boďokokoro, to køstombore oći",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 32,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "orm": {
     "name": "Oromo",
@@ -1942,9 +2089,10 @@
     "sr": "a tesin-b fazallpan, børumsa an get dizu, ovaj ćudan diesan bøk købara bad denjidi",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 24,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "pag": {
     "name": "Pangasinan",
@@ -1955,9 +2103,10 @@
     "sr": "sai kasaLAnan, sonjeroVI ød ĆIkaro ÐOZ. BAløt sai ďusumanta TAua gd-sikaRAten labaiTOEN man pa-ta oLLIda",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 19,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "pam": {
     "name": "Kapampangan",
@@ -1968,9 +2117,10 @@
     "sr": "InSAnu hareng makatutuKI, ing usTU pangaSÜlat, agPANG king biNAsa møng dayaloGO?",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 21,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "pan": {
     "name": "Punjabi",
@@ -1981,9 +2131,10 @@
     "sr": "vi inukea kenee panďabi vičet ar adekuaďi uprle pasedekøbøne haldi naldi",
     "tonality": "pitch-accent",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 35,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "pol": {
     "name": "Polish",
@@ -1994,9 +2145,10 @@
     "sr": "droga na skrůte to znači łatvíjše i še pše, hoć uvažáne často za njebuašćíve sposob oćangnjénćja celu, to znači ak cemje to śa šangnoć, ale zajmja zrobiš to tak jak třeba, to ne probujéme šúkać jakiś přostřeh razvjol, zanji može zrobić zašnje tak dokládnje, bile tyrko dojšć do tego celu.",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 39,
-    "caseCount": 7
+    "caseCount": 7,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "flexible"
   },
   "por": {
     "name": "Portuguese",
@@ -2007,9 +2159,10 @@
     "sr": "a kiš tampž-mš-pišin-ždmorta ža frituš. fikaron super št-l-dis ženoh zišti žapruvaejš, ton super savurozuš. a mnje polmy, erom pokinje maiš",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 37,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "pus": {
     "name": "Pashto",
@@ -2020,9 +2173,10 @@
     "sr": "no crdo pati kigiu? jara pati kigi daurodjuorøravas juonimsou dubei kalapatiśi kaladuosou rupei patiśi kaladuonimsou patiśi",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 45,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "pwo": {
     "name": "Karen Pwo",
@@ -2033,9 +2187,10 @@
     "sr": "a ćumojda čuhi lehajhou amitha adaueda čudauhou amitha ončeja apatakaničeja hano",
     "tonality": "complex-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 26,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "rigid"
   },
   "quc": {
     "name": "K'iche'",
@@ -2046,9 +2201,10 @@
     "sr": "konšikule šokun čekaki čekin tahual šumahkanokh tusarela oou",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 32,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "flexible"
   },
   "que": {
     "name": "Quechua",
@@ -2059,9 +2215,10 @@
     "sr": "uaira, puiju, otaht indirimekoNata halhAita, ječesah tikoka, taki kuna taroWari, hinaWanmi khanjaRiko halhaiTaka",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 26,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "roh": {
     "name": "Romansh",
@@ -2072,9 +2229,10 @@
     "sr": "akultí maros nu ene plats ekonsee di žons, era kue feď feď krlef. tike peves bo to, beras di kul tren tu mevas tike tike pešia spok",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 34,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "rom": {
     "name": "Romani",
@@ -2085,9 +2243,10 @@
     "sr": "ćaćo dromte arakas amaro panda dopolin te putras hiden muršen te kiden zor de čačes ankljas po gor",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 35,
-    "caseCount": 6
+    "caseCount": 6,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "ron": {
     "name": "Romanian",
@@ -2098,9 +2257,10 @@
     "sr": "petrućá di sparút? nšć! di ćemoative nu publika skrjesoára, non pas. del sulka no publika. ćel kres to vemi śeluka pabilj se no publiće pentrual će va di kippendru ka nu puate?",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 32,
-    "caseCount": 5
+    "caseCount": 5,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "run": {
     "name": "Kirundi",
@@ -2111,9 +2271,10 @@
     "novo": true,
     "tonality": "simple-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 30,
-    "caseCount": 2
+    "caseCount": 2,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "rus": {
     "name": "Russian",
@@ -2124,9 +2285,10 @@
     "sr": "Э́то я уби́л тогда́ ста́руху-чино́вницу и сестру́ её Лизаве́ту топоро́м, и огра́бил",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 36,
-    "caseCount": 6
+    "caseCount": 6,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "flexible"
   },
   "ryu": {
     "name": "Okinawan",
@@ -2137,9 +2299,10 @@
     "sr": "dokude somne i von narattaka, kumaninone nićida tjen, telüran śikarat kamćihat tjen",
     "tonality": "simple-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 24,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "rigid"
   },
   "sag": {
     "name": "Sango",
@@ -2151,9 +2314,10 @@
     "novo": true,
     "tonality": "simple-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 28,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "rigid"
   },
   "sat": {
     "name": "Santali",
@@ -2164,9 +2328,10 @@
     "sr": "će leka mena bena?",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 27,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "sce": {
     "name": "Santa",
@@ -2178,9 +2343,10 @@
     "sr": "ingesøsma gonje pænfa sumladže k-čuo njefke khaškala konje dzaje kuluhauo",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "moderate",
     "phonemeCount": 29,
-    "caseCount": 6
+    "caseCount": 6,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "moderate"
   },
   "sin": {
     "name": "Sinhala",
@@ -2191,9 +2357,10 @@
     "sr": "jegang c erage laiinegak uakrahaaroue jounadu uakrraharoue djenou tzagaradat tjinemadigingen haugedegidinak",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 40,
-    "caseCount": 8
+    "caseCount": 8,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "slk": {
     "name": "Slovak",
@@ -2204,9 +2371,10 @@
     "sr": "halyšky spolu z bryndzou poriadnje premiješame, a je v tomto pripadje mohla bit bryndza trošku redšija. minuly se navšak všetki zdroje a tak sme se s tim musely njejako popasovať",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 46,
-    "caseCount": 7
+    "caseCount": 7,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "flexible"
   },
   "slv": {
     "name": "Slovenian",
@@ -2217,9 +2385,10 @@
     "sr": "Evo lahkopevno izjavo, Marko. Kako je biti žiu? Nič novega.",
     "tonality": "pitch-accent",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 29,
-    "caseCount": 6
+    "caseCount": 6,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "flexible"
   },
   "smo": {
     "name": "Samoan",
@@ -2230,9 +2399,10 @@
     "sr": "ica uala moganda, aua eloa üle samoa, pa cauela moganda, e peole soo noomho adhokto jonoh panakhi møja",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 14,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "flexible"
   },
   "sna": {
     "name": "Shona",
@@ -2243,9 +2413,10 @@
     "sr": "anjaerumun uoko uonouotemei??? mhm. mazimuarenei em-hanza. askana kako penje ragemansako? karepotanedo adhanei d-g-d-g-d",
     "tonality": "complex-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 36,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "snd": {
     "name": "Sindhi",
@@ -2256,9 +2427,10 @@
     "sr": "taazan dij lijker mej djokoajdo paterakudinajou hanitajngmasduri mildiadeadi",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 46,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "som": {
     "name": "Somali",
@@ -2269,9 +2441,10 @@
     "sr": "auin of bahantheid, o kof o marh, t hau bøhanda mrkedi hawizu at katøh, of diksi kulhajo bahantheid, kof nomarok te ineualakua inšarla, nor kohasomenos naar khof-korhauzo",
     "tonality": "simple-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 22,
-    "caseCount": 4
+    "caseCount": 4,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "sot": {
     "name": "Sotho",
@@ -2283,9 +2456,10 @@
     "novo": true,
     "tonality": "simple-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 35,
-    "caseCount": 2
+    "caseCount": 2,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "spa": {
     "name": "Spanish",
@@ -2296,9 +2470,10 @@
     "sr": "vamos a velo primero e getee gueta eske: él no dife ke no se kel acorvar el luar. dise ke no se ked akorvar del nombre! de kujo nombre no kjor akordarme. del luar se akuerda, en toa la deskripfión es ke ase, si akuera pefetamente",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 24,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "srb": {
     "name": "Sora",
@@ -2309,9 +2484,10 @@
     "sr": "Jezero jana zimn, jara simkan ďora purakn, a zora baka nana luti banga ranga",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 26,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "srd": {
     "name": "Sardinian",
@@ -2322,9 +2498,10 @@
     "sr": "suzardu estes a limba ki, mi pjake ta pruzu to e totus a limbas a romancasa, est una limba meta i speciale pro mene",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 23,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "srp": {
     "name": "Serbian",
@@ -2335,9 +2512,10 @@
     "sr": "Samo pazi, nemoj biti lakom: njednu drugu voćku ili stvarku da nisi tako ni slučajno! Ako nešto drugo dineš-darneš, u reci će se praćaknuti štuka, uzleteće tica šljuka, šljuka će sleteti na bukvu, veverica će ispustiti orahovu ljusku, ljuska će pasti na puteljak  kicošu na razdeljak. Kicoš će izvaditi ogledalce da popravi, licne kosu, sa ogledalceta će se odbiti zraka i zaustaviti se na nosu poljara koji spava. Poljar će zviznuti, psi će zarežati, ne vredi ti bežati.",
     "tonality": "pitch-accent",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 30,
-    "caseCount": 7
+    "caseCount": 7,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "flexible"
   },
   "ssw": {
     "name": "Swati",
@@ -2348,9 +2526,10 @@
     "sr": "uobabani gatbaja_balalalanjetcula. emadjibasoua_palalalanjetcula gepaptcula aguoko",
     "tonality": "simple-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 25,
-    "caseCount": 2
+    "caseCount": 2,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "suk": {
     "name": "Sukuma",
@@ -2362,9 +2541,10 @@
     "novo": true,
     "tonality": "simple-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 32,
-    "caseCount": 2
+    "caseCount": 2,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "sun": {
     "name": "Sundanese",
@@ -2375,9 +2555,10 @@
     "sr": "anďena tu ďupuluhtaun, anďena bd ankat. mrn a jasa bulanga i pugu",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 18,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "swa": {
     "name": "Swahili",
@@ -2388,9 +2569,10 @@
     "sr": "mana medalihini kwamba e kila ďambolina hitaďi uatouini uwezo na udžuzi, iliuaeze kpanji kiwa",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 30,
-    "caseCount": 2
+    "caseCount": 2,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "swe": {
     "name": "Swedish",
@@ -2401,9 +2583,10 @@
     "sr": "uo dee meke benis se tatjo banhanski verme siikok sat, ten es tan alti annølünda, tø muulike partíjina. ervmø fasman kæšju pliev-ron liiknanø",
     "tonality": "pitch-accent",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 38,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "tam": {
     "name": "Tamil",
@@ -2414,9 +2597,10 @@
     "sr": "serde beide koudavei arepis pø-noukaćot masala ser-ta-rlong? ćat masa-la-jr-maser-te-kovai-linala,baravai-le?",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 31,
-    "caseCount": 8
+    "caseCount": 8,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "tat": {
     "name": "Tatar",
@@ -2427,9 +2611,10 @@
     "sr": "Teržimesen üzen oša uzdørøp, matori tripka tlabula",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 39,
-    "caseCount": 6
+    "caseCount": 6,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "tcy": {
     "name": "Tulu",
@@ -2440,9 +2625,10 @@
     "sr": "a manelela arama nàkelltjra, enda tumba diu sad melési guada mahko-luma-néhrlije, ako-tomas-rala-héi digerøn tøkeløi-tøhóndøprešne",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 43,
-    "caseCount": 7
+    "caseCount": 7,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "tel": {
     "name": "Telugu",
@@ -2453,9 +2639,10 @@
     "sr": "teripatilo darsinćiwalisena alia-lo, sri varahaswami alejo, sri andenejaswami alejo",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 36,
-    "caseCount": 8
+    "caseCount": 8,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "tgk": {
     "name": "Tajik",
@@ -2466,9 +2653,10 @@
     "sr": "adu soneazizø, megujan du, stojabjanondaro uški vasmi hubitoži konrohumakan",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 24,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "tgl": {
     "name": "Tagalog",
@@ -2479,9 +2667,10 @@
     "sr": "Ai aBaitopan, isang Asalmakateto-Hanen, sapamo muOsap-nan kaNila dinGuita an di Sohat iBitim kamTan",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 20,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "flexible"
   },
   "tha": {
     "name": "Thai",
@@ -2492,9 +2681,10 @@
     "sr": "hoha meha mahai hon juu maahloj, naha halo Menangrulalo kotja meHen meNekaa, meert Meenaha",
     "tonality": "complex-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 21,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "rigid"
   },
   "tir": {
     "name": "Tigrinya",
@@ -2505,9 +2695,10 @@
     "sr": "na ameta fkonze uman bekonas, dzjara. zdemogaja, zitz efbogaja",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 28,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "ton": {
     "name": "Tongan",
@@ -2518,9 +2709,10 @@
     "sr": "tou tou tauaki ma u pe-ena tu, va ka i, iekajane, ka asi pea moma hae hae",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 17,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "flexible"
   },
   "tsn": {
     "name": "Tswana",
@@ -2531,9 +2723,10 @@
     "sr": "som meke som nuskuanaro soma, kem uasare, ovorhaporo kolla. ryzokola ge jan nore xarxeren buela harplamu. trla łeba naguo haigua raba tüsa. hor uanaga, sloze, ki, kigi gjema sová, gjema so mepe dja ree baba, e, e.",
     "tonality": "simple-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 31,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "tuk": {
     "name": "Turkmen",
@@ -2544,9 +2737,10 @@
     "sr": "teke jonok tjagargøjok ljong ahalele brholok, kltha brdzo ajgojurüš, aslorgur leleti",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 28,
-    "caseCount": 6
+    "caseCount": 6,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "tum": {
     "name": "Tumbuka",
@@ -2558,9 +2752,10 @@
     "novo": true,
     "tonality": "simple-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 32,
-    "caseCount": 2
+    "caseCount": 2,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "tur": {
     "name": "Turkish",
@@ -2571,9 +2766,10 @@
     "sr": "čok skmadan uzalji købølje fčurum, čok skmadan sarma veresørurus, čok søkajsans sarma lerønzøn altøna usøndøn patnamaloroldžaktir, ve ičaldžet hanamen d šrč prdžektř",
     "tonality": "pitch-accent",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 32,
-    "caseCount": 6
+    "caseCount": 6,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "uig": {
     "name": "Uyghur",
@@ -2584,9 +2780,10 @@
     "sr": "bitih khlumš køn mjü-ze, ben basful tu kel bir-tim, men saboi je mebir er suksus-tu-ken samabal-trum",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 24,
-    "caseCount": 6
+    "caseCount": 6,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "ukr": {
     "name": "Ukrainian",
@@ -2597,9 +2794,10 @@
     "sr": "Нам відо́мо, що у вісімна́eцетому столі́тці, борщ забі́лјували смета́ною або я́йћами, які́ або відва́рјувалi та натира́лi, або влiва́лi увуа́риво-сјури́мi. А щø його́ затира́ли, тобто заправля́ли, тро́хи підсма́женим пшени́чним борошно́м.",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 32,
-    "caseCount": 7
+    "caseCount": 7,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "flexible"
   },
   "unr": {
     "name": "Mundari",
@@ -2610,9 +2808,10 @@
     "sr": "taka, te adela ataka e, kulkeda, nemo kare s-ri, narendremodita-kin-kin-kaďíkedaći ća-saba-saka, mireseno i ďan geelmijad, sirma kore, i suba dlihu vaka na",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 24,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "urd": {
     "name": "Urdu",
@@ -2623,9 +2822,10 @@
     "sr": "taza sabznja taza pæl haljiz duud ormakøn vuaha a sanjisi dasdeabhe",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 46,
-    "caseCount": 4
+    "caseCount": 4,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "uzb": {
     "name": "Uzbek",
@@ -2636,9 +2836,10 @@
     "sr": "šnaka-tikjes tenna-khamar buguni-čuoje jakšla-müšla, i kigje-bülö, zoualečeleza",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 26,
-    "caseCount": 6
+    "caseCount": 6,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "ven": {
     "name": "Venda",
@@ -2650,9 +2851,10 @@
     "novo": true,
     "tonality": "simple-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 35,
-    "caseCount": 2
+    "caseCount": 2,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "vie": {
     "name": "Vietnamese",
@@ -2663,9 +2865,10 @@
     "sr": "jenjela noil~~~~ djinoj lhljm namnam gimmiəmiə nəmnəb",
     "tonality": "complex-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 23,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "rigid"
   },
   "war": {
     "name": "Waray",
@@ -2676,9 +2879,10 @@
     "sr": "dirika bara nunum düman bata-kata, na duduk-dukain bajabas njeneng-sasaka",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 20,
-    "caseCount": 3
+    "caseCount": 3,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "flexible"
   },
   "wol": {
     "name": "Wolof",
@@ -2689,9 +2893,10 @@
     "sr": "taeila ďuruo mnjente elo fanci veeru septambar",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 34,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "wuu": {
     "name": "Wu Chinese",
@@ -2702,9 +2907,10 @@
     "sr": "jazønier ir wen wogodonze jagobe ćaďobidonzem voðjulajgobe ðambe",
     "tonality": "pitch-accent",
     "morphology": "isolating",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 31,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "rigid"
   },
   "xal": {
     "name": "Kalmyk",
@@ -2715,9 +2921,10 @@
     "sr": "jene, namrar, mečerloos, er haurar ürsarlauže, kirhšċkok, cajlorsm arhørhøm mčr gelüge, o šugen zalusø, cok-top",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 31,
-    "caseCount": 7
+    "caseCount": 7,
+    "wordOrder": "SOV",
+    "wordOrderFlexibility": "flexible"
   },
   "xho": {
     "name": "Xhosa",
@@ -2728,9 +2935,10 @@
     "sr": "koþohano mama uno t'olo horponge? kalléllo lake ko purtesolo vuimilles t'hosa. kumsii tueke, tek leje obobánďele, gyizi kohlem kollu lekue pitúlli",
     "tonality": "simple-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 55,
-    "caseCount": 2
+    "caseCount": 2,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "yid": {
     "name": "Yiddish",
@@ -2741,9 +2949,10 @@
     "sr": "Er kompozir de všemvaje lideh, oparo ohet niš klopingta vi met welehe fohmat firdere sa viber fa de ojlend",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 22,
-    "caseCount": 4
+    "caseCount": 4,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "yor": {
     "name": "Yoruba",
@@ -2754,9 +2963,10 @@
     "sr": "a, oliki djoanatiaManlo fissia puaLenia, late muKi ulija niNau-U? a tiki nu lendu?",
     "tonality": "complex-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 25,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "yua": {
     "name": "Yucatec Maya",
@@ -2767,9 +2977,10 @@
     "sr": "džs majnuo bøšićuou kobuel telega binenega pimuaituei teninvuohe maija",
     "tonality": "non-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "flexible",
     "phonemeCount": 25,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "flexible"
   },
   "yue": {
     "name": "Cantonese",
@@ -2780,9 +2991,10 @@
     "sr": "hau dzalu tonquaa donu hallou, o dzeloi gaua launjizima hounczou gouzoumjuje malamju donuarivanjule",
     "tonality": "complex-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 20,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "rigid"
   },
   "zha": {
     "name": "Zhuang",
@@ -2793,9 +3005,10 @@
     "sr": "dzelome, demedzelem, tunúnnâu, digome dzelúnǎu, dilimenja, gibo bjadon gjam, inigdon, pinliu",
     "tonality": "complex-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 41,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "rigid"
   },
   "zhx": {
     "name": "Yue Chinese",
@@ -2807,9 +3020,10 @@
     "sr": "nei hom hoji fon naiflong meiji penfliangaa",
     "tonality": "complex-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "rigid",
     "phonemeCount": 36,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "rigid"
   },
   "zul": {
     "name": "Zulu",
@@ -2820,9 +3034,10 @@
     "sr": "monguas tandingua ďas baluna banja bantu, uzoba fundelania bantuana, obouzuba fundela pelingua ďasbalouena, o mena mena mena mena mjonegomnem nangede",
     "tonality": "simple-tonal",
     "morphology": "agglutinative",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 38,
-    "caseCount": 2
+    "caseCount": 2,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "jam": {
     "name": "Jamaican Creole",
@@ -2833,9 +3048,10 @@
     "sr": "abetse, nemno nuo sao dompling",
     "tonality": "non-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 30,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "tpi": {
     "name": "Tok Pisin",
@@ -2846,9 +3062,10 @@
     "sr": "o? ama amini o amas pela brada, na amas pela susa",
     "tonality": "non-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 17,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "pcm": {
     "name": "Nigerian Pidgin",
@@ -2859,9 +3076,10 @@
     "sr": "daš mi moni nau, kom daš, jea kom kom kom daš mi, moni, i mins komaan gimi moni fri of čardž, džos gimi mon, džos cip mi, daš mi moni nau, oo, aj lajk dis jo topoo, jo go daš mi?",
     "tonality": "complex-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 26,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "bis": {
     "name": "Bislama",
@@ -2872,9 +3090,10 @@
     "sr": "naháet toh uot krange... i kušui tnomoi si ueo, uot krangemoord, liee di lagen plo - uot krange",
     "tonality": "non-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 18,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "srn": {
     "name": "Sranan Tongo",
@@ -2885,9 +3104,10 @@
     "sr": "ina samsana ućuća uaseti, oki, teda mav stret mi ďo pikunu! teda mav, teda mav ftre mi ďo pikunu, to uno tak tak digi-jan-jan-jan-ja-nog-ja-non-ja-nja-njo, kop konorop konoro let abujare",
     "tonality": "complex-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 24,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "hat": {
     "name": "Haitian Creole",
@@ -2898,9 +3118,10 @@
     "sr": "la nuge, e šalot mue ra še, ef ui mue genje zonjola mueráše an žulijen",
     "tonality": "non-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 32,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "mfe": {
     "name": "Mauritian Creole",
@@ -2911,9 +3132,10 @@
     "sr": "i no ankoo? pam lezet omonim? kiśje mo? to ko ni",
     "tonality": "non-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 28,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "crs": {
     "name": "Seychellois Creole",
@@ -2924,9 +3146,10 @@
     "sr": "ee, le uadapei, cifeer, dzi tuďimon, ki lepoďimon i rakonzedmo liskili, ja don longanciso focinon gans",
     "tonality": "non-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 27,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "rcf": {
     "name": "Réunion Creole",
@@ -2937,9 +3160,10 @@
     "sr": "are gj źa bjoj źidja bjojd bol, etj izolí. kga kga bja ďi bju, vad izolí? ansjuit, bjod, njbajdijah, fton thek mon",
     "tonality": "non-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 29,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "gcr": {
     "name": "Guadeloupean Creole",
@@ -2950,9 +3174,10 @@
     "sr": "ame mi žan ke, se je fin makaton. ze fini, ojuga di fituur, adoo fhaz ki pani vebe d'histonsieel",
     "tonality": "non-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 28,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "acf": {
     "name": "Saint Lucian Creole",
@@ -2963,9 +3188,10 @@
     "sr": "ksimunipoo, kote žu neon, ifi, k-ce bajza, upasamem, c-heagaja nine",
     "tonality": "non-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 28,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "kea": {
     "name": "Kabuverdianu",
@@ -2976,9 +3202,10 @@
     "sr": "e subina un kavalu na madiera, ez brinka na reje, i ez brinka ku bisikleta na madiera",
     "tonality": "non-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 26,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "pap": {
     "name": "Papiamento",
@@ -2989,9 +3216,10 @@
     "sr": "sere ma śinko o se bistibo paje neaći dreća bunita, no staban sali. æuin, no sta kumisa di sero. saka e heruta mefoi korijente. la ge paja nan numa, orenos buolde kaas, mi mista kabadi labana",
     "tonality": "non-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 25,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "cri": {
     "name": "Sãotomense",
@@ -3002,9 +3230,10 @@
     "sr": "noš temsu maj luzon lingvištika tunš leva, apei sar k toordu sartu mees fala tan tubíš",
     "tonality": "complex-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 26,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "cbk": {
     "name": "Chavacano",
@@ -3015,9 +3244,10 @@
     "sr": "kuando pa jo ćikito, sabija jo ćabakano, polki mi tata i nana kunmigo ja insinja",
     "tonality": "non-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 21,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "VSO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "pln": {
     "name": "Palenquero",
@@ -3028,9 +3258,10 @@
     "sr": "uedeneze kaki kolaua, keke aki kolaua neke keka dja ki kola",
     "tonality": "complex-tonal",
     "morphology": "isolating",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 23,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   },
   "sco": {
     "name": "Scots",
@@ -3041,8 +3272,9 @@
     "sr": "mebi je lent e skjuul de dis wos sleng ed wosnie aproprie, en mebi ju dine kene spelo wods, en je senli wudn uze in rijtn, bu hu no? skots es e lid, ez gjed ez oni adar",
     "tonality": "non-tonal",
     "morphology": "fusional",
-    "wordOrderFlexibility": "semi-flexible",
     "phonemeCount": 40,
-    "caseCount": 0
+    "caseCount": 0,
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "semi-flexible"
   }
 }
