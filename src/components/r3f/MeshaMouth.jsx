@@ -50,12 +50,14 @@ const MeshaMouth = ({
     canvas.height = size;
     const ctx = canvas.getContext("2d");
 
-    ctx.fillStyle = `#${colorObj.getHexString()}`;
+    const tonalityScore = linguisticConfig.tonality.values[tonality]?.score;
+
+    // Use secondaryColor as background, colorObj as foreground
+    ctx.fillStyle = `#${secondaryColor.getHexString()}`;
     ctx.fillRect(0, 0, size, size);
-    ctx.strokeStyle = `#${secondaryColor.getHexString()}`;
+    ctx.strokeStyle = `#${colorObj.getHexString()}`;
     ctx.lineWidth = 2;
 
-    const tonalityScore = linguisticConfig.tonality.values[tonality]?.score;
     const numWaves = Math.floor(tonalityScore);
     ctx.beginPath();
     for (let x = 0; x <= size; x++) {
@@ -120,11 +122,7 @@ const MeshaMouth = ({
         rotation={[-1 / 3, -Math.PI, 0]}
       >
         <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
-        <meshStandardMaterial
-          color={color}
-          side={2}
-          map={createTexture(tonalityTexture)}
-        />
+        <meshStandardMaterial map={createTexture(tonalityTexture)} side={2} />
       </mesh>
 
       {teethSpheres.map((sphere, i) => (
