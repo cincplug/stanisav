@@ -15,9 +15,8 @@ extend({ ParametricGeometry });
 
 const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
   const groupRef = useRef();
-  const rotationGroupRef = useRef(); // New ref for rotation
-  const leftEyeRef = useRef();
-  const rightEyeRef = useRef();
+  const rotationGroupRef = useRef();
+  const eyesGroupRef = useRef();
   const meshaCheekRef = useRef();
   const casesRef = useRef([]);
   const { selectedLanguage } = useLanguageSelection();
@@ -25,14 +24,16 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
   const { controls } = useControls();
   const { eyeYOffset, eyeXPosition, eyeZPositionMultiplier } = controls;
 
-  const c3 = new Color("#ffbbbb").sub(new Color(color));
+  const mouthColor = useMemo(
+    () => new Color("#ffbbbb").sub(new Color(color)),
+    [color]
+  );
 
   const tonalityScore =
     linguisticConfig.tonality.values[linguisticProperties?.tonality]?.score;
 
   const { audioData } = useAudioAnimation(languageCode, isThisLanguageSelected);
 
-  // Get word order flexibility amplitude multiplier
   const wordOrderAmplitude = useMemo(() => {
     const flexibility = linguisticProperties?.wordOrderFlexibility;
     const score =
@@ -96,22 +97,16 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
       groupRef.current.lookAt(camera.position);
     }
 
-    // Apply rotation to inner group
     if (rotationGroupRef.current) {
       const time = clock.getElapsedTime();
-      const rotationSpeed = 0.3;
-      const rotationAmplitude = Math.PI / 6;
-      const rotationY = Math.sin(time * rotationSpeed) * rotationAmplitude;
-
-      rotationGroupRef.current.rotation.y = rotationY;
+      rotationGroupRef.current.rotation.y =
+        Math.sin(time * 0.3) * (Math.PI / 6);
     }
 
-    // Calculate average Y position from the two meshes in MeshaCheek
     if (
       meshaCheekRef.current?.mesh1 &&
       meshaCheekRef.current?.mesh2 &&
-      leftEyeRef.current &&
-      rightEyeRef.current
+      eyesGroupRef.current
     ) {
       const mesh1 = meshaCheekRef.current.mesh1;
       const mesh2 = meshaCheekRef.current.mesh2;
@@ -124,27 +119,25 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
 
         const maxY1 = geometry1.boundingBox.max.y * mesh1.scale.y;
         const maxY2 = geometry2.boundingBox.max.y * mesh2.scale.y;
-        const avgY = (maxY1 + maxY2) / 2 + eyeYOffset;
-
-        leftEyeRef.current.position.y = avgY;
-        rightEyeRef.current.position.y = avgY;
+        eyesGroupRef.current.position.y = (maxY1 + maxY2) / 2 + eyeYOffset;
       }
     }
 
-    // Update cases Y position based on audio
     if (casesRef.current && isThisLanguageSelected && audioData.isActive) {
       const { harmonicsData } = audioData;
       const count = casesRef.current.length;
+      const bandDivisor = 6;
       casesRef.current.forEach((caseGroup, i) => {
         if (caseGroup) {
           const angle = (i / count) * Math.PI * 2;
           const xSymmetry = Math.abs(Math.cos(angle));
-          const maxBandIndex = Math.floor(harmonicsData.length / 6);
-          const bandIndex = Math.floor(xSymmetry * maxBandIndex);
+          const bandIndex = Math.floor(
+            (xSymmetry * harmonicsData.length) / bandDivisor
+          );
           const amplitude = harmonicsData[bandIndex] || 0;
           const baseY = cases[i]?.y || -1;
-          caseGroup.position.y = baseY + amplitude * 2.0;
-          const scale = 0.5 + amplitude * 1.0;
+          caseGroup.position.y = baseY + amplitude * 2;
+          const scale = 0.5 + amplitude;
           caseGroup.scale.set(scale, scale, scale);
         }
       });
@@ -163,32 +156,25 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
   );
 
   const segments = audioVisualizationConfig.meshDeformation.meshSegments;
+  const eyeZ = labelSize * eyeZPositionMultiplier;
 
-  // Generate cases in a line below eyes
   const cases = useMemo(() => {
     const count = linguisticProperties?.caseCount || 0;
     if (count === 0) return [];
 
     const spacing = (eyeXPosition * 2) / Math.max(count - 1, 1);
     const startX = count === 1 ? 0 : eyeXPosition;
-    const baseY = 1;
     const items = [];
     for (let i = 0; i < count; i++) {
-      const x = startX - i * spacing;
       items.push({
-        x,
-        y: baseY,
-        z: labelSize * eyeZPositionMultiplier,
+        x: startX - i * spacing,
+        y: 1,
+        z: eyeZ,
         key: `case-${i}`,
       });
     }
     return items;
-  }, [
-    linguisticProperties?.caseCount,
-    eyeXPosition,
-    labelSize,
-    eyeZPositionMultiplier,
-  ]);
+  }, [linguisticProperties?.caseCount, eyeXPosition, eyeZ]);
 
   return (
     <group ref={groupRef}>
@@ -204,22 +190,21 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
           segments={segments}
         />
 
-        <group
-          ref={leftEyeRef}
-          position={[eyeXPosition, 1, labelSize * eyeZPositionMultiplier]}
-        >
-          <MeshaEye position={[0, 0, 0]} color={color} labelSize={labelSize} />
-        </group>
-
-        <group
-          ref={rightEyeRef}
-          position={[-eyeXPosition, 1, labelSize * eyeZPositionMultiplier]}
-        >
-          <MeshaEye position={[0, 0, 0]} color={color} labelSize={labelSize} />
+        <group ref={eyesGroupRef} position={[0, 1, eyeZ]}>
+          <MeshaEye
+            position={[eyeXPosition, 0, 0]}
+            color={color}
+            labelSize={labelSize}
+          />
+          <MeshaEye
+            position={[-eyeXPosition, 0, 0]}
+            color={color}
+            labelSize={labelSize}
+          />
         </group>
 
         <MeshaMouth
-          color={color}
+          color={mouthColor}
           audioReactiveSurface={audioReactiveSurface}
           segments={segments}
           wordOrderAmplitude={wordOrderAmplitude}
@@ -229,18 +214,17 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
           audioData={audioData}
         />
 
-        {/* Cases below eyes */}
         {cases.map((caseItem, i) => (
           <group
             key={caseItem.key}
             ref={(el) => (casesRef.current[i] = el)}
             position={[caseItem.x, caseItem.y, caseItem.z]}
           >
-            <mesh position={[0, 0, 0]}>
+            <mesh>
               <sphereGeometry args={[0.3, 16, 16]} />
               <meshStandardMaterial
-                color={c3}
-                emissive={c3}
+                color={mouthColor}
+                emissive={mouthColor}
                 emissiveIntensity={0.3}
               />
             </mesh>
