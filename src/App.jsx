@@ -47,6 +47,7 @@ function App() {
       {!isLoading && sceneReady ? (
         <>
           {isEmptyFilter && <LoadingOverlay variant="emptyFilter" />}
+          <Playlist />
           <Menu
             controls={controls}
             onControlChange={updateControl}
@@ -59,17 +60,17 @@ function App() {
             filteringUtils={filteringUtils}
             onFilteringUtilsChange={setFilteringUtils}
           />
-          <Playlist />
 
           {sampleUrl && (
             <a
               className="button show-video"
               href={sampleUrl}
               target="_blank"
-              rel="noreferrer noopener"
+              rel="noopener noreferrer"
               onClick={pausePlaylist}
+              aria-label={`${name} Source Video (opens in new tab)`}
             >
-              {name} Source Video
+              {name} Source Video ↗
             </a>
           )}
         </>
