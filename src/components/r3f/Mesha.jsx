@@ -56,11 +56,16 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
       symmetricalMirroring,
     } = meshConfig;
 
+    const flexibility = linguisticProperties?.wordOrderFlexibility;
+    const flexibilityScore =
+      linguisticConfig.wordOrderFlexibility.values[flexibility]?.score || 1;
+    const flexibilityAmplitude = 1 + flexibilityScore * 0.5;
+
     return (u, v, target) => {
       const size = labelSize;
       const z = (u - 0.5) * size;
       const x = (v - 0.5) * size;
-      let y = wordOrderAmplitude;
+      let y = symmetricalMirroring ? wordOrderAmplitude : flexibilityAmplitude;
 
       if (isSelectedForAudio && audioDataValue.isActive) {
         const { fundamentalData, harmonicsData } = audioDataValue;
@@ -74,11 +79,9 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
         const harmonicsAmplitude = harmonicsData[bandIndex] || 0;
 
         const balancedFundamental = fundamentalAmplitude * fundamentalAmplifier;
-        const harmonicsModifier =
-          symmetricalMirroring && u > 0.5
-            ? harmonicsAmplifier
-            : tonalityScore / 10;
-        const balancedHarmonics = harmonicsAmplitude * harmonicsModifier;
+        const balancedHarmonics =
+          harmonicsAmplitude *
+          (symmetricalMirroring ? harmonicsAmplifier : tonalityScore / 10);
         const totalAmplitude = balancedFundamental + balancedHarmonics;
 
         y = totalAmplitude * maxDeformation * size;

@@ -1,7 +1,9 @@
 import { useRef, useMemo } from "react";
 import { Color } from "three";
+import * as THREE from "three";
 import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
+import linguisticConfig from "../../config/linguisticConfig.json";
 
 extend({ ParametricGeometry });
 
@@ -34,6 +36,54 @@ const MeshaMouth = ({
     }
     return spheres;
   }, [linguisticProperties?.phonemeCount, labelSize]);
+
+  const colorObj = useMemo(() => new Color(color), [color]);
+  const secondaryColor = useMemo(
+    () => new Color("#ddddff").sub(colorObj),
+    [colorObj]
+  );
+
+  const getTonalityTexture = (tonality) => {
+    const size = 64;
+    const canvas = document.createElement("canvas");
+    canvas.width = size;
+    canvas.height = size;
+    const ctx = canvas.getContext("2d");
+
+    ctx.fillStyle = `#${colorObj.getHexString()}`;
+    ctx.fillRect(0, 0, size, size);
+    ctx.strokeStyle = `#${secondaryColor.getHexString()}`;
+    ctx.lineWidth = 2;
+
+    const tonalityScore = linguisticConfig.tonality.values[tonality]?.score;
+    const numWaves = Math.floor(tonalityScore);
+    ctx.beginPath();
+    for (let x = 0; x <= size; x++) {
+      let y = size / 2;
+      for (let w = 0; w < numWaves; w++) {
+        const frequency = (w + 1) * tonalityScore;
+        const amplitude = (size * 0.375) / (w + 1);
+        y += Math.sin((x * Math.PI * frequency) / (size / 4)) * amplitude;
+      }
+      if (x === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+
+    return canvas;
+  };
+
+  const tonalityTexture = useMemo(() => {
+    if (!linguisticProperties?.tonality) return null;
+    return getTonalityTexture(linguisticProperties.tonality);
+  }, [linguisticProperties?.tonality, colorObj, secondaryColor]);
+
+  const createTexture = (canvas) => {
+    if (!canvas) return null;
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.needsUpdate = true;
+    return texture;
+  };
 
   useFrame(() => {
     if (
@@ -70,7 +120,11 @@ const MeshaMouth = ({
         rotation={[-1 / 3, -Math.PI, 0]}
       >
         <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
-        <meshStandardMaterial color={color} side={2} />
+        <meshStandardMaterial
+          color={color}
+          side={2}
+          map={createTexture(tonalityTexture)}
+        />
       </mesh>
 
       {teethSpheres.map((sphere, i) => (

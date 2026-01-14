@@ -23,42 +23,61 @@ const MeshaCheek = forwardRef(
       [colorObj]
     );
 
-    const getTonalityTexture = (tonality) => {
+    const getWordOrderTexture = (wordOrder) => {
       const size = 64;
       const canvas = document.createElement("canvas");
       canvas.width = size;
       canvas.height = size;
       const ctx = canvas.getContext("2d");
 
-      ctx.fillStyle = `#${colorObj.getHexString()}`;
+      // Use the secondary color for background
+      ctx.fillStyle = `#${secondaryColor.getHexString()}`;
       ctx.fillRect(0, 0, size, size);
-      ctx.strokeStyle = `#${secondaryColor.getHexString()}`;
-      ctx.lineWidth = 2;
 
-      const tonalityScore = linguisticConfig.tonality.values[tonality]?.score;
+      // Use darker/contrasting color for shapes - invert the secondary color
+      const shapeColor = new Color(1, 1, 1).sub(secondaryColor);
+      ctx.fillStyle = `#${shapeColor.getHexString()}`;
 
-      if (tonalityScore === 1) {
-        for (let i = size / 4; i <= (size * 3) / 4; i += size / 4) {
+      // Define shapes for S, V, O
+      const shapes = {
+        S: (x, y, shapeSize) => {
+          // Square for Subject
+          ctx.fillRect(
+            x - shapeSize / 2,
+            y - shapeSize / 2,
+            shapeSize,
+            shapeSize
+          );
+        },
+        V: (x, y, shapeSize) => {
+          // Triangle for Verb
           ctx.beginPath();
-          ctx.moveTo(0, i);
-          ctx.lineTo(size, i);
-          ctx.stroke();
+          ctx.moveTo(x, y - shapeSize / 2);
+          ctx.lineTo(x + shapeSize / 2, y + shapeSize / 2);
+          ctx.lineTo(x - shapeSize / 2, y + shapeSize / 2);
+          ctx.closePath();
+          ctx.fill();
+        },
+        O: (x, y, shapeSize) => {
+          // Circle for Object
+          ctx.beginPath();
+          ctx.arc(x, y, shapeSize / 2, 0, Math.PI * 2);
+          ctx.fill();
+        },
+      };
+
+      const order = wordOrder.split("");
+      const spacing = size / (order.length + 1);
+      const shapeSize = size / (order.length + 2);
+
+      order.forEach((char, i) => {
+        const x = spacing * (i + 1);
+        const y = size / 2;
+        if (shapes[char]) {
+          shapes[char](x, y, shapeSize);
         }
-      } else {
-        const numWaves = Math.floor(tonalityScore);
-        ctx.beginPath();
-        for (let x = 0; x <= size; x++) {
-          let y = size / 2;
-          for (let w = 0; w < numWaves; w++) {
-            const frequency = (w + 1) * tonalityScore;
-            const amplitude = (size * 0.375) / (w + 1);
-            y += Math.sin((x * Math.PI * frequency) / (size / 4)) * amplitude;
-          }
-          if (x === 0) ctx.moveTo(x, y);
-          else ctx.lineTo(x, y);
-        }
-        ctx.stroke();
-      }
+      });
+
       return canvas;
     };
 
@@ -101,10 +120,10 @@ const MeshaCheek = forwardRef(
       return canvas;
     };
 
-    const tonalityTexture = useMemo(() => {
-      if (!linguisticProperties?.tonality) return null;
-      return getTonalityTexture(linguisticProperties.tonality);
-    }, [linguisticProperties?.tonality, colorObj, secondaryColor]);
+    const wordOrderTexture = useMemo(() => {
+      if (!linguisticProperties?.wordOrder) return null;
+      return getWordOrderTexture(linguisticProperties.wordOrder);
+    }, [linguisticProperties?.wordOrder, colorObj, secondaryColor]);
 
     const morphologyTexture = useMemo(() => {
       if (!linguisticProperties?.morphology) return null;
@@ -115,11 +134,14 @@ const MeshaCheek = forwardRef(
       if (!canvas) return null;
       const texture = new THREE.CanvasTexture(canvas);
       texture.needsUpdate = true;
+      texture.wrapS = THREE.RepeatWrapping;
+      texture.wrapT = THREE.RepeatWrapping;
       return texture;
     };
 
     return (
       <>
+        {/* Left cheek (morphology) */}
         <mesh
           ref={mesh2Ref}
           position={[-1, 1, 0]}
@@ -132,19 +154,25 @@ const MeshaCheek = forwardRef(
           <meshStandardMaterial
             side={2}
             map={createTexture(morphologyTexture)}
+            color="#ffffff"
           />
         </mesh>
 
+        {/* Right cheek (word order) */}
         <mesh
           ref={mesh1Ref}
           position={[1, 1, 0]}
-          scale={[1 / 2, 2 / 3, 3]}
+          scale={[1 / 2, 3 / 4, 3]}
           rotation={[0, 1 / 20, 0]}
         >
           <parametricGeometry
             args={[audioReactiveSurface, segments, segments]}
           />
-          <meshStandardMaterial side={2} map={createTexture(tonalityTexture)} />
+          <meshStandardMaterial
+            side={2}
+            map={createTexture(wordOrderTexture)}
+            color="#ffffff"
+          />
         </mesh>
       </>
     );
