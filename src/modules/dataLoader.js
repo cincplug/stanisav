@@ -29,30 +29,11 @@ class DataLoader {
       } = this.data;
 
       Object.entries(languages).forEach(([code, langData]) => {
-        const {
-          group,
-          speakers,
-          tonality,
-          morphology,
-          wordOrderFlexibility,
-          phonemeCount,
-          caseCount,
-          ...rest
-        } = langData;
+        const { group, speakers, ...typology } = langData;
 
         languageData[code] = languages[code];
         languageGroups[code] = group;
         speakerData[code] = speakers;
-
-        // Extract typological features from the flattened structure
-        const typology = {};
-        if (tonality !== undefined) typology.tonality = tonality;
-        if (morphology !== undefined) typology.morphology = morphology;
-        if (wordOrderFlexibility !== undefined)
-          typology.wordOrderFlexibility = wordOrderFlexibility;
-        if (phonemeCount !== undefined) typology.phonemeCount = phonemeCount;
-        if (caseCount !== undefined) typology.caseCount = caseCount;
-
         typologicalFeatures[code] = typology;
       });
 
