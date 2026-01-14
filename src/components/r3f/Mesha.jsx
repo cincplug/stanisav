@@ -19,7 +19,7 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
   const leftEyeRef = useRef();
   const rightEyeRef = useRef();
   const meshaCheekRef = useRef();
-  const caseConesRef = useRef([]);
+  const casesRef = useRef([]);
   const { selectedLanguage } = useLanguageSelection();
   const isThisLanguageSelected = selectedLanguage === languageCode;
   const { controls } = useControls();
@@ -131,20 +131,21 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
       }
     }
 
-    // Update case cones Y position based on audio
-    if (caseConesRef.current && isThisLanguageSelected && audioData.isActive) {
+    // Update cases Y position based on audio
+    if (casesRef.current && isThisLanguageSelected && audioData.isActive) {
       const { harmonicsData } = audioData;
-      const count = caseConesRef.current.length;
-      caseConesRef.current.forEach((cone, i) => {
-        if (cone) {
+      const count = casesRef.current.length;
+      casesRef.current.forEach((caseGroup, i) => {
+        if (caseGroup) {
           const angle = (i / count) * Math.PI * 2;
           const xSymmetry = Math.abs(Math.cos(angle));
           const maxBandIndex = Math.floor(harmonicsData.length / 6);
           const bandIndex = Math.floor(xSymmetry * maxBandIndex);
           const amplitude = harmonicsData[bandIndex] || 0;
-          cone.position.y = 3.5 + amplitude * 5.0;
-          const scale = 0.5 + amplitude * 2.0;
-          cone.scale.set(scale, scale, scale);
+          const baseY = cases[i]?.y || -1;
+          caseGroup.position.y = baseY + amplitude * 2.0;
+          const scale = 0.5 + amplitude * 1.0;
+          caseGroup.scale.set(scale, scale, scale);
         }
       });
     }
@@ -163,21 +164,31 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
 
   const segments = audioVisualizationConfig.meshDeformation.meshSegments;
 
-  // Generate case cones in a circle above the mesh
-  const caseCones = useMemo(() => {
+  // Generate cases in a line below eyes
+  const cases = useMemo(() => {
     const count = linguisticProperties?.caseCount || 0;
     if (count === 0) return [];
 
-    const radius = labelSize * 0.95;
-    const cones = [];
+    const spacing = (eyeXPosition * 2) / Math.max(count - 1, 1);
+    const startX = count === 1 ? 0 : eyeXPosition;
+    const baseY = 1;
+    const items = [];
     for (let i = 0; i < count; i++) {
-      const angle = (i / count) * Math.PI * 2;
-      const x = (Math.cos(angle) * radius) / 2;
-      const z = Math.sin(angle) * radius;
-      cones.push({ x, y: 3.5, z, angle, key: `case-${i}` });
+      const x = startX - i * spacing;
+      items.push({
+        x,
+        y: baseY,
+        z: labelSize * eyeZPositionMultiplier,
+        key: `case-${i}`,
+      });
     }
-    return cones;
-  }, [linguisticProperties?.caseCount, labelSize]);
+    return items;
+  }, [
+    linguisticProperties?.caseCount,
+    eyeXPosition,
+    labelSize,
+    eyeZPositionMultiplier,
+  ]);
 
   return (
     <group ref={groupRef}>
@@ -218,21 +229,22 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
           audioData={audioData}
         />
 
-        {/* Case count cones above meshes */}
-        {caseCones.map((cone, i) => (
-          <mesh
-            key={cone.key}
-            ref={(el) => (caseConesRef.current[i] = el)}
-            position={[cone.x, cone.y, cone.z]}
-            rotation={[0, 0, 0]}
+        {/* Cases below eyes */}
+        {cases.map((caseItem, i) => (
+          <group
+            key={caseItem.key}
+            ref={(el) => (casesRef.current[i] = el)}
+            position={[caseItem.x, caseItem.y, caseItem.z]}
           >
-            <coneGeometry args={[0.5, 1.5, 6]} />
-            <meshStandardMaterial
-              color={c3}
-              emissive={c3}
-              emissiveIntensity={0.2}
-            />
-          </mesh>
+            <mesh position={[0, 0, 0]}>
+              <sphereGeometry args={[0.3, 16, 16]} />
+              <meshStandardMaterial
+                color={c3}
+                emissive={c3}
+                emissiveIntensity={0.3}
+              />
+            </mesh>
+          </group>
         ))}
       </group>
     </group>
