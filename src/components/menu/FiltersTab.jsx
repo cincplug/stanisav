@@ -4,9 +4,9 @@ import {
   filterLanguagesByFeatures,
 } from "../../utils/filteringUtils";
 import {
-  getLinguisticFeatures,
   getAllFeatures,
   getFeatureLabel,
+  getFeatureDescription, // already imported
 } from "../../utils/linguisticUtils";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 
@@ -118,6 +118,9 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
                     buttonColor = data?.groupInfo?.[value]?.color;
                   }
 
+                  // Get description for title attribute if available
+                  const description = getFeatureDescription(feature, value);
+
                   return (
                     <React.Fragment key={valueKey}>
                       <input
@@ -143,6 +146,7 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
                             ? { backgroundColor: buttonColor }
                             : undefined
                         }
+                        title={description || undefined}
                       >
                         {displayLabel}
                       </label>
