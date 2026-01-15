@@ -8,6 +8,11 @@ import { exec } from "child_process";
 import { promisify } from "util";
 import { fileURLToPath } from "url";
 import ffmpegInstaller from "@ffmpeg-installer/ffmpeg";
+import {
+  loadLanguagesData,
+  updateMp3Metadata,
+  getMetadataTitle,
+} from "./shared/metadata.js";
 
 const execAsync = promisify(exec);
 
@@ -25,6 +30,17 @@ const DEFAULT_SETTINGS = {
   truePeak: -1.5,
   lra: 11,
   highpassFreq: 90,
+  // EQ settings to combat "radio sound" and enhance voice/bass
+  useEQ: true,
+  eqPresets: {
+    // Reduce harsh midrange frequencies (radio sound)
+    reduceMidrange: { freq: 2800, gain: -2, q: 1.5 },
+    reduceHarshness: { freq: 4500, gain: -1.5, q: 1.2 },
+    // Boost presence and warmth
+    boostPresence: { freq: 180, gain: 1.5, q: 0.8 },
+    boostClarity: { freq: 8000, gain: 1, q: 1.5 },
+  },
+  // Compression - kept moderate
   compressionThreshold: -18,
   compressionRatio: 2.5,
   compressionAttack: 5,
@@ -34,10 +50,12 @@ const DEFAULT_SETTINGS = {
   limiterRelease: 50,
   bitrate: "192k",
   useVBR: true,
-  vbrQuality: 2, // 0-9, lower is better for VBR
+  vbrQuality: 2,
+  // Metadata update
+  updateMetadata: true,
 };
 
-// Get all -luka.mp3 files
+// Get all -luka.mp3 files (NOT -luka-bas.mp3)
 function getLukaMp3Files(audioDir) {
   if (!fs.existsSync(audioDir)) {
     console.error(`Error: Audio directory not found at ${audioDir}`);
@@ -46,7 +64,10 @@ function getLukaMp3Files(audioDir) {
 
   return fs
     .readdirSync(audioDir)
-    .filter((file) => file.toLowerCase().endsWith("-luka.mp3"))
+    .filter((file) => {
+      const basename = path.basename(file, ".mp3");
+      return basename.endsWith("-luka") && !basename.endsWith("-luka-bas");
+    })
     .map((file) => ({
       fullPath: path.join(audioDir, file),
       filename: file,
@@ -99,12 +120,36 @@ async function optimizeAudioFile(inputPath, settings) {
 
   try {
     // Build filter chain
-    const filters = [
-      `highpass=f=${settings.highpassFreq}`,
-      `acompressor=threshold=${settings.compressionThreshold}dB:ratio=${settings.compressionRatio}:attack=${settings.compressionAttack}:release=${settings.compressionRelease}`,
-      `loudnorm=I=${settings.targetLufs}:TP=${settings.truePeak}:LRA=${settings.lra}`,
-      `alimiter=limit=${settings.limiterThreshold}dB:attack=${settings.limiterAttack}:release=${settings.limiterRelease}`,
-    ];
+    const filters = [];
+
+    // 1. High-pass filter to remove rumble
+    filters.push(`highpass=f=${settings.highpassFreq}`);
+
+    // 2. EQ to reduce "radio sound" and enhance voice/bass
+    if (settings.useEQ) {
+      const eq = settings.eqPresets;
+      filters.push(
+        `equalizer=f=${eq.reduceMidrange.freq}:width_type=q:width=${eq.reduceMidrange.q}:g=${eq.reduceMidrange.gain}`,
+        `equalizer=f=${eq.reduceHarshness.freq}:width_type=q:width=${eq.reduceHarshness.q}:g=${eq.reduceHarshness.gain}`,
+        `equalizer=f=${eq.boostPresence.freq}:width_type=q:width=${eq.boostPresence.q}:g=${eq.boostPresence.gain}`,
+        `equalizer=f=${eq.boostClarity.freq}:width_type=q:width=${eq.boostClarity.q}:g=${eq.boostClarity.gain}`
+      );
+    }
+
+    // 3. Gentle compression
+    filters.push(
+      `acompressor=threshold=${settings.compressionThreshold}dB:ratio=${settings.compressionRatio}:attack=${settings.compressionAttack}:release=${settings.compressionRelease}`
+    );
+
+    // 4. Loudness normalization
+    filters.push(
+      `loudnorm=I=${settings.targetLufs}:TP=${settings.truePeak}:LRA=${settings.lra}`
+    );
+
+    // 5. Final limiter
+    filters.push(
+      `alimiter=limit=${settings.limiterThreshold}dB:attack=${settings.limiterAttack}:release=${settings.limiterRelease}`
+    );
 
     const filterChain = filters.join(",");
 
@@ -145,10 +190,29 @@ async function main() {
   // Load settings
   const settings = skipAnalysis ? DEFAULT_SETTINGS : loadAnalysisReport();
 
+  // Load language data for metadata
+  let languagesData = null;
+  if (settings.updateMetadata) {
+    languagesData = loadLanguagesData();
+    if (!languagesData) {
+      console.log(
+        "⚠ Could not load language data. Metadata updates disabled.\n"
+      );
+      settings.updateMetadata = false;
+    }
+  }
+
   console.log("Optimization Settings:");
   console.log(`  Target Loudness: ${settings.targetLufs} LUFS`);
   console.log(`  True Peak Limit: ${settings.truePeak} dB`);
   console.log(`  High-pass Filter: ${settings.highpassFreq} Hz`);
+  if (settings.useEQ) {
+    console.log(`  EQ Profile: Voice + Bass optimized`);
+    console.log(`    - Reduce 2.8 kHz (radio sound): -2 dB`);
+    console.log(`    - Reduce 4.5 kHz (harshness): -1.5 dB`);
+    console.log(`    - Boost 180 Hz (warmth): +1.5 dB`);
+    console.log(`    - Boost 8 kHz (clarity): +1 dB`);
+  }
   console.log(
     `  Compression: ${settings.compressionRatio}:1 ratio @ ${settings.compressionThreshold} dB`
   );
@@ -158,6 +222,7 @@ async function main() {
       settings.useVBR ? `VBR quality ${settings.vbrQuality}` : settings.bitrate
     }`
   );
+  console.log(`  Update Metadata: ${settings.updateMetadata ? "Yes" : "No"}`);
   console.log();
 
   const mp3Files = getLukaMp3Files(AUDIO_DIR);
@@ -173,6 +238,8 @@ async function main() {
   const results = {
     success: 0,
     failed: 0,
+    metadataUpdated: 0,
+    metadataFailed: 0,
     errors: [],
   };
 
@@ -184,20 +251,69 @@ async function main() {
       `${progress} Processing: ${file.filename}...`.padEnd(100)
     );
 
+    // Step 1: Optimize audio
     const result = await optimizeAudioFile(file.fullPath, settings);
 
-    if (result.success) {
+    if (!result.success) {
       process.stdout.write(
-        "\r" + `${progress} ✓ ${file.filename}`.padEnd(100) + "\n"
-      );
-      results.success++;
-    } else {
-      process.stdout.write(
-        "\r" + `${progress} ✗ ${file.filename}`.padEnd(100) + "\n"
+        "\r" +
+          `${progress} ✗ ${file.filename} (audio optimization failed)`.padEnd(
+            100
+          ) +
+          "\n"
       );
       console.log(`  Error: ${result.error}\n`);
       results.failed++;
-      results.errors.push({ filename: file.filename, error: result.error });
+      results.errors.push({
+        filename: file.filename,
+        step: "optimization",
+        error: result.error,
+      });
+      continue;
+    }
+
+    results.success++;
+
+    // Step 2: Update metadata (if enabled)
+    if (settings.updateMetadata && languagesData) {
+      const title = getMetadataTitle(file.filename, languagesData);
+
+      if (title) {
+        const metadataResult = await updateMp3Metadata(file.fullPath, title);
+
+        if (metadataResult.success) {
+          results.metadataUpdated++;
+          process.stdout.write(
+            "\r" +
+              `${progress} ✓ ${file.filename} (optimized + metadata)`.padEnd(
+                100
+              ) +
+              "\n"
+          );
+        } else {
+          results.metadataFailed++;
+          process.stdout.write(
+            "\r" +
+              `${progress} ⚠ ${file.filename} (optimized, metadata failed)`.padEnd(
+                100
+              ) +
+              "\n"
+          );
+          console.log(`  Metadata error: ${metadataResult.error}\n`);
+        }
+      } else {
+        process.stdout.write(
+          "\r" +
+            `${progress} ✓ ${file.filename} (optimized, no metadata)`.padEnd(
+              100
+            ) +
+            "\n"
+        );
+      }
+    } else {
+      process.stdout.write(
+        "\r" + `${progress} ✓ ${file.filename}`.padEnd(100) + "\n"
+      );
     }
   }
 
@@ -208,15 +324,22 @@ async function main() {
   console.log(`Summary:`);
   console.log(`  Successfully optimized: ${results.success}`);
   console.log(`  Failed: ${results.failed}`);
+  if (settings.updateMetadata) {
+    console.log(`  Metadata updated: ${results.metadataUpdated}`);
+    console.log(`  Metadata failed: ${results.metadataFailed}`);
+  }
   console.log(`  Total: ${mp3Files.length}`);
 
   if (results.errors.length > 0) {
     console.log(`\nErrors:`);
     results.errors.forEach((err) => {
-      console.log(`  - ${err.filename}: ${err.error}`);
+      console.log(`  - ${err.filename} (${err.step}): ${err.error}`);
     });
   }
 
+  console.log(
+    `\nTip: To disable EQ or metadata updates, edit DEFAULT_SETTINGS in the script.`
+  );
   console.log();
 }
 
