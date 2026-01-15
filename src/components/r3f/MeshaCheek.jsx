@@ -5,7 +5,8 @@ import { extend } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import {
   cheekVertexShader,
-  cheekFragmentShader,
+  morphologyFragmentShader,
+  wordOrderFragmentShader,
 } from "../../shaders/cheekShader";
 
 extend({ ParametricGeometry });
@@ -45,7 +46,7 @@ const MeshaCheek = forwardRef(
           />
           <shaderMaterial
             vertexShader={cheekVertexShader}
-            fragmentShader={cheekFragmentShader}
+            fragmentShader={morphologyFragmentShader}
             uniforms={shaderUniforms}
             side={THREE.DoubleSide}
           />
@@ -63,7 +64,7 @@ const MeshaCheek = forwardRef(
           />
           <shaderMaterial
             vertexShader={cheekVertexShader}
-            fragmentShader={cheekFragmentShader}
+            fragmentShader={wordOrderFragmentShader}
             uniforms={shaderUniforms}
             side={THREE.DoubleSide}
           />
