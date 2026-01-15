@@ -1,9 +1,12 @@
-import { useRef, useMemo, forwardRef, useImperativeHandle } from "react";
+import { useRef, forwardRef, useImperativeHandle, useMemo } from "react";
 import * as THREE from "three";
 import { Color } from "three";
 import { extend } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
-import linguisticConfig from "../../config/linguisticConfig.json";
+import {
+  cheekVertexShader,
+  cheekFragmentShader,
+} from "../../shaders/cheekShader";
 
 extend({ ParametricGeometry });
 
@@ -20,6 +23,14 @@ const MeshaCheek = forwardRef(
     const colorObj = new Color(color);
     const accentColor = new Color("#ddddff").sub(colorObj);
 
+    const shaderUniforms = useMemo(
+      () => ({
+        uBaseColor: { value: colorObj },
+        uAccentColor: { value: accentColor },
+      }),
+      [colorObj, accentColor]
+    );
+
     return (
       <>
         {/* Left cheek (morphology) */}
@@ -32,7 +43,12 @@ const MeshaCheek = forwardRef(
           <parametricGeometry
             args={[audioReactiveSurface, segments, segments]}
           />
-          <meshStandardMaterial color={colorObj} side={THREE.DoubleSide} />
+          <shaderMaterial
+            vertexShader={cheekVertexShader}
+            fragmentShader={cheekFragmentShader}
+            uniforms={shaderUniforms}
+            side={THREE.DoubleSide}
+          />
         </mesh>
 
         {/* Right cheek (word order) */}
@@ -45,7 +61,12 @@ const MeshaCheek = forwardRef(
           <parametricGeometry
             args={[audioReactiveSurface, segments, segments]}
           />
-          <meshStandardMaterial color={colorObj} side={THREE.DoubleSide} />
+          <shaderMaterial
+            vertexShader={cheekVertexShader}
+            fragmentShader={cheekFragmentShader}
+            uniforms={shaderUniforms}
+            side={THREE.DoubleSide}
+          />
         </mesh>
       </>
     );
