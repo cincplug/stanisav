@@ -7,6 +7,7 @@ import path from "path";
 import { exec } from "child_process";
 import { promisify } from "util";
 import { fileURLToPath } from "url";
+import ffmpegInstaller from "@ffmpeg-installer/ffmpeg";
 
 const execAsync = promisify(exec);
 
@@ -17,6 +18,7 @@ const __dirname = path.dirname(__filename);
 // Configuration
 const AUDIO_DIR = "public/audio/samples";
 const LANGUAGES_JSON = "src/config/languages.json";
+const FFMPEG_PATH = ffmpegInstaller.path;
 
 // Load the languages JSON file
 function loadLanguagesData() {
@@ -68,7 +70,7 @@ async function getChangedMp3Files(audioDir) {
     // Combine both outputs
     const allChangedFiles = [
       ...diffOutput.split("\n").filter((file) => file.trim()),
-      ...untrackedOutput.split("\n").filter((file) => file.trim())
+      ...untrackedOutput.split("\n").filter((file) => file.trim()),
     ];
 
     const changedFiles = allChangedFiles
@@ -97,7 +99,7 @@ async function getChangedMp3Files(audioDir) {
           iso: iso,
           isLuka: isLuka,
           isBas: isBas,
-          filename: path.basename(file)
+          filename: path.basename(file),
         };
       });
 
@@ -135,7 +137,7 @@ function getAllMp3Files(audioDir) {
         iso: iso,
         isLuka: isLuka,
         isBas: isBas,
-        filename: file
+        filename: file,
       };
     });
 }
@@ -151,7 +153,7 @@ async function updateMp3Metadata(filePath, title) {
     const escapedTitle = title.replace(/"/g, '\\"');
 
     // Use ffmpeg to update metadata
-    const command = `ffmpeg -i "${filePath}" -c copy -metadata title="${escapedTitle}" "${tempFile}" -y 2>&1`;
+    const command = `"${FFMPEG_PATH}" -i "${filePath}" -c copy -metadata title="${escapedTitle}" "${tempFile}" -y 2>&1`;
 
     await execAsync(command);
 
@@ -179,19 +181,8 @@ async function main() {
 
   console.log("MP3 Metadata Updater");
   console.log(`Audio directory: ${AUDIO_DIR}`);
+  console.log(`Using FFmpeg: ${FFMPEG_PATH}`);
   console.log(`Mode: ${useGitOnly ? "Git changes only" : "All files"}\n`);
-
-  // Check if ffmpeg and ffprobe are available
-  try {
-    await execAsync("ffmpeg -version 2>&1");
-  } catch (error) {
-    console.error("Error: ffmpeg is not installed or not in PATH");
-    console.error("Please install ffmpeg:");
-    console.error("  macOS: brew install ffmpeg");
-    console.error("  Linux: sudo apt-get install ffmpeg");
-    console.error("  Windows: Download from https://ffmpeg.org/download.html");
-    process.exit(1);
-  }
 
   const languagesData = loadLanguagesData();
 

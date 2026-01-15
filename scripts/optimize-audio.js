@@ -17,7 +17,6 @@ const __dirname = path.dirname(__filename);
 
 // Configuration
 const AUDIO_DIR = "public/audio/samples";
-const OUTPUT_DIR = "public/audio/samples/optimized";
 const FFMPEG_PATH = ffmpegInstaller.path;
 
 // Default optimization settings (can be overridden by analysis report)
@@ -93,26 +92,17 @@ function loadAnalysisReport() {
 }
 
 // Optimize audio file
-async function optimizeAudioFile(inputPath, outputPath, settings) {
-  try {
-    // Ensure output directory exists
-    const outputDir = path.dirname(outputPath);
-    if (!fs.existsSync(outputDir)) {
-      fs.mkdirSync(outputDir, { recursive: true });
-    }
+async function optimizeAudioFile(inputPath, settings) {
+  const dir = path.dirname(inputPath);
+  const filename = path.basename(inputPath);
+  const tempFile = path.join(dir, `temp_${filename}`);
 
+  try {
     // Build filter chain
     const filters = [
-      // 1. High-pass filter to remove rumble
       `highpass=f=${settings.highpassFreq}`,
-
-      // 2. Compression for dynamic range control
       `acompressor=threshold=${settings.compressionThreshold}dB:ratio=${settings.compressionRatio}:attack=${settings.compressionAttack}:release=${settings.compressionRelease}`,
-
-      // 3. Loudness normalization
       `loudnorm=I=${settings.targetLufs}:TP=${settings.truePeak}:LRA=${settings.lra}`,
-
-      // 4. Limiter to prevent clipping
       `alimiter=limit=${settings.limiterThreshold}dB:attack=${settings.limiterAttack}:release=${settings.limiterRelease}`,
     ];
 
@@ -124,11 +114,20 @@ async function optimizeAudioFile(inputPath, outputPath, settings) {
       : `-codec:a libmp3lame -b:a ${settings.bitrate}`;
 
     // Build command
-    const command = `"${FFMPEG_PATH}" -i "${inputPath}" -af "${filterChain}" ${audioCodec} "${outputPath}" -y 2>&1`;
+    const command = `"${FFMPEG_PATH}" -i "${inputPath}" -af "${filterChain}" ${audioCodec} "${tempFile}" -y 2>&1`;
 
     await execAsync(command);
+
+    // Replace original file with optimized one
+    fs.unlinkSync(inputPath);
+    fs.renameSync(tempFile, inputPath);
+
     return { success: true };
   } catch (error) {
+    // Clean up temp file if it exists
+    if (fs.existsSync(tempFile)) {
+      fs.unlinkSync(tempFile);
+    }
     return { success: false, error: error.message };
   }
 }
@@ -136,17 +135,12 @@ async function optimizeAudioFile(inputPath, outputPath, settings) {
 // Main optimization function
 async function main() {
   const args = process.argv.slice(2);
-  const inPlace = args.includes("--in-place");
   const skipAnalysis = args.includes("--skip-analysis");
 
   console.log("Audio Optimization Tool for -luka.mp3 files");
   console.log(`Audio directory: ${AUDIO_DIR}`);
   console.log(`Using FFmpeg: ${FFMPEG_PATH}`);
-  console.log(
-    `Mode: ${
-      inPlace ? "In-place (overwrite originals)" : "Create optimized copies"
-    }\n`
-  );
+  console.log(`Mode: In-place optimization (overwrites originals)\n`);
 
   // Load settings
   const settings = skipAnalysis ? DEFAULT_SETTINGS : loadAnalysisReport();
@@ -174,15 +168,6 @@ async function main() {
   }
 
   console.log(`Found ${mp3Files.length} -luka.mp3 file(s) to optimize\n`);
-
-  if (!inPlace) {
-    console.log(`Optimized files will be saved to: ${OUTPUT_DIR}\n`);
-  } else {
-    console.log("⚠ WARNING: Original files will be OVERWRITTEN!");
-    console.log("  Press Ctrl+C within 5 seconds to cancel...\n");
-    await new Promise((resolve) => setTimeout(resolve, 5000));
-  }
-
   console.log("Processing files...\n");
 
   const results = {
@@ -199,22 +184,9 @@ async function main() {
       `${progress} Processing: ${file.filename}...`.padEnd(100)
     );
 
-    const outputPath = inPlace
-      ? file.fullPath
-      : path.join(OUTPUT_DIR, file.filename);
-
-    const tempPath = inPlace
-      ? path.join(path.dirname(file.fullPath), `temp_${file.filename}`)
-      : outputPath;
-
-    const result = await optimizeAudioFile(file.fullPath, tempPath, settings);
+    const result = await optimizeAudioFile(file.fullPath, settings);
 
     if (result.success) {
-      if (inPlace) {
-        // Replace original with optimized version
-        fs.unlinkSync(file.fullPath);
-        fs.renameSync(tempPath, file.fullPath);
-      }
       process.stdout.write(
         "\r" + `${progress} ✓ ${file.filename}`.padEnd(100) + "\n"
       );
@@ -237,10 +209,6 @@ async function main() {
   console.log(`  Successfully optimized: ${results.success}`);
   console.log(`  Failed: ${results.failed}`);
   console.log(`  Total: ${mp3Files.length}`);
-
-  if (!inPlace && results.success > 0) {
-    console.log(`\nOptimized files saved to: ${OUTPUT_DIR}`);
-  }
 
   if (results.errors.length > 0) {
     console.log(`\nErrors:`);
