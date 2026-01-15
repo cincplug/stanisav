@@ -94,7 +94,11 @@ export const wordOrderFragmentShader = /* glsl */ `
     // SUBJECT (S) - Left section: Person shape (circle + semicircle)
     if (localUV.y < section1End) {
       vec2 sectionCenter = vec2(PATTERN_WIDTH, sectionWidth / 2.0);
-      vec2 offset = localUV - sectionCenter;
+      vec2 offsetRaw = localUV - sectionCenter;
+      vec2 offset = vec2(-offsetRaw.y, offsetRaw.x); // 90° CCW rotation
+      offset.y *= 3.0; // 3x vertical squash
+      offset.x /= 3.0; // 3x horizontal widen
+      offset /= 2.0; // 2x scale
       
       // Head (circle)
       float headRadius = 0.015;
@@ -114,7 +118,11 @@ export const wordOrderFragmentShader = /* glsl */ `
     // VERB (V) - Middle section: Mouth eating (two curves)
     else if (localUV.y < section2End) {
       vec2 sectionCenter = vec2(PATTERN_WIDTH, section1End + sectionWidth / 2.0);
-      vec2 offset = localUV - sectionCenter;
+      vec2 offsetRaw = localUV - sectionCenter;
+      vec2 offset = vec2(-offsetRaw.y, offsetRaw.x); // 90° CCW rotation
+      offset.y *= 3.0; // 3x vertical squash
+      offset.x /= 3.0; // 3x horizontal widen
+      offset /= 2.0; // 2x scale
       
       // Two symmetrical curves forming a mouth
       float mouthWidth = 0.025;
@@ -139,7 +147,11 @@ export const wordOrderFragmentShader = /* glsl */ `
     // OBJECT (O) - Right section: Apple (two overlapping ellipses)
     else if (localUV.y < section3End) {
       vec2 sectionCenter = vec2(PATTERN_WIDTH, section2End + sectionWidth / 2.0);
-      vec2 offset = localUV - sectionCenter;
+      vec2 offsetRaw = localUV - sectionCenter;
+      vec2 offset = vec2(-offsetRaw.y, offsetRaw.x); // 90° CCW rotation
+      offset.y *= 3.0; // 3x vertical squash
+      offset.x /= 3.0; // 3x horizontal widen
+      offset /= 2.0; // 2x scale
       
       // Left side of apple
       vec2 leftCenter = vec2(-0.005, 0.0);
