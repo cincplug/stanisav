@@ -43,49 +43,20 @@ const MeshaMouth = ({
     [colorObj]
   );
 
-  const getTonalityTexture = (tonality) => {
-    const size = 64;
-    const canvas = document.createElement("canvas");
-    canvas.width = size;
-    canvas.height = size;
-    const ctx = canvas.getContext("2d");
+  const tonalityScore = useMemo(() => {
+    const tonality = linguisticProperties?.tonality;
+    return tonality
+      ? linguisticConfig.tonality?.values?.[tonality]?.score || 1
+      : 1;
+  }, [linguisticProperties?.tonality]);
 
-    const tonalityScore = linguisticConfig.tonality.values[tonality]?.score;
-
-    // Use secondaryColor as background, colorObj as foreground
-    ctx.fillStyle = `#${secondaryColor.getHexString()}`;
-    ctx.fillRect(0, 0, size, size);
-    ctx.strokeStyle = `#${colorObj.getHexString()}`;
-    ctx.lineWidth = 2;
-
-    const numWaves = Math.floor(tonalityScore);
-    ctx.beginPath();
-    for (let x = 0; x <= size; x++) {
-      let y = size / 2;
-      for (let w = 0; w < numWaves; w++) {
-        const frequency = (w + 1) * tonalityScore;
-        const amplitude = (size * 0.375) / (w + 1);
-        y += Math.sin((x * Math.PI * frequency) / (size / 4)) * amplitude;
-      }
-      if (x === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
-    }
-    ctx.stroke();
-
-    return canvas;
-  };
-
-  const tonalityTexture = useMemo(() => {
-    if (!linguisticProperties?.tonality) return null;
-    return getTonalityTexture(linguisticProperties.tonality);
-  }, [linguisticProperties?.tonality, colorObj, secondaryColor]);
-
-  const createTexture = (canvas) => {
-    if (!canvas) return null;
-    const texture = new THREE.CanvasTexture(canvas);
-    texture.needsUpdate = true;
-    return texture;
-  };
+  const mouthMaterial = useMemo(() => {
+    const mat = new THREE.MeshStandardMaterial({
+      color: colorObj,
+      side: THREE.DoubleSide,
+    });
+    return mat;
+  }, [colorObj]);
 
   useFrame(() => {
     if (
@@ -122,7 +93,7 @@ const MeshaMouth = ({
         rotation={[-1 / 3, -Math.PI, 0]}
       >
         <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
-        <meshStandardMaterial map={createTexture(tonalityTexture)} side={2} />
+        <primitive object={mouthMaterial} attach="material" />
       </mesh>
 
       {teethSpheres.map((sphere, i) => (
