@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import * as THREE from "three";
+import { Vector3 } from "three";
 import { ConvexGeometry } from "three/examples/jsm/geometries/ConvexGeometry";
 
 const Blanket = ({ positions, languages, color }) => {
@@ -11,7 +11,7 @@ const Blanket = ({ positions, languages, color }) => {
     languages.forEach((langCode) => {
       const pos = positions[langCode];
       if (pos) {
-        points.push(new THREE.Vector3(pos.x, pos.y, pos.z));
+        points.push(new Vector3(pos.x, pos.y, pos.z));
       }
     });
     if (points.length < 2) {

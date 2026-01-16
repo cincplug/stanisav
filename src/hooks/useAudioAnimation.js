@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
-import * as THREE from "three";
+import { Box3, Vector3 } from "three";
 import { getAudioAnalysisService } from "../services/audioService.js";
 import audioVisualizationConfig from "../config/audioVisualizationConfig.json";
 
@@ -15,8 +15,8 @@ export function useViewportTransparency(
     if (!meshRef.current || !materialRef.current) return;
     const mesh = meshRef.current;
     const camera = state.camera;
-    const box = new THREE.Box3().setFromObject(mesh);
-    const size = box.getSize(new THREE.Vector3());
+    const box = new Box3().setFromObject(mesh);
+    const size = box.getSize(new Vector3());
     const distance = camera.position.distanceTo(mesh.position);
     const screenSize = (size.length() / distance) * 100;
     if (screenSize > viewportThreshold) {
@@ -37,14 +37,14 @@ export function useAudioAnimation(languageCode, isThisLanguageSelected) {
     harmonicsData: new Array(
       audioVisualizationConfig.meshDeformation.frequencyBands
     ).fill(0),
-    isActive: false
+    isActive: false,
   });
 
   const rotationStateRef = useRef({
     currentYRotation: 0,
     targetYRotation: 0,
     audioStartTime: 0,
-    wasAudioActive: false
+    wasAudioActive: false,
   });
 
   useEffect(() => {
@@ -56,7 +56,7 @@ export function useAudioAnimation(languageCode, isThisLanguageSelected) {
         harmonicsData: new Array(
           audioVisualizationConfig.meshDeformation.frequencyBands
         ).fill(0),
-        isActive: false
+        isActive: false,
       });
       return;
     }

@@ -1,6 +1,5 @@
 import { useRef, useMemo } from "react";
-import { Color } from "three";
-import * as THREE from "three";
+import { Color, MeshStandardMaterial } from "three";
 import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 
@@ -55,9 +54,9 @@ const MeshaMouth = ({
   }, [linguisticProperties?.tonality]);
 
   const mouthMaterial = useMemo(() => {
-    const mat = new THREE.MeshStandardMaterial({
+    const mat = new MeshStandardMaterial({
       color: colorObj,
-      side: THREE.DoubleSide,
+      side: 2,
     });
     return mat;
   }, [colorObj]);

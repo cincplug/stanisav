@@ -1,4 +1,4 @@
-import * as THREE from "three";
+import { Vector3 } from "three";
 import { sortLanguages } from "../utils/sortingUtils";
 
 class LayoutEngine {
@@ -25,10 +25,6 @@ class LayoutEngine {
     return this.algorithms[algo](data, controls);
   }
 
-  /**
-   * Spherical Surface Layout Algorithm
-   * Distributes all languages evenly on the surface of a sphere using Fibonacci sphere algorithm
-   */
   /**
    * Spherical Surface Layout Algorithm
    * Distributes all languages evenly on the surface of a sphere using Fibonacci sphere algorithm
@@ -91,7 +87,7 @@ class LayoutEngine {
       const y = radius * Math.sin(inclination) * Math.sin(azimuth);
       const z = radius * Math.cos(inclination);
 
-      points.push(new THREE.Vector3(x, y, z));
+      points.push(new Vector3(x, y, z));
     }
 
     return points;

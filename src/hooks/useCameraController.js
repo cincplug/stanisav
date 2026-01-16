@@ -1,13 +1,13 @@
 import { useEffect, useRef, useMemo, useCallback } from "react";
 import { useThree } from "@react-three/fiber";
-import * as THREE from "three";
+import { Vector3 } from "three";
 import { useLanguageSelection } from "../contexts/LanguageSelectionContext";
 
 export const useCameraController = ({
   languageNodes,
   data,
   controls,
-  selectedLanguage
+  selectedLanguage,
 }) => {
   const { cameraFocusRequest } = useLanguageSelection();
   const { camera, controls: threeControls } = useThree();
@@ -17,7 +17,7 @@ export const useCameraController = ({
 
   const config = useMemo(
     () => ({
-      ...controls
+      ...controls,
     }),
     [controls]
   );
@@ -26,7 +26,7 @@ export const useCameraController = ({
     () => ({
       camera,
       controls: threeControls,
-      animationRef
+      animationRef,
     }),
     [camera, threeControls]
   );
@@ -41,7 +41,7 @@ export const useCameraController = ({
         cancelAnimationFrame(animationRef.current);
         animationRef.current = null;
       }
-      const languagePosition = new THREE.Vector3(node.x, node.y, node.z);
+      const languagePosition = new Vector3(node.x, node.y, node.z);
       const focusDistance = config.focusDistance;
       const targetCameraPosition = calculateCameraPosition(
         languagePosition,
@@ -62,12 +62,12 @@ export const useCameraController = ({
       cancelAnimationFrame(animationRef.current);
       animationRef.current = null;
     }
-    const initialCameraPosition = new THREE.Vector3(
+    const initialCameraPosition = new Vector3(
       config.positionX,
       config.positionY,
       config.positionZ
     );
-    const initialTarget = new THREE.Vector3(0, 0, 0);
+    const initialTarget = new Vector3(0, 0, 0);
     animateCamera(cameraSystem, initialCameraPosition, initialTarget, config);
   }, [cameraSystem, config]);
 
@@ -101,7 +101,7 @@ export const useCameraController = ({
     data,
     focusOnLanguage,
     setInitialCameraPosition,
-    selectedLanguage
+    selectedLanguage,
   ]);
 
   useEffect(() => {
@@ -131,7 +131,7 @@ const animateCamera = (cameraSystem, targetPosition, lookAtTarget, config) => {
   const { camera, controls, animationRef } = cameraSystem;
 
   const startPosition = camera.position.clone();
-  const startTarget = controls?.target?.clone() || new THREE.Vector3();
+  const startTarget = controls?.target?.clone() || new Vector3();
   const duration = config.animationDuration;
   const startTime = Date.now();
 

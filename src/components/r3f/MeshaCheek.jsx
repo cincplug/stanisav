@@ -1,6 +1,5 @@
 import { useRef, forwardRef, useImperativeHandle, useMemo } from "react";
-import * as THREE from "three";
-import { Color } from "three";
+import { Color, DoubleSide } from "three";
 import { extend } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import {
@@ -14,18 +13,7 @@ extend({ ParametricGeometry });
 import { useAppState } from "../../contexts/AppStateContext";
 
 const MeshaCheek = forwardRef(
-  (
-    {
-      color,
-      labelSize,
-      isThisLanguageSelected,
-      audioData,
-      languageCode,
-      audioReactiveSurface,
-      segments,
-    },
-    ref
-  ) => {
+  ({ color, languageCode, audioReactiveSurface, segments }, ref) => {
     const mesh1Ref = useRef();
     const mesh2Ref = useRef();
 
@@ -41,8 +29,7 @@ const MeshaCheek = forwardRef(
     const accentColor = new Color("#ddddff").sub(colorObj);
 
     // Extract word order and convert to int array: S=0, O=1, V=2
-    const wordOrderStr =
-      linguisticProperties?.wordOrder?.toLowerCase() || "sov";
+    const wordOrderStr = linguisticProperties?.wordOrder?.toLowerCase();
     const symbolMap = { s: 0, o: 1, v: 2 };
     const wordOrderArr = wordOrderStr.split("").map((c) => symbolMap[c] ?? 0);
 
@@ -71,7 +58,7 @@ const MeshaCheek = forwardRef(
             vertexShader={cheekVertexShader}
             fragmentShader={morphologyFragmentShader}
             uniforms={shaderUniforms}
-            side={THREE.DoubleSide}
+            side={DoubleSide}
           />
         </mesh>
 
@@ -89,7 +76,7 @@ const MeshaCheek = forwardRef(
             vertexShader={cheekVertexShader}
             fragmentShader={wordOrderFragmentShader}
             uniforms={shaderUniforms}
-            side={THREE.DoubleSide}
+            side={DoubleSide}
           />
         </mesh>
       </>
