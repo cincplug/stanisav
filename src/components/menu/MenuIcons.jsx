@@ -101,34 +101,37 @@ export const NextIcon = (props) => (
   </svg>
 );
 
-export const LoopIcon = (props) => (
-  <svg
-    width={iconSize}
-    height={iconSize}
-    viewBox={viewBox}
-    fill="none"
-    {...props}
-  >
-    {/* Top semicircle arrow (clockwise) */}
-    <path
-      d="M18 9C18 6.5 16 4 12 4C8 4 6 6 6 8"
-      stroke={iconColor}
-      strokeWidth={strokeWidth}
+export function LoopIcon({ active, ...props }) {
+  return (
+    <svg
+      {...props}
+      className={active ? "loop-icon active" : "loop-icon"}
+      width={iconSize}
+      height={iconSize}
+      viewBox={viewBox}
       fill="none"
-      strokeLinecap="round"
-    />
-    {/* Equilateral triangle pointing down-left at end of top arc */}
-    <polygon points="9,8 3,8 6,11.5" fill={iconColor} />
+    >
+      {/* Top semicircle arrow (clockwise) */}
+      <path
+        d="M18 9C18 6.5 16 4 12 4C8 4 6 6 6 8"
+        stroke={iconColor}
+        strokeWidth={strokeWidth}
+        fill="none"
+        strokeLinecap="round"
+      />
+      {/* Equilateral triangle pointing down-left at end of top arc */}
+      <polygon points="9,8 3,8 6,11.5" fill={iconColor} />
 
-    {/* Bottom semicircle arrow (clockwise) */}
-    <path
-      d="M6 15C6 17.5 8 20 12 20C16 20 18 18 18 16"
-      stroke={iconColor}
-      strokeWidth={strokeWidth}
-      fill="none"
-      strokeLinecap="round"
-    />
-    {/* Equilateral triangle pointing up-right at end of bottom arc */}
-    <polygon points="15,16 21,16 18,12.5" fill={iconColor} />
-  </svg>
-);
+      {/* Bottom semicircle arrow (clockwise) */}
+      <path
+        d="M6 15C6 17.5 8 20 12 20C16 20 18 18 18 16"
+        stroke={iconColor}
+        strokeWidth={strokeWidth}
+        fill="none"
+        strokeLinecap="round"
+      />
+      {/* Equilateral triangle pointing up-right at end of bottom arc */}
+      <polygon points="15,16 21,16 18,12.5" fill={iconColor} />
+    </svg>
+  );
+}
