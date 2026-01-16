@@ -40,12 +40,19 @@ const MeshaCheek = forwardRef(
     const colorObj = new Color(color);
     const accentColor = new Color("#ddddff").sub(colorObj);
 
+    // Extract word order and convert to int array: S=0, O=1, V=2
+    const wordOrderStr =
+      linguisticProperties?.wordOrder?.toLowerCase() || "sov";
+    const symbolMap = { s: 0, o: 1, v: 2 };
+    const wordOrderArr = wordOrderStr.split("").map((c) => symbolMap[c] ?? 0);
+
     const shaderUniforms = useMemo(
       () => ({
         uBaseColor: { value: colorObj },
         uAccentColor: { value: accentColor },
+        uWordOrder: { value: wordOrderArr },
       }),
-      [colorObj, accentColor]
+      [colorObj, accentColor, wordOrderStr]
     );
 
     return (
