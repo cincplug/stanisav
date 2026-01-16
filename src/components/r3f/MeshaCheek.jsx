@@ -1,13 +1,16 @@
 import { useRef, forwardRef, useImperativeHandle } from "react";
-import { Color, DoubleSide } from "three";
-import { extend } from "@react-three/fiber";
+import { extend, useLoader } from "@react-three/fiber";
+import { Color, DoubleSide, TextureLoader } from "three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
-import linguisticConfig from "../../config/linguisticConfig.json";
+import { useAppState } from "../../contexts/AppStateContext";
 
 extend({ ParametricGeometry });
 
 const MeshaCheek = forwardRef(
-  ({ color, linguisticProperties, audioReactiveSurface, segments }, ref) => {
+  ({ color, audioReactiveSurface, segments, languageCode }, ref) => {
+    const { data } = useAppState();
+    const linguisticProperties = data?.typologicalFeatures?.[languageCode];
+
     const mesh1Ref = useRef();
     const mesh2Ref = useRef();
 
@@ -18,13 +21,22 @@ const MeshaCheek = forwardRef(
 
     const colorObj = new Color(color);
     const accentColor = new Color("#ddddff").sub(colorObj);
+    const wordOrder = linguisticProperties?.wordOrder;
+    const textureFile = `/textures/${wordOrder?.toLowerCase()}.png`;
+    const texture = useLoader(TextureLoader, textureFile);
+
+    if (texture) {
+      texture.center.set(0.5, 0.5);
+      texture.rotation = Math.PI / 2 + Math.PI;
+      texture.repeat.set(-1, 1);
+      texture.needsUpdate = true;
+    }
 
     return (
       <>
-        {/* Left cheek (morphology) */}
         <mesh
           ref={mesh2Ref}
-          position={[-1, 1, 1]}
+          position={[-1.2, 1, 1]}
           scale={[-1 / 2, 3 / 4, 1]}
           rotation={[0, -1 / 20, 0]}
         >
@@ -34,17 +46,20 @@ const MeshaCheek = forwardRef(
           <meshStandardMaterial color={colorObj} side={DoubleSide} />
         </mesh>
 
-        {/* Right cheek (word order) */}
         <mesh
           ref={mesh1Ref}
-          position={[1, 1, 1]}
-          scale={[1 / 2, 3 / 4, 1]}
+          position={[1.2, 1, 1]}
+          scale={[1 / 2, 2 / 3, 1]}
           rotation={[0, 1 / 20, 0]}
         >
           <parametricGeometry
             args={[audioReactiveSurface, segments, segments]}
           />
-          <meshStandardMaterial color={accentColor} side={DoubleSide} />
+          <meshStandardMaterial
+            color={accentColor}
+            side={DoubleSide}
+            map={texture}
+          />
         </mesh>
       </>
     );

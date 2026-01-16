@@ -1,10 +1,10 @@
 import { useRef, useMemo } from "react";
-import { Color } from "three";
 import { extend, useFrame } from "@react-three/fiber";
-import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
+import { Color } from "three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
 import { useControls } from "../../contexts/ControlsContext.jsx";
+import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
 import linguisticConfig from "../../config/linguisticConfig.json";
 import MeshaEye from "./MeshaEye.jsx";
