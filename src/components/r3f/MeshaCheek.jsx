@@ -11,8 +11,21 @@ import {
 
 extend({ ParametricGeometry });
 
+import { useAppState } from "../../contexts/AppStateContext";
+
 const MeshaCheek = forwardRef(
-  ({ color, linguisticProperties, audioReactiveSurface, segments }, ref) => {
+  (
+    {
+      color,
+      labelSize,
+      isThisLanguageSelected,
+      audioData,
+      languageCode,
+      audioReactiveSurface,
+      segments,
+    },
+    ref
+  ) => {
     const mesh1Ref = useRef();
     const mesh2Ref = useRef();
 
@@ -21,6 +34,9 @@ const MeshaCheek = forwardRef(
       mesh2: mesh2Ref.current,
     }));
 
+    // Get linguisticProperties directly from app state
+    const { data } = useAppState();
+    const linguisticProperties = data?.typologicalFeatures?.[languageCode];
     const colorObj = new Color(color);
     const accentColor = new Color("#ddddff").sub(colorObj);
 

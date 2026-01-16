@@ -16,7 +16,6 @@ const Node = ({
   isSelected = false,
   color,
   speakerCount,
-  linguisticProperties,
 }) => {
   const { controls } = useControls();
   const { data } = useAppState();
@@ -55,7 +54,7 @@ const Node = ({
   const getSizeValue = () => {
     // If sorting by numeric typological features, use that value
     if (["phonemeCount", "caseCount"].includes(sortLanguagesBy)) {
-      return linguisticProperties?.[sortLanguagesBy] || 1;
+      return data?.typologicalFeatures?.[languageCode]?.[sortLanguagesBy] || 1;
     }
     // Default to speaker count
     return speakerCount;
@@ -105,7 +104,7 @@ const Node = ({
           isSelected={isSelected}
           languageCode={languageCode}
           labelText={labelText}
-          linguisticProperties={linguisticProperties}
+          // linguisticProperties removed
         />
       )}
 

@@ -99,11 +99,6 @@ const Languages = ({
                     isSelected={selectedLanguage === langCode}
                     isFiltered={filterStatus.isFiltered}
                     color={color}
-                    linguisticProperties={
-                      data.typologicalFeatures
-                        ? data.typologicalFeatures[langCode]
-                        : null
-                    }
                   />
                 );
               })

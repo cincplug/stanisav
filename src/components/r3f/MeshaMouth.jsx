@@ -3,6 +3,8 @@ import { Color } from "three";
 import * as THREE from "three";
 import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
+
+import { useAppState } from "../../contexts/AppStateContext";
 import linguisticConfig from "../../config/linguisticConfig.json";
 
 extend({ ParametricGeometry });
@@ -13,10 +15,12 @@ const MeshaMouth = ({
   segments,
   wordOrderAmplitude,
   labelSize,
-  linguisticProperties,
+  languageCode,
   isThisLanguageSelected,
   audioData,
 }) => {
+  const { data } = useAppState();
+  const linguisticProperties = data?.typologicalFeatures?.[languageCode];
   const teethSpheresRef = useRef([]);
 
   const teethSpheres = useMemo(() => {

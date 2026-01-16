@@ -13,7 +13,9 @@ import MeshaMouth from "./MeshaMouth.jsx";
 
 extend({ ParametricGeometry });
 
-const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
+import { useAppState } from "../../contexts/AppStateContext";
+
+const Mesha = ({ color, labelSize, languageCode }) => {
   const groupRef = useRef();
   const rotationGroupRef = useRef();
   const eyesGroupRef = useRef();
@@ -29,6 +31,8 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
     [color]
   );
 
+  const { data } = useAppState();
+  const linguisticProperties = data?.typologicalFeatures?.[languageCode];
   const tonalityScore =
     linguisticConfig.tonality.values[linguisticProperties?.tonality]?.score;
 
@@ -188,7 +192,7 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
           labelSize={labelSize}
           isThisLanguageSelected={isThisLanguageSelected}
           audioData={audioData}
-          linguisticProperties={linguisticProperties}
+          languageCode={languageCode}
           audioReactiveSurface={audioReactiveSurface}
           segments={segments}
         />
@@ -212,7 +216,7 @@ const Mesha = ({ color, labelSize, languageCode, linguisticProperties }) => {
           segments={segments}
           wordOrderAmplitude={wordOrderAmplitude}
           labelSize={labelSize}
-          linguisticProperties={linguisticProperties}
+          languageCode={languageCode}
           isThisLanguageSelected={isThisLanguageSelected}
           audioData={audioData}
         />
