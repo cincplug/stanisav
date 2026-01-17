@@ -6,6 +6,7 @@ import { useAppState } from "../../contexts/AppStateContext";
 import {
   cheekVertexShader,
   morphologyFragmentShader,
+  plainTextureFragmentShader,
 } from "../../shaders/cheekShader";
 
 extend({ ParametricGeometry });
@@ -26,25 +27,39 @@ const MeshaCheek = forwardRef(
     const colorObj = new Color(color);
     const accentColor = new Color("#ddddff").sub(colorObj);
     const wordOrder = linguisticProperties?.wordOrder;
+    const morphology = linguisticProperties?.morphology;
 
-    // Load word order texture for shader
-    const textureFile = `/textures/${wordOrder?.toLowerCase()}.png`;
-    const wordOrderTexture = useLoader(TextureLoader, textureFile);
-    // No need to set repeat/offset, shader will handle placement
+    // Load word order texture for right cheek
+    const wordOrderTextureFile = `/textures/${wordOrder?.toLowerCase()}.png`;
+    const wordOrderTexture = useLoader(TextureLoader, wordOrderTextureFile);
 
-    // Memoize uniforms for shader
-    const shaderUniforms = useMemo(
+    // Load morphology texture for left cheek
+    const morphologyTextureFile = `/textures/${morphology?.toLowerCase()}.png`;
+    const morphologyTexture = useLoader(TextureLoader, morphologyTextureFile);
+
+    // Memoize uniforms for right cheek (word order)
+    const wordOrderShaderUniforms = useMemo(
       () => ({
         uBaseColor: { value: accentColor },
         uAccentColor: { value: colorObj },
         uWordOrderTexture: { value: wordOrderTexture },
-        uTextureStart: { value: 0.0 }, // 0.0 = start of reference area
+        uTextureStart: { value: 0.0 },
       }),
       [accentColor, colorObj, wordOrderTexture]
     );
 
+    // Memoize uniforms for left cheek (morphology, plain texture)
+    const morphologyShaderUniforms = useMemo(
+      () => ({
+        uTexture: { value: morphologyTexture },
+        uBaseColor: { value: colorObj },
+      }),
+      [morphologyTexture, colorObj]
+    );
+
     return (
       <>
+        {/* Left cheek: morphology */}
         <mesh
           ref={mesh2Ref}
           position={[-1.2, 1, 1]}
@@ -54,9 +69,20 @@ const MeshaCheek = forwardRef(
           <parametricGeometry
             args={[audioReactiveSurface, segments, segments]}
           />
-          <meshStandardMaterial color={colorObj} side={DoubleSide} />
+          <shaderMaterial
+            args={[
+              {
+                uniforms: morphologyShaderUniforms,
+                vertexShader: cheekVertexShader,
+                fragmentShader: plainTextureFragmentShader,
+                side: DoubleSide,
+                transparent: true,
+              },
+            ]}
+          />
         </mesh>
 
+        {/* Right cheek: word order */}
         <mesh
           ref={mesh1Ref}
           position={[1.2, 1, 1]}
@@ -69,7 +95,7 @@ const MeshaCheek = forwardRef(
           <shaderMaterial
             args={[
               {
-                uniforms: shaderUniforms,
+                uniforms: wordOrderShaderUniforms,
                 vertexShader: cheekVertexShader,
                 fragmentShader: morphologyFragmentShader,
                 side: DoubleSide,
