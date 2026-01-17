@@ -1,8 +1,12 @@
-import { useRef, forwardRef, useImperativeHandle } from "react";
+import { useRef, forwardRef, useImperativeHandle, useMemo } from "react";
 import { extend, useLoader } from "@react-three/fiber";
-import { Color, DoubleSide, TextureLoader } from "three";
+import { Color, DoubleSide, TextureLoader, ShaderMaterial } from "three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useAppState } from "../../contexts/AppStateContext";
+import {
+  cheekVertexShader,
+  morphologyFragmentShader,
+} from "../../shaders/cheekShader";
 
 extend({ ParametricGeometry });
 
@@ -22,15 +26,22 @@ const MeshaCheek = forwardRef(
     const colorObj = new Color(color);
     const accentColor = new Color("#ddddff").sub(colorObj);
     const wordOrder = linguisticProperties?.wordOrder;
-    const textureFile = `/textures/${wordOrder?.toLowerCase()}.png`;
-    const texture = useLoader(TextureLoader, textureFile);
 
-    if (texture) {
-      texture.center.set(0.5, 0.5);
-      texture.rotation = Math.PI / 2 + Math.PI;
-      texture.repeat.set(-1, 1);
-      texture.needsUpdate = true;
-    }
+    // Load word order texture for shader
+    const textureFile = `/textures/${wordOrder?.toLowerCase()}.png`;
+    const wordOrderTexture = useLoader(TextureLoader, textureFile);
+    // No need to set repeat/offset, shader will handle placement
+
+    // Memoize uniforms for shader
+    const shaderUniforms = useMemo(
+      () => ({
+        uBaseColor: { value: accentColor },
+        uAccentColor: { value: colorObj },
+        uWordOrderTexture: { value: wordOrderTexture },
+        uTextureStart: { value: 0.0 }, // 0.0 = start of reference area
+      }),
+      [accentColor, colorObj, wordOrderTexture]
+    );
 
     return (
       <>
@@ -49,16 +60,22 @@ const MeshaCheek = forwardRef(
         <mesh
           ref={mesh1Ref}
           position={[1.2, 1, 1]}
-          scale={[1 / 2, 2 / 3, 1]}
+          scale={[1 / 2, 3 / 4, 1]}
           rotation={[0, 1 / 20, 0]}
         >
           <parametricGeometry
             args={[audioReactiveSurface, segments, segments]}
           />
-          <meshStandardMaterial
-            color={accentColor}
-            side={DoubleSide}
-            map={texture}
+          <shaderMaterial
+            args={[
+              {
+                uniforms: shaderUniforms,
+                vertexShader: cheekVertexShader,
+                fragmentShader: morphologyFragmentShader,
+                side: DoubleSide,
+                transparent: false,
+              },
+            ]}
           />
         </mesh>
       </>
