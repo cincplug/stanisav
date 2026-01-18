@@ -12,7 +12,6 @@ const MeshaMouth = ({
   color,
   audioReactiveSurface,
   segments,
-  wordOrderAmplitude,
   labelSize,
   languageCode,
   isThisLanguageSelected,
@@ -92,7 +91,7 @@ const MeshaMouth = ({
     <>
       <mesh
         position={[0, -1, 4]}
-        scale={[2 / 3, (-1 / 4) * wordOrderAmplitude, -2]}
+        scale={[2 / 3, -1 / 2, -2]}
         rotation={[-1 / 3, -Math.PI, 0]}
       >
         <parametricGeometry args={[audioReactiveSurface, segments, segments]} />

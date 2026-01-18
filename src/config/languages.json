@@ -26,7 +26,7 @@
     "phonemeCount": 28,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "moderate"
+    "wordOrderFlexibility": "semi-flexible"
   },
   "adx": {
     "name": "Amdo Tibetan",
@@ -54,7 +54,7 @@
     "phonemeCount": 29,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "moderate"
+    "wordOrderFlexibility": "semi-flexible"
   },
   "afr": {
     "name": "Afrikaans",
@@ -125,7 +125,7 @@
     "phonemeCount": 26,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "moderate"
+    "wordOrderFlexibility": "semi-flexible"
   },
   "ara": {
     "name": "Standard Arabic",
@@ -153,7 +153,7 @@
     "phonemeCount": 32,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "moderate"
+    "wordOrderFlexibility": "semi-flexible"
   },
   "arz": {
     "name": "Egyptian Arabic",
@@ -167,7 +167,7 @@
     "phonemeCount": 28,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "moderate"
+    "wordOrderFlexibility": "semi-flexible"
   },
   "asm": {
     "name": "Assamese",
@@ -2346,7 +2346,7 @@
     "phonemeCount": 29,
     "caseCount": 6,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "moderate"
+    "wordOrderFlexibility": "semi-flexible"
   },
   "sin": {
     "name": "Sinhala",

@@ -38,6 +38,10 @@ const Mesha = ({ color, labelSize, languageCode }) => {
 
   // Prepare badge texture file paths (after linguisticProperties is defined)
   const wordOrder = linguisticProperties?.wordOrder;
+  const wordOrderFlexibility =
+    linguisticConfig.wordOrderFlexibility.values[
+      linguisticProperties?.wordOrderFlexibility
+    ]?.score;
   const morphology = linguisticProperties?.morphology;
   const wordOrderTextureFile = `/textures/${wordOrder.toLowerCase()}.png`;
   const morphologyTextureFile = `/textures/${morphology.toLowerCase()}.png`;
@@ -49,7 +53,7 @@ const Mesha = ({ color, labelSize, languageCode }) => {
   const wordOrderAmplitude = useMemo(() => {
     const flexibility = linguisticProperties?.wordOrderFlexibility;
     const score =
-      linguisticConfig.wordOrderFlexibility.values[flexibility]?.score || 1;
+      linguisticConfig.wordOrderFlexibility.values[flexibility]?.score;
     return 1 + score * 0.5;
   }, [linguisticProperties?.wordOrderFlexibility]);
 
@@ -191,6 +195,13 @@ const Mesha = ({ color, labelSize, languageCode }) => {
     return items;
   }, [linguisticProperties?.caseCount, eyeXPosition, eyeZ]);
 
+  // Calculate badge y rotation as a function of Mesha's rotation and wordOrderFlexibility
+  let meshaYRotation = 0;
+  if (rotationGroupRef.current) {
+    meshaYRotation = rotationGroupRef.current.rotation.y;
+  }
+  const badgeYRotation = meshaYRotation * wordOrderFlexibility;
+
   return (
     <group ref={groupRef}>
       <group ref={rotationGroupRef}>
@@ -218,14 +229,15 @@ const Mesha = ({ color, labelSize, languageCode }) => {
           />
           <MeshaBadge
             textureFile={morphologyTextureFile}
-            position={[-eyeXPosition * badgeSize, -2, -0.5]}
+            position={[-eyeXPosition * badgeSize, -2, 0]}
             scale={[badgeSize, badgeSize, 1]}
           />
 
           <MeshaBadge
             textureFile={wordOrderTextureFile}
-            position={[eyeXPosition * badgeSize, -2, -0.5]}
+            position={[eyeXPosition * badgeSize, -2, 0]}
             scale={[badgeSize, badgeSize, 1]}
+            rotation={[0, badgeYRotation, 0]}
           />
         </group>
 

@@ -55,22 +55,17 @@
       "rigid": {
         "label": "Rigid",
         "description": "Words have fixed grammatical positions.",
-        "score": 1
+        "score": 0
       },
       "semi-flexible": {
         "label": "Semi-flexible",
         "description": "Some variation of word order is allowed for emphasis.",
-        "score": 2
+        "score": 5
       },
       "flexible": {
         "label": "Flexible",
         "description": "Various word arrangements are allowed for stylistic purposes.",
-        "score": 3
-      },
-      "very-flexible": {
-        "label": "Very flexible",
-        "description": "Freedom in word arrangement is very extensive.",
-        "score": 4
+        "score": 30
       }
     }
   },

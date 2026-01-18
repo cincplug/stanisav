@@ -2,7 +2,12 @@ import { useRef, useEffect } from "react";
 import { useLoader } from "@react-three/fiber";
 import { TextureLoader, DoubleSide, LinearFilter } from "three";
 
-const MeshaBadge = ({ textureFile, position, scale = [0.5, 0.5, 1] }) => {
+const MeshaBadge = ({
+  textureFile,
+  position,
+  scale = [0.5, 0.5, 1],
+  rotation,
+}) => {
   const texture = useLoader(TextureLoader, textureFile);
   const meshRef = useRef();
 
@@ -16,7 +21,7 @@ const MeshaBadge = ({ textureFile, position, scale = [0.5, 0.5, 1] }) => {
   }, [texture]);
 
   return (
-    <mesh ref={meshRef} position={position} scale={scale}>
+    <mesh ref={meshRef} position={position} scale={scale} rotation={rotation}>
       <planeGeometry args={[1, 1]} />
       <meshBasicMaterial map={texture} transparent side={DoubleSide} />
     </mesh>
