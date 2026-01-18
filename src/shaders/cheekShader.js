@@ -1,26 +1,13 @@
 export const plainTextureFragmentShader = /* glsl */ `
-  uniform sampler2D uTexture;
   uniform vec3 uBaseColor;
-  varying vec2 vUv;
   varying vec3 vNormal;
-  varying vec3 vPosition;
   void main() {
-    // Use the same UV transform as before
-    vec2 refMin = vec2(0.8, 0.5) - vec2(0.05, 0.4);
-    vec2 refMax = vec2(0.8, 0.5) + vec2(0.05, 0.4);
-    vec2 refUv = (vUv - refMin) / (refMax - refMin);
-    vec2 finalUv = vec2(refUv.y, refUv.x);
-    vec4 texColor = texture2D(uTexture, finalUv);
-    // Lighting (optional, can be removed for pure texture)
     vec3 lightDir = normalize(vec3(5.0, 5.0, 5.0));
     float diffuse = max(dot(normalize(vNormal), lightDir), 0.0);
     float ambient = 0.5;
     float lighting = ambient + diffuse * 0.5;
-    // Blend base color with texture using texture alpha
-    vec3 baseLit = uBaseColor * lighting;
-    vec3 texLit = texColor.rgb * lighting;
-    vec3 finalColor = mix(baseLit, texLit, texColor.a);
-    gl_FragColor = vec4(finalColor, 1.0);
+    vec3 color = uBaseColor * lighting;
+    gl_FragColor = vec4(color, 1.0);
   }
 `;
 export const cheekVertexShader = /* glsl */ `

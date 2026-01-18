@@ -10,6 +10,7 @@ import linguisticConfig from "../../config/linguisticConfig.json";
 import MeshaEye from "./MeshaEye.jsx";
 import MeshaCheek from "./MeshaCheek.jsx";
 import MeshaMouth from "./MeshaMouth.jsx";
+import MeshaBadge from "./MeshaBadge.jsx";
 
 extend({ ParametricGeometry });
 
@@ -24,7 +25,8 @@ const Mesha = ({ color, labelSize, languageCode }) => {
   const { selectedLanguage } = useLanguageSelection();
   const isThisLanguageSelected = selectedLanguage === languageCode;
   const { controls } = useControls();
-  const { eyeYOffset, eyeXPosition, eyeZPositionMultiplier } = controls;
+  const { eyeYOffset, eyeXPosition, eyeZPositionMultiplier, badgeScale } =
+    controls;
 
   const mouthColor = useMemo(
     () => new Color("#ffbbbb").sub(new Color(color)),
@@ -33,6 +35,12 @@ const Mesha = ({ color, labelSize, languageCode }) => {
 
   const { data } = useAppState();
   const linguisticProperties = data?.typologicalFeatures?.[languageCode];
+
+  // Prepare badge texture file paths (after linguisticProperties is defined)
+  const wordOrder = linguisticProperties?.wordOrder;
+  const morphology = linguisticProperties?.morphology;
+  const wordOrderTextureFile = `/textures/${wordOrder.toLowerCase()}.png`;
+  const morphologyTextureFile = `/textures/${morphology.toLowerCase()}.png`;
   const tonalityScore =
     linguisticConfig.tonality.values[linguisticProperties?.tonality]?.score;
 
@@ -208,6 +216,21 @@ const Mesha = ({ color, labelSize, languageCode }) => {
             color={color}
             labelSize={labelSize}
           />
+          {/* Badges below each eye, only if texture file is defined */}
+          {morphologyTextureFile && (
+            <MeshaBadge
+              textureFile={morphologyTextureFile}
+              position={[-eyeXPosition, -2, -0.5]}
+              scale={[badgeScale, badgeScale, 1]}
+            />
+          )}
+          {wordOrderTextureFile && (
+            <MeshaBadge
+              textureFile={wordOrderTextureFile}
+              position={[eyeXPosition, -2, -0.5]}
+              scale={[badgeScale, badgeScale, 1]}
+            />
+          )}
         </group>
 
         <MeshaMouth

@@ -5,7 +5,6 @@ import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeom
 import { useAppState } from "../../contexts/AppStateContext";
 import {
   cheekVertexShader,
-  morphologyFragmentShader,
   plainTextureFragmentShader,
 } from "../../shaders/cheekShader";
 
@@ -26,40 +25,19 @@ const MeshaCheek = forwardRef(
 
     const colorObj = new Color(color);
     const accentColor = new Color("#ddddff").sub(colorObj);
-    const wordOrder = linguisticProperties?.wordOrder;
-    const morphology = linguisticProperties?.morphology;
-
-    // Load word order texture for right cheek
-    const wordOrderTextureFile = `/textures/${wordOrder?.toLowerCase()}.png`;
-    const wordOrderTexture = useLoader(TextureLoader, wordOrderTextureFile);
-
-    // Load morphology texture for left cheek
-    const morphologyTextureFile = `/textures/${morphology?.toLowerCase()}.png`;
-    const morphologyTexture = useLoader(TextureLoader, morphologyTextureFile);
-
-    // Memoize uniforms for right cheek (word order)
-    const wordOrderShaderUniforms = useMemo(
-      () => ({
-        uBaseColor: { value: accentColor },
-        uAccentColor: { value: colorObj },
-        uWordOrderTexture: { value: wordOrderTexture },
-        uTextureStart: { value: 0.0 },
-      }),
-      [accentColor, colorObj, wordOrderTexture]
+    // Memoize uniforms for both cheeks (just color)
+    const leftCheekUniforms = useMemo(
+      () => ({ uBaseColor: { value: colorObj } }),
+      [colorObj]
     );
-
-    // Memoize uniforms for left cheek (morphology, plain texture)
-    const morphologyShaderUniforms = useMemo(
-      () => ({
-        uTexture: { value: morphologyTexture },
-        uBaseColor: { value: colorObj },
-      }),
-      [morphologyTexture, colorObj]
+    const rightCheekUniforms = useMemo(
+      () => ({ uBaseColor: { value: accentColor } }),
+      [accentColor]
     );
 
     return (
       <>
-        {/* Left cheek: morphology */}
+        {/* Left cheek: color only */}
         <mesh
           ref={mesh2Ref}
           position={[-1.2, 1, 1]}
@@ -72,17 +50,17 @@ const MeshaCheek = forwardRef(
           <shaderMaterial
             args={[
               {
-                uniforms: morphologyShaderUniforms,
+                uniforms: leftCheekUniforms,
                 vertexShader: cheekVertexShader,
                 fragmentShader: plainTextureFragmentShader,
                 side: DoubleSide,
-                transparent: true,
+                transparent: false,
               },
             ]}
           />
         </mesh>
 
-        {/* Right cheek: word order */}
+        {/* Right cheek: color only */}
         <mesh
           ref={mesh1Ref}
           position={[1.2, 1, 1]}
@@ -95,9 +73,9 @@ const MeshaCheek = forwardRef(
           <shaderMaterial
             args={[
               {
-                uniforms: wordOrderShaderUniforms,
+                uniforms: rightCheekUniforms,
                 vertexShader: cheekVertexShader,
-                fragmentShader: morphologyFragmentShader,
+                fragmentShader: plainTextureFragmentShader,
                 side: DoubleSide,
                 transparent: false,
               },
