@@ -66,7 +66,8 @@ function SearchResults({ searchTerm, searchResults, languageData }) {
 }
 
 function SearchTab({ searchTerm, searchResults, languageData }) {
-  const { selectLanguageWithFocus, selectedLanguage } = useLanguageSelection();
+  const { selectLanguage, selectedLanguage } = useLanguageSelection();
+  const { startFromLanguage } = usePlaylist();
   const lastAutoSelectedRef = useRef(null);
 
   // Handle exact match selection (only once per unique match)
@@ -85,10 +86,11 @@ function SearchTab({ searchTerm, searchResults, languageData }) {
 
       if (exactMatch && lastAutoSelectedRef.current !== exactMatch.code) {
         lastAutoSelectedRef.current = exactMatch.code;
-        selectLanguageWithFocus(exactMatch.code);
+        selectLanguage(exactMatch.code);
+        startFromLanguage(exactMatch.code);
       }
     }
-  }, [searchTerm, searchResults, selectLanguageWithFocus]);
+  }, [searchTerm, searchResults, selectLanguage, startFromLanguage]);
 
   return (
     <div className="control-section">
@@ -96,7 +98,7 @@ function SearchTab({ searchTerm, searchResults, languageData }) {
         searchTerm={searchTerm}
         searchResults={searchResults}
         selectedLanguage={selectedLanguage}
-        onLanguageFocus={selectLanguageWithFocus}
+        onLanguageFocus={selectLanguage}
         languageData={languageData}
       />
     </div>
