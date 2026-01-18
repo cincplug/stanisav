@@ -1,8 +1,7 @@
 import { useRef, forwardRef, useImperativeHandle, useMemo } from "react";
-import { extend, useLoader } from "@react-three/fiber";
-import { Color, DoubleSide, TextureLoader, ShaderMaterial } from "three";
+import { extend } from "@react-three/fiber";
+import { Color, DoubleSide } from "three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
-import { useAppState } from "../../contexts/AppStateContext";
 import {
   cheekVertexShader,
   plainTextureFragmentShader,
@@ -11,10 +10,7 @@ import {
 extend({ ParametricGeometry });
 
 const MeshaCheek = forwardRef(
-  ({ color, audioReactiveSurface, segments, languageCode }, ref) => {
-    const { data } = useAppState();
-    const linguisticProperties = data?.typologicalFeatures?.[languageCode];
-
+  ({ color, audioReactiveSurface, segments }, ref) => {
     const mesh1Ref = useRef();
     const mesh2Ref = useRef();
 
