@@ -229,13 +229,13 @@ const Mesha = ({ color, labelSize, languageCode }) => {
           />
           <MeshaBadge
             textureFile={morphologyTextureFile}
-            position={[-eyeXPosition * badgeSize, -2, 0]}
+            position={[0, -eyeXPosition * badgeSize, 0.7]}
             scale={[badgeSize, badgeSize, 1]}
           />
 
           <MeshaBadge
             textureFile={wordOrderTextureFile}
-            position={[eyeXPosition * badgeSize, -2, 0]}
+            position={[0, -eyeXPosition * badgeSize * 2, 0.8]}
             scale={[badgeSize, badgeSize, 1]}
             rotation={[0, badgeYRotation, 0]}
           />
