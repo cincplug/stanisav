@@ -302,13 +302,13 @@
     "isUserEditable": true,
     "group": "Mesha"
   },
-  "badgeScale": {
+  "badgeSize": {
     "type": "range",
-    "label": "Pupil Z Position",
+    "label": "Badge size",
     "min": 0.8,
     "max": 2.5,
     "step": 0.1,
-    "defaultValue": 1.2,
+    "defaultValue": 1.5,
     "isUserEditable": true,
     "group": "Mesha"
   }

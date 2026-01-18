@@ -25,7 +25,7 @@ const Mesha = ({ color, labelSize, languageCode }) => {
   const { selectedLanguage } = useLanguageSelection();
   const isThisLanguageSelected = selectedLanguage === languageCode;
   const { controls } = useControls();
-  const { eyeYOffset, eyeXPosition, eyeZPositionMultiplier, badgeScale } =
+  const { eyeYOffset, eyeXPosition, eyeZPositionMultiplier, badgeSize } =
     controls;
 
   const mouthColor = useMemo(
@@ -216,21 +216,17 @@ const Mesha = ({ color, labelSize, languageCode }) => {
             color={color}
             labelSize={labelSize}
           />
-          {/* Badges below each eye, only if texture file is defined */}
-          {morphologyTextureFile && (
-            <MeshaBadge
-              textureFile={morphologyTextureFile}
-              position={[-eyeXPosition, -2, -0.5]}
-              scale={[badgeScale, badgeScale, 1]}
-            />
-          )}
-          {wordOrderTextureFile && (
-            <MeshaBadge
-              textureFile={wordOrderTextureFile}
-              position={[eyeXPosition, -2, -0.5]}
-              scale={[badgeScale, badgeScale, 1]}
-            />
-          )}
+          <MeshaBadge
+            textureFile={morphologyTextureFile}
+            position={[-eyeXPosition * badgeSize, -2, -0.5]}
+            scale={[badgeSize, badgeSize, 1]}
+          />
+
+          <MeshaBadge
+            textureFile={wordOrderTextureFile}
+            position={[eyeXPosition * badgeSize, -2, -0.5]}
+            scale={[badgeSize, badgeSize, 1]}
+          />
         </group>
 
         <MeshaMouth
