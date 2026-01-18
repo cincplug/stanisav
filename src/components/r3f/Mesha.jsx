@@ -30,7 +30,7 @@ const Mesha = ({ color, labelSize, languageCode }) => {
 
   const mouthColor = useMemo(
     () => new Color("#ffbbbb").sub(new Color(color)),
-    [color]
+    [color],
   );
 
   const { data } = useAppState();
@@ -61,7 +61,7 @@ const Mesha = ({ color, labelSize, languageCode }) => {
     labelSize,
     isSelectedForAudio,
     audioDataValue,
-    meshConfig
+    meshConfig,
   ) => {
     const {
       frequencyBands,
@@ -151,7 +151,7 @@ const Mesha = ({ color, labelSize, languageCode }) => {
           const angle = (i / count) * Math.PI * 2;
           const xSymmetry = Math.abs(Math.cos(angle));
           const bandIndex = Math.floor(
-            (xSymmetry * harmonicsData.length) / bandDivisor
+            (xSymmetry * harmonicsData.length) / bandDivisor,
           );
           const amplitude = harmonicsData[bandIndex] || 0;
           const baseY = cases[i]?.y || -1;
@@ -169,9 +169,9 @@ const Mesha = ({ color, labelSize, languageCode }) => {
         labelSize,
         isThisLanguageSelected,
         audioData,
-        audioVisualizationConfig.meshDeformation
+        audioVisualizationConfig.meshDeformation,
       ),
-    [labelSize, isThisLanguageSelected, audioData]
+    [labelSize, isThisLanguageSelected, audioData],
   );
 
   const segments = audioVisualizationConfig.meshDeformation.meshSegments;
@@ -181,8 +181,8 @@ const Mesha = ({ color, labelSize, languageCode }) => {
     const count = linguisticProperties?.caseCount || 0;
     if (count === 0) return [];
 
-    const spacing = (eyeXPosition * 2) / Math.max(count - 1, 1);
-    const startX = count === 1 ? 0 : eyeXPosition;
+    const spacing = (eyeXPosition * 4) / (count - 1);
+    const startX = eyeXPosition * 2;
     const items = [];
     for (let i = 0; i < count; i++) {
       items.push({
@@ -257,13 +257,9 @@ const Mesha = ({ color, labelSize, languageCode }) => {
             ref={(el) => (casesRef.current[i] = el)}
             position={[caseItem.x, caseItem.y, caseItem.z]}
           >
-            <mesh>
-              <sphereGeometry args={[0.3, 16, 16]} />
-              <meshStandardMaterial
-                color={mouthColor}
-                emissive={mouthColor}
-                emissiveIntensity={0.3}
-              />
+            <mesh rotation={[Math.PI / 2, 0, 0]}>
+              <coneGeometry args={[0.5, 1, 8]} />
+              <meshStandardMaterial color={mouthColor} />
             </mesh>
           </group>
         ))}

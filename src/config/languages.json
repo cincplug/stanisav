@@ -447,7 +447,7 @@
     "tonality": "non-tonal",
     "morphology": "fusional",
     "phonemeCount": 45,
-    "caseCount": 1,
+    "caseCount": 0,
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible"
   },

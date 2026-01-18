@@ -40,10 +40,6 @@ const MeshaMouth = ({
   }, [linguisticProperties?.phonemeCount, labelSize]);
 
   const colorObj = useMemo(() => new Color(color), [color]);
-  const secondaryColor = useMemo(
-    () => new Color("#ddddff").sub(colorObj),
-    [colorObj]
-  );
 
   const tonalityScore = useMemo(() => {
     const tonality = linguisticProperties?.tonality;
@@ -75,7 +71,7 @@ const MeshaMouth = ({
           const angle = (i / count) * Math.PI * 2;
           const xSymmetry = Math.abs(Math.cos(angle));
           const bandIndex = Math.floor(
-            (xSymmetry * fundamentalData.length) / bandDivisor
+            (xSymmetry * fundamentalData.length) / bandDivisor,
           );
           const amplitude = fundamentalData[bandIndex] || 0;
 
