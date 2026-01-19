@@ -5,7 +5,7 @@ import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeom
 import {
   cheekVertexShader,
   plainTextureFragmentShader,
-} from "../../shaders/cheekShader";
+} from "../../shaders/shader";
 
 extend({ ParametricGeometry });
 
@@ -24,11 +24,11 @@ const MeshaCheek = forwardRef(
     // Memoize uniforms for both cheeks (just color)
     const leftCheekUniforms = useMemo(
       () => ({ uBaseColor: { value: colorObj } }),
-      [colorObj]
+      [colorObj],
     );
     const rightCheekUniforms = useMemo(
       () => ({ uBaseColor: { value: accentColor } }),
-      [accentColor]
+      [accentColor],
     );
 
     return (
@@ -80,7 +80,7 @@ const MeshaCheek = forwardRef(
         </mesh>
       </>
     );
-  }
+  },
 );
 
 MeshaCheek.displayName = "MeshaCheek";

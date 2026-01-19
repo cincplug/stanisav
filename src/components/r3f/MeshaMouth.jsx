@@ -1,7 +1,8 @@
 import { useRef, useMemo } from "react";
-import { Color, MeshStandardMaterial } from "three";
+import { Color } from "three";
 import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
+import { mouthFragmentShader, cheekVertexShader } from "../../shaders/shader";
 
 import { useAppState } from "../../contexts/AppStateContext";
 import linguisticConfig from "../../config/linguisticConfig.json";
@@ -48,13 +49,28 @@ const MeshaMouth = ({
       : 1;
   }, [linguisticProperties?.tonality]);
 
+  // Map tonality string to shader type
+  const tonalityType = useMemo(() => {
+    const tonality = linguisticProperties?.tonality;
+    if (tonality === "non-tonal") return 0;
+    if (tonality === "pitch-accent") return 1;
+    if (tonality === "simple-tonal") return 2;
+    if (tonality === "complex-tonal") return 3;
+    return 0;
+  }, [linguisticProperties?.tonality]);
+
   const mouthMaterial = useMemo(() => {
-    const mat = new MeshStandardMaterial({
-      color: colorObj,
+    return {
+      uniforms: {
+        uBaseColor: { value: colorObj },
+        uTonalityType: { value: tonalityType },
+      },
+      vertexShader: cheekVertexShader,
+      fragmentShader: mouthFragmentShader,
       side: 2,
-    });
-    return mat;
-  }, [colorObj]);
+      transparent: false,
+    };
+  }, [colorObj, tonalityType]);
 
   useFrame(() => {
     if (
@@ -91,7 +107,7 @@ const MeshaMouth = ({
         rotation={[-1 / 3, -Math.PI, 0]}
       >
         <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
-        <primitive object={mouthMaterial} attach="material" />
+        <shaderMaterial args={[mouthMaterial]} />
       </mesh>
 
       {teethSpheres.map((sphere, i) => (
