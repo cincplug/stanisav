@@ -17,6 +17,7 @@ const MeshaMouth = ({
   languageCode,
   isThisLanguageSelected,
   audioData,
+  meshaYRotation,
 }) => {
   const { data } = useAppState();
   const linguisticProperties = data?.typologicalFeatures?.[languageCode];
@@ -104,7 +105,7 @@ const MeshaMouth = ({
       <mesh
         position={[0, -1, 4]}
         scale={[2 / 3, -1 / 2, -2]}
-        rotation={[-1 / 3, -Math.PI, 0]}
+        rotation={[-1 / 4 + meshaYRotation / 5, -Math.PI, 0]}
       >
         <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
         <shaderMaterial args={[mouthMaterial]} />

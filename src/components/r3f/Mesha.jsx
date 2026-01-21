@@ -250,6 +250,7 @@ const Mesha = ({ color, labelSize, languageCode }) => {
           languageCode={languageCode}
           isThisLanguageSelected={isThisLanguageSelected}
           audioData={audioData}
+          meshaYRotation={meshaYRotation}
         />
         {cases.map((caseItem, i) => (
           <group

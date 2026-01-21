@@ -109,8 +109,15 @@ export const mouthFragmentShader = /* glsl */ `
   }
 
   void main() {
+    // Adjusted light direction for rotated mesh
+    vec3 lightDir = normalize(vec3(5.0, -5.0, 5.0));
+    float diffuse = max(dot(normalize(vNormal), lightDir), 0.0);
+    float ambient = 0.7;
+    float lighting = ambient + diffuse * 0.5;
+
     float stripe = getStripe(vUv, uTonalityType);
     vec3 color = mix(uBaseColor, vec3(1.0), 1.0 - stripe);
+    color *= lighting;
     gl_FragColor = vec4(color, 1.0);
   }
 `;
