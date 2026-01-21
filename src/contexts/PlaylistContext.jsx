@@ -91,7 +91,7 @@ export const PlaylistProvider = ({ children }) => {
       setIsPlaying(true);
       setPlaylistSession((s) => s + 1);
     },
-    [getSortedLanguageCodes]
+    [getSortedLanguageCodes],
   );
 
   const pausePlaylist = useCallback(() => {
@@ -164,9 +164,8 @@ export const PlaylistProvider = ({ children }) => {
         setIsAnimating(false);
 
         try {
-          const { getLanguageAudioUrl, setupAudioVisualization } = await import(
-            "../services/audioService"
-          );
+          const { getLanguageAudioUrl, setupAudioVisualization } =
+            await import("../services/audioService");
           const audioUrl = await getLanguageAudioUrl(code, isLuka);
 
           if (!audioUrl) {
@@ -220,18 +219,11 @@ export const PlaylistProvider = ({ children }) => {
     playlistRef.current = codes;
     setCurrentIndex(0);
 
-    // Stop playlist and reset camera when filters change
     if (isPlaying) {
       pausePlaylist();
       resetCameraView();
     }
-  }, [
-    controls?.sortLanguagesBy,
-    controls?.labelContent,
-    controls?.isReverse,
-    getSortedLanguageCodes,
-    filteringUtils,
-  ]);
+  }, [filteringUtils]);
 
   useEffect(() => {
     return () => {
