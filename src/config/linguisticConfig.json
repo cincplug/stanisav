@@ -87,14 +87,6 @@
       "VOS": {
         "label": "VOS",
         "description": "Verb-Object-Subject"
-      },
-      "OVS": {
-        "label": "OVS",
-        "description": "Object-Verb-Subject"
-      },
-      "OSV": {
-        "label": "OSV",
-        "description": "Object-Subject-Verb"
       }
     }
   },

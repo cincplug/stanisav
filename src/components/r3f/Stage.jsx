@@ -4,6 +4,7 @@ import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
 import { useCameraUpdater } from "../../hooks/useCameraUpdater";
+import { usePreloadBadgeTextures } from "../../hooks/usePreloadBadgeTextures";
 import StageLight from "./StageLight";
 import Languages from "./Languages";
 
@@ -17,7 +18,8 @@ const Stage = ({
 }) => {
   const { controls } = useControls();
   const { selectedLanguage } = useLanguageSelection();
-  const { isPlaying } = usePlaylist();
+
+  usePreloadBadgeTextures();
 
   const CameraUpdaterNode = () => {
     useCameraUpdater({ controls });
