@@ -29,6 +29,12 @@ const NodeLights = ({ labelText }) => {
         distance={pointLightDistance}
         color={lightColor}
       />
+      <pointLight
+        position={[0, -4, 6]}
+        intensity={30}
+        distance={pointLightDistance}
+        color={lightColor}
+      />
     </group>
   );
 };
