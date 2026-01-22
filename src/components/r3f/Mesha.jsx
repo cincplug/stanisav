@@ -259,8 +259,8 @@ const Mesha = ({ color, labelSize, languageCode }) => {
             position={[caseItem.x, caseItem.y, caseItem.z]}
           >
             <mesh rotation={[Math.PI / 2, 0, 0]}>
-              <coneGeometry args={[0.5, 1, 8]} />
-              <meshStandardMaterial color={mouthColor} />
+              <coneGeometry args={[0.8, 1, 7]} />
+              <meshStandardMaterial color={"#ffffff"} />
             </mesh>
           </group>
         ))}
