@@ -105,7 +105,7 @@ export default function Playlist() {
       <span className="playlist-progress" aria-live="polite" aria-atomic="true">
         {playlistLength > 0
           ? `Track ${currentIndex + 1} of ${playlistLength}`
-          : "No tracks"}
+          : ""}
       </span>
     </div>
   );

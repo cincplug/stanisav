@@ -133,7 +133,7 @@ select,
   align-items: center;
   justify-content: center;
   color: var(--color-text);
-  font-size: 1.125rem;
+  font-size: var(--font-size-big);
 }
 
 .loading-content {
@@ -241,17 +241,6 @@ input[type="color"] {
   cursor: pointer;
   padding: 0;
   background: transparent;
-}
-
-button {
-  background-color: var(--color-interactive);
-  color: var(--color-text);
-  padding: 8px 12px;
-  cursor: pointer;
-  font-size: var(--font-size-normal);
-  font-weight: normal;
-  width: 100%;
-  margin-bottom: 5px;
 }
 
 fieldset {

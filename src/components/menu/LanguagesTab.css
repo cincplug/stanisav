@@ -11,7 +11,7 @@
 
   .group-header {
     font-weight: normal;
-    font-size: var(--font-size);
+    font-size: var(--font-size-normal);
     margin: 0;
   }
 }
