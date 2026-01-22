@@ -9,6 +9,7 @@ import {
   getFeatureDescription, // already imported
 } from "../../utils/linguisticUtils";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
+import "./FiltersTab.css";
 
 function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
   const { filteringUtils, updateFilteringUtils } = useLanguageSelection();
@@ -59,19 +60,18 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
   return (
     <div className="control-section">
       <div className="linguistic-filters">
-        {/* Filter mode controls */}
-        <div className="filter-group">
-          <div className="controls-grid">
-            <div className="control-item checkbox-control">
-              <label>
-                <input
-                  type="checkbox"
-                  checked={allowMultipleChoices}
-                  onChange={(e) => setAllowMultipleChoices(e.target.checked)}
-                />
-                <span>Allow multiple choices</span>
-              </label>
-            </div>
+        {/* Title row with Filter by and allow multiple choices */}
+        <div className="filters-tab-header">
+          <h2>Filter by</h2>
+          <div className="control-item checkbox-control">
+            <label>
+              <input
+                type="checkbox"
+                checked={allowMultipleChoices}
+                onChange={(e) => setAllowMultipleChoices(e.target.checked)}
+              />
+              <span>Allow multiple choices</span>
+            </label>
           </div>
         </div>
 
@@ -86,7 +86,7 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
 
           return (
             <div key={feature} className="filter-group">
-              <h4 className="filter-group-title">Filter by {label}</h4>
+              <h3 className="filter-group-title">{label}</h3>
               <div className="checkbox-button-group">
                 <input
                   type="checkbox"
@@ -131,7 +131,7 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
                           handleCheckboxChange(
                             feature,
                             valueKey,
-                            e.target.checked
+                            e.target.checked,
                           )
                         }
                       />
@@ -162,7 +162,7 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
       {linguisticResults && linguisticResults.length > 0 && (
         <fieldset className="results-fieldset">
           <legend className="results-legend">
-            Filter Results ({linguisticResults.length})
+            Filter results ({linguisticResults.length})
           </legend>
           <div className="language-grid">
             {linguisticResults.map((lang) => (
@@ -173,7 +173,7 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
                 }`}
                 onClick={() => onLanguageFocus(lang.code)}
                 title={`${lang.name} (${lang.groupName}) - ${Object.entries(
-                  lang.features
+                  lang.features,
                 )
                   .map(([k, v]) => `${k}: ${v}`)
                   .join(", ")}`}

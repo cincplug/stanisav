@@ -5,7 +5,7 @@ import ControlItem from "./ControlItem";
 const getControlsByGroup = (groupName) =>
   Object.entries(controlsConfig)
     .filter(
-      ([_id, config]) => config.group === groupName && config.isUserEditable
+      ([_id, config]) => config.group === groupName && config.isUserEditable,
     )
     .map(([id, config]) => ({ id, ...config }));
 
@@ -37,11 +37,12 @@ const ControlsTab = () => {
   const { controls, updateControl } = useControls();
 
   const uniqueGroups = Array.from(
-    new Set(Object.values(controlsConfig).map(({ group }) => group))
+    new Set(Object.values(controlsConfig).map(({ group }) => group)),
   ).filter(Boolean);
 
   return (
     <div className="control-section">
+      <h2>Adjust controls</h2>
       {uniqueGroups.map((groupName) => (
         <ControlGroup
           key={groupName}

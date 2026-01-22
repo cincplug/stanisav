@@ -50,7 +50,7 @@
     }
   },
   "wordOrderFlexibility": {
-    "name": "Word Order Flexibility",
+    "name": "Word order flexibility",
     "values": {
       "rigid": {
         "label": "Rigid",
@@ -70,7 +70,7 @@
     }
   },
   "wordOrder": {
-    "name": "Word Order",
+    "name": "Word order",
     "values": {
       "SVO": {
         "label": "SVO",
@@ -91,17 +91,17 @@
     }
   },
   "caseCount": {
-    "name": "Case Count",
+    "name": "Case count",
     "template": "It has {count} grammatical cases."
   },
   "phonemeCount": {
-    "name": "Phoneme Count",
+    "name": "Phoneme count",
     "template": "It has {count} phonemes (distinct sounds)."
   },
   "family": {
-    "name": "Language Family"
+    "name": "Language family"
   },
   "group": {
-    "name": "Language Group"
+    "name": "Language group"
   }
 }

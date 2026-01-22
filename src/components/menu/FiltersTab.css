@@ -1,0 +1,15 @@
+/* FiltersTab header row */
+.filters-tab-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--gap);
+
+  .control-item {
+    margin: 0;
+  }
+}
+
+.tab-title {
+  font-weight: bold;
+}

@@ -5,12 +5,8 @@ import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
 
 function LanguagesTab({ groupedLanguages, languageData, isActive }) {
-  const {
-    groupColors,
-    setGroupColor,
-    selectedLanguage,
-    selectLanguage
-  } = useLanguageSelection();
+  const { groupColors, setGroupColor, selectedLanguage, selectLanguage } =
+    useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
   const { controls } = useControls();
   const buttonRefs = useRef({});
@@ -19,7 +15,7 @@ function LanguagesTab({ groupedLanguages, languageData, isActive }) {
     if (isActive && selectedLanguage && buttonRefs.current[selectedLanguage]) {
       buttonRefs.current[selectedLanguage].scrollIntoView({
         behavior: "smooth",
-        block: "center"
+        block: "center",
       });
     }
   }, [selectedLanguage, isActive]);
@@ -27,6 +23,7 @@ function LanguagesTab({ groupedLanguages, languageData, isActive }) {
   return (
     <div className="control-section">
       <div className="languages-list">
+        <h2>Languages by groups</h2>
         {Object.entries(groupedLanguages).map(([groupName, group]) => (
           <div key={groupName} className="language-group-container">
             <h3 className={`group-header`}>

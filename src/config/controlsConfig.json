@@ -1,7 +1,7 @@
 {
   "labelSize": {
     "type": "range",
-    "label": "Label Size",
+    "label": "Label size",
     "min": 0.1,
     "max": 3,
     "step": 0.1,
@@ -21,18 +21,18 @@
   },
   "sortLanguagesBy": {
     "type": "radio",
-    "label": "Sort Languages By",
+    "label": "Sort languages by",
     "options": [
-      { "value": "alphabetically", "label": "Alphabetically" },
-      { "value": "family", "label": "Language Family" },
-      { "value": "group", "label": "Language Group" },
+      { "value": "alphabetically", "label": "Alphabetical order" },
+      { "value": "family", "label": "Language family" },
+      { "value": "group", "label": "Language group" },
       { "value": "speakers", "label": "Speakers' number" },
       { "value": "tonality", "label": "Tonality" },
       { "value": "morphology", "label": "Morphology" },
-      { "value": "wordOrder", "label": "Word Order" },
-      { "value": "wordOrderFlexibility", "label": "Word Order Flexibility" },
-      { "value": "phonemeCount", "label": "Phoneme Count" },
-      { "value": "caseCount", "label": "Case Count" }
+      { "value": "wordOrder", "label": "Word order" },
+      { "value": "wordOrderFlexibility", "label": "Word order flexibility" },
+      { "value": "phonemeCount", "label": "Phoneme count" },
+      { "value": "caseCount", "label": "Case count" }
     ],
     "defaultValue": "alphabetically",
     "isUserEditable": true,
@@ -66,7 +66,7 @@
   },
   "isLuka": {
     "type": "checkbox",
-    "label": "Luka Reads Samples",
+    "label": "Luka reads samples",
     "defaultValue": true,
     "isUserEditable": true,
     "group": "Scene"
@@ -95,7 +95,7 @@
   "pointLightIntensity": {
     "group": "Lighting",
     "type": "range",
-    "label": "Point Light Intensity",
+    "label": "Point light intensity",
     "min": 0,
     "max": 30,
     "step": 0.5,
@@ -105,7 +105,7 @@
   "pointLightDecay": {
     "group": "Lighting",
     "type": "range",
-    "label": "Point Light Decay",
+    "label": "Point light decay",
     "min": 0,
     "max": 1,
     "step": 0.1,
@@ -115,7 +115,7 @@
   "pointLightDistance": {
     "group": "Lighting",
     "type": "range",
-    "label": "Point Light Distance",
+    "label": "Point light distance",
     "min": 80,
     "max": 150,
     "step": 1,
@@ -125,7 +125,7 @@
   "ambientLightIntensity": {
     "group": "Lighting",
     "type": "range",
-    "label": "Ambient Light Intensity",
+    "label": "Ambient light intensity",
     "min": 0,
     "max": 5,
     "step": 0.1,
@@ -164,7 +164,7 @@
   },
   "fov": {
     "type": "range",
-    "label": "Field of View",
+    "label": "Field of view",
     "min": 10,
     "max": 120,
     "step": 1,
@@ -174,7 +174,7 @@
   },
   "animationDuration": {
     "type": "range",
-    "label": "Animation Duration",
+    "label": "Animation duration",
     "min": 500,
     "max": 3000,
     "step": 100,
@@ -184,7 +184,7 @@
   },
   "focusDistance": {
     "type": "range",
-    "label": "Focus Distance",
+    "label": "Focus distance",
     "min": 20,
     "max": 100,
     "step": 5,
@@ -194,7 +194,7 @@
   },
   "near": {
     "type": "range",
-    "label": "Near Plane",
+    "label": "Near plane",
     "min": 0.1,
     "max": 10,
     "step": 0.1,
@@ -204,7 +204,7 @@
   },
   "far": {
     "type": "range",
-    "label": "Far Plane",
+    "label": "Far plane",
     "min": 1000,
     "max": 10000,
     "step": 100,
@@ -214,7 +214,7 @@
   },
   "meshaSize": {
     "type": "range",
-    "label": "Mesha Size",
+    "label": "Mesha size",
     "min": 1,
     "max": 10,
     "step": 0.1,
@@ -224,7 +224,7 @@
   },
   "eyeSizeMultiplier": {
     "type": "range",
-    "label": "Eye Size",
+    "label": "Eye size",
     "min": 0.05,
     "max": 0.5,
     "step": 0.01,
@@ -234,7 +234,7 @@
   },
   "irisSizeMultiplier": {
     "type": "range",
-    "label": "Iris Size",
+    "label": "Iris size",
     "min": 0.3,
     "max": 0.9,
     "step": 0.05,
@@ -244,7 +244,7 @@
   },
   "pupilSizeMultiplier": {
     "type": "range",
-    "label": "Pupil Size",
+    "label": "Pupil size",
     "min": 0.1,
     "max": 0.7,
     "step": 0.05,
@@ -254,7 +254,7 @@
   },
   "eyeXPosition": {
     "type": "range",
-    "label": "Eye X Position",
+    "label": "Eye X position",
     "min": 0,
     "max": 3,
     "step": 0.1,
@@ -264,7 +264,7 @@
   },
   "eyeYOffset": {
     "type": "range",
-    "label": "Eye Y Offset",
+    "label": "Eye Y offset",
     "min": -2,
     "max": 2,
     "step": 0.1,
@@ -274,7 +274,7 @@
   },
   "eyeZPositionMultiplier": {
     "type": "range",
-    "label": "Eye Z Position",
+    "label": "Eye Z position",
     "min": 0.5,
     "max": 3,
     "step": 0.1,
@@ -284,7 +284,7 @@
   },
   "irisZPositionMultiplier": {
     "type": "range",
-    "label": "Iris Z Position",
+    "label": "Iris Z position",
     "min": 0.1,
     "max": 1,
     "step": 0.05,
@@ -294,7 +294,7 @@
   },
   "pupilZPositionMultiplier": {
     "type": "range",
-    "label": "Pupil Z Position",
+    "label": "Pupil Z position",
     "min": 0.5,
     "max": 1.5,
     "step": 0.05,
