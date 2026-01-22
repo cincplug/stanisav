@@ -1,14 +1,14 @@
 {
   "tabs": [
     {
-      "id": "controls",
-      "label": "Controls",
-      "component": "ControlsTab"
-    },
-    {
       "id": "languages",
       "label": "Languages",
       "component": "LanguagesTab"
+    },
+    {
+      "id": "controls",
+      "label": "Controls",
+      "component": "ControlsTab"
     },
     {
       "id": "filters",

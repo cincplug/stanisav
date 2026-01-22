@@ -42,7 +42,7 @@ const ControlsTab = () => {
 
   return (
     <div className="control-section">
-      <h2>Adjust controls</h2>
+      <h2>Controls</h2>
       {uniqueGroups.map((groupName) => (
         <ControlGroup
           key={groupName}
