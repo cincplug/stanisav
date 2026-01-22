@@ -68,7 +68,7 @@
     "type": "checkbox",
     "label": "Luka reads samples",
     "defaultValue": true,
-    "isUserEditable": true,
+    "isUserEditable": false,
     "group": "Scene"
   },
   "canEditColors": {
@@ -178,7 +178,7 @@
     "min": 500,
     "max": 3000,
     "step": 100,
-    "defaultValue": 1000,
+    "defaultValue": 1200,
     "isUserEditable": true,
     "group": "Camera"
   },
@@ -188,7 +188,7 @@
     "min": 20,
     "max": 100,
     "step": 5,
-    "defaultValue": 40,
+    "defaultValue": 30,
     "isUserEditable": true,
     "group": "Camera"
   },

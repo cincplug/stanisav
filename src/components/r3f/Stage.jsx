@@ -2,7 +2,6 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
-import { usePlaylist } from "../../contexts/PlaylistContext";
 import { useCameraUpdater } from "../../hooks/useCameraUpdater";
 import { usePreloadBadgeTextures } from "../../hooks/usePreloadBadgeTextures";
 import StageLight from "./StageLight";
@@ -17,7 +16,19 @@ const Stage = ({
   onEmptyFilterChange,
 }) => {
   const { controls } = useControls();
+  const {
+    positionX,
+    positionY,
+    positionZ,
+    fov,
+    near,
+    far,
+    backgroundColor,
+    ambientLightIntensity,
+  } = controls;
   const { selectedLanguage } = useLanguageSelection();
+
+  const ambientLightModifier = selectedLanguage ? 0.7 : 1.2;
 
   usePreloadBadgeTextures();
 
@@ -32,14 +43,14 @@ const Stage = ({
         isMenuCollapsed ? "menu-collapsed" : "menu-expanded"
       }`}
       camera={{
-        position: [controls.positionX, controls.positionY, controls.positionZ],
-        fov: controls.fov,
-        near: controls.near,
-        far: controls.far,
+        position: [positionX, positionY, positionZ],
+        fov,
+        near,
+        far,
       }}
-      gl={{ antialias: true, clearColor: controls.backgroundColor }}
+      gl={{ antialias: true, clearColor: backgroundColor }}
     >
-      <color attach="background" args={[controls.backgroundColor]} />
+      <color attach="background" args={[backgroundColor]} />
 
       <OrbitControls
         enableDamping={true}
@@ -49,7 +60,7 @@ const Stage = ({
 
       {!selectedLanguage && <StageLight />}
 
-      <ambientLight intensity={controls.ambientLightIntensity} />
+      <ambientLight intensity={ambientLightIntensity * ambientLightModifier} />
 
       <CameraUpdaterNode />
 
