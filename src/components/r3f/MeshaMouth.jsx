@@ -28,9 +28,11 @@ const MeshaMouth = ({
     if (count === 0) return [];
 
     const radius = labelSize;
+    const arc = Math.PI * 1.5;
+    const startAngle = Math.PI / 2 - arc / 2;
     const spheres = [];
     for (let i = 0; i < count; i++) {
-      const angle = (i / count) * Math.PI * 2;
+      const angle = startAngle + (i / (count - 1)) * arc;
       spheres.push({
         x: Math.cos(angle) * radius,
         y: 1,
