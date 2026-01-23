@@ -42,7 +42,6 @@ const MeshaMouth = ({
   segments,
   labelSize,
   languageCode,
-  isThisLanguageSelected,
   audioData,
   meshaYRotation,
 }) => {
@@ -95,7 +94,7 @@ const MeshaMouth = ({
   }, [colorObj, tonalityType]);
 
   useFrame(() => {
-    if (teethRefs.current && isThisLanguageSelected && audioData.isActive) {
+    if (teethRefs.current && audioData.isActive) {
       const { fundamentalData } = audioData;
       const count = teethRefs.current.length;
       const bandDivisor = 6;

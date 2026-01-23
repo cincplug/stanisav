@@ -1,44 +1,9 @@
 import { useRef, useState, useEffect } from "react";
-import { useFrame } from "@react-three/fiber";
-import { Box3, Vector3 } from "three";
 import { getAudioAnalysisService } from "../services/audioService.js";
-import audioVisualizationConfig from "../config/audioVisualizationConfig.json";
+import { defaultAudioData } from "../config/meshaDefaultAudioData.js";
 
-export function useViewportTransparency(
-  meshRef,
-  materialRef,
-  baseOpacity = 1.0
-) {
-  const viewportThreshold = 0.8;
-  const transparencyMultiplier = 0.3;
-  useFrame((state) => {
-    if (!meshRef.current || !materialRef.current) return;
-    const mesh = meshRef.current;
-    const camera = state.camera;
-    const box = new Box3().setFromObject(mesh);
-    const size = box.getSize(new Vector3());
-    const distance = camera.position.distanceTo(mesh.position);
-    const screenSize = (size.length() / distance) * 100;
-    if (screenSize > viewportThreshold) {
-      materialRef.current.opacity = baseOpacity * transparencyMultiplier;
-      materialRef.current.transparent = true;
-    } else {
-      materialRef.current.opacity = baseOpacity;
-      materialRef.current.transparent = baseOpacity < 1.0;
-    }
-  });
-}
-
-export function useAudioAnimation(languageCode, isThisLanguageSelected) {
-  const [audioData, setAudioData] = useState({
-    fundamentalData: new Array(
-      audioVisualizationConfig.meshDeformation.frequencyBands
-    ).fill(0),
-    harmonicsData: new Array(
-      audioVisualizationConfig.meshDeformation.frequencyBands
-    ).fill(0),
-    isActive: false,
-  });
+export function useAudioAnimation() {
+  const [audioData, setAudioData] = useState(defaultAudioData);
 
   const rotationStateRef = useRef({
     currentYRotation: 0,
@@ -48,18 +13,6 @@ export function useAudioAnimation(languageCode, isThisLanguageSelected) {
   });
 
   useEffect(() => {
-    if (!isThisLanguageSelected) {
-      setAudioData({
-        fundamentalData: new Array(
-          audioVisualizationConfig.meshDeformation.frequencyBands
-        ).fill(0),
-        harmonicsData: new Array(
-          audioVisualizationConfig.meshDeformation.frequencyBands
-        ).fill(0),
-        isActive: false,
-      });
-      return;
-    }
     const audioService = getAudioAnalysisService();
     const handleAudioData = (data) => {
       setAudioData(data);
@@ -68,7 +21,7 @@ export function useAudioAnimation(languageCode, isThisLanguageSelected) {
     return () => {
       audioService.removeCallback(handleAudioData);
     };
-  }, [isThisLanguageSelected]);
+  }, []);
 
   return { audioData, rotationStateRef };
 }

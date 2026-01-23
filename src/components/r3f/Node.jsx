@@ -34,7 +34,7 @@ const Node = ({
   // Calculate dynamic min/max for the current numeric category
   const rangeConfig = useMemo(
     () => calculateLabelSizeConfig(sortLanguagesBy, data, layoutConfig),
-    [sortLanguagesBy, data]
+    [sortLanguagesBy, data],
   );
 
   const getLabelText = (language, languageCode, labelContent) => {
@@ -74,7 +74,7 @@ const Node = ({
       selectLanguage(languageCode);
       startFromLanguage(languageCode);
     },
-    [selectLanguage, startFromLanguage, languageCode]
+    [selectLanguage, startFromLanguage, languageCode],
   );
 
   const sizeValue = getSizeValue();
@@ -97,7 +97,7 @@ const Node = ({
     <group position={position} onClick={handleClick}>
       {isSelected && <NodeLights labelText={labelText} />}
 
-      {isSelected && shouldShowMesha && (
+      {isSelected && (
         <Mesha
           color={color}
           labelSize={meshaSize}

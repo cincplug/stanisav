@@ -4,13 +4,13 @@ import { Color } from "three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
 import { useControls } from "../../contexts/ControlsContext.jsx";
-import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
 import linguisticConfig from "../../config/linguisticConfig.json";
 import MeshaEye from "./MeshaEye.jsx";
 import MeshaCheek from "./MeshaCheek.jsx";
 import MeshaMouth from "./MeshaMouth.jsx";
 import MeshaBadge from "./MeshaBadge.jsx";
+import { defaultAudioData } from "../../config/meshaDefaultAudioData.js";
 
 extend({ ParametricGeometry });
 
@@ -22,8 +22,6 @@ const Mesha = ({ color, labelSize, languageCode }) => {
   const eyesGroupRef = useRef();
   const meshaCheekRef = useRef();
   const casesRef = useRef([]);
-  const { selectedLanguage } = useLanguageSelection();
-  const isThisLanguageSelected = selectedLanguage === languageCode;
   const { controls } = useControls();
   const { eyeYOffset, eyeXPosition, eyeZPositionMultiplier, badgeSize } =
     controls;
@@ -48,7 +46,20 @@ const Mesha = ({ color, labelSize, languageCode }) => {
   const tonalityScore =
     linguisticConfig.tonality.values[linguisticProperties?.tonality]?.score;
 
-  const { audioData } = useAudioAnimation(languageCode, isThisLanguageSelected);
+  // Utility to check if an array is all zeros or empty
+  function isAllZeros(arr) {
+    return !Array.isArray(arr) || arr.length === 0 || arr.every((v) => v === 0);
+  }
+
+  const { audioData: rawAudioData } = useAudioAnimation();
+
+  // Use default audio data if missing or all zeros
+  const audioData =
+    !rawAudioData ||
+    isAllZeros(rawAudioData.fundamentalData) ||
+    isAllZeros(rawAudioData.harmonicsData)
+      ? defaultAudioData
+      : rawAudioData;
 
   const wordOrderAmplitude = useMemo(() => {
     const flexibility = linguisticProperties?.wordOrderFlexibility;
@@ -59,7 +70,6 @@ const Mesha = ({ color, labelSize, languageCode }) => {
 
   const createAudioReactiveSurface = (
     labelSize,
-    isSelectedForAudio,
     audioDataValue,
     meshConfig,
   ) => {
@@ -83,7 +93,7 @@ const Mesha = ({ color, labelSize, languageCode }) => {
       const x = (v - 0.5) * size;
       let y = symmetricalMirroring ? wordOrderAmplitude : flexibilityAmplitude;
 
-      if (isSelectedForAudio && audioDataValue.isActive) {
+      if (audioDataValue.isActive) {
         const { fundamentalData, harmonicsData } = audioDataValue;
         const verticalVariation =
           Math.sin(v * Math.PI * 2) * verticalVariationMultiplier;
@@ -142,7 +152,7 @@ const Mesha = ({ color, labelSize, languageCode }) => {
       }
     }
 
-    if (casesRef.current && isThisLanguageSelected && audioData.isActive) {
+    if (casesRef.current && audioData.isActive) {
       const { harmonicsData } = audioData;
       const count = casesRef.current.length;
       const bandDivisor = 6;
@@ -167,11 +177,10 @@ const Mesha = ({ color, labelSize, languageCode }) => {
     () =>
       createAudioReactiveSurface(
         labelSize,
-        isThisLanguageSelected,
         audioData,
         audioVisualizationConfig.meshDeformation,
       ),
-    [labelSize, isThisLanguageSelected, audioData],
+    [labelSize, audioData],
   );
 
   const segments = audioVisualizationConfig.meshDeformation.meshSegments;
@@ -209,7 +218,6 @@ const Mesha = ({ color, labelSize, languageCode }) => {
           ref={meshaCheekRef}
           color={color}
           labelSize={labelSize}
-          isThisLanguageSelected={isThisLanguageSelected}
           audioData={audioData}
           languageCode={languageCode}
           audioReactiveSurface={audioReactiveSurface}
@@ -248,7 +256,6 @@ const Mesha = ({ color, labelSize, languageCode }) => {
           wordOrderAmplitude={wordOrderAmplitude}
           labelSize={labelSize}
           languageCode={languageCode}
-          isThisLanguageSelected={isThisLanguageSelected}
           audioData={audioData}
           meshaYRotation={meshaYRotation}
         />
