@@ -178,10 +178,10 @@ const Mesha = ({ color, labelSize, languageCode }) => {
   const eyeZ = labelSize * eyeZPositionMultiplier;
 
   const cases = useMemo(() => {
-    const count = linguisticProperties?.caseCount || 0;
-    if (count === 0) return [];
+    const count = linguisticProperties?.caseCount;
+    if (!count) return null;
 
-    const spacing = (eyeXPosition * 4) / (count - 1);
+    const spacing = (eyeXPosition * 4) / count;
     const startX = eyeXPosition * 2;
     const items = [];
     for (let i = 0; i < count; i++) {
@@ -252,18 +252,19 @@ const Mesha = ({ color, labelSize, languageCode }) => {
           audioData={audioData}
           meshaYRotation={meshaYRotation}
         />
-        {cases.map((caseItem, i) => (
-          <group
-            key={caseItem.key}
-            ref={(el) => (casesRef.current[i] = el)}
-            position={[caseItem.x, caseItem.y, caseItem.z]}
-          >
-            <mesh rotation={[Math.PI / 2, 0, 0]}>
-              <coneGeometry args={[0.8, 1, 7]} />
-              <meshStandardMaterial color={"#ffffff"} />
-            </mesh>
-          </group>
-        ))}
+        {cases &&
+          cases.map((caseItem, i) => (
+            <group
+              key={caseItem.key}
+              ref={(el) => (casesRef.current[i] = el)}
+              position={[caseItem.x, caseItem.y, caseItem.z]}
+            >
+              <mesh rotation={[Math.PI / 2, 0, 0]}>
+                <coneGeometry args={[0.8, 1, 7]} />
+                <meshStandardMaterial color={"#ffffff"} />
+              </mesh>
+            </group>
+          ))}
       </group>
     </group>
   );

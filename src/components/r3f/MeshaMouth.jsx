@@ -51,7 +51,7 @@ const MeshaMouth = ({
   const teethRefs = useRef([]);
 
   const teeth = useMemo(() => {
-    const count = linguisticProperties?.phonemeCount || 0;
+    const count = linguisticProperties?.phonemeCount;
     if (count === 0) return [];
 
     const radius = labelSize;
@@ -59,7 +59,7 @@ const MeshaMouth = ({
     const startAngle = Math.PI / 2 - arc / 2;
     const teethArr = [];
     for (let i = 0; i < count; i++) {
-      const angle = startAngle + (i / (count - 1)) * arc;
+      const angle = startAngle + (i / count) * arc;
       teethArr.push({
         x: Math.cos(angle) * radius,
         y: 1,
@@ -134,7 +134,7 @@ const MeshaMouth = ({
           ref={(el) => (teethRefs.current[i] = el)}
           position={[tooth.x, tooth.y, tooth.z]}
         >
-          <parametricGeometry args={[toothShape, i, i * 2]} />
+          <parametricGeometry args={[toothShape, 16, 8]} />
           <meshStandardMaterial color="#ffffff" />
         </mesh>
       ))}
