@@ -1,13 +1,12 @@
 import { useCallback, useMemo } from "react";
+import layoutConfig from "../../config/layoutConfig.json";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
 import { usePlaylist } from "../../contexts/PlaylistContext.jsx";
 import { useAppState } from "../../contexts/AppStateContext.jsx";
-import Mesha from "./Mesha.jsx";
-import NodeLights from "./NodeLights.jsx";
-import Label from "./Label.jsx";
-import layoutConfig from "../../config/layoutConfig.json";
 import { calculateLabelSizeConfig } from "../../utils/sceneUtils.js";
+import Label from "./Label.jsx";
+import NodeLights from "./NodeLights.jsx";
 
 const Node = ({
   languageCode,
@@ -21,15 +20,9 @@ const Node = ({
   const { data } = useAppState();
   const { filteredLanguages, filteringUtils, selectLanguage } =
     useLanguageSelection();
-  const { startFromLanguage, isPlaying, isAnimating, getCurrentLanguage } =
-    usePlaylist();
-  const {
-    labelContent,
-    labelSize,
-    backgroundColor,
-    meshaSize,
-    sortLanguagesBy,
-  } = controls;
+  const { startFromLanguage } = usePlaylist();
+  const { labelContent, labelSize, backgroundColor, sortLanguagesBy } =
+    controls;
 
   // Calculate dynamic min/max for the current numeric category
   const rangeConfig = useMemo(
@@ -88,26 +81,11 @@ const Node = ({
     normalizedRank * (rangeConfig.outMax - rangeConfig.outMin);
   const fontSize = labelSize * sizeMultiplier;
 
-  const currentPlaylistLanguage = getCurrentLanguage();
-  const isPlayingThis = isPlaying && currentPlaylistLanguage === languageCode;
-  const shouldShowMesha = isPlayingThis && !isAnimating;
   const labelText = getLabelText(language, languageCode, labelContent);
 
   return (
     <group position={position} onClick={handleClick}>
-      {isSelected && <NodeLights labelText={labelText} />}
-
-      {isSelected && (
-        <Mesha
-          color={color}
-          labelSize={meshaSize}
-          isSelected={isSelected}
-          languageCode={languageCode}
-          labelText={labelText}
-          // linguisticProperties removed
-        />
-      )}
-
+      {isSelected && <NodeLights labelTextLength={labelText.length} />}
       <Label
         fontSize={fontSize}
         isSelected={isSelected}

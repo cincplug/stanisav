@@ -2,39 +2,72 @@ import { useRef, useMemo } from "react";
 import { extend, useFrame } from "@react-three/fiber";
 import { Color } from "three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
-import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
-import { useControls } from "../../contexts/ControlsContext.jsx";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
+import { defaultAudioData } from "../../config/meshaDefaultAudioData.js";
 import linguisticConfig from "../../config/linguisticConfig.json";
+import { useControls } from "../../contexts/ControlsContext.jsx";
+import { useAppState } from "../../contexts/AppStateContext";
+import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
+import { sortLanguages } from "../../utils/sortingUtils";
 import MeshaEye from "./MeshaEye.jsx";
 import MeshaCheek from "./MeshaCheek.jsx";
 import MeshaMouth from "./MeshaMouth.jsx";
 import MeshaBadge from "./MeshaBadge.jsx";
-import { defaultAudioData } from "../../config/meshaDefaultAudioData.js";
 
 extend({ ParametricGeometry });
 
-import { useAppState } from "../../contexts/AppStateContext";
-
-const Mesha = ({ color, labelSize, languageCode }) => {
+const Mesha = ({ languageCode, position }) => {
   const groupRef = useRef();
   const rotationGroupRef = useRef();
   const eyesGroupRef = useRef();
   const meshaCheekRef = useRef();
   const casesRef = useRef([]);
   const { controls } = useControls();
-  const { eyeYOffset, eyeXPosition, eyeZPositionMultiplier, badgeSize } =
-    controls;
+  const {
+    meshaSize,
+    backgroundColor,
+    sphereRadius,
+    labelContent,
+    sortLanguagesBy,
+    isReverse,
+    eyeZPositionMultiplier,
+    eyeXPosition,
+    eyeYOffset,
+    badgeSize,
+  } = controls;
+  const { data } = useAppState();
+  const { languageData, languageGroups, speakerData, typologicalFeatures } =
+    data || {};
+
+  let finalLanguageCode = languageCode;
+  let finalPosition = position;
+
+  if (!finalLanguageCode) {
+    const allLanguages = Object.keys(languageData);
+    const sorted = sortLanguages({
+      allLanguages: [...allLanguages],
+      languageData,
+      languageGroups,
+      speakerData,
+      typologicalFeatures,
+      sortLanguagesBy,
+      labelContent,
+      isReverse,
+    });
+    finalLanguageCode = sorted[0];
+    let z = sphereRadius;
+    finalPosition = [-z, 0, z];
+  }
 
   const mouthColor = useMemo(
-    () => new Color("#ffbbbb").sub(new Color(color)),
-    [color],
+    () => new Color("#ffbbbb").sub(new Color(backgroundColor)),
+    [backgroundColor],
   );
 
-  const { data } = useAppState();
-  const linguisticProperties = data?.typologicalFeatures?.[languageCode];
+  const linguisticProperties = finalLanguageCode
+    ? data?.typologicalFeatures?.[finalLanguageCode]
+    : undefined;
 
-  // Prepare badge texture file paths (after linguisticProperties is defined)
   const wordOrder = linguisticProperties?.wordOrder;
   const wordOrderFlexibility =
     linguisticConfig.wordOrderFlexibility.values[
@@ -46,20 +79,14 @@ const Mesha = ({ color, labelSize, languageCode }) => {
   const tonalityScore =
     linguisticConfig.tonality.values[linguisticProperties?.tonality]?.score;
 
-  // Utility to check if an array is all zeros or empty
-  function isAllZeros(arr) {
+  const isAllZeros = (arr) => {
     return !Array.isArray(arr) || arr.length === 0 || arr.every((v) => v === 0);
-  }
+  };
 
   const { audioData: rawAudioData } = useAudioAnimation();
-
-  // Use default audio data if missing or all zeros
-  const audioData =
-    !rawAudioData ||
-    isAllZeros(rawAudioData.fundamentalData) ||
-    isAllZeros(rawAudioData.harmonicsData)
-      ? defaultAudioData
-      : rawAudioData;
+  const audioData = isAllZeros(rawAudioData.fundamentalData)
+    ? defaultAudioData
+    : rawAudioData;
 
   const wordOrderAmplitude = useMemo(() => {
     const flexibility = linguisticProperties?.wordOrderFlexibility;
@@ -69,7 +96,7 @@ const Mesha = ({ color, labelSize, languageCode }) => {
   }, [linguisticProperties?.wordOrderFlexibility]);
 
   const createAudioReactiveSurface = (
-    labelSize,
+    meshaSize,
     audioDataValue,
     meshConfig,
   ) => {
@@ -88,7 +115,7 @@ const Mesha = ({ color, labelSize, languageCode }) => {
     const flexibilityAmplitude = 1 + flexibilityScore * 0.5;
 
     return (u, v, target) => {
-      const size = labelSize;
+      const size = meshaSize;
       const z = (u - 0.5) * size;
       const x = (v - 0.5) * size;
       let y = symmetricalMirroring ? wordOrderAmplitude : flexibilityAmplitude;
@@ -176,15 +203,15 @@ const Mesha = ({ color, labelSize, languageCode }) => {
   const audioReactiveSurface = useMemo(
     () =>
       createAudioReactiveSurface(
-        labelSize,
+        meshaSize,
         audioData,
         audioVisualizationConfig.meshDeformation,
       ),
-    [labelSize, audioData],
+    [meshaSize, audioData],
   );
 
   const segments = audioVisualizationConfig.meshDeformation.meshSegments;
-  const eyeZ = labelSize * eyeZPositionMultiplier;
+  const eyeZ = meshaSize * eyeZPositionMultiplier;
 
   const cases = useMemo(() => {
     const count = linguisticProperties?.caseCount;
@@ -212,14 +239,14 @@ const Mesha = ({ color, labelSize, languageCode }) => {
   const badgeYRotation = meshaYRotation * wordOrderFlexibility;
 
   return (
-    <group ref={groupRef}>
+    <group ref={groupRef} position={finalPosition}>
       <group ref={rotationGroupRef}>
         <MeshaCheek
           ref={meshaCheekRef}
-          color={color}
-          labelSize={labelSize}
+          color={backgroundColor}
+          labelSize={meshaSize}
           audioData={audioData}
-          languageCode={languageCode}
+          languageCode={finalLanguageCode}
           audioReactiveSurface={audioReactiveSurface}
           segments={segments}
         />
@@ -227,13 +254,13 @@ const Mesha = ({ color, labelSize, languageCode }) => {
         <group ref={eyesGroupRef} position={[0, 1, eyeZ]}>
           <MeshaEye
             position={[eyeXPosition, 0, 0]}
-            color={color}
-            labelSize={labelSize}
+            color={backgroundColor}
+            labelSize={meshaSize}
           />
           <MeshaEye
             position={[-eyeXPosition, 0, 0]}
-            color={color}
-            labelSize={labelSize}
+            color={backgroundColor}
+            labelSize={meshaSize}
           />
           <MeshaBadge
             textureFile={morphologyTextureFile}
@@ -254,8 +281,8 @@ const Mesha = ({ color, labelSize, languageCode }) => {
           audioReactiveSurface={audioReactiveSurface}
           segments={segments}
           wordOrderAmplitude={wordOrderAmplitude}
-          labelSize={labelSize}
-          languageCode={languageCode}
+          labelSize={meshaSize}
+          languageCode={finalLanguageCode}
           audioData={audioData}
           meshaYRotation={meshaYRotation}
         />

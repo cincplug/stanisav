@@ -3,11 +3,11 @@ import { Color } from "three";
 import { useFrame } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 
-const NodeLights = ({ labelText }) => {
+const NodeLights = ({ labelTextLength }) => {
   const groupRef = useRef();
   const { pointLightDistance } = useControls();
   const lightColor = new Color("#ffdd88");
-  const x = labelText.length / 2;
+  const x = labelTextLength / 2;
 
   useFrame(({ camera }) => {
     if (groupRef.current) {
