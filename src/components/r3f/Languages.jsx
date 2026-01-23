@@ -78,46 +78,54 @@ const Languages = ({
   }
 
   let meshaProps = {};
-  if (selectedLanguage && formattedPositions[selectedLanguage]) {
+  if (selectedLanguage) {
     const { x, y, z } = formattedPositions[selectedLanguage];
+    const groupKey = Object.keys(groupedLanguages).find((key) =>
+      groupedLanguages[key].languages.includes(selectedLanguage),
+    );
+    const color = groupColors?.[groupKey];
     meshaProps = {
       languageCode: selectedLanguage,
       position: [x, y, z],
+      color,
     };
   } else {
-    const allLangs = groupedLanguages;
-    const firstLang = allLangs[0];
+    const firstGroupKey = Object.keys(groupedLanguages)[0];
+    const firstLang = groupedLanguages[firstGroupKey]?.languages[0];
+    const color = groupColors?.[firstGroupKey];
+    const z = controls.sphereRadius;
     meshaProps = {
       languageCode: firstLang,
-      position: [0, 0, 0],
+      position: [-z, 0, z],
+      color,
     };
   }
+
   return (
     <group>
       <Mesha {...meshaProps} />
       {!showEmptyMessage &&
-        Object.entries(groupedLanguages).map(
-          ([groupKey, { info, languages }]) =>
-            languages
-              .map((langCode) => {
-                const position = formattedPositions[langCode];
-                const filterStatus = languageFilterStatus[langCode];
-                if (!position || !filterStatus?.isVisible) return null;
-                const color = groupColors?.[groupKey] || info?.color;
-                return (
-                  <Node
-                    key={langCode}
-                    languageCode={langCode}
-                    language={data.languageData[langCode]}
-                    position={[position.x, position.y, position.z]}
-                    speakerCount={data.speakerData[langCode] || 1}
-                    isSelected={selectedLanguage === langCode}
-                    isFiltered={filterStatus.isFiltered}
-                    color={color}
-                  />
-                );
-              })
-              .filter(Boolean),
+        Object.entries(groupedLanguages).map(([groupKey, { languages }]) =>
+          languages
+            .map((langCode) => {
+              const position = formattedPositions[langCode];
+              const filterStatus = languageFilterStatus[langCode];
+              if (!position || !filterStatus?.isVisible) return null;
+              const color = groupColors?.[groupKey];
+              return (
+                <Node
+                  key={langCode}
+                  languageCode={langCode}
+                  language={data.languageData[langCode]}
+                  position={[position.x, position.y, position.z]}
+                  speakerCount={data.speakerData[langCode] || 1}
+                  isSelected={selectedLanguage === langCode}
+                  isFiltered={filterStatus.isFiltered}
+                  color={color}
+                />
+              );
+            })
+            .filter(Boolean),
         )}
     </group>
   );

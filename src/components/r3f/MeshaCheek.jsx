@@ -10,7 +10,7 @@ import {
 extend({ ParametricGeometry });
 
 const MeshaCheek = forwardRef(
-  ({ color, audioReactiveSurface, segments }, ref) => {
+  ({ color1, color2, audioReactiveSurface, segments }, ref) => {
     const mesh1Ref = useRef();
     const mesh2Ref = useRef();
 
@@ -19,16 +19,14 @@ const MeshaCheek = forwardRef(
       mesh2: mesh2Ref.current,
     }));
 
-    const colorObj = new Color(color);
-    const accentColor = new Color("#ddddff").sub(colorObj);
     // Memoize uniforms for both cheeks (just color)
     const leftCheekUniforms = useMemo(
-      () => ({ uBaseColor: { value: colorObj } }),
-      [colorObj],
+      () => ({ uBaseColor: { value: new Color(color1) } }),
+      [color1],
     );
     const rightCheekUniforms = useMemo(
-      () => ({ uBaseColor: { value: accentColor } }),
-      [accentColor],
+      () => ({ uBaseColor: { value: new Color(color2) } }),
+      [color2],
     );
 
     return (

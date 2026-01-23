@@ -9,6 +9,7 @@ import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useAppState } from "../../contexts/AppStateContext";
 import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
 import { sortLanguages } from "../../utils/sortingUtils";
+import { shiftHue } from "../../utils/colorUtils";
 import MeshaEye from "./MeshaEye.jsx";
 import MeshaCheek from "./MeshaCheek.jsx";
 import MeshaMouth from "./MeshaMouth.jsx";
@@ -16,7 +17,7 @@ import MeshaBadge from "./MeshaBadge.jsx";
 
 extend({ ParametricGeometry });
 
-const Mesha = ({ languageCode, position }) => {
+const Mesha = ({ languageCode, position, color }) => {
   const groupRef = useRef();
   const rotationGroupRef = useRef();
   const eyesGroupRef = useRef();
@@ -59,10 +60,7 @@ const Mesha = ({ languageCode, position }) => {
     finalPosition = [-z, 0, z];
   }
 
-  const mouthColor = useMemo(
-    () => new Color("#ffbbbb").sub(new Color(backgroundColor)),
-    [backgroundColor],
-  );
+  const mouthColor = shiftHue(color, 10);
 
   const linguisticProperties = finalLanguageCode
     ? data?.typologicalFeatures?.[finalLanguageCode]
@@ -243,7 +241,8 @@ const Mesha = ({ languageCode, position }) => {
       <group ref={rotationGroupRef}>
         <MeshaCheek
           ref={meshaCheekRef}
-          color={backgroundColor}
+          color1={shiftHue(color, 60)}
+          color2={shiftHue(color, 30)}
           labelSize={meshaSize}
           audioData={audioData}
           languageCode={finalLanguageCode}
@@ -254,12 +253,12 @@ const Mesha = ({ languageCode, position }) => {
         <group ref={eyesGroupRef} position={[0, 1, eyeZ]}>
           <MeshaEye
             position={[eyeXPosition, 0, 0]}
-            color={backgroundColor}
+            color={shiftHue(color, 10)}
             labelSize={meshaSize}
           />
           <MeshaEye
             position={[-eyeXPosition, 0, 0]}
-            color={backgroundColor}
+            color={shiftHue(color, -10)}
             labelSize={meshaSize}
           />
           <MeshaBadge
