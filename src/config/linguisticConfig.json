@@ -103,5 +103,60 @@
   },
   "group": {
     "name": "Language group"
+  },
+  "verbAspect": {
+    "name": "Verb aspect",
+    "values": {
+      "minimal": {
+        "label": "Minimal",
+        "description": "No or very limited grammatical aspect marking.",
+        "score": 0
+      },
+      "simple": {
+        "label": "Simple",
+        "description": "Basic aspectual distinctions (e.g., progressive, perfect).",
+        "score": 3
+      },
+      "binary": {
+        "label": "Binary",
+        "description": "Two-way systematic distinction (perfective/imperfective).",
+        "score": 6
+      },
+      "complex": {
+        "label": "Complex",
+        "description": "Multiple aspect categories with rich morphological marking.",
+        "score": 10
+      }
+    }
+  },
+  "evidentiality": {
+    "name": "Evidentiality",
+    "values": {
+      "none": {
+        "label": "None",
+        "description": "No grammatical marking of information source.",
+        "score": 0
+      },
+      "optional": {
+        "label": "Optional",
+        "description": "Evidential-like markers exist but are not obligatory.",
+        "score": 2
+      },
+      "simple": {
+        "label": "Simple",
+        "description": "Two-way distinction (typically direct vs. indirect/reportative).",
+        "score": 5
+      },
+      "moderate": {
+        "label": "Moderate",
+        "description": "Three-way distinction (e.g., direct, reportative, inferential).",
+        "score": 7
+      },
+      "complex": {
+        "label": "Complex",
+        "description": "Four or more evidential distinctions or evidentiality fused with tense/aspect.",
+        "score": 10
+      }
+    }
   }
 }
