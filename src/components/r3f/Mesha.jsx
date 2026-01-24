@@ -1,6 +1,6 @@
 import { useRef, useMemo } from "react";
 import { extend, useFrame } from "@react-three/fiber";
-import { Color } from "three";
+import { a, useSpring } from "@react-spring/three"; // <-- ADD
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
 import { defaultAudioData } from "../../config/meshaDefaultAudioData.js";
@@ -59,6 +59,12 @@ const Mesha = ({ languageCode, position, color }) => {
     let z = sphereRadius;
     finalPosition = [-z, 0, z];
   }
+
+  const spring = useSpring({
+    position: finalPosition,
+    scale: [meshaSize, meshaSize, meshaSize],
+    config: { mass: 1, tension: 120, friction: 20 },
+  });
 
   const mouthColor = shiftHue(color, 10);
 
@@ -236,8 +242,9 @@ const Mesha = ({ languageCode, position, color }) => {
   }
   const badgeYRotation = meshaYRotation * wordOrderFlexibility;
 
+  // --- USE ANIMATED GROUP FOR SEAMLESS TRANSITIONS ---
   return (
-    <group ref={groupRef} position={finalPosition}>
+    <a.group ref={groupRef} position={spring.position} scale={spring.scale}>
       <group ref={rotationGroupRef}>
         <MeshaCheek
           ref={meshaCheekRef}
@@ -299,7 +306,7 @@ const Mesha = ({ languageCode, position, color }) => {
             </group>
           ))}
       </group>
-    </group>
+    </a.group>
   );
 };
 
