@@ -3,8 +3,8 @@ import { Color } from "three";
 import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { mouthFragmentShader, cheekVertexShader } from "../../shaders/shader";
-
 import { useAppState } from "../../contexts/AppStateContext";
+import { useControls } from "../../contexts/ControlsContext.jsx";
 
 extend({ ParametricGeometry });
 
@@ -40,11 +40,13 @@ const MeshaMouth = ({
   color,
   audioReactiveSurface,
   segments,
-  labelSize,
+  wordOrderAmplitude,
   languageCode,
   audioData,
   meshaYRotation,
 }) => {
+  const { controls } = useControls(); // <-- use hook as everywhere else
+  const meshaSize = controls.meshaSize;
   const { data } = useAppState();
   const linguisticProperties = data?.typologicalFeatures?.[languageCode];
   const teethRefs = useRef([]);
@@ -53,7 +55,7 @@ const MeshaMouth = ({
     const count = linguisticProperties?.phonemeCount;
     if (count === 0) return [];
 
-    const radius = labelSize;
+    const radius = meshaSize;
     const arc = Math.PI * 1.5;
     const startAngle = Math.PI / 2 - arc / 2;
     const teethArr = [];
@@ -61,13 +63,13 @@ const MeshaMouth = ({
       const angle = startAngle + (i / count) * arc;
       teethArr.push({
         x: Math.cos(angle) * radius,
-        y: 1,
+        y: 1 * meshaSize,
         z: Math.sin(angle) * radius,
         key: `tooth-${i}`,
       });
     }
     return teethArr;
-  }, [linguisticProperties?.phonemeCount, labelSize]);
+  }, [linguisticProperties?.phonemeCount, meshaSize]);
 
   const colorObj = useMemo(() => new Color(color), [color]);
 
@@ -119,8 +121,8 @@ const MeshaMouth = ({
   return (
     <>
       <mesh
-        position={[0, -1, 4]}
-        scale={[2 / 3, -1 / 2, -2]}
+        position={[0, -meshaSize, meshaSize * 0.8]}
+        scale={[(meshaSize * 2) / 3, -meshaSize / 2, -meshaSize * 2]}
         rotation={[-1 / 4 + meshaYRotation / 5, -Math.PI, 0]}
       >
         <parametricGeometry args={[audioReactiveSurface, segments, segments]} />

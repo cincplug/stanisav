@@ -19,7 +19,6 @@ const MeshaCheek = forwardRef(
       mesh2: mesh2Ref.current,
     }));
 
-    // Memoize uniforms for both cheeks (just color)
     const leftCheekUniforms = useMemo(
       () => ({ uBaseColor: { value: new Color(color1) } }),
       [color1],
@@ -34,7 +33,7 @@ const MeshaCheek = forwardRef(
         {/* Left cheek: color only */}
         <mesh
           ref={mesh2Ref}
-          position={[-1.2, 1, 1]}
+          position={[-0.6, 1, 1]}
           scale={[-1 / 2, 3 / 4, 1]}
           rotation={[0, -1 / 20, 0]}
         >
@@ -57,7 +56,7 @@ const MeshaCheek = forwardRef(
         {/* Right cheek: color only */}
         <mesh
           ref={mesh1Ref}
-          position={[1.2, 1, 1]}
+          position={[0.6, 1, 1]}
           scale={[1 / 2, 3 / 4, 1]}
           rotation={[0, 1 / 20, 0]}
         >

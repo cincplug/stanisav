@@ -2,9 +2,10 @@ import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 
-const MeshaEye = ({ position, color, labelSize }) => {
+const MeshaEye = ({ position, color }) => {
   const groupRef = useRef();
   const { controls } = useControls();
+  const { labelSize } = controls;
 
   useFrame(({ camera }) => {
     if (groupRef.current) {

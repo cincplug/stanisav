@@ -197,7 +197,7 @@ const Mesha = ({ languageCode, position, color }) => {
           const amplitude = harmonicsData[bandIndex] || 0;
           const baseY = cases[i]?.y || -1;
           caseGroup.position.y = baseY + amplitude * 2;
-          const scale = 0.5 + amplitude;
+          const scale = 0.3 + amplitude;
           caseGroup.scale.set(scale, scale, scale);
         }
       });
@@ -227,7 +227,7 @@ const Mesha = ({ languageCode, position, color }) => {
     for (let i = 0; i < count; i++) {
       items.push({
         x: startX - i * spacing,
-        y: 1,
+        y: -2,
         z: eyeZ,
         key: `case-${i}`,
       });
@@ -250,7 +250,7 @@ const Mesha = ({ languageCode, position, color }) => {
           ref={meshaCheekRef}
           color1={shiftHue(color, 60)}
           color2={shiftHue(color, 30)}
-          labelSize={meshaSize}
+          labelSize={1}
           audioData={audioData}
           languageCode={finalLanguageCode}
           audioReactiveSurface={audioReactiveSurface}
@@ -261,12 +261,10 @@ const Mesha = ({ languageCode, position, color }) => {
           <MeshaEye
             position={[eyeXPosition, 0, 0]}
             color={shiftHue(color, 10)}
-            labelSize={meshaSize}
           />
           <MeshaEye
             position={[-eyeXPosition, 0, 0]}
             color={shiftHue(color, -10)}
-            labelSize={meshaSize}
           />
           <MeshaBadge
             textureFile={morphologyTextureFile}
@@ -287,7 +285,6 @@ const Mesha = ({ languageCode, position, color }) => {
           audioReactiveSurface={audioReactiveSurface}
           segments={segments}
           wordOrderAmplitude={wordOrderAmplitude}
-          labelSize={meshaSize}
           languageCode={finalLanguageCode}
           audioData={audioData}
           meshaYRotation={meshaYRotation}
@@ -299,8 +296,8 @@ const Mesha = ({ languageCode, position, color }) => {
               ref={(el) => (casesRef.current[i] = el)}
               position={[caseItem.x, caseItem.y, caseItem.z]}
             >
-              <mesh rotation={[Math.PI / 2, 0, 0]}>
-                <coneGeometry args={[0.8, 1, 7]} />
+              <mesh rotation={[Math.PI, Math.PI, 0]}>
+                <coneGeometry args={[0.5, 1, 7]} />
                 <meshStandardMaterial color={"#ffffff"} />
               </mesh>
             </group>
