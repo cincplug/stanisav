@@ -12,7 +12,9 @@
     "phonemeCount": 30,
     "caseCount": 0,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "acq": {
     "name": "Iraqi Arabic",
@@ -26,7 +28,9 @@
     "phonemeCount": 28,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "adx": {
     "name": "Amdo Tibetan",
@@ -40,7 +44,9 @@
     "phonemeCount": 39,
     "caseCount": 0,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "optional"
   },
   "afb": {
     "name": "Gulf Arabic",
@@ -54,7 +60,9 @@
     "phonemeCount": 29,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "afr": {
     "name": "Afrikaans",
@@ -68,7 +76,9 @@
     "phonemeCount": 45,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "aka": {
     "name": "Akan",
@@ -83,7 +93,9 @@
     "phonemeCount": 32,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "alb": {
     "name": "Albanian",
@@ -97,7 +109,9 @@
     "phonemeCount": 29,
     "caseCount": 3,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "moderate"
   },
   "amh": {
     "name": "Amharic",
@@ -111,7 +125,9 @@
     "phonemeCount": 31,
     "caseCount": 4,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "apc": {
     "name": "Levantine Arabic",
@@ -125,7 +141,9 @@
     "phonemeCount": 26,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "ara": {
     "name": "Standard Arabic",
@@ -139,7 +157,9 @@
     "phonemeCount": 28,
     "caseCount": 3,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "ary": {
     "name": "Moroccan Arabic",
@@ -153,7 +173,9 @@
     "phonemeCount": 32,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "arz": {
     "name": "Egyptian Arabic",
@@ -167,7 +189,9 @@
     "phonemeCount": 28,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "asm": {
     "name": "Assamese",
@@ -181,7 +205,9 @@
     "phonemeCount": 23,
     "caseCount": 3,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "awa": {
     "name": "Awadhi",
@@ -195,7 +221,9 @@
     "phonemeCount": 29,
     "caseCount": 3,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "aym": {
     "name": "Aymara",
@@ -209,7 +237,9 @@
     "phonemeCount": 26,
     "caseCount": 14,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "moderate"
   },
   "aze": {
     "name": "Azerbaijani",
@@ -223,7 +253,9 @@
     "phonemeCount": 30,
     "caseCount": 6,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "simple"
   },
   "bak": {
     "name": "Bashkir",
@@ -237,7 +269,9 @@
     "phonemeCount": 42,
     "caseCount": 6,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "simple"
   },
   "bal": {
     "name": "Balochi",
@@ -251,7 +285,9 @@
     "phonemeCount": 26,
     "caseCount": 3,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "bam": {
     "name": "Bambara",
@@ -265,7 +301,9 @@
     "phonemeCount": 29,
     "caseCount": 0,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "ban": {
     "name": "Balinese",
@@ -280,7 +318,9 @@
     "phonemeCount": 32,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "bej": {
     "name": "Beja",
@@ -295,7 +335,9 @@
     "phonemeCount": 35,
     "caseCount": 3,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "bel": {
     "name": "Belarusian",
@@ -309,7 +351,9 @@
     "phonemeCount": 39,
     "caseCount": 6,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "bem": {
     "name": "Bemba",
@@ -323,7 +367,9 @@
     "phonemeCount": 29,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "ben": {
     "name": "Bengali",
@@ -337,7 +383,9 @@
     "phonemeCount": 29,
     "caseCount": 4,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "bho": {
     "name": "Bhojpuri",
@@ -351,7 +399,9 @@
     "phonemeCount": 31,
     "caseCount": 3,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "bik": {
     "name": "Bikol",
@@ -365,7 +415,9 @@
     "phonemeCount": 18,
     "caseCount": 0,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "bod": {
     "name": "Tibetan",
@@ -379,7 +431,9 @@
     "phonemeCount": 36,
     "caseCount": 6,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "complex"
   },
   "bos": {
     "name": "Bosnian",
@@ -393,7 +447,9 @@
     "phonemeCount": 30,
     "caseCount": 7,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "bre": {
     "name": "Breton",
@@ -407,7 +463,9 @@
     "phonemeCount": 36,
     "caseCount": 0,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "brh": {
     "name": "Brahui",
@@ -421,7 +479,9 @@
     "phonemeCount": 26,
     "caseCount": 0,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "bua": {
     "name": "Buryat",
@@ -435,7 +495,9 @@
     "phonemeCount": 30,
     "caseCount": 8,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "optional"
   },
   "bul": {
     "name": "Bulgarian",
@@ -449,7 +511,9 @@
     "phonemeCount": 45,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "binary",
+    "evidentiality": "simple"
   },
   "cak": {
     "name": "Kaqchikel",
@@ -463,7 +527,9 @@
     "phonemeCount": 31,
     "caseCount": 0,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "cat": {
     "name": "Catalan",
@@ -477,7 +543,9 @@
     "phonemeCount": 26,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "ceb": {
     "name": "Cebuano",
@@ -491,7 +559,9 @@
     "phonemeCount": 16,
     "caseCount": 3,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "ces": {
     "name": "Czech",
@@ -505,7 +575,9 @@
     "phonemeCount": 42,
     "caseCount": 7,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "chr": {
     "name": "Cherokee",
@@ -519,7 +591,9 @@
     "phonemeCount": 19,
     "caseCount": 0,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "chv": {
     "name": "Chuvash",
@@ -533,7 +607,9 @@
     "phonemeCount": 37,
     "caseCount": 8,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "simple"
   },
   "cjy": {
     "name": "Jin Chinese",
@@ -547,7 +623,9 @@
     "phonemeCount": 33,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "cmn": {
     "name": "Mandarin Chinese",
@@ -562,7 +640,9 @@
     "phonemeCount": 22,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "cos": {
     "name": "Corsican",
@@ -576,7 +656,9 @@
     "phonemeCount": 21,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "cre": {
     "name": "Cree",
@@ -590,7 +672,9 @@
     "phonemeCount": 35,
     "caseCount": 0,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "csb": {
     "name": "Kashubian",
@@ -604,7 +688,9 @@
     "phonemeCount": 44,
     "caseCount": 6,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "cym": {
     "name": "Welsh",
@@ -618,7 +704,9 @@
     "phonemeCount": 51,
     "caseCount": 0,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "dan": {
     "name": "Danish",
@@ -632,7 +720,9 @@
     "phonemeCount": 32,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "deu": {
     "name": "German",
@@ -646,7 +736,9 @@
     "phonemeCount": 45,
     "caseCount": 4,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "din": {
     "name": "Dinka",
@@ -660,7 +752,9 @@
     "phonemeCount": 34,
     "caseCount": 4,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "eng": {
     "name": "English",
@@ -674,7 +768,9 @@
     "phonemeCount": 44,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "est": {
     "name": "Estonian",
@@ -688,7 +784,9 @@
     "phonemeCount": 36,
     "caseCount": 14,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "eus": {
     "name": "Basque",
@@ -702,7 +800,9 @@
     "phonemeCount": 22,
     "caseCount": 17,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "ewe": {
     "name": "Ewe",
@@ -717,7 +817,9 @@
     "phonemeCount": 30,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "fao": {
     "name": "Faroese",
@@ -731,7 +833,9 @@
     "phonemeCount": 38,
     "caseCount": 4,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "fas": {
     "name": "Persian",
@@ -745,7 +849,9 @@
     "phonemeCount": 29,
     "caseCount": 0,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "fia": {
     "name": "Nubian",
@@ -759,7 +865,9 @@
     "phonemeCount": 30,
     "caseCount": 0,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "fij": {
     "name": "Fijian",
@@ -773,7 +881,9 @@
     "phonemeCount": 18,
     "caseCount": 0,
     "wordOrder": "VOS",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "fin": {
     "name": "Finnish",
@@ -787,7 +897,9 @@
     "phonemeCount": 21,
     "caseCount": 15,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "fra": {
     "name": "French",
@@ -801,7 +913,9 @@
     "phonemeCount": 37,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "fry": {
     "name": "Frisian",
@@ -815,7 +929,9 @@
     "phonemeCount": 40,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "ful": {
     "name": "Fula",
@@ -829,7 +945,9 @@
     "phonemeCount": 21,
     "caseCount": 3,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "gan": {
     "name": "Gan Chinese",
@@ -843,7 +961,9 @@
     "phonemeCount": 29,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "gla": {
     "name": "Scottish Gaelic",
@@ -857,7 +977,9 @@
     "phonemeCount": 44,
     "caseCount": 0,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "gle": {
     "name": "Irish",
@@ -871,7 +993,9 @@
     "phonemeCount": 60,
     "caseCount": 0,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "glg": {
     "name": "Galician",
@@ -885,7 +1009,9 @@
     "phonemeCount": 25,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "gre": {
     "name": "Greek",
@@ -899,7 +1025,9 @@
     "phonemeCount": 25,
     "caseCount": 3,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "grn": {
     "name": "Guaraní",
@@ -913,7 +1041,9 @@
     "phonemeCount": 33,
     "caseCount": 6,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "guj": {
     "name": "Gujarati",
@@ -927,7 +1057,9 @@
     "phonemeCount": 34,
     "caseCount": 4,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "gul": {
     "name": "Gullah",
@@ -941,7 +1073,9 @@
     "phonemeCount": 28,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "gyn": {
     "name": "Guyanese Creole",
@@ -955,7 +1089,9 @@
     "phonemeCount": 30,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "hak": {
     "name": "Hakka Chinese",
@@ -969,7 +1105,9 @@
     "phonemeCount": 19,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "hau": {
     "name": "Hausa",
@@ -983,7 +1121,9 @@
     "phonemeCount": 32,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "haw": {
     "name": "Hawaiian",
@@ -997,7 +1137,9 @@
     "phonemeCount": 13,
     "caseCount": 0,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "heb": {
     "name": "Hebrew",
@@ -1011,7 +1153,9 @@
     "phonemeCount": 25,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "hil": {
     "name": "Hiligaynon",
@@ -1025,7 +1169,9 @@
     "phonemeCount": 20,
     "caseCount": 3,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "hin": {
     "name": "Hindi",
@@ -1039,7 +1185,9 @@
     "phonemeCount": 46,
     "caseCount": 4,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "hmn": {
     "name": "Hmong",
@@ -1053,7 +1201,9 @@
     "phonemeCount": 57,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "hoc": {
     "name": "Ho",
@@ -1067,7 +1217,9 @@
     "phonemeCount": 25,
     "caseCount": 0,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "hrv": {
     "name": "Croatian",
@@ -1081,7 +1233,9 @@
     "phonemeCount": 30,
     "caseCount": 7,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "hun": {
     "name": "Hungarian",
@@ -1095,7 +1249,9 @@
     "phonemeCount": 25,
     "caseCount": 18,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "hye": {
     "name": "Armenian",
@@ -1109,7 +1265,9 @@
     "phonemeCount": 36,
     "caseCount": 7,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "ibo": {
     "name": "Igbo",
@@ -1123,7 +1281,9 @@
     "phonemeCount": 28,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "iii": {
     "name": "Yi",
@@ -1138,7 +1298,9 @@
     "phonemeCount": 42,
     "caseCount": 0,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "minimal",
+    "evidentiality": "optional"
   },
   "iku": {
     "name": "Inuktitut",
@@ -1152,7 +1314,9 @@
     "phonemeCount": 17,
     "caseCount": 8,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "complex",
+    "evidentiality": "optional"
   },
   "ilo": {
     "name": "Ilocano",
@@ -1166,7 +1330,9 @@
     "phonemeCount": 18,
     "caseCount": 3,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "ind": {
     "name": "Indonesian",
@@ -1180,7 +1346,9 @@
     "phonemeCount": 22,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "isl": {
     "name": "Icelandic",
@@ -1194,7 +1362,9 @@
     "phonemeCount": 39,
     "caseCount": 4,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "ita": {
     "name": "Italian",
@@ -1208,7 +1378,9 @@
     "phonemeCount": 30,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "jav": {
     "name": "Javanese",
@@ -1222,7 +1394,9 @@
     "phonemeCount": 23,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "jpn": {
     "name": "Japanese",
@@ -1236,7 +1410,9 @@
     "phonemeCount": 15,
     "caseCount": 0,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "simple",
+    "evidentiality": "optional"
   },
   "kab": {
     "name": "Kabyle",
@@ -1251,7 +1427,9 @@
     "phonemeCount": 38,
     "caseCount": 0,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "kan": {
     "name": "Kannada",
@@ -1265,7 +1443,9 @@
     "phonemeCount": 34,
     "caseCount": 7,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "kar": {
     "name": "Karen S'gaw",
@@ -1279,7 +1459,9 @@
     "phonemeCount": 28,
     "caseCount": 0,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "minimal",
+    "evidentiality": "optional"
   },
   "kas": {
     "name": "Kashmiri",
@@ -1294,7 +1476,9 @@
     "phonemeCount": 45,
     "caseCount": 6,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "kat": {
     "name": "Georgian",
@@ -1308,7 +1492,9 @@
     "phonemeCount": 28,
     "caseCount": 7,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "complex",
+    "evidentiality": "optional"
   },
   "kaz": {
     "name": "Kazakh",
@@ -1322,7 +1508,9 @@
     "phonemeCount": 28,
     "caseCount": 6,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "simple"
   },
   "kbd": {
     "name": "Kabardian",
@@ -1337,7 +1525,9 @@
     "phonemeCount": 55,
     "caseCount": 4,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "kfa": {
     "name": "Kodava",
@@ -1351,7 +1541,9 @@
     "phonemeCount": 27,
     "caseCount": 0,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "kha": {
     "name": "Khasi",
@@ -1365,7 +1557,9 @@
     "phonemeCount": 25,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "khm": {
     "name": "Khmer",
@@ -1379,7 +1573,9 @@
     "phonemeCount": 21,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "kik": {
     "name": "Kikuyu",
@@ -1393,7 +1589,9 @@
     "phonemeCount": 31,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "kin": {
     "name": "Kinyarwanda",
@@ -1407,7 +1605,9 @@
     "phonemeCount": 30,
     "caseCount": 2,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "kir": {
     "name": "Kyrgyz",
@@ -1421,7 +1621,9 @@
     "phonemeCount": 36,
     "caseCount": 6,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "simple"
   },
   "kne": {
     "name": "Kankanaey",
@@ -1436,7 +1638,9 @@
     "phonemeCount": 28,
     "caseCount": 3,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "knr": {
     "name": "Kanuri",
@@ -1450,7 +1654,9 @@
     "phonemeCount": 29,
     "caseCount": 6,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "kok": {
     "name": "Konkani",
@@ -1465,7 +1671,9 @@
     "phonemeCount": 40,
     "caseCount": 6,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "kor": {
     "name": "Korean",
@@ -1479,7 +1687,9 @@
     "phonemeCount": 19,
     "caseCount": 7,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "optional"
   },
   "kur": {
     "name": "Kurdish",
@@ -1493,7 +1703,9 @@
     "phonemeCount": 36,
     "caseCount": 3,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "lao": {
     "name": "Lao",
@@ -1508,7 +1720,9 @@
     "phonemeCount": 35,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "lav": {
     "name": "Latvian",
@@ -1522,7 +1736,9 @@
     "phonemeCount": 33,
     "caseCount": 7,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "lep": {
     "name": "Lepcha",
@@ -1536,7 +1752,9 @@
     "phonemeCount": 31,
     "caseCount": 0,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "optional"
   },
   "lim": {
     "name": "Limburgish",
@@ -1550,7 +1768,9 @@
     "phonemeCount": 45,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "lin": {
     "name": "Lingala",
@@ -1564,7 +1784,9 @@
     "phonemeCount": 25,
     "caseCount": 3,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "lit": {
     "name": "Lithuanian",
@@ -1578,7 +1800,9 @@
     "phonemeCount": 45,
     "caseCount": 7,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "ltz": {
     "name": "Luxembourgish",
@@ -1592,7 +1816,9 @@
     "phonemeCount": 42,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "lua": {
     "name": "Luba-Kasai",
@@ -1607,7 +1833,9 @@
     "phonemeCount": 32,
     "caseCount": 2,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "lug": {
     "name": "Luganda",
@@ -1622,7 +1850,9 @@
     "phonemeCount": 30,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "luo": {
     "name": "Luo",
@@ -1636,7 +1866,9 @@
     "phonemeCount": 24,
     "caseCount": 3,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "mag": {
     "name": "Magahi",
@@ -1650,7 +1882,9 @@
     "phonemeCount": 30,
     "caseCount": 3,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "mai": {
     "name": "Maithili",
@@ -1664,7 +1898,9 @@
     "phonemeCount": 28,
     "caseCount": 3,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "mal": {
     "name": "Malayalam",
@@ -1678,7 +1914,9 @@
     "phonemeCount": 36,
     "caseCount": 7,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "mar": {
     "name": "Marathi",
@@ -1692,7 +1930,9 @@
     "phonemeCount": 28,
     "caseCount": 8,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "mas": {
     "name": "Maasai",
@@ -1706,7 +1946,9 @@
     "phonemeCount": 28,
     "caseCount": 0,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "min": {
     "name": "Minangkabau",
@@ -1720,7 +1962,9 @@
     "phonemeCount": 22,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "mkd": {
     "name": "Macedonian",
@@ -1734,7 +1978,9 @@
     "phonemeCount": 31,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "binary",
+    "evidentiality": "simple"
   },
   "mlg": {
     "name": "Malagasy",
@@ -1748,7 +1994,9 @@
     "phonemeCount": 21,
     "caseCount": 0,
     "wordOrder": "VOS",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "mlt": {
     "name": "Maltese",
@@ -1762,7 +2010,9 @@
     "phonemeCount": 40,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "mni": {
     "name": "Meitei",
@@ -1777,7 +2027,9 @@
     "phonemeCount": 29,
     "caseCount": 0,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "optional"
   },
   "mnw": {
     "name": "Mon",
@@ -1791,7 +2043,9 @@
     "phonemeCount": 46,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "mon": {
     "name": "Mongolian",
@@ -1805,7 +2059,9 @@
     "phonemeCount": 26,
     "caseCount": 6,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "optional"
   },
   "mri": {
     "name": "Maori",
@@ -1819,7 +2075,9 @@
     "phonemeCount": 14,
     "caseCount": 0,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "msa": {
     "name": "Malay",
@@ -1833,7 +2091,9 @@
     "phonemeCount": 19,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "mya": {
     "name": "Burmese",
@@ -1847,7 +2107,9 @@
     "phonemeCount": 33,
     "caseCount": 4,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "optional"
   },
   "nah": {
     "name": "Nahuatl",
@@ -1861,7 +2123,9 @@
     "phonemeCount": 22,
     "caseCount": 0,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "nan": {
     "name": "Min Nan Chinese",
@@ -1875,7 +2139,9 @@
     "phonemeCount": 18,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "naq": {
     "name": "Khoekhoe",
@@ -1890,7 +2156,9 @@
     "phonemeCount": 115,
     "caseCount": 5,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "nav": {
     "name": "Navajo",
@@ -1904,7 +2172,9 @@
     "phonemeCount": 47,
     "caseCount": 0,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "complex",
+    "evidentiality": "optional"
   },
   "nde": {
     "name": "Ndebele",
@@ -1918,7 +2188,9 @@
     "phonemeCount": 24,
     "caseCount": 2,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "nep": {
     "name": "Nepali",
@@ -1932,7 +2204,9 @@
     "phonemeCount": 31,
     "caseCount": 7,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "new": {
     "name": "Newari",
@@ -1947,7 +2221,9 @@
     "phonemeCount": 35,
     "caseCount": 0,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "optional"
   },
   "nld": {
     "name": "Dutch",
@@ -1961,7 +2237,9 @@
     "phonemeCount": 42,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "nor": {
     "name": "Norwegian",
@@ -1975,7 +2253,9 @@
     "phonemeCount": 36,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "nso": {
     "name": "Sesotho",
@@ -1991,7 +2271,9 @@
     "phonemeCount": 35,
     "caseCount": 2,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "nup": {
     "name": "Nupe",
@@ -2006,7 +2288,9 @@
     "phonemeCount": 30,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "nus": {
     "name": "Nuer",
@@ -2021,7 +2305,9 @@
     "phonemeCount": 35,
     "caseCount": 3,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "nya": {
     "name": "Chewa",
@@ -2035,7 +2321,9 @@
     "phonemeCount": 28,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "nyk": {
     "name": "Nyaneka",
@@ -2050,7 +2338,9 @@
     "phonemeCount": 32,
     "caseCount": 2,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "oji": {
     "name": "Ojibwe",
@@ -2064,7 +2354,9 @@
     "phonemeCount": 29,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "ori": {
     "name": "Odia",
@@ -2078,7 +2370,9 @@
     "phonemeCount": 32,
     "caseCount": 3,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "orm": {
     "name": "Oromo",
@@ -2092,7 +2386,9 @@
     "phonemeCount": 24,
     "caseCount": 3,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "pag": {
     "name": "Pangasinan",
@@ -2106,7 +2402,9 @@
     "phonemeCount": 19,
     "caseCount": 0,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "pam": {
     "name": "Kapampangan",
@@ -2120,7 +2418,9 @@
     "phonemeCount": 21,
     "caseCount": 0,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "pan": {
     "name": "Punjabi",
@@ -2134,7 +2434,9 @@
     "phonemeCount": 35,
     "caseCount": 3,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "pol": {
     "name": "Polish",
@@ -2148,7 +2450,9 @@
     "phonemeCount": 39,
     "caseCount": 7,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "por": {
     "name": "Portuguese",
@@ -2162,7 +2466,9 @@
     "phonemeCount": 37,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "pus": {
     "name": "Pashto",
@@ -2176,7 +2482,9 @@
     "phonemeCount": 45,
     "caseCount": 3,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "pwo": {
     "name": "Karen Pwo",
@@ -2190,7 +2498,9 @@
     "phonemeCount": 26,
     "caseCount": 0,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "minimal",
+    "evidentiality": "optional"
   },
   "quc": {
     "name": "K'iche'",
@@ -2204,7 +2514,9 @@
     "phonemeCount": 32,
     "caseCount": 0,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "que": {
     "name": "Quechua",
@@ -2218,7 +2530,9 @@
     "phonemeCount": 26,
     "caseCount": 0,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "moderate"
   },
   "roh": {
     "name": "Romansh",
@@ -2232,7 +2546,9 @@
     "phonemeCount": 34,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "rom": {
     "name": "Romani",
@@ -2246,7 +2562,9 @@
     "phonemeCount": 35,
     "caseCount": 6,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "ron": {
     "name": "Romanian",
@@ -2260,7 +2578,9 @@
     "phonemeCount": 32,
     "caseCount": 5,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "run": {
     "name": "Kirundi",
@@ -2274,7 +2594,9 @@
     "phonemeCount": 30,
     "caseCount": 2,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "rus": {
     "name": "Russian",
@@ -2288,7 +2610,9 @@
     "phonemeCount": 36,
     "caseCount": 6,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "ryu": {
     "name": "Okinawan",
@@ -2302,7 +2626,9 @@
     "phonemeCount": 24,
     "caseCount": 0,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "simple",
+    "evidentiality": "optional"
   },
   "sag": {
     "name": "Sango",
@@ -2317,7 +2643,9 @@
     "phonemeCount": 28,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "sat": {
     "name": "Santali",
@@ -2331,7 +2659,9 @@
     "phonemeCount": 27,
     "caseCount": 0,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "sce": {
     "name": "Santa",
@@ -2346,7 +2676,9 @@
     "phonemeCount": 29,
     "caseCount": 6,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "optional"
   },
   "sin": {
     "name": "Sinhala",
@@ -2360,7 +2692,9 @@
     "phonemeCount": 40,
     "caseCount": 8,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "slk": {
     "name": "Slovak",
@@ -2374,7 +2708,9 @@
     "phonemeCount": 46,
     "caseCount": 7,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "slv": {
     "name": "Slovenian",
@@ -2388,7 +2724,9 @@
     "phonemeCount": 29,
     "caseCount": 6,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "smo": {
     "name": "Samoan",
@@ -2402,7 +2740,9 @@
     "phonemeCount": 14,
     "caseCount": 0,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "sna": {
     "name": "Shona",
@@ -2416,7 +2756,9 @@
     "phonemeCount": 36,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "snd": {
     "name": "Sindhi",
@@ -2430,7 +2772,9 @@
     "phonemeCount": 46,
     "caseCount": 3,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "som": {
     "name": "Somali",
@@ -2444,7 +2788,9 @@
     "phonemeCount": 22,
     "caseCount": 4,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "sot": {
     "name": "Sotho",
@@ -2459,7 +2805,9 @@
     "phonemeCount": 35,
     "caseCount": 2,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "spa": {
     "name": "Spanish",
@@ -2473,7 +2821,9 @@
     "phonemeCount": 24,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "srb": {
     "name": "Sora",
@@ -2487,7 +2837,9 @@
     "phonemeCount": 26,
     "caseCount": 0,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "srd": {
     "name": "Sardinian",
@@ -2501,7 +2853,9 @@
     "phonemeCount": 23,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "srp": {
     "name": "Serbian",
@@ -2515,7 +2869,9 @@
     "phonemeCount": 30,
     "caseCount": 7,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "ssw": {
     "name": "Swati",
@@ -2529,7 +2885,9 @@
     "phonemeCount": 25,
     "caseCount": 2,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "suk": {
     "name": "Sukuma",
@@ -2544,7 +2902,9 @@
     "phonemeCount": 32,
     "caseCount": 2,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "sun": {
     "name": "Sundanese",
@@ -2558,7 +2918,9 @@
     "phonemeCount": 18,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "swa": {
     "name": "Swahili",
@@ -2572,7 +2934,9 @@
     "phonemeCount": 30,
     "caseCount": 2,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "swe": {
     "name": "Swedish",
@@ -2586,7 +2950,9 @@
     "phonemeCount": 38,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "tam": {
     "name": "Tamil",
@@ -2600,7 +2966,9 @@
     "phonemeCount": 31,
     "caseCount": 8,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "tat": {
     "name": "Tatar",
@@ -2614,7 +2982,9 @@
     "phonemeCount": 39,
     "caseCount": 6,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "simple"
   },
   "tcy": {
     "name": "Tulu",
@@ -2628,7 +2998,9 @@
     "phonemeCount": 43,
     "caseCount": 7,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "tel": {
     "name": "Telugu",
@@ -2642,7 +3014,9 @@
     "phonemeCount": 36,
     "caseCount": 8,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "tgk": {
     "name": "Tajik",
@@ -2656,7 +3030,9 @@
     "phonemeCount": 24,
     "caseCount": 0,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "tgl": {
     "name": "Tagalog",
@@ -2670,7 +3046,9 @@
     "phonemeCount": 20,
     "caseCount": 3,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "tha": {
     "name": "Thai",
@@ -2684,7 +3062,9 @@
     "phonemeCount": 21,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "tir": {
     "name": "Tigrinya",
@@ -2698,7 +3078,9 @@
     "phonemeCount": 28,
     "caseCount": 0,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "ton": {
     "name": "Tongan",
@@ -2712,7 +3094,9 @@
     "phonemeCount": 17,
     "caseCount": 0,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "tsn": {
     "name": "Tswana",
@@ -2726,7 +3110,9 @@
     "phonemeCount": 31,
     "caseCount": 3,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "tuk": {
     "name": "Turkmen",
@@ -2740,7 +3126,9 @@
     "phonemeCount": 28,
     "caseCount": 6,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "simple"
   },
   "tum": {
     "name": "Tumbuka",
@@ -2755,7 +3143,9 @@
     "phonemeCount": 32,
     "caseCount": 2,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "tur": {
     "name": "Turkish",
@@ -2769,7 +3159,9 @@
     "phonemeCount": 32,
     "caseCount": 6,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "simple"
   },
   "uig": {
     "name": "Uyghur",
@@ -2783,7 +3175,9 @@
     "phonemeCount": 24,
     "caseCount": 6,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "simple"
   },
   "ukr": {
     "name": "Ukrainian",
@@ -2797,7 +3191,9 @@
     "phonemeCount": 32,
     "caseCount": 7,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "binary",
+    "evidentiality": "none"
   },
   "unr": {
     "name": "Mundari",
@@ -2811,7 +3207,9 @@
     "phonemeCount": 24,
     "caseCount": 0,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "urd": {
     "name": "Urdu",
@@ -2825,7 +3223,9 @@
     "phonemeCount": 46,
     "caseCount": 4,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "uzb": {
     "name": "Uzbek",
@@ -2839,7 +3239,9 @@
     "phonemeCount": 26,
     "caseCount": 6,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "simple"
   },
   "ven": {
     "name": "Venda",
@@ -2854,7 +3256,9 @@
     "phonemeCount": 35,
     "caseCount": 2,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "vie": {
     "name": "Vietnamese",
@@ -2868,7 +3272,9 @@
     "phonemeCount": 23,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "war": {
     "name": "Waray",
@@ -2882,7 +3288,9 @@
     "phonemeCount": 20,
     "caseCount": 3,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "wol": {
     "name": "Wolof",
@@ -2896,7 +3304,9 @@
     "phonemeCount": 34,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "wuu": {
     "name": "Wu Chinese",
@@ -2910,7 +3320,9 @@
     "phonemeCount": 31,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "xal": {
     "name": "Kalmyk",
@@ -2924,7 +3336,9 @@
     "phonemeCount": 31,
     "caseCount": 7,
     "wordOrder": "SOV",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "optional"
   },
   "xho": {
     "name": "Xhosa",
@@ -2938,7 +3352,9 @@
     "phonemeCount": 55,
     "caseCount": 2,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "yid": {
     "name": "Yiddish",
@@ -2952,7 +3368,9 @@
     "phonemeCount": 22,
     "caseCount": 4,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   },
   "yor": {
     "name": "Yoruba",
@@ -2966,7 +3384,9 @@
     "phonemeCount": 25,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "yua": {
     "name": "Yucatec Maya",
@@ -2980,7 +3400,9 @@
     "phonemeCount": 25,
     "caseCount": 0,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "flexible"
+    "wordOrderFlexibility": "flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "yue": {
     "name": "Cantonese",
@@ -2994,7 +3416,9 @@
     "phonemeCount": 20,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "zha": {
     "name": "Zhuang",
@@ -3008,7 +3432,9 @@
     "phonemeCount": 41,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "zhx": {
     "name": "Yue Chinese",
@@ -3023,7 +3449,9 @@
     "phonemeCount": 36,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "rigid"
+    "wordOrderFlexibility": "rigid",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "zul": {
     "name": "Zulu",
@@ -3037,7 +3465,9 @@
     "phonemeCount": 38,
     "caseCount": 2,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "complex",
+    "evidentiality": "none"
   },
   "jam": {
     "name": "Jamaican Creole",
@@ -3051,7 +3481,9 @@
     "phonemeCount": 30,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "tpi": {
     "name": "Tok Pisin",
@@ -3065,7 +3497,9 @@
     "phonemeCount": 17,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "pcm": {
     "name": "Nigerian Pidgin",
@@ -3079,7 +3513,9 @@
     "phonemeCount": 26,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "bis": {
     "name": "Bislama",
@@ -3093,7 +3529,9 @@
     "phonemeCount": 18,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "srn": {
     "name": "Sranan Tongo",
@@ -3107,7 +3545,9 @@
     "phonemeCount": 24,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "hat": {
     "name": "Haitian Creole",
@@ -3121,7 +3561,9 @@
     "phonemeCount": 32,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "mfe": {
     "name": "Mauritian Creole",
@@ -3135,7 +3577,9 @@
     "phonemeCount": 28,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "crs": {
     "name": "Seychellois Creole",
@@ -3149,7 +3593,9 @@
     "phonemeCount": 27,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "rcf": {
     "name": "Réunion Creole",
@@ -3163,7 +3609,9 @@
     "phonemeCount": 29,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "gcr": {
     "name": "Guadeloupean Creole",
@@ -3177,7 +3625,9 @@
     "phonemeCount": 28,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "acf": {
     "name": "Saint Lucian Creole",
@@ -3191,7 +3641,9 @@
     "phonemeCount": 28,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "kea": {
     "name": "Kabuverdianu",
@@ -3205,7 +3657,9 @@
     "phonemeCount": 26,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "pap": {
     "name": "Papiamento",
@@ -3219,7 +3673,9 @@
     "phonemeCount": 25,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "cri": {
     "name": "Sãotomense",
@@ -3233,7 +3689,9 @@
     "phonemeCount": 26,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "cbk": {
     "name": "Chavacano",
@@ -3247,7 +3705,9 @@
     "phonemeCount": 21,
     "caseCount": 0,
     "wordOrder": "VSO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "pln": {
     "name": "Palenquero",
@@ -3261,7 +3721,9 @@
     "phonemeCount": 23,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "minimal",
+    "evidentiality": "none"
   },
   "sco": {
     "name": "Scots",
@@ -3275,6 +3737,8 @@
     "phonemeCount": 40,
     "caseCount": 0,
     "wordOrder": "SVO",
-    "wordOrderFlexibility": "semi-flexible"
+    "wordOrderFlexibility": "semi-flexible",
+    "verbAspect": "simple",
+    "evidentiality": "none"
   }
 }
