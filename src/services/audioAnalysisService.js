@@ -1,4 +1,5 @@
 import audioVisualizationConfig from "../config/audioVisualizationConfig.json";
+import { defaultAudioData } from "../config/meshaDefaultAudioData";
 
 /**
  * Audio Analysis Service
@@ -17,12 +18,8 @@ class AudioAnalysisService {
     this.config = audioVisualizationConfig;
 
     // Frequency analysis data - separate for better voice representation
-    this.fundamentalData = new Array(
-      this.config.meshDeformation.frequencyBands
-    ).fill(0);
-    this.harmonicsData = new Array(
-      this.config.meshDeformation.frequencyBands
-    ).fill(0);
+    this.fundamentalData = defaultAudioData.fundamentalData;
+    this.harmonicsData = defaultAudioData.harmonicsData;
 
     // Animation frame ID for cleanup
     this.animationFrameId = null;
@@ -37,8 +34,9 @@ class AudioAnalysisService {
     }
 
     try {
-      this.audioContext = new (window.AudioContext ||
-        window.webkitAudioContext)();
+      this.audioContext = new (
+        window.AudioContext || window.webkitAudioContext
+      )();
 
       // Create analyser node
       this.analyser = this.audioContext.createAnalyser();
@@ -103,15 +101,11 @@ class AudioAnalysisService {
       this.animationFrameId = null;
     }
 
-    // Reset frequency data
-    this.fundamentalData.fill(0);
-    this.harmonicsData.fill(0);
-
     // Notify callbacks with empty data
     this.notifyCallbacks({
       fundamentalData: [...this.fundamentalData],
       harmonicsData: [...this.harmonicsData],
-      isActive: false
+      isActive: false,
     });
   }
 
@@ -133,7 +127,7 @@ class AudioAnalysisService {
     this.notifyCallbacks({
       fundamentalData: [...this.fundamentalData],
       harmonicsData: [...this.harmonicsData],
-      isActive: true
+      isActive: true,
     });
 
     // Schedule next frame
@@ -154,7 +148,7 @@ class AudioAnalysisService {
     const harmonicsMin = this.config.humanVoiceRange.harmonicsMin;
     const harmonicsMax = Math.min(
       this.config.humanVoiceRange.harmonicsMax,
-      nyquist
+      nyquist,
     );
 
     // Convert frequencies to bin indices
@@ -167,14 +161,14 @@ class AudioAnalysisService {
     this.processFrequencyBand(
       fundamentalMinBin,
       fundamentalMaxBin,
-      this.fundamentalData
+      this.fundamentalData,
     );
 
     // Process harmonics & formants (255-4000Hz) - speech intelligibility, phonetic content
     this.processFrequencyBand(
       harmonicsMinBin,
       harmonicsMaxBin,
-      this.harmonicsData
+      this.harmonicsData,
     );
   }
 

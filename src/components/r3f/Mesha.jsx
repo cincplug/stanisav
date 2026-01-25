@@ -83,14 +83,22 @@ const Mesha = ({ languageCode, position, color }) => {
   const tonalityScore =
     linguisticConfig.tonality.values[linguisticProperties?.tonality]?.score;
 
-  const isAllZeros = (arr) => {
-    return !Array.isArray(arr) || arr.length === 0 || arr.every((v) => v === 0);
-  };
+  const lastAudioDataRef = useRef(defaultAudioData);
 
   const { audioData: rawAudioData } = useAudioAnimation();
-  const audioData = isAllZeros(rawAudioData.fundamentalData)
-    ? defaultAudioData
-    : rawAudioData;
+
+  const isInitialState = !languageCode;
+
+  let audioData;
+  if (isInitialState) {
+    audioData = defaultAudioData;
+    lastAudioDataRef.current = defaultAudioData;
+  } else if (rawAudioData.isActive) {
+    audioData = rawAudioData;
+    lastAudioDataRef.current = rawAudioData;
+  } else {
+    audioData = lastAudioDataRef.current;
+  }
 
   const wordOrderAmplitude = useMemo(() => {
     const flexibility = linguisticProperties?.wordOrderFlexibility;
@@ -105,13 +113,14 @@ const Mesha = ({ languageCode, position, color }) => {
     meshConfig,
   ) => {
     const {
-      frequencyBands,
       maxDeformation,
       fundamentalAmplifier,
       harmonicsAmplifier,
       verticalVariationMultiplier,
       symmetricalMirroring,
     } = meshConfig;
+
+    const frequencyBands = 32;
 
     const flexibility = linguisticProperties?.wordOrderFlexibility;
     const flexibilityScore =

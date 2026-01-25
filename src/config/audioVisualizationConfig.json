@@ -16,7 +16,6 @@
   "meshDeformation": {
     "maxDeformation": 1.2,
     "deformationSmoothness": 0.1,
-    "frequencyBands": 32,
     "amplitudeThreshold": 0.005,
     "decayRate": 0.8,
     "verticalVariationMultiplier": 0.2,
