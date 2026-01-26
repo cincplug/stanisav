@@ -1,3 +1,5 @@
+import { getFeatureScore, isNumericFeature } from "./linguisticUtils";
+
 export function sortLanguages({
   allLanguages,
   languageData,
@@ -136,5 +138,31 @@ export function sortLanguages({
     }
   })();
 
+  return isReverse ? sorted.reverse() : sorted;
+}
+
+/**
+ * Sorts feature values for a given feature key.
+ * @param {string} feature - Feature key.
+ * @param {Array} values - Array of values to sort.
+ * @param {boolean} isReverse - Whether to reverse the order.
+ * @returns {Array} Sorted values.
+ */
+export function sortFeatureValues(feature, values, isReverse = false) {
+  let sorted = [...values];
+  if (isNumericFeature(feature)) {
+    sorted.sort((a, b) => Number(a) - Number(b));
+  } else {
+    sorted.sort((a, b) => {
+      const scoreA = getFeatureScore(feature, a);
+      const scoreB = getFeatureScore(feature, b);
+      if (scoreA != null && scoreB != null) {
+        return scoreA - scoreB;
+      }
+      return String(a).localeCompare(String(b), undefined, {
+        sensitivity: "base",
+      });
+    });
+  }
   return isReverse ? sorted.reverse() : sorted;
 }

@@ -90,20 +90,6 @@
       }
     }
   },
-  "caseCount": {
-    "name": "Case count",
-    "template": "It has {count} grammatical cases."
-  },
-  "phonemeCount": {
-    "name": "Phoneme count",
-    "template": "It has {count} phonemes (distinct sounds)."
-  },
-  "family": {
-    "name": "Language family"
-  },
-  "group": {
-    "name": "Language group"
-  },
   "verbAspect": {
     "name": "Verb aspect",
     "values": {
@@ -158,5 +144,19 @@
         "score": 10
       }
     }
+  },
+  "caseCount": {
+    "name": "Case count",
+    "template": "It has {count} grammatical cases."
+  },
+  "phonemeCount": {
+    "name": "Phoneme count",
+    "template": "It has {count} phonemes (distinct sounds)."
+  },
+  "family": {
+    "name": "Language family"
+  },
+  "group": {
+    "name": "Language group"
   }
 }

@@ -6,8 +6,9 @@ import {
 import {
   getAllFeatures,
   getFeatureLabel,
-  getFeatureDescription, // already imported
+  getFeatureDescription,
 } from "../../utils/linguisticUtils";
+import { sortFeatureValues } from "../../utils/sortingUtils";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import "./FiltersTab.css";
 
@@ -78,9 +79,13 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
         {features.map(({ key: feature, label, isNumeric }) => {
           // For numeric features, get values from pre-computed data
           // For categorical features, get values from actual data
-          const values = isNumeric
+          const rawValues = isNumeric
             ? data?.numericFeatureValues?.[feature] || []
             : getFeatureValues(data, feature);
+
+          // Use sorting utility for filter button order
+          const values = sortFeatureValues(feature, rawValues);
+
           const currentValues = filteringUtils[feature] || [];
           const isAllSelected = !(feature in filteringUtils);
 

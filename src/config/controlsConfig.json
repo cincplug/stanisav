@@ -31,6 +31,8 @@
       { "value": "morphology", "label": "Morphology" },
       { "value": "wordOrder", "label": "Word order" },
       { "value": "wordOrderFlexibility", "label": "Word order flexibility" },
+      { "value": "evidentiality", "label": "Evidentiality" },
+      { "value": "verbAspect", "label": "Verb aspect" },
       { "value": "phonemeCount", "label": "Phoneme count" },
       { "value": "caseCount", "label": "Case count" }
     ],
