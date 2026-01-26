@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 
-const MeshaEye = ({ position, color }) => {
+const MeshaEye = ({ position, color, scale }) => {
   const groupRef = useRef();
   const { controls } = useControls();
   const { labelSize } = controls;
@@ -20,7 +20,7 @@ const MeshaEye = ({ position, color }) => {
   const pupilZ = eyeSize * controls.pupilZPositionMultiplier;
 
   return (
-    <group ref={groupRef} position={position}>
+    <group ref={groupRef} position={position} scale={scale}>
       <mesh>
         <sphereGeometry args={[eyeSize, 32, 32]} />
         <meshStandardMaterial color="#ffffff" />

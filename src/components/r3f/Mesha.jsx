@@ -26,7 +26,6 @@ const Mesha = ({ languageCode, position, color }) => {
   const { controls } = useControls();
   const {
     meshaSize,
-    backgroundColor,
     sphereRadius,
     labelContent,
     sortLanguagesBy,
@@ -82,6 +81,11 @@ const Mesha = ({ languageCode, position, color }) => {
   const morphologyTextureFile = `/textures/${morphology.toLowerCase()}.png`;
   const tonalityScore =
     linguisticConfig.tonality.values[linguisticProperties?.tonality]?.score;
+  const evidentialityScore =
+    linguisticConfig.evidentiality.values[linguisticProperties?.evidentiality]
+      ?.score;
+  const verbAspectScore =
+    linguisticConfig.verbAspect.values[linguisticProperties?.verbAspect]?.score;
 
   const lastAudioDataRef = useRef(defaultAudioData);
 
@@ -250,6 +254,8 @@ const Mesha = ({ languageCode, position, color }) => {
     meshaYRotation = rotationGroupRef.current.rotation.y;
   }
   const badgeYRotation = meshaYRotation * wordOrderFlexibility;
+  const leftEyeSize = Array(3).fill(1 + evidentialityScore / 5);
+  const rightEyeSize = Array(3).fill(1 + verbAspectScore / 4);
 
   // --- USE ANIMATED GROUP FOR SEAMLESS TRANSITIONS ---
   return (
@@ -270,10 +276,12 @@ const Mesha = ({ languageCode, position, color }) => {
           <MeshaEye
             position={[eyeXPosition, 0, 0]}
             color={shiftHue(color, 10)}
+            scale={leftEyeSize}
           />
           <MeshaEye
             position={[-eyeXPosition, 0, 0]}
             color={shiftHue(color, -10)}
+            scale={rightEyeSize}
           />
           <MeshaBadge
             textureFile={morphologyTextureFile}
