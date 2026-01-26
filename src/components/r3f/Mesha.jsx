@@ -254,8 +254,8 @@ const Mesha = ({ languageCode, position, color }) => {
     meshaYRotation = rotationGroupRef.current.rotation.y;
   }
   const badgeYRotation = meshaYRotation * wordOrderFlexibility;
-  const leftEyeSize = Array(3).fill(1 + evidentialityScore / 5);
-  const rightEyeSize = Array(3).fill(1 + verbAspectScore / 4);
+  const leftEyeSize = Array(3).fill(1 + evidentialityScore / 10);
+  const rightEyeSize = Array(3).fill(1 + verbAspectScore / 8);
 
   // --- USE ANIMATED GROUP FOR SEAMLESS TRANSITIONS ---
   return (
@@ -274,13 +274,13 @@ const Mesha = ({ languageCode, position, color }) => {
 
         <group ref={eyesGroupRef} position={[0, 1, eyeZ]}>
           <MeshaEye
-            position={[eyeXPosition, 0, 0]}
-            color={shiftHue(color, 10)}
+            position={[-eyeXPosition, 0, 0]}
+            color={shiftHue(color, -10)}
             scale={leftEyeSize}
           />
           <MeshaEye
-            position={[-eyeXPosition, 0, 0]}
-            color={shiftHue(color, -10)}
+            position={[eyeXPosition, 0, 0]}
+            color={shiftHue(color, 10)}
             scale={rightEyeSize}
           />
           <MeshaBadge

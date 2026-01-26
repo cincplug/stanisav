@@ -87,14 +87,27 @@ export function sortLanguages({
           if (!featureA) return 1;
           if (!featureB) return -1;
 
-          // Sort categorical features alphabetically
-          const comparison = featureA.localeCompare(featureB);
+          // Sort by score if available
+          const scoreA = getFeatureScore(sortLanguagesBy, featureA);
+          const scoreB = getFeatureScore(sortLanguagesBy, featureB);
+          if (scoreA != null && scoreB != null) {
+            if (scoreA !== scoreB) return scoreA - scoreB;
+          }
+
+          // Fallback to alphabetical
+          const comparison = String(featureA).localeCompare(
+            String(featureB),
+            undefined,
+            {
+              sensitivity: "base",
+            },
+          );
 
           // If same feature value, sort by name
           if (comparison === 0) {
             const nameA = languageData[a]?.name;
             const nameB = languageData[b]?.name;
-            return nameA.localeCompare(nameB);
+            return String(nameA).localeCompare(String(nameB));
           }
 
           return comparison;
