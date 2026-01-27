@@ -5,6 +5,7 @@ import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.js
 import { usePlaylist } from "../../contexts/PlaylistContext.jsx";
 import { useAppState } from "../../contexts/AppStateContext.jsx";
 import { calculateLabelSizeConfig } from "../../utils/sceneUtils.js";
+import { getFeatureScore } from "../../utils/linguisticUtils.js";
 import Label from "./Label.jsx";
 import NodeLights from "./NodeLights.jsx";
 
@@ -48,6 +49,13 @@ const Node = ({
     // If sorting by numeric typological features, use that value
     if (["phonemeCount", "caseCount"].includes(sortLanguagesBy)) {
       return data?.typologicalFeatures?.[languageCode]?.[sortLanguagesBy] || 1;
+    }
+    // If sorting by a typological feature with a score, use the score
+    const featureValue =
+      data?.typologicalFeatures?.[languageCode]?.[sortLanguagesBy];
+    const score = getFeatureScore(sortLanguagesBy, featureValue);
+    if (typeof score === "number" && !isNaN(score)) {
+      return score;
     }
     // Default to speaker count
     return speakerCount;

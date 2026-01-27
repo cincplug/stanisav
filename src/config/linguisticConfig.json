@@ -15,12 +15,12 @@
       "simple-tonal": {
         "label": "Simple tonal",
         "description": "Pitch changes moderately affect word meaning.",
-        "score": 5
+        "score": 3
       },
       "complex-tonal": {
         "label": "Complex tonal",
         "description": "Pitch patterns significantly affect word meaning.",
-        "score": 10
+        "score": 4
       }
     }
   },
@@ -35,12 +35,12 @@
       "agglutinative": {
         "label": "Agglutinative",
         "description": "Words are formed by adding affixes in sequence.",
-        "score": 2.5
+        "score": 2
       },
       "fusional": {
         "label": "Fusional",
         "description": "Multiple grammatical meanings are combined in single morphemes.",
-        "score": 3.2
+        "score": 3
       },
       "polysynthetic": {
         "label": "Polysynthetic",
@@ -55,17 +55,17 @@
       "rigid": {
         "label": "Rigid",
         "description": "Words have fixed grammatical positions.",
-        "score": 0
+        "score": 1
       },
       "semi-flexible": {
         "label": "Semi-flexible",
         "description": "Some variation of word order is allowed for emphasis.",
-        "score": 5
+        "score": 2
       },
       "flexible": {
         "label": "Flexible",
         "description": "Various word arrangements are allowed for stylistic purposes.",
-        "score": 30
+        "score": 3
       }
     }
   },
@@ -96,22 +96,22 @@
       "minimal": {
         "label": "Minimal",
         "description": "No or very limited grammatical aspect marking.",
-        "score": 0
+        "score": 1
       },
       "simple": {
         "label": "Simple",
         "description": "Basic aspectual distinctions (e.g., progressive, perfect).",
-        "score": 3
+        "score": 2
       },
       "binary": {
         "label": "Binary",
         "description": "Two-way systematic distinction (perfective/imperfective).",
-        "score": 6
+        "score": 3
       },
       "complex": {
         "label": "Complex",
         "description": "Multiple aspect categories with rich morphological marking.",
-        "score": 10
+        "score": 4
       }
     }
   },
@@ -121,7 +121,7 @@
       "none": {
         "label": "None",
         "description": "No grammatical marking of information source.",
-        "score": 0
+        "score": 1
       },
       "optional": {
         "label": "Optional",
@@ -131,17 +131,17 @@
       "simple": {
         "label": "Simple",
         "description": "Two-way distinction (typically direct vs. indirect/reportative).",
-        "score": 5
+        "score": 3
       },
       "moderate": {
         "label": "Moderate",
         "description": "Three-way distinction (e.g., direct, reportative, inferential).",
-        "score": 7
+        "score": 4
       },
       "complex": {
         "label": "Complex",
         "description": "Four or more evidential distinctions or evidentiality fused with tense/aspect.",
-        "score": 10
+        "score": 5
       }
     }
   },
