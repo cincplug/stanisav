@@ -139,16 +139,18 @@ function LanguagesTab({ languageData, isActive }) {
     }
   }, [selectedLanguage, isActive]);
 
+  const title = (
+    linguisticConfig[sortBy]?.name ||
+    (sortBy === "group" && "Language group") ||
+    (sortBy === "family" && "Language family") ||
+    (sortBy === "speakers" && "Speakers' number") ||
+    "Alphabetical order"
+  ).toLowerCase();
+
   return (
     <div className="control-section">
       <div className="languages-list">
-        <h2>
-          {linguisticConfig[sortBy]?.name ||
-            (sortBy === "group" && "Language group") ||
-            (sortBy === "family" && "Language family") ||
-            (sortBy === "speakers" && "Number of speakers") ||
-            "Languages"}
-        </h2>
+        <h2>Languages by {title}</h2>
         {groupedByCategory.map((group) => (
           <div key={group.title} className="language-group-container">
             {/* Only render h3 if not sorting by speakers */}
