@@ -240,7 +240,7 @@ const Mesha = ({ languageCode, position, color }) => {
     for (let i = 0; i < count; i++) {
       items.push({
         x: startX - i * spacing,
-        y: -2,
+        y: 1 / 2,
         z: eyeZ,
         key: `case-${i}`,
       });
@@ -314,8 +314,8 @@ const Mesha = ({ languageCode, position, color }) => {
               position={[caseItem.x, caseItem.y, caseItem.z]}
             >
               <mesh rotation={[Math.PI, Math.PI, 0]}>
-                <coneGeometry args={[0.5, 1, 7]} />
-                <meshStandardMaterial color={"#ffffff"} />
+                <sphereGeometry args={[0.4, 16, 16]} />
+                <meshStandardMaterial color={shiftHue(color, 90)} />
               </mesh>
             </group>
           ))}
