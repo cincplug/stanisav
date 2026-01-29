@@ -40,7 +40,6 @@ const MeshaMouth = ({
   color,
   audioReactiveSurface,
   segments,
-  wordOrderAmplitude,
   languageCode,
   audioData,
   meshaYRotation,
@@ -121,9 +120,9 @@ const MeshaMouth = ({
   return (
     <>
       <mesh
-        position={[0, -meshaSize, meshaSize * 0.8]}
+        position={[0, -meshaSize / 2, meshaSize]}
         scale={[(meshaSize * 2) / 3, -meshaSize / 2, -meshaSize * 2]}
-        rotation={[-1 / 4 + meshaYRotation / 5, -Math.PI, 0]}
+        rotation={[1 / 4, -Math.PI, 0]}
       >
         <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
         <shaderMaterial args={[mouthMaterial]} />
