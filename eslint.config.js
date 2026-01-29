@@ -44,9 +44,9 @@ export default [
         {
           ignore: [
             0, 0.5, 1, -1, 2, -2, 3, -3, 4, 5, 6, 10, 16, 20, 24, 32, 75, 100,
-            255, 1000
+            255, 360, 1000
           ],
-          ignoreArrayIndexes: true,
+          ignoreArsrayIndexes: true,
           enforceConst: true,
           detectObjects: false
         }

@@ -90,7 +90,7 @@ export function sortLanguages({
           // Sort by score if available
           const scoreA = getFeatureScore(sortLanguagesBy, featureA);
           const scoreB = getFeatureScore(sortLanguagesBy, featureB);
-          if (scoreA != null && scoreB != null) {
+          if (scoreA !== null && scoreB !== null) {
             if (scoreA !== scoreB) return scoreA - scoreB;
           }
 
@@ -164,14 +164,14 @@ export function sortLanguages({
  * @returns {Array} Sorted values.
  */
 export function sortFeatureValues(feature, values, isReverse = false) {
-  let sorted = [...values];
+  const sorted = [...values];
   if (isNumericFeature(feature)) {
     sorted.sort((a, b) => Number(a) - Number(b));
   } else {
     sorted.sort((a, b) => {
       const scoreA = getFeatureScore(feature, a);
       const scoreB = getFeatureScore(feature, b);
-      if (scoreA != null && scoreB != null) {
+      if (scoreA !== null && scoreB !== null) {
         return scoreA - scoreB;
       }
       return String(a).localeCompare(String(b), undefined, {
