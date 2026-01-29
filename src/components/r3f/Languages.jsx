@@ -4,7 +4,6 @@ import { useControls } from "../../contexts/ControlsContext";
 import { useCameraController } from "../../hooks/useCameraController";
 import { useDataManager } from "../../hooks/useDataManager";
 import { useLayoutManager } from "../../hooks/useLayoutManager";
-import { getGroupedLanguages } from "../../utils/groupingUtils";
 import { calculateLanguageFilterStatus } from "../../utils/sceneUtils";
 import Node from "./Node";
 import Mesha from "./Mesha";
@@ -17,43 +16,37 @@ const Languages = ({
   onEmptyFilterChange,
 }) => {
   const { controls } = useControls();
-
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
-  const { formattedPositions } = useLayoutManager(data, controls, onNodesReady);
-  const groupedLanguages = useMemo(() => getGroupedLanguages(data), [data]);
-
+  const { formattedPositions, sortedLanguageCodes } = useLayoutManager(
+    data,
+    controls,
+    onNodesReady,
+  );
   const { filteringUtils, selectedLanguage, groupColors } =
     useLanguageSelection();
-
-  const allLanguageCodes = useMemo(
-    () => Object.values(groupedLanguages).flatMap((g) => g.languages),
-    [groupedLanguages],
-  );
 
   const languageFilterStatus = useMemo(
     () =>
       calculateLanguageFilterStatus(
-        allLanguageCodes,
+        sortedLanguageCodes,
         data?.typologicalFeatures,
         filteringUtils,
         data?.languageGroups,
       ),
     [
-      allLanguageCodes,
+      sortedLanguageCodes,
       data?.typologicalFeatures,
       filteringUtils,
       data?.languageGroups,
     ],
   );
 
-  // Check if filters are active and result in no languages
   const hasActiveFilters = Object.keys(filteringUtils).length > 0;
-  const visibleLanguages = Object.values(languageFilterStatus).filter(
-    (status) => status?.isVisible,
+  const visibleLanguages = sortedLanguageCodes.filter(
+    (code) => languageFilterStatus[code]?.isVisible,
   );
   const showEmptyMessage = hasActiveFilters && visibleLanguages.length === 0;
 
-  // Call camera controller hook at top level
   useCameraController({
     languageNodes: formattedPositions,
     data,
@@ -73,16 +66,17 @@ const Languages = ({
     }
   }, [showEmptyMessage, onEmptyFilterChange]);
 
-  if (!data || !isInitialized || Object.keys(formattedPositions).length === 0) {
+  if (!data || !isInitialized || sortedLanguageCodes.length === 0) {
     return null;
   }
 
+  // Mesha logic (optional, can be simplified as needed)
   let meshaProps = {};
-  if (selectedLanguage) {
+  if (selectedLanguage && formattedPositions[selectedLanguage]) {
     const { x, y, z } = formattedPositions[selectedLanguage];
-    const groupKey = Object.keys(groupedLanguages).find((key) =>
-      groupedLanguages[key].languages.includes(selectedLanguage),
-    );
+    const groupKey =
+      data.languageData[selectedLanguage]?.group ||
+      data.languageGroups?.[selectedLanguage];
     const color = groupColors?.[groupKey];
     meshaProps = {
       languageCode: selectedLanguage,
@@ -90,10 +84,11 @@ const Languages = ({
       color,
     };
   } else {
-    const firstGroupKey = Object.keys(groupedLanguages)[0];
-    const firstLang = groupedLanguages[firstGroupKey]?.languages[0];
-    const color = groupColors?.[firstGroupKey];
+    const firstLang = sortedLanguageCodes[0];
     const z = controls.sphereRadius;
+    const groupKey =
+      data.languageData[firstLang]?.group || data.languageGroups?.[firstLang];
+    const color = groupColors?.[groupKey];
     meshaProps = {
       languageCode: firstLang,
       position: [-z, 0, z],
@@ -105,28 +100,28 @@ const Languages = ({
     <group>
       <Mesha {...meshaProps} />
       {!showEmptyMessage &&
-        Object.entries(groupedLanguages).map(([groupKey, { languages }]) =>
-          languages
-            .map((langCode) => {
-              const position = formattedPositions[langCode];
-              const filterStatus = languageFilterStatus[langCode];
-              if (!position || !filterStatus?.isVisible) return null;
-              const color = groupColors?.[groupKey];
-              return (
-                <Node
-                  key={langCode}
-                  languageCode={langCode}
-                  language={data.languageData[langCode]}
-                  position={[position.x, position.y, position.z]}
-                  speakerCount={data.speakerData[langCode] || 1}
-                  isSelected={selectedLanguage === langCode}
-                  isFiltered={filterStatus.isFiltered}
-                  color={color}
-                />
-              );
-            })
-            .filter(Boolean),
-        )}
+        sortedLanguageCodes.map((langCode, idx) => {
+          const position = formattedPositions[langCode];
+          const filterStatus = languageFilterStatus[langCode];
+          if (!position || !filterStatus?.isVisible) return null;
+          const groupKey =
+            data.languageData[langCode]?.group ||
+            data.languageGroups?.[langCode];
+          const color = groupColors?.[groupKey];
+          return (
+            <Node
+              key={langCode}
+              languageCode={langCode}
+              language={data.languageData[langCode]}
+              position={[position.x, position.y, position.z]}
+              speakerCount={data.speakerData[langCode] || 1}
+              isSelected={selectedLanguage === langCode}
+              isFiltered={filterStatus.isFiltered}
+              color={color}
+              labelPrefix={`${idx + 1} `}
+            />
+          );
+        })}
     </group>
   );
 };
