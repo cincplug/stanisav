@@ -3,15 +3,17 @@ import { useEffect, useRef, useMemo } from "react";
 import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
+import controlsConfig from "../../config/controlsConfig.json";
 import linguisticConfig from "../../config/linguisticConfig.json";
 import groupInfo from "../../config/groupInfo.json";
 import { sortLanguages } from "../../utils/sortingUtils";
+import ControlItem from "./ControlItem";
 
 function LanguagesTab({ languageData, isActive }) {
   const { groupColors, selectedLanguage, selectLanguage } =
     useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
-  const { controls } = useControls();
+  const { controls, updateControl } = useControls();
   const buttonRefs = useRef({});
 
   const sortBy = controls.sortLanguagesBy;
@@ -130,6 +132,13 @@ function LanguagesTab({ languageData, isActive }) {
     return Object.values(result);
   }, [sortedLanguageCodes, sortBy, languageData]);
 
+  // Get Sorting controls
+  const sortingControls = Object.entries(controlsConfig)
+    .filter(
+      ([_id, config]) => config.group === "Sorting" && config.isUserEditable,
+    )
+    .map(([id, config]) => ({ id, ...config }));
+
   useEffect(() => {
     if (isActive && selectedLanguage && buttonRefs.current[selectedLanguage]) {
       buttonRefs.current[selectedLanguage].scrollIntoView({
@@ -149,8 +158,18 @@ function LanguagesTab({ languageData, isActive }) {
 
   return (
     <div className="control-section">
+      <div className="controls-grid sorting-controls">
+        {sortingControls.map((control) => (
+          <ControlItem
+            key={control.id}
+            control={control}
+            value={controls[control.id]}
+            onChange={(value) => updateControl(control.id, value)}
+          />
+        ))}
+      </div>
+
       <div className="languages-list">
-        <h2>Languages by {title}</h2>
         {groupedByCategory.map((group) => (
           <div key={group.title} className="language-group-container">
             {/* Only render h3 if not sorting by speakers */}

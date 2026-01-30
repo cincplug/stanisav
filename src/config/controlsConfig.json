@@ -1,24 +1,4 @@
 {
-  "labelSize": {
-    "type": "range",
-    "label": "Label size",
-    "min": 0.1,
-    "max": 3,
-    "step": 0.1,
-    "defaultValue": 1,
-    "isUserEditable": true,
-    "group": "Scene"
-  },
-  "sphereRadius": {
-    "type": "range",
-    "label": "Sphere radius",
-    "min": 1,
-    "max": 50,
-    "step": 1,
-    "defaultValue": 27,
-    "isUserEditable": true,
-    "group": "Scene"
-  },
   "sortLanguagesBy": {
     "type": "radio",
     "label": "Sort languages by",
@@ -51,6 +31,26 @@
     "defaultValue": "name",
     "isUserEditable": true,
     "group": "Sorting"
+  },
+  "labelSize": {
+    "type": "range",
+    "label": "Label size",
+    "min": 0.1,
+    "max": 3,
+    "step": 0.1,
+    "defaultValue": 1,
+    "isUserEditable": true,
+    "group": "Scene"
+  },
+  "sphereRadius": {
+    "type": "range",
+    "label": "Sphere radius",
+    "min": 1,
+    "max": 50,
+    "step": 1,
+    "defaultValue": 27,
+    "isUserEditable": true,
+    "group": "Scene"
   },
   "isReverse": {
     "type": "checkbox",
@@ -95,7 +95,7 @@
     "group": "Colors"
   },
   "pointLightIntensity": {
-    "group": "Lighting",
+    "group": "Light",
     "type": "range",
     "label": "Point light intensity",
     "min": 0,
@@ -105,7 +105,7 @@
     "isUserEditable": true
   },
   "pointLightDecay": {
-    "group": "Lighting",
+    "group": "Light",
     "type": "range",
     "label": "Point light decay",
     "min": 0,
@@ -115,7 +115,7 @@
     "isUserEditable": true
   },
   "pointLightDistance": {
-    "group": "Lighting",
+    "group": "Light",
     "type": "range",
     "label": "Point light distance",
     "min": 80,
@@ -125,7 +125,7 @@
     "isUserEditable": true
   },
   "ambientLightIntensity": {
-    "group": "Lighting",
+    "group": "Light",
     "type": "range",
     "label": "Ambient light intensity",
     "min": 0,

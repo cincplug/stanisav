@@ -7,7 +7,7 @@
     },
     {
       "id": "controls",
-      "label": "Controls",
+      "label": "Appearance",
       "component": "ControlsTab"
     },
     {

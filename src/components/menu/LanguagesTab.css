@@ -35,3 +35,15 @@
 .todo-item {
   background-color: var(--color-todo-item);
 }
+
+.sorting-controls {
+  position: sticky;
+  top: 0;
+  background-color: var(--color-menu-background);
+  transform: translateY(-3px);
+  gap: var(--gap);
+
+  .control-item {
+    grid-column: span 2;
+  }
+}

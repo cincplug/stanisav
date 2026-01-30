@@ -258,7 +258,7 @@ legend {
 .controls-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--gap-double);
+  gap: var(--gap);
 }
 
 .controls-grid-colors {
