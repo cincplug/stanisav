@@ -15,7 +15,6 @@ function TabRenderer({
   onFilteringUtilsChange,
   searchTerm,
   searchResults,
-  clearSearch
 }) {
   return (
     <div className="tabs-inner">
@@ -24,8 +23,8 @@ function TabRenderer({
           controlGroups={{
             state: { controls },
             handlers: {
-              onControlChange
-            }
+              onControlChange,
+            },
           }}
         />
       )}

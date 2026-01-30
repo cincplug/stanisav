@@ -38,7 +38,7 @@
     ],
     "defaultValue": "alphabetically",
     "isUserEditable": true,
-    "group": "Scene"
+    "group": "Sorting"
   },
   "labelContent": {
     "type": "radio",
@@ -50,14 +50,14 @@
     ],
     "defaultValue": "name",
     "isUserEditable": true,
-    "group": "Scene"
+    "group": "Sorting"
   },
   "isReverse": {
     "type": "checkbox",
     "label": "Reverse order",
     "defaultValue": false,
     "isUserEditable": true,
-    "group": "Scene"
+    "group": "Sorting"
   },
   "isLoop": {
     "type": "checkbox",
