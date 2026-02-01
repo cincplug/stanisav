@@ -30,7 +30,7 @@ const NodeLights = ({ labelTextLength }) => {
         color={lightColor}
       />
       <pointLight
-        position={[0, -4, 6]}
+        position={[0, 3, 8]}
         intensity={30}
         distance={pointLightDistance}
         color={lightColor}

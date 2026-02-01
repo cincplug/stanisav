@@ -61,7 +61,7 @@ const MeshaMouth = ({
       const angle = startAngle + (i / count) * arc;
       teethArr.push({
         x: Math.cos(angle) * radius,
-        y: 1 * meshaSize,
+        y: 4 * meshaSize,
         z: Math.sin(angle) * radius,
         key: `tooth-${i}`,
       });
@@ -108,9 +108,9 @@ const MeshaMouth = ({
           );
           const amplitude = fundamentalData[bandIndex] || 0;
 
-          tooth.position.y = -amplitude * 5;
+          tooth.position.y = -amplitude * 3;
           const scale = amplitude * 2;
-          tooth.scale.set(scale, scale * 2, scale / 4);
+          tooth.scale.set(scale, scale * -1, scale / 4);
         }
       });
     }
@@ -118,19 +118,24 @@ const MeshaMouth = ({
 
   return (
     <>
-      {teeth.map((tooth, i) => (
-        <mesh
-          key={tooth.key}
-          ref={(el) => (teethRefs.current[i] = el)}
-          position={[tooth.x, tooth.y, tooth.z]}
-        >
-          <parametricGeometry args={[toothShape, 16, 8]} />
-          <meshStandardMaterial color="#ffffff" />
-        </mesh>
-      ))}
+      <group
+        position={[0, meshaSize * 1.5, meshaSize * 0.7]}
+        scale={[1 / 2, 1 / 2, 1 / 2]}
+      >
+        {teeth.map((tooth, i) => (
+          <mesh
+            key={tooth.key}
+            ref={(el) => (teethRefs.current[i] = el)}
+            position={[tooth.x, tooth.y, tooth.z]}
+          >
+            <parametricGeometry args={[toothShape, 16, 8]} />
+            <meshStandardMaterial color="#ffffff" />
+          </mesh>
+        ))}
+      </group>
       <mesh
-        position={[0, meshaSize / 2, meshaSize]}
-        scale={[meshaSize, -meshaSize / 2, -meshaSize]}
+        position={[0, meshaSize * 2, meshaSize]}
+        scale={[meshaSize / 2, -meshaSize / 4, -meshaSize / 2]}
         rotation={[1 / 4, Math.PI, 0]}
       >
         <parametricGeometry args={[audioReactiveSurface, segments, segments]} />

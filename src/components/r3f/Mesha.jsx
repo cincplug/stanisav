@@ -215,7 +215,8 @@ const Mesha = ({ languageCode, position, color }) => {
     if (!count) return null;
 
     const spacing = (eyeXPosition * 4) / count;
-    const startX = eyeXPosition * 2;
+    const totalWidth = spacing * (count - 1);
+    const startX = totalWidth / 2;
     const items = [];
     for (let i = 0; i < count; i++) {
       items.push({
@@ -267,19 +268,19 @@ const Mesha = ({ languageCode, position, color }) => {
             color={shiftHue(color, 10)}
             scale={rightEyeSize}
           />
-          <MeshaBadge
-            textureFile={morphologyTextureFile}
-            position={[0, -eyeXPosition * badgeSize, 0.7]}
-            scale={[badgeSize, badgeSize, 1]}
-          />
-
-          <MeshaBadge
-            textureFile={wordOrderTextureFile}
-            position={[0, -eyeXPosition * badgeSize * 2, 0.8]}
-            scale={[badgeSize, badgeSize, 1]}
-            rotation={[0, badgeYRotation, 0]}
-          />
         </group>
+        <MeshaBadge
+          textureFile={morphologyTextureFile}
+          position={[0, 1, 1.7]}
+          scale={[badgeSize, badgeSize, 1]}
+        />
+
+        <MeshaBadge
+          textureFile={wordOrderTextureFile}
+          position={[0, 0.5, 1.8]}
+          scale={[badgeSize, badgeSize, 1]}
+          rotation={[0, badgeYRotation, 0]}
+        />
 
         <MeshaMouth
           color={mouthColor}
