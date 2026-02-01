@@ -121,7 +121,7 @@ const MeshaMouth = ({
     <>
       <mesh
         position={[0, -meshaSize / 2, meshaSize]}
-        scale={[(meshaSize * 2) / 3, -meshaSize / 2, -meshaSize * 2]}
+        scale={[meshaSize / 2, -meshaSize / 2, -meshaSize]}
         rotation={[1 / 4, -Math.PI, 0]}
       >
         <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
