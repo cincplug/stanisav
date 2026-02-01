@@ -1,6 +1,6 @@
 import { useRef, useMemo } from "react";
 import { extend, useFrame } from "@react-three/fiber";
-import { a, useSpring } from "@react-spring/three"; // <-- ADD
+import { a, useSpring } from "@react-spring/three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
 import { defaultAudioData } from "../../config/meshaDefaultAudioData.js";
@@ -104,59 +104,49 @@ const Mesha = ({ languageCode, position, color }) => {
     audioData = lastAudioDataRef.current;
   }
 
-  const wordOrderAmplitude = useMemo(() => {
-    const flexibility = linguisticProperties?.wordOrderFlexibility;
-    const score =
-      linguisticConfig.wordOrderFlexibility.values[flexibility]?.score;
-    return 1 + score * 0.5;
-  }, [linguisticProperties?.wordOrderFlexibility]);
-
-  const createAudioReactiveSurface = (
-    meshaSize,
-    audioDataValue,
-    meshConfig,
-  ) => {
+  const createAudioReactiveSurface = ({ size, bend, radius }) => {
     const {
       maxDeformation,
       fundamentalAmplifier,
       harmonicsAmplifier,
       verticalVariationMultiplier,
-      symmetricalMirroring,
-    } = meshConfig;
+    } = audioVisualizationConfig.meshDeformation;
 
     const frequencyBands = 32;
 
-    const flexibility = linguisticProperties?.wordOrderFlexibility;
-    const flexibilityScore =
-      linguisticConfig.wordOrderFlexibility.values[flexibility]?.score || 1;
-    const flexibilityAmplitude = 1 + flexibilityScore * 0.5;
-
     return (u, v, target) => {
-      const size = meshaSize;
       const z = (u - 0.5) * size;
-      const x = (v - 0.5) * size;
-      let y = symmetricalMirroring ? wordOrderAmplitude : flexibilityAmplitude;
 
-      if (audioDataValue.isActive) {
-        const { fundamentalData, harmonicsData } = audioDataValue;
+      const angle = (v - 0.5) * Math.PI * 1.5;
+
+      const x_flat = (v - 0.5) * size;
+      const x_circle = Math.cos(angle) * radius;
+      const x = x_flat + (x_circle - x_flat) * bend;
+
+      const y_base_flat = 2;
+      const y_base_circle = Math.sin(angle) * radius;
+      const y_base = y_base_flat + (y_base_circle - y_base_flat) * bend;
+
+      let y = y_base;
+
+      if (audioData.isActive) {
+        const { fundamentalData, harmonicsData } = audioData;
         const verticalVariation =
-          Math.sin(v * Math.PI * 2) * verticalVariationMultiplier;
+          Math.sin(v * Math.PI * 3) * verticalVariationMultiplier;
 
-        const uForBand = symmetricalMirroring && u > 0.5 ? 1 - u : u;
+        const uForBand = u > 0.5 ? 1 - u : u;
         const bandIndex = Math.floor(uForBand * (frequencyBands - 1));
 
         const fundamentalAmplitude = fundamentalData[bandIndex] || 0;
         const harmonicsAmplitude = harmonicsData[bandIndex] || 0;
 
         const balancedFundamental = fundamentalAmplitude * fundamentalAmplifier;
-        const balancedHarmonics =
-          harmonicsAmplitude *
-          (symmetricalMirroring ? harmonicsAmplifier : tonalityScore / 10);
+        const balancedHarmonics = harmonicsAmplitude * harmonicsAmplifier;
         const totalAmplitude = balancedFundamental + balancedHarmonics;
 
-        y = totalAmplitude * maxDeformation * size;
+        y = y_base + totalAmplitude * maxDeformation * size;
 
-        if (symmetricalMirroring && u > 0.5) {
+        if (u > 0.5) {
           y *= 1 + verticalVariation;
         }
       }
@@ -217,16 +207,6 @@ const Mesha = ({ languageCode, position, color }) => {
     }
   });
 
-  const audioReactiveSurface = useMemo(
-    () =>
-      createAudioReactiveSurface(
-        meshaSize,
-        audioData,
-        audioVisualizationConfig.meshDeformation,
-      ),
-    [meshaSize, audioData],
-  );
-
   const segments = audioVisualizationConfig.meshDeformation.meshSegments;
   const eyeZ = meshaSize * eyeZPositionMultiplier;
 
@@ -248,7 +228,6 @@ const Mesha = ({ languageCode, position, color }) => {
     return items;
   }, [linguisticProperties?.caseCount, eyeXPosition, eyeZ]);
 
-  // Calculate badge y rotation as a function of Mesha's rotation and wordOrderFlexibility
   let meshaYRotation = 0;
   if (rotationGroupRef.current) {
     meshaYRotation = rotationGroupRef.current.rotation.y;
@@ -257,7 +236,6 @@ const Mesha = ({ languageCode, position, color }) => {
   const leftEyeSize = Array(3).fill(1 + evidentialityScore / 10);
   const rightEyeSize = Array(3).fill(1 + verbAspectScore / 8);
 
-  // --- USE ANIMATED GROUP FOR SEAMLESS TRANSITIONS ---
   return (
     <a.group ref={groupRef} position={spring.position} scale={spring.scale}>
       <group ref={rotationGroupRef}>
@@ -268,7 +246,13 @@ const Mesha = ({ languageCode, position, color }) => {
           labelSize={1}
           audioData={audioData}
           languageCode={finalLanguageCode}
-          audioReactiveSurface={audioReactiveSurface}
+          audioReactiveSurface={(u, v, target) =>
+            createAudioReactiveSurface({
+              size: meshaSize * 1,
+              bend: 0.8,
+              radius: meshaSize,
+            })(u, v, target)
+          }
           segments={segments}
         />
 
@@ -299,12 +283,16 @@ const Mesha = ({ languageCode, position, color }) => {
 
         <MeshaMouth
           color={mouthColor}
-          audioReactiveSurface={audioReactiveSurface}
+          audioReactiveSurface={(u, v, target) =>
+            createAudioReactiveSurface({
+              size: meshaSize,
+              bend: 0,
+              radius: meshaSize / 4,
+            })(u, v, target)
+          }
           segments={segments}
-          wordOrderAmplitude={wordOrderAmplitude}
           languageCode={finalLanguageCode}
           audioData={audioData}
-          meshaYRotation={meshaYRotation}
         />
         {cases &&
           cases.map((caseItem, i) => (

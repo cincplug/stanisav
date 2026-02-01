@@ -42,7 +42,6 @@ const MeshaMouth = ({
   segments,
   languageCode,
   audioData,
-  meshaYRotation,
 }) => {
   const { controls } = useControls(); // <-- use hook as everywhere else
   const meshaSize = controls.meshaSize;
@@ -119,15 +118,6 @@ const MeshaMouth = ({
 
   return (
     <>
-      <mesh
-        position={[0, -meshaSize / 2, meshaSize]}
-        scale={[meshaSize / 2, -meshaSize / 2, -meshaSize]}
-        rotation={[1 / 4, -Math.PI, 0]}
-      >
-        <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
-        <shaderMaterial args={[mouthMaterial]} />
-      </mesh>
-
       {teeth.map((tooth, i) => (
         <mesh
           key={tooth.key}
@@ -138,6 +128,14 @@ const MeshaMouth = ({
           <meshStandardMaterial color="#ffffff" />
         </mesh>
       ))}
+      <mesh
+        position={[0, meshaSize / 2, meshaSize]}
+        scale={[meshaSize, -meshaSize / 2, -meshaSize]}
+        rotation={[1 / 4, Math.PI, 0]}
+      >
+        <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
+        <shaderMaterial args={[mouthMaterial]} />
+      </mesh>
     </>
   );
 };
