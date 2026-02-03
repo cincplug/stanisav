@@ -76,7 +76,20 @@ export const morphologyFragmentShader = /* glsl */ `
   }
 `;
 
-export const mouthFragmentShader = /* glsl */ `
+export const tonalityVertexShader = /* glsl */ `
+  varying vec2 vUv;
+  varying vec3 vNormal;
+  varying vec3 vPosition;
+  
+  void main() {
+    vUv = uv;
+    vNormal = normalize(normalMatrix * normal);
+    vPosition = position;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+  }
+`;
+
+export const tonalityFragmentShader = /* glsl */ `
   uniform vec3 uBaseColor;
   uniform int uTonalityType;
   varying vec2 vUv;
@@ -89,19 +102,18 @@ export const mouthFragmentShader = /* glsl */ `
     } else if (type == 1) {
       float stripe1 = step(0.2, uv.y) * step(uv.y, 0.3);
       float stripe2 = step(0.7, uv.y) * step(uv.y, 0.8);
-      return 1.0 - max(stripe1, stripe2) * 0.5;
+      return 1.0 - max(stripe1, stripe2) * 0.2;
     } else if (type == 2) {
-      float stripe1 = step(0.15, uv.x) * step(uv.x, 0.25);
-      float stripe2 = step(0.45, uv.x) * step(uv.x, 0.55);
-      float stripe3 = step(0.75, uv.x) * step(uv.x, 0.85);
-      return 1.0 - max(max(stripe1, stripe2), stripe3) * 0.5;
+      float stripe1 = step(0.1, uv.x) * step(uv.x, 0.2);
+      float stripe2 = step(0.4, uv.x) * step(uv.x, 0.8);
+      return 1.0 - max(stripe1, stripe2) * 0.3;
     } else if (type == 3) {
       float result = 1.0;
       for (int i = 0; i < 10; i++) {
         float xStart = 0.05 + float(i) * 0.09;
         float xEnd = xStart + 0.04;
         float stripe = step(xStart, uv.x) * step(uv.x, xEnd);
-        result -= stripe * 0.1;
+        result -= stripe * 0.3;
       }
       return result;
     }
@@ -109,7 +121,6 @@ export const mouthFragmentShader = /* glsl */ `
   }
 
   void main() {
-    // Adjusted light direction for rotated mesh
     vec3 lightDir = normalize(vec3(5.0, -5.0, 5.0));
     float diffuse = max(dot(normalize(vNormal), lightDir), 0.0);
     float ambient = 0.7;

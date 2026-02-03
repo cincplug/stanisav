@@ -21,7 +21,7 @@
     "verticalVariationMultiplier": 0.2,
     "fundamentalAmplifier": 0.7,
     "harmonicsAmplifier": 1.2,
-    "meshSegments": 12,
+    "meshSegments": 24,
     "updateInterval": 16,
     "enableSmoothing": true
   }

@@ -1,16 +1,14 @@
-import { useRef, forwardRef, useImperativeHandle, useMemo } from "react";
+import { useRef, forwardRef, useImperativeHandle } from "react";
 import { extend } from "@react-three/fiber";
-import { Color, DoubleSide } from "three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
-import {
-  cheekVertexShader,
-  plainTextureFragmentShader,
-} from "../../shaders/shader";
 
 extend({ ParametricGeometry });
 
 const MeshaCheek = forwardRef(
-  ({ color1, color2, audioReactiveSurface, segments }, ref) => {
+  (
+    { leftCheekMaterial, rightCheekMaterial, audioReactiveSurface, segments },
+    ref,
+  ) => {
     const mesh1Ref = useRef();
     const mesh2Ref = useRef();
 
@@ -19,18 +17,9 @@ const MeshaCheek = forwardRef(
       mesh2: mesh2Ref.current,
     }));
 
-    const leftCheekUniforms = useMemo(
-      () => ({ uBaseColor: { value: new Color(color1) } }),
-      [color1],
-    );
-    const rightCheekUniforms = useMemo(
-      () => ({ uBaseColor: { value: new Color(color2) } }),
-      [color2],
-    );
-
     return (
       <>
-        {/* Left cheek: color only */}
+        {/* Left cheek */}
         <mesh
           ref={mesh2Ref}
           position={[-0.6, 1, 1]}
@@ -40,20 +29,10 @@ const MeshaCheek = forwardRef(
           <parametricGeometry
             args={[audioReactiveSurface, segments, segments]}
           />
-          <shaderMaterial
-            args={[
-              {
-                uniforms: leftCheekUniforms,
-                vertexShader: cheekVertexShader,
-                fragmentShader: plainTextureFragmentShader,
-                side: DoubleSide,
-                transparent: false,
-              },
-            ]}
-          />
+          <shaderMaterial args={[leftCheekMaterial]} />
         </mesh>
 
-        {/* Right cheek: color only */}
+        {/* Right cheek */}
         <mesh
           ref={mesh1Ref}
           position={[0.6, 1, 1]}
@@ -63,17 +42,7 @@ const MeshaCheek = forwardRef(
           <parametricGeometry
             args={[audioReactiveSurface, segments, segments]}
           />
-          <shaderMaterial
-            args={[
-              {
-                uniforms: rightCheekUniforms,
-                vertexShader: cheekVertexShader,
-                fragmentShader: plainTextureFragmentShader,
-                side: DoubleSide,
-                transparent: false,
-              },
-            ]}
-          />
+          <shaderMaterial args={[rightCheekMaterial]} />
         </mesh>
       </>
     );

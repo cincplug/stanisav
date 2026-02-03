@@ -8,8 +8,10 @@ import linguisticConfig from "../../config/linguisticConfig.json";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useAppState } from "../../contexts/AppStateContext";
 import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
+import { useTonalityMaterial } from "../../hooks/useTonalityMaterial.js";
 import { sortLanguages } from "../../utils/sortingUtils";
 import { shiftHue } from "../../utils/colorUtils";
+import { createAudioReactiveSurface } from "../../utils/audioReactiveSurface.js";
 import MeshaEye from "./MeshaEye.jsx";
 import MeshaCheek from "./MeshaCheek.jsx";
 import MeshaMouth from "./MeshaMouth.jsx";
@@ -79,8 +81,6 @@ const Mesha = ({ languageCode, position, color }) => {
   const morphology = linguisticProperties?.morphology;
   const wordOrderTextureFile = `/textures/${wordOrder.toLowerCase()}.png`;
   const morphologyTextureFile = `/textures/${morphology.toLowerCase()}.png`;
-  const tonalityScore =
-    linguisticConfig.tonality.values[linguisticProperties?.tonality]?.score;
   const evidentialityScore =
     linguisticConfig.evidentiality.values[linguisticProperties?.evidentiality]
       ?.score;
@@ -104,56 +104,15 @@ const Mesha = ({ languageCode, position, color }) => {
     audioData = lastAudioDataRef.current;
   }
 
-  const createAudioReactiveSurface = ({ size, bend, radius }) => {
-    const {
-      maxDeformation,
-      fundamentalAmplifier,
-      harmonicsAmplifier,
-      verticalVariationMultiplier,
-    } = audioVisualizationConfig.meshDeformation;
-
-    const frequencyBands = 32;
-
-    return (u, v, target) => {
-      const z = (u - 0.5) * size;
-
-      const angle = (v - 0.5) * Math.PI * 1.5;
-
-      const x_flat = (v - 0.5) * size;
-      const x_circle = Math.cos(angle) * radius;
-      const x = x_flat + (x_circle - x_flat) * bend;
-
-      const y_base_flat = 2;
-      const y_base_circle = Math.sin(angle) * radius;
-      const y_base = y_base_flat + (y_base_circle - y_base_flat) * bend;
-
-      let y = y_base;
-
-      if (audioData.isActive) {
-        const { fundamentalData, harmonicsData } = audioData;
-        const verticalVariation =
-          Math.sin(v * Math.PI * 3) * verticalVariationMultiplier;
-
-        const uForBand = u > 0.5 ? 1 - u : u;
-        const bandIndex = Math.floor(uForBand * (frequencyBands - 1));
-
-        const fundamentalAmplitude = fundamentalData[bandIndex] || 0;
-        const harmonicsAmplitude = harmonicsData[bandIndex] || 0;
-
-        const balancedFundamental = fundamentalAmplitude * fundamentalAmplifier;
-        const balancedHarmonics = harmonicsAmplitude * harmonicsAmplifier;
-        const totalAmplitude = balancedFundamental + balancedHarmonics;
-
-        y = y_base + totalAmplitude * maxDeformation * size;
-
-        if (u > 0.5) {
-          y *= 1 + verticalVariation;
-        }
-      }
-
-      target.set(x, y, z);
-    };
-  };
+  const leftCheekMaterial = useTonalityMaterial(
+    shiftHue(color, 60),
+    finalLanguageCode,
+  );
+  const rightCheekMaterial = useTonalityMaterial(
+    shiftHue(color, 30),
+    finalLanguageCode,
+  );
+  const mouthMaterial = useTonalityMaterial(mouthColor, finalLanguageCode);
 
   useFrame(({ camera, clock }) => {
     if (groupRef.current) {
@@ -242,13 +201,12 @@ const Mesha = ({ languageCode, position, color }) => {
       <group ref={rotationGroupRef}>
         <MeshaCheek
           ref={meshaCheekRef}
-          color1={shiftHue(color, 60)}
-          color2={shiftHue(color, 30)}
+          leftCheekMaterial={leftCheekMaterial}
+          rightCheekMaterial={rightCheekMaterial}
           labelSize={1}
           audioData={audioData}
-          languageCode={finalLanguageCode}
           audioReactiveSurface={(u, v, target) =>
-            createAudioReactiveSurface({
+            createAudioReactiveSurface(audioData, {
               size: meshaSize * 1,
               bend: 0.8,
               radius: meshaSize,
@@ -283,9 +241,9 @@ const Mesha = ({ languageCode, position, color }) => {
         />
 
         <MeshaMouth
-          color={mouthColor}
+          mouthMaterial={mouthMaterial}
           audioReactiveSurface={(u, v, target) =>
-            createAudioReactiveSurface({
+            createAudioReactiveSurface(audioData, {
               size: meshaSize,
               bend: 0,
               radius: meshaSize / 4,

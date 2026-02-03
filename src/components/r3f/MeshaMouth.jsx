@@ -1,8 +1,6 @@
 import { useRef, useMemo } from "react";
-import { Color } from "three";
 import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
-import { mouthFragmentShader, cheekVertexShader } from "../../shaders/shader";
 import { useAppState } from "../../contexts/AppStateContext";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 
@@ -14,12 +12,10 @@ function toothShape(u, v, target) {
   const topRadius = 0.4;
   const r = baseRadius + (topRadius - baseRadius) * v;
 
-  // Blend shapeFactor: much rounder at top, more square at bottom
   const shapeTop = 0.1;
   const shapeBottom = 0.8;
   const shapeFactor = shapeTop + (shapeBottom - shapeTop) * v;
 
-  // Extra rounding for top corners
   const roundTop = 1 - Math.pow(1 - v, 2);
   const blendFactor = shapeFactor * roundTop + shapeTop * (1 - roundTop);
 
@@ -36,38 +32,9 @@ function toothShape(u, v, target) {
   target.set(x, y, z);
 }
 
-const MeshaMouth = ({
-  color,
-  audioReactiveSurface,
-  segments,
-  languageCode,
-  audioData,
-}) => {
-  const { controls } = useControls(); // <-- use hook as everywhere else
-  const meshaSize = controls.meshaSize;
+export const useMouthMaterial = (color, languageCode) => {
   const { data } = useAppState();
   const linguisticProperties = data?.typologicalFeatures?.[languageCode];
-  const teethRefs = useRef([]);
-
-  const teeth = useMemo(() => {
-    const count = linguisticProperties?.phonemeCount;
-    if (count === 0) return [];
-
-    const radius = meshaSize;
-    const arc = Math.PI * 1.5;
-    const startAngle = Math.PI / 2 - arc / 2;
-    const teethArr = [];
-    for (let i = 0; i < count; i++) {
-      const angle = startAngle + (i / count) * arc;
-      teethArr.push({
-        x: Math.cos(angle) * radius,
-        y: 4 * meshaSize,
-        z: Math.sin(angle) * radius,
-        key: `tooth-${i}`,
-      });
-    }
-    return teethArr;
-  }, [linguisticProperties?.phonemeCount, meshaSize]);
 
   const colorObj = useMemo(() => new Color(color), [color]);
 
@@ -92,6 +59,42 @@ const MeshaMouth = ({
       transparent: false,
     };
   }, [colorObj, tonalityType]);
+
+  return mouthMaterial;
+};
+
+const MeshaMouth = ({
+  mouthMaterial,
+  audioReactiveSurface,
+  segments,
+  languageCode,
+  audioData,
+}) => {
+  const { controls } = useControls();
+  const meshaSize = controls.meshaSize;
+  const { data } = useAppState();
+  const linguisticProperties = data?.typologicalFeatures?.[languageCode];
+  const teethRefs = useRef([]);
+
+  const teeth = useMemo(() => {
+    const count = linguisticProperties?.phonemeCount;
+    if (count === 0) return [];
+
+    const radius = meshaSize;
+    const arc = Math.PI * 1.5;
+    const startAngle = Math.PI / 2 - arc / 2;
+    const teethArr = [];
+    for (let i = 0; i < count; i++) {
+      const angle = startAngle + (i / count) * arc;
+      teethArr.push({
+        x: Math.cos(angle) * radius,
+        y: 4 * meshaSize,
+        z: Math.sin(angle) * radius,
+        key: `tooth-${i}`,
+      });
+    }
+    return teethArr;
+  }, [linguisticProperties?.phonemeCount, meshaSize]);
 
   useFrame(() => {
     if (teethRefs.current && audioData.isActive) {
