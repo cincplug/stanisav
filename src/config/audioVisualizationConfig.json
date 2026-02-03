@@ -16,11 +16,11 @@
   "meshDeformation": {
     "maxDeformation": 1.2,
     "deformationSmoothness": 0.1,
-    "amplitudeThreshold": 0.005,
+    "amplitudeThreshold": 0.01,
     "decayRate": 0.8,
-    "verticalVariationMultiplier": 0.2,
-    "fundamentalAmplifier": 0.7,
-    "harmonicsAmplifier": 1.2,
+    "verticalVariationMultiplier": 0.1,
+    "fundamentalAmplifier": 0.8,
+    "harmonicsAmplifier": 1.4,
     "meshSegments": 24,
     "updateInterval": 16,
     "enableSmoothing": true

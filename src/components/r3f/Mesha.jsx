@@ -32,9 +32,9 @@ const Mesha = ({ languageCode, position, color }) => {
     labelContent,
     sortLanguagesBy,
     isReverse,
-    eyeZPositionMultiplier,
-    eyeXPosition,
-    eyeYOffset,
+    eyeZ,
+    eyeX,
+    eyeY,
     badgeSize,
   } = controls;
   const { data } = useAppState();
@@ -141,7 +141,7 @@ const Mesha = ({ languageCode, position, color }) => {
 
         const maxY1 = geometry1.boundingBox.max.y * mesh1.scale.y;
         const maxY2 = geometry2.boundingBox.max.y * mesh2.scale.y;
-        eyesGroupRef.current.position.y = (maxY1 + maxY2) / 2 + eyeYOffset;
+        eyesGroupRef.current.position.y = (maxY1 + maxY2) / 2 + eyeY;
       }
     }
 
@@ -167,13 +167,13 @@ const Mesha = ({ languageCode, position, color }) => {
   });
 
   const segments = audioVisualizationConfig.meshDeformation.meshSegments;
-  const eyeZ = meshaSize * eyeZPositionMultiplier;
+  const mainZ = meshaSize * eyeZ;
 
   const cases = useMemo(() => {
     const count = linguisticProperties?.caseCount;
     if (!count) return null;
 
-    const spacing = (eyeXPosition * 4) / count;
+    const spacing = (eyeX * 4) / count;
     const totalWidth = spacing * (count - 1);
     const startX = totalWidth / 2;
     const items = [];
@@ -181,12 +181,12 @@ const Mesha = ({ languageCode, position, color }) => {
       items.push({
         x: startX - i * spacing,
         y: 1 / 2,
-        z: eyeZ,
+        z: mainZ,
         key: `case-${i}`,
       });
     }
     return items;
-  }, [linguisticProperties?.caseCount, eyeXPosition, eyeZ]);
+  }, [linguisticProperties?.caseCount, eyeX, mainZ]);
 
   let meshaYRotation = 0;
   if (rotationGroupRef.current) {
@@ -215,14 +215,14 @@ const Mesha = ({ languageCode, position, color }) => {
           segments={segments}
         />
 
-        <group ref={eyesGroupRef} position={[0, 1, eyeZ]}>
+        <group ref={eyesGroupRef} position={[0, 1, mainZ]}>
           <MeshaEye
-            position={[-eyeXPosition, 0, 0]}
+            position={[-eyeX, 0, 0]}
             color={shiftHue(color, -10)}
             scale={leftEyeSize}
           />
           <MeshaEye
-            position={[eyeXPosition, 0, 0]}
+            position={[eyeX, 0, 0]}
             color={shiftHue(color, 10)}
             scale={rightEyeSize}
           />

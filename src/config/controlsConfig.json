@@ -254,9 +254,9 @@
     "isUserEditable": true,
     "group": "Mesha"
   },
-  "eyeXPosition": {
+  "eyeX": {
     "type": "range",
-    "label": "Eye X position",
+    "label": "Eye X",
     "min": 0,
     "max": 3,
     "step": 0.1,
@@ -264,9 +264,9 @@
     "isUserEditable": true,
     "group": "Mesha"
   },
-  "eyeYOffset": {
+  "eyeY": {
     "type": "range",
-    "label": "Eye Y offset",
+    "label": "Eye Y",
     "min": -2,
     "max": 2,
     "step": 0.1,
@@ -274,9 +274,9 @@
     "isUserEditable": true,
     "group": "Mesha"
   },
-  "eyeZPositionMultiplier": {
+  "eyeZ": {
     "type": "range",
-    "label": "Eye Z position",
+    "label": "Eye Z",
     "min": 0.5,
     "max": 3,
     "step": 0.1,
@@ -291,7 +291,7 @@
     "max": 1,
     "step": 0.05,
     "defaultValue": 0.5,
-    "isUserEditable": true,
+    "isUserEditable": false,
     "group": "Mesha"
   },
   "pupilZPositionMultiplier": {
@@ -301,7 +301,7 @@
     "max": 1.5,
     "step": 0.05,
     "defaultValue": 0.8,
-    "isUserEditable": true,
+    "isUserEditable": false,
     "group": "Mesha"
   },
   "badgeSize": {
@@ -310,7 +310,7 @@
     "min": 0.8,
     "max": 2.5,
     "step": 0.1,
-    "defaultValue": 0.8,
+    "defaultValue": 1,
     "isUserEditable": true,
     "group": "Mesha"
   }
