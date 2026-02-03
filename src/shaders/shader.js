@@ -102,18 +102,18 @@ export const tonalityFragmentShader = /* glsl */ `
     } else if (type == 1) {
       float stripe1 = step(0.2, uv.y) * step(uv.y, 0.3);
       float stripe2 = step(0.7, uv.y) * step(uv.y, 0.8);
-      return 1.0 - max(stripe1, stripe2) * 0.2;
+      return 1.0 - max(stripe1, stripe2) * 0.3;
     } else if (type == 2) {
       float stripe1 = step(0.1, uv.x) * step(uv.x, 0.2);
       float stripe2 = step(0.4, uv.x) * step(uv.x, 0.8);
-      return 1.0 - max(stripe1, stripe2) * 0.3;
+      return 1.0 - max(stripe1, stripe2) * 0.4;
     } else if (type == 3) {
       float result = 1.0;
       for (int i = 0; i < 10; i++) {
-        float xStart = 0.05 + float(i) * 0.09;
+        float xStart = 0.05 + float(i) * 0.1;
         float xEnd = xStart + 0.04;
         float stripe = step(xStart, uv.x) * step(uv.x, xEnd);
-        result -= stripe * 0.3;
+        result -= stripe * 0.4;
       }
       return result;
     }

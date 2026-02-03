@@ -15,7 +15,6 @@ import { createAudioReactiveSurface } from "../../utils/audioReactiveSurface.js"
 import MeshaEye from "./MeshaEye.jsx";
 import MeshaCheek from "./MeshaCheek.jsx";
 import MeshaMouth from "./MeshaMouth.jsx";
-import MeshaBadge from "./MeshaBadge.jsx";
 
 extend({ ParametricGeometry });
 
@@ -35,7 +34,6 @@ const Mesha = ({ languageCode, position, color }) => {
     eyeZ,
     eyeX,
     eyeY,
-    badgeSize,
   } = controls;
   const { data } = useAppState();
   const { languageData, languageGroups, speakerData, typologicalFeatures } =
@@ -73,14 +71,15 @@ const Mesha = ({ languageCode, position, color }) => {
     ? data?.typologicalFeatures?.[finalLanguageCode]
     : undefined;
 
-  const wordOrder = linguisticProperties?.wordOrder;
-  const wordOrderFlexibility =
+  const wordOrderScore =
+    linguisticConfig.wordOrder.values[linguisticProperties?.wordOrder]?.score;
+  const wordOrderFlexibilityScore =
     linguisticConfig.wordOrderFlexibility.values[
       linguisticProperties?.wordOrderFlexibility
     ]?.score;
-  const morphology = linguisticProperties?.morphology;
-  const wordOrderTextureFile = `/textures/${wordOrder.toLowerCase()}.png`;
-  const morphologyTextureFile = `/textures/${morphology.toLowerCase()}.png`;
+  const morphologyScore =
+    linguisticConfig.evidentiality.values[linguisticProperties?.evidentiality]
+      ?.score;
   const evidentialityScore =
     linguisticConfig.evidentiality.values[linguisticProperties?.evidentiality]
       ?.score;
@@ -192,7 +191,6 @@ const Mesha = ({ languageCode, position, color }) => {
   if (rotationGroupRef.current) {
     meshaYRotation = rotationGroupRef.current.rotation.y;
   }
-  const badgeYRotation = meshaYRotation * wordOrderFlexibility;
   const leftEyeSize = Array(3).fill(1 + evidentialityScore / 10);
   const rightEyeSize = Array(3).fill(1 + verbAspectScore / 8);
 
@@ -208,22 +206,23 @@ const Mesha = ({ languageCode, position, color }) => {
           audioReactiveSurface={(u, v, target) =>
             createAudioReactiveSurface(audioData, {
               size: meshaSize,
-              bend: wordOrderFlexibility / 3,
+              bend: wordOrderFlexibilityScore / 4,
               radius: meshaSize,
             })(u, v, target)
           }
-          segments={segments}
+          leftSegments={morphologyScore * 3}
+          rightSegments={wordOrderScore * 4}
         />
 
         <group ref={eyesGroupRef} position={[0, 1, mainZ]}>
           <MeshaEye
             position={[-eyeX, 0, 0]}
-            color={shiftHue(color, -10)}
+            color={shiftHue(color, -20)}
             scale={leftEyeSize}
           />
           <MeshaEye
             position={[eyeX, 0, 0]}
-            color={shiftHue(color, 10)}
+            color={shiftHue(color, 20)}
             scale={rightEyeSize}
           />
         </group>
@@ -234,7 +233,7 @@ const Mesha = ({ languageCode, position, color }) => {
             createAudioReactiveSurface(audioData, {
               size: meshaSize,
               bend: 0,
-              radius: meshaSize / 4,
+              radius: meshaSize,
             })(u, v, target)
           }
           segments={segments}

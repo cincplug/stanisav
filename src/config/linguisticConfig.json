@@ -74,19 +74,23 @@
     "values": {
       "SVO": {
         "label": "SVO",
-        "description": "Subject-Verb-Object"
+        "description": "Subject-Verb-Object",
+        "score": 1
       },
       "SOV": {
         "label": "SOV",
-        "description": "Subject-Object-Verb"
+        "description": "Subject-Object-Verb",
+        "score": 2
       },
       "VSO": {
         "label": "VSO",
-        "description": "Verb-Subject-Object"
+        "description": "Verb-Subject-Object",
+        "score": 3
       },
       "VOS": {
         "label": "VOS",
-        "description": "Verb-Object-Subject"
+        "description": "Verb-Object-Subject",
+        "score": 4
       }
     }
   },

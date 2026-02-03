@@ -6,7 +6,13 @@ extend({ ParametricGeometry });
 
 const MeshaCheek = forwardRef(
   (
-    { leftCheekMaterial, rightCheekMaterial, audioReactiveSurface, segments },
+    {
+      leftCheekMaterial,
+      rightCheekMaterial,
+      audioReactiveSurface,
+      leftSegments,
+      rightSegments,
+    },
     ref,
   ) => {
     const mesh1Ref = useRef();
@@ -27,7 +33,7 @@ const MeshaCheek = forwardRef(
           rotation={[0, -1 / 20, 0]}
         >
           <parametricGeometry
-            args={[audioReactiveSurface, segments, segments]}
+            args={[audioReactiveSurface, leftSegments, leftSegments]}
           />
           <shaderMaterial args={[leftCheekMaterial]} />
         </mesh>
@@ -40,7 +46,7 @@ const MeshaCheek = forwardRef(
           rotation={[0, 1 / 20, 0]}
         >
           <parametricGeometry
-            args={[audioReactiveSurface, segments, segments]}
+            args={[audioReactiveSurface, rightSegments, rightSegments]}
           />
           <shaderMaterial args={[rightCheekMaterial]} />
         </mesh>
