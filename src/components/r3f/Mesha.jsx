@@ -207,8 +207,8 @@ const Mesha = ({ languageCode, position, color }) => {
           audioData={audioData}
           audioReactiveSurface={(u, v, target) =>
             createAudioReactiveSurface(audioData, {
-              size: meshaSize * 1,
-              bend: 0.8,
+              size: meshaSize,
+              bend: wordOrderFlexibility / 3,
               radius: meshaSize,
             })(u, v, target)
           }
@@ -227,18 +227,6 @@ const Mesha = ({ languageCode, position, color }) => {
             scale={rightEyeSize}
           />
         </group>
-        <MeshaBadge
-          textureFile={morphologyTextureFile}
-          position={[0, 1, 1.7]}
-          scale={[badgeSize, badgeSize, 1]}
-        />
-
-        <MeshaBadge
-          textureFile={wordOrderTextureFile}
-          position={[0, 0.5, 1.8]}
-          scale={[badgeSize, badgeSize, 1]}
-          rotation={[0, badgeYRotation, 0]}
-        />
 
         <MeshaMouth
           mouthMaterial={mouthMaterial}
