@@ -3,7 +3,6 @@ import { OrbitControls } from "@react-three/drei";
 import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { useCameraUpdater } from "../../hooks/useCameraUpdater";
-import { usePreloadBadgeTextures } from "../../hooks/usePreloadBadgeTextures";
 import StageLight from "./StageLight";
 import Languages from "./Languages";
 
@@ -29,8 +28,6 @@ const Stage = ({
   const { selectedLanguage } = useLanguageSelection();
 
   const ambientLightModifier = selectedLanguage ? 0.7 : 1.2;
-
-  usePreloadBadgeTextures();
 
   const CameraUpdaterNode = () => {
     useCameraUpdater({ controls });
