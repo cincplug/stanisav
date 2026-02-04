@@ -187,10 +187,6 @@ const Mesha = ({ languageCode, position, color }) => {
     return items;
   }, [linguisticProperties?.caseCount, eyeX, mainZ]);
 
-  let meshaYRotation = 0;
-  if (rotationGroupRef.current) {
-    meshaYRotation = rotationGroupRef.current.rotation.y;
-  }
   const leftEyeSize = Array(3).fill(1 + evidentialityScore / 10);
   const rightEyeSize = Array(3).fill(1 + verbAspectScore / 8);
 
@@ -217,12 +213,12 @@ const Mesha = ({ languageCode, position, color }) => {
         <group ref={eyesGroupRef} position={[0, 1, mainZ]}>
           <MeshaEye
             position={[-eyeX, 0, 0]}
-            color={shiftHue(color, -20)}
+            color={color}
             scale={leftEyeSize}
           />
           <MeshaEye
             position={[eyeX, 0, 0]}
-            color={shiftHue(color, 20)}
+            color={color}
             scale={rightEyeSize}
           />
         </group>
