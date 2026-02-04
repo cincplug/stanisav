@@ -12,3 +12,10 @@
 .app-container.loading .r3f-canvas {
   visibility: hidden;
 }
+
+.show-video {
+  position: fixed;
+  left: var(--gap-double);
+  bottom: var(--gap-double);
+  width: var(--video-width);
+}
