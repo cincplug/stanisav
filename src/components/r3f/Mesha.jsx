@@ -71,8 +71,7 @@ const Mesha = ({ languageCode, position, color }) => {
     ? data?.typologicalFeatures?.[finalLanguageCode]
     : undefined;
 
-  const wordOrderScore =
-    linguisticConfig.wordOrder.values[linguisticProperties?.wordOrder]?.score;
+  const wordOrder = linguisticProperties.wordOrder;
   const wordOrderFlexibilityScore =
     linguisticConfig.wordOrderFlexibility.values[
       linguisticProperties?.wordOrderFlexibility
@@ -202,12 +201,12 @@ const Mesha = ({ languageCode, position, color }) => {
           audioReactiveSurface={(u, v, target) =>
             createAudioReactiveSurface(audioData, {
               size: meshaSize,
-              bend: wordOrderFlexibilityScore / 4,
+              bend: 0.4,
               radius: meshaSize,
             })(u, v, target)
           }
           leftSegments={morphologyScore * 3}
-          rightSegments={wordOrderScore * 4}
+          rightSegments={wordOrderFlexibilityScore * 4}
         />
 
         <group ref={eyesGroupRef} position={[0, 1, mainZ]}>
@@ -215,11 +214,13 @@ const Mesha = ({ languageCode, position, color }) => {
             position={[-eyeX, 0, 0]}
             color={color}
             scale={leftEyeSize}
+            wordOrder={wordOrder}
           />
           <MeshaEye
             position={[eyeX, 0, 0]}
             color={color}
             scale={rightEyeSize}
+            wordOrder={wordOrder}
           />
         </group>
 
