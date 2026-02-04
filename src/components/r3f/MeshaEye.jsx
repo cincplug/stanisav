@@ -13,11 +13,11 @@ const MeshaEye = ({ position, color, scale, wordOrder }) => {
     }
   });
 
-  const eyeSize = labelSize * controls.eyeSizeMultiplier;
-  const irisSize = eyeSize * controls.irisSizeMultiplier;
-  const pupilSize = eyeSize * controls.pupilSizeMultiplier;
-  const irisZ = eyeSize * controls.irisZPositionMultiplier;
-  const pupilZ = eyeSize * controls.pupilZPositionMultiplier;
+  const eyeSize = labelSize * controls.eyeSize;
+  const irisSize = eyeSize * controls.irisSize;
+  const pupilSize = eyeSize * controls.pupilSize;
+  const irisZ = eyeSize * controls.irisZ;
+  const pupilZ = eyeSize * controls.pupilZ;
 
   const colorMap = {
     V: color,
