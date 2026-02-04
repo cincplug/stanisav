@@ -70,35 +70,23 @@ const Languages = ({
     return null;
   }
 
-  // Mesha logic (optional, can be simplified as needed)
-  let meshaProps = {};
-  if (selectedLanguage && formattedPositions[selectedLanguage]) {
-    const { x, y, z } = formattedPositions[selectedLanguage];
-    const groupKey =
-      data.languageData[selectedLanguage]?.group ||
-      data.languageGroups?.[selectedLanguage];
-    const color = groupColors?.[groupKey];
-    meshaProps = {
-      languageCode: selectedLanguage,
-      position: [x, y, z],
-      color,
-    };
-  } else {
-    const firstLang = sortedLanguageCodes[0];
-    const z = controls.sphereRadius;
-    const groupKey =
-      data.languageData[firstLang]?.group || data.languageGroups?.[firstLang];
-    const color = groupColors?.[groupKey];
-    meshaProps = {
-      languageCode: firstLang,
-      position: [-z, 0, z],
-      color,
-    };
-  }
+  const meshaLanguageCode = selectedLanguage || sortedLanguageCodes[0];
+  const meshaPosition = selectedLanguage
+    ? formattedPositions[selectedLanguage]
+    : { x: -controls.sphereRadius, y: 0, z: controls.sphereRadius };
+
+  const meshaGroupKey =
+    data.languageData[meshaLanguageCode]?.group ||
+    data.languageGroups?.[meshaLanguageCode];
+  const meshaColor = groupColors?.[meshaGroupKey];
 
   return (
     <group>
-      <Mesha {...meshaProps} />
+      <Mesha
+        languageCode={meshaLanguageCode}
+        position={[meshaPosition.x, meshaPosition.y, meshaPosition.z]}
+        color={meshaColor}
+      />
       {!showEmptyMessage &&
         sortedLanguageCodes.map((langCode, idx) => {
           const position = formattedPositions[langCode];

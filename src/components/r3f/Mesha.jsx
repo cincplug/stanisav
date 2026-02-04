@@ -4,14 +4,13 @@ import { a, useSpring } from "@react-spring/three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
 import { defaultAudioData } from "../../config/meshaDefaultAudioData.js";
-import linguisticConfig from "../../config/linguisticConfig.json";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useAppState } from "../../contexts/AppStateContext";
 import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
 import { useTonalityMaterial } from "../../hooks/useTonalityMaterial.js";
-import { sortLanguages } from "../../utils/sortingUtils";
 import { shiftHue } from "../../utils/colorUtils";
 import { createAudioReactiveSurface } from "../../utils/audioReactiveSurface.js";
+import { getFeatureScoreList } from "../../utils/linguisticUtils.js";
 import MeshaEye from "./MeshaEye.jsx";
 import MeshaCheek from "./MeshaCheek.jsx";
 import MeshaMouth from "./MeshaMouth.jsx";
@@ -25,77 +24,37 @@ const Mesha = ({ languageCode, position, color }) => {
   const meshaCheekRef = useRef();
   const casesRef = useRef([]);
   const { controls } = useControls();
-  const {
-    meshaSize,
-    sphereRadius,
-    labelContent,
-    sortLanguagesBy,
-    isReverse,
-    eyeZ,
-    eyeX,
-    eyeY,
-  } = controls;
+  const { meshaSize, eyeZ, eyeX, eyeY } = controls;
   const { data } = useAppState();
-  const { languageData, languageGroups, speakerData, typologicalFeatures } =
-    data || {};
-
-  let finalLanguageCode = languageCode;
-  let finalPosition = position;
-
-  if (!finalLanguageCode) {
-    const allLanguages = Object.keys(languageData);
-    const sorted = sortLanguages({
-      allLanguages: [...allLanguages],
-      languageData,
-      languageGroups,
-      speakerData,
-      typologicalFeatures,
-      sortLanguagesBy,
-      labelContent,
-      isReverse,
-    });
-    finalLanguageCode = sorted[0];
-    let z = sphereRadius;
-    finalPosition = [-z, 0, z];
-  }
+  const { languageData, typologicalFeatures } = data;
 
   const spring = useSpring({
-    position: finalPosition,
+    position,
     scale: [meshaSize, meshaSize, meshaSize],
     config: { mass: 1, tension: 120, friction: 20 },
   });
 
   const mouthColor = shiftHue(color, 10);
 
-  const linguisticProperties = finalLanguageCode
-    ? data?.typologicalFeatures?.[finalLanguageCode]
+  const linguisticProperties = languageData?.[languageCode]
+    ? typologicalFeatures?.[languageCode]
     : undefined;
 
-  const wordOrder = linguisticProperties.wordOrder;
-  const wordOrderFlexibilityScore =
-    linguisticConfig.wordOrderFlexibility.values[
-      linguisticProperties?.wordOrderFlexibility
-    ]?.score;
-  const morphologyScore =
-    linguisticConfig.evidentiality.values[linguisticProperties?.evidentiality]
-      ?.score;
-  const evidentialityScore =
-    linguisticConfig.evidentiality.values[linguisticProperties?.evidentiality]
-      ?.score;
-  const verbAspectScore =
-    linguisticConfig.verbAspect.values[linguisticProperties?.verbAspect]?.score;
+  const wordOrder = linguisticProperties?.wordOrder;
+
+  const scores = getFeatureScoreList(linguisticProperties, [
+    "wordOrderFlexibility",
+    "morphology",
+    "evidentiality",
+    "verbAspect",
+  ]);
 
   const lastAudioDataRef = useRef(defaultAudioData);
 
   const { audioData: rawAudioData } = useAudioAnimation();
 
-  const isInitialState = !languageCode;
-
   let audioData;
-  if (isInitialState) {
-    audioData = defaultAudioData;
-    lastAudioDataRef.current = defaultAudioData;
-  } else if (rawAudioData.isActive) {
+  if (rawAudioData.isActive) {
     audioData = rawAudioData;
     lastAudioDataRef.current = rawAudioData;
   } else {
@@ -104,13 +63,13 @@ const Mesha = ({ languageCode, position, color }) => {
 
   const leftCheekMaterial = useTonalityMaterial(
     shiftHue(color, 60),
-    finalLanguageCode,
+    languageCode,
   );
   const rightCheekMaterial = useTonalityMaterial(
     shiftHue(color, 30),
-    finalLanguageCode,
+    languageCode,
   );
-  const mouthMaterial = useTonalityMaterial(mouthColor, finalLanguageCode);
+  const mouthMaterial = useTonalityMaterial(mouthColor, languageCode);
 
   useFrame(({ camera, clock }) => {
     if (groupRef.current) {
@@ -186,8 +145,8 @@ const Mesha = ({ languageCode, position, color }) => {
     return items;
   }, [linguisticProperties?.caseCount, eyeX, mainZ]);
 
-  const leftEyeSize = Array(3).fill(1 + evidentialityScore / 10);
-  const rightEyeSize = Array(3).fill(1 + verbAspectScore / 8);
+  const leftEyeSize = Array(3).fill(1 + (scores.evidentiality ?? 0) / 10);
+  const rightEyeSize = Array(3).fill(1 + (scores.verbAspect ?? 0) / 8);
 
   return (
     <a.group ref={groupRef} position={spring.position} scale={spring.scale}>
@@ -205,8 +164,8 @@ const Mesha = ({ languageCode, position, color }) => {
               radius: meshaSize,
             })(u, v, target)
           }
-          leftSegments={morphologyScore * 3}
-          rightSegments={wordOrderFlexibilityScore * 4}
+          leftSegments={(scores.morphology ?? 0) * 3}
+          rightSegments={(scores.wordOrderFlexibility ?? 0) * 4}
         />
 
         <group ref={eyesGroupRef} position={[0, 1, mainZ]}>
@@ -234,7 +193,7 @@ const Mesha = ({ languageCode, position, color }) => {
             })(u, v, target)
           }
           segments={segments}
-          languageCode={finalLanguageCode}
+          languageCode={languageCode}
           audioData={audioData}
         />
         {cases &&

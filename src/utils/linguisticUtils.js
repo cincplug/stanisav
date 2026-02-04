@@ -47,6 +47,14 @@ export const getFeatureScore = (feature, value) => {
   return featureConfig.values[value].score;
 };
 
+// Get multiple feature scores from linguistic properties
+export const getFeatureScoreList = (linguisticProperties, features) => {
+  return features.reduce((scores, feature) => {
+    scores[feature] = getFeatureScore(feature, linguisticProperties?.[feature]);
+    return scores;
+  }, {});
+};
+
 // Get feature name from config
 export const getFeatureName = (feature) => {
   const featureConfig = linguisticConfig[feature];
