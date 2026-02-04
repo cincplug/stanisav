@@ -36,9 +36,7 @@ const Stage = ({
 
   return (
     <Canvas
-      className={`r3f-canvas ${
-        isMenuCollapsed ? "menu-collapsed" : "menu-expanded"
-      }`}
+      className={`${isMenuCollapsed ? "menu-collapsed" : "menu-expanded"}`}
       camera={{
         position: [positionX, positionY, positionZ],
         fov,

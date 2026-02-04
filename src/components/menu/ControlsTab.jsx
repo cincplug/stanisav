@@ -1,6 +1,7 @@
 import { useControls } from "../../contexts/ControlsContext";
 import controlsConfig from "../../config/controlsConfig.json";
 import ControlItem from "./ControlItem";
+import "./ControlsTab.css";
 
 const getControlsByGroup = (groupName) =>
   Object.entries(controlsConfig)

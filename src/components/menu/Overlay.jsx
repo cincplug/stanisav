@@ -1,3 +1,5 @@
+import "./Overlay.css";
+
 const LoadingOverlay = ({ variant = "loading" }) => {
   const isLoading = variant === "loading";
   const isEmptyFilter = variant === "emptyFilter";

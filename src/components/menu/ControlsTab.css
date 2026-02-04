@@ -1,0 +1,41 @@
+.control-section {
+  h3 {
+    margin: var(--gap) 0;
+    color: var(--color-text);
+    padding-bottom: 5px;
+  }
+}
+
+.control-item {
+  margin-bottom: 10px;
+
+  label {
+    display: flex;
+    margin-bottom: 5px;
+    font-weight: normal;
+    color: var(--color-text);
+  }
+}
+
+/* Control item variants */
+.control-item.range-control label {
+  justify-content: space-between;
+}
+
+.control-item.checkbox-control label {
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+}
+
+.controls-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-double);
+}
+
+.controls-grid-colors {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: var(--gap);
+}

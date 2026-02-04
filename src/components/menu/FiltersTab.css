@@ -13,3 +13,16 @@
 .tab-title {
   font-weight: bold;
 }
+
+.filter-group {
+  margin-bottom: 15px;
+  border: none;
+  padding: 0;
+}
+
+.filter-group-title {
+  font-weight: normal;
+  margin: 0 0 8px;
+  color: var(--color-text);
+  padding: 0;
+}

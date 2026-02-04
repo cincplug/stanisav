@@ -46,7 +46,6 @@
   padding: 0;
 }
 
-/* Ensure React app takes full viewport */
 html,
 body {
   margin: 0;
@@ -58,7 +57,10 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-/* Ensure form elements inherit font */
+a {
+  color: var(--color-highlight);
+}
+
 button,
 input,
 select,
@@ -89,145 +91,6 @@ select,
   }
 }
 
-/* App container styles */
-.app-container {
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  background-color: #000000;
-}
-
-.app-container.loading {
-  background-color: #000000;
-}
-
-.app-container.loading .r3f-canvas {
-  visibility: hidden;
-}
-
-/* React Three Fiber canvas styles */
-.r3f-canvas {
-  width: 100%;
-  height: 100%;
-}
-
-.r3f-canvas.menu-collapsed {
-  margin-right: 0;
-  width: 100%;
-}
-
-.r3f-canvas.menu-expanded {
-  margin-right: var(--panel-width);
-  width: calc(100% - var(--panel-width));
-}
-
-/* Loading overlay styles */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgb(0 0 0 / 80%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text);
-  font-size: var(--font-size-big);
-}
-
-.loading-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.loading-spinner {
-  width: 3rem;
-  height: 3rem;
-  animation: loading-rotate 2s linear infinite;
-}
-
-.loading-circle {
-  animation: loading-dash 1.5s ease-in-out infinite;
-}
-
-.loading-text {
-  text-align: center;
-}
-
-@keyframes loading-rotate {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes loading-dash {
-  0% {
-    stroke-dasharray: 1, 150;
-    stroke-dashoffset: 0;
-  }
-
-  50% {
-    stroke-dasharray: 90, 150;
-    stroke-dashoffset: -35;
-  }
-
-  100% {
-    stroke-dasharray: 90, 150;
-    stroke-dashoffset: -124;
-  }
-}
-
-/* Control panel styles for React components */
-.menu {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: var(--panel-width);
-  height: 100vh;
-  z-index: 1000;
-  background-color: var(--color-menu-background);
-  border-left: 1px solid var(--color-interactive);
-  padding: var(--gap-double);
-  color: var(--color-text);
-  font-size: var(--font-size-normal);
-  overflow-y: auto;
-  overflow-x: hidden;
-  box-sizing: border-box;
-}
-
-.control-section {
-  h3 {
-    margin: var(--gap) 0;
-    color: var(--color-text);
-    padding-bottom: 5px;
-  }
-}
-
-.control-item {
-  margin-bottom: 10px;
-
-  label {
-    display: flex;
-    margin-bottom: 5px;
-    font-weight: normal;
-    color: var(--color-text);
-  }
-}
-
-/* Control item variants */
-.control-item.range-control label {
-  justify-content: space-between;
-}
-
-.control-item.checkbox-control label {
-  justify-content: flex-start;
-  align-items: center;
-  gap: 8px;
-}
-
 input[type="range"] {
   width: 100%;
   margin-bottom: 5px;
@@ -255,19 +118,6 @@ legend {
   margin: 0 0 var(--gap) -2px;
 }
 
-.controls-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--gap);
-}
-
-.controls-grid-colors {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: var(--gap);
-}
-
-/* Shared close button styles */
 .close-button {
   position: absolute;
   top: var(--gap);
@@ -291,38 +141,6 @@ legend {
   height: 24px;
 }
 
-/* Search input focus styles - browser default focus is used */
-
-/* Control panel header */
-.menu-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.menu-title {
-  margin: 0;
-}
-
-/* Remaining styles after component extraction */
-.linguistic-filters {
-  border: none;
-}
-
-.filter-group {
-  margin-bottom: 15px;
-  border: none;
-  padding: 0;
-}
-
-.filter-group-title {
-  font-weight: normal;
-  margin: 0 0 8px;
-  color: var(--color-text);
-  padding: 0;
-}
-
 .checkbox-button-group {
   display: flex;
   flex-wrap: wrap;
@@ -343,30 +161,6 @@ legend {
   font-weight: normal;
   position: relative;
   text-transform: capitalize;
-}
-
-.search-no-results {
-  padding: 20px;
-  text-align: center;
-  color: var(--color-text);
-}
-
-/* Navigation tab */
-.navigation-content {
-  max-height: 500px;
-  overflow-y: auto;
-}
-
-.language-count-info {
-  color: var(--color-text);
-  padding: 5px 10px;
-}
-
-.show-video {
-  position: fixed;
-  left: var(--gap-double);
-  bottom: var(--gap-double);
-  width: var(--video-width);
 }
 
 .text-dark {
