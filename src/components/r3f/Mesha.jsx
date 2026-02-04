@@ -160,12 +160,12 @@ const Mesha = ({ languageCode, position, color }) => {
           audioReactiveSurface={(u, v, target) =>
             createAudioReactiveSurface(audioData, {
               size: meshaSize,
-              bend: 0.4,
+              bend: scores.morphology / 3,
               radius: meshaSize,
             })(u, v, target)
           }
-          leftSegments={(scores.morphology ?? 0) * 3}
-          rightSegments={(scores.wordOrderFlexibility ?? 0) * 4}
+          leftSegments={14 - scores.morphology}
+          rightSegments={2 + scores.morphology}
         />
 
         <group ref={eyesGroupRef} position={[0, 1, mainZ]}>
