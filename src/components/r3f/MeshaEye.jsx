@@ -2,7 +2,13 @@ import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 
-const MeshaEye = ({ position, color, scale, wordOrder }) => {
+const MeshaEye = ({
+  position,
+  color,
+  scale,
+  wordOrder,
+  wordOrderFlexibility,
+}) => {
   const groupRef = useRef();
   const { controls } = useControls();
   const { labelSize } = controls;
@@ -29,18 +35,24 @@ const MeshaEye = ({ position, color, scale, wordOrder }) => {
   const irisColor = colorMap[wordOrder[1]];
   const pupilColor = colorMap[wordOrder[2]];
 
+  const segments = 12;
+
   return (
     <group ref={groupRef} position={position} scale={scale}>
       <mesh>
-        <sphereGeometry args={[eyeSize, 32, 32]} />
+        <sphereGeometry args={[eyeSize, segments, segments]} />
         <meshStandardMaterial color={whiteColor} />
       </mesh>
-      <mesh position={[0, 0, irisZ]}>
-        <sphereGeometry args={[irisSize, 32, 32]} />
+      <mesh
+        position={[wordOrderFlexibility / 30 + position[0] / 120, 0, irisZ]}
+      >
+        <sphereGeometry args={[irisSize, segments, segments]} />
         <meshStandardMaterial color={irisColor} />
       </mesh>
-      <mesh position={[0, 0, pupilZ]}>
-        <sphereGeometry args={[pupilSize, 32, 32]} />
+      <mesh
+        position={[wordOrderFlexibility / 60 - position[0] / 90, 0, pupilZ]}
+      >
+        <sphereGeometry args={[pupilSize, segments, segments]} />
         <meshStandardMaterial color={pupilColor} />
       </mesh>
     </group>

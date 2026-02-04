@@ -174,12 +174,14 @@ const Mesha = ({ languageCode, position, color }) => {
             color={color}
             scale={leftEyeSize}
             wordOrder={wordOrder}
+            wordOrderFlexibility={scores.wordOrderFlexibility}
           />
           <MeshaEye
             position={[eyeX, 0, 0]}
             color={color}
             scale={rightEyeSize}
             wordOrder={wordOrder}
+            wordOrderFlexibility={scores.wordOrderFlexibility}
           />
         </group>
 

@@ -55,7 +55,7 @@
       "rigid": {
         "label": "Rigid",
         "description": "Words have fixed grammatical positions.",
-        "score": 1
+        "score": 0
       },
       "semi-flexible": {
         "label": "Semi-flexible",
