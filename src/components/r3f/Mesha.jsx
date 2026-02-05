@@ -23,6 +23,7 @@ const Mesha = ({ languageCode, position, color }) => {
   const eyesGroupRef = useRef();
   const meshaCheekRef = useRef();
   const casesRef = useRef([]);
+  const meshaRotationRef = useRef(0);
   const { controls } = useControls();
   const { meshaSize, eyeZ, eyeX, eyeY } = controls;
   const { data } = useAppState();
@@ -78,8 +79,9 @@ const Mesha = ({ languageCode, position, color }) => {
 
     if (rotationGroupRef.current) {
       const time = clock.getElapsedTime();
-      rotationGroupRef.current.rotation.y =
-        Math.sin(time * 0.3) * (Math.PI / 6);
+      const rotation = Math.sin(time * 0.3) * (Math.PI / 6);
+      rotationGroupRef.current.rotation.y = rotation;
+      meshaRotationRef.current = rotation;
     }
 
     if (
@@ -174,16 +176,17 @@ const Mesha = ({ languageCode, position, color }) => {
             color={color}
             scale={leftEyeSize}
             wordOrder={wordOrder}
-            wordOrderFlexibility={scores.wordOrderFlexibility}
-            r={rotationGroupRef.current.rotation.y}
+            wordOrderFlexibilityScore={scores.wordOrderFlexibility}
+            meshaRotationRef={meshaRotationRef}
           />
           <MeshaEye
             position={[eyeX, 0, 0]}
             color={color}
             scale={rightEyeSize}
             wordOrder={wordOrder}
-            wordOrderFlexibility={scores.wordOrderFlexibility}
-            r={-rotationGroupRef.current.rotation.y}
+            wordOrderFlexibilityScore={scores.wordOrderFlexibility}
+            meshaRotationRef={meshaRotationRef}
+            invertRotation
           />
         </group>
 

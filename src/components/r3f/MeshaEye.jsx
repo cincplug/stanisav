@@ -7,16 +7,27 @@ const MeshaEye = ({
   color,
   scale,
   wordOrder,
-  wordOrderFlexibility,
-  r,
+  wordOrderFlexibilityScore,
+  meshaRotationRef,
+  invertRotation = false,
 }) => {
   const groupRef = useRef();
+  const irisRef = useRef();
+  const pupilRef = useRef();
   const { controls } = useControls();
   const { labelSize } = controls;
 
-  useFrame(({ camera }) => {
-    if (groupRef.current) {
-      groupRef.current.lookAt(camera.position);
+  useFrame(() => {
+    const rotation = invertRotation
+      ? -meshaRotationRef.current
+      : meshaRotationRef.current;
+    const xOffset = (wordOrderFlexibilityScore * rotation) / 5;
+
+    if (irisRef.current) {
+      irisRef.current.position.x = xOffset;
+    }
+    if (pupilRef.current) {
+      pupilRef.current.position.x = xOffset;
     }
   });
 
@@ -28,8 +39,8 @@ const MeshaEye = ({
 
   const colorMap = {
     V: color,
-    O: "#000000",
-    S: "#ffffff",
+    O: "#454545",
+    S: "#ffddcc",
   };
 
   const whiteColor = colorMap[wordOrder[0]];
@@ -44,11 +55,11 @@ const MeshaEye = ({
         <sphereGeometry args={[eyeSize, segments, segments]} />
         <meshStandardMaterial color={whiteColor} />
       </mesh>
-      <mesh position={[(wordOrderFlexibility * r) / 5, 0, irisZ]}>
+      <mesh ref={irisRef} position={[0, 0, irisZ]}>
         <sphereGeometry args={[irisSize, segments, segments]} />
         <meshStandardMaterial color={irisColor} />
       </mesh>
-      <mesh position={[(wordOrderFlexibility * r) / 5, 0, pupilZ]}>
+      <mesh ref={pupilRef} position={[0, 0, pupilZ]}>
         <sphereGeometry args={[pupilSize, segments, segments]} />
         <meshStandardMaterial color={pupilColor} />
       </mesh>
