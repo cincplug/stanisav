@@ -147,8 +147,8 @@ const Mesha = ({ languageCode, position, color }) => {
     return items;
   }, [linguisticProperties?.caseCount, eyeX, mainZ]);
 
-  const leftEyeSize = Array(3).fill(1 + (scores.evidentiality ?? 0) / 10);
-  const rightEyeSize = Array(3).fill(1 + (scores.verbAspect ?? 0) / 8);
+  const leftEyeSize = Array(3).fill(1 + scores.evidentiality / 4);
+  const rightEyeSize = Array(3).fill(1 + scores.verbAspect / 4);
 
   return (
     <a.group ref={groupRef} position={spring.position} scale={spring.scale}>

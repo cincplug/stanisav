@@ -111,7 +111,7 @@
       "complex": {
         "label": "Complex",
         "description": "Multiple aspect categories with rich morphological marking.",
-        "score": 4
+        "score": 5
       }
     }
   },
