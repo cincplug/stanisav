@@ -8,6 +8,7 @@ const MeshaEye = ({
   scale,
   wordOrder,
   wordOrderFlexibility,
+  r,
 }) => {
   const groupRef = useRef();
   const { controls } = useControls();
@@ -43,15 +44,11 @@ const MeshaEye = ({
         <sphereGeometry args={[eyeSize, segments, segments]} />
         <meshStandardMaterial color={whiteColor} />
       </mesh>
-      <mesh
-        position={[wordOrderFlexibility / 30 + position[0] / 120, 0, irisZ]}
-      >
+      <mesh position={[(wordOrderFlexibility * r) / 5, 0, irisZ]}>
         <sphereGeometry args={[irisSize, segments, segments]} />
         <meshStandardMaterial color={irisColor} />
       </mesh>
-      <mesh
-        position={[wordOrderFlexibility / 60 - position[0] / 90, 0, pupilZ]}
-      >
+      <mesh position={[(wordOrderFlexibility * r) / 5, 0, pupilZ]}>
         <sphereGeometry args={[pupilSize, segments, segments]} />
         <meshStandardMaterial color={pupilColor} />
       </mesh>

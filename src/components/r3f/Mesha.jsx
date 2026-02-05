@@ -175,6 +175,7 @@ const Mesha = ({ languageCode, position, color }) => {
             scale={leftEyeSize}
             wordOrder={wordOrder}
             wordOrderFlexibility={scores.wordOrderFlexibility}
+            r={rotationGroupRef.current.rotation.y}
           />
           <MeshaEye
             position={[eyeX, 0, 0]}
@@ -182,6 +183,7 @@ const Mesha = ({ languageCode, position, color }) => {
             scale={rightEyeSize}
             wordOrder={wordOrder}
             wordOrderFlexibility={scores.wordOrderFlexibility}
+            r={-rotationGroupRef.current.rotation.y}
           />
         </group>
 
