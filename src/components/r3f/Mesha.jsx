@@ -186,7 +186,6 @@ const Mesha = ({ languageCode, position, color }) => {
             wordOrder={wordOrder}
             wordOrderFlexibilityScore={scores.wordOrderFlexibility}
             meshaRotationRef={meshaRotationRef}
-            invertRotation
           />
         </group>
 

@@ -9,7 +9,6 @@ const MeshaEye = ({
   wordOrder,
   wordOrderFlexibilityScore,
   meshaRotationRef,
-  invertRotation = false,
 }) => {
   const groupRef = useRef();
   const irisRef = useRef();
@@ -18,10 +17,8 @@ const MeshaEye = ({
   const { labelSize } = controls;
 
   useFrame(() => {
-    const rotation = invertRotation
-      ? -meshaRotationRef.current
-      : meshaRotationRef.current;
-    const xOffset = (wordOrderFlexibilityScore * rotation) / 5;
+    const rotation = -meshaRotationRef.current;
+    const xOffset = (wordOrderFlexibilityScore * rotation) / 4;
 
     if (irisRef.current) {
       irisRef.current.position.x = xOffset;
@@ -40,7 +37,7 @@ const MeshaEye = ({
   const colorMap = {
     V: color,
     O: "#454545",
-    S: "#ffddcc",
+    S: "#ffffee",
   };
 
   const whiteColor = colorMap[wordOrder[0]];
@@ -59,7 +56,7 @@ const MeshaEye = ({
         <sphereGeometry args={[irisSize, segments, segments]} />
         <meshStandardMaterial color={irisColor} />
       </mesh>
-      <mesh ref={pupilRef} position={[0, 0, pupilZ]}>
+      <mesh ref={pupilRef} position={[0, -pupilSize / 2, pupilZ]}>
         <sphereGeometry args={[pupilSize, segments, segments]} />
         <meshStandardMaterial color={pupilColor} />
       </mesh>
