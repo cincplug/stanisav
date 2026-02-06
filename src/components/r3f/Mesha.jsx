@@ -14,6 +14,7 @@ import { getFeatureScoreList } from "../../utils/linguisticUtils.js";
 import MeshaEye from "./MeshaEye.jsx";
 import MeshaCheek from "./MeshaCheek.jsx";
 import MeshaMouth from "./MeshaMouth.jsx";
+import MeshaNose from "./MeshaNose.jsx";
 
 extend({ ParametricGeometry });
 
@@ -25,7 +26,7 @@ const Mesha = ({ languageCode, position, color }) => {
   const casesRef = useRef([]);
   const meshaRotationRef = useRef(0);
   const { controls } = useControls();
-  const { meshaSize, eyeZ, eyeX, eyeY } = controls;
+  const { meshaSize, eyeZ, eyeX, eyeY, eyeSize } = controls;
   const { data } = useAppState();
   const { languageData, typologicalFeatures } = data;
 
@@ -147,8 +148,9 @@ const Mesha = ({ languageCode, position, color }) => {
     return items;
   }, [linguisticProperties?.caseCount, eyeX, mainZ]);
 
-  const leftEyeSize = Array(3).fill(1 + scores.evidentiality / 4);
-  const rightEyeSize = Array(3).fill(1 + scores.verbAspect / 4);
+  const leftEyeSize = 1 + scores.evidentiality / 4;
+  const rightEyeSize = 1 + scores.verbAspect / 4;
+  const noseSize = (leftEyeSize + rightEyeSize) / 2;
 
   return (
     <a.group ref={groupRef} position={spring.position} scale={spring.scale}>
@@ -175,14 +177,16 @@ const Mesha = ({ languageCode, position, color }) => {
             position={[-eyeX, 0, 0]}
             color={color}
             scale={leftEyeSize}
-            wordOrder={wordOrder}
-            wordOrderFlexibilityScore={scores.wordOrderFlexibility}
-            meshaRotationRef={meshaRotationRef}
           />
           <MeshaEye
             position={[eyeX, 0, 0]}
             color={color}
             scale={rightEyeSize}
+          />
+          <MeshaNose
+            position={[0, -eyeX, 0]}
+            color={color}
+            scale={noseSize}
             wordOrder={wordOrder}
             wordOrderFlexibilityScore={scores.wordOrderFlexibility}
             meshaRotationRef={meshaRotationRef}
