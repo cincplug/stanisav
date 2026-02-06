@@ -26,7 +26,7 @@ const Mesha = ({ languageCode, position, color }) => {
   const casesRef = useRef([]);
   const meshaRotationRef = useRef(0);
   const { controls } = useControls();
-  const { meshaSize, eyeZ, eyeX, eyeY, eyeSize } = controls;
+  const { meshaSize, eyeZ, eyeX, eyeY, noseSize } = controls;
   const { data } = useAppState();
   const { languageData, typologicalFeatures } = data;
 
@@ -148,9 +148,8 @@ const Mesha = ({ languageCode, position, color }) => {
     return items;
   }, [linguisticProperties?.caseCount, eyeX, mainZ]);
 
-  const leftEyeSize = 1 + scores.evidentiality / 4;
-  const rightEyeSize = 1 + scores.verbAspect / 4;
-  const noseSize = (leftEyeSize + rightEyeSize) / 2;
+  const evidentialitySize = 1 + scores.evidentiality / 4;
+  const verbAspectSize = scores.verbAspect / 4;
 
   return (
     <a.group ref={groupRef} position={spring.position} scale={spring.scale}>
@@ -176,15 +175,17 @@ const Mesha = ({ languageCode, position, color }) => {
           <MeshaEye
             position={[-eyeX, 0, 0]}
             color={color}
-            scale={leftEyeSize}
+            evidentialitySize={evidentialitySize}
+            verbAspectSize={verbAspectSize}
           />
           <MeshaEye
             position={[eyeX, 0, 0]}
             color={color}
-            scale={rightEyeSize}
+            evidentialitySize={evidentialitySize}
+            verbAspectSize={verbAspectSize}
           />
           <MeshaNose
-            position={[0, -eyeX, 0]}
+            position={[0, -eyeX / 2, 0]}
             color={color}
             scale={noseSize}
             wordOrder={wordOrder}

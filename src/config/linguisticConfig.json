@@ -40,12 +40,12 @@
       "fusional": {
         "label": "Fusional",
         "description": "Multiple grammatical meanings are combined in single morphemes.",
-        "score": 3
+        "score": 6
       },
       "polysynthetic": {
         "label": "Polysynthetic",
         "description": "Complex ideas can be expressed in single words.",
-        "score": 5
+        "score": 10
       }
     }
   },
