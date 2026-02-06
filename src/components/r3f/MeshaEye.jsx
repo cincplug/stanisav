@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
-
+import { shiftHue } from "../../utils/colorUtils";
 const MeshaEye = ({
   position,
   color,
@@ -15,11 +15,9 @@ const MeshaEye = ({
   const pupilRef = useRef();
   const { controls } = useControls();
   const { labelSize } = controls;
-
   useFrame(() => {
     const rotation = -meshaRotationRef.current;
     const xOffset = (wordOrderFlexibilityScore * rotation) / 4;
-
     if (irisRef.current) {
       irisRef.current.position.x = xOffset;
     }
@@ -27,41 +25,53 @@ const MeshaEye = ({
       pupilRef.current.position.x = xOffset;
     }
   });
-
   const eyeSize = labelSize * controls.eyeSize;
   const irisSize = eyeSize * controls.irisSize;
   const pupilSize = eyeSize * controls.pupilSize;
   const irisZ = eyeSize * controls.irisZ;
   const pupilZ = eyeSize * controls.pupilZ;
-
   const colorMap = {
-    V: color,
-    O: "#454545",
-    S: "#ffffee",
+    S: color,
+    V: shiftHue(color, -120),
+    O: shiftHue(color, 120),
   };
-
-  const whiteColor = colorMap[wordOrder[0]];
-  const irisColor = colorMap[wordOrder[1]];
-  const pupilColor = colorMap[wordOrder[2]];
-
+  const subjectColor = colorMap[wordOrder[0]];
+  const verbColor = colorMap[wordOrder[1]];
+  const objectColor = colorMap[wordOrder[2]];
   const segments = 12;
-
   return (
     <group ref={groupRef} position={position} scale={scale}>
       <mesh>
         <sphereGeometry args={[eyeSize, segments, segments]} />
-        <meshStandardMaterial color={whiteColor} />
+        <meshStandardMaterial color={"#ffffff"} />
       </mesh>
-      <mesh ref={irisRef} position={[0, 0, irisZ]}>
-        <sphereGeometry args={[irisSize, segments, segments]} />
-        <meshStandardMaterial color={irisColor} />
+      <mesh
+        ref={irisRef}
+        position={[0, 0, pupilZ]}
+        rotation={[0, -Math.PI / 2, 0]}
+      >
+        <sphereGeometry args={[irisSize, segments, segments, 0, Math.PI]} />
+        <meshStandardMaterial color={subjectColor} side={2} />
       </mesh>
-      <mesh ref={pupilRef} position={[0, -pupilSize / 2, pupilZ]}>
+      <mesh ref={pupilRef} position={[0, 0, pupilZ]} rotation={[0, 0, 0]}>
+        <sphereGeometry
+          args={[
+            (pupilSize + irisSize) / 2,
+            segments,
+            segments,
+            0,
+            Math.PI * 2,
+            0,
+            Math.PI / 2,
+          ]}
+        />
+        <meshStandardMaterial color={verbColor} side={2} />
+      </mesh>
+      <mesh position={[0, 0, pupilZ]}>
         <sphereGeometry args={[pupilSize, segments, segments]} />
-        <meshStandardMaterial color={pupilColor} />
+        <meshStandardMaterial color={objectColor} />
       </mesh>
     </group>
   );
 };
-
 export default MeshaEye;

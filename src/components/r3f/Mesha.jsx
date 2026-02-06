@@ -35,7 +35,7 @@ const Mesha = ({ languageCode, position, color }) => {
     config: { mass: 1, tension: 120, friction: 20 },
   });
 
-  const mouthColor = shiftHue(color, 10);
+  const mouthColor = color;
 
   const linguisticProperties = languageData?.[languageCode]
     ? typologicalFeatures?.[languageCode]
@@ -63,11 +63,11 @@ const Mesha = ({ languageCode, position, color }) => {
   }
 
   const leftCheekMaterial = useTonalityMaterial(
-    shiftHue(color, 60),
+    shiftHue(color, 45),
     languageCode,
   );
   const rightCheekMaterial = useTonalityMaterial(
-    shiftHue(color, 30),
+    shiftHue(color, -45),
     languageCode,
   );
   const mouthMaterial = useTonalityMaterial(mouthColor, languageCode);
