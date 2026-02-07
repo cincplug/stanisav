@@ -53,6 +53,4 @@ const MeshaCheek = forwardRef(
   },
 );
 
-MeshaCheek.displayName = "MeshaCheek";
-
 export default MeshaCheek;
