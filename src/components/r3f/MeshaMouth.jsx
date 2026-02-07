@@ -3,6 +3,7 @@ import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useAppState } from "../../contexts/AppStateContext";
 import { useControls } from "../../contexts/ControlsContext.jsx";
+import { tonalityVertexShader } from "../../shaders/shader.js";
 
 extend({ ParametricGeometry });
 
@@ -53,7 +54,7 @@ export const useMouthMaterial = (color, languageCode) => {
         uBaseColor: { value: colorObj },
         uTonalityType: { value: tonalityType },
       },
-      vertexShader: cheekVertexShader,
+      vertexShader: tonalityVertexShader,
       fragmentShader: mouthFragmentShader,
       side: 2,
       transparent: false,
