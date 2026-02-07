@@ -80,7 +80,10 @@ const Mesha = ({ languageCode, position, color }) => {
 
     if (rotationGroupRef.current) {
       const time = clock.getElapsedTime();
-      const rotation = Math.sin(time * 0.3) * (Math.PI / 6);
+      const damping = 3;
+      const t = Math.sin(time * 0.3);
+      const eased = Math.sign(t) * Math.pow(Math.abs(t), damping);
+      const rotation = eased * (Math.PI / 3);
       rotationGroupRef.current.rotation.y = rotation;
       meshaRotationRef.current = rotation;
     }
