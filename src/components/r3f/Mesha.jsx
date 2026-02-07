@@ -64,11 +64,11 @@ const Mesha = ({ languageCode, position, color }) => {
   }
 
   const leftCheekMaterial = useTonalityMaterial(
-    shiftHue(color, 45),
+    shiftHue(color, 30),
     languageCode,
   );
   const rightCheekMaterial = useTonalityMaterial(
-    shiftHue(color, -45),
+    shiftHue(color, -30),
     languageCode,
   );
   const mouthMaterial = useTonalityMaterial(mouthColor, languageCode);
@@ -158,17 +158,15 @@ const Mesha = ({ languageCode, position, color }) => {
           ref={meshaCheekRef}
           leftCheekMaterial={leftCheekMaterial}
           rightCheekMaterial={rightCheekMaterial}
-          labelSize={1}
-          audioData={audioData}
           audioReactiveSurface={(u, v, target) =>
             createAudioReactiveSurface(audioData, {
               size: meshaSize,
-              bend: scores.morphology / 3,
+              bend: scores.morphology / 4,
               radius: meshaSize,
             })(u, v, target)
           }
-          leftSegments={14 - scores.morphology}
-          rightSegments={2 + scores.morphology}
+          leftSegments={10 - scores.morphology}
+          rightSegments={2 + scores.morphology * 2}
         />
 
         <group ref={eyesGroupRef} position={[0, 1, mainZ]}>
@@ -185,7 +183,7 @@ const Mesha = ({ languageCode, position, color }) => {
             verbAspectSize={verbAspectSize}
           />
           <MeshaNose
-            position={[0, -eyeX / 2, 0]}
+            position={[0, -eyeX / 2, eyeX / 2]}
             color={color}
             scale={noseSize}
             wordOrder={wordOrder}
