@@ -6,10 +6,10 @@ const MeshaEye = ({ position, color, evidentialitySize, verbAspectSize }) => {
   const { controls } = useControls();
   const { eyeSize, eyeProtrusion } = controls;
 
-  const irisSize = eyeSize * 0.8;
+  const irisSize = eyeSize * 0.75;
   const pupilSize = eyeSize * 0.5;
-  const irisZ = eyeSize * 0.3 + verbAspectSize * eyeProtrusion;
-  const pupilZ = eyeSize * 0.7 + verbAspectSize * eyeProtrusion;
+  const irisZ = eyeProtrusion / 2 + verbAspectSize * eyeProtrusion;
+  const pupilZ = eyeProtrusion + verbAspectSize * eyeProtrusion;
 
   return (
     <group ref={groupRef} position={position} scale={evidentialitySize}>
