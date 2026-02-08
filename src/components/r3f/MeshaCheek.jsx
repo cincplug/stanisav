@@ -12,6 +12,7 @@ const MeshaCheek = forwardRef(
       audioReactiveSurface,
       leftSegments,
       rightSegments,
+      cheeksYOffset,
     },
     ref,
   ) => {
@@ -28,7 +29,7 @@ const MeshaCheek = forwardRef(
         {/* Left cheek */}
         <mesh
           ref={mesh2Ref}
-          position={[-0.7, rightSegments / 20 + leftSegments / 20, 1]}
+          position={[-0.7, cheeksYOffset, 1]}
           scale={[-1 / 2, 3 / rightSegments, 1]}
         >
           <parametricGeometry
@@ -40,7 +41,7 @@ const MeshaCheek = forwardRef(
         {/* Right cheek */}
         <mesh
           ref={mesh1Ref}
-          position={[0.7, rightSegments / 20 + leftSegments / 20, 1]}
+          position={[0.7, cheeksYOffset, 1]}
           scale={[1 / 2, 3 / rightSegments, 1]}
         >
           <parametricGeometry

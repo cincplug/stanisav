@@ -18,20 +18,20 @@ const NodeLights = ({ labelTextLength }) => {
   return (
     <group ref={groupRef}>
       <pointLight
-        position={[-x / 2, -2, 3]}
-        intensity={50}
+        position={[-x / 2, 0, 3]}
+        intensity={30}
         distance={pointLightDistance}
         color={lightColor}
       />
       <pointLight
-        position={[x / 2, -1, 4]}
+        position={[x / 2, 0, 3]}
         intensity={40}
         distance={pointLightDistance}
         color={lightColor}
       />
       <pointLight
-        position={[0, 3, 8]}
-        intensity={30}
+        position={[0, 5, 8]}
+        intensity={60}
         distance={pointLightDistance}
         color={lightColor}
       />

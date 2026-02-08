@@ -80,32 +80,12 @@ const Mesha = ({ languageCode, position, color }) => {
 
     if (rotationGroupRef.current) {
       const time = clock.getElapsedTime();
-      const damping = 3;
+      const damping = 2;
       const t = Math.sin(time * 0.3);
       const eased = Math.sign(t) * Math.pow(Math.abs(t), damping);
       const rotation = eased * (Math.PI / 3);
       rotationGroupRef.current.rotation.y = rotation;
       meshaRotationRef.current = rotation;
-    }
-
-    if (
-      meshaCheekRef.current?.mesh1 &&
-      meshaCheekRef.current?.mesh2 &&
-      eyesGroupRef.current
-    ) {
-      const mesh1 = meshaCheekRef.current.mesh1;
-      const mesh2 = meshaCheekRef.current.mesh2;
-      const geometry1 = mesh1.geometry;
-      const geometry2 = mesh2.geometry;
-
-      if (geometry1 && geometry2) {
-        geometry1.computeBoundingBox();
-        geometry2.computeBoundingBox();
-
-        const maxY1 = geometry1.boundingBox.max.y * mesh1.scale.y;
-        const maxY2 = geometry2.boundingBox.max.y * mesh2.scale.y;
-        eyesGroupRef.current.position.y = (maxY1 + maxY2) / 2 + eyeY;
-      }
     }
 
     if (casesRef.current && audioData.isActive) {
@@ -164,29 +144,30 @@ const Mesha = ({ languageCode, position, color }) => {
           audioReactiveSurface={(u, v, target) =>
             createAudioReactiveSurface(audioData, {
               size: meshaSize,
-              bend: scores.morphology / 4,
+              bend: scores.morphology / 3,
               radius: meshaSize,
             })(u, v, target)
           }
           leftSegments={10 - scores.morphology}
           rightSegments={2 + scores.morphology * 2}
+          cheeksYOffset={(scores.morphology + 1) / 4}
         />
 
         <group ref={eyesGroupRef} position={[0, 1, mainZ]}>
           <MeshaEye
-            position={[-eyeX, 0, 0]}
+            position={[-eyeX, eyeY, 0]}
             color={color}
             evidentialitySize={evidentialitySize}
             verbAspectSize={verbAspectSize}
           />
           <MeshaEye
-            position={[eyeX, 0, 0]}
+            position={[eyeX, eyeY, 0]}
             color={color}
             evidentialitySize={evidentialitySize}
             verbAspectSize={verbAspectSize}
           />
           <MeshaNose
-            position={[0, -eyeX / 2, eyeX / 2]}
+            position={[0, eyeY - eyeX / 2, 0]}
             color={color}
             scale={noseSize}
             wordOrder={wordOrder}
