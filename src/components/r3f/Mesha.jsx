@@ -64,11 +64,11 @@ const Mesha = ({ languageCode, position, color }) => {
   }
 
   const leftCheekMaterial = useTonalityMaterial(
-    shiftHue(color, 45),
+    shiftHue(color, 30),
     languageCode,
   );
   const rightCheekMaterial = useTonalityMaterial(
-    shiftHue(color, -45),
+    shiftHue(color, -30),
     languageCode,
   );
   const mouthMaterial = useTonalityMaterial(mouthColor, languageCode);
@@ -80,29 +80,12 @@ const Mesha = ({ languageCode, position, color }) => {
 
     if (rotationGroupRef.current) {
       const time = clock.getElapsedTime();
-      const rotation = Math.sin(time * 0.3) * (Math.PI / 6);
+      const damping = 2;
+      const t = Math.sin(time * 0.3);
+      const eased = Math.sign(t) * Math.pow(Math.abs(t), damping);
+      const rotation = eased * (Math.PI / 3);
       rotationGroupRef.current.rotation.y = rotation;
       meshaRotationRef.current = rotation;
-    }
-
-    if (
-      meshaCheekRef.current?.mesh1 &&
-      meshaCheekRef.current?.mesh2 &&
-      eyesGroupRef.current
-    ) {
-      const mesh1 = meshaCheekRef.current.mesh1;
-      const mesh2 = meshaCheekRef.current.mesh2;
-      const geometry1 = mesh1.geometry;
-      const geometry2 = mesh2.geometry;
-
-      if (geometry1 && geometry2) {
-        geometry1.computeBoundingBox();
-        geometry2.computeBoundingBox();
-
-        const maxY1 = geometry1.boundingBox.max.y * mesh1.scale.y;
-        const maxY2 = geometry2.boundingBox.max.y * mesh2.scale.y;
-        eyesGroupRef.current.position.y = (maxY1 + maxY2) / 2 + eyeY;
-      }
     }
 
     if (casesRef.current && audioData.isActive) {
@@ -158,8 +141,6 @@ const Mesha = ({ languageCode, position, color }) => {
           ref={meshaCheekRef}
           leftCheekMaterial={leftCheekMaterial}
           rightCheekMaterial={rightCheekMaterial}
-          labelSize={1}
-          audioData={audioData}
           audioReactiveSurface={(u, v, target) =>
             createAudioReactiveSurface(audioData, {
               size: meshaSize,
@@ -167,25 +148,26 @@ const Mesha = ({ languageCode, position, color }) => {
               radius: meshaSize,
             })(u, v, target)
           }
-          leftSegments={14 - scores.morphology}
-          rightSegments={2 + scores.morphology}
+          leftSegments={10 - scores.morphology}
+          rightSegments={2 + scores.morphology * 2}
+          cheeksYOffset={(scores.morphology + 1) / 4}
         />
 
         <group ref={eyesGroupRef} position={[0, 1, mainZ]}>
           <MeshaEye
-            position={[-eyeX, 0, 0]}
+            position={[-eyeX, eyeY, 0]}
             color={color}
             evidentialitySize={evidentialitySize}
             verbAspectSize={verbAspectSize}
           />
           <MeshaEye
-            position={[eyeX, 0, 0]}
+            position={[eyeX, eyeY, 0]}
             color={color}
             evidentialitySize={evidentialitySize}
             verbAspectSize={verbAspectSize}
           />
           <MeshaNose
-            position={[0, -eyeX / 2, 0]}
+            position={[0, eyeY - eyeX / 2, 0]}
             color={color}
             scale={noseSize}
             wordOrder={wordOrder}

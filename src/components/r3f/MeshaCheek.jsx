@@ -12,6 +12,7 @@ const MeshaCheek = forwardRef(
       audioReactiveSurface,
       leftSegments,
       rightSegments,
+      cheeksYOffset,
     },
     ref,
   ) => {
@@ -28,9 +29,8 @@ const MeshaCheek = forwardRef(
         {/* Left cheek */}
         <mesh
           ref={mesh2Ref}
-          position={[-0.6, 1, 1]}
-          scale={[-1 / 2, 3 / 4, 1]}
-          rotation={[0, -1 / 20, 0]}
+          position={[-0.7, cheeksYOffset, 1]}
+          scale={[-1 / 2, 3 / rightSegments, 1]}
         >
           <parametricGeometry
             args={[audioReactiveSurface, leftSegments, leftSegments]}
@@ -41,9 +41,8 @@ const MeshaCheek = forwardRef(
         {/* Right cheek */}
         <mesh
           ref={mesh1Ref}
-          position={[0.6, 1, 1]}
-          scale={[1 / 2, 3 / 4, 1]}
-          rotation={[0, 1 / 20, 0]}
+          position={[0.7, cheeksYOffset, 1]}
+          scale={[1 / 2, 3 / rightSegments, 1]}
         >
           <parametricGeometry
             args={[audioReactiveSurface, rightSegments, rightSegments]}
@@ -54,7 +53,5 @@ const MeshaCheek = forwardRef(
     );
   },
 );
-
-MeshaCheek.displayName = "MeshaCheek";
 
 export default MeshaCheek;

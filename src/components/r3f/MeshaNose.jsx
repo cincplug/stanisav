@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
-import { shiftHue } from "../../utils/colorUtils";
 
 const MeshaNose = ({
   position,

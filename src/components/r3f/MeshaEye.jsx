@@ -1,16 +1,15 @@
 import { useRef } from "react";
-import { useFrame } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 
 const MeshaEye = ({ position, color, evidentialitySize, verbAspectSize }) => {
   const groupRef = useRef();
   const { controls } = useControls();
-  const { eyeSize } = controls;
+  const { eyeSize, eyeProtrusion } = controls;
 
-  const irisSize = eyeSize * controls.irisSize;
-  const pupilSize = eyeSize * controls.pupilSize;
-  const irisZ = eyeSize * controls.irisZ;
-  const pupilZ = eyeSize * controls.pupilZ;
+  const irisSize = eyeSize * 0.75;
+  const pupilSize = eyeSize * 0.5;
+  const irisZ = eyeProtrusion / 2 + verbAspectSize * eyeProtrusion;
+  const pupilZ = eyeProtrusion + verbAspectSize * eyeProtrusion;
 
   return (
     <group ref={groupRef} position={position} scale={evidentialitySize}>
@@ -18,13 +17,13 @@ const MeshaEye = ({ position, color, evidentialitySize, verbAspectSize }) => {
         <sphereGeometry args={[eyeSize, 32, 32]} />
         <meshStandardMaterial color="#ffffff" />
       </mesh>
-      <mesh position={[0, 0, irisZ + (verbAspectSize * irisSize) / 2]}>
+      <mesh position={[0, 0, irisZ]}>
         <sphereGeometry args={[irisSize, 32, 32]} />
         <meshStandardMaterial color={color} />
       </mesh>
-      <mesh position={[0, 0, pupilZ + verbAspectSize * pupilSize]}>
+      <mesh position={[0, 0, pupilZ]}>
         <sphereGeometry args={[pupilSize, 32, 32]} />
-        <meshStandardMaterial color="#000000" />
+        <meshStandardMaterial color="#222222" />
       </mesh>
     </group>
   );

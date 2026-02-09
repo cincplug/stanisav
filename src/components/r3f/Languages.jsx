@@ -73,7 +73,11 @@ const Languages = ({
   const meshaLanguageCode = selectedLanguage || sortedLanguageCodes[0];
   const meshaPosition = selectedLanguage
     ? formattedPositions[selectedLanguage]
-    : { x: -controls.sphereRadius, y: 0, z: controls.sphereRadius };
+    : {
+        x: -controls.sphereRadius - controls.meshaSize,
+        y: 0,
+        z: controls.sphereRadius,
+      };
 
   const meshaGroupKey =
     data.languageData[meshaLanguageCode]?.group ||

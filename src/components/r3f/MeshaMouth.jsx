@@ -3,6 +3,7 @@ import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useAppState } from "../../contexts/AppStateContext";
 import { useControls } from "../../contexts/ControlsContext.jsx";
+import { tonalityVertexShader } from "../../shaders/shader.js";
 
 extend({ ParametricGeometry });
 
@@ -53,7 +54,7 @@ export const useMouthMaterial = (color, languageCode) => {
         uBaseColor: { value: colorObj },
         uTonalityType: { value: tonalityType },
       },
-      vertexShader: cheekVertexShader,
+      vertexShader: tonalityVertexShader,
       fragmentShader: mouthFragmentShader,
       side: 2,
       transparent: false,
@@ -121,10 +122,7 @@ const MeshaMouth = ({
 
   return (
     <>
-      <group
-        position={[0, meshaSize * 1.5, meshaSize * 0.7]}
-        scale={[1 / 2, 1 / 2, 1 / 2]}
-      >
+      <group position={[0, meshaSize, meshaSize * 0.7]} scale={1 / 2}>
         {teeth.map((tooth, i) => (
           <mesh
             key={tooth.key}
@@ -137,7 +135,7 @@ const MeshaMouth = ({
         ))}
       </group>
       <mesh
-        position={[0, meshaSize * 2, meshaSize]}
+        position={[0, meshaSize * 1.5, meshaSize]}
         scale={[meshaSize / 2, -meshaSize / 4, -meshaSize / 2]}
         rotation={[1 / 4, Math.PI, 0]}
       >

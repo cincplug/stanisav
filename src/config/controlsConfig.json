@@ -189,8 +189,8 @@
     "label": "Focus distance",
     "min": 20,
     "max": 100,
-    "step": 5,
-    "defaultValue": 40,
+    "step": 1,
+    "defaultValue": 37,
     "isUserEditable": true,
     "group": "Camera"
   },
@@ -240,7 +240,7 @@
     "min": -2,
     "max": 2,
     "step": 0.1,
-    "defaultValue": 0,
+    "defaultValue": 1.2,
     "isUserEditable": true,
     "group": "Mesha"
   },
@@ -260,47 +260,17 @@
     "min": 0.05,
     "max": 0.5,
     "step": 0.01,
-    "defaultValue": 0.22,
-    "isUserEditable": true,
-    "group": "Mesha"
-  },
-  "irisSize": {
-    "type": "range",
-    "label": "Iris size",
-    "min": 0.3,
-    "max": 0.9,
-    "step": 0.05,
-    "defaultValue": 0.7,
-    "isUserEditable": true,
-    "group": "Mesha"
-  },
-  "pupilSize": {
-    "type": "range",
-    "label": "Pupil size",
-    "min": 0.1,
-    "max": 0.7,
-    "step": 0.05,
     "defaultValue": 0.3,
     "isUserEditable": true,
     "group": "Mesha"
   },
-  "irisZ": {
+  "eyeProtrusion": {
     "type": "range",
-    "label": "Iris Z position",
-    "min": 0.1,
+    "label": "Eye protrusion",
+    "min": 0,
     "max": 1,
-    "step": 0.05,
-    "defaultValue": 0.5,
-    "isUserEditable": false,
-    "group": "Mesha"
-  },
-  "pupilZ": {
-    "type": "range",
-    "label": "Pupil Z position",
-    "min": 0.5,
-    "max": 1.5,
-    "step": 0.05,
-    "defaultValue": 1.1,
+    "step": 0.01,
+    "defaultValue": 0.2,
     "isUserEditable": false,
     "group": "Mesha"
   },
@@ -310,7 +280,7 @@
     "min": 0.1,
     "max": 2,
     "step": 0.1,
-    "defaultValue": 1.2,
+    "defaultValue": 0.4,
     "isUserEditable": true,
     "group": "Mesha"
   }
