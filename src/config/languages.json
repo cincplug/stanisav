@@ -3760,7 +3760,7 @@
   "ura": {
     "name": "Urarina",
     "nativeName": "Urarina",
-    "group": "Isolate",
+    "group": "Urarina",
     "speakers": 3,
     "sampleUrl": "",
     "sr": "",
@@ -3776,7 +3776,7 @@
   "wba": {
     "name": "Warao",
     "nativeName": "Warao",
-    "group": "Isolate",
+    "group": "Warao",
     "speakers": 0.033,
     "sampleUrl": "",
     "sr": "",
