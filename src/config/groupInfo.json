@@ -263,5 +263,21 @@
   "West Slavic": {
     "family": "Indo-European",
     "color": "#8095ff"
+  },
+  "Urarina": {
+    "family": "Urarina",
+    "color": "#9085ff"
+  },
+  "Macro-Gê": {
+    "family": "Macro-Gê",
+    "color": "#a075ff"
+  },
+  "Warao": {
+    "9amily": "Warao",
+    "color": "#a095ff"
+  },
+  "Cariban": {
+    "family": "Cariban",
+    "color": "#6075ff"
   }
 }
