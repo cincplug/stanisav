@@ -49,8 +49,8 @@ const Stage = ({
 
       <OrbitControls
         enableDamping={true}
-        dampingFactor={0.05}
         makeDefault={true}
+        enableZoom={false}
       />
 
       {!selectedLanguage && <StageLight />}
