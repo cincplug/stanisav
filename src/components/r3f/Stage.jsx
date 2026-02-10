@@ -1,10 +1,15 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import { useEffect, useMemo } from "react";
 import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
-import { useCameraUpdater } from "../../hooks/useCameraUpdater";
+import { useDataManager } from "../../hooks/useDataManager";
+import { useLayoutManager } from "../../hooks/useLayoutManager";
+import { calculateLanguageFilterStatus } from "../../utils/sceneUtils";
 import StageLight from "./StageLight";
-import Languages from "./Languages";
+import Node from "./Node";
+import Mesha from "./Mesha";
+import Camera from "./Camera";
 
 const Stage = ({
   isMenuCollapsed,
@@ -25,14 +30,74 @@ const Stage = ({
     backgroundColor,
     ambientLightIntensity,
   } = controls;
-  const { selectedLanguage } = useLanguageSelection();
+  const { filteringUtils, selectedLanguage, groupColors } =
+    useLanguageSelection();
+
+  // Data and layout
+  const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
+  const { formattedPositions, sortedLanguageCodes } = useLayoutManager(
+    data,
+    controls,
+    onNodesReady,
+  );
+
+  // Filtering
+  const languageFilterStatus = useMemo(
+    () =>
+      calculateLanguageFilterStatus(
+        sortedLanguageCodes,
+        data?.typologicalFeatures,
+        filteringUtils,
+        data?.languageGroups,
+      ),
+    [
+      sortedLanguageCodes,
+      data?.typologicalFeatures,
+      filteringUtils,
+      data?.languageGroups,
+    ],
+  );
+
+  const hasActiveFilters = Object.keys(filteringUtils).length > 0;
+  const visibleLanguages = sortedLanguageCodes.filter(
+    (code) => languageFilterStatus[code]?.isVisible,
+  );
+  const showEmptyMessage = hasActiveFilters && visibleLanguages.length === 0;
+
+  // Scene ready effect
+  useEffect(() => {
+    if (isInitialized && data && Object.keys(formattedPositions).length > 0) {
+      onSceneReady(true);
+    }
+  }, [isInitialized, data, formattedPositions, onSceneReady]);
+
+  // Empty filter effect
+  useEffect(() => {
+    if (onEmptyFilterChange) {
+      onEmptyFilterChange(showEmptyMessage);
+    }
+  }, [showEmptyMessage, onEmptyFilterChange]);
+
+  if (!data || !isInitialized || sortedLanguageCodes.length === 0) {
+    return null;
+  }
+
+  // Mesha logic (to be moved to Mesha later)
+  const meshaLanguageCode = selectedLanguage || sortedLanguageCodes[0];
+  const meshaPosition = selectedLanguage
+    ? formattedPositions[selectedLanguage]
+    : {
+        x: -controls.sphereRadius - controls.meshaSize,
+        y: 0,
+        z: controls.sphereRadius,
+      };
+
+  const meshaGroupKey =
+    data.languageData[meshaLanguageCode]?.group ||
+    data.languageGroups?.[meshaLanguageCode];
+  const meshaColor = groupColors?.[meshaGroupKey];
 
   const ambientLightModifier = selectedLanguage ? 0.7 : 1.2;
-
-  const CameraUpdaterNode = () => {
-    useCameraUpdater({ controls });
-    return null;
-  };
 
   return (
     <Canvas
@@ -57,15 +122,43 @@ const Stage = ({
 
       <ambientLight intensity={ambientLightIntensity * ambientLightModifier} />
 
-      <CameraUpdaterNode />
-
-      <Languages
-        onDataLoaded={onDataLoaded}
-        onSceneReady={onSceneReady}
-        onLoadingChange={onLoadingChange}
-        onNodesReady={onNodesReady}
-        onEmptyFilterChange={onEmptyFilterChange}
+      <Camera
+        languageNodes={formattedPositions}
+        data={data}
+        controls={controls}
+        selectedLanguage={selectedLanguage}
       />
+
+      <group>
+        <Mesha
+          languageCode={meshaLanguageCode}
+          position={[meshaPosition.x, meshaPosition.y, meshaPosition.z]}
+          color={meshaColor}
+        />
+        {!showEmptyMessage &&
+          sortedLanguageCodes.map((langCode, idx) => {
+            const position = formattedPositions[langCode];
+            const filterStatus = languageFilterStatus[langCode];
+            if (!position || !filterStatus?.isVisible) return null;
+            const groupKey =
+              data.languageData[langCode]?.group ||
+              data.languageGroups?.[langCode];
+            const color = groupColors?.[groupKey];
+            return (
+              <Node
+                key={langCode}
+                languageCode={langCode}
+                language={data.languageData[langCode]}
+                position={[position.x, position.y, position.z]}
+                speakerCount={data.speakerData[langCode] || 1}
+                isSelected={selectedLanguage === langCode}
+                isFiltered={filterStatus.isFiltered}
+                color={color}
+                labelPrefix={`${idx + 1} `}
+              />
+            );
+          })}
+      </group>
     </Canvas>
   );
 };
