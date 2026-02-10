@@ -22,13 +22,12 @@ const Node = ({
   const { filteredLanguages, filteringUtils, selectLanguage } =
     useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
-  const { labelContent, labelSize, backgroundColor, sortLanguagesBy } =
-    controls;
+  const { labelContent, labelSize, backgroundColor, sortBy } = controls;
 
   // Calculate dynamic min/max for the current numeric category
   const rangeConfig = useMemo(
-    () => calculateLabelSizeConfig(sortLanguagesBy, data, layoutConfig),
-    [sortLanguagesBy, data],
+    () => calculateLabelSizeConfig(sortBy, data, layoutConfig),
+    [sortBy, data],
   );
 
   const getLabelText = (language, languageCode, labelContent) => {
@@ -47,13 +46,12 @@ const Node = ({
   // Determine which value to use for label size
   const getSizeValue = () => {
     // If sorting by numeric typological features, use that value
-    if (["phonemeCount", "caseCount"].includes(sortLanguagesBy)) {
-      return data?.typologicalFeatures?.[languageCode]?.[sortLanguagesBy] || 1;
+    if (["phonemeCount", "caseCount"].includes(sortBy)) {
+      return data?.typologicalFeatures?.[languageCode]?.[sortBy] || 1;
     }
     // If sorting by a typological feature with a score, use the score
-    const featureValue =
-      data?.typologicalFeatures?.[languageCode]?.[sortLanguagesBy];
-    const score = getFeatureScore(sortLanguagesBy, featureValue);
+    const featureValue = data?.typologicalFeatures?.[languageCode]?.[sortBy];
+    const score = getFeatureScore(sortBy, featureValue);
     if (typeof score === "number" && !isNaN(score)) {
       return score;
     }

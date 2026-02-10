@@ -71,7 +71,7 @@ export const calculateGroupBounds = (positions, languages) => {
   };
 };
 export const calculateLabelSizeConfig = (
-  sortLanguagesBy,
+  sortBy,
   data,
   layoutConfig
 ) => {
@@ -80,11 +80,11 @@ export const calculateLabelSizeConfig = (
   // Determine which data source to use
   let values = [];
 
-  if (sortLanguagesBy === "phonemeCount" || sortLanguagesBy === "caseCount") {
+  if (sortBy === "phonemeCount" || sortBy === "caseCount") {
     // Get values from typological features
     if (data?.typologicalFeatures) {
       Object.values(data.typologicalFeatures).forEach((features) => {
-        const val = features[sortLanguagesBy];
+        const val = features[sortBy];
         if (val !== undefined && val !== null) {
           values.push(val);
         }

@@ -25,7 +25,7 @@ class LayoutEngine {
       data;
     const allLanguages = Object.keys(languageData);
 
-    const { sortLanguagesBy, sphereRadius, labelContent, isReverse } = controls;
+    const { sortBy, sphereRadius, labelContent, isReverse } = controls;
 
     const sortedLanguages = sortLanguages({
       allLanguages,
@@ -33,7 +33,7 @@ class LayoutEngine {
       languageGroups,
       speakerData,
       typologicalFeatures,
-      sortLanguagesBy,
+      sortBy,
       labelContent,
       isReverse,
     });

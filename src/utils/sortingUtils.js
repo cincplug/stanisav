@@ -6,12 +6,12 @@ export function sortLanguages({
   languageGroups,
   speakerData,
   typologicalFeatures,
-  sortLanguagesBy,
+  sortBy,
   labelContent,
   isReverse,
 }) {
   const sorted = (() => {
-    switch (sortLanguagesBy) {
+    switch (sortBy) {
       case "alphabetically":
         return allLanguages.sort((a, b) => {
           let labelA, labelB;
@@ -79,8 +79,8 @@ export function sortLanguages({
       case "evidentiality":
       case "verbAspect":
         return allLanguages.sort((a, b) => {
-          const featureA = typologicalFeatures?.[a]?.[sortLanguagesBy];
-          const featureB = typologicalFeatures?.[b]?.[sortLanguagesBy];
+          const featureA = typologicalFeatures?.[a]?.[sortBy];
+          const featureB = typologicalFeatures?.[b]?.[sortBy];
 
           // Handle missing values - put them at the end
           if (!featureA && !featureB) return 0;
@@ -88,8 +88,8 @@ export function sortLanguages({
           if (!featureB) return -1;
 
           // Sort by score if available
-          const scoreA = getFeatureScore(sortLanguagesBy, featureA);
-          const scoreB = getFeatureScore(sortLanguagesBy, featureB);
+          const scoreA = getFeatureScore(sortBy, featureA);
+          const scoreB = getFeatureScore(sortBy, featureB);
           if (scoreA !== null && scoreB !== null) {
             if (scoreA !== scoreB) return scoreA - scoreB;
           }
@@ -116,8 +116,8 @@ export function sortLanguages({
       case "phonemeCount":
       case "caseCount":
         return allLanguages.sort((a, b) => {
-          const featureA = typologicalFeatures?.[a]?.[sortLanguagesBy];
-          const featureB = typologicalFeatures?.[b]?.[sortLanguagesBy];
+          const featureA = typologicalFeatures?.[a]?.[sortBy];
+          const featureB = typologicalFeatures?.[b]?.[sortBy];
 
           // Handle missing values - put them at the end
           if (featureA === undefined && featureB === undefined) return 0;

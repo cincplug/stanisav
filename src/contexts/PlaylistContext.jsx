@@ -37,7 +37,7 @@ export const PlaylistProvider = ({ children }) => {
     if (!data?.languageData) return [];
     const { languageData, languageGroups, speakerData, typologicalFeatures } =
       data;
-    const { sortLanguagesBy, labelContent, isReverse } = controls;
+    const { sortBy, labelContent, isReverse } = controls;
     let allLanguages = Object.keys(data.languageData);
 
     // Filter by active filters if any
@@ -51,7 +51,7 @@ export const PlaylistProvider = ({ children }) => {
       languageGroups,
       speakerData,
       typologicalFeatures,
-      sortLanguagesBy,
+      sortBy,
       labelContent,
       isReverse,
     });

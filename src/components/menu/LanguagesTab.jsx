@@ -16,8 +16,7 @@ function LanguagesTab({ languageData, isActive }) {
   const { controls, updateControl } = useControls();
   const buttonRefs = useRef({});
 
-  const sortBy = controls.sortLanguagesBy;
-  const isReverse = controls.isReverse;
+  const { sortBy, labelContent, isReverse } = controls;
 
   // Prepare all required data for sorting
   const languageCodes = useMemo(
@@ -56,8 +55,8 @@ function LanguagesTab({ languageData, isActive }) {
         languageGroups,
         speakerData,
         typologicalFeatures,
-        sortLanguagesBy: sortBy,
-        labelContent: controls.labelContent,
+        sortBy,
+        labelContent,
         isReverse,
       }),
     [
@@ -67,7 +66,7 @@ function LanguagesTab({ languageData, isActive }) {
       speakerData,
       typologicalFeatures,
       sortBy,
-      controls.labelContent,
+      labelContent,
       isReverse,
     ],
   );
