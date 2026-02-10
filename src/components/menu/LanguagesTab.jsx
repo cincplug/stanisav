@@ -84,19 +84,25 @@ function LanguagesTab({ languageData, isActive }) {
     if (sortBy === "alphabetically") {
       const result = {};
       sortedLanguageCodes.forEach((langCode) => {
-        const name = languageData[langCode]?.name || langCode;
-        const firstLetter = name[0]?.toUpperCase() || "#";
-        if (!result[firstLetter]) {
-          result[firstLetter] = {
-            title: firstLetter,
+        let label;
+        if (labelContent === "isoCode") {
+          label = langCode;
+        } else {
+          label = languageData[langCode]?.[labelContent] || langCode;
+        }
+        // Use the first Unicode character, uppercased for grouping
+        const firstChar = label[0]?.toLocaleUpperCase("und") || "#";
+        if (!result[firstChar]) {
+          result[firstChar] = {
+            title: firstChar,
             languages: [],
           };
         }
-        result[firstLetter].languages.push(langCode);
+        result[firstChar].languages.push(langCode);
       });
-      // Sort letters A-Z
+      // Sort group titles in full Unicode order
       return Object.values(result).sort((a, b) =>
-        a.title.localeCompare(b.title, undefined, { sensitivity: "base" }),
+        a.title.localeCompare(b.title, "und", { sensitivity: "base" }),
       );
     }
     const result = {};
@@ -178,6 +184,11 @@ function LanguagesTab({ languageData, isActive }) {
             <div className="languages-in-group">
               {group.languages.map((langCode) => {
                 const groupName = languageData[langCode].group;
+                const label =
+                  labelContent === "isoCode"
+                    ? langCode
+                    : languageData[langCode]?.[labelContent];
+
                 return (
                   <button
                     key={langCode}
@@ -191,7 +202,7 @@ function LanguagesTab({ languageData, isActive }) {
                       startFromLanguage(langCode);
                     }}
                   >
-                    {languageData[langCode]?.name || langCode}
+                    {label}
                   </button>
                 );
               })}

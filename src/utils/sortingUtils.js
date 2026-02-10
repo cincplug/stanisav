@@ -22,8 +22,10 @@ export function sortLanguages({
             labelA = languageData[a]?.[labelContent] || "";
             labelB = languageData[b]?.[labelContent] || "";
           }
-          return labelA.localeCompare(labelB, undefined, {
+          // Use localeCompare with 'und' locale for full Unicode order
+          return labelA.localeCompare(labelB, 'und', {
             sensitivity: "base",
+            numeric: true,
           });
         });
 
