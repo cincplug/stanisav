@@ -94,7 +94,10 @@ function LanguagesTab({ languageData, isActive }) {
           label = languageData[langCode]?.[labelContent] || langCode;
         }
         // Use the first Unicode character, uppercased for grouping
-        const firstChar = label[0]?.toLocaleUpperCase("und") || "#";
+        const safeLabel =
+          typeof label === "string" && label.trim() ? label.trim() : langCode;
+        const firstChar =
+          Array.from(safeLabel)[0]?.toLocaleUpperCase("und") || "#";
         if (!result[firstChar]) {
           result[firstChar] = {
             title: firstChar,
