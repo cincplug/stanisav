@@ -6,6 +6,7 @@ import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { useDataManager } from "../../hooks/useDataManager";
 import { useLayoutManager } from "../../hooks/useLayoutManager";
 import { calculateLanguageFilterStatus } from "../../utils/sceneUtils";
+import { calculateLanguageColors } from "../../utils/colorUtils";
 import StageLight from "./StageLight";
 import Node from "./Node";
 import Mesha from "./Mesha";
@@ -56,6 +57,17 @@ const Stage = ({
       filteringUtils,
       data?.languageGroups,
     ],
+  );
+
+  // Calculate colors for all languages with hue shifts
+  const languageColors = useMemo(
+    () =>
+      calculateLanguageColors(
+        data?.languageData,
+        data?.languageGroups,
+        groupColors,
+      ),
+    [data?.languageData, data?.languageGroups, groupColors],
   );
 
   const hasActiveFilters = Object.keys(filteringUtils).length > 0;
@@ -121,10 +133,9 @@ const Stage = ({
             const position = formattedPositions[langCode];
             const filterStatus = languageFilterStatus[langCode];
             if (!position || !filterStatus?.isVisible) return null;
-            const groupKey =
-              data.languageData[langCode]?.group ||
-              data.languageGroups?.[langCode];
-            const color = groupColors?.[groupKey];
+
+            const color = languageColors[langCode];
+
             return (
               <Node
                 key={langCode}

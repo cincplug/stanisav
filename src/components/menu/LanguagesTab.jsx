@@ -1,5 +1,6 @@
 import "./LanguagesTab.css";
 import { useEffect, useRef, useMemo } from "react";
+import { useAppState } from "../../contexts/AppStateContext";
 import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
@@ -7,6 +8,7 @@ import controlsConfig from "../../config/controlsConfig.json";
 import linguisticConfig from "../../config/linguisticConfig.json";
 import groupInfo from "../../config/groupInfo.json";
 import { sortLanguages } from "../../utils/sortingUtils";
+import { calculateLanguageColors } from "../../utils/colorUtils";
 import ControlItem from "./ControlItem";
 
 function LanguagesTab({ languageData, isActive }) {
@@ -15,6 +17,7 @@ function LanguagesTab({ languageData, isActive }) {
   const { startFromLanguage } = usePlaylist();
   const { controls, updateControl } = useControls();
   const buttonRefs = useRef({});
+  const { data } = useAppState();
 
   const { sortBy, labelContent, isReverse } = controls;
 
@@ -161,6 +164,13 @@ function LanguagesTab({ languageData, isActive }) {
     "Alphabetical order"
   ).toLowerCase();
 
+  // Calculate colors for all languages with hue shifts
+  const languageColors = useMemo(
+    () =>
+      calculateLanguageColors(languageData, data?.languageGroups, groupColors),
+    [languageData, data?.languageGroups, groupColors],
+  );
+
   return (
     <div className="control-section">
       <div className="controls-grid sorting-controls">
@@ -183,7 +193,6 @@ function LanguagesTab({ languageData, isActive }) {
             )}
             <div className="languages-in-group">
               {group.languages.map((langCode) => {
-                const groupName = languageData[langCode].group;
                 const label =
                   labelContent === "isoCode"
                     ? langCode
@@ -193,7 +202,7 @@ function LanguagesTab({ languageData, isActive }) {
                   <button
                     key={langCode}
                     ref={(el) => (buttonRefs.current[langCode] = el)}
-                    style={{ background: groupColors?.[groupName] }}
+                    style={{ background: languageColors[langCode] }}
                     className={`language-item-button ${
                       selectedLanguage === langCode ? "selected" : ""
                     } ${!languageData[langCode]?.sr ? "todo-item" : ""}`}
