@@ -5,12 +5,14 @@ import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeom
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
 import { defaultAudioData } from "../../config/meshaDefaultAudioData.js";
 import { useControls } from "../../contexts/ControlsContext.jsx";
+import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { useAppState } from "../../contexts/AppStateContext";
+import { useLayoutManager } from "../../hooks/useLayoutManager.js";
 import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
 import { useTonalityMaterial } from "../../hooks/useTonalityMaterial.js";
+import { getFeatureScoreList } from "../../utils/linguisticUtils.js";
 import { shiftHue } from "../../utils/colorUtils";
 import { createAudioReactiveSurface } from "../../utils/audioReactiveSurface.js";
-import { getFeatureScoreList } from "../../utils/linguisticUtils.js";
 import MeshaEye from "./MeshaEye.jsx";
 import MeshaCheek from "./MeshaCheek.jsx";
 import MeshaMouth from "./MeshaMouth.jsx";
@@ -18,32 +20,50 @@ import MeshaNose from "./MeshaNose.jsx";
 
 extend({ ParametricGeometry });
 
-const Mesha = ({ languageCode, position, color }) => {
+const Mesha = () => {
   const groupRef = useRef();
   const rotationGroupRef = useRef();
   const eyesGroupRef = useRef();
   const meshaCheekRef = useRef();
   const casesRef = useRef([]);
   const meshaRotationRef = useRef(0);
+  const lastAudioDataRef = useRef(defaultAudioData);
+
   const { controls } = useControls();
-  const { meshaSize, eyeZ, eyeX, eyeY, noseSize } = controls;
+  const { selectedLanguage, groupColors } = useLanguageSelection();
   const { data } = useAppState();
-  const { languageData, typologicalFeatures } = data;
+  const { formattedPositions } = useLayoutManager(data, controls, null);
 
-  const spring = useSpring({
-    position,
-    scale: [meshaSize, meshaSize, meshaSize],
-    config: { mass: 1, tension: 120, friction: 20 },
-  });
+  const { meshaSize, eyeZ, eyeX, eyeY, noseSize, sphereRadius } = controls;
 
-  const mouthColor = color;
+  // Determine which language code to use
+  const languageCode = useMemo(() => {
+    if (selectedLanguage) return selectedLanguage;
+    const codes = Object.keys(data?.languageData || {});
+    return codes[0] || "eng";
+  }, [selectedLanguage, data]);
 
-  const linguisticProperties = languageData?.[languageCode]
-    ? typologicalFeatures?.[languageCode]
-    : undefined;
+  // Calculate position
+  const position = useMemo(() => {
+    if (selectedLanguage && formattedPositions[selectedLanguage]) {
+      const pos = formattedPositions[selectedLanguage];
+      return [pos.x, pos.y, pos.z];
+    }
+    return [-sphereRadius - meshaSize, 0, sphereRadius];
+  }, [selectedLanguage, formattedPositions, sphereRadius, meshaSize]);
 
-  const wordOrder = linguisticProperties?.wordOrder;
+  // Calculate color
+  const meshaGroupKey = useMemo(
+    () =>
+      data?.languageData?.[languageCode]?.group ||
+      data?.languageGroups?.[languageCode],
+    [data, languageCode],
+  );
+  const color = groupColors?.[meshaGroupKey];
 
+  if (!data || !languageCode) return null;
+
+  const linguisticProperties = data?.typologicalFeatures?.[languageCode];
   const scores = getFeatureScoreList(linguisticProperties, [
     "wordOrderFlexibility",
     "morphology",
@@ -51,7 +71,11 @@ const Mesha = ({ languageCode, position, color }) => {
     "verbAspect",
   ]);
 
-  const lastAudioDataRef = useRef(defaultAudioData);
+  const spring = useSpring({
+    position,
+    scale: [meshaSize, meshaSize, meshaSize],
+    config: { mass: 1, tension: 120, friction: 20 },
+  });
 
   const { audioData: rawAudioData } = useAudioAnimation();
 
@@ -71,7 +95,7 @@ const Mesha = ({ languageCode, position, color }) => {
     shiftHue(color, -30),
     languageCode,
   );
-  const mouthMaterial = useTonalityMaterial(mouthColor, languageCode);
+  const mouthMaterial = useTonalityMaterial(color, languageCode);
 
   useFrame(({ camera, clock }) => {
     if (groupRef.current) {
@@ -150,7 +174,7 @@ const Mesha = ({ languageCode, position, color }) => {
           }
           leftSegments={10 - scores.morphology}
           rightSegments={2 + scores.morphology * 2}
-          cheeksYOffset={(scores.morphology + 1) / 4}
+          scores={scores}
         />
 
         <group ref={eyesGroupRef} position={[0, 1, mainZ]}>
@@ -168,9 +192,9 @@ const Mesha = ({ languageCode, position, color }) => {
           />
           <MeshaNose
             position={[0, eyeY - eyeX / 2, 0]}
-            color={color}
             scale={noseSize}
-            wordOrder={wordOrder}
+            color={color}
+            wordOrder={linguisticProperties?.wordOrder}
             wordOrderFlexibilityScore={scores.wordOrderFlexibility}
             meshaRotationRef={meshaRotationRef}
           />
@@ -186,8 +210,8 @@ const Mesha = ({ languageCode, position, color }) => {
             })(u, v, target)
           }
           segments={segments}
-          languageCode={languageCode}
           audioData={audioData}
+          languageCode={languageCode}
         />
         {cases &&
           cases.map((caseItem, i) => (

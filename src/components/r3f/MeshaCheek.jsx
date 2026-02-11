@@ -12,12 +12,15 @@ const MeshaCheek = forwardRef(
       audioReactiveSurface,
       leftSegments,
       rightSegments,
-      cheeksYOffset,
+      scores,
     },
     ref,
   ) => {
     const mesh1Ref = useRef();
     const mesh2Ref = useRef();
+    const x = 0.7;
+    const y = (scores.morphology + 1) / 4;
+    const z = 1;
 
     useImperativeHandle(ref, () => ({
       mesh1: mesh1Ref.current,
@@ -29,7 +32,7 @@ const MeshaCheek = forwardRef(
         {/* Left cheek */}
         <mesh
           ref={mesh2Ref}
-          position={[-0.7, cheeksYOffset, 1]}
+          position={[-x, y, z]}
           scale={[-1 / 2, 3 / rightSegments, 1]}
         >
           <parametricGeometry
@@ -41,7 +44,7 @@ const MeshaCheek = forwardRef(
         {/* Right cheek */}
         <mesh
           ref={mesh1Ref}
-          position={[0.7, cheeksYOffset, 1]}
+          position={[x, y, z]}
           scale={[1 / 2, 3 / rightSegments, 1]}
         >
           <parametricGeometry

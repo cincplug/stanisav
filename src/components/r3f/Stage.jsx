@@ -82,21 +82,6 @@ const Stage = ({
     return null;
   }
 
-  // Mesha logic (to be moved to Mesha later)
-  const meshaLanguageCode = selectedLanguage || sortedLanguageCodes[0];
-  const meshaPosition = selectedLanguage
-    ? formattedPositions[selectedLanguage]
-    : {
-        x: -controls.sphereRadius - controls.meshaSize,
-        y: 0,
-        z: controls.sphereRadius,
-      };
-
-  const meshaGroupKey =
-    data.languageData[meshaLanguageCode]?.group ||
-    data.languageGroups?.[meshaLanguageCode];
-  const meshaColor = groupColors?.[meshaGroupKey];
-
   const ambientLightModifier = selectedLanguage ? 0.7 : 1.2;
 
   return (
@@ -130,11 +115,7 @@ const Stage = ({
       />
 
       <group>
-        <Mesha
-          languageCode={meshaLanguageCode}
-          position={[meshaPosition.x, meshaPosition.y, meshaPosition.z]}
-          color={meshaColor}
-        />
+        <Mesha />
         {!showEmptyMessage &&
           sortedLanguageCodes.map((langCode, idx) => {
             const position = formattedPositions[langCode];

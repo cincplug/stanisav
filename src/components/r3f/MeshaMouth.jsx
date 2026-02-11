@@ -3,8 +3,6 @@ import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useAppState } from "../../contexts/AppStateContext";
 import { useControls } from "../../contexts/ControlsContext.jsx";
-import { tonalityVertexShader } from "../../shaders/shader.js";
-
 extend({ ParametricGeometry });
 
 function toothShape(u, v, target) {
@@ -33,37 +31,6 @@ function toothShape(u, v, target) {
   target.set(x, y, z);
 }
 
-export const useMouthMaterial = (color, languageCode) => {
-  const { data } = useAppState();
-  const linguisticProperties = data?.typologicalFeatures?.[languageCode];
-
-  const colorObj = useMemo(() => new Color(color), [color]);
-
-  const tonalityType = useMemo(() => {
-    const tonality = linguisticProperties?.tonality;
-    if (tonality === "non-tonal") return 0;
-    if (tonality === "pitch-accent") return 1;
-    if (tonality === "simple-tonal") return 2;
-    if (tonality === "complex-tonal") return 3;
-    return 0;
-  }, [linguisticProperties?.tonality]);
-
-  const mouthMaterial = useMemo(() => {
-    return {
-      uniforms: {
-        uBaseColor: { value: colorObj },
-        uTonalityType: { value: tonalityType },
-      },
-      vertexShader: tonalityVertexShader,
-      fragmentShader: mouthFragmentShader,
-      side: 2,
-      transparent: false,
-    };
-  }, [colorObj, tonalityType]);
-
-  return mouthMaterial;
-};
-
 const MeshaMouth = ({
   mouthMaterial,
   audioReactiveSurface,
@@ -72,10 +39,10 @@ const MeshaMouth = ({
   audioData,
 }) => {
   const { controls } = useControls();
-  const meshaSize = controls.meshaSize;
   const { data } = useAppState();
-  const linguisticProperties = data?.typologicalFeatures?.[languageCode];
   const teethRefs = useRef([]);
+  const { meshaSize } = controls;
+  const linguisticProperties = data?.typologicalFeatures?.[languageCode];
 
   const teeth = useMemo(() => {
     const count = linguisticProperties?.phonemeCount;
