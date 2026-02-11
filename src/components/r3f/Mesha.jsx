@@ -17,6 +17,8 @@ import MeshaEye from "./MeshaEye.jsx";
 import MeshaCheek from "./MeshaCheek.jsx";
 import MeshaTongue from "./MeshaTongue.jsx";
 import MeshaNose from "./MeshaNose.jsx";
+import MeshaTeeth from "./MeshaTeeth.jsx";
+import MeshaMoustache from "./MeshaMoustache.jsx";
 
 extend({ ParametricGeometry });
 
@@ -25,7 +27,6 @@ const Mesha = () => {
   const rotationGroupRef = useRef();
   const eyesGroupRef = useRef();
   const meshaCheekRef = useRef();
-  const casesRef = useRef([]);
   const meshaRotationRef = useRef(0);
   const lastAudioDataRef = useRef(defaultAudioData);
 
@@ -36,14 +37,12 @@ const Mesha = () => {
 
   const { meshaSize, eyeZ, eyeX, eyeY, noseSize, sphereRadius } = controls;
 
-  // Determine which language code to use
   const languageCode = useMemo(() => {
     if (selectedLanguage) return selectedLanguage;
     const codes = Object.keys(data?.languageData || {});
     return codes[0] || "eng";
   }, [selectedLanguage, data]);
 
-  // Calculate position
   const position = useMemo(() => {
     if (selectedLanguage && formattedPositions[selectedLanguage]) {
       const pos = formattedPositions[selectedLanguage];
@@ -52,7 +51,6 @@ const Mesha = () => {
     return [-sphereRadius - meshaSize, 0, sphereRadius];
   }, [selectedLanguage, formattedPositions, sphereRadius, meshaSize]);
 
-  // Calculate color
   const meshaGroupKey = useMemo(
     () =>
       data?.languageData?.[languageCode]?.group ||
@@ -111,49 +109,10 @@ const Mesha = () => {
       rotationGroupRef.current.rotation.y = rotation;
       meshaRotationRef.current = rotation;
     }
-
-    if (casesRef.current && audioData.isActive) {
-      const { harmonicsData } = audioData;
-      const count = casesRef.current.length;
-      const bandDivisor = 6;
-      casesRef.current.forEach((caseGroup, i) => {
-        if (caseGroup) {
-          const angle = (i / count) * Math.PI * 2;
-          const xSymmetry = Math.abs(Math.cos(angle));
-          const bandIndex = Math.floor(
-            (xSymmetry * harmonicsData.length) / bandDivisor,
-          );
-          const amplitude = harmonicsData[bandIndex] || 0;
-          const baseY = cases[i]?.y || -1;
-          caseGroup.position.y = baseY + amplitude * 2;
-          const scale = 0.3 + amplitude;
-          caseGroup.scale.set(scale, scale, scale);
-        }
-      });
-    }
   });
 
   const segments = audioVisualizationConfig.meshDeformation.meshSegments;
   const mainZ = meshaSize * eyeZ;
-
-  const cases = useMemo(() => {
-    const count = linguisticProperties?.caseCount;
-    if (!count) return null;
-
-    const spacing = (eyeX * 4) / count;
-    const totalWidth = spacing * (count - 1);
-    const startX = totalWidth / 2;
-    const items = [];
-    for (let i = 0; i < count; i++) {
-      items.push({
-        x: startX - i * spacing,
-        y: 1 / 2,
-        z: mainZ,
-        key: `case-${i}`,
-      });
-    }
-    return items;
-  }, [linguisticProperties?.caseCount, eyeX, mainZ]);
 
   const evidentialitySize = 1 + scores.evidentiality / 4;
   const verbAspectSize = scores.verbAspect / 4;
@@ -210,22 +169,14 @@ const Mesha = () => {
             })(u, v, target)
           }
           segments={segments}
-          audioData={audioData}
-          languageCode={languageCode}
         />
-        {cases &&
-          cases.map((caseItem, i) => (
-            <group
-              key={caseItem.key}
-              ref={(el) => (casesRef.current[i] = el)}
-              position={[caseItem.x, caseItem.y, caseItem.z]}
-            >
-              <mesh rotation={[Math.PI, Math.PI, 0]}>
-                <sphereGeometry args={[0.4, 16, 16]} />
-                <meshStandardMaterial color={shiftHue(color, 90)} />
-              </mesh>
-            </group>
-          ))}
+
+        <MeshaTeeth languageCode={languageCode} />
+
+        <MeshaMoustache
+          languageCode={languageCode}
+          meshaRotationRef={meshaRotationRef}
+        />
       </group>
     </a.group>
   );
