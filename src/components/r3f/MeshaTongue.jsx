@@ -1,7 +1,7 @@
 import { useRef, useMemo } from "react";
 import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
-import { useAppState } from "../../contexts/AppStateContext";
+import { useAppState } from "../../contexts/AppStateContext.jsx";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 extend({ ParametricGeometry });
 
@@ -31,7 +31,7 @@ function toothShape(u, v, target) {
   target.set(x, y, z);
 }
 
-const MeshaMouth = ({
+const MeshaTongue = ({
   mouthMaterial,
   audioReactiveSurface,
   segments,
@@ -113,4 +113,4 @@ const MeshaMouth = ({
   );
 };
 
-export default MeshaMouth;
+export default MeshaTongue;

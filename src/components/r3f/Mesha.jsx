@@ -15,7 +15,7 @@ import { shiftHue } from "../../utils/colorUtils";
 import { createAudioReactiveSurface } from "../../utils/audioReactiveSurface.js";
 import MeshaEye from "./MeshaEye.jsx";
 import MeshaCheek from "./MeshaCheek.jsx";
-import MeshaMouth from "./MeshaMouth.jsx";
+import MeshaTongue from "./MeshaTongue.jsx";
 import MeshaNose from "./MeshaNose.jsx";
 
 extend({ ParametricGeometry });
@@ -200,7 +200,7 @@ const Mesha = () => {
           />
         </group>
 
-        <MeshaMouth
+        <MeshaTongue
           mouthMaterial={mouthMaterial}
           audioReactiveSurface={(u, v, target) =>
             createAudioReactiveSurface(audioData, {
