@@ -11,7 +11,7 @@ import { useLayoutManager } from "../../hooks/useLayoutManager.js";
 import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
 import { useTonalityMaterial } from "../../hooks/useTonalityMaterial.js";
 import { getFeatureScoreList } from "../../utils/linguisticUtils.js";
-import { shiftHue } from "../../utils/colorUtils";
+import { shiftHue, calculateLanguageColors } from "../../utils/colorUtils";
 import { createAudioReactiveSurface } from "../../utils/audioReactiveSurface.js";
 import MeshaEye from "./MeshaEye.jsx";
 import MeshaCheek from "./MeshaCheek.jsx";
@@ -51,13 +51,18 @@ const Mesha = () => {
     return [-sphereRadius - meshaSize, 0, sphereRadius];
   }, [selectedLanguage, formattedPositions, sphereRadius, meshaSize]);
 
-  const meshaGroupKey = useMemo(
-    () =>
-      data?.languageData?.[languageCode]?.group ||
-      data?.languageGroups?.[languageCode],
-    [data, languageCode],
-  );
-  const color = groupColors?.[meshaGroupKey];
+  // Calculate color using the same utility
+  const color = useMemo(() => {
+    if (!data?.languageData || !data?.languageGroups || !groupColors) {
+      return "#ffffff";
+    }
+    const languageColors = calculateLanguageColors(
+      data.languageData,
+      data.languageGroups,
+      groupColors,
+    );
+    return languageColors[languageCode] || "#ffffff";
+  }, [data?.languageData, data?.languageGroups, groupColors, languageCode]);
 
   if (!data || !languageCode) return null;
 
