@@ -217,13 +217,17 @@ export const PlaylistProvider = ({ children }) => {
   useEffect(() => {
     const codes = getSortedLanguageCodes();
     playlistRef.current = codes;
-    setCurrentIndex(0);
 
-    if (isPlaying) {
-      pausePlaylist();
-      resetCameraView();
+    const currentLang = codes[currentIndex];
+    if (!currentLang) {
+      setCurrentIndex(0);
     }
-  }, [filteringUtils]);
+  }, [
+    getSortedLanguageCodes,
+    controls.sortBy,
+    controls.labelContent,
+    controls.isReverse,
+  ]);
 
   useEffect(() => {
     return () => {
