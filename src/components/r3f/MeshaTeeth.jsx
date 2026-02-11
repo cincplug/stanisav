@@ -42,7 +42,7 @@ const MeshaTeeth = ({ languageCode }) => {
   const { data } = useAppState();
   const { audioData: rawAudioData } = useAudioAnimation();
 
-  const { meshaSize } = controls;
+  const { meshaSize, teethSize } = controls;
   const linguisticProperties = data?.typologicalFeatures?.[languageCode];
 
   let audioData;
@@ -100,7 +100,7 @@ const MeshaTeeth = ({ languageCode }) => {
   if (!teeth.length) return null;
 
   return (
-    <group position={[0, meshaSize, meshaSize * 0.7]} scale={1 / 2}>
+    <group position={[0, meshaSize, meshaSize * 0.7]} scale={teethSize}>
       {teeth.map((tooth, i) => (
         <mesh
           key={tooth.key}

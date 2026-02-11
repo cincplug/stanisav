@@ -7,7 +7,7 @@ import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
 import { shiftHue } from "../../utils/colorUtils";
 import { defaultAudioData } from "../../config/meshaDefaultAudioData.js";
 
-const MeshaMoustache = ({ languageCode, meshaRotationRef }) => {
+const MeshaMoustache = ({ languageCode }) => {
   const casesRef = useRef([]);
   const lastAudioDataRef = useRef(defaultAudioData);
 
@@ -16,7 +16,7 @@ const MeshaMoustache = ({ languageCode, meshaRotationRef }) => {
   const { data } = useAppState();
   const { audioData: rawAudioData } = useAudioAnimation();
 
-  const { meshaSize, eyeZ, eyeX } = controls;
+  const { meshaSize, eyeZ, eyeX, moustacheSize } = controls;
 
   const linguisticProperties = data?.typologicalFeatures?.[languageCode];
   const meshaGroupKey =
@@ -87,7 +87,7 @@ const MeshaMoustache = ({ languageCode, meshaRotationRef }) => {
           position={[caseItem.x, caseItem.y, caseItem.z]}
         >
           <mesh rotation={[Math.PI, Math.PI, 0]}>
-            <sphereGeometry args={[0.4, 16, 16]} />
+            <sphereGeometry args={[moustacheSize, 16, 16]} />
             <meshStandardMaterial color={shiftHue(color, 90)} />
           </mesh>
         </group>
