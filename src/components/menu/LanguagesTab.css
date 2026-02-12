@@ -23,7 +23,6 @@
 }
 
 .language-item-button {
-  padding: 4px 8px;
   background-color: var(--color-interactive);
   color: var(--color-text-dark);
   cursor: pointer;

@@ -1,6 +1,6 @@
 :root {
-  --font-size-big: 1.1rem;
-  --font-size-normal: 0.8rem;
+  --font-size-big: 1rem;
+  --font-size-normal: 0.9rem;
   --font-size-small: 0.8rem;
 
   /* Semantic colors */
@@ -70,7 +70,7 @@ textarea {
 
 button,
 .button {
-  padding: 8px 16px;
+  padding: var(--gap) var(--gap-double);
   background-color: var(--color-interactive);
   border-radius: var(--border-radius);
   border: none;
@@ -146,7 +146,7 @@ legend {
   flex-wrap: wrap;
   gap: var(--gap);
 
-  input[type="checkbox"] {
+  input {
     display: none;
   }
 }
@@ -160,7 +160,6 @@ legend {
   font-size: var(--font-size-normal);
   font-weight: normal;
   position: relative;
-  text-transform: capitalize;
 }
 
 .text-dark {
