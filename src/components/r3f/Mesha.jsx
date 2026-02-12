@@ -60,8 +60,9 @@ const Mesha = () => {
       data.languageData,
       data.languageGroups,
       groupColors,
+      30,
     );
-    return languageColors[languageCode] || "#ffffff";
+    return languageColors[languageCode];
   }, [data?.languageData, data?.languageGroups, groupColors, languageCode]);
 
   if (!data || !languageCode) return null;

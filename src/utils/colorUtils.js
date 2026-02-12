@@ -20,6 +20,7 @@ export function calculateLanguageColors(
   languageData,
   languageGroups,
   groupColors,
+  hueShiftAngle = 5,
 ) {
   if (!languageData || !languageGroups || !groupColors) return {};
 
@@ -44,7 +45,6 @@ export function calculateLanguageColors(
 
   // Calculate shifted colors
   const languageColors = {};
-  const fixedHueShift = 5; // Fixed shift in degrees per language
 
   Object.entries(groupedLanguages).forEach(([groupKey, languages]) => {
     const baseColor = groupColors[groupKey];
@@ -54,7 +54,7 @@ export function calculateLanguageColors(
       if (totalInGroup > 1) {
         // Center the shifts around the base color
         const centerOffset = (totalInGroup - 1) / 2;
-        const hueShift = (index - centerOffset) * fixedHueShift;
+        const hueShift = (index - centerOffset) * hueShiftAngle;
         languageColors[langCode] = shiftHue(baseColor, hueShift);
       } else {
         languageColors[langCode] = baseColor;
