@@ -35,9 +35,7 @@ export const PlaylistProvider = ({ children }) => {
 
   const getSortedLanguageCodes = useCallback(() => {
     if (!data?.languageData) return [];
-    const { languageData, languageGroups, speakerData, typologicalFeatures } =
-      data;
-    const { sortBy, labelContent, isReverse } = controls;
+
     let allLanguages = Object.keys(data.languageData);
 
     // Filter by active filters if any
@@ -47,15 +45,33 @@ export const PlaylistProvider = ({ children }) => {
 
     return sortLanguages({
       allLanguages,
-      languageData,
-      languageGroups,
-      speakerData,
-      typologicalFeatures,
-      sortBy,
-      labelContent,
-      isReverse,
+      languageData: data.languageData,
+      languageGroups: data.languageGroups,
+      speakerData: data.speakerData,
+      typologicalFeatures: data.typologicalFeatures,
+      sortBy: controls.sortBy,
+      labelContent: controls.labelContent,
+      isReverse: controls.isReverse,
     });
-  }, [data, controls, filteringUtils, filteredLanguages]);
+  }, [
+    data,
+    controls.sortBy,
+    controls.labelContent,
+    controls.isReverse,
+    filteringUtils,
+    filteredLanguages,
+  ]);
+
+  // Update playlist when sorting/filtering changes
+  useEffect(() => {
+    const codes = getSortedLanguageCodes();
+    playlistRef.current = codes;
+
+    // Validate current index
+    if (currentIndex >= codes.length) {
+      setCurrentIndex(0);
+    }
+  }, [getSortedLanguageCodes, currentIndex]);
 
   const stopCurrentAudio = useCallback(() => {
     if (delayTimeoutRef.current) {
@@ -212,21 +228,6 @@ export const PlaylistProvider = ({ children }) => {
     stopCurrentAudio,
     handleAudioEnded,
     selectLanguage,
-  ]);
-
-  useEffect(() => {
-    const codes = getSortedLanguageCodes();
-    playlistRef.current = codes;
-
-    const currentLang = codes[currentIndex];
-    if (!currentLang) {
-      setCurrentIndex(0);
-    }
-  }, [
-    getSortedLanguageCodes,
-    controls.sortBy,
-    controls.labelContent,
-    controls.isReverse,
   ]);
 
   useEffect(() => {
