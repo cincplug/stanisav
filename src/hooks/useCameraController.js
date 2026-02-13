@@ -19,7 +19,7 @@ export const useCameraController = ({
     () => ({
       ...controls,
     }),
-    [controls]
+    [controls],
   );
 
   const cameraSystem = useMemo(
@@ -28,7 +28,7 @@ export const useCameraController = ({
       controls: threeControls,
       animationRef,
     }),
-    [camera, threeControls]
+    [camera, threeControls],
   );
 
   const focusOnLanguage = useCallback(
@@ -42,19 +42,19 @@ export const useCameraController = ({
         animationRef.current = null;
       }
       const languagePosition = new Vector3(node.x, node.y, node.z);
-      const focusDistance = config.focusDistance;
+      const zoomDistance = config.zoomDistance;
       const targetCameraPosition = calculateCameraPosition(
         languagePosition,
-        focusDistance
+        zoomDistance,
       );
       animateCamera(
         cameraSystem,
         targetCameraPosition,
         languagePosition,
-        config
+        config,
       );
     },
-    [cameraSystem, languageNodes, config]
+    [cameraSystem, languageNodes, config],
   );
 
   const setInitialCameraPosition = useCallback(() => {
@@ -65,7 +65,7 @@ export const useCameraController = ({
     const initialCameraPosition = new Vector3(
       config.positionX,
       config.positionY,
-      config.positionZ
+      config.positionZ,
     );
     const initialTarget = new Vector3(0, 0, 0);
     animateCamera(cameraSystem, initialCameraPosition, initialTarget, config);
@@ -121,7 +121,7 @@ export const useCameraController = ({
         cancelAnimationFrame(animationRef.current);
       }
     },
-    []
+    [],
   );
 
   return { setInitialCameraPosition };
@@ -132,7 +132,7 @@ const animateCamera = (cameraSystem, targetPosition, lookAtTarget, config) => {
 
   const startPosition = camera.position.clone();
   const startTarget = controls?.target?.clone() || new Vector3();
-  const duration = config.animationDuration;
+  const duration = config.switchDuration;
   const startTime = Date.now();
 
   const animate = () => {
@@ -165,9 +165,9 @@ const animateCamera = (cameraSystem, targetPosition, lookAtTarget, config) => {
   animationRef.current = requestAnimationFrame(animate);
 };
 
-const calculateCameraPosition = (nodePosition, focusDistance) => {
+const calculateCameraPosition = (nodePosition, zoomDistance) => {
   const directionFromCenter = nodePosition.clone().normalize();
   return nodePosition
     .clone()
-    .add(directionFromCenter.multiplyScalar(focusDistance));
+    .add(directionFromCenter.multiplyScalar(zoomDistance));
 };

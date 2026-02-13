@@ -194,9 +194,9 @@
     "isUserEditable": false,
     "group": "Camera"
   },
-  "animationDuration": {
+  "switchDuration": {
     "type": "range",
-    "label": "Animation duration",
+    "label": "Switch duration",
     "min": 500,
     "max": 3000,
     "step": 100,
@@ -204,9 +204,9 @@
     "isUserEditable": true,
     "group": "Camera"
   },
-  "focusDistance": {
+  "zoomDistance": {
     "type": "range",
-    "label": "Focus distance",
+    "label": "Zoom distance",
     "min": 20,
     "max": 100,
     "step": 1,

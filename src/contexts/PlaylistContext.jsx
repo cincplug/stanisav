@@ -170,7 +170,7 @@ export const PlaylistProvider = ({ children }) => {
     let cleanup = () => {};
 
     const playAudio = async () => {
-      const { isLuka, animationDuration } = controls;
+      const { isLuka, switchDuration } = controls;
 
       stopCurrentAudio();
       setIsAnimating(true);
@@ -207,7 +207,7 @@ export const PlaylistProvider = ({ children }) => {
           console.error("Error playing language audio:", error);
           handleAudioEnded();
         }
-      }, animationDuration);
+      }, switchDuration);
     };
 
     playAudio();
