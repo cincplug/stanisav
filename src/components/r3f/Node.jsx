@@ -91,7 +91,7 @@ const Node = ({
 
   return (
     <group position={position} onClick={handleClick}>
-      {isSelected && <NodeLights labelTextLength={labelText.length} />}
+      {isSelected && <NodeLights spread={labelText.length / 2} />}
       <Label
         fontSize={fontSize}
         isSelected={isSelected}

@@ -3,11 +3,12 @@ import { Color } from "three";
 import { useFrame } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 
-const NodeLights = ({ labelTextLength }) => {
+const NodeLights = ({ spread }) => {
   const groupRef = useRef();
-  const { pointLightDistance } = useControls();
+  const { controls } = useControls();
+  const { nodeLightDistance, nodeLightDecay, nodeLightIntensity } = controls;
+
   const lightColor = new Color("#ffdd88");
-  const x = labelTextLength / 2;
 
   useFrame(({ camera }) => {
     if (groupRef.current) {
@@ -18,21 +19,24 @@ const NodeLights = ({ labelTextLength }) => {
   return (
     <group ref={groupRef}>
       <pointLight
-        position={[-x / 2, 0, 3]}
-        intensity={30}
-        distance={pointLightDistance}
+        position={[-spread, 0, 3]}
+        intensity={nodeLightIntensity}
+        distance={nodeLightDistance}
+        decay={nodeLightDecay}
         color={lightColor}
       />
       <pointLight
-        position={[x / 2, 0, 3]}
-        intensity={40}
-        distance={pointLightDistance}
+        position={[spread, 0, 3]}
+        intensity={nodeLightIntensity}
+        distance={nodeLightDistance}
+        decay={nodeLightDecay}
         color={lightColor}
       />
       <pointLight
         position={[0, 5, 8]}
-        intensity={60}
-        distance={pointLightDistance}
+        intensity={nodeLightIntensity}
+        distance={nodeLightDistance}
+        decay={nodeLightDecay}
         color={lightColor}
       />
     </group>

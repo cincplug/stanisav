@@ -94,44 +94,64 @@
     "isUserEditable": false,
     "group": "Colors"
   },
-  "pointLightIntensity": {
+  "nodeLightIntensity": {
     "group": "Light",
     "type": "range",
-    "label": "Point light intensity",
+    "label": "Node light intensity",
     "min": 0,
-    "max": 30,
-    "step": 0.5,
-    "defaultValue": 10,
-    "isUserEditable": true
-  },
-  "pointLightDecay": {
-    "group": "Light",
-    "type": "range",
-    "label": "Point light decay",
-    "min": 0,
-    "max": 1,
-    "step": 0.1,
-    "defaultValue": 0.1,
-    "isUserEditable": true
-  },
-  "pointLightDistance": {
-    "group": "Light",
-    "type": "range",
-    "label": "Point light distance",
-    "min": 80,
-    "max": 150,
+    "max": 90,
     "step": 1,
-    "defaultValue": 110,
+    "defaultValue": 70,
     "isUserEditable": true
   },
-  "ambientLightIntensity": {
+  "stageLightIntensity": {
     "group": "Light",
     "type": "range",
     "label": "Stage light intensity",
     "min": 0,
+    "max": 70,
+    "step": 1,
+    "defaultValue": 16,
+    "isUserEditable": true
+  },
+  "nodeLightDecay": {
+    "group": "Light",
+    "type": "range",
+    "label": "Node light decay",
+    "min": 0,
     "max": 5,
     "step": 0.1,
-    "defaultValue": 0.4,
+    "defaultValue": 2,
+    "isUserEditable": true
+  },
+  "stageLightDecay": {
+    "group": "Light",
+    "type": "range",
+    "label": "Stage light decay",
+    "min": 0,
+    "max": 1,
+    "step": 0.1,
+    "defaultValue": 0.2,
+    "isUserEditable": true
+  },
+  "nodeLightDistance": {
+    "group": "Light",
+    "type": "range",
+    "label": "Node light distance",
+    "min": 1,
+    "max": 99,
+    "step": 1,
+    "defaultValue": 80,
+    "isUserEditable": true
+  },
+  "stageLightDistance": {
+    "group": "Light",
+    "type": "range",
+    "label": "Stage light distance",
+    "min": 50,
+    "max": 90,
+    "step": 1,
+    "defaultValue": 58,
     "isUserEditable": true
   },
   "positionX": {

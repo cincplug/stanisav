@@ -16,12 +16,14 @@ const StageLight = () => {
   });
 
   return (
-    <pointLight
-      ref={lightRef}
-      intensity={controls.pointLightIntensity}
-      decay={controls.pointLightDecay}
-      distance={controls.pointLightDistance}
-    />
+    <>
+      <pointLight
+        ref={lightRef}
+        intensity={controls.stageLightIntensity}
+        decay={controls.stageLightDecay}
+        distance={controls.stageLightDistance * 2}
+      />
+    </>
   );
 };
 

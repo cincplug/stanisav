@@ -29,7 +29,7 @@ const Stage = ({
     near,
     far,
     backgroundColor,
-    ambientLightIntensity,
+    stageLightIntensity,
   } = controls;
   const { filteringUtils, selectedLanguage, groupColors } =
     useLanguageSelection();
@@ -94,8 +94,6 @@ const Stage = ({
     return null;
   }
 
-  const ambientLightModifier = selectedLanguage ? 0.7 : 1.2;
-
   return (
     <Canvas
       className={`${isMenuCollapsed ? "menu-collapsed" : "menu-expanded"}`}
@@ -116,8 +114,6 @@ const Stage = ({
       />
 
       {!selectedLanguage && <StageLight />}
-
-      <ambientLight intensity={ambientLightIntensity * ambientLightModifier} />
 
       <Camera
         languageNodes={formattedPositions}
