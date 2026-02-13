@@ -23,6 +23,7 @@
   --outline-default: 3px solid var(--color-highlight);
   --gap: 6px;
   --gap-double: calc(var(--gap) * 2);
+  --gap-triple: calc(var(--gap) * 3);
   --gap-half: calc(var(--gap) / 2);
   --gap-reduced: calc(var(--gap) / 3 * 2);
   --tab-border-width: 2px;
@@ -104,6 +105,11 @@ input[type="color"] {
   cursor: pointer;
   padding: 0;
   background: transparent;
+}
+
+input[type="checkbox"], input[type="radio"] {
+  width: var(--gap-triple);
+  height: var(--gap-triple);
 }
 
 fieldset {
