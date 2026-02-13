@@ -1,6 +1,6 @@
 {
   "labelSizeNormalization": {
-    "outMin": 0.67,
+    "outMin": 1.2,
     "outMax": 3,
     "speakersReference": {
       "min": 0.001,
