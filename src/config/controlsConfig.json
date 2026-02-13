@@ -95,7 +95,7 @@
     "group": "Colors"
   },
   "nodeLightIntensity": {
-    "group": "Light",
+    "group": "Node light",
     "type": "range",
     "label": "Node light intensity",
     "min": 0,
@@ -105,7 +105,7 @@
     "isUserEditable": true
   },
   "stageLightIntensity": {
-    "group": "Light",
+    "group": "Stage light",
     "type": "range",
     "label": "Stage light intensity",
     "min": 0,
@@ -115,7 +115,7 @@
     "isUserEditable": true
   },
   "nodeLightDecay": {
-    "group": "Light",
+    "group": "Node light",
     "type": "range",
     "label": "Node light decay",
     "min": 0,
@@ -125,7 +125,7 @@
     "isUserEditable": true
   },
   "stageLightDecay": {
-    "group": "Light",
+    "group": "Stage light",
     "type": "range",
     "label": "Stage light decay",
     "min": 0,
@@ -135,7 +135,7 @@
     "isUserEditable": true
   },
   "nodeLightDistance": {
-    "group": "Light",
+    "group": "Node light",
     "type": "range",
     "label": "Node light distance",
     "min": 1,
@@ -145,7 +145,7 @@
     "isUserEditable": true
   },
   "stageLightDistance": {
-    "group": "Light",
+    "group": "Stage light",
     "type": "range",
     "label": "Stage light distance",
     "min": 50,

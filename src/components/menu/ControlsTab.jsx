@@ -1,4 +1,5 @@
 import { useControls } from "../../contexts/ControlsContext";
+import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import controlsConfig from "../../config/controlsConfig.json";
 import ControlItem from "./ControlItem";
 import "./ControlsTab.css";
@@ -39,12 +40,16 @@ const ControlGroup = ({ groupName, controls, updateControl }) => {
 
 const ControlsTab = () => {
   const { controls, updateControl } = useControls();
+  const { selectedLanguage } = useLanguageSelection();
 
   const uniqueGroups = Array.from(
     new Set(
       Object.values(controlsConfig)
         .map(({ group }) => group)
-        .filter((group) => group !== "Sorting"),
+        .filter((group) => group !== "Sorting")
+        .filter((group) =>
+          selectedLanguage ? group !== "Stage light" : group !== "Node light",
+        ),
     ),
   ).filter(Boolean);
 

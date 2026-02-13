@@ -3,7 +3,7 @@ import { Color } from "three";
 import { useFrame } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 
-const NodeLights = ({ spread }) => {
+const NodeLight = ({ spread }) => {
   const groupRef = useRef();
   const { controls } = useControls();
   const { nodeLightDistance, nodeLightDecay, nodeLightIntensity } = controls;
@@ -43,4 +43,4 @@ const NodeLights = ({ spread }) => {
   );
 };
 
-export default NodeLights;
+export default NodeLight;

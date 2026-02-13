@@ -7,7 +7,7 @@ import { useAppState } from "../../contexts/AppStateContext.jsx";
 import { calculateLabelSizeConfig } from "../../utils/sceneUtils.js";
 import { getFeatureScore } from "../../utils/linguisticUtils.js";
 import Label from "./Label.jsx";
-import NodeLights from "./NodeLights.jsx";
+import NodeLight from "./NodeLight.jsx";
 
 const Node = ({
   languageCode,
@@ -91,7 +91,7 @@ const Node = ({
 
   return (
     <group position={position} onClick={handleClick}>
-      {isSelected && <NodeLights spread={labelText.length / 2} />}
+      {isSelected && <NodeLight spread={labelText.length / 2} />}
       <Label
         fontSize={fontSize}
         isSelected={isSelected}
