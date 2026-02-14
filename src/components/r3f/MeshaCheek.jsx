@@ -18,7 +18,7 @@ const MeshaCheek = forwardRef(
   ) => {
     const mesh1Ref = useRef();
     const mesh2Ref = useRef();
-    const x = 0.7;
+    const x = 1.4 - scores.morphology / 2;
     const y = (scores.morphology + 1) / 4;
     const z = 1;
 
@@ -33,7 +33,7 @@ const MeshaCheek = forwardRef(
         <mesh
           ref={mesh2Ref}
           position={[-x, y, z]}
-          scale={[-1 / 2, 3 / rightSegments, 1]}
+          scale={[-0.6, 3 / rightSegments, 1]}
         >
           <parametricGeometry
             args={[audioReactiveSurface, leftSegments, leftSegments]}
@@ -45,7 +45,7 @@ const MeshaCheek = forwardRef(
         <mesh
           ref={mesh1Ref}
           position={[x, y, z]}
-          scale={[1 / 2, 3 / rightSegments, 1]}
+          scale={[0.6, 3 / rightSegments, 1]}
         >
           <parametricGeometry
             args={[audioReactiveSurface, rightSegments, rightSegments]}
