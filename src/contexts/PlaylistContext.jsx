@@ -16,7 +16,7 @@ const PlaylistContext = createContext(null);
 export const PlaylistProvider = ({ children }) => {
   const { data, sceneReady } = useAppState();
   const { controls } = useControls();
-  const { selectLanguage, filteredLanguages, filteringUtils, resetCameraView } =
+  const { selectLanguage, filteredLanguages, filteringUtils } =
     useLanguageSelection();
 
   const [isPlaying, setIsPlaying] = useState(false);
