@@ -8,7 +8,7 @@ const NodeLight = ({ spread }) => {
   const { controls } = useControls();
   const { nodeLightDistance, nodeLightDecay, nodeLightIntensity } = controls;
 
-  const lightColor = new Color("#ffdd88");
+  const lightColor = new Color("#ffeedd");
 
   useFrame(({ camera }) => {
     if (groupRef.current) {

@@ -19,6 +19,7 @@ import MeshaTongue from "./MeshaTongue.jsx";
 import MeshaNose from "./MeshaNose.jsx";
 import MeshaTeeth from "./MeshaTeeth.jsx";
 import MeshaMoustache from "./MeshaMoustache.jsx";
+import NodeLight from "./NodeLight.jsx";
 
 extend({ ParametricGeometry });
 
@@ -184,6 +185,7 @@ const Mesha = () => {
           meshaRotationRef={meshaRotationRef}
         />
       </group>
+      <NodeLight spread={2} />
     </a.group>
   );
 };

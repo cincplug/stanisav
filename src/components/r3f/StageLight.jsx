@@ -22,8 +22,8 @@ const StageLight = () => {
         intensity={controls.stageLightIntensity}
         decay={controls.stageLightDecay}
         distance={controls.stageLightDistance * 2}
+        color={"#ffeedd"}
       />
-      <ambientLight intensity={0.3} />
     </>
   );
 };
