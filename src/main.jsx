@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import SourceVideoGallery from "./pages/sourceVideoGallery/SourceVideoGallery.jsx";
+import SourceVideoGallery from "./pages/source-video-gallery/SourceVideoGallery.jsx";
+import MyMesha from "./pages/my-mesha/MyMesha.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AppStateProvider } from "./contexts/AppStateContext";
 import { ControlsProvider } from "./contexts/ControlsContext";
@@ -22,6 +23,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                   path="/source-video-gallery"
                   element={<SourceVideoGallery />}
                 />
+                <Route path="/my-mesha" element={<MyMesha />} />
               </Routes>
             </BrowserRouter>
           </PlaylistProvider>
