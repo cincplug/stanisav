@@ -1,0 +1,204 @@
+/* MyMesha page styles */
+
+.my-mesha-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: #000000;
+  overflow: hidden;
+}
+
+.my-mesha-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* Controls overlay */
+.my-mesha-controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: var(--gap-double);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 100;
+}
+
+.my-mesha-controls > * {
+  pointer-events: auto;
+}
+
+/* Header */
+.my-mesha-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--gap-double);
+}
+
+.my-mesha-header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text-light);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.back-link {
+  color: var(--color-text-light);
+  text-decoration: none;
+  padding: var(--gap) var(--gap-double);
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.back-link:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Microphone controls */
+.microphone-controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  max-width: 400px;
+}
+
+.mic-button {
+  padding: var(--gap-double);
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-text-light);
+  box-shadow: var(--shadow-default);
+}
+
+.mic-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.mic-button.primary {
+  background-color: var(--color-interactive);
+}
+
+.mic-button.primary:hover {
+  background-color: var(--color-highlight);
+}
+
+.mic-button.active {
+  background-color: #dc3545;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.mic-hint {
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-text-muted);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.mic-error {
+  background-color: rgba(220, 53, 69, 0.2);
+  border: 1px solid rgba(220, 53, 69, 0.5);
+  border-radius: 8px;
+  padding: var(--gap-double);
+}
+
+.mic-error p {
+  margin: 0 0 var(--gap) 0;
+  color: #ff6b6b;
+  font-weight: 500;
+}
+
+/* Error and loading states */
+.my-mesha-error,
+.my-mesha-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: var(--gap-triple);
+  text-align: center;
+  color: var(--color-text-light);
+}
+
+.my-mesha-error h1 {
+  margin: 0 0 var(--gap-double) 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.my-mesha-error p {
+  margin: 0 0 var(--gap) 0;
+  font-size: 16px;
+  color: var(--color-text-muted);
+}
+
+.my-mesha-error code {
+  display: inline-block;
+  margin: var(--gap) 0;
+  padding: var(--gap) var(--gap-double);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 14px;
+}
+
+.my-mesha-error a {
+  color: var(--color-interactive);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.my-mesha-error a:hover {
+  color: var(--color-highlight);
+}
+
+.my-mesha-loading {
+  font-size: 18px;
+  animation: pulse 2s infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .my-mesha-header {
+    flex-direction: column;
+    gap: var(--gap);
+    align-items: flex-start;
+  }
+
+  .my-mesha-header h1 {
+    font-size: 20px;
+  }
+
+  .microphone-controls {
+    max-width: 100%;
+  }
+}
