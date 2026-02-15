@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import languages from "../../config/languages.json";
 import SourceVideoCard from "./SourceVideoCard";
+import "../../index.css";
 import "./SourceVideoGallery.css";
 
 const SourceVideoGallery = () => {

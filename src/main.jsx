@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import SourceVideoGallery from "./components/sourceVideoGallery/SourceVideoGallery";
+import SourceVideoGallery from "./pages/sourceVideoGallery/SourceVideoGallery.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AppStateProvider } from "./contexts/AppStateContext";
 import { ControlsProvider } from "./contexts/ControlsContext";
