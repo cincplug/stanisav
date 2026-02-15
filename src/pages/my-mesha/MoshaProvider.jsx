@@ -1,14 +1,14 @@
 /**
- * MyMeshaProvider - Minimal context wrapper for MyMesha page
+ * MoshaProvider - Minimal context wrapper for Mosha page
  * Provides only the contexts needed by Mesha component
  */
 
 import { createContext, useContext, useMemo } from "react";
 import groupInfo from "../../config/groupInfo.json";
 
-const MyMeshaContext = createContext(null);
+const MoshaContext = createContext(null);
 
-export const MyMeshaProvider = ({ children, languageCode, data }) => {
+export const MoshaProvider = ({ children, languageCode, data }) => {
   // Initialize group colors from groupInfo
   const groupColors = useMemo(() => {
     const colors = {};
@@ -31,7 +31,7 @@ export const MyMeshaProvider = ({ children, languageCode, data }) => {
     // Language selection context
     selectedLanguage: languageCode,
     groupColors,
-    filteredLanguages: new Set(), // No filtering on MyMesha
+    filteredLanguages: new Set(), // No filtering on Mosha
     filteringUtils: {},
     selectLanguage: () => {}, // No-op
     clearSelection: () => {}, // No-op
@@ -49,15 +49,15 @@ export const MyMeshaProvider = ({ children, languageCode, data }) => {
   };
 
   return (
-    <MyMeshaContext.Provider value={value}>{children}</MyMeshaContext.Provider>
+    <MoshaContext.Provider value={value}>{children}</MoshaContext.Provider>
   );
 };
 
 // Custom hooks that mimic the main app's context hooks
 export const useLanguageSelection = () => {
-  const context = useContext(MyMeshaContext);
+  const context = useContext(MoshaContext);
   if (!context) {
-    throw new Error("useLanguageSelection must be used within MyMeshaProvider");
+    throw new Error("useLanguageSelection must be used within MoshaProvider");
   }
   return {
     selectedLanguage: context.selectedLanguage,
@@ -70,9 +70,9 @@ export const useLanguageSelection = () => {
 };
 
 export const useAppState = () => {
-  const context = useContext(MyMeshaContext);
+  const context = useContext(MoshaContext);
   if (!context) {
-    throw new Error("useAppState must be used within MyMeshaProvider");
+    throw new Error("useAppState must be used within MoshaProvider");
   }
   return {
     data: context.data,
@@ -82,4 +82,4 @@ export const useAppState = () => {
   };
 };
 
-export default MyMeshaProvider;
+export default MoshaProvider;

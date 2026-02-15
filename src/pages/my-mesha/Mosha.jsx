@@ -1,6 +1,6 @@
 /**
- * MyMesha - Custom Mesha page with microphone input
- * URL format: /my-mesha?language=ach
+ * Mosha - Custom Mesha page with microphone input
+ * URL format: /mosha?language=ach
  */
 
 import { useState, useEffect, useCallback, useMemo } from "react";
@@ -32,17 +32,17 @@ import { extend } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 
 import {
-  MyMeshaProvider,
+  MoshaProvider,
   useLanguageSelection,
   useAppState,
-} from "./MyMeshaProvider.jsx";
+} from "./MoshaProvider.jsx";
 import { loadLanguageData, isValidLanguageCode } from "./dataLoader.js";
 import microphoneService from "../../services/microphoneService.js";
-import "./MyMesha.css";
+import "./Mosha.css";
 
 extend({ ParametricGeometry });
 
-// Simplified Mesha component for MyMesha - positioned at origin
+// Simplified Mesha component for Mosha - positioned at origin
 const SimpleMesha = ({ languageCode }) => {
   const groupRef = useRef();
   const rotationGroupRef = useRef();
@@ -196,7 +196,7 @@ const SimpleMesha = ({ languageCode }) => {
   );
 };
 
-const MyMeshaContent = ({ languageCode, data }) => {
+const MoshaContent = ({ languageCode, data }) => {
   const { controls } = useControls();
   const { fov, near, far, backgroundColor } = controls;
 
@@ -205,7 +205,7 @@ const MyMeshaContent = ({ languageCode, data }) => {
 
   return (
     <Canvas
-      className="my-mesha-canvas"
+      className="mosha-canvas"
       camera={{
         position: cameraPosition,
         fov,
@@ -228,7 +228,7 @@ const MyMeshaContent = ({ languageCode, data }) => {
   );
 };
 
-const MyMesha = () => {
+const Mosha = () => {
   const [searchParams] = useSearchParams();
   const [data, setData] = useState(null);
   const [micStatus, setMicStatus] = useState({
@@ -287,11 +287,11 @@ const MyMesha = () => {
   // Render error states
   if (!languageCode) {
     return (
-      <div className="my-mesha-container">
-        <div className="my-mesha-error">
+      <div className="mosha-container">
+        <div className="mosha-error">
           <h1>Language Required</h1>
           <p>Please specify a language code in the URL:</p>
-          <code>/my-mesha?language=ach</code>
+          <code>/mosha?language=ach</code>
           <br />
           <br />
           <Link to="/">← Back to main page</Link>
@@ -302,8 +302,8 @@ const MyMesha = () => {
 
   if (!isValidLanguageCode(languageCode)) {
     return (
-      <div className="my-mesha-container">
-        <div className="my-mesha-error">
+      <div className="mosha-container">
+        <div className="mosha-error">
           <h1>Invalid Language Code</h1>
           <p>
             Language code &quot;{languageCode}&quot; not found in the database.
@@ -316,16 +316,16 @@ const MyMesha = () => {
 
   if (!data) {
     return (
-      <div className="my-mesha-container">
-        <div className="my-mesha-loading">Loading language data...</div>
+      <div className="mosha-container">
+        <div className="mosha-loading">Loading language data...</div>
       </div>
     );
   }
 
   if (!micStatus.isSupported) {
     return (
-      <div className="my-mesha-container">
-        <div className="my-mesha-error">
+      <div className="mosha-container">
+        <div className="mosha-error">
           <h1>Microphone Not Supported</h1>
           <p>
             Your browser doesn&apos;t support microphone access. Please use a
@@ -340,13 +340,13 @@ const MyMesha = () => {
   const languageName = data.languageData[languageCode]?.name || languageCode;
 
   return (
-    <div className="my-mesha-container">
-      <MyMeshaProvider languageCode={languageCode} data={data}>
-        <MyMeshaContent languageCode={languageCode} data={data} />
+    <div className="mosha-container">
+      <MoshaProvider languageCode={languageCode} data={data}>
+        <MoshaContent languageCode={languageCode} data={data} />
 
         {/* Controls overlay */}
-        <div className="my-mesha-controls">
-          <div className="my-mesha-header">
+        <div className="mosha-controls">
+          <div className="mosha-header">
             <h1>{languageName} Mesha</h1>
             <Link to="/" className="back-link">
               ← Main page
@@ -382,9 +382,9 @@ const MyMesha = () => {
             )}
           </div>
         </div>
-      </MyMeshaProvider>
+      </MoshaProvider>
     </div>
   );
 };
 
-export default MyMesha;
+export default Mosha;

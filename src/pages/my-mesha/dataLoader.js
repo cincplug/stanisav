@@ -1,5 +1,5 @@
 /**
- * Data loader for MyMesha page - loads a single language
+ * Data loader for Mosha page - loads a single language
  */
 
 import languages from "../../config/languages.json";
@@ -34,7 +34,7 @@ export function loadLanguageData(languageCode) {
       [languageCode]: typology,
       _groupInfo: groupInfo, // Include group info for color mapping
     },
-    // Not needed for MyMesha but included for consistency
+    // Not needed for Mosha but included for consistency
     numericFeatureValues: {},
   };
 }

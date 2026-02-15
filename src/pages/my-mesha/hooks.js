@@ -1,6 +1,6 @@
 /**
- * Custom hooks for MyMesha - overrides for main app hooks
- * These are provided through MyMeshaProvider context
+ * Custom hooks for Mosha - overrides for main app hooks
+ * These are provided through MoshaProvider context
  */
 
 import { useMemo } from "react";
@@ -29,7 +29,7 @@ export function useLayoutManager(data, controls, onNodesReady) {
     };
   }, [data]);
 
-  // No need for onNodesReady callback in MyMesha
+  // No need for onNodesReady callback in Mosha
   return {
     formattedPositions,
     sortedLanguageCodes,

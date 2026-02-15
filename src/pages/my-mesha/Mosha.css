@@ -1,6 +1,6 @@
-/* MyMesha page styles */
+/* Mosha page styles */
 
-.my-mesha-container {
+.mosha-container {
   width: 100%;
   height: 100vh;
   position: relative;
@@ -8,13 +8,13 @@
   overflow: hidden;
 }
 
-.my-mesha-canvas {
+.mosha-canvas {
   width: 100%;
   height: 100%;
 }
 
 /* Controls overlay */
-.my-mesha-controls {
+.mosha-controls {
   position: absolute;
   top: 0;
   left: 0;
@@ -30,19 +30,19 @@
   z-index: 100;
 }
 
-.my-mesha-controls > * {
+.mosha-controls > * {
   pointer-events: auto;
 }
 
 /* Header */
-.my-mesha-header {
+.mosha-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: var(--gap-double);
 }
 
-.my-mesha-header h1 {
+.mosha-header h1 {
   margin: 0;
   font-size: 24px;
   font-weight: 700;
@@ -136,8 +136,8 @@
 }
 
 /* Error and loading states */
-.my-mesha-error,
-.my-mesha-loading {
+.mosha-error,
+.mosha-loading {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -148,19 +148,19 @@
   color: var(--color-text-light);
 }
 
-.my-mesha-error h1 {
+.mosha-error h1 {
   margin: 0 0 var(--gap-double) 0;
   font-size: 32px;
   font-weight: 700;
 }
 
-.my-mesha-error p {
+.mosha-error p {
   margin: 0 0 var(--gap) 0;
   font-size: 16px;
   color: var(--color-text-muted);
 }
 
-.my-mesha-error code {
+.mosha-error code {
   display: inline-block;
   margin: var(--gap) 0;
   padding: var(--gap) var(--gap-double);
@@ -170,31 +170,31 @@
   font-size: 14px;
 }
 
-.my-mesha-error a {
+.mosha-error a {
   color: var(--color-interactive);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s;
 }
 
-.my-mesha-error a:hover {
+.mosha-error a:hover {
   color: var(--color-highlight);
 }
 
-.my-mesha-loading {
+.mosha-loading {
   font-size: 18px;
   animation: pulse 2s infinite;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .my-mesha-header {
+  .mosha-header {
     flex-direction: column;
     gap: var(--gap);
     align-items: flex-start;
   }
 
-  .my-mesha-header h1 {
+  .mosha-header h1 {
     font-size: 20px;
   }
 
