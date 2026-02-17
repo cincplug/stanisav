@@ -45,4 +45,8 @@
   .control-item {
     grid-column: span 2;
   }
+
+  .checkbox-control {
+    grid-column: span 1;
+  }
 }

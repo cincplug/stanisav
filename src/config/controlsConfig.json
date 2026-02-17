@@ -32,6 +32,20 @@
     "isUserEditable": true,
     "group": "Sorting"
   },
+  "isReverse": {
+    "type": "checkbox",
+    "label": "Reverse order",
+    "defaultValue": false,
+    "isUserEditable": true,
+    "group": "Sorting"
+  },
+  "isMyMesha": {
+    "type": "checkbox",
+    "label": "I am Mesha",
+    "defaultValue": false,
+    "isUserEditable": true,
+    "group": "Sorting"
+  },
   "labelSize": {
     "type": "range",
     "label": "Label size",
@@ -51,13 +65,6 @@
     "defaultValue": 27,
     "isUserEditable": true,
     "group": "Scene"
-  },
-  "isReverse": {
-    "type": "checkbox",
-    "label": "Reverse order",
-    "defaultValue": false,
-    "isUserEditable": true,
-    "group": "Sorting"
   },
   "isLoop": {
     "type": "checkbox",

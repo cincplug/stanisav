@@ -1,8 +1,9 @@
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useEffect, useState, useCallback } from "react";
 import { extend, useFrame } from "@react-three/fiber";
 import { a, useSpring } from "@react-spring/three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
+import microphoneService from "../../services/microphoneService.js";
 import { defaultAudioData } from "../../config/meshaDefaultAudioData.js";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
@@ -32,11 +33,24 @@ const Mesha = () => {
   const lastAudioDataRef = useRef(defaultAudioData);
 
   const { controls } = useControls();
+
   const { selectedLanguage, groupColors } = useLanguageSelection();
   const { data } = useAppState();
   const { formattedPositions } = useLayoutManager(data, controls, null);
 
-  const { meshaSize, eyeZ, eyeX, eyeY, noseSize, sphereRadius } = controls;
+  const { meshaSize, eyeZ, eyeX, eyeY, noseSize, sphereRadius, isMyMesha } =
+    controls;
+
+  useEffect(() => {
+    if (isMyMesha) {
+      microphoneService.startCapture();
+    } else {
+      microphoneService.stopCapture();
+    }
+    return () => {
+      microphoneService.stopCapture();
+    };
+  }, [isMyMesha]);
 
   const languageCode = useMemo(() => {
     if (selectedLanguage) return selectedLanguage;
@@ -123,6 +137,22 @@ const Mesha = () => {
 
   const evidentialitySize = 1 + scores.evidentiality / 4;
   const verbAspectSize = scores.verbAspect / 4;
+
+  const [micActive, setMicActive] = useState(false);
+
+  // Toggle microphone on sphere click
+  const handleSphereClick = useCallback(async () => {
+    if (!micActive) {
+      const result = await microphoneService.startCapture();
+      if (result.success) setMicActive(true);
+    } else {
+      microphoneService.stopCapture();
+      setMicActive(false);
+    }
+  }, [micActive]);
+
+  // Use a different hue for mic state
+  const sphereColor = micActive ? shiftHue(color, 120) : shiftHue(color, 60);
 
   return (
     <a.group ref={groupRef} position={spring.position} scale={spring.scale}>
