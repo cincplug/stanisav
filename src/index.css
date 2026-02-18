@@ -171,3 +171,16 @@ legend {
 .text-dark {
   color: var(--color-text-dark);
 }
+
+.subtitle {
+  position: fixed;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  font-size: 2rem;
+  background: var(--color-menu-background);
+  color: var(--color-highlight);
+  padding: var(--gap-double);
+  text-align: center;
+}

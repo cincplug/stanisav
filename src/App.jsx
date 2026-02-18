@@ -29,8 +29,9 @@ function App() {
   const { selectedLanguage } = useLanguageSelection();
   const { pausePlaylist } = usePlaylist();
   const [isEmptyFilter, setIsEmptyFilter] = useState(false);
+  const { hasSubtitle } = controls;
 
-  const { sampleUrl, name } = data?.languageData[selectedLanguage] || {};
+  const { sampleUrl, name, sr } = data?.languageData[selectedLanguage] || {};
 
   return (
     <div className={`app-container ${isLoading ? "loading" : ""}`}>
@@ -44,6 +45,7 @@ function App() {
         filteringUtils={filteringUtils}
         onEmptyFilterChange={setIsEmptyFilter}
       />
+      {hasSubtitle && selectedLanguage && <p className="subtitle">{sr}</p>}
 
       {!isLoading && sceneReady ? (
         <>
