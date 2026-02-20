@@ -1,4 +1,4 @@
-import { useRef, useMemo, useEffect, useState, useCallback } from "react";
+import { useRef, useMemo, useEffect } from "react";
 import { extend, useFrame } from "@react-three/fiber";
 import { a, useSpring } from "@react-spring/three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
@@ -137,22 +137,6 @@ const Mesha = () => {
 
   const evidentialitySize = 1 + scores.evidentiality / 4;
   const verbAspectSize = scores.verbAspect / 4;
-
-  const [micActive, setMicActive] = useState(false);
-
-  // Toggle microphone on sphere click
-  const handleSphereClick = useCallback(async () => {
-    if (!micActive) {
-      const result = await microphoneService.startCapture();
-      if (result.success) setMicActive(true);
-    } else {
-      microphoneService.stopCapture();
-      setMicActive(false);
-    }
-  }, [micActive]);
-
-  // Use a different hue for mic state
-  const sphereColor = micActive ? shiftHue(color, 120) : shiftHue(color, 60);
 
   return (
     <a.group ref={groupRef} position={spring.position} scale={spring.scale}>
