@@ -18,7 +18,7 @@
     ],
     "defaultValue": "alphabetically",
     "isUserEditable": true,
-    "group": "Sorting"
+    "group": "Languages tab"
   },
   "labelContent": {
     "type": "radio",
@@ -30,21 +30,14 @@
     ],
     "defaultValue": "name",
     "isUserEditable": true,
-    "group": "Sorting"
+    "group": "Languages tab"
   },
   "isReverse": {
     "type": "checkbox",
     "label": "Reverse order",
     "defaultValue": false,
     "isUserEditable": true,
-    "group": "Sorting"
-  },
-  "isMyMesha": {
-    "type": "checkbox",
-    "label": "I am Mesha",
-    "defaultValue": false,
-    "isUserEditable": true,
-    "group": "Sorting"
+    "group": "Languages tab"
   },
   "labelSize": {
     "type": "range",
@@ -66,12 +59,19 @@
     "isUserEditable": true,
     "group": "Scene"
   },
+  "isMyMesha": {
+    "type": "checkbox",
+    "label": "I am Mesha",
+    "defaultValue": false,
+    "isUserEditable": true,
+    "group": "Scene"
+  },
   "hasSubtitle": {
     "type": "checkbox",
     "label": "Show subtitle",
     "defaultValue": false,
     "isUserEditable": true,
-    "group": "Scene"
+    "group": "Languages tab"
   },
   "isLoop": {
     "type": "checkbox",

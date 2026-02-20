@@ -46,7 +46,7 @@ const ControlsTab = () => {
     new Set(
       Object.values(controlsConfig)
         .map(({ group }) => group)
-        .filter((group) => group !== "Sorting")
+        .filter((group) => group !== "Languages tab")
         .filter((group) =>
           selectedLanguage ? group !== "Stage light" : group !== "Node light",
         ),

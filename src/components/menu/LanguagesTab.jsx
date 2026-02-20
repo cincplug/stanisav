@@ -146,7 +146,8 @@ function LanguagesTab({ languageData, isActive }) {
   // Get Sorting controls
   const sortingControls = Object.entries(controlsConfig)
     .filter(
-      ([_id, config]) => config.group === "Sorting" && config.isUserEditable,
+      ([_id, config]) =>
+        config.group === "Languages tab" && config.isUserEditable,
     )
     .map(([id, config]) => ({ id, ...config }));
 

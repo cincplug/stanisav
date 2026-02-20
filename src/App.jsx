@@ -31,7 +31,20 @@ function App() {
   const [isEmptyFilter, setIsEmptyFilter] = useState(false);
   const { hasSubtitle } = controls;
 
-  const { sampleUrl, name, sr } = data?.languageData[selectedLanguage] || {};
+  const {
+    sampleUrl,
+    name,
+    speakers,
+    group,
+    morphology,
+    wordOrder,
+    wordOrderFlexibility,
+    caseCount,
+    verbAspect,
+    evidentiality,
+    tonality,
+    phonemeCount,
+  } = data?.languageData[selectedLanguage] || {};
 
   return (
     <div className={`app-container ${isLoading ? "loading" : ""}`}>
@@ -45,7 +58,22 @@ function App() {
         filteringUtils={filteringUtils}
         onEmptyFilterChange={setIsEmptyFilter}
       />
-      {hasSubtitle && selectedLanguage && <p className="subtitle">{sr}</p>}
+      {hasSubtitle && selectedLanguage && (
+        <div className="subtitle">
+          <p>{group} group</p>
+          <br />
+          <p>{morphology}</p>
+          <p>
+            {wordOrder} ({wordOrderFlexibility})
+          </p>
+          <p>{caseCount} cases</p>
+          <p>{verbAspect} verb aspect</p>
+          <p>{evidentiality} evidentiality</p>
+          <p>{tonality}</p>
+          <p>{phonemeCount} phonemes</p>
+          <p>{speakers * 1000000} speakers</p>
+        </div>
+      )}
 
       {!isLoading && sceneReady ? (
         <>
