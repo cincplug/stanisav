@@ -63,7 +63,7 @@ const Mesha = () => {
       const pos = formattedPositions[selectedLanguage];
       return [pos.x, pos.y, pos.z];
     }
-    return [-sphereRadius - meshaSize, 0, sphereRadius];
+    return [0, 0, sphereRadius - meshaSize];
   }, [selectedLanguage, formattedPositions, sphereRadius, meshaSize]);
 
   // Calculate color using the same utility
@@ -92,7 +92,7 @@ const Mesha = () => {
 
   const spring = useSpring({
     position,
-    scale: [meshaSize, meshaSize, meshaSize],
+    scale: selectedLanguage ? meshaSize : (meshaSize * 3) / 2,
     config: { mass: 1, tension: 120, friction: 20 },
   });
 
