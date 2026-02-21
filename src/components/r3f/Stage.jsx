@@ -111,6 +111,7 @@ const Stage = ({
         enableDamping={true}
         makeDefault={true}
         enableZoom={false}
+        enableRotate={!selectedLanguage}
       />
 
       {!selectedLanguage && <StageLight />}
