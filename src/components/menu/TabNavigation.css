@@ -28,7 +28,7 @@
     }
     &.active {
       position: relative;
-      top: calc(-1.2 * var(--tab-border-width));
+      top: calc(-1 * var(--tab-border-width));
       height: calc(100% + var(--tab-border-width) * 2);
       z-index: 1;
     }
