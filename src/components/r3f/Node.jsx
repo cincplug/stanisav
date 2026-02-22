@@ -14,7 +14,6 @@ const Node = ({
   position,
   isSelected = false,
   color,
-  speakerCount,
 }) => {
   const { controls } = useControls();
   const { data } = useAppState();
@@ -45,7 +44,14 @@ const Node = ({
   // Determine which value to use for label size
   const getSizeValue = () => {
     // If sorting by numeric typological features, use that value
-    if (["phonemeCount", "caseCount"].includes(sortBy)) {
+    if (
+      [
+        "phonemeCount",
+        "caseCount",
+        "nounClassCount",
+        "maxClusterSize",
+      ].includes(sortBy)
+    ) {
       return data?.typologicalFeatures?.[languageCode]?.[sortBy] || 1;
     }
     // If sorting by a typological feature with a score, use the score

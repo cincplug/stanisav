@@ -14,7 +14,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "acq": {
     "name": "Iraqi Arabic",
@@ -30,7 +32,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "adx": {
     "name": "Amdo Tibetan",
@@ -46,7 +50,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "optional"
+    "evidentiality": "optional",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "afb": {
     "name": "Gulf Arabic",
@@ -62,7 +68,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "afr": {
     "name": "Afrikaans",
@@ -78,7 +86,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 3
   },
   "aka": {
     "name": "Akan",
@@ -95,7 +105,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 2
   },
   "alb": {
     "name": "Albanian",
@@ -111,7 +123,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "moderate"
+    "evidentiality": "moderate",
+    "nounClassCount": 3,
+    "maxClusterSize": 4
   },
   "amh": {
     "name": "Amharic",
@@ -127,7 +141,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "apc": {
     "name": "Levantine Arabic",
@@ -143,7 +159,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "ara": {
     "name": "Standard Arabic",
@@ -159,7 +177,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 2
   },
   "ary": {
     "name": "Moroccan Arabic",
@@ -175,7 +195,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "arz": {
     "name": "Egyptian Arabic",
@@ -191,7 +213,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "asm": {
     "name": "Assamese",
@@ -207,7 +231,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 2
   },
   "awa": {
     "name": "Awadhi",
@@ -223,7 +249,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 2
   },
   "aym": {
     "name": "Aymara",
@@ -239,7 +267,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "moderate"
+    "evidentiality": "moderate",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "aze": {
     "name": "Azerbaijani",
@@ -255,7 +285,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "simple"
+    "evidentiality": "simple",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "bak": {
     "name": "Bashkir",
@@ -271,7 +303,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "simple"
+    "evidentiality": "simple",
+    "nounClassCount": 0,
+    "maxClusterSize": 3
   },
   "bal": {
     "name": "Balochi",
@@ -287,7 +321,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "bam": {
     "name": "Bambara",
@@ -303,7 +339,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 1
   },
   "ban": {
     "name": "Balinese",
@@ -320,7 +358,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "bej": {
     "name": "Beja",
@@ -337,7 +377,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 2
   },
   "bel": {
     "name": "Belarusian",
@@ -353,7 +395,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 4
   },
   "bem": {
     "name": "Bemba",
@@ -369,7 +413,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 14,
+    "maxClusterSize": 2
   },
   "ben": {
     "name": "Bengali",
@@ -385,7 +431,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 2
   },
   "bho": {
     "name": "Bhojpuri",
@@ -401,7 +449,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 2
   },
   "bik": {
     "name": "Bikol",
@@ -417,7 +467,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 1
   },
   "bod": {
     "name": "Tibetan",
@@ -433,7 +485,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "complex"
+    "evidentiality": "complex",
+    "nounClassCount": 0,
+    "maxClusterSize": 3
   },
   "bos": {
     "name": "Bosnian",
@@ -449,7 +503,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 4
   },
   "bre": {
     "name": "Breton",
@@ -465,7 +521,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "brh": {
     "name": "Brahui",
@@ -481,7 +539,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "bua": {
     "name": "Buryat",
@@ -497,7 +557,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "optional"
+    "evidentiality": "optional",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "bul": {
     "name": "Bulgarian",
@@ -513,7 +575,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "binary",
-    "evidentiality": "simple"
+    "evidentiality": "simple",
+    "nounClassCount": 3,
+    "maxClusterSize": 4
   },
   "cak": {
     "name": "Kaqchikel",
@@ -529,7 +593,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "cat": {
     "name": "Catalan",
@@ -545,7 +611,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "ceb": {
     "name": "Cebuano",
@@ -561,7 +629,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "ces": {
     "name": "Czech",
@@ -577,7 +647,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 4
   },
   "chr": {
     "name": "Cherokee",
@@ -593,7 +665,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "chv": {
     "name": "Chuvash",
@@ -609,7 +683,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "simple"
+    "evidentiality": "simple",
+    "nounClassCount": 0,
+    "maxClusterSize": 3
   },
   "cjy": {
     "name": "Jin Chinese",
@@ -625,7 +701,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "cmn": {
     "name": "Mandarin Chinese",
@@ -642,7 +720,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 1
   },
   "cos": {
     "name": "Corsican",
@@ -658,7 +738,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "cre": {
     "name": "Cree",
@@ -674,7 +756,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 2
   },
   "csb": {
     "name": "Kashubian",
@@ -690,7 +774,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 4
   },
   "cym": {
     "name": "Welsh",
@@ -706,7 +792,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 4,
+    "maxClusterSize": 3
   },
   "dan": {
     "name": "Danish",
@@ -722,7 +810,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 3
   },
   "deu": {
     "name": "German",
@@ -738,7 +828,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 4
   },
   "din": {
     "name": "Dinka",
@@ -754,7 +846,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 2
   },
   "eng": {
     "name": "English",
@@ -770,7 +864,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 3
   },
   "est": {
     "name": "Estonian",
@@ -786,7 +882,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 3
   },
   "eus": {
     "name": "Basque",
@@ -802,7 +900,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 3
   },
   "ewe": {
     "name": "Ewe",
@@ -819,7 +919,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 2
   },
   "fao": {
     "name": "Faroese",
@@ -835,7 +937,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 4
   },
   "fas": {
     "name": "Persian",
@@ -851,7 +955,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 3
   },
   "fia": {
     "name": "Nubian",
@@ -867,7 +973,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "fij": {
     "name": "Fijian",
@@ -883,7 +991,9 @@
     "wordOrder": "VOS",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 0
   },
   "fin": {
     "name": "Finnish",
@@ -899,7 +1009,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 3
   },
   "fra": {
     "name": "French",
@@ -915,7 +1027,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "fry": {
     "name": "Frisian",
@@ -931,7 +1045,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 3
   },
   "ful": {
     "name": "Fula",
@@ -947,7 +1063,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 25,
+    "maxClusterSize": 2
   },
   "gan": {
     "name": "Gan Chinese",
@@ -963,7 +1081,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "gla": {
     "name": "Scottish Gaelic",
@@ -979,7 +1099,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "gle": {
     "name": "Irish",
@@ -995,7 +1117,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "glg": {
     "name": "Galician",
@@ -1011,7 +1135,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "gre": {
     "name": "Greek",
@@ -1027,7 +1153,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 3
   },
   "grn": {
     "name": "Guaraní",
@@ -1043,7 +1171,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "guj": {
     "name": "Gujarati",
@@ -1059,7 +1189,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 2
   },
   "gul": {
     "name": "Gullah",
@@ -1075,7 +1207,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "gyn": {
     "name": "Guyanese Creole",
@@ -1091,7 +1225,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "hak": {
     "name": "Hakka Chinese",
@@ -1107,7 +1243,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "hau": {
     "name": "Hausa",
@@ -1123,7 +1261,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 2
   },
   "haw": {
     "name": "Hawaiian",
@@ -1139,7 +1279,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 0
   },
   "heb": {
     "name": "Hebrew",
@@ -1155,7 +1297,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "hil": {
     "name": "Hiligaynon",
@@ -1171,7 +1315,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 1
   },
   "hin": {
     "name": "Hindi",
@@ -1187,7 +1333,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "hmn": {
     "name": "Hmong",
@@ -1203,7 +1351,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "hoc": {
     "name": "Ho",
@@ -1219,7 +1369,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "hrv": {
     "name": "Croatian",
@@ -1235,7 +1387,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 4
   },
   "hun": {
     "name": "Hungarian",
@@ -1251,7 +1405,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 3
   },
   "hye": {
     "name": "Armenian",
@@ -1267,7 +1423,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 6
   },
   "ibo": {
     "name": "Igbo",
@@ -1283,7 +1441,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 1
   },
   "iii": {
     "name": "Yi",
@@ -1300,7 +1460,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "minimal",
-    "evidentiality": "optional"
+    "evidentiality": "optional",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "iku": {
     "name": "Inuktitut",
@@ -1316,7 +1478,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "complex",
-    "evidentiality": "optional"
+    "evidentiality": "optional",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "ilo": {
     "name": "Ilocano",
@@ -1332,7 +1496,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "ind": {
     "name": "Indonesian",
@@ -1348,7 +1514,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "isl": {
     "name": "Icelandic",
@@ -1364,7 +1532,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 3
   },
   "ita": {
     "name": "Italian",
@@ -1380,7 +1550,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "jav": {
     "name": "Javanese",
@@ -1396,7 +1568,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "jpn": {
     "name": "Japanese",
@@ -1412,7 +1586,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "simple",
-    "evidentiality": "optional"
+    "evidentiality": "optional",
+    "nounClassCount": 0,
+    "maxClusterSize": 1
   },
   "kab": {
     "name": "Kabyle",
@@ -1429,7 +1605,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "kan": {
     "name": "Kannada",
@@ -1445,7 +1623,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 2
   },
   "kar": {
     "name": "Karen S'gaw",
@@ -1461,7 +1641,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "minimal",
-    "evidentiality": "optional"
+    "evidentiality": "optional",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "kas": {
     "name": "Kashmiri",
@@ -1478,7 +1660,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "kat": {
     "name": "Georgian",
@@ -1494,7 +1678,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "complex",
-    "evidentiality": "optional"
+    "evidentiality": "optional",
+    "nounClassCount": 0,
+    "maxClusterSize": 6
   },
   "kaz": {
     "name": "Kazakh",
@@ -1510,7 +1696,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "simple"
+    "evidentiality": "simple",
+    "nounClassCount": 0,
+    "maxClusterSize": 3
   },
   "kbd": {
     "name": "Kabardian",
@@ -1527,7 +1715,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 5
   },
   "kfa": {
     "name": "Kodava",
@@ -1543,7 +1733,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 2
   },
   "kha": {
     "name": "Khasi",
@@ -1559,7 +1751,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 2
   },
   "khm": {
     "name": "Khmer",
@@ -1575,7 +1769,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "kik": {
     "name": "Kikuyu",
@@ -1591,7 +1787,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 15,
+    "maxClusterSize": 2
   },
   "kin": {
     "name": "Kinyarwanda",
@@ -1607,7 +1805,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 16,
+    "maxClusterSize": 2
   },
   "kir": {
     "name": "Kyrgyz",
@@ -1623,7 +1823,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "simple"
+    "evidentiality": "simple",
+    "nounClassCount": 0,
+    "maxClusterSize": 3
   },
   "kne": {
     "name": "Kankanaey",
@@ -1640,7 +1842,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "knr": {
     "name": "Kanuri",
@@ -1656,7 +1860,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "kok": {
     "name": "Konkani",
@@ -1673,7 +1879,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 3
   },
   "kor": {
     "name": "Korean",
@@ -1689,7 +1897,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "optional"
+    "evidentiality": "optional",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "kur": {
     "name": "Kurdish",
@@ -1705,7 +1915,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "lao": {
     "name": "Lao",
@@ -1722,7 +1934,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "lav": {
     "name": "Latvian",
@@ -1738,7 +1952,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "lep": {
     "name": "Lepcha",
@@ -1754,7 +1970,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "optional"
+    "evidentiality": "optional",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "lim": {
     "name": "Limburgish",
@@ -1770,7 +1988,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 4
   },
   "lin": {
     "name": "Lingala",
@@ -1786,7 +2006,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 15,
+    "maxClusterSize": 2
   },
   "lit": {
     "name": "Lithuanian",
@@ -1802,7 +2024,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 4
   },
   "ltz": {
     "name": "Luxembourgish",
@@ -1818,7 +2042,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 4
   },
   "lua": {
     "name": "Luba-Kasai",
@@ -1835,7 +2061,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 16,
+    "maxClusterSize": 2
   },
   "lug": {
     "name": "Luganda",
@@ -1852,7 +2080,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 16,
+    "maxClusterSize": 2
   },
   "luo": {
     "name": "Luo",
@@ -1868,7 +2098,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "mag": {
     "name": "Magahi",
@@ -1884,7 +2116,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 2
   },
   "mai": {
     "name": "Maithili",
@@ -1900,7 +2134,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 2
   },
   "mal": {
     "name": "Malayalam",
@@ -1916,7 +2152,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "mar": {
     "name": "Marathi",
@@ -1932,7 +2170,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 3
   },
   "mas": {
     "name": "Maasai",
@@ -1948,7 +2188,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "min": {
     "name": "Minangkabau",
@@ -1964,7 +2206,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "mkd": {
     "name": "Macedonian",
@@ -1980,7 +2224,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "binary",
-    "evidentiality": "simple"
+    "evidentiality": "simple",
+    "nounClassCount": 3,
+    "maxClusterSize": 4
   },
   "mlg": {
     "name": "Malagasy",
@@ -1996,7 +2242,9 @@
     "wordOrder": "VOS",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "mlt": {
     "name": "Maltese",
@@ -2012,7 +2260,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "mni": {
     "name": "Meitei",
@@ -2029,7 +2279,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "optional"
+    "evidentiality": "optional",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "mnw": {
     "name": "Mon",
@@ -2045,7 +2297,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "mon": {
     "name": "Mongolian",
@@ -2061,7 +2315,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "optional"
+    "evidentiality": "optional",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "mri": {
     "name": "Maori",
@@ -2077,7 +2333,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 0
   },
   "msa": {
     "name": "Malay",
@@ -2093,7 +2351,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "mya": {
     "name": "Burmese",
@@ -2109,7 +2369,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "optional"
+    "evidentiality": "optional",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "nah": {
     "name": "Nahuatl",
@@ -2125,7 +2387,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "nan": {
     "name": "Min Nan Chinese",
@@ -2141,7 +2405,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "naq": {
     "name": "Khoekhoe",
@@ -2158,7 +2424,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 5,
+    "maxClusterSize": 2
   },
   "nav": {
     "name": "Navajo",
@@ -2174,7 +2442,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "complex",
-    "evidentiality": "optional"
+    "evidentiality": "optional",
+    "nounClassCount": 4,
+    "maxClusterSize": 3
   },
   "nde": {
     "name": "Ndebele",
@@ -2190,7 +2460,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 15,
+    "maxClusterSize": 2
   },
   "nep": {
     "name": "Nepali",
@@ -2206,7 +2478,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "new": {
     "name": "Newari",
@@ -2223,7 +2497,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "optional"
+    "evidentiality": "optional",
+    "nounClassCount": 0,
+    "maxClusterSize": 3
   },
   "nld": {
     "name": "Dutch",
@@ -2239,7 +2515,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 4
   },
   "nor": {
     "name": "Norwegian",
@@ -2255,7 +2533,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 3
   },
   "nso": {
     "name": "Sesotho",
@@ -2273,7 +2553,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 15,
+    "maxClusterSize": 2
   },
   "nup": {
     "name": "Nupe",
@@ -2290,7 +2572,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 1
   },
   "nus": {
     "name": "Nuer",
@@ -2307,7 +2591,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 2
   },
   "nya": {
     "name": "Chewa",
@@ -2323,7 +2609,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 16,
+    "maxClusterSize": 2
   },
   "nyk": {
     "name": "Nyaneka",
@@ -2340,7 +2628,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 16,
+    "maxClusterSize": 2
   },
   "oji": {
     "name": "Ojibwe",
@@ -2356,7 +2646,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 2
   },
   "ori": {
     "name": "Odia",
@@ -2372,7 +2664,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 2
   },
   "orm": {
     "name": "Oromo",
@@ -2388,7 +2682,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 4,
+    "maxClusterSize": 2
   },
   "pag": {
     "name": "Pangasinan",
@@ -2404,7 +2700,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "pam": {
     "name": "Kapampangan",
@@ -2420,7 +2718,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "pan": {
     "name": "Punjabi",
@@ -2436,7 +2736,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "pol": {
     "name": "Polish",
@@ -2452,7 +2754,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 4
   },
   "por": {
     "name": "Portuguese",
@@ -2468,7 +2772,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "pus": {
     "name": "Pashto",
@@ -2484,7 +2790,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "pwo": {
     "name": "Karen Pwo",
@@ -2500,7 +2808,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "minimal",
-    "evidentiality": "optional"
+    "evidentiality": "optional",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "quc": {
     "name": "K'iche'",
@@ -2516,7 +2826,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "que": {
     "name": "Quechua",
@@ -2532,7 +2844,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "moderate"
+    "evidentiality": "moderate",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "roh": {
     "name": "Romansh",
@@ -2548,7 +2862,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "rom": {
     "name": "Romani",
@@ -2564,7 +2880,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 3
   },
   "ron": {
     "name": "Romanian",
@@ -2580,7 +2898,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 3
   },
   "run": {
     "name": "Kirundi",
@@ -2597,7 +2917,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 16,
+    "maxClusterSize": 2
   },
   "rus": {
     "name": "Russian",
@@ -2613,7 +2935,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 4
   },
   "ryu": {
     "name": "Okinawan",
@@ -2629,7 +2953,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "simple",
-    "evidentiality": "optional"
+    "evidentiality": "optional",
+    "nounClassCount": 0,
+    "maxClusterSize": 1
   },
   "sag": {
     "name": "Sango",
@@ -2646,7 +2972,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 1
   },
   "sat": {
     "name": "Santali",
@@ -2662,7 +2990,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "sce": {
     "name": "Santa",
@@ -2679,7 +3009,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "optional"
+    "evidentiality": "optional",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "sin": {
     "name": "Sinhala",
@@ -2695,7 +3027,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 2
   },
   "slk": {
     "name": "Slovak",
@@ -2711,7 +3045,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 4
   },
   "slv": {
     "name": "Slovenian",
@@ -2727,7 +3063,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 4
   },
   "smo": {
     "name": "Samoan",
@@ -2743,7 +3081,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 0
   },
   "sna": {
     "name": "Shona",
@@ -2759,7 +3099,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 16,
+    "maxClusterSize": 2
   },
   "snd": {
     "name": "Sindhi",
@@ -2775,7 +3117,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 2
   },
   "som": {
     "name": "Somali",
@@ -2791,7 +3135,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 2
   },
   "sot": {
     "name": "Sotho",
@@ -2808,7 +3154,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 15,
+    "maxClusterSize": 2
   },
   "spa": {
     "name": "Spanish",
@@ -2824,7 +3172,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "srb": {
     "name": "Sora",
@@ -2840,7 +3190,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "srd": {
     "name": "Sardinian",
@@ -2856,7 +3208,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "srp": {
     "name": "Serbian",
@@ -2872,7 +3226,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 4
   },
   "ssw": {
     "name": "Swati",
@@ -2888,7 +3244,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 15,
+    "maxClusterSize": 2
   },
   "suk": {
     "name": "Sukuma",
@@ -2905,7 +3263,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 16,
+    "maxClusterSize": 2
   },
   "sun": {
     "name": "Sundanese",
@@ -2921,7 +3281,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "swa": {
     "name": "Swahili",
@@ -2937,7 +3299,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 15,
+    "maxClusterSize": 2
   },
   "swe": {
     "name": "Swedish",
@@ -2953,7 +3317,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 3
   },
   "tam": {
     "name": "Tamil",
@@ -2969,7 +3335,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 2
   },
   "tat": {
     "name": "Tatar",
@@ -2985,7 +3353,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "simple"
+    "evidentiality": "simple",
+    "nounClassCount": 0,
+    "maxClusterSize": 3
   },
   "tcy": {
     "name": "Tulu",
@@ -3001,7 +3371,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 2
   },
   "tel": {
     "name": "Telugu",
@@ -3017,7 +3389,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 2
   },
   "tgk": {
     "name": "Tajik",
@@ -3033,7 +3407,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 3
   },
   "tgl": {
     "name": "Tagalog",
@@ -3049,7 +3425,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "tha": {
     "name": "Thai",
@@ -3065,7 +3443,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "tir": {
     "name": "Tigrinya",
@@ -3081,7 +3461,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "ton": {
     "name": "Tongan",
@@ -3097,7 +3479,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 0
   },
   "tsn": {
     "name": "Tswana",
@@ -3113,7 +3497,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 15,
+    "maxClusterSize": 2
   },
   "tuk": {
     "name": "Turkmen",
@@ -3129,7 +3515,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "simple"
+    "evidentiality": "simple",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "tum": {
     "name": "Tumbuka",
@@ -3146,7 +3534,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 14,
+    "maxClusterSize": 2
   },
   "tur": {
     "name": "Turkish",
@@ -3162,7 +3552,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "simple"
+    "evidentiality": "simple",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "uig": {
     "name": "Uyghur",
@@ -3178,7 +3570,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "simple"
+    "evidentiality": "simple",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "ukr": {
     "name": "Ukrainian",
@@ -3194,7 +3588,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "binary",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 4
   },
   "unr": {
     "name": "Mundari",
@@ -3210,7 +3606,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "urd": {
     "name": "Urdu",
@@ -3226,7 +3624,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 2,
+    "maxClusterSize": 3
   },
   "uzb": {
     "name": "Uzbek",
@@ -3242,7 +3642,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "simple"
+    "evidentiality": "simple",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "ven": {
     "name": "Venda",
@@ -3259,7 +3661,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 16,
+    "maxClusterSize": 2
   },
   "vie": {
     "name": "Vietnamese",
@@ -3275,7 +3679,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "war": {
     "name": "Waray",
@@ -3291,7 +3697,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "wol": {
     "name": "Wolof",
@@ -3307,7 +3715,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "wuu": {
     "name": "Wu Chinese",
@@ -3323,7 +3733,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "xal": {
     "name": "Kalmyk",
@@ -3339,7 +3751,9 @@
     "wordOrder": "SOV",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "minimal",
-    "evidentiality": "optional"
+    "evidentiality": "optional",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "xho": {
     "name": "Xhosa",
@@ -3355,7 +3769,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 15,
+    "maxClusterSize": 2
   },
   "yid": {
     "name": "Yiddish",
@@ -3371,7 +3787,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 3,
+    "maxClusterSize": 4
   },
   "yor": {
     "name": "Yoruba",
@@ -3387,7 +3805,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 1
   },
   "yua": {
     "name": "Yucatec Maya",
@@ -3403,7 +3823,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "yue": {
     "name": "Cantonese",
@@ -3419,7 +3841,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "zha": {
     "name": "Zhuang",
@@ -3435,7 +3859,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "zhx": {
     "name": "Yue Chinese",
@@ -3452,7 +3878,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "rigid",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "zul": {
     "name": "Zulu",
@@ -3468,7 +3896,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "complex",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 15,
+    "maxClusterSize": 2
   },
   "jam": {
     "name": "Jamaican Creole",
@@ -3484,7 +3914,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "tpi": {
     "name": "Tok Pisin",
@@ -3500,7 +3932,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "pcm": {
     "name": "Nigerian Pidgin",
@@ -3516,7 +3950,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "bis": {
     "name": "Bislama",
@@ -3532,7 +3968,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "srn": {
     "name": "Sranan Tongo",
@@ -3548,7 +3986,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "hat": {
     "name": "Haitian Creole",
@@ -3564,7 +4004,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "mfe": {
     "name": "Mauritian Creole",
@@ -3580,7 +4022,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "crs": {
     "name": "Seychellois Creole",
@@ -3596,7 +4040,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "rcf": {
     "name": "Réunion Creole",
@@ -3612,7 +4058,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "gcr": {
     "name": "Guadeloupean Creole",
@@ -3628,7 +4076,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "acf": {
     "name": "Saint Lucian Creole",
@@ -3644,7 +4094,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "kea": {
     "name": "Kabuverdianu",
@@ -3660,7 +4112,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "pap": {
     "name": "Papiamento",
@@ -3676,7 +4130,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "cri": {
     "name": "Sãotomense",
@@ -3692,7 +4148,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "cbk": {
     "name": "Chavacano",
@@ -3708,7 +4166,9 @@
     "wordOrder": "VSO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "pln": {
     "name": "Palenquero",
@@ -3724,7 +4184,9 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "minimal",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 2
   },
   "sco": {
     "name": "Scots",
@@ -3740,6 +4202,8 @@
     "wordOrder": "SVO",
     "wordOrderFlexibility": "semi-flexible",
     "verbAspect": "simple",
-    "evidentiality": "none"
+    "evidentiality": "none",
+    "nounClassCount": 0,
+    "maxClusterSize": 3
   }
 }

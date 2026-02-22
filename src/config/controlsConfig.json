@@ -14,7 +14,9 @@
       { "value": "evidentiality", "label": "Evidentiality" },
       { "value": "verbAspect", "label": "Verb aspect" },
       { "value": "phonemeCount", "label": "Phoneme count" },
-      { "value": "caseCount", "label": "Case count" }
+      { "value": "caseCount", "label": "Case count" },
+      { "value": "nounClassCount", "label": "Noun class / gender count" },
+      { "value": "maxClusterSize", "label": "Max consonants in a cluster" }
     ],
     "defaultValue": "alphabetically",
     "isUserEditable": true,
