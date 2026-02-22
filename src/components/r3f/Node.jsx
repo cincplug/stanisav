@@ -54,8 +54,8 @@ const Node = ({
     if (typeof score === "number" && !isNaN(score)) {
       return score;
     }
-    // Default to speaker count
-    return speakerCount;
+    // Otherwise let them have equal size
+    return 1;
   };
 
   // Don't render if filters are active and this language is not in filtered set
