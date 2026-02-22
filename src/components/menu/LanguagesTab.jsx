@@ -7,6 +7,7 @@ import { usePlaylist } from "../../contexts/PlaylistContext";
 import controlsConfig from "../../config/controlsConfig.json";
 import linguisticConfig from "../../config/linguisticConfig.json";
 import groupInfo from "../../config/groupInfo.json";
+import numericFeatures from "../../config/numericFeatures.json";
 import { sortLanguages } from "../../utils/sortingUtils";
 import { calculateLanguageColors } from "../../utils/colorUtils";
 import ControlItem from "./ControlItem";
@@ -125,7 +126,7 @@ function LanguagesTab({ languageData, isActive }) {
         categoryKey = languageData[langCode][sortBy];
         const config = linguisticConfig[sortBy].values?.[categoryKey];
         categoryLabel = config?.label || categoryKey || "Unknown";
-      } else if (sortBy === "phonemeCount" || sortBy === "caseCount") {
+      } else if (numericFeatures.includes(sortBy)) {
         categoryKey = languageData[langCode][sortBy];
         categoryLabel = `${categoryKey}`;
       } else {
@@ -162,9 +163,9 @@ function LanguagesTab({ languageData, isActive }) {
 
   const title = (
     linguisticConfig[sortBy]?.name ||
-    (sortBy === "group" && "Language group") ||
-    (sortBy === "family" && "Language family") ||
-    (sortBy === "speakers" && "Speakers' number") ||
+    sortBy === "group" ||
+    sortBy === "family" ||
+    sortBy === "speakers" ||
     "Alphabetical order"
   ).toLowerCase();
 
