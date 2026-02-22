@@ -23,7 +23,7 @@ export function sortLanguages({
             labelB = languageData[b]?.[labelContent] || "";
           }
           // Use localeCompare with 'und' locale for full Unicode order
-          return labelA.localeCompare(labelB, 'und', {
+          return labelA.localeCompare(labelB, "und", {
             sensitivity: "base",
             numeric: true,
           });
@@ -80,6 +80,8 @@ export function sortLanguages({
       case "wordOrder":
       case "evidentiality":
       case "verbAspect":
+      case "nounClassCount":
+      case "maxClusterSize":
         return allLanguages.sort((a, b) => {
           const featureA = typologicalFeatures?.[a]?.[sortBy];
           const featureB = typologicalFeatures?.[b]?.[sortBy];
