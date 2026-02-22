@@ -50,10 +50,10 @@
 
 .radio-option input[type="radio"] {
   margin: 0;
-  text-wrap: balance;
 }
 
 .radio-option span {
+  text-wrap: balance;
   user-select: none;
 }
 

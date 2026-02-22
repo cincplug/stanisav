@@ -1,10 +1,11 @@
-import { Box3, Vector3 } from "three";
+import { getFeatureScore } from "./linguisticUtils.js";
+import numericFeatures from "../config/numericFeatures.json";
 
 export const calculateLanguageFilterStatus = (
   languages,
   typologicalFeatures,
   filteringUtils,
-  languageGroups
+  languageGroups,
 ) => {
   if (Object.keys(filteringUtils).length === 0) {
     return languages.reduce((acc, langCode) => {
@@ -43,7 +44,7 @@ export const calculateLanguageFilterStatus = (
           return values.map(Number).includes(featureValue);
         }
         return values.includes(featureValue);
-      }
+      },
     );
 
     acc[langCode] = { isVisible: matchesFilters, isFiltered: !matchesFilters };
@@ -51,64 +52,78 @@ export const calculateLanguageFilterStatus = (
   }, {});
 };
 
-export const calculateGroupBounds = (positions, languages) => {
-  if (!positions || languages.length === 0) {
-    return { center: [0, 0, 0], radius: 10 };
+const getSizeValue = (sortBy, data, languageCode) => {
+  // If sorting by numeric typological features, use that value
+  if (numericFeatures.includes(sortBy)) {
+    return data?.typologicalFeatures?.[languageCode]?.[sortBy] || 1;
   }
-  const bounds = new Box3();
-  languages.forEach((langCode) => {
-    const pos = positions[langCode];
-    if (pos) {
-      bounds.expandByPoint(new Vector3(pos.x, pos.y, pos.z));
-    }
-  });
-  const center = bounds.getCenter(new Vector3());
-  const size = bounds.getSize(new Vector3());
-  const radius = Math.max(size.x, size.y, size.z) / 2;
-  return {
-    center: [center.x, center.y, center.z],
-    radius: Math.max(radius, 10),
-  };
+  // If sorting by a typological feature with a score, use the score
+  const featureValue = data?.typologicalFeatures?.[languageCode]?.[sortBy];
+  const score = getFeatureScore(sortBy, featureValue);
+  if (typeof score === "number" && !isNaN(score)) {
+    return score;
+  }
+  // Otherwise let them have equal size
+  return 1;
 };
-export const calculateLabelSizeConfig = (
+
+const hasRankedValues = (sortBy, data) => {
+  // Check if feature is numeric
+  if (numericFeatures.includes(sortBy)) {
+    return true;
+  }
+
+  // Check if any language has a scorable value for this feature
+  if (data?.typologicalFeatures) {
+    for (const features of Object.values(data.typologicalFeatures)) {
+      const rawVal = features[sortBy];
+      if (rawVal !== undefined && rawVal !== null) {
+        const score = getFeatureScore(sortBy, rawVal);
+        if (typeof score === "number" && !isNaN(score)) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+};
+
+export const calculateSizeMultiplier = (
   sortBy,
   data,
-  layoutConfig
+  languageCode,
+  layoutConfig,
 ) => {
   const { outMin, outMax } = layoutConfig.labelSizeNormalization;
 
-  // Determine which data source to use
-  let values = [];
-
-  if (sortBy === "phonemeCount" || sortBy === "caseCount") {
-    // Get values from typological features
-    if (data?.typologicalFeatures) {
-      Object.values(data.typologicalFeatures).forEach((features) => {
-        const val = features[sortBy];
-        if (val !== undefined && val !== null) {
-          values.push(val);
-        }
-      });
-    }
-  } else {
-    // Get speaker counts
-    if (data?.speakerData) {
-      values = Object.values(data.speakerData).filter(
-        (v) => v !== undefined && v !== null
-      );
-    }
+  // If feature has no scores and is not numeric, all languages get equal size
+  if (!hasRankedValues(sortBy, data)) {
+    return (outMin + outMax) / 3; // midpoint = equal size for all
   }
 
-  if (values.length === 0) {
-    return { uniqueValues: [1], outMin, outMax };
+  // Get the value for this specific language
+  const sizeValue = getSizeValue(sortBy, data, languageCode);
+
+  // Collect all values from all languages to establish ranking
+  const allValues = [];
+  if (data?.typologicalFeatures) {
+    Object.values(data.typologicalFeatures).forEach((features) => {
+      const rawVal = features[sortBy];
+      if (rawVal !== undefined && rawVal !== null) {
+        // If this feature uses scores, get the score; otherwise use raw value
+        const score = getFeatureScore(sortBy, rawVal);
+        const val = typeof score === "number" && !isNaN(score) ? score : rawVal;
+        allValues.push(val);
+      }
+    });
   }
 
-  // Get unique values and sort them
-  const uniqueValues = [...new Set(values)].sort((a, b) => a - b);
+  if (allValues.length === 0) return outMin;
 
-  return {
-    uniqueValues,
-    outMin,
-    outMax,
-  };
+  const uniqueValues = [...new Set(allValues)].sort((a, b) => a - b);
+  const rank = uniqueValues.indexOf(sizeValue);
+  const totalRanks = uniqueValues.length - 1;
+  const normalizedRank = totalRanks > 0 ? rank / totalRanks : 0;
+
+  return outMin + normalizedRank * (outMax - outMin);
 };
