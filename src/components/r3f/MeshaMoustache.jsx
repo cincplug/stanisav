@@ -1,39 +1,28 @@
 import { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
-import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
-import { useAppState } from "../../contexts/AppStateContext";
 import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
 import { shiftHue } from "../../utils/colorUtils";
 import { defaultAudioData } from "../../config/meshaDefaultAudioData.js";
 
-const MeshaMoustache = ({ languageCode }) => {
+const MeshaMoustache = ({ moustacheCount, color }) => {
   const casesRef = useRef([]);
   const lastAudioDataRef = useRef(defaultAudioData);
 
   const { controls } = useControls();
-  const { groupColors } = useLanguageSelection();
-  const { data } = useAppState();
   const { audioData: rawAudioData } = useAudioAnimation();
-
   const { meshaSize, eyeZ, eyeX, moustacheSize } = controls;
 
-  const linguisticProperties = data?.typologicalFeatures?.[languageCode];
-  const meshaGroupKey =
-    data?.languageData?.[languageCode]?.group ||
-    data?.languageGroups?.[languageCode];
-  const color = groupColors?.[meshaGroupKey];
+  const audioData = rawAudioData.isActive
+    ? rawAudioData
+    : lastAudioDataRef.current;
 
-  let audioData;
   if (rawAudioData.isActive) {
-    audioData = rawAudioData;
     lastAudioDataRef.current = rawAudioData;
-  } else {
-    audioData = lastAudioDataRef.current;
   }
 
   const cases = useMemo(() => {
-    const count = linguisticProperties?.caseCount;
+    const count = moustacheCount;
     if (!count) return [];
 
     const spacing = (eyeX * 4) / count;
@@ -51,7 +40,7 @@ const MeshaMoustache = ({ languageCode }) => {
       });
     }
     return items;
-  }, [linguisticProperties?.caseCount, eyeX, eyeZ, meshaSize]);
+  }, [moustacheCount, eyeX, eyeZ, meshaSize]);
 
   useFrame(() => {
     if (casesRef.current && audioData.isActive) {
@@ -66,8 +55,9 @@ const MeshaMoustache = ({ languageCode }) => {
           const bandIndex = Math.floor(
             (xSymmetry * harmonicsData.length) / bandDivisor,
           );
-          const amplitude = harmonicsData[bandIndex] || 0;
-          const baseY = cases[i]?.y || -1;
+          const amplitude = harmonicsData[bandIndex];
+          const baseY = cases[i].y;
+
           caseGroup.position.y = baseY + amplitude * 2;
           const scale = 0.3 + amplitude;
           caseGroup.scale.set(scale, scale, scale);
@@ -77,6 +67,8 @@ const MeshaMoustache = ({ languageCode }) => {
   });
 
   if (!cases.length) return null;
+
+  const moustacheColor = shiftHue(color, 90);
 
   return (
     <>
@@ -88,7 +80,7 @@ const MeshaMoustache = ({ languageCode }) => {
         >
           <mesh rotation={[Math.PI, Math.PI, 0]}>
             <sphereGeometry args={[moustacheSize, 16, 16]} />
-            <meshStandardMaterial color={shiftHue(color, 90)} />
+            <meshStandardMaterial color={moustacheColor} />
           </mesh>
         </group>
       ))}

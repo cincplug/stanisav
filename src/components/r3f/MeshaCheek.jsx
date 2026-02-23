@@ -1,6 +1,9 @@
-import { useRef, forwardRef, useImperativeHandle } from "react";
+import { useRef, useMemo, forwardRef, useImperativeHandle } from "react";
 import { extend } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
+import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
+import { defaultAudioData } from "../../config/meshaDefaultAudioData.js";
+import { createAudioReactiveSurface } from "../../utils/audioReactiveSurface.js";
 
 extend({ ParametricGeometry });
 
@@ -9,18 +12,38 @@ const MeshaCheek = forwardRef(
     {
       leftCheekMaterial,
       rightCheekMaterial,
-      audioReactiveSurface,
+      meshaSize,
+      bend,
       leftSegments,
       rightSegments,
-      scores,
+      cheekPosition,
     },
     ref,
   ) => {
     const mesh1Ref = useRef();
     const mesh2Ref = useRef();
-    const x = 1.4 - scores.morphology / 2;
-    const y = (scores.morphology + 1) / 4;
-    const z = 1;
+    const lastAudioDataRef = useRef(defaultAudioData);
+    const { audioData: rawAudioData } = useAudioAnimation();
+
+    const audioData = rawAudioData.isActive
+      ? rawAudioData
+      : lastAudioDataRef.current;
+
+    if (rawAudioData.isActive) {
+      lastAudioDataRef.current = rawAudioData;
+    }
+
+    const audioReactiveSurface = useMemo(
+      () =>
+        createAudioReactiveSurface(audioData, {
+          size: meshaSize,
+          bend,
+          radius: meshaSize,
+        }),
+      [audioData, meshaSize, bend],
+    );
+
+    const { x, y, z } = cheekPosition;
 
     useImperativeHandle(ref, () => ({
       mesh1: mesh1Ref.current,
@@ -29,7 +52,6 @@ const MeshaCheek = forwardRef(
 
     return (
       <>
-        {/* Left cheek */}
         <mesh
           ref={mesh2Ref}
           position={[-x, y, z]}
@@ -41,7 +63,6 @@ const MeshaCheek = forwardRef(
           <shaderMaterial args={[leftCheekMaterial]} />
         </mesh>
 
-        {/* Right cheek */}
         <mesh
           ref={mesh1Ref}
           position={[x, y, z]}

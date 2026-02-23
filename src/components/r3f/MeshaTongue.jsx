@@ -3,23 +3,34 @@ import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeom
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
 import { defaultAudioData } from "../../config/meshaDefaultAudioData.js";
-import { useRef } from "react";
+import { createAudioReactiveSurface } from "../../utils/audioReactiveSurface.js";
+import { useRef, useMemo } from "react";
 
 extend({ ParametricGeometry });
 
-const MeshaTongue = ({ mouthMaterial, audioReactiveSurface, segments }) => {
+const MeshaTongue = ({ mouthMaterial, segments }) => {
   const lastAudioDataRef = useRef(defaultAudioData);
   const { controls } = useControls();
   const { audioData: rawAudioData } = useAudioAnimation();
   const { meshaSize } = controls;
 
-  let audioData;
+  const audioData = rawAudioData.isActive
+    ? rawAudioData
+    : lastAudioDataRef.current;
+
   if (rawAudioData.isActive) {
-    audioData = rawAudioData;
     lastAudioDataRef.current = rawAudioData;
-  } else {
-    audioData = lastAudioDataRef.current;
   }
+
+  const audioReactiveSurface = useMemo(
+    () =>
+      createAudioReactiveSurface(audioData, {
+        size: meshaSize,
+        bend: 0,
+        radius: meshaSize,
+      }),
+    [audioData, meshaSize],
+  );
 
   return (
     <mesh

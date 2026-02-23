@@ -1,18 +1,23 @@
 import { useRef } from "react";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 
-const MeshaEye = ({ position, color, evidentialitySize, verbAspectSize }) => {
+const MeshaEye = ({ position, color, sizeSignal, depthSignal }) => {
   const groupRef = useRef();
   const { controls } = useControls();
   const { eyeSize, eyeProtrusion } = controls;
 
   const irisSize = eyeSize * 0.75;
   const pupilSize = eyeSize * 0.5;
-  const irisZ = eyeProtrusion / 2 + verbAspectSize * eyeProtrusion;
-  const pupilZ = eyeProtrusion + verbAspectSize * eyeProtrusion;
+
+  // Representational logic lives here
+  const eyeScale = 1 + sizeSignal / 4;
+  const depthFactor = depthSignal / 4;
+
+  const irisZ = eyeProtrusion / 2 + depthFactor * eyeProtrusion;
+  const pupilZ = eyeProtrusion + depthFactor * eyeProtrusion;
 
   return (
-    <group ref={groupRef} position={position} scale={evidentialitySize}>
+    <group ref={groupRef} position={position} scale={eyeScale}>
       <mesh>
         <sphereGeometry args={[eyeSize, 32, 32]} />
         <meshStandardMaterial color="#ffffff" />

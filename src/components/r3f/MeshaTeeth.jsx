@@ -2,7 +2,6 @@ import { useRef, useMemo } from "react";
 import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useControls } from "../../contexts/ControlsContext.jsx";
-import { useAppState } from "../../contexts/AppStateContext";
 import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
 import { defaultAudioData } from "../../config/meshaDefaultAudioData.js";
 
@@ -34,27 +33,24 @@ function toothShape(u, v, target) {
   target.set(x, y, z);
 }
 
-const MeshaTeeth = ({ languageCode }) => {
+const MeshaTeeth = ({ toothCount }) => {
   const teethRefs = useRef([]);
   const lastAudioDataRef = useRef(defaultAudioData);
 
   const { controls } = useControls();
-  const { data } = useAppState();
   const { audioData: rawAudioData } = useAudioAnimation();
-
   const { meshaSize, teethSize } = controls;
-  const linguisticProperties = data?.typologicalFeatures?.[languageCode];
 
-  let audioData;
+  const audioData = rawAudioData.isActive
+    ? rawAudioData
+    : lastAudioDataRef.current;
+
   if (rawAudioData.isActive) {
-    audioData = rawAudioData;
     lastAudioDataRef.current = rawAudioData;
-  } else {
-    audioData = lastAudioDataRef.current;
   }
 
   const teeth = useMemo(() => {
-    const count = linguisticProperties?.phonemeCount;
+    const count = toothCount;
     if (count === 0) return [];
 
     const radius = meshaSize;
@@ -72,7 +68,7 @@ const MeshaTeeth = ({ languageCode }) => {
       });
     }
     return teethArr;
-  }, [linguisticProperties?.phonemeCount, meshaSize]);
+  }, [toothCount, meshaSize]);
 
   useFrame(() => {
     if (teethRefs.current && audioData.isActive) {
@@ -87,7 +83,7 @@ const MeshaTeeth = ({ languageCode }) => {
           const bandIndex = Math.floor(
             (xSymmetry * fundamentalData.length) / bandDivisor,
           );
-          const amplitude = fundamentalData[bandIndex] || 0;
+          const amplitude = fundamentalData[bandIndex];
 
           tooth.position.y = -amplitude * 3;
           const scale = amplitude * 2;
