@@ -81,9 +81,8 @@ const Mesha = () => {
   ]);
 
   // Linguistic -> representational mapping stays in Mesha
-  const toothCount = linguisticProperties?.phonemeCount;
-  const caseCount = linguisticProperties?.caseCount;
-  const wordOrder = linguisticProperties?.wordOrder;
+  const { toothCount, caseCount, wordOrder, nounClassCount } =
+    linguisticProperties;
 
   const noseColorMap = {
     S: "#ffffff",
@@ -183,7 +182,12 @@ const Mesha = () => {
 
         <MeshaTongue mouthMaterial={mouthMaterial} segments={segments} />
         <MeshaTeeth toothCount={toothCount} />
-        <MeshaMoustache moustacheCount={caseCount} color={color} />
+        <MeshaMoustache moustacheCount={caseCount} color={color} y={0.5} />
+        <MeshaMoustache
+          moustacheCount={nounClassCount}
+          color={shiftHue(color, 120)}
+          y={meshaSize}
+        />
       </group>
       <NodeLight spread={2} />
     </a.group>
