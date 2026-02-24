@@ -153,6 +153,14 @@
     "name": "Phoneme count",
     "template": "It has {count} phonemes (distinct sounds)."
   },
+  "maxClusterSize": {
+    "name": "Max consonants in a cluster",
+    "template": "It can have maximally {count} consonants together in one cluster."
+  },
+  "nounClassCount": {
+    "name": "Noun classes / genders",
+    "template": "It has {count} noun classes / genders."
+  },
   "family": {
     "name": "Language family"
   },
