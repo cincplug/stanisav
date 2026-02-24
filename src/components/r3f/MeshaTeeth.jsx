@@ -33,7 +33,7 @@ function toothShape(u, v, target) {
   target.set(x, y, z);
 }
 
-const MeshaTeeth = ({ toothCount }) => {
+const MeshaTeeth = ({ toothCount, clusterSize }) => {
   const teethRefs = useRef([]);
   const lastAudioDataRef = useRef(defaultAudioData);
 
@@ -50,25 +50,50 @@ const MeshaTeeth = ({ toothCount }) => {
   }
 
   const teeth = useMemo(() => {
-    const count = toothCount;
-    if (count === 0) return [];
+    if (toothCount === 0) return [];
 
     const radius = meshaSize;
     const arc = Math.PI * 1.5;
     const startAngle = Math.PI / 2 - arc / 2;
-    const teethArr = [];
+    const effectiveClusterSize = clusterSize || toothCount;
 
-    for (let i = 0; i < count; i++) {
-      const angle = startAngle + (i / count) * arc;
-      teethArr.push({
+    return Array.from({ length: toothCount }, (_, toothIndex) => {
+      const angle = startAngle + (toothIndex / toothCount) * arc;
+      const positionInCluster = toothIndex % effectiveClusterSize;
+      const clusterNumber = Math.floor(toothIndex / effectiveClusterSize);
+
+      // Symmetric rotation within cluster: center tooth has 0 rotation
+      const clusterCenter = (effectiveClusterSize - 1) / 2;
+      const distanceFromClusterCenter = Math.abs(
+        positionInCluster - clusterCenter,
+      );
+      const maxDistanceFromCenter = Math.floor(effectiveClusterSize / 2);
+      const rotationIntensity =
+        maxDistanceFromCenter > 0
+          ? distanceFromClusterCenter / maxDistanceFromCenter
+          : 0;
+
+      // Rotation direction: left side negative, right side positive
+      const rotationDirection =
+        positionInCluster < clusterCenter
+          ? -1
+          : positionInCluster > clusterCenter
+            ? 1
+            : 0;
+      const rotationAngle =
+        rotationDirection * rotationIntensity * (Math.PI / 12);
+
+      return {
         x: Math.cos(angle) * radius,
-        y: 4 * meshaSize,
+        y: -0.5,
         z: Math.sin(angle) * radius,
-        key: `tooth-${i}`,
-      });
-    }
-    return teethArr;
-  }, [toothCount, meshaSize]);
+        positionInCluster,
+        clusterNumber,
+        rotationAngle,
+        key: `tooth-${toothIndex}`,
+      };
+    });
+  }, [toothCount, clusterSize]);
 
   useFrame(() => {
     if (teethRefs.current && audioData.isActive) {
@@ -98,14 +123,16 @@ const MeshaTeeth = ({ toothCount }) => {
   return (
     <group position={[0, meshaSize, meshaSize * 0.7]} scale={teethSize}>
       {teeth.map((tooth, i) => (
-        <mesh
+        <group
           key={tooth.key}
-          ref={(el) => (teethRefs.current[i] = el)}
           position={[tooth.x, tooth.y, tooth.z]}
+          rotation={[0, 0, tooth.rotationAngle]}
         >
-          <parametricGeometry args={[toothShape, 16, 8]} />
-          <meshStandardMaterial color="#ffffff" />
-        </mesh>
+          <mesh ref={(el) => (teethRefs.current[i] = el)} position={[0, 0, 0]}>
+            <parametricGeometry args={[toothShape, 16, 8]} />
+            <meshStandardMaterial color="#ffffff" />
+          </mesh>
+        </group>
       ))}
     </group>
   );
