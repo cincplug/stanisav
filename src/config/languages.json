@@ -993,7 +993,7 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 0
+    "maxClusterSize": 1
   },
   "fin": {
     "name": "Finnish",
@@ -1281,7 +1281,7 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 0
+    "maxClusterSize": 1
   },
   "heb": {
     "name": "Hebrew",
@@ -2335,7 +2335,7 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 0
+    "maxClusterSize": 1
   },
   "msa": {
     "name": "Malay",
@@ -3083,7 +3083,7 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 0
+    "maxClusterSize": 1
   },
   "sna": {
     "name": "Shona",
@@ -3481,7 +3481,7 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 0
+    "maxClusterSize": 1
   },
   "tsn": {
     "name": "Tswana",
