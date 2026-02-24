@@ -124,10 +124,17 @@ const Mesha = () => {
 
     if (rotationGroupRef.current) {
       const time = clock.getElapsedTime();
-      const damping = 2;
-      const t = Math.sin(time * 0.3);
-      const eased = Math.sign(t) * Math.pow(Math.abs(t), damping);
-      const rotation = eased * (Math.PI / 3);
+      const speed = 0.5;
+      const amplitude = Math.PI / 4;
+
+      const phase = time * speed;
+      const sine = Math.sin(phase);
+      const triangle = (2 / Math.PI) * Math.asin(sine);
+
+      const linearity = 0.5;
+      const wave = sine * (1 - linearity) + triangle * linearity;
+
+      const rotation = wave * amplitude;
       rotationGroupRef.current.rotation.y = rotation;
       meshaRotationRef.current = rotation;
     }
