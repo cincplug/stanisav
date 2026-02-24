@@ -57,7 +57,7 @@ const Mesha = () => {
       const pos = formattedPositions[selectedLanguage];
       return [pos.x, pos.y, pos.z];
     }
-    return [0, 0, sphereRadius - meshaSize];
+    return [0, 0, 0];
   }, [selectedLanguage, formattedPositions, sphereRadius, meshaSize]);
 
   const color = useMemo(() => {
@@ -103,7 +103,7 @@ const Mesha = () => {
 
   const spring = useSpring({
     position,
-    scale: selectedLanguage ? meshaSize : (meshaSize * 3) / 2,
+    scale: selectedLanguage ? meshaSize : meshaSize * 2,
     config: { mass: 1, tension: 120, friction: 20 },
   });
 
