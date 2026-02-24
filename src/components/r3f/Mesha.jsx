@@ -145,7 +145,7 @@ const Mesha = () => {
 
   const cheekPosition = useMemo(
     () => ({
-      x: 1.4 - scores.morphology / 2,
+      x: 1.37 - scores.morphology / 2,
       y: (scores.morphology + 1) / 4,
       z: 1,
     }),
