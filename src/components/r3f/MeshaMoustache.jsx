@@ -9,7 +9,7 @@ import { createTuftShape } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
 
-const MeshaMoustache = ({ moustacheCount, color, y }) => {
+const MeshaMoustache = ({ moustacheCount, color, y, z }) => {
   const tuftsRef = useRef([]);
   const lastAudioDataRef = useRef(defaultAudioData);
 
@@ -35,13 +35,13 @@ const MeshaMoustache = ({ moustacheCount, color, y }) => {
 
     const spacing = (eyeX * 4) / moustacheCount;
     const totalWidth = spacing * (moustacheCount - 1);
-    const startX = totalWidth / 2;
-    const mainZ = meshaSize * eyeZ;
+    const baseX = totalWidth / 2;
+    const baseZ = meshaSize * eyeZ;
 
     return Array.from({ length: moustacheCount }, (_, i) => ({
-      x: startX - i * spacing,
+      x: baseX - i * spacing,
       y,
-      z: mainZ,
+      z: baseZ + z,
       key: `moustache-${i}`,
     }));
   }, [moustacheCount, eyeX, eyeZ, meshaSize, y]);

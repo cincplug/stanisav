@@ -201,7 +201,7 @@ const Mesha = () => {
           moustacheCount={caseCount}
           color={color}
           y={0.5}
-          z={moustacheSize}
+          z={0.5}
         />
         <MeshaMoustache
           moustacheCount={nounClassCount}
