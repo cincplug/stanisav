@@ -161,14 +161,6 @@ function LanguagesTab({ languageData, isActive }) {
     }
   }, [selectedLanguage, isActive]);
 
-  const title = (
-    linguisticConfig[sortBy]?.name ||
-    sortBy === "group" ||
-    sortBy === "family" ||
-    sortBy === "speakers" ||
-    "Alphabetical order"
-  ).toLowerCase();
-
   // Calculate colors for all languages with hue shifts
   const languageColors = useMemo(
     () =>
