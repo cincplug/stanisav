@@ -4,34 +4,9 @@ import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeom
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
 import { defaultAudioData } from "../../config/meshaDefaultAudioData.js";
+import { createToothShape } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
-
-function toothShape(u, v, target) {
-  const angle = u * Math.PI * 2;
-  const baseRadius = 0.3;
-  const topRadius = 0.4;
-  const r = baseRadius + (topRadius - baseRadius) * v;
-
-  const shapeTop = 0.1;
-  const shapeBottom = 0.8;
-  const shapeFactor = shapeTop + (shapeBottom - shapeTop) * v;
-
-  const roundTop = 1 - Math.pow(1 - v, 2);
-  const blendFactor = shapeFactor * roundTop + shapeTop * (1 - roundTop);
-
-  const x =
-    Math.sign(Math.cos(angle)) *
-    Math.pow(Math.abs(Math.cos(angle)), blendFactor) *
-    r;
-  const z =
-    Math.sign(Math.sin(angle)) *
-    Math.pow(Math.abs(Math.sin(angle)), blendFactor) *
-    r;
-  const y = (0.5 - v) * 0.8;
-
-  target.set(x, y, z);
-}
 
 const MeshaTeeth = ({ toothCount, clusterSize }) => {
   const teethRefs = useRef([]);
@@ -129,7 +104,7 @@ const MeshaTeeth = ({ toothCount, clusterSize }) => {
           rotation={[0, 0, tooth.rotationAngle]}
         >
           <mesh ref={(el) => (teethRefs.current[i] = el)} position={[0, 0, 0]}>
-            <parametricGeometry args={[toothShape, 16, 8]} />
+            <parametricGeometry args={[createToothShape, 16, 8]} />
             <meshStandardMaterial color="#ffffff" />
           </mesh>
         </group>

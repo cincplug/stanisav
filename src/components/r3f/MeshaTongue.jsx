@@ -3,7 +3,7 @@ import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeom
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
 import { defaultAudioData } from "../../config/meshaDefaultAudioData.js";
-import { createAudioReactiveSurface } from "../../utils/audioReactiveSurface.js";
+import { createAudioReactiveSurface } from "../../utils/shapeUtils.js";
 import { useRef, useMemo } from "react";
 
 extend({ ParametricGeometry });
