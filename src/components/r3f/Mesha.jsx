@@ -197,18 +197,22 @@ const Mesha = () => {
 
         <MeshaTongue mouthMaterial={mouthMaterial} segments={segments} />
         <MeshaTeeth toothCount={phonemeCount} clusterSize={maxClusterSize} />
-        <MeshaMoustache
-          moustacheCount={caseCount}
-          color={color}
-          y={0.5}
-          z={0.5}
-        />
-        <MeshaMoustache
-          moustacheCount={nounClassCount}
-          color={shiftHue(color, 120)}
-          y={meshaSize}
-          z={0}
-        />
+        {caseCount && (
+          <MeshaMoustache
+            moustacheCount={caseCount}
+            color={color}
+            y={0.5}
+            z={0.5}
+          />
+        )}
+        {nounClassCount && (
+          <MeshaMoustache
+            moustacheCount={nounClassCount}
+            color={shiftHue(color, 120)}
+            y={meshaSize}
+            z={0}
+          />
+        )}
       </group>
       <NodeLight spread={2} />
     </a.group>

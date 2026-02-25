@@ -26,9 +26,15 @@ const MeshaMoustache = ({ moustacheCount, color, y, z }) => {
   }
 
   const tuftSurface = useMemo(
-    () => createTuftShape(moustacheSize),
+    () => createTuftShape(moustacheSize, moustacheCount),
     [moustacheSize],
   );
+
+  const angleConfig = useMemo(() => {
+    const centerDeg = 180;
+    const stepDeg = 12; // fixed angle between neighboring tufts
+    return { centerDeg, stepDeg };
+  }, []);
 
   const tufts = useMemo(() => {
     if (!moustacheCount) return [];
@@ -44,7 +50,23 @@ const MeshaMoustache = ({ moustacheCount, color, y, z }) => {
       z: baseZ + z,
       key: `moustache-${i}`,
     }));
-  }, [moustacheCount, eyeX, eyeZ, meshaSize, y]);
+  }, [moustacheCount, eyeX, eyeZ, meshaSize, y, z]);
+
+  const tuftsWithRotation = useMemo(() => {
+    if (!tufts.length) return [];
+
+    const centerIndex = (moustacheCount - 1) / 2;
+
+    return tufts.map((tuft, i) => {
+      const offsetFromCenter = i - centerIndex;
+      const deg =
+        (angleConfig.centerDeg + offsetFromCenter * angleConfig.stepDeg + 360) %
+        360;
+      const rotationRad = (deg * Math.PI) / 180;
+
+      return { ...tuft, rotationRad };
+    });
+  }, [tufts, moustacheCount, angleConfig]);
 
   useFrame(() => {
     if (tuftsRef.current && audioData.isActive) {
@@ -70,21 +92,21 @@ const MeshaMoustache = ({ moustacheCount, color, y, z }) => {
     }
   });
 
-  if (!tufts.length) return null;
+  if (!tuftsWithRotation.length) return null;
 
   const moustacheColor = shiftHue(color, 90);
 
   return (
     <>
-      {tufts.map((tuft, i) => (
+      {tuftsWithRotation.map((tuft, i) => (
         <group
           key={tuft.key}
           ref={(el) => (tuftsRef.current[i] = el)}
           position={[tuft.x, tuft.y, tuft.z]}
         >
-          <mesh rotation={[Math.PI, Math.PI, 0]}>
-            <parametricGeometry args={[tuftSurface, 24, 14]} />
-            <meshStandardMaterial color={moustacheColor} />
+          <mesh rotation={[0, 0, tuft.rotationRad]}>
+            <parametricGeometry args={[tuftSurface, 12, 12]} />
+            <meshStandardMaterial color={moustacheColor} side={2} />
           </mesh>
         </group>
       ))}
