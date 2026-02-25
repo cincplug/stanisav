@@ -103,7 +103,7 @@ const Mesha = () => {
 
   const spring = useSpring({
     position,
-    scale: selectedLanguage ? meshaSize : meshaSize * 2,
+    scale: meshaSize,
     config: { mass: 1, tension: 120, friction: 20 },
   });
 
