@@ -7,11 +7,16 @@ import {
 } from "../shaders/shader";
 import linguisticConfig from "../config/linguisticConfig.json";
 
-export const useTonalityMaterial = (color, languageCode) => {
+export const useTonalityMaterial = (
+  baseColor,
+  accentColor = baseColor,
+  languageCode,
+) => {
   const { data } = useAppState();
   const linguisticProperties = data?.typologicalFeatures?.[languageCode];
 
-  const colorObj = useMemo(() => new Color(color), [color]);
+  const baseColorObj = useMemo(() => new Color(baseColor), [baseColor]);
+  const accentColorObj = useMemo(() => new Color(accentColor), [accentColor]);
 
   const tonalityType = useMemo(() => {
     const tonality = linguisticProperties?.tonality;
@@ -21,7 +26,8 @@ export const useTonalityMaterial = (color, languageCode) => {
   const material = useMemo(() => {
     return {
       uniforms: {
-        uBaseColor: { value: colorObj },
+        uBaseColor: { value: baseColorObj },
+        uAccentColor: { value: accentColorObj },
         uTonalityType: { value: tonalityType },
       },
       vertexShader: tonalityVertexShader,
@@ -29,7 +35,7 @@ export const useTonalityMaterial = (color, languageCode) => {
       side: 2,
       transparent: false,
     };
-  }, [colorObj, tonalityType]);
+  }, [baseColorObj, accentColorObj, tonalityType]);
 
   return material;
 };
