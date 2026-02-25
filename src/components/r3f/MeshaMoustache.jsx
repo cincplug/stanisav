@@ -1,9 +1,13 @@
 import { useRef, useMemo } from "react";
-import { useFrame } from "@react-three/fiber";
+import { extend, useFrame } from "@react-three/fiber";
+import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
 import { shiftHue } from "../../utils/colorUtils";
 import { defaultAudioData } from "../../config/meshaDefaultAudioData.js";
+import { createTuftShape } from "../../utils/shapeUtils.js";
+
+extend({ ParametricGeometry });
 
 const MeshaMoustache = ({ moustacheCount, color, y }) => {
   const tuftsRef = useRef([]);
@@ -21,6 +25,11 @@ const MeshaMoustache = ({ moustacheCount, color, y }) => {
     lastAudioDataRef.current = rawAudioData;
   }
 
+  const tuftSurface = useMemo(
+    () => createTuftShape(moustacheSize),
+    [moustacheSize],
+  );
+
   const tufts = useMemo(() => {
     if (!moustacheCount) return [];
 
@@ -35,7 +44,7 @@ const MeshaMoustache = ({ moustacheCount, color, y }) => {
       z: mainZ,
       key: `moustache-${i}`,
     }));
-  }, [moustacheCount, eyeX, eyeZ, meshaSize]);
+  }, [moustacheCount, eyeX, eyeZ, meshaSize, y]);
 
   useFrame(() => {
     if (tuftsRef.current && audioData.isActive) {
@@ -74,7 +83,7 @@ const MeshaMoustache = ({ moustacheCount, color, y }) => {
           position={[tuft.x, tuft.y, tuft.z]}
         >
           <mesh rotation={[Math.PI, Math.PI, 0]}>
-            <sphereGeometry args={[moustacheSize, 16, 16]} />
+            <parametricGeometry args={[tuftSurface, 24, 14]} />
             <meshStandardMaterial color={moustacheColor} />
           </mesh>
         </group>

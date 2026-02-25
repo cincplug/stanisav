@@ -32,8 +32,16 @@ const Mesha = () => {
   const { data } = useAppState();
   const { formattedPositions } = useLayoutManager(data, controls, null);
 
-  const { meshaSize, eyeZ, eyeX, eyeY, noseSize, sphereRadius, isMyMesha } =
-    controls;
+  const {
+    meshaSize,
+    eyeZ,
+    eyeX,
+    eyeY,
+    noseSize,
+    moustacheSize,
+    sphereRadius,
+    isMyMesha,
+  } = controls;
 
   useEffect(() => {
     if (isMyMesha) {
@@ -189,11 +197,17 @@ const Mesha = () => {
 
         <MeshaTongue mouthMaterial={mouthMaterial} segments={segments} />
         <MeshaTeeth toothCount={phonemeCount} clusterSize={maxClusterSize} />
-        <MeshaMoustache moustacheCount={caseCount} color={color} y={0.5} />
+        <MeshaMoustache
+          moustacheCount={caseCount}
+          color={color}
+          y={0.5}
+          z={moustacheSize}
+        />
         <MeshaMoustache
           moustacheCount={nounClassCount}
           color={shiftHue(color, 120)}
           y={meshaSize}
+          z={0}
         />
       </group>
       <NodeLight spread={2} />
