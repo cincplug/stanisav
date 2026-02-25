@@ -5,8 +5,8 @@ import { useControls } from "../../contexts/ControlsContext.jsx";
 const MeshaNose = ({
   position,
   scale,
-  segmentColors = ["#ffffff", "#888888", "#222222"],
-  motionIntensity = 0,
+  segmentColors,
+  motionIntensity,
   meshaRotationRef,
 }) => {
   const groupRef = useRef();

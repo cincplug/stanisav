@@ -1,9 +1,11 @@
 import audioVisualizationConfig from "../config/audioVisualizationConfig.json";
 
-export const createAudioReactiveSurface = (
+export const createAudioReactiveSurface = ({
   audioData,
-  { size, bend, radius },
-) => {
+  size,
+  bend,
+  radius,
+}) => {
   const {
     maxDeformation,
     fundamentalAmplifier,

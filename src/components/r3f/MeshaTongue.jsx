@@ -24,7 +24,8 @@ const MeshaTongue = ({ mouthMaterial, segments }) => {
 
   const audioReactiveSurface = useMemo(
     () =>
-      createAudioReactiveSurface(audioData, {
+      createAudioReactiveSurface({
+        audioData,
         size: meshaSize,
         bend: 0,
         radius: meshaSize,
