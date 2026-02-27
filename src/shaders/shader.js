@@ -26,8 +26,8 @@ export const tonalityFragmentShader = /* glsl */ `
 
   // Builds N vertical stripe bands across X.
   float getVerticalStripeMask(float coord, int count) {
-    float stripeWidth = 1.0 / float(count) * 0.4;
-    float stripeSpacing = 1.0 / float(count);
+    float stripeWidth = 0.8 / float(count) * 0.4;
+    float stripeSpacing = 1.2 / float(count);
     float mask = 0.0;
 
     for (int i = 0; i < 12; i++) {
@@ -44,8 +44,8 @@ export const tonalityFragmentShader = /* glsl */ `
   // Tonality-specific stripe selection.
   float getStripeMask(vec2 uv, int type) {
     if (type == 1) {
-      float stripe1 = step(0.2, uv.y) * step(uv.y, 0.3);
-      float stripe2 = step(0.7, uv.y) * step(uv.y, 0.8);
+      float stripe1 = step(0.4, uv.y) * step(uv.y, 0.5);
+      float stripe2 = step(0.8, uv.y) * step(uv.y, 0.9);
       return max(stripe1, stripe2);
     } else if (type == 2) {
       return getVerticalStripeMask(uv.x, 4);

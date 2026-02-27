@@ -117,12 +117,12 @@ const Mesha = () => {
 
   const leftCheekMaterial = useTonalityMaterial(
     shiftHue(color, 30),
-    shiftHue(color, -45),
+    color,
     languageCode,
   );
   const rightCheekMaterial = useTonalityMaterial(
     shiftHue(color, -30),
-    shiftHue(color, 45),
+    color,
     languageCode,
   );
   const mouthMaterial = useTonalityMaterial(color, color, languageCode);
