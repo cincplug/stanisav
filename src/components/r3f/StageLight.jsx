@@ -10,7 +10,7 @@ const StageLight = () => {
   useFrame(() => {
     if (lightRef.current) {
       const direction = camera.position.clone().normalize();
-      const fixedDistance = controls.positionZ;
+      const fixedDistance = controls.cameraZ;
       lightRef.current.position.copy(direction.multiplyScalar(fixedDistance));
     }
   });

@@ -5,12 +5,9 @@ import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeom
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
 import microphoneService from "../../services/microphoneService.js";
 import { useControls } from "../../contexts/ControlsContext.jsx";
-import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
-import { useAppState } from "../../contexts/AppStateContext";
-import { useLayoutManager } from "../../hooks/useLayoutManager.js";
 import { useTonalityMaterial } from "../../hooks/useTonalityMaterial.js";
 import { getFeatureScoreList } from "../../utils/linguisticUtils.js";
-import { shiftHue, calculateLanguageColors } from "../../utils/colorUtils";
+import { shiftHue } from "../../utils/colorUtils";
 import MeshaEye from "./MeshaEye.jsx";
 import MeshaCheek from "./MeshaCheek.jsx";
 import MeshaTongue from "./MeshaTongue.jsx";
@@ -21,30 +18,25 @@ import NodeLight from "./NodeLight.jsx";
 
 extend({ ParametricGeometry });
 
-const Mesha = () => {
+const Mesha = ({
+  languageCode,
+  linguisticProperties,
+  color,
+  position,
+  audioSource,
+  animateFromAudio,
+}) => {
   const groupRef = useRef();
   const rotationGroupRef = useRef();
   const eyesGroupRef = useRef();
   const meshaRotationRef = useRef(0);
 
   const { controls } = useControls();
-  const { selectedLanguage, groupColors } = useLanguageSelection();
-  const { data } = useAppState();
-  const { formattedPositions } = useLayoutManager(data, controls, null);
-
-  const {
-    meshaSize,
-    eyeZ,
-    eyeX,
-    eyeY,
-    noseSize,
-    moustacheSize,
-    sphereRadius,
-    isMyMesha,
-  } = controls;
+  const { meshaSize, eyeZ, eyeX, eyeY, noseSize } = controls;
 
   useEffect(() => {
-    if (isMyMesha) {
+    const shouldCapture = animateFromAudio && !audioSource;
+    if (shouldCapture) {
       microphoneService.startCapture();
     } else {
       microphoneService.stopCapture();
@@ -52,35 +44,11 @@ const Mesha = () => {
     return () => {
       microphoneService.stopCapture();
     };
-  }, [isMyMesha]);
+  }, [animateFromAudio, audioSource]);
 
-  const languageCode = useMemo(() => {
-    if (selectedLanguage) return selectedLanguage;
-    const codes = Object.keys(data?.languageData);
-    return codes[0];
-  }, [selectedLanguage, data]);
+  if (!languageCode || !linguisticProperties || !color || !position)
+    return null;
 
-  const position = useMemo(() => {
-    if (selectedLanguage && formattedPositions[selectedLanguage]) {
-      const pos = formattedPositions[selectedLanguage];
-      return [pos.x, pos.y, pos.z];
-    }
-    return [0, 0, 0];
-  }, [selectedLanguage, formattedPositions, sphereRadius, meshaSize]);
-
-  const color = useMemo(() => {
-    const languageColors = calculateLanguageColors(
-      data.languageData,
-      data.languageGroups,
-      groupColors,
-      30,
-    );
-    return languageColors[languageCode];
-  }, [data?.languageData, data?.languageGroups, groupColors, languageCode]);
-
-  if (!data || !languageCode) return null;
-
-  const linguisticProperties = data?.typologicalFeatures?.[languageCode];
   const scores = getFeatureScoreList(linguisticProperties, [
     "wordOrderFlexibility",
     "morphology",
@@ -88,7 +56,6 @@ const Mesha = () => {
     "verbAspect",
   ]);
 
-  // Linguistic -> representational mapping stays in Mesha
   const { phonemeCount, caseCount, wordOrder, nounClassCount, maxClusterSize } =
     linguisticProperties;
 
@@ -98,7 +65,6 @@ const Mesha = () => {
     O: "#222222",
   };
 
-  // Linguistic mapping kept in Mesha, children get neutral props only
   const noseSegmentColors = [
     noseColorMap[wordOrder[0]],
     noseColorMap[wordOrder[1]],

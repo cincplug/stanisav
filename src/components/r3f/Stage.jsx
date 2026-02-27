@@ -22,19 +22,18 @@ const Stage = ({
 }) => {
   const { controls } = useControls();
   const {
-    positionX,
-    positionY,
-    positionZ,
+    cameraX,
+    cameraY,
+    cameraZ,
     fov,
     near,
     far,
     backgroundColor,
-    stageLightIntensity,
+    isMyMesha,
   } = controls;
   const { filteringUtils, selectedLanguage, groupColors } =
     useLanguageSelection();
 
-  // Data and layout
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
   const { formattedPositions, sortedLanguageCodes } = useLayoutManager(
     data,
@@ -42,7 +41,6 @@ const Stage = ({
     onNodesReady,
   );
 
-  // Filtering
   const languageFilterStatus = useMemo(
     () =>
       calculateLanguageFilterStatus(
@@ -59,7 +57,6 @@ const Stage = ({
     ],
   );
 
-  // Calculate colors for all languages with hue shifts
   const languageColors = useMemo(
     () =>
       calculateLanguageColors(
@@ -70,20 +67,32 @@ const Stage = ({
     [data?.languageData, data?.languageGroups, groupColors],
   );
 
+  const meshaLanguageCode = selectedLanguage || sortedLanguageCodes[0];
+  const meshaLinguisticProperties =
+    data?.typologicalFeatures?.[meshaLanguageCode];
+  const meshaColor = languageColors[meshaLanguageCode];
+  const meshaAudioSource = data?.languageData?.[meshaLanguageCode]?.sampleUrl;
+
+  const meshaPosition = useMemo(() => {
+    if (selectedLanguage && formattedPositions[selectedLanguage]) {
+      const pos = formattedPositions[selectedLanguage];
+      return [pos.x, pos.y, pos.z];
+    }
+    return [0, 0, 0];
+  }, [selectedLanguage, formattedPositions]);
+
   const hasActiveFilters = Object.keys(filteringUtils).length > 0;
   const visibleLanguages = sortedLanguageCodes.filter(
     (code) => languageFilterStatus[code]?.isVisible,
   );
   const showEmptyMessage = hasActiveFilters && visibleLanguages.length === 0;
 
-  // Scene ready effect
   useEffect(() => {
     if (isInitialized && data && Object.keys(formattedPositions).length > 0) {
       onSceneReady(true);
     }
   }, [isInitialized, data, formattedPositions, onSceneReady]);
 
-  // Empty filter effect
   useEffect(() => {
     if (onEmptyFilterChange) {
       onEmptyFilterChange(showEmptyMessage);
@@ -98,7 +107,7 @@ const Stage = ({
     <Canvas
       className={`${isMenuCollapsed ? "menu-collapsed" : "menu-expanded"}`}
       camera={{
-        position: [positionX, positionY, positionZ],
+        position: [cameraX, cameraY, cameraZ],
         fov,
         near,
         far,
@@ -124,7 +133,14 @@ const Stage = ({
       />
 
       <group>
-        <Mesha />
+        <Mesha
+          languageCode={meshaLanguageCode}
+          linguisticProperties={meshaLinguisticProperties}
+          color={meshaColor}
+          position={meshaPosition}
+          audioSource={meshaAudioSource}
+          animateFromAudio={isMyMesha}
+        />
         {!showEmptyMessage &&
           sortedLanguageCodes.map((langCode, idx) => {
             const position = formattedPositions[langCode];

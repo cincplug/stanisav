@@ -2,6 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import SourceVideoGallery from "./pages/source-video-gallery/SourceVideoGallery.jsx";
+import Morphology from "./pages/morphology/Morphology.jsx";
+import Tonality from "./pages/tonality/Tonality.jsx";
+import PropertyRoutePage from "./pages/property-showcase/PropertyRoutePage.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AppStateProvider } from "./contexts/AppStateContext";
 import { ControlsProvider } from "./contexts/ControlsContext";
@@ -21,6 +24,12 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                 <Route
                   path="/source-video-gallery"
                   element={<SourceVideoGallery />}
+                />
+                <Route path="/morphology" element={<Morphology />} />
+                <Route path="/tonality" element={<Tonality />} />
+                <Route
+                  path="/property/:propertyKey"
+                  element={<PropertyRoutePage />}
                 />
               </Routes>
             </BrowserRouter>

@@ -63,9 +63,9 @@ export const useCameraController = ({
       animationRef.current = null;
     }
     const initialCameraPosition = new Vector3(
-      config.positionX,
-      config.positionY,
-      config.positionZ,
+      config.cameraX,
+      config.cameraY,
+      config.cameraZ,
     );
     const initialTarget = new Vector3(0, 0, 0);
     animateCamera(cameraSystem, initialCameraPosition, initialTarget, config);

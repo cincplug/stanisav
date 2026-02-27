@@ -170,7 +170,7 @@
     "defaultValue": 116,
     "isUserEditable": true
   },
-  "positionX": {
+  "cameraX": {
     "type": "range",
     "label": "Camera X",
     "min": -150,
@@ -180,7 +180,7 @@
     "isUserEditable": false,
     "group": "Camera"
   },
-  "positionY": {
+  "cameraY": {
     "type": "range",
     "label": "Camera Y",
     "min": -50,
@@ -190,7 +190,7 @@
     "isUserEditable": false,
     "group": "Camera"
   },
-  "positionZ": {
+  "cameraZ": {
     "type": "range",
     "label": "Camera Z",
     "min": 100,
