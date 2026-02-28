@@ -31,7 +31,7 @@
       { "value": "isoCode", "label": "ISO codes" }
     ],
     "defaultValue": "name",
-    "isUserEditable": true,
+    "isUserEditable": false,
     "group": "Languages tab"
   },
   "isReverse": {

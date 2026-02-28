@@ -103,9 +103,7 @@ export default function Playlist() {
         <LoopIcon active={controls.isLoop} />
       </button>
       <span className="playlist-progress" aria-live="polite" aria-atomic="true">
-        {playlistLength > 0
-          ? `Track ${currentIndex + 1} of ${playlistLength}`
-          : ""}
+        {playlistLength > 0 ? `${currentIndex + 1} of ${playlistLength}` : ""}
       </span>
     </div>
   );

@@ -47,15 +47,15 @@ function App() {
   } = data?.languageData[selectedLanguage] || {};
 
   return (
-    <div className={`app-container ${isLoading ? "loading" : ""}`}>
+    <div
+      className={`app-container ${isLoading ? "loading" : ""} ${isMenuCollapsed ? "menu-collapsed" : "menu-expanded"}`}
+    >
       <Stage
         isMenuCollapsed={isMenuCollapsed}
-        controls={controls}
         onDataLoaded={setData}
         onSceneReady={setSceneReady}
         onLoadingChange={setIsLoading}
         onNodesReady={setNodes}
-        filteringUtils={filteringUtils}
         onEmptyFilterChange={setIsEmptyFilter}
       />
       {hasSubtitle && selectedLanguage && (

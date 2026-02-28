@@ -14,7 +14,6 @@ import Mesha from "./Mesha";
 import Camera from "./Camera";
 
 const Stage = ({
-  isMenuCollapsed,
   onDataLoaded,
   onSceneReady,
   onLoadingChange,
@@ -107,7 +106,7 @@ const Stage = ({
 
   return (
     <Canvas
-      className={`${isMenuCollapsed ? "menu-collapsed" : "menu-expanded"}`}
+      style={{ width: "100%", height: "100%" }}
       camera={{
         position: [cameraX, cameraY, cameraZ],
         fov,

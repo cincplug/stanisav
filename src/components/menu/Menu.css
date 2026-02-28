@@ -1,10 +1,10 @@
 /* Control panel styles */
 .menu {
-  position: fixed;
-  top: 0;
-  right: 0;
-  max-width: var(--panel-width);
+  width: var(--panel-width);
   height: 100vh;
+  min-width: var(--panel-width);
+  max-width: var(--panel-width);
+  position: relative;
   display: flex;
   flex-direction: column;
   background-color: var(--color-menu-background);
@@ -12,7 +12,6 @@
   padding: var(--gap-double);
   color: var(--color-text);
   font-size: var(--font-size-normal);
-  z-index: 1000;
   overflow-y: auto;
   overflow-x: hidden;
   box-sizing: border-box;

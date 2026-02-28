@@ -186,3 +186,10 @@ legend {
     margin: 0;
   }
 }
+
+.app-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
