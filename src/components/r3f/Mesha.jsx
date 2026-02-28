@@ -19,12 +19,12 @@ import NodeLight from "./NodeLight.jsx";
 extend({ ParametricGeometry });
 
 const Mesha = ({
-  languageCode,
   linguisticProperties,
   color,
   position,
   audioSource,
   animateFromAudio,
+  tonalityType,
 }) => {
   const groupRef = useRef();
   const rotationGroupRef = useRef();
@@ -46,8 +46,7 @@ const Mesha = ({
     };
   }, [animateFromAudio, audioSource]);
 
-  if (!languageCode || !linguisticProperties || !color || !position)
-    return null;
+  if (!color || !position) return null;
 
   const scores = getFeatureScoreList(linguisticProperties, [
     "wordOrderFlexibility",
@@ -84,14 +83,14 @@ const Mesha = ({
   const leftCheekMaterial = useTonalityMaterial(
     shiftHue(color, 30),
     color,
-    languageCode,
+    tonalityType,
   );
   const rightCheekMaterial = useTonalityMaterial(
     shiftHue(color, -30),
     color,
-    languageCode,
+    tonalityType,
   );
-  const mouthMaterial = useTonalityMaterial(color, color, languageCode);
+  const mouthMaterial = useTonalityMaterial(color, color, tonalityType);
 
   useFrame(({ camera, clock }) => {
     if (groupRef.current) {

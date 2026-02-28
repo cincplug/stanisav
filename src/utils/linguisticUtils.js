@@ -101,3 +101,8 @@ export const getAllFeatures = () => {
       isFamily: key === "family",
     }));
 };
+
+export function getTonalityType(linguisticProperties) {
+  const tonality = linguisticProperties?.tonality;
+  return (linguisticConfig.tonality.values[tonality]?.score ?? 1) - 1;
+}
