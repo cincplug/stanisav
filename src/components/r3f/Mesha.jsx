@@ -25,11 +25,12 @@ const Mesha = ({
   audioSource,
   animateFromAudio,
   tonalityType,
+  looksAround,
 }) => {
   const groupRef = useRef();
-  const rotationGroupRef = useRef();
+  const lookAroundRef = useRef();
   const eyesGroupRef = useRef();
-  const meshaRotationRef = useRef(0);
+  const lookAroundRotationRef = useRef(0); // <-- renamed from meshaRotationRef
 
   const { controls } = useControls();
   const { meshaSize, eyeZ, eyeX, eyeY, noseSize } = controls;
@@ -93,25 +94,27 @@ const Mesha = ({
   const mouthMaterial = useTonalityMaterial(color, color, tonalityType);
 
   useFrame(({ camera, clock }) => {
-    if (groupRef.current) {
-      groupRef.current.lookAt(camera.position);
-    }
+    if (looksAround) {
+      if (groupRef.current) {
+        groupRef.current.lookAt(camera.position);
+      }
 
-    if (rotationGroupRef.current) {
-      const time = clock.getElapsedTime();
-      const speed = 0.5;
-      const amplitude = Math.PI / 4;
+      if (lookAroundRef.current) {
+        const time = clock.getElapsedTime();
+        const speed = 0.5;
+        const amplitude = Math.PI / 4;
 
-      const phase = time * speed;
-      const sine = Math.sin(phase);
-      const triangle = (2 / Math.PI) * Math.asin(sine);
+        const phase = time * speed;
+        const sine = Math.sin(phase);
+        const triangle = (2 / Math.PI) * Math.asin(sine);
 
-      const linearity = 0.5;
-      const wave = sine * (1 - linearity) + triangle * linearity;
+        const linearity = 0.5;
+        const wave = sine * (1 - linearity) + triangle * linearity;
 
-      const rotation = wave * amplitude;
-      rotationGroupRef.current.rotation.y = rotation;
-      meshaRotationRef.current = rotation;
+        const rotation = wave * amplitude;
+        lookAroundRef.current.rotation.y = rotation;
+        lookAroundRotationRef.current = rotation;
+      }
     }
   });
 
@@ -129,7 +132,7 @@ const Mesha = ({
 
   return (
     <a.group ref={groupRef} position={spring.position} scale={spring.scale}>
-      <group ref={rotationGroupRef}>
+      <group ref={lookAroundRef}>
         <MeshaCheek
           leftCheekMaterial={leftCheekMaterial}
           rightCheekMaterial={rightCheekMaterial}
@@ -158,7 +161,7 @@ const Mesha = ({
             scale={noseSize}
             segmentColors={noseSegmentColors}
             motionIntensity={noseMotionIntensity}
-            meshaRotationRef={meshaRotationRef}
+            lookAroundRotationRef={lookAroundRotationRef}
           />
         </group>
 

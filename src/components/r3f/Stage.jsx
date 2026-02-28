@@ -143,6 +143,7 @@ const Stage = ({
           audioSource={meshaAudioSource}
           animateFromAudio={isMyMesha}
           tonalityType={tonalityType}
+          looksAround={true}
         />
         {!showEmptyMessage &&
           sortedLanguageCodes.map((langCode, idx) => {
