@@ -48,7 +48,7 @@ const ControlsTab = () => {
         .map(({ group }) => group)
         .filter((group) => group !== "Languages tab")
         .filter((group) =>
-          selectedLanguage ? group !== "Stage light" : group !== "Node light",
+          selectedLanguage ? group !== "Stage light" : group !== "Mesha light",
         ),
     ),
   ).filter(Boolean);

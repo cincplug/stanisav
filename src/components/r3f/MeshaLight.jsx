@@ -3,10 +3,10 @@ import { Color } from "three";
 import { useFrame } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 
-const NodeLight = ({ spread }) => {
+const MeshaLight = ({ spread }) => {
   const groupRef = useRef();
   const { controls } = useControls();
-  const { nodeLightDistance, nodeLightDecay, nodeLightIntensity } = controls;
+  const { meshaLightDistance, meshaLightDecay, meshaLightIntensity } = controls;
 
   const lightColor = new Color("#ffeedd");
 
@@ -20,27 +20,27 @@ const NodeLight = ({ spread }) => {
     <group ref={groupRef}>
       <pointLight
         position={[-spread, 0, 3]}
-        intensity={nodeLightIntensity}
-        distance={nodeLightDistance}
-        decay={nodeLightDecay}
+        intensity={meshaLightIntensity}
+        distance={meshaLightDistance}
+        decay={meshaLightDecay}
         color={lightColor}
       />
       <pointLight
         position={[spread, 0, 3]}
-        intensity={nodeLightIntensity}
-        distance={nodeLightDistance}
-        decay={nodeLightDecay}
+        intensity={meshaLightIntensity}
+        distance={meshaLightDistance}
+        decay={meshaLightDecay}
         color={lightColor}
       />
       <pointLight
         position={[0, 5, 8]}
-        intensity={nodeLightIntensity}
-        distance={nodeLightDistance}
-        decay={nodeLightDecay}
+        intensity={meshaLightIntensity}
+        distance={meshaLightDistance}
+        decay={meshaLightDecay}
         color={lightColor}
       />
     </group>
   );
 };
 
-export default NodeLight;
+export default MeshaLight;

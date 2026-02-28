@@ -110,8 +110,8 @@
     "isUserEditable": false,
     "group": "Colors"
   },
-  "nodeLightIntensity": {
-    "group": "Node light",
+  "meshaLightIntensity": {
+    "group": "Mesha light",
     "type": "range",
     "label": "Intensity",
     "min": 0,
@@ -130,8 +130,8 @@
     "defaultValue": 16,
     "isUserEditable": true
   },
-  "nodeLightDecay": {
-    "group": "Node light",
+  "meshaLightDecay": {
+    "group": "Mesha light",
     "type": "range",
     "label": "Decay",
     "min": 0,
@@ -150,8 +150,8 @@
     "defaultValue": 0.2,
     "isUserEditable": true
   },
-  "nodeLightDistance": {
-    "group": "Node light",
+  "meshaLightDistance": {
+    "group": "Mesha light",
     "type": "range",
     "label": "Distance",
     "min": 1,

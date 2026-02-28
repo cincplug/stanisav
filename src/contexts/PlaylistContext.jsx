@@ -117,16 +117,16 @@ export const PlaylistProvider = ({ children }) => {
   }, [stopCurrentAudio]);
 
   const goToPrev = useCallback(() => {
-    setCurrentIndex((idx) => Math.max(0, idx - 1));
+    setCurrentIndex((index) => Math.max(0, index - 1));
     if (controls.isLoop) {
       setPlaylistSession((s) => s + 1);
     }
   }, [controls.isLoop]);
 
   const goToNext = useCallback(() => {
-    setCurrentIndex((idx) => {
+    setCurrentIndex((index) => {
       const codes = playlistRef.current;
-      return Math.min(codes.length - 1, idx + 1);
+      return Math.min(codes.length - 1, index + 1);
     });
     if (controls.isLoop) {
       setPlaylistSession((s) => s + 1);
@@ -143,12 +143,12 @@ export const PlaylistProvider = ({ children }) => {
   const handleAudioEnded = useCallback(() => {
     if (isLoopRef.current) {
       const codes = playlistRef.current;
-      setCurrentIndex((idx) => {
-        const nextIdx = idx + 1;
-        if (nextIdx >= codes.length) {
+      setCurrentIndex((index) => {
+        const nextIndex = index + 1;
+        if (nextIndex >= codes.length) {
           return 0;
         }
-        return nextIdx;
+        return nextIndex;
       });
     } else {
       setIsPlaying(false);

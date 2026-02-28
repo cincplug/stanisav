@@ -145,7 +145,7 @@ const Stage = ({
           looksAround={true}
         />
         {!showEmptyMessage &&
-          sortedLanguageCodes.map((langCode, idx) => {
+          sortedLanguageCodes.map((langCode, index) => {
             const position = formattedPositions[langCode];
             const filterStatus = languageFilterStatus[langCode];
             if (!position || !filterStatus?.isVisible) return null;
@@ -162,7 +162,7 @@ const Stage = ({
                 isSelected={selectedLanguage === langCode}
                 isFiltered={filterStatus.isFiltered}
                 color={color}
-                labelPrefix={`${idx + 1} `}
+                labelPrefix={`${index + 1} `}
               />
             );
           })}
