@@ -1,12 +1,12 @@
-import { Color } from "three";
+import { converter, formatHex } from "culori";
+
+const toOklch = converter("oklch");
 
 export function shiftHue(hex, degree) {
-  const c = new Color(hex);
-  const hsl = c.getHSL({});
-  let h = (hsl.h * 360 + degree) % 360;
-  if (h < 0) h += 360;
-  c.setHSL(h / 360, hsl.s, hsl.l);
-  return `#${c.getHexString()}`;
+  const c = toOklch(hex);
+  c.h = ((c.h ?? 0) + degree) % 360;
+  if (c.h < 0) c.h += 360;
+  return formatHex(c);
 }
 
 /**
