@@ -171,7 +171,7 @@ const Mesha = ({
           <MeshaMoustache
             moustacheCount={caseCount}
             color={color}
-            y={0.5}
+            y={meshaSize * 0.7}
             z={0.5}
           />
         )}
@@ -179,7 +179,7 @@ const Mesha = ({
           <MeshaMoustache
             moustacheCount={nounClassCount}
             color={shiftHue(color, 120)}
-            y={meshaSize}
+            y={meshaSize * 1.4}
             z={0}
           />
         )}

@@ -84,7 +84,7 @@ const MeshaMoustache = ({ moustacheCount, color, y, z }) => {
           const amplitude = harmonicsData[bandIndex];
           const baseY = tufts[i].y;
 
-          tuftGroup.position.y = baseY + amplitude * 2;
+          tuftGroup.position.y = baseY + amplitude / moustacheCount;
           const scale = 0.3 + amplitude;
           tuftGroup.scale.set(scale, scale, scale);
         }

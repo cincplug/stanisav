@@ -13,6 +13,7 @@ export const tonalityFragmentShader = /* glsl */ `
   uniform vec3 uBaseColor;
   uniform vec3 uAccentColor;
   uniform int uTonalityType;
+  uniform float uAccentOpacity;
   varying vec2 vUv;
   varying vec3 vNormal;
   varying vec3 vPosition;
@@ -67,9 +68,13 @@ export const tonalityFragmentShader = /* glsl */ `
     vec3 darkerBase = uBaseColor * CHECKER_SHADE;
     vec3 checkerColor = mix(uBaseColor, darkerBase, checkerMask);
 
+    // Hardcoded accent opacity
+    const float ACCENT_OPACITY = 0.5;
+
     // Stripes overlay checker and switch to accent where mask == 1.
     float stripeMask = getStripeMask(vUv, uTonalityType);
-    vec3 color = mix(checkerColor, uAccentColor, stripeMask);
+    vec3 accentBlend = mix(checkerColor, uAccentColor, ACCENT_OPACITY);
+    vec3 color = mix(checkerColor, accentBlend, stripeMask);
 
     color *= lighting;
     gl_FragColor = vec4(color, 1.0);
