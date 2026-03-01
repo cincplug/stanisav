@@ -11,7 +11,6 @@ extend({ ParametricGeometry });
 const MeshaTeeth = ({ toothCount, clusterSize }) => {
   const teethRefs = useRef([]);
   const lastAudioDataRef = useRef(defaultAudioData);
-
   const { controls } = useControls();
   const { audioData: rawAudioData } = useAudioAnimation();
   const { meshaSize, teethSize } = controls;
@@ -19,74 +18,54 @@ const MeshaTeeth = ({ toothCount, clusterSize }) => {
   const audioData = rawAudioData.isActive
     ? rawAudioData
     : lastAudioDataRef.current;
-
-  if (rawAudioData.isActive) {
-    lastAudioDataRef.current = rawAudioData;
-  }
+  if (rawAudioData.isActive) lastAudioDataRef.current = rawAudioData;
 
   const teeth = useMemo(() => {
     if (toothCount === 0) return [];
-
-    const radius = meshaSize;
     const arc = Math.PI * 1.5;
     const startAngle = Math.PI / 2 - arc / 2;
-    const effectiveClusterSize = clusterSize || toothCount;
 
     return Array.from({ length: toothCount }, (_, toothIndex) => {
       const angle = startAngle + (toothIndex / toothCount) * arc;
-      const positionInCluster = toothIndex % effectiveClusterSize;
-      const clusterNumber = Math.floor(toothIndex / effectiveClusterSize);
-
-      // Symmetric rotation within cluster: center tooth has 0 rotation
-      const clusterCenter = (effectiveClusterSize - 1) / 2;
-      const distanceFromClusterCenter = Math.abs(
-        positionInCluster - clusterCenter,
-      );
-      const maxDistanceFromCenter = Math.floor(effectiveClusterSize / 2);
+      const positionInCluster = toothIndex % clusterSize;
+      const clusterNumber = Math.floor(toothIndex / clusterSize);
+      const clusterCenter = (clusterSize - 1) / 2;
       const rotationIntensity =
-        maxDistanceFromCenter > 0
-          ? distanceFromClusterCenter / maxDistanceFromCenter
+        clusterSize > 1
+          ? Math.abs(positionInCluster - clusterCenter) /
+            Math.floor(clusterSize / 2)
           : 0;
-
-      // Rotation direction: left side negative, right side positive
-      const rotationDirection =
-        positionInCluster < clusterCenter
-          ? -1
-          : positionInCluster > clusterCenter
-            ? 1
-            : 0;
       const rotationAngle =
-        rotationDirection * rotationIntensity * (Math.PI / 12);
+        Math.sign(positionInCluster - clusterCenter) *
+        rotationIntensity *
+        (Math.PI / 12);
 
       return {
-        x: Math.cos(angle) * radius,
+        x: Math.cos(angle) * meshaSize,
         y: -0.5,
-        z: Math.sin(angle) * radius,
+        z: Math.sin(angle) * meshaSize + clusterSize / 3,
         positionInCluster,
         clusterNumber,
         rotationAngle,
         key: `tooth-${toothIndex}`,
       };
     });
-  }, [toothCount, clusterSize]);
+  }, [toothCount, clusterSize, meshaSize]);
 
   useFrame(() => {
     if (teethRefs.current && audioData.isActive) {
       const { fundamentalData } = audioData;
       const count = teethRefs.current.length;
-      const bandDivisor = 6;
 
       teethRefs.current.forEach((tooth, i) => {
         if (tooth) {
-          const angle = (i / count) * Math.PI * 2;
-          const xSymmetry = Math.abs(Math.cos(angle));
+          const xSymmetry = Math.abs(Math.cos((i / count) * Math.PI * 2));
           const bandIndex = Math.floor(
-            (xSymmetry * fundamentalData.length) / bandDivisor,
+            (xSymmetry * fundamentalData.length) / 6,
           );
           const amplitude = fundamentalData[bandIndex];
-
           tooth.position.y = -amplitude * 3;
-          const scale = amplitude * 2;
+          const scale = amplitude + clusterSize / 5;
           tooth.scale.set(scale, scale * -1, scale / 4);
         }
       });
@@ -103,7 +82,7 @@ const MeshaTeeth = ({ toothCount, clusterSize }) => {
           position={[tooth.x, tooth.y, tooth.z]}
           rotation={[0, 0, tooth.rotationAngle]}
         >
-          <mesh ref={(el) => (teethRefs.current[i] = el)} position={[0, 0, 0]}>
+          <mesh ref={(el) => (teethRefs.current[i] = el)}>
             <parametricGeometry args={[createToothShape, 16, 8]} />
             <meshStandardMaterial color="#ffffff" />
           </mesh>
