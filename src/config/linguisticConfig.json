@@ -29,22 +29,27 @@
     "values": {
       "isolating": {
         "label": "Isolating",
-        "description": "Words typically consist of single morphemes.",
+        "description": "Words typically consist of single morphemes and don't change their form. Grammar is expressed through word order and separate function words rather than endings or prefixes.",
         "score": 1
       },
       "agglutinative": {
         "label": "Agglutinative",
-        "description": "Words are formed by adding affixes in sequence.",
+        "description": "Words are built by stacking affixes one after another, where each affix carries exactly one meaning. The pieces stay clearly recognizable, like building blocks snapped together.",
         "score": 2
+      },
+      "introflexive": {
+        "label": "Introflexive",
+        "description": "Grammar is built into the word from the inside: a root of consonants carries the core meaning, while different vowel patterns woven through it create new words. For example, the Arabic root k-t-b relates to writing, and kataba, kitāb, and kātib all come from it.",
+        "score": 4
       },
       "fusional": {
         "label": "Fusional",
-        "description": "Multiple grammatical meanings are combined in single morphemes.",
-        "score": 5
+        "description": "Words change their form through endings and prefixes that bundle multiple grammatical meanings at once. A single ending might express gender, number, and case simultaneously, making the pieces hard to pull apart.",
+        "score": 6
       },
       "polysynthetic": {
         "label": "Polysynthetic",
-        "description": "Complex ideas can be expressed in single words.",
+        "description": "A single word can express what other languages would say in a whole sentence, by fusing the verb, subject, object, and other elements together. Common in indigenous languages of the Americas and the Arctic.",
         "score": 8
       }
     }
