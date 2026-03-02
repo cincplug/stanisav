@@ -15,7 +15,7 @@
     "maxDeformation": 1.2,
     "deformationSmoothness": 0.1,
     "amplitudeThreshold": 0.01,
-    "decayRate": 0.9,
+    "decayRate": 0.7,
     "verticalVariationMultiplier": 0.1,
     "fundamentalAmplifier": 0.8,
     "harmonicsAmplifier": 1.4,
