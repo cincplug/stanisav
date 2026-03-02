@@ -13,6 +13,7 @@ import {
   updateMp3Metadata,
   getMetadataTitle,
 } from "./shared/metadata.js";
+import { getChangedMp3Files } from "./shared/getChangedMp3Files.js";
 
 const execAsync = promisify(exec);
 
@@ -81,7 +82,7 @@ function loadAnalysisReport() {
   if (!fs.existsSync(reportPath)) {
     console.log("⚠ No analysis report found. Using default settings.");
     console.log(
-      "  Run 'npm run audio:analyze' first for optimized settings.\n"
+      "  Run 'npm run audio:analyze' first for optimized settings.\n",
     );
     return DEFAULT_SETTINGS;
   }
@@ -132,23 +133,23 @@ async function optimizeAudioFile(inputPath, settings) {
         `equalizer=f=${eq.reduceMidrange.freq}:width_type=q:width=${eq.reduceMidrange.q}:g=${eq.reduceMidrange.gain}`,
         `equalizer=f=${eq.reduceHarshness.freq}:width_type=q:width=${eq.reduceHarshness.q}:g=${eq.reduceHarshness.gain}`,
         `equalizer=f=${eq.boostPresence.freq}:width_type=q:width=${eq.boostPresence.q}:g=${eq.boostPresence.gain}`,
-        `equalizer=f=${eq.boostClarity.freq}:width_type=q:width=${eq.boostClarity.q}:g=${eq.boostClarity.gain}`
+        `equalizer=f=${eq.boostClarity.freq}:width_type=q:width=${eq.boostClarity.q}:g=${eq.boostClarity.gain}`,
       );
     }
 
     // 3. Gentle compression
     filters.push(
-      `acompressor=threshold=${settings.compressionThreshold}dB:ratio=${settings.compressionRatio}:attack=${settings.compressionAttack}:release=${settings.compressionRelease}`
+      `acompressor=threshold=${settings.compressionThreshold}dB:ratio=${settings.compressionRatio}:attack=${settings.compressionAttack}:release=${settings.compressionRelease}`,
     );
 
     // 4. Loudness normalization
     filters.push(
-      `loudnorm=I=${settings.targetLufs}:TP=${settings.truePeak}:LRA=${settings.lra}`
+      `loudnorm=I=${settings.targetLufs}:TP=${settings.truePeak}:LRA=${settings.lra}`,
     );
 
     // 5. Final limiter
     filters.push(
-      `alimiter=limit=${settings.limiterThreshold}dB:attack=${settings.limiterAttack}:release=${settings.limiterRelease}`
+      `alimiter=limit=${settings.limiterThreshold}dB:attack=${settings.limiterAttack}:release=${settings.limiterRelease}`,
     );
 
     const filterChain = filters.join(",");
@@ -181,6 +182,8 @@ async function optimizeAudioFile(inputPath, settings) {
 async function main() {
   const args = process.argv.slice(2);
   const skipAnalysis = args.includes("--skip-analysis");
+  const withAnalysis = args.includes("--with-analysis");
+  const gitOnly = args.includes("--git-only");
 
   console.log("Audio Optimization Tool for -luka.mp3 files");
   console.log(`Audio directory: ${AUDIO_DIR}`);
@@ -196,7 +199,7 @@ async function main() {
     languagesData = loadLanguagesData();
     if (!languagesData) {
       console.log(
-        "⚠ Could not load language data. Metadata updates disabled.\n"
+        "⚠ Could not load language data. Metadata updates disabled.\n",
       );
       settings.updateMetadata = false;
     }
@@ -214,21 +217,28 @@ async function main() {
     console.log(`    - Boost 8 kHz (clarity): +1 dB`);
   }
   console.log(
-    `  Compression: ${settings.compressionRatio}:1 ratio @ ${settings.compressionThreshold} dB`
+    `  Compression: ${settings.compressionRatio}:1 ratio @ ${settings.compressionThreshold} dB`,
   );
   console.log(`  Limiter: ${settings.limiterThreshold} dB`);
   console.log(
     `  Encoding: MP3 ${
       settings.useVBR ? `VBR quality ${settings.vbrQuality}` : settings.bitrate
-    }`
+    }`,
   );
   console.log(`  Update Metadata: ${settings.updateMetadata ? "Yes" : "No"}`);
   console.log();
 
-  const mp3Files = getLukaMp3Files(AUDIO_DIR);
+  // Get files based on mode
+  const mp3Files = gitOnly
+    ? await getChangedMp3Files(AUDIO_DIR)
+    : getLukaMp3Files(AUDIO_DIR);
 
   if (mp3Files.length === 0) {
-    console.log(`No -luka.mp3 files found in ${AUDIO_DIR}`);
+    console.log(
+      gitOnly
+        ? `No changed -luka.mp3 files found in git working directory`
+        : `No -luka.mp3 files found in ${AUDIO_DIR}`,
+    );
     return;
   }
 
@@ -248,7 +258,7 @@ async function main() {
     const progress = `[${i + 1}/${mp3Files.length}]`;
 
     process.stdout.write(
-      `${progress} Processing: ${file.filename}...`.padEnd(100)
+      `${progress} Processing: ${file.filename}...`.padEnd(100),
     );
 
     // Step 1: Optimize audio
@@ -258,9 +268,9 @@ async function main() {
       process.stdout.write(
         "\r" +
           `${progress} ✗ ${file.filename} (audio optimization failed)`.padEnd(
-            100
+            100,
           ) +
-          "\n"
+          "\n",
       );
       console.log(`  Error: ${result.error}\n`);
       results.failed++;
@@ -286,18 +296,18 @@ async function main() {
           process.stdout.write(
             "\r" +
               `${progress} ✓ ${file.filename} (optimized + metadata)`.padEnd(
-                100
+                100,
               ) +
-              "\n"
+              "\n",
           );
         } else {
           results.metadataFailed++;
           process.stdout.write(
             "\r" +
               `${progress} ⚠ ${file.filename} (optimized, metadata failed)`.padEnd(
-                100
+                100,
               ) +
-              "\n"
+              "\n",
           );
           console.log(`  Metadata error: ${metadataResult.error}\n`);
         }
@@ -305,14 +315,14 @@ async function main() {
         process.stdout.write(
           "\r" +
             `${progress} ✓ ${file.filename} (optimized, no metadata)`.padEnd(
-              100
+              100,
             ) +
-            "\n"
+            "\n",
         );
       }
     } else {
       process.stdout.write(
-        "\r" + `${progress} ✓ ${file.filename}`.padEnd(100) + "\n"
+        "\r" + `${progress} ✓ ${file.filename}`.padEnd(100) + "\n",
       );
     }
   }
@@ -338,7 +348,7 @@ async function main() {
   }
 
   console.log(
-    `\nTip: To disable EQ or metadata updates, edit DEFAULT_SETTINGS in the script.`
+    `\nTip: To disable EQ or metadata updates, edit DEFAULT_SETTINGS in the script.`,
   );
   console.log();
 }
