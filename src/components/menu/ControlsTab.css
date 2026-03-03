@@ -1,8 +1,7 @@
 .control-section {
   h3 {
-    margin: var(--gap) 0;
+    margin: var(--gap-double) 0 var(--gap-half);
     color: var(--color-text);
-    padding-bottom: 5px;
   }
 }
 

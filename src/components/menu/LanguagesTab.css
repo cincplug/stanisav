@@ -1,6 +1,7 @@
 /* Language group container */
 .language-group-container {
   margin-bottom: 10px;
+  margin-left: 0;
 
   button {
     margin: 0 5px 5px 0;
@@ -10,8 +11,7 @@
   }
 
   .group-header {
-    font-weight: normal;
-    font-size: var(--font-size-normal);
+    /* Remove font-size and font-weight here, use .group-title/.subgroup-title instead */
     margin: 0;
   }
 }
@@ -47,4 +47,13 @@
   .checkbox-control {
     grid-column: span 1;
   }
+}
+
+/* Languages list */
+.languages-list > div {
+  margin-left: 0;
+}
+
+.languages-list > div > div {
+  margin-left: var(--gap-double);
 }

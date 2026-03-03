@@ -12,6 +12,88 @@ import { sortLanguages } from "../../utils/sortingUtils";
 import { calculateLanguageColors } from "../../utils/colorUtils";
 import ControlItem from "./ControlItem";
 
+// Helper: recursively build lineage tree
+function buildLineageTree(languageCodes, languageData, lineages) {
+  // Group languages by their lineage path
+  const tree = {};
+
+  languageCodes.forEach((langCode) => {
+    const lineageKey = languageData[langCode].lineageKey;
+    const lineagePath = lineages[lineageKey]
+      ? [...lineages[lineageKey], lineageKey]
+      : [lineageKey];
+
+    let node = tree;
+    lineagePath.forEach((level, idx) => {
+      if (!node[level]) {
+        node[level] = { __children: {}, __languages: [] };
+      }
+      if (idx === lineagePath.length - 1) {
+        node[level].__languages.push(langCode);
+      }
+      node = node[level].__children;
+    });
+  });
+
+  return tree;
+}
+
+// Helper: recursively render lineage tree
+function renderLineageTree(
+  tree,
+  languageData,
+  labelContent,
+  selectedLanguage,
+  buttonRefs,
+  selectLanguage,
+  startFromLanguage,
+  languageColors,
+  depth = 0,
+) {
+  return Object.entries(tree).map(([lineage, node]) => (
+    <div key={lineage} className={`indent-${depth}`}>
+      <h3 className={depth === 0 ? "group-title" : "subgroup-title"}>
+        {lineage}
+      </h3>
+      <div className="languages-in-group">
+        {node.__languages.map((langCode) => {
+          const label =
+            labelContent === "isoCode"
+              ? langCode
+              : languageData[langCode]?.[labelContent];
+          return (
+            <button
+              key={langCode}
+              ref={(el) => (buttonRefs.current[langCode] = el)}
+              style={{ background: languageColors[langCode] }}
+              className={`language-item-button ${
+                selectedLanguage === langCode ? "selected" : ""
+              } ${!languageData[langCode]?.sr ? "todo-item" : ""}`}
+              onClick={() => {
+                selectLanguage(langCode);
+                startFromLanguage(langCode);
+              }}
+            >
+              {label}
+            </button>
+          );
+        })}
+      </div>
+      {renderLineageTree(
+        node.__children,
+        languageData,
+        labelContent,
+        selectedLanguage,
+        buttonRefs,
+        selectLanguage,
+        startFromLanguage,
+        languageColors,
+        depth + 1,
+      )}
+    </div>
+  ));
+}
+
 function LanguagesTab({ languageData, isActive }) {
   const { selectedLanguage, selectLanguage } = useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
@@ -72,6 +154,14 @@ function LanguagesTab({ languageData, isActive }) {
       isReverse,
     ],
   );
+
+  // Only apply nested lineage grouping for sortBy === "family"
+  const lineageTree = useMemo(() => {
+    if (sortBy === "family") {
+      return buildLineageTree(sortedLanguageCodes, languageData, lineages);
+    }
+    return null;
+  }, [sortedLanguageCodes, sortBy, languageData]);
 
   // Group for display
   const groupedByCategory = useMemo(() => {
@@ -185,39 +275,49 @@ function LanguagesTab({ languageData, isActive }) {
       </div>
 
       <div className="languages-list">
-        {groupedByCategory.map((group) => (
-          <div key={group.title} className="language-group-container">
-            {/* Only render h3 if not sorting by speakers */}
-            {sortBy !== "speakers" && (
-              <h3 className="group-header">{group.title}</h3>
-            )}
-            <div className="languages-in-group">
-              {group.languages.map((langCode) => {
-                const label =
-                  labelContent === "isoCode"
-                    ? langCode
-                    : languageData[langCode]?.[labelContent];
+        {sortBy === "family"
+          ? renderLineageTree(
+              lineageTree,
+              languageData,
+              labelContent,
+              selectedLanguage,
+              buttonRefs,
+              selectLanguage,
+              startFromLanguage,
+              languageColors,
+            )
+          : groupedByCategory.map((group) => (
+              <div key={group.title} className="language-group-container">
+                {sortBy !== "speakers" && (
+                  <h3 className="group-header">{group.title}</h3>
+                )}
+                <div className="languages-in-group">
+                  {group.languages.map((langCode) => {
+                    const label =
+                      labelContent === "isoCode"
+                        ? langCode
+                        : languageData[langCode]?.[labelContent];
 
-                return (
-                  <button
-                    key={langCode}
-                    ref={(el) => (buttonRefs.current[langCode] = el)}
-                    style={{ background: languageColors[langCode] }}
-                    className={`language-item-button ${
-                      selectedLanguage === langCode ? "selected" : ""
-                    } ${!languageData[langCode]?.sr ? "todo-item" : ""}`}
-                    onClick={() => {
-                      selectLanguage(langCode);
-                      startFromLanguage(langCode);
-                    }}
-                  >
-                    {label}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        ))}
+                    return (
+                      <button
+                        key={langCode}
+                        ref={(el) => (buttonRefs.current[langCode] = el)}
+                        style={{ background: languageColors[langCode] }}
+                        className={`language-item-button ${
+                          selectedLanguage === langCode ? "selected" : ""
+                        } ${!languageData[langCode]?.sr ? "todo-item" : ""}`}
+                        onClick={() => {
+                          selectLanguage(langCode);
+                          startFromLanguage(langCode);
+                        }}
+                      >
+                        {label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
       </div>
     </div>
   );
