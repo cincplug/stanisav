@@ -79,7 +79,7 @@ export const calculateLanguageColors = (languageData, languageLineages) => {
     const spread = ((idx * 137.508) % 24) - 12;
 
     const depth = path.length - 1;
-    const l = 0.62 - depth * 0.02;
+    const l = 0.82 - depth * 0.02;
     const c = 0.19 - depth * 0.01;
 
     result[code] = oklchToHex({
