@@ -1,28 +1,12 @@
-import {
-  createContext,
-  useContext,
-  useState,
-  useCallback,
-  useEffect,
-} from "react";
+import { createContext, useContext, useState, useCallback } from "react";
 import { filterLanguagesByFeatures } from "../utils/filteringUtils";
-import groupInfo from "../config/groupInfo.json";
 
 const LanguageSelectionContext = createContext();
 
 export const LanguageSelectionProvider = ({ children }) => {
-  const getInitialGroupColors = () => {
-    const colors = {};
-    Object.entries(groupInfo).forEach(([key, info]) => {
-      colors[key] = info.color;
-    });
-    return colors;
-  };
-
   const [selectedLanguage, setSelectedLanguage] = useState(null);
   const [filteringUtils, setFilteringUtils] = useState({});
   const [filteredLanguages, setFilteredLanguages] = useState(new Set());
-  const [groupColors, setGroupColors] = useState(getInitialGroupColors);
   const [cameraFocusRequest, setCameraFocusRequest] = useState(null);
 
   const selectLanguage = useCallback((languageCode) => {
@@ -57,20 +41,6 @@ export const LanguageSelectionProvider = ({ children }) => {
     setCameraFocusRequest({ type: "viewAll" });
   }, []);
 
-  const setGroupColor = useCallback((groupKey, color) => {
-    setGroupColors((prev) => ({ ...prev, [groupKey]: color }));
-  }, []);
-
-  useEffect(() => {
-    const updatedScheme = {};
-    Object.entries(groupInfo).forEach(([key, info]) => {
-      updatedScheme[key] = {
-        ...info,
-        color: groupColors[key] || info.color,
-      };
-    });
-  }, [groupColors]);
-
   const contextValue = {
     selectedLanguage,
     filteringUtils,
@@ -80,8 +50,6 @@ export const LanguageSelectionProvider = ({ children }) => {
     resetCameraView,
     clearSelection,
     updateFilteringUtils,
-    groupColors,
-    setGroupColor,
     cameraFocusRequest,
   };
 
@@ -96,7 +64,7 @@ export const useLanguageSelection = () => {
   const context = useContext(LanguageSelectionContext);
   if (!context) {
     throw new Error(
-      "useLanguageSelection must be used within a LanguageSelectionProvider"
+      "useLanguageSelection must be used within a LanguageSelectionProvider",
     );
   }
   return context;

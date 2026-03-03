@@ -17,8 +17,8 @@ export const getLinguisticFeatures = () => {
 
 // Get feature label from config
 export const getFeatureLabel = (feature, value) => {
-  // Special handling for family and group - just return the name as-is
-  if (feature === "family" || feature === "group") {
+  // Special handling for family - just return the name as-is
+  if (feature === "family") {
     return value;
   }
 
@@ -97,7 +97,6 @@ export const getAllFeatures = () => {
       key,
       label: config.name,
       isNumeric: config.template !== undefined,
-      isGroup: key === "group",
       isFamily: key === "family",
     }));
 };

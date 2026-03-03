@@ -29,7 +29,7 @@ function SearchResults({ searchTerm, searchResults, languageData }) {
         </legend>
         <div className="language-grid">
           {searchResults.languages.map((lang) => {
-            const groupName = languageData?.[lang.code]?.group || "Unknown";
+            const lineageKey = languageData?.[lang.code]?.lineageKey;
             return (
               <button
                 key={lang.code}
@@ -40,7 +40,7 @@ function SearchResults({ searchTerm, searchResults, languageData }) {
                   selectLanguage(lang.code);
                   startFromLanguage(lang.code);
                 }}
-                title={`${lang.name} (${groupName})`}
+                title={lineageKey ? `${lang.name} (${lineageKey})` : lang.name}
               >
                 <div className="language-name">
                   <div>{lang.name}</div>
@@ -81,7 +81,7 @@ function SearchTab({ searchTerm, searchResults, languageData }) {
 
     if (searchResults.languages && searchResults.languages.length > 0) {
       const exactMatch = searchResults.languages.find(
-        (lang) => lang.name.toLowerCase() === searchTerm.toLowerCase()
+        (lang) => lang.name.toLowerCase() === searchTerm.toLowerCase(),
       );
 
       if (exactMatch && lastAutoSelectedRef.current !== exactMatch.code) {

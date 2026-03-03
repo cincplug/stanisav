@@ -46,7 +46,7 @@ export const PlaylistProvider = ({ children }) => {
     return sortLanguages({
       allLanguages,
       languageData: data.languageData,
-      languageGroups: data.languageGroups,
+      languageLineages: data.languageLineages,
       speakerData: data.speakerData,
       typologicalFeatures: data.typologicalFeatures,
       sortBy: controls.sortBy,

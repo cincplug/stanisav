@@ -35,6 +35,7 @@
 - Especially do not add comments to show what you just added or removed in code, that is not purpose of comments
 - Do not remove existing comments in the code, they are likely added by humans
 - When you add new imports, add them to proper import sections and respect their order, alphabetically but also with respect to what comes from external libraries and what is local
+- Do not add useless fallbacks to code. The app relies on its own datasets
 
 ### Naming conventions
 

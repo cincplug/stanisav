@@ -6,15 +6,14 @@ import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
 import controlsConfig from "../../config/controlsConfig.json";
 import linguisticConfig from "../../config/linguisticConfig.json";
-import groupInfo from "../../config/groupInfo.json";
 import numericFeatures from "../../config/numericFeatures.json";
+import lineages from "../../config/lineages.json";
 import { sortLanguages } from "../../utils/sortingUtils";
 import { calculateLanguageColors } from "../../utils/colorUtils";
 import ControlItem from "./ControlItem";
 
 function LanguagesTab({ languageData, isActive }) {
-  const { groupColors, selectedLanguage, selectLanguage } =
-    useLanguageSelection();
+  const { selectedLanguage, selectLanguage } = useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
   const { controls, updateControl } = useControls();
   const buttonRefs = useRef({});
@@ -27,12 +26,12 @@ function LanguagesTab({ languageData, isActive }) {
     () => Object.keys(languageData),
     [languageData],
   );
-  const languageGroups = useMemo(() => {
-    const groups = {};
+  const languageLineages = useMemo(() => {
+    const lineages = {};
     languageCodes.forEach((code) => {
-      groups[code] = languageData[code].group;
+      lineages[code] = languageData[code].lineageKey;
     });
-    return groups;
+    return lineages;
   }, [languageCodes, languageData]);
   const speakerData = useMemo(() => {
     const speakers = {};
@@ -46,7 +45,6 @@ function LanguagesTab({ languageData, isActive }) {
     languageCodes.forEach((code) => {
       features[code] = languageData[code];
     });
-    features._groupInfo = groupInfo;
     return features;
   }, [languageCodes, languageData]);
 
@@ -56,7 +54,7 @@ function LanguagesTab({ languageData, isActive }) {
       sortLanguages({
         allLanguages: [...languageCodes],
         languageData,
-        languageGroups,
+        languageLineages,
         speakerData,
         typologicalFeatures,
         sortBy,
@@ -66,7 +64,7 @@ function LanguagesTab({ languageData, isActive }) {
     [
       languageCodes,
       languageData,
-      languageGroups,
+      languageLineages,
       speakerData,
       typologicalFeatures,
       sortBy,
@@ -115,17 +113,16 @@ function LanguagesTab({ languageData, isActive }) {
     const result = {};
     sortedLanguageCodes.forEach((langCode) => {
       let categoryKey, categoryLabel;
-      if (sortBy === "group") {
-        categoryKey = languageData[langCode].group;
-        categoryLabel = categoryKey;
-      } else if (sortBy === "family") {
-        const group = languageData[langCode].group;
-        categoryKey = groupInfo[group]?.family || "Other";
+
+      if (sortBy === "family") {
+        const lineageKey = languageLineages[langCode];
+        const ancestors = lineages[lineageKey] || [];
+        categoryKey = ancestors[0] || lineageKey;
         categoryLabel = categoryKey;
       } else if (linguisticConfig[sortBy]?.values) {
         categoryKey = languageData[langCode][sortBy];
         const config = linguisticConfig[sortBy].values?.[categoryKey];
-        categoryLabel = config?.label || categoryKey || "Unknown";
+        categoryLabel = config?.label;
       } else if (numericFeatures.includes(sortBy)) {
         categoryKey = languageData[langCode][sortBy];
         categoryLabel = `${categoryKey}`;
@@ -133,6 +130,7 @@ function LanguagesTab({ languageData, isActive }) {
         categoryKey = "all";
         categoryLabel = "All languages";
       }
+
       if (!result[categoryKey]) {
         result[categoryKey] = {
           title: categoryLabel,
@@ -142,7 +140,13 @@ function LanguagesTab({ languageData, isActive }) {
       result[categoryKey].languages.push(langCode);
     });
     return Object.values(result);
-  }, [sortedLanguageCodes, sortBy, languageData]);
+  }, [
+    sortedLanguageCodes,
+    sortBy,
+    languageData,
+    labelContent,
+    languageLineages,
+  ]);
 
   // Get Sorting controls
   const sortingControls = Object.entries(controlsConfig)
@@ -163,9 +167,8 @@ function LanguagesTab({ languageData, isActive }) {
 
   // Calculate colors for all languages with hue shifts
   const languageColors = useMemo(
-    () =>
-      calculateLanguageColors(languageData, data?.languageGroups, groupColors),
-    [languageData, data?.languageGroups, groupColors],
+    () => calculateLanguageColors(languageData, languageLineages),
+    [languageData, languageLineages],
   );
 
   return (

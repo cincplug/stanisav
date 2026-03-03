@@ -1,9 +1,43 @@
 import { getFeatureScore, isNumericFeature } from "./linguisticUtils";
+import lineages from "../config/lineages.json";
+
+const collator = new Intl.Collator("und", {
+  sensitivity: "base",
+  numeric: true,
+});
+
+const invariant = (condition, message) => {
+  if (!condition) throw new Error(message);
+};
+
+const getLineageKey = (code, languageLineages) => {
+  const lineageKey = languageLineages?.[code];
+  if (!lineageKey) throw new Error(`Missing lineageKey for '${code}'`);
+  return lineageKey;
+};
+
+const getLineagePath = (code, languageLineages) => {
+  const lineageKey = getLineageKey(code, languageLineages);
+  const ancestors = lineages?.[lineageKey];
+  if (!Array.isArray(ancestors)) {
+    throw new Error(`Missing lineage in lineages.json for '${lineageKey}'`);
+  }
+  return [...ancestors, lineageKey];
+};
+
+const comparePath = (aPath, bPath) => {
+  const len = Math.max(aPath.length, bPath.length);
+  for (let i = 0; i < len; i += 1) {
+    const cmp = collator.compare(aPath[i] || "", bPath[i] || "");
+    if (cmp !== 0) return cmp;
+  }
+  return 0;
+};
 
 export function sortLanguages({
   allLanguages,
   languageData,
-  languageGroups,
+  languageLineages,
   speakerData,
   typologicalFeatures,
   sortBy,
@@ -14,66 +48,31 @@ export function sortLanguages({
     switch (sortBy) {
       case "alphabetically":
         return allLanguages.sort((a, b) => {
-          let labelA, labelB;
-          if (labelContent === "isoCode") {
-            labelA = a;
-            labelB = b;
-          } else {
-            labelA = languageData[a]?.[labelContent] || "";
-            labelB = languageData[b]?.[labelContent] || "";
-          }
-          // Use localeCompare with 'und' locale for full Unicode order
-          return labelA.localeCompare(labelB, "und", {
-            sensitivity: "base",
-            numeric: true,
-          });
+          const labelA =
+            labelContent === "isoCode" ? a : languageData[a]?.[labelContent];
+          const labelB =
+            labelContent === "isoCode" ? b : languageData[b]?.[labelContent];
+
+          invariant(labelA != null, `Missing '${labelContent}' for '${a}'`);
+          invariant(labelB != null, `Missing '${labelContent}' for '${b}'`);
+
+          return collator.compare(String(labelA), String(labelB));
         });
 
       case "speakers":
-        return allLanguages.sort((a, b) => {
-          const speakersA = speakerData[a];
-          const speakersB = speakerData[b];
-          return speakersB - speakersA;
-        });
+        return allLanguages.sort((a, b) => speakerData[b] - speakerData[a]);
 
       case "family":
         return allLanguages.sort((a, b) => {
-          const groupA = languageGroups[a];
-          const groupB = languageGroups[b];
-          const familyA =
-            typologicalFeatures?._groupInfo?.[groupA]?.family || groupA;
-          const familyB =
-            typologicalFeatures?._groupInfo?.[groupB]?.family || groupB;
+          const pathA = getLineagePath(a, languageLineages);
+          const pathB = getLineagePath(b, languageLineages);
 
-          if (familyA !== familyB) {
-            return familyA.localeCompare(familyB);
-          }
+          const byPath = comparePath(pathA, pathB);
+          if (byPath !== 0) return byPath;
 
-          // If same family, sort by group
-          if (groupA !== groupB) {
-            return groupA.localeCompare(groupB);
-          }
-
-          const nameA = languageData[a]?.name;
-          const nameB = languageData[b]?.name;
-          return nameA.localeCompare(nameB);
+          return collator.compare(languageData[a].name, languageData[b].name);
         });
 
-      case "group":
-        return allLanguages.sort((a, b) => {
-          const groupA = languageGroups[a];
-          const groupB = languageGroups[b];
-
-          if (groupA !== groupB) {
-            return groupA.localeCompare(groupB);
-          }
-
-          const nameA = languageData[a]?.name;
-          const nameB = languageData[b]?.name;
-          return nameA.localeCompare(nameB);
-        });
-
-      // Typological feature sorting
       case "tonality":
       case "morphology":
       case "wordOrderFlexibility":
@@ -83,90 +82,39 @@ export function sortLanguages({
       case "nounClassCount":
       case "maxClusterSize":
         return allLanguages.sort((a, b) => {
-          const featureA = typologicalFeatures?.[a]?.[sortBy];
-          const featureB = typologicalFeatures?.[b]?.[sortBy];
+          const featureA = typologicalFeatures[a][sortBy];
+          const featureB = typologicalFeatures[b][sortBy];
 
-          // Handle missing values - put them at the end
-          if (!featureA && !featureB) return 0;
-          if (!featureA) return 1;
-          if (!featureB) return -1;
-
-          // Sort by score if available
           const scoreA = getFeatureScore(sortBy, featureA);
           const scoreB = getFeatureScore(sortBy, featureB);
-          if (scoreA !== null && scoreB !== null) {
-            if (scoreA !== scoreB) return scoreA - scoreB;
+
+          if (scoreA !== null && scoreB !== null && scoreA !== scoreB) {
+            return scoreA - scoreB;
           }
 
-          // Fallback to alphabetical
-          const comparison = String(featureA).localeCompare(
-            String(featureB),
-            undefined,
-            {
-              sensitivity: "base",
-            },
-          );
+          const cmp = collator.compare(String(featureA), String(featureB));
+          if (cmp !== 0) return cmp;
 
-          // If same feature value, sort by name
-          if (comparison === 0) {
-            const nameA = languageData[a]?.name;
-            const nameB = languageData[b]?.name;
-            return String(nameA).localeCompare(String(nameB));
-          }
-
-          return comparison;
+          return collator.compare(languageData[a].name, languageData[b].name);
         });
 
       case "phonemeCount":
       case "caseCount":
         return allLanguages.sort((a, b) => {
-          const featureA = typologicalFeatures?.[a]?.[sortBy];
-          const featureB = typologicalFeatures?.[b]?.[sortBy];
-
-          // Handle missing values - put them at the end
-          if (featureA === undefined && featureB === undefined) return 0;
-          if (featureA === undefined) return 1;
-          if (featureB === undefined) return -1;
-
-          // Sort numeric features numerically (descending by default)
-          const comparison = featureB - featureA;
-
-          // If same feature value, sort by name
-          if (comparison === 0) {
-            const nameA = languageData[a]?.name;
-            const nameB = languageData[b]?.name;
-            return nameA.localeCompare(nameB);
-          }
-
-          return comparison;
+          const cmp =
+            typologicalFeatures[b][sortBy] - typologicalFeatures[a][sortBy];
+          if (cmp !== 0) return cmp;
+          return collator.compare(languageData[a].name, languageData[b].name);
         });
 
       default:
-        return allLanguages.sort((a, b) => {
-          const groupA = languageGroups[a];
-          const groupB = languageGroups[b];
-
-          if (groupA !== groupB) {
-            return groupA.localeCompare(groupB);
-          }
-
-          const nameA = languageData[a]?.name;
-          const nameB = languageData[b]?.name;
-          return nameA.localeCompare(nameB);
-        });
+        throw new Error(`Unsupported sortBy value '${sortBy}'`);
     }
   })();
 
   return isReverse ? sorted.reverse() : sorted;
 }
 
-/**
- * Sorts feature values for a given feature key.
- * @param {string} feature - Feature key.
- * @param {Array} values - Array of values to sort.
- * @param {boolean} isReverse - Whether to reverse the order.
- * @returns {Array} Sorted values.
- */
 export function sortFeatureValues(feature, values, isReverse = false) {
   const sorted = [...values];
   if (isNumericFeature(feature)) {
@@ -175,12 +123,8 @@ export function sortFeatureValues(feature, values, isReverse = false) {
     sorted.sort((a, b) => {
       const scoreA = getFeatureScore(feature, a);
       const scoreB = getFeatureScore(feature, b);
-      if (scoreA !== null && scoreB !== null) {
-        return scoreA - scoreB;
-      }
-      return String(a).localeCompare(String(b), undefined, {
-        sensitivity: "base",
-      });
+      if (scoreA !== null && scoreB !== null) return scoreA - scoreB;
+      return collator.compare(String(a), String(b));
     });
   }
   return isReverse ? sorted.reverse() : sorted;

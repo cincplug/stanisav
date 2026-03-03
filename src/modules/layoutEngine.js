@@ -21,7 +21,7 @@ class LayoutEngine {
   }
 
   multilevelLayout(data, controls = {}) {
-    const { languageData, languageGroups, speakerData, typologicalFeatures } =
+    const { languageData, languageLineages, speakerData, typologicalFeatures } =
       data;
     const allLanguages = Object.keys(languageData);
 
@@ -30,7 +30,7 @@ class LayoutEngine {
     const sortedLanguages = sortLanguages({
       allLanguages,
       languageData,
-      languageGroups,
+      languageLineages,
       speakerData,
       typologicalFeatures,
       sortBy,

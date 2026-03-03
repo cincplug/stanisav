@@ -5,7 +5,6 @@
     "options": [
       { "value": "alphabetically", "label": "Alphabetical order" },
       { "value": "family", "label": "Language family" },
-      { "value": "group", "label": "Language group" },
       { "value": "speakers", "label": "Speakers' number" },
       { "value": "tonality", "label": "Tonality" },
       { "value": "morphology", "label": "Morphology" },
@@ -15,8 +14,8 @@
       { "value": "verbAspect", "label": "Verb aspect" },
       { "value": "phonemeCount", "label": "Phoneme count" },
       { "value": "caseCount", "label": "Case count" },
-      { "value": "nounClassCount", "label": "Noun class / gender count" },
-      { "value": "maxClusterSize", "label": "Max consonants in a cluster" }
+      { "value": "nounClassCount", "label": "Noun classes" },
+      { "value": "maxClusterSize", "label": "Consonant clusters" }
     ],
     "defaultValue": "alphabetically",
     "isUserEditable": true,

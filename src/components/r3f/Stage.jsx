@@ -31,8 +31,7 @@ const Stage = ({
     backgroundColor,
     isMyMesha,
   } = controls;
-  const { filteringUtils, selectedLanguage, groupColors } =
-    useLanguageSelection();
+  const { filteringUtils, selectedLanguage } = useLanguageSelection();
 
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
   const { formattedPositions, sortedLanguageCodes } = useLayoutManager(
@@ -47,25 +46,20 @@ const Stage = ({
         sortedLanguageCodes,
         data?.typologicalFeatures,
         filteringUtils,
-        data?.languageGroups,
+        data?.languageLineages,
       ),
     [
       sortedLanguageCodes,
       data?.typologicalFeatures,
       filteringUtils,
-      data?.languageGroups,
+      data?.languageLineages,
     ],
   );
 
-  const languageColors = useMemo(
-    () =>
-      calculateLanguageColors(
-        data?.languageData,
-        data?.languageGroups,
-        groupColors,
-      ),
-    [data?.languageData, data?.languageGroups, groupColors],
-  );
+  const languageColors = useMemo(() => {
+    if (!data?.languageData || !data?.languageLineages) return {};
+    return calculateLanguageColors(data.languageData, data.languageLineages);
+  }, [data?.languageData, data?.languageLineages]);
 
   const meshaLanguageCode = selectedLanguage || sortedLanguageCodes[0];
   const meshaLinguisticProperties =

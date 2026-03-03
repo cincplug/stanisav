@@ -2,7 +2,6 @@
   "ach": {
     "name": "Acholi",
     "nativeName": "Lwo",
-    "group": "Nilotic",
     "speakers": 9,
     "sampleUrl": "https://youtu.be/PXRarThllE8?si=N3VFCNgWoW2qklxo&t=529",
     "sr": "Lebaćudi Lemeingolo kepeen wa? Va tiarupu-Gelegma du wa kwana kwana, legmadon wan wuara wuara, njon lingmadon kwa mara mara",
@@ -16,12 +15,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Nilotic"
   },
   "acq": {
     "name": "Iraqi Arabic",
     "nativeName": "عراقي، عامية عراقية",
-    "group": "Semitic",
     "speakers": 40,
     "sampleUrl": "https://youtu.be/3h3fQq7ikh0?si=6r8vsrmV0VFoGvhx&t=258",
     "sr": "Kilimed babuđ, haźakom te anni, hajda alj mar aa, vaatlj kaalbelj aalji. Auwin mürtafa",
@@ -34,12 +33,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Semitic"
   },
   "adx": {
     "name": "Amdo Tibetan",
     "nativeName": "ཨ་མདོའི་སྐད",
-    "group": "Tibetan",
     "speakers": 1,
     "sampleUrl": "https://www.youtube.com/watch?v=M3khTNfSK68&t=123s",
     "sr": "Tanjeldelor aldepo naj nemajćućimare. Tanjedolon zućizgraj sui njukusumi aam narumaram",
@@ -52,12 +51,12 @@
     "verbAspect": "minimal",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Tibetan"
   },
   "afb": {
     "name": "Gulf Arabic",
     "nativeName": "خليجي، عامية خليجية",
-    "group": "Semitic",
     "speakers": 35,
     "sampleUrl": "https://youtu.be/q80JBlBQywA?si=ia-GIi-2wuvanvCI&t=200",
     "sr": "Llazem, maa nekhtellef, aśaan allfellus",
@@ -70,12 +69,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Semitic"
   },
   "afr": {
     "name": "Afrikaans",
     "nativeName": "Afrikaans",
-    "group": "West Germanic",
     "speakers": 7,
     "sampleUrl": "https://youtu.be/tq3_AHgrbzI?si=Yn2cdl26RBfEO1jM&t=42",
     "sr": "Malamela idi midia angalæh, or di jongste vrvrkelinge bej di øngstjalen na di fiir dah lange protest optrijedø vaar tijdens mnstens aht hbouwe op di kampøs an di brant hestiekøs",
@@ -88,13 +87,13 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "West Germanic"
   },
   "aka": {
     "name": "Akan",
     "altName": "Twi",
     "nativeName": "Akan",
-    "group": "Kwa",
     "speakers": 9,
     "sampleUrl": "https://youtu.be/rrlI_PvtY0s?si=EsAUlFHvq66zgEmR&t=325",
     "sr": "Eeo Penji sedia okana Kae Kaseo vonuja kasi seetin Fi edia Sa Innu. Vidü Koao Eee foto kasia Misüa Bekane se teti Vijf",
@@ -107,12 +106,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Kwa"
   },
   "alb": {
     "name": "Albanian",
     "nativeName": "Shqip",
-    "group": "Albanian",
     "speakers": 6,
     "sampleUrl": "https://youtu.be/g6GsDPXerB8?si=HvTJN90F4qL5Xo15&t=510",
     "sr": "Sistemi presidencialj na šeboade turćija mereferendumi ne vete. Šomica e demokrat, vad ve ljiberal ve fronse modelji maižviluare demokracisa njivendi nabot, jan vet štede de baš kuarat amerikas",
@@ -125,12 +124,12 @@
     "verbAspect": "simple",
     "evidentiality": "moderate",
     "nounClassCount": 3,
-    "maxClusterSize": 4
+    "maxClusterSize": 4,
+    "lineageKey": "Albanian"
   },
   "amh": {
     "name": "Amharic",
     "nativeName": "አማርኛ",
-    "group": "Semitic",
     "speakers": 32,
     "sampleUrl": "https://www.youtube.com/watch?v=7hYfXDvrxXM&t=136s",
     "sr": "Bunan wede zemanoui na, mrtena mrtameneta lemasa dygy miradyzoroujaući mdemade!En, savarat andasraulet savarat andarwana",
@@ -143,12 +142,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Semitic"
   },
   "apc": {
     "name": "Levantine Arabic",
     "nativeName": "شامي، عامية شامية",
-    "group": "Semitic",
     "speakers": 45,
     "sampleUrl": "https://youtu.be/ljQiylEvyKs?si=5M2SgiOzAFohpNZ2&t=464",
     "sr": "Houwi šehaz, uetek, ktiirman haallo, bs, hada mabjanji inno mišma tu ualdau",
@@ -161,12 +160,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Semitic"
   },
   "ara": {
     "name": "Standard Arabic",
     "nativeName": "العربية",
-    "group": "Semitic",
     "speakers": 290,
     "sampleUrl": "https://www.youtube.com/watch?v=E9EgAU7bTHg&t=510s",
     "sr": "Frdigid bosalala koumuehet kelei-kizaujouwahne, rakamit nin lei fizauiti, rakam telíte teledzauei, rakam arba arbazauei",
@@ -179,12 +178,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Semitic"
   },
   "ary": {
     "name": "Moroccan Arabic",
     "nativeName": "دارجة مغربية، العامية المغربية",
-    "group": "Semitic",
     "speakers": 40,
     "sampleUrl": "https://www.youtube.com/watch?v=TuaEpWiXWWw&t=812s",
     "sr": "Arftji, tu hešt lijem, ljikenakal haržufejao, rzuš",
@@ -197,12 +196,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Semitic"
   },
   "arz": {
     "name": "Egyptian Arabic",
     "nativeName": "مصري، عامية مصرية",
-    "group": "Semitic",
     "speakers": 100,
     "sampleUrl": "https://youtu.be/Zsz0ou4VX2g?si=V-5emGrNrjtmAzKb&t=378",
     "sr": "Taabu uošiptea, vo alatúl alatúl alatúl, ua nia dubbessi bella, šue satus ala taaddu",
@@ -215,12 +214,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Semitic"
   },
   "asm": {
     "name": "Assamese",
     "nativeName": "অসমীয়া",
-    "group": "Indo-Aryan",
     "speakers": 15,
     "sampleUrl": "https://youtu.be/vm8Edcbclf8?si=0W218DYbRzQpBj8-&t=86",
     "sr": "Pomara penkolo vdee bukamugue ghehahoo fn bekenua brnega solarndjon",
@@ -233,12 +232,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Indo-Aryan"
   },
   "awa": {
     "name": "Awadhi",
     "nativeName": "अवधी",
-    "group": "Indo-Aryan",
     "speakers": 38,
     "sampleUrl": "https://www.youtube.com/watch?v=8rjr9FuZrfI&t=572s",
     "sr": "Ftahama darsendargalenja fsm tm tarampa huohelagenmaj de peragurug bidig v-lanamvulidraben vd",
@@ -251,12 +250,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Indo-Aryan"
   },
   "aym": {
     "name": "Aymara",
     "nativeName": "Aymar aru",
-    "group": "Aymaran",
     "speakers": 2.2,
     "sampleUrl": "https://youtu.be/vydhTL5SoIs?si=JrZf9E2Gcus4F4DP&t=10",
     "sr": "Walik u ćitawaj, ha tasta, kuna Teha, ai maramm, a roha ha niuam nairap a ćena Kanha arsus kanti",
@@ -269,12 +268,12 @@
     "verbAspect": "simple",
     "evidentiality": "moderate",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Aymaran"
   },
   "aze": {
     "name": "Azerbaijani",
     "nativeName": "Azərbaycan",
-    "group": "Oghuz Turkic",
     "speakers": 24,
     "sampleUrl": "https://youtu.be/cZ1Gxx3F6RU?si=31CIwlz2nVBT_ypb&t=244",
     "sr": "Hamre jogurtom, kabontibnabraz, jahcekirin, ondatajah šoldaham japšmom",
@@ -287,12 +286,12 @@
     "verbAspect": "minimal",
     "evidentiality": "simple",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Oghuz Turkic"
   },
   "bak": {
     "name": "Bashkir",
     "nativeName": "Башҡортса",
-    "group": "Kipchak Turkic",
     "speakers": 1.2,
     "sampleUrl": "https://www.youtube.com/watch?v=qyg1PMOVyBc&t=597s",
     "sr": "Patanøm üljkenulihe kerhabuluan, patešlaj ünejahamaj kiljigende jörhen bijutauš tarejšitken",
@@ -305,12 +304,12 @@
     "verbAspect": "minimal",
     "evidentiality": "simple",
     "nounClassCount": 0,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Kipchak Turkic"
   },
   "bal": {
     "name": "Balochi",
     "nativeName": "بلۏچی",
-    "group": "Iranian",
     "speakers": 8,
     "sampleUrl": "https://youtu.be/OWoKDqJQt1c?si=i93sJEf2bDTnN5YT&t=75",
     "sr": "Wot pužešku duviti zwonahan badarem belučjem, mete čuko medi vuosaga, ja bedeji han gat, mo, vødi rasmu, vødi rusuma, dosta",
@@ -323,12 +322,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Iranian"
   },
   "bam": {
     "name": "Bambara",
     "nativeName": "Bamanankan",
-    "group": "Mande",
     "speakers": 14,
     "sampleUrl": "https://youtu.be/KPHenXXYoxM?si=Kg0I-unLui5FpVQF&t=148",
     "sr": "Ni dalala, kušor ki seii, bidon žeri kanfa, kanji uoćimina. Mano dobila dala",
@@ -341,12 +340,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 1
+    "maxClusterSize": 1,
+    "lineageKey": "Mande"
   },
   "ban": {
     "name": "Balinese",
     "nativeName": "Basa Bali",
-    "group": "Austronesian",
     "speakers": 10,
     "sampleUrl": "https://youtu.be/0pLlfBUtg7s?si=hnlJZJlD6C0m3s9t&t=674",
     "sr": "Napi kee ijø m balih ti vi đu masø Bilan Dina?",
@@ -360,12 +359,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Austronesian"
   },
   "bej": {
     "name": "Beja",
     "nativeName": "Bidhaawyeet",
-    "group": "Cushitic",
     "speakers": 7,
     "sampleUrl": "https://youtu.be/-ewqgk_0KvU?si=w1MnJEX_79qocWt3&t=1113",
     "sr": "Onda onluk, a mauersa, ms, Hajedi, oor a demi, br hetini Phasu Kujna, enj arka si a lemi Darne",
@@ -379,12 +378,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Cushitic"
   },
   "bel": {
     "name": "Belarusian",
     "nativeName": "Беларуская",
-    "group": "East Slavic",
     "speakers": 7,
     "sampleUrl": "https://youtu.be/6hIgRXIAkOM?si=-dINR6jBseRLdfQB&t=512",
     "sr": "Ну і янó vyhljadáе lаhíчна. Šasnáctaje стаhóддзе - hэта чáс, калі ВikaéЛ ад мóра да мóра",
@@ -397,12 +396,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 4
+    "maxClusterSize": 4,
+    "lineageKey": "East Slavic"
   },
   "bem": {
     "name": "Bemba",
     "nativeName": "Ichibemba",
-    "group": "Bantu",
     "speakers": 4,
     "sampleUrl": "https://www.youtube.com/watch?v=AqGXY9fohac&t=65s",
     "sr": "Ideero indike kuena tušipuera tapu tapu, nokulla thimtialutia psana psana, multia mkvuimba, noksam bidiśavam bepafindu ifia lekana lekana",
@@ -415,12 +414,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 14,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Bantu"
   },
   "ben": {
     "name": "Bengali",
     "nativeName": "বাংলা",
-    "group": "Indo-Aryan",
     "speakers": 228,
     "sampleUrl": "https://www.youtube.com/watch?v=RlAOMwMz12c&t=689s",
     "sr": "Askee anćolibhašhaj kothavortabolar gotašušumitej tuagabuleće",
@@ -433,12 +432,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Indo-Aryan"
   },
   "bho": {
     "name": "Bhojpuri",
     "nativeName": "भोजपुरी",
-    "group": "Indo-Aryan",
     "speakers": 52,
     "sampleUrl": "https://www.youtube.com/watch?v=QR4shS2r4zU&t=1102s",
     "sr": "Ki vuđ purimaviđon badjidahalba džonba æota æonga voljata. Omnjio pojle đhal, duluag, nal, jedjerohe, o pedue dagel kul",
@@ -451,12 +450,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Indo-Aryan"
   },
   "bik": {
     "name": "Bikol",
     "nativeName": "Bikol",
-    "group": "Philippine",
     "speakers": 2.5,
     "sampleUrl": "https://youtu.be/PutMRt1tjgk?si=yKFWzi_J2gS4xazj&t=454",
     "sr": "M emo uajze belage n a un fa r ego, menono q u anti paka k a e b a a, menobe Ada, maraun-paka k a e b a a",
@@ -469,12 +468,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 1
+    "maxClusterSize": 1,
+    "lineageKey": "Philippine"
   },
   "bod": {
     "name": "Tibetan",
     "nativeName": "བོད་ཡིག",
-    "group": "Tibetan",
     "speakers": 1.2,
     "sampleUrl": "https://youtu.be/wQMDw7Odiys?si=g9ZMg0j9yP9YRw6z&t=1680",
     "sr": "Tačip citondamadu navonej njire njire pedečelija tjerahadjizjemadu igjemare",
@@ -487,12 +486,12 @@
     "verbAspect": "minimal",
     "evidentiality": "complex",
     "nounClassCount": 0,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Tibetan"
   },
   "bos": {
     "name": "Bosnian",
     "nativeName": "Bosanski",
-    "group": "South Slavic",
     "speakers": 3,
     "sampleUrl": "https://youtu.be/P6T6S8OQias?si=pO7bQEYE6UJJZlan&t=164",
     "sr": "Drjemuša, pospanuša, to je pospana kahva, merakuša baš kad je čovjek ono s merakom je pije, rastjeruša kad je neko došo ko nije poželjan i tako, brzo kahvu i alah imánet",
@@ -505,12 +504,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 4
+    "maxClusterSize": 4,
+    "lineageKey": "South Slavic"
   },
   "bre": {
     "name": "Breton",
     "nativeName": "Brezhoneg",
-    "group": "Celtic",
     "speakers": 0.2,
     "sampleUrl": "https://youtu.be/HRVr_y1Qnbs?si=L9QRL0TV-0ZljdNE&t=64",
     "sr": "Betegen devezeké, knige dan düdø, gweladenú, ebrezoneg",
@@ -523,12 +522,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Celtic"
   },
   "brh": {
     "name": "Brahui",
     "nativeName": "براہوئی",
-    "group": "South Dravidian",
     "speakers": 4,
     "sampleUrl": "https://youtu.be/ADYl3-cXAmI?si=NRRHWRTZDDHXxsw3&t=169s",
     "sr": "Bravikal fuaze ćambe, ćambe purdiuakelio tioshobol-teae. Ćammbe! Tike?",
@@ -541,12 +540,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "South Dravidian"
   },
   "bua": {
     "name": "Buryat",
     "nativeName": "Буряад",
-    "group": "Mongolic",
     "speakers": 0.4,
     "sampleUrl": "https://youtu.be/3iI-8G-72yE?si=NbHRnjD99kBCXGSK&t=320",
     "sr": "Hesødab halar løbuhuju-buloru iđip-tengap-ćalagarad-labav hotedeheen. A so minuente? Da da honđinu te, ukrupte",
@@ -559,12 +558,12 @@
     "verbAspect": "minimal",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Mongolic"
   },
   "bul": {
     "name": "Bulgarian",
     "nativeName": "Български",
-    "group": "South Slavic",
     "speakers": 9,
     "sampleUrl": "https://youtu.be/aXk8fHvmawQ?si=iB774kRCJf16XtL0&t=206",
     "sr": "Смисъл ов глаголицт' е биу мауко по-розличен между буквите от и ци е стояуа буквата штa?",
@@ -577,12 +576,12 @@
     "verbAspect": "binary",
     "evidentiality": "simple",
     "nounClassCount": 3,
-    "maxClusterSize": 4
+    "maxClusterSize": 4,
+    "lineageKey": "South Slavic"
   },
   "cak": {
     "name": "Kaqchikel",
     "nativeName": "Kaqchikel",
-    "group": "Mayan",
     "speakers": 0.5,
     "sampleUrl": "https://youtu.be/w9ZhmyA7koE?si=WZFh0pJx02KoT5wX&t=3s",
     "sr": "Hata kaninam ašora pan mala vihrta ačkena bæn, hareśø śena tøhre",
@@ -595,12 +594,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Mayan"
   },
   "cat": {
     "name": "Catalan",
     "nativeName": "Català",
-    "group": "Romance",
     "speakers": 9,
     "sampleUrl": "https://youtu.be/unh2l6MwpFY?si=7eqx0Zxo_H2Dv066&t=500",
     "sr": "E li vafael molčen karekstambe, a kep markes a gaudi, pero galdinoalio a ferrez. Bre, per ke no sa via, kom e zde jako mias, no sabjasi parlava de ueuo",
@@ -613,12 +612,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Romance"
   },
   "ceb": {
     "name": "Cebuano",
     "nativeName": "Binisaya",
-    "group": "Austronesian",
     "speakers": 22,
     "sampleUrl": "https://youtu.be/BDrVaI6iYQg?si=Zzg24--WfO4wK9w4&t=267",
     "sr": "Ug kon Moabot na Gani kanjana Adlaw dilina-ki-Naanlan-njagamanon-Tana, Pa ka mo um_ bisan Unsa ka nako",
@@ -631,12 +630,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Austronesian"
   },
   "ces": {
     "name": "Czech",
     "nativeName": "Čeština",
-    "group": "West Slavic",
     "speakers": 11,
     "sampleUrl": "https://youtu.be/dLTIbGMdy_4?t=4744",
     "sr": "Ono je teda taky dost zvláštní způsob, jakým se na ten činel hraje. Já si myslím, že obvykle si činel přesně vidíme, jak ten činelista do toho bouchne, rozhodí rukama, můžeme si jenom dát takovou typickou ukázku zvuku? ------ Tak tohle tam dvořák nemá, je to mnohem rafinovanější. Vy tomu i tak jako hezky říkáte? Já tomu říkám šlichání činelu.",
@@ -649,12 +648,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 4
+    "maxClusterSize": 4,
+    "lineageKey": "West Slavic"
   },
   "chr": {
     "name": "Cherokee",
     "nativeName": "ᏣᎳᎩ",
-    "group": "Iroquoian",
     "speakers": 0.022,
     "sampleUrl": "https://youtu.be/makhwucGDhI?si=84aXlCjBnvjJHmhi&t=48",
     "sr": "Na hie tu gehe, u nie ko tele ganni wonizge. Sei da / ne let doeit doortlessen doein doortlessen, negae - ten diuoun nan is gedželik",
@@ -667,12 +666,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Iroquoian"
   },
   "chv": {
     "name": "Chuvash",
     "nativeName": "Чӑвашла",
-    "group": "Siberian Turkic",
     "speakers": 1,
     "sampleUrl": "https://youtu.be/LI4sGA_9xHc?si=cc9MuInYT29Zwfty&t=88",
     "sr": "Šuldan ktršibjeh, prajekcim dišerakbar, ajgi vlbin žimpirin brjent",
@@ -685,12 +684,12 @@
     "verbAspect": "minimal",
     "evidentiality": "simple",
     "nounClassCount": 0,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Siberian Turkic"
   },
   "cjy": {
     "name": "Jin Chinese",
     "nativeName": "晉語",
-    "group": "Sinitic",
     "speakers": 45,
     "sampleUrl": "https://www.youtube.com/watch?v=iU5YCvRpWD8&t=411s",
     "sr": "No harmunpujou pala lenji śoutha śobadou feišodøndzja, taurokua dzjdzjśousa zgdjszdja dzongtsouterja",
@@ -703,13 +702,13 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Sinitic"
   },
   "cmn": {
     "name": "Mandarin Chinese",
     "altName": "Mandarin",
     "nativeName": "普通话",
-    "group": "Sinitic",
     "speakers": 918,
     "sampleUrl": "https://youtu.be/p-g8XqdFkLg?si=wAau5ZzlM0vesBsX&t=140",
     "sr": "Uela sotala ćonin disindainsja jebinćudafanhuu pusuđenzaja sanposan",
@@ -722,12 +721,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 1
+    "maxClusterSize": 1,
+    "lineageKey": "Sinitic"
   },
   "cos": {
     "name": "Corsican",
     "nativeName": "Corsu",
-    "group": "Romance",
     "speakers": 0.15,
     "sampleUrl": "https://youtu.be/d3ySqMdsMZE?si=S3ovQLNZnXkwJiN8&t=180",
     "sr": "Alo, hugu noši nudizi gura berkeče-una-vela gumunigazjone-djadžida-dioaščije čeunavela-gumunigazjone djaga zaje ljing",
@@ -740,12 +739,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Romance"
   },
   "cre": {
     "name": "Cree",
     "nativeName": "ᓀᐦᐃᔭᐍᐏᐣ",
-    "group": "Algonquian",
     "speakers": 0.1,
     "sampleUrl": "https://www.youtube.com/watch?v=0rmfrWUNW4M&t=0",
     "sr": "Tanse kiuwau! Niga na nas kom on-noh, tauinau na siekáh sonos sau meiguan kehiu napiju",
@@ -758,12 +757,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Algonquian"
   },
   "csb": {
     "name": "Kashubian",
     "nativeName": "Kaszëbsczi",
-    "group": "West Slavic",
     "speakers": 0.1,
     "sampleUrl": "https://youtu.be/V67dBjgg4Lc?t=264",
     "sr": "Ne mnje jednak varstvje gramatíčnyh tešjest dužo takih ceh kture jezik kašúpski vyružnjájou, vašćívje go odružnjájou pře všickym on jezika polskégo",
@@ -776,12 +775,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 4
+    "maxClusterSize": 4,
+    "lineageKey": "West Slavic"
   },
   "cym": {
     "name": "Welsh",
     "nativeName": "Cymraeg",
-    "group": "Celtic",
     "speakers": 0.7,
     "sampleUrl": "https://youtu.be/3ctOrnChEAM?si=Fa9FW5XLyqAew8Hs&t=499",
     "sr": "Do we fljang fenedol anar benig, dowig fljang satiiš kata deni ar ter Vineroj šo kanol, ašol din u idaraš titi jautf, o Heen Linendiaf kla šyrol grojg ar hivajn",
@@ -794,12 +793,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 4,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Celtic"
   },
   "dan": {
     "name": "Danish",
     "nativeName": "Dansk",
-    "group": "North Germanic",
     "speakers": 6,
     "sampleUrl": "https://youtu.be/m_hPowc9Ujs?si=L8UoTmNFY9Ngd4kd&t=2087",
     "sr": "Bevæ illsø i kønst, aså kunstvækatø bevæ ø sai illø, kæn sædes i bevæ-es a tilskuaan, a noo hiit, nüt, o phofokei ane ta Luśiana præsenti ad den i, neign ø ag i nø thjs",
@@ -812,12 +811,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "North Germanic"
   },
   "deu": {
     "name": "German",
     "nativeName": "Deutsch",
-    "group": "West Germanic",
     "speakers": 76,
     "sampleUrl": "https://youtu.be/TEDlrOWx22U?si=8CcaWQvxpAHf2vM6&t=370",
     "sr": "Die genaue lage und position aller bohlen wurde vor dem ausbau fotografiert und schriftlich festgehalten, um diese später wieder zuordnen zu können",
@@ -830,12 +829,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 4
+    "maxClusterSize": 4,
+    "lineageKey": "West Germanic"
   },
   "din": {
     "name": "Dinka",
     "nativeName": "Thuɔŋjäŋ",
-    "group": "Nilotic",
     "speakers": 2,
     "sampleUrl": "https://youtu.be/AuobacfL2l4?si=JsTh_Ul6s0KeMeep&t=332",
     "sr": "? tonge katuin baloie ten. Jeba tantu bialum gubanji pinju eneme",
@@ -848,12 +847,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Nilotic"
   },
   "eng": {
     "name": "English",
     "nativeName": "English",
-    "group": "West Germanic",
     "speakers": 379,
     "sampleUrl": "https://youtu.be/s11qjmvTdJ8?si=jX5Ap3niKMUBNNro&t=343",
     "sr": "Thanks for the butter but now I feel ill. I hope I'll be better by Thursday. Fanks for the bu'er but naw I feew iw. I 'ope I'll be be'er by Fursday",
@@ -866,12 +865,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "West Germanic"
   },
   "est": {
     "name": "Estonian",
     "nativeName": "Eesti",
-    "group": "Finnic",
     "speakers": 1.1,
     "sampleUrl": "https://youtu.be/CII1VjSVY18?si=HYsQHYqpCl9EL1au&t=94",
     "sr": "Inimezedon vinzandilj kolmesajon dijoksul holdanod rananite ja karijamajd. Meres meutatot vilzandi tajmestik onli kerekas",
@@ -884,12 +883,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Finnic"
   },
   "eus": {
     "name": "Basque",
     "nativeName": "Euskara",
-    "group": "Basque",
     "speakers": 0.75,
     "sampleUrl": "https://www.youtube.com/watch?v=bHKJRuBI60U&t=68s",
     "sr": "A finala haga kusto, meretalekoo, souigja kontra mes-ti-kago-sas-pitu-reta lekua.",
@@ -902,12 +901,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Basque"
   },
   "ewe": {
     "name": "Ewe",
     "nativeName": "Eʋegbe",
-    "group": "Kwa",
     "speakers": 8,
     "sampleUrl": "https://youtu.be/cW85lwzGA-Y?si=23J8svvBebqIKvEh&t=21",
     "sr": "Da kompo bu bunama makla toma dumamu Vahu a Pada dzu kwama Knnn",
@@ -921,12 +920,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Kwa"
   },
   "fao": {
     "name": "Faroese",
     "nativeName": "Føroyskt",
-    "group": "North Germanic",
     "speakers": 0.066,
     "sampleUrl": "https://youtu.be/rGb8bYQh3y0?si=rnesBno_UZwvmu1-&t=505",
     "sr": "Amvir fjernau? S han s erma iš ju nou ja s erat j h autju oh kunju Ontø. So teanaroj di aan zetürat, lets go gin-goin hoontoen lafam beah kiedlig",
@@ -939,12 +938,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 4
+    "maxClusterSize": 4,
+    "lineageKey": "North Germanic"
   },
   "fas": {
     "name": "Persian",
     "nativeName": "فارسی",
-    "group": "Iranian",
     "speakers": 83,
     "sampleUrl": "https://youtu.be/XZlsOVYNyRs?si=CD55C54z2b1ec8Om&t=487",
     "sr": "Jok šloh? Gændanundara. Baj stogatzio koni kandamera. Kandamega, maa kandamega, šudo kandamega",
@@ -957,12 +956,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Iranian"
   },
   "fia": {
     "name": "Nubian",
     "nativeName": "Nobiin",
-    "group": "Nubian",
     "speakers": 0.5,
     "sampleUrl": "https://youtu.be/nGMQl9slmUM?si=ueAo9FrVYF1TV6rZ&t=205",
     "sr": "Irkita, ada mani, ademi, kongurani, kiruida, aii tanga đani",
@@ -975,12 +974,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Nubian"
   },
   "fij": {
     "name": "Fijian",
     "nativeName": "Na Vosa Vakaviti",
-    "group": "Pacific",
     "speakers": 0.35,
     "sampleUrl": "https://youtu.be/pFXjD9J-JE0?si=5Ql7xjaJn769soDJ&t=8",
     "sr": "La gutumba ena koromgurimbasanga, asanbagtura norreua, alberanga kaćimnango il suwua.",
@@ -993,12 +992,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 1
+    "maxClusterSize": 1,
+    "lineageKey": "Pacific"
   },
   "fin": {
     "name": "Finnish",
     "nativeName": "Suomi",
-    "group": "Finnic",
     "speakers": 5,
     "sampleUrl": "https://youtu.be/qJ5M_uPZHaQ?si=9W-luUo97z3q3Sf_&t=470",
     "sr": "Vuorsea værlehuma-kaknaze ursama kerrani-murlula ana-kefan epa-mukava-olasela lopustø koskø",
@@ -1011,12 +1010,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Finnic"
   },
   "fra": {
     "name": "French",
     "nativeName": "Français",
-    "group": "Romance",
     "speakers": 76,
     "sampleUrl": "https://youtu.be/gCjkEkoFJEE?si=oKzIsOMKT_9AkmMS&t=245",
     "sr": "Nu zo ula ger, pikokolino, u gagontulazadra budo seze ni. El farara vo kundo fker žon di zontomer",
@@ -1029,12 +1028,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Romance"
   },
   "fry": {
     "name": "Frisian",
     "nativeName": "Frysk",
-    "group": "West Germanic",
     "speakers": 0.47,
     "sampleUrl": "https://youtu.be/1vn7zwmRirM?si=r5pvaegfIGCFNCKJ&t=189",
     "sr": "Nee dii hii ziit vanuit a sede kom uut spraken eh set net normaal en hij i ziit van e, na leren di bees aam engel moes. Ee?",
@@ -1047,12 +1046,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "West Germanic"
   },
   "ful": {
     "name": "Fula",
     "nativeName": "Fulfulde",
-    "group": "Niger-Congo",
     "speakers": 25,
     "sampleUrl": "https://youtu.be/aVkrLzgPz3A?si=WAHqoZEUo-W-hmyN&t=187",
     "sr": "No kukalaka feonornon, no kukalaka wuenirnon, farnoren, bengalmede",
@@ -1065,12 +1064,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 25,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Niger-Congo"
   },
   "gan": {
     "name": "Gan Chinese",
     "nativeName": "贛語",
-    "group": "Sinitic",
     "speakers": 22,
     "sampleUrl": "https://www.youtube.com/watch?v=qUTzZe5JiIY&t=310s",
     "sr": "Pš nevu hol dužundudaundi ješehoua umleuonejnej kajpenćin di đije kajpenćinćide",
@@ -1083,12 +1082,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Sinitic"
   },
   "gla": {
     "name": "Scottish Gaelic",
     "nativeName": "Gàidhlig",
-    "group": "Celtic",
     "speakers": 0.06,
     "sampleUrl": "https://youtu.be/P4XqeTfNz_U?si=fIV8tERYpbZz0GeJ&t=151",
     "sr": "E fajfkin klaun pike pítah, eví, tokal vloerige neges. Kjirk-misk, váhere, će i musyhih peršćah kaśén nahé",
@@ -1101,12 +1100,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Celtic"
   },
   "gle": {
     "name": "Irish",
     "nativeName": "Gaeilge",
-    "group": "Celtic",
     "speakers": 1.2,
     "sampleUrl": "https://youtu.be/QF2IFx3fSUM?si=11fOMOAf7KHUbVbi&t=602",
     "sr": "Mavin auin, musühan garvn kladah, bikinće, kømén madarišky snávam",
@@ -1119,12 +1118,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Celtic"
   },
   "glg": {
     "name": "Galician",
     "nativeName": "Galego",
-    "group": "Romance",
     "speakers": 2.4,
     "sampleUrl": "https://youtu.be/IouWSB4eUFY?si=ASUm0papSZt59KCt&t=190",
     "sr": "Uas medidas ke klaro-ke-parabos, šja tedes kespli kardija śente, pujšum: poko komo funkcionas ta taśa turistika i śente kese, ke se rahom, pou ko no i śente stakam fe-lándon huan rezervá zekevá i pora kibre-tino de korunja",
@@ -1137,12 +1136,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Romance"
   },
   "gre": {
     "name": "Greek",
     "nativeName": "Ελληνικά",
-    "group": "Hellenic",
     "speakers": 13,
     "sampleUrl": "https://youtu.be/zj96hkYCLXU?si=5t3vkR0bum_q-CIT&t=68",
     "sr": "Sjaf totos in meo. Tavendra denodesto-forte-ingome in mades, jetinas falí metaforátos del kopro-orizmó",
@@ -1155,12 +1154,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Hellenic"
   },
   "grn": {
     "name": "Guaraní",
     "nativeName": "Avañe'ẽ",
-    "group": "Tupian",
     "speakers": 5,
     "sampleUrl": "https://youtu.be/4dJdbOZmj60?si=Bx5OjZ-EwwyoAQ_P&t=472",
     "sr": "Ha idjikere? Ja w ede ko pete iu eda i ome euanjan deve po A. Umi ika a uoua, he i ou ede ko ha i po aha ehu edahei",
@@ -1173,12 +1172,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Tupian"
   },
   "guj": {
     "name": "Gujarati",
     "nativeName": "ગુજરાતી",
-    "group": "Indo-Aryan",
     "speakers": 56,
     "sampleUrl": "https://www.youtube.com/watch?v=neBRiBLY2ao&t=198s",
     "sr": "Tame tame śuke soka zgaamnibabaće gamnamu daokajakajaźe aap śuke śoka",
@@ -1191,12 +1190,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Indo-Aryan"
   },
   "gul": {
     "name": "Gullah",
     "nativeName": "Gullah",
-    "group": "English Creole",
     "speakers": 0.25,
     "sampleUrl": "https://youtu.be/39dbRtSpgmY?si=ltVA38zy8pwjpe_u&t=201",
     "sr": "So deen wajl de čren bin in da tanl, de gaal wiik ap, en ši lak oraund uidi bigaj en sej, greg gordo bakr daun rajs on d groun",
@@ -1209,12 +1208,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "English Creole"
   },
   "gyn": {
     "name": "Guyanese Creole",
     "nativeName": "Creolese",
-    "group": "English Creole",
     "speakers": 0.7,
     "sampleUrl": "https://youtu.be/XNgC_DbQLHo?si=fyUHdgqVMvJg07m8&t=58",
     "sr": "Monki no uič lim fo džom pan. Jes, je va luk at a monki, uen i dej ina čri, en i čraj fo soin fram lim to lim, ju eva notise da monki na džos kop an eni lim, i čuus de uan uei noui go gedim mos advantič, oo fo goui uango, is de seem ting ui piipo",
@@ -1227,12 +1226,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "English Creole"
   },
   "hak": {
     "name": "Hakka Chinese",
     "nativeName": "客家話",
-    "group": "Sinitic",
     "speakers": 48,
     "sampleUrl": "https://www.youtube.com/watch?v=FqAnl_8tMmI&t=97s",
     "sr": "Elja haka valouediuan zouhurle menalore sava dued samdor",
@@ -1245,12 +1244,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Sinitic"
   },
   "hau": {
     "name": "Hausa",
     "nativeName": "Hausa",
-    "group": "Chadic",
     "speakers": 94,
     "sampleUrl": "https://www.youtube.com/watch?v=27QQR7WEoWo&t=322s",
     "sr": "Ama trun degete arifi samuazákasan bui buk*atjon kusuruáso voráka buide kusur-ua",
@@ -1263,12 +1262,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Chadic"
   },
   "haw": {
     "name": "Hawaiian",
     "nativeName": "ʻŌlelo Hawaiʻi",
-    "group": "Pacific",
     "speakers": 0.024,
     "sampleUrl": "https://www.youtube.com/watch?v=yzORFcJkxcs&t=583s",
     "sr": "Ikeno maho illalo hooua eukee puoee hihimano nuuu, nuu i meke i meeiaa",
@@ -1281,12 +1280,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 1
+    "maxClusterSize": 1,
+    "lineageKey": "Pacific"
   },
   "heb": {
     "name": "Hebrew",
     "nativeName": "עברית",
-    "group": "Semitic",
     "speakers": 9,
     "sampleUrl": "https://youtu.be/efYGqvgxt6Y?si=QaQxrbSW1tn9p1nK&t=63s",
     "sr": "Pahote kusbarame a kabilota algi lot ba... Šuk... Bacal gador... Šešinej śum",
@@ -1299,12 +1298,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Semitic"
   },
   "hil": {
     "name": "Hiligaynon",
     "nativeName": "Ilonggo",
-    "group": "Philippine",
     "speakers": 9,
     "sampleUrl": "https://www.youtube.com/watch?v=S9MXb1lMD7g&t=21s",
     "sr": "So hona hona T o n: a Unaha word, njaa, T o n Ana T o nsobo, abo A n, hunhun g a n, a n obela an-hunhun g a n",
@@ -1317,12 +1316,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 1
+    "maxClusterSize": 1,
+    "lineageKey": "Philippine"
   },
   "hin": {
     "name": "Hindi",
     "nativeName": "हिन्दी",
-    "group": "Indo-Aryan",
     "speakers": 341,
     "sampleUrl": "https://www.youtube.com/watch?v=-AwjnH5U-Ds&t=423s",
     "sr": "Hare ksande ko pura das kosma danka bđwa gargeabulwatete ar lrwatete",
@@ -1335,12 +1334,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Indo-Aryan"
   },
   "hmn": {
     "name": "Hmong",
     "nativeName": "Hmoob",
-    "group": "Hmong-Mien",
     "speakers": 4,
     "sampleUrl": "https://youtu.be/QR_-iAUEP1Q?si=YsmMWQMy7OPdd3wq&t=1020",
     "sr": "To pahona kje tua dje cadede. Tsotsadjenø. Kacadjenø će ingena-hajo-uena tomašietje, to lunčašijatje joto śita śite",
@@ -1353,12 +1352,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Hmong-Mien"
   },
   "hoc": {
     "name": "Ho",
     "nativeName": "𑣜𑣉𑣉",
-    "group": "Munda",
     "speakers": 1,
     "sampleUrl": "https://youtu.be/tPqx1bLtyOY?si=JtmsF3rCZUj0wBdT&t=29",
     "sr": "Ementáre netrabú, abuei, uáren-ćititoa-lágana, ondoad devona-gretoartíja, endo, nabú palajabú",
@@ -1371,12 +1370,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Munda"
   },
   "hrv": {
     "name": "Croatian",
     "nativeName": "Hrvatski",
-    "group": "South Slavic",
     "speakers": 4,
     "sampleUrl": "https://youtu.be/yeSmJyonD7M?si=BT_OfL2sGncq1SSH&t=220",
     "sr": "Na njoj je prekrasno vidjet more leptiriča, bumbara, pčela, i oni tako hredom dolaze, kad odu bumbari dolaze pčele, kad odu pčele taj je cvijet gotovo sasušen ali je on onda tada zreo za žetvu jer če dat najbogatije ulje",
@@ -1389,12 +1388,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 4
+    "maxClusterSize": 4,
+    "lineageKey": "South Slavic"
   },
   "hun": {
     "name": "Hungarian",
     "nativeName": "Magyar",
-    "group": "Ugric",
     "speakers": 13,
     "sampleUrl": "https://youtu.be/ZoGsHyJMO9A?si=xg_wQnB05PccylOQ&t=1245",
     "sr": "Piroš naronč roso zuolj dišiouiše piroš naronč megin tros. Tehat muš tozahejzeto đazakii tee kocko hejin vonomi tla ćatok",
@@ -1407,12 +1406,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Ugric"
   },
   "hye": {
     "name": "Armenian",
     "nativeName": "Հայերեն",
-    "group": "Armenian",
     "speakers": 7,
     "sampleUrl": "https://youtu.be/7tqSIavL-Pg?si=OnzvmESS7Zs5af-a&t=294",
     "sr": "Kanibr amena uše, a sustećimetije pfume, p-dinze",
@@ -1425,12 +1424,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 6
+    "maxClusterSize": 6,
+    "lineageKey": "Armenian"
   },
   "ibo": {
     "name": "Igbo",
     "nativeName": "Igbo",
-    "group": "Niger-Congo",
     "speakers": 27,
     "sampleUrl": "https://youtu.be/UI6E6LGgiGQ?si=goWSlfxJquZ4gk-w&t=621",
     "sr": "Onjao banau gurijahu, da ne genzi gua maran ke be zjonku. Makalo mane d đja puei, i he blumće idena heiju-kuaham",
@@ -1443,13 +1442,13 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 1
+    "maxClusterSize": 1,
+    "lineageKey": "Niger-Congo"
   },
   "iii": {
     "name": "Yi",
     "altName": "Nuosu",
     "nativeName": "ꆈꌠꉙ",
-    "group": "Other Tibeto-Burman",
     "speakers": 2,
     "sampleUrl": "https://www.youtube.com/watch?v=jspE8LPtvG0&t=63s",
     "sr": "Vdodžažmnjo namvuozszo tuozhema vavnjititz džomaznjoho kadinjihefzao",
@@ -1462,12 +1461,12 @@
     "verbAspect": "minimal",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Other Tibeto-Burman"
   },
   "iku": {
     "name": "Inuktitut",
     "nativeName": "ᐃᓄᒃᑎᑐᑦ",
-    "group": "Eskimo-Aleut",
     "speakers": 0.039,
     "sampleUrl": "https://youtu.be/OS0I-5AAayw?si=bRCfJxKpX4xjB_mP&t=192",
     "sr": "Njok sok tüma. Unnusana süneau kelle? Ihad ljeahmeah tüma. Asso? Houpali sü lakket? Ümeak tü laak tüma",
@@ -1480,12 +1479,12 @@
     "verbAspect": "complex",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Eskimo-Aleut"
   },
   "ilo": {
     "name": "Ilocano",
     "nativeName": "Ilokano",
-    "group": "Philippine",
     "speakers": 9,
     "sampleUrl": "https://www.youtube.com/watch?v=R9026DE5EH8?t=0",
     "sr": "A b o, digos k a n, jahona s øN n, øøø wenola L ohahanek digo s øN",
@@ -1498,12 +1497,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Philippine"
   },
   "ind": {
     "name": "Indonesian",
     "nativeName": "Bahasa Indonesia",
-    "group": "Austronesian",
     "speakers": 23,
     "sampleUrl": "https://www.youtube.com/watch?v=bRtRAu49Qho&t=41s",
     "sr": "Uo Buo ćabe kri Tiin! Di sedigen Tidigen ćabe mera besaldija saa, a Tokolonga kanpa ćiguvonga paa-Paa",
@@ -1516,12 +1515,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Austronesian"
   },
   "isl": {
     "name": "Icelandic",
     "nativeName": "Íslenska",
-    "group": "North Germanic",
     "speakers": 0.3,
     "sampleUrl": "https://youtu.be/CYgC3oAkLnQ?si=ZKXglTCbFbNgCpLE&t=233",
     "sr": "E tejmarat lukt stjampt obanou rejkeneskaar, oo gatak stoura graua erø, røjnes avártelli holorøns kosinø",
@@ -1534,12 +1533,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "North Germanic"
   },
   "ita": {
     "name": "Italian",
     "nativeName": "Italiano",
-    "group": "Romance",
     "speakers": 65,
     "sampleUrl": "https://youtu.be/m0X9fuBnkZ8?si=AGWH4h2FnxJC9b1S&t=47",
     "sr": "Kvandono metiame vibracione la korda, londa sonóra passa traverso kvesta parte ke bjamodéto si kjama ponte o pontičéllo",
@@ -1552,12 +1551,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Romance"
   },
   "jav": {
     "name": "Javanese",
     "nativeName": "Basa Jawa",
-    "group": "Austronesian",
     "speakers": 69,
     "sampleUrl": "https://www.youtube.com/watch?v=M2CZ6TRYtpY&t=130s",
     "sr": "Nanjin, tapećoroles di laquamin, kekel, afirree, sunan-gali ćoko",
@@ -1570,12 +1569,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Austronesian"
   },
   "jpn": {
     "name": "Japanese",
     "nativeName": "日本語",
-    "group": "Japonic",
     "speakers": 128,
     "sampleUrl": "https://youtu.be/ZjfKVgpqeEk?si=DKuOJHQ-VHr5EORe&t=409",
     "sr": "Sošte štani søto i kone sne, sošte møšino íći, i kakameno ićiwa, kokono... Štadi sne?",
@@ -1588,12 +1587,12 @@
     "verbAspect": "simple",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxClusterSize": 1
+    "maxClusterSize": 1,
+    "lineageKey": "Japonic"
   },
   "kab": {
     "name": "Kabyle",
     "nativeName": "Taqbaylit",
-    "group": "Berber",
     "speakers": 15,
     "sampleUrl": "https://youtu.be/CJkijDWHQeQ?si=KngmX8tJTPI-QXxf&t=32",
     "sr": "Tapanej rif, cu fljejfja tarane, ediljdžejhegi notizin zo, no ufgejif, no vvirid",
@@ -1607,12 +1606,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Berber"
   },
   "kan": {
     "name": "Kannada",
     "nativeName": "ಕನ್ನಡ",
-    "group": "South Dravidian",
     "speakers": 44,
     "sampleUrl": "https://youtu.be/9PsttnrQnYU?si=PgoMDxBXimjOJsbv&t=81",
     "sr": "Dondøvara la đanara laći kora la konaralanta, ći kortapmare tak šnak, so ari küna worgu bülala",
@@ -1625,12 +1624,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "South Dravidian"
   },
   "kar": {
     "name": "Karen S'gaw",
     "nativeName": "စှီၤ",
-    "group": "Karen",
     "speakers": 3,
     "sampleUrl": "https://youtu.be/1tena4vC_pQ?si=D1pwX0HycmJuLcFA&t=150",
     "sr": "Ja duo čučo bulem ra. Nopuani lemra. Ja ni nuče kiiinili. Nømopodo? Oo ja ni tøtivani",
@@ -1643,12 +1642,12 @@
     "verbAspect": "minimal",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Karen"
   },
   "kas": {
     "name": "Kashmiri",
     "nativeName": "کٲشُر",
-    "group": "Indo-Aryan",
     "speakers": 11,
     "sampleUrl": "https://youtu.be/4GUS3Q0QELo?si=Ld-erRRv97N6NYv_&t=271`",
     "sr": "Tuham lukaś mirlje vultesko, pušišćjasit karamvarja muhbat, varja madlabuhut! Vaća",
@@ -1662,12 +1661,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Indo-Aryan"
   },
   "kat": {
     "name": "Georgian",
     "nativeName": "ქართული",
-    "group": "Kartvelian",
     "speakers": 4,
     "sampleUrl": "https://youtu.be/h5W2eM2smtI?si=gugrhvdPe-6lClM_&t=515",
     "sr": "E śejle ba, es, amučántis ksoła, u kanak edel šći ćśe sljutáts, ohont-ca-ta, u zoris huana i gamućte a magan hamin-dároesetjim uzovit mok so",
@@ -1680,12 +1679,12 @@
     "verbAspect": "complex",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxClusterSize": 6
+    "maxClusterSize": 6,
+    "lineageKey": "Kartvelian"
   },
   "kaz": {
     "name": "Kazakh",
     "nativeName": "Қазақша",
-    "group": "Kipchak Turkic",
     "speakers": 13,
     "sampleUrl": "https://www.youtube.com/watch?v=QSp1XWRxkx0&t=156s",
     "sr": "Bez berke hujná berge savá hókaimaz, klijen sek tjemohan, kumik tisida, kuanštada, kanganadá, perke bulsímyz. Šakandoz adamvajdijem kambatbajlak, sibijebešhandoz dije aldamajda koldajda",
@@ -1698,12 +1697,12 @@
     "verbAspect": "minimal",
     "evidentiality": "simple",
     "nounClassCount": 0,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Kipchak Turkic"
   },
   "kbd": {
     "name": "Kabardian",
     "nativeName": "Адыгэбзэ",
-    "group": "Caucasian",
     "speakers": 9,
     "sampleUrl": "https://youtu.be/G6Zk0XXzDnA?si=ZMf1e3PlSzgOQcBG&t=238",
     "sr": "Zar sephem? Zerbo hækam um psašljem? Lješlje taaś. Fljepkam, šadéem, śibidunjongu, super.",
@@ -1717,12 +1716,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 5
+    "maxClusterSize": 5,
+    "lineageKey": "Caucasian"
   },
   "kfa": {
     "name": "Kodava",
     "nativeName": "ಕೊಡವ ತಕ್ಕ್",
-    "group": "South Dravidian",
     "speakers": 0.12,
     "sampleUrl": "https://youtu.be/Npvt5b61jJM?si=8M6MQclUSkt5is64&t=74",
     "sr": "Nane binde køda, ma nekø pøjen dujlø, ninø?",
@@ -1735,12 +1734,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "South Dravidian"
   },
   "kha": {
     "name": "Khasi",
     "nativeName": "Ka Ktien Khasi",
-    "group": "Mon-Khmer",
     "speakers": 1.4,
     "sampleUrl": "https://www.youtube.com/watch?v=O_vqf1Vp19I&t=64s",
     "sr": "Banjadaa bad banten kaajedi die nagbn taare đimntoii ja ga laueei æong patenn giban sauan",
@@ -1753,12 +1752,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Mon-Khmer"
   },
   "khm": {
     "name": "Khmer",
     "nativeName": "ភាសាខ្មែរ",
-    "group": "Mon-Khmer",
     "speakers": 16,
     "sampleUrl": "https://www.youtube.com/watch?v=HHGsUxT3vjg&t=126s",
     "sr": "A souva katlajn, o man dia, nou satova dipa bl",
@@ -1771,12 +1770,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Mon-Khmer"
   },
   "kik": {
     "name": "Kikuyu",
     "nativeName": "Gĩkũyũ",
-    "group": "Bantu",
     "speakers": 8,
     "sampleUrl": "https://www.youtube.com/watch?v=SWn1t4o0QC0&t=119s",
     "sr": "Etuakia liao-naomarai-koronea dumarai-kamoo dumaja-maukuroo makialianardua kuma nađa",
@@ -1789,12 +1788,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 15,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Bantu"
   },
   "kin": {
     "name": "Kinyarwanda",
     "nativeName": "Ikinyarwanda",
-    "group": "Bantu",
     "speakers": 12,
     "sampleUrl": "https://www.youtube.com/watch?v=cx3MlE1sA4I&t=712s",
     "sr": "U mutkume, vuii faša busara, hiui faša vuteekereza",
@@ -1807,12 +1806,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 16,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Bantu"
   },
   "kir": {
     "name": "Kyrgyz",
     "nativeName": "Кыргызча",
-    "group": "Kipchak Turkic",
     "speakers": 4.4,
     "sampleUrl": "https://youtu.be/8Ly2Q2E-B84?si=SPZ2ZVL7oCXUpk0W&t=841",
     "sr": "Aljinizeer. Digen sus, altyn, altyn bujum, tin dedigen-gibilderen-tikemaldar",
@@ -1825,12 +1824,12 @@
     "verbAspect": "minimal",
     "evidentiality": "simple",
     "nounClassCount": 0,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Kipchak Turkic"
   },
   "kne": {
     "name": "Kankanaey",
     "nativeName": "Kankanaey",
-    "group": "Philippine",
     "speakers": 7,
     "sampleUrl": "https://youtu.be/RHLOn-vWwDE?si=czF1D01RpL6rFDF6&t=1124",
     "sr": "Ai gapo tem ba ganam pa ti om Abot? Ai Tat ta Dunum a bodim tajop Tot ab dü aj eeej ba bai?",
@@ -1844,12 +1843,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Philippine"
   },
   "knr": {
     "name": "Kanuri",
     "nativeName": "Kanuri",
-    "group": "Nilo-Saharan",
     "speakers": 4,
     "sampleUrl": "https://youtu.be/tiPK4WIIxOA?si=KaiM4a3-Ol_TYAF6&t=28",
     "sr": "Kala bana knđo, furtun đi, konoa će đinsuro umandji",
@@ -1862,12 +1861,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Nilo-Saharan"
   },
   "kok": {
     "name": "Konkani",
     "nativeName": "कोंकणी",
-    "group": "Indo-Aryan",
     "speakers": 18,
     "sampleUrl": "https://youtu.be/HH4M3gJicH8?si=Cq5WeStm18cb4BUs&t=875",
     "sr": "Tumćamu karami, rokadis güneta, spørdića rupan, satra marć, anara đukolaman dyra neamđe-natak zatljekuklina tesprdi",
@@ -1881,12 +1880,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Indo-Aryan"
   },
   "kor": {
     "name": "Korean",
     "nativeName": "한국어",
-    "group": "Koreanic",
     "speakers": 77,
     "sampleUrl": "https://www.youtube.com/watch?v=KJAHpWjbB2k&t=197s",
     "sr": "Pongoro bdrodo čanganđong karaso paros inam geaču kosovoamazo leđemida",
@@ -1899,12 +1898,12 @@
     "verbAspect": "simple",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Koreanic"
   },
   "kur": {
     "name": "Kurdish",
     "nativeName": "Kurdî",
-    "group": "Iranian",
     "speakers": 30,
     "sampleUrl": "https://youtu.be/mORCaQbggIo?si=fR4WiAigweEhei2Q&t=375",
     "sr": "Avora bavu djaku vdrjau kastohkarehanji rgnjmamu",
@@ -1917,12 +1916,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Iranian"
   },
   "lao": {
     "name": "Lao",
     "nativeName": "ພາສາລາວ",
-    "group": "Kra-Dai",
     "speakers": 16,
     "sampleUrl": "https://youtu.be/cCO2c_FO0jQ?si=nmaMA4_cKaR463ZS&t=301",
     "sr": "Møte mia naam nok, natenlen hanten man been, pampin ko n mak-ko n moi-ko n jai leotee dutuninano",
@@ -1936,12 +1935,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Kra-Dai"
   },
   "lav": {
     "name": "Latvian",
     "nativeName": "Latviešu",
-    "group": "Baltic",
     "speakers": 1.5,
     "sampleUrl": "https://youtu.be/9Alx6BeJ8fI?si=XP2iKh1MgryjkTxL&t=2997",
     "sr": "Vijeno gajeno, tata duad man, ies penos pa zyrsih tris mambus viskartipa. Esnos pelažu zyrsih trís, pazeiš tou dame, nosteš uz de četri, actišes kokadavejda mambuši leka figur",
@@ -1954,12 +1953,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Baltic"
   },
   "lep": {
     "name": "Lepcha",
     "nativeName": "ᰛᰩᰵ",
-    "group": "Other Tibeto-Burman",
     "speakers": 0.08,
     "sampleUrl": "https://www.youtube.com/watch?v=h7kAY-u6KeQ&t=463s",
     "sr": "Tosa tøtvø tri tatin müller shatabuni onomad dbaboram apok kador",
@@ -1972,12 +1971,12 @@
     "verbAspect": "minimal",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Other Tibeto-Burman"
   },
   "lim": {
     "name": "Limburgish",
     "nativeName": "Limburgs",
-    "group": "West Germanic",
     "speakers": 1.3,
     "sampleUrl": "https://youtu.be/Y4cAnn5LJcg?si=GFsRWSh3U9EDaRpI&t=261",
     "sr": "Das neet je maas zjuvig vees, het heeks huud ofhe loźes das hil belangrijk, isias ane struktuur van e dejh (ontviklćes) dat hiil hud ontviklćes abat sege dat e hiil hud... Fürh posesii thortje nemevedat, dat de deehjud afi kneedjes, dat hjone hjuje hrisi hjoćś",
@@ -1990,12 +1989,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 4
+    "maxClusterSize": 4,
+    "lineageKey": "West Germanic"
   },
   "lin": {
     "name": "Lingala",
     "nativeName": "Lingála",
-    "group": "Bantu",
     "speakers": 15,
     "sampleUrl": "https://youtu.be/ux71fidOORg?si=MHxkS-MVKEeJ30OE&t=1451",
     "sr": "Elamba nanga jancoto, anasemartu elamba, elamba ningoo, janzoto nimili",
@@ -2008,12 +2007,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 15,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Bantu"
   },
   "lit": {
     "name": "Lithuanian",
     "nativeName": "Lietuvių",
-    "group": "Baltic",
     "speakers": 3,
     "sampleUrl": "https://youtu.be/SwCNJHSMAx0?si=TYu92cWAkZo1j-eA&t=206",
     "sr": "A šće se vazdojak jakaš praina griebunjas, soko sokoratas, patas paće svjatas erke hena sikatrandaj",
@@ -2026,12 +2025,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 4
+    "maxClusterSize": 4,
+    "lineageKey": "Baltic"
   },
   "ltz": {
     "name": "Luxembourgish",
     "nativeName": "Lëtzebuergesch",
-    "group": "West Germanic",
     "speakers": 0.4,
     "sampleUrl": "https://youtu.be/7TWNxeatqMI?si=80sBaS9wzQszY1Rf&t=442",
     "sr": "Šol dorun, az eläeng, ajze luxjuouzen minísta, deen dat bedriwwen huet. An natierlech déi deputéie dan da šamba, dej dat matiš teptun",
@@ -2044,12 +2043,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 4
+    "maxClusterSize": 4,
+    "lineageKey": "West Germanic"
   },
   "lua": {
     "name": "Luba-Kasai",
     "nativeName": "Tshiluba",
-    "group": "Bantu",
     "speakers": 12,
     "sampleUrl": "https://youtu.be/MPX20AH679w?si=ksQAOxnf15Scc-6A&t=216",
     "sr": "Baka kemadi kole, bualba baka sanana gibue njumussa nejesu, kaimulukita",
@@ -2063,12 +2062,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 16,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Bantu"
   },
   "lug": {
     "name": "Luganda",
     "nativeName": "Oluganda",
-    "group": "Bantu",
     "speakers": 13,
     "sampleUrl": "https://youtu.be/u5KhQpbLsuk?si=d6s4OqxaMkuZfiNV&t=437",
     "sr": "E ćemisanaa, đakaunga, navi đal đalo",
@@ -2082,12 +2081,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 16,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Bantu"
   },
   "luo": {
     "name": "Luo",
     "nativeName": "Dholuo",
-    "group": "Nilotic",
     "speakers": 5,
     "sampleUrl": "https://youtu.be/paYFIFfAlrk?si=6imS_eflrEWqpLkv&t=1637",
     "sr": "Baz luenjinin ubido-ka manomo kut oku tundo magiueio, poru-Giduaronegi-Dinjiine, podogi kiak ki narue-rario po dogi tugo nelue",
@@ -2100,12 +2099,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Nilotic"
   },
   "mag": {
     "name": "Magahi",
     "nativeName": "मगही",
-    "group": "Indo-Aryan",
     "speakers": 13,
     "sampleUrl": "https://youtu.be/AmACtCf_5PE?si=5egJYYWt-I_JBykr&t=104",
     "sr": "Tofir ageram gudinæi djavabus komagimein-gemerenam provinem tofirkjabulege",
@@ -2118,12 +2117,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Indo-Aryan"
   },
   "mai": {
     "name": "Maithili",
     "nativeName": "मैथिली",
-    "group": "Indo-Aryan",
     "speakers": 34,
     "sampleUrl": "https://www.youtube.com/watch?v=wR_sZ5ZjMbE&t=375s",
     "sr": "Jhaha, avøstahar đagl! Luka ksamøt ells saraa bøbøndøbil kjrølč-haha",
@@ -2136,12 +2135,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Indo-Aryan"
   },
   "mal": {
     "name": "Malayalam",
     "nativeName": "മലയാളം",
-    "group": "South Dravidian",
     "speakers": 34,
     "sampleUrl": "https://youtu.be/EfIYZvVPyA4?si=i5xbkrxXro-vUbcq&t=894",
     "sr": "Pudiakajletø phaša valere dur greham-akikundø, akikundø mnleamvaretø",
@@ -2154,12 +2153,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "South Dravidian"
   },
   "mar": {
     "name": "Marathi",
     "nativeName": "मराठी",
-    "group": "Indo-Aryan",
     "speakers": 83,
     "sampleUrl": "https://www.youtube.com/watch?v=2iT8XOMfPfY&t=606s",
     "sr": "Apønsawadamadé tutøk pønønøsouablisouadamødi apønđjibulto tisøløk pønigbulagua",
@@ -2172,12 +2171,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Indo-Aryan"
   },
   "mas": {
     "name": "Maasai",
     "nativeName": "ɔl Maa",
-    "group": "Nilotic",
     "speakers": 1,
     "sampleUrl": "https://youtu.be/etUt37dgA4o?si=rR2SeAVzJpmA4Lbb&t=64",
     "sr": "Ola djemu rula nađi, na heke-nj-ha kegen bunga, ola jero ro?Ganj i, š-denji, nage",
@@ -2190,12 +2189,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Nilotic"
   },
   "min": {
     "name": "Minangkabau",
     "nativeName": "Baso Minangkabau",
-    "group": "Malayo-Polynesian",
     "speakers": 6,
     "sampleUrl": "https://youtu.be/98uqtsvCWwU?si=KmOEIihpbMQDqtNg&t=267",
     "sr": "Na čukoj aua, jedi baso, daje rafadjuo aua aros menja di bahaso jehola, biah, gluo bal? Jela, biah, aa, banja!",
@@ -2208,12 +2207,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Malayo-Polynesian"
   },
   "mkd": {
     "name": "Macedonian",
     "nativeName": "Македонски",
-    "group": "South Slavic",
     "speakers": 2,
     "sampleUrl": "https://www.youtube.com/watch?v=bmcjjL2IaBE&t=504s",
     "sr": "Ова гопофајлија што е, со пиперчиња, то со лулчато, тоа има некој посебно назиф, име некако посебно? Нема, мие ги вликаме пиперки со лук. Тоа е едно, а имаме друго, пиперки со... Макало, тоа се праи во тегли, го приготвуваме за зимница. Тие се пфт мали палнати пиперчина со сирење. Па, па, па значи да дојеш да си нараниш очи, душа, тело, суе!",
@@ -2226,12 +2225,12 @@
     "verbAspect": "binary",
     "evidentiality": "simple",
     "nounClassCount": 3,
-    "maxClusterSize": 4
+    "maxClusterSize": 4,
+    "lineageKey": "South Slavic"
   },
   "mlg": {
     "name": "Malagasy",
     "nativeName": "Malagasy",
-    "group": "Malayo-Polynesian",
     "speakers": 18,
     "sampleUrl": "https://www.youtube.com/watch?v=1DnDyiLFz1g&t=160s",
     "sr": "Rršnata nan rrua, dia, a tanbačrua, die rraanrrju, padintja, rupčanžyka",
@@ -2244,12 +2243,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Malayo-Polynesian"
   },
   "mlt": {
     "name": "Maltese",
     "nativeName": "Malti",
-    "group": "Semitic",
     "speakers": 0.52,
     "sampleUrl": "https://youtu.be/B3MnDSCY0mU?si=U6hzm5jolWfxJXZI&t=56",
     "sr": "Halia, ljesefis maa sifšlja aseśtof pofsom aždjik, muš leterboks",
@@ -2262,13 +2261,13 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Semitic"
   },
   "mni": {
     "name": "Meitei",
     "altName": "Manipuri",
     "nativeName": "ꯃꯩꯇꯩꯂꯣꯟ",
-    "group": "Other Tibeto-Burman",
     "speakers": 1.8,
     "sampleUrl": "https://youtu.be/tOsgiY3NPzk?si=PkCmRHeb87KOcXa3&t=398",
     "sr": "A duda gi di nu šit tumai pangal punnama kaloinana šit paholi",
@@ -2281,12 +2280,12 @@
     "verbAspect": "minimal",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Other Tibeto-Burman"
   },
   "mnw": {
     "name": "Mon",
     "nativeName": "ဘာသာမန်",
-    "group": "Mon-Khmer",
     "speakers": 0.8,
     "sampleUrl": "https://www.youtube.com/watch?v=O1ZPWf4O79U&t=593s",
     "sr": "Oo dazi čuzanavo? Dii hoodohobare źe noe, jagaune paunezgələundjounemja raaner tan tueke djare, səre, garegari śide vono",
@@ -2299,12 +2298,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Mon-Khmer"
   },
   "mon": {
     "name": "Mongolian",
     "nativeName": "Монгол",
-    "group": "Mongolic",
     "speakers": 6,
     "sampleUrl": "https://youtu.be/OMmMedqOWTA?si=vbDctiHk_GlYlvka&t=17",
     "sr": "Æirihin nih nih snaše, monhodoh sah nit honden, uvotøm-hten hatøpećirsyn tikint over",
@@ -2317,12 +2316,12 @@
     "verbAspect": "minimal",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Mongolic"
   },
   "mri": {
     "name": "Maori",
     "nativeName": "Te Reo Māori",
-    "group": "Pacific",
     "speakers": 0.185,
     "sampleUrl": "https://youtu.be/ATBv6M4LlOs?si=KMBp5Y9UCtYkSiqF&t=19",
     "sr": "Faja te ite kahuranji, tjitje tohu kuee, mehi mone taitai",
@@ -2335,12 +2334,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 1
+    "maxClusterSize": 1,
+    "lineageKey": "Pacific"
   },
   "msa": {
     "name": "Malay",
     "nativeName": "Bahasa Melayu",
-    "group": "Malayo-Polynesian",
     "speakers": 19,
     "sampleUrl": "https://www.youtube.com/watch?v=flj3oBghmEA&t=158s",
     "sr": "De ta pi, Krađa een bøli jautelah mømbe li Lejsen ba la, k paj d, Bonio len, møLallu i, Rundingan kytu blan kanijan tida øSa",
@@ -2353,12 +2352,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Malayo-Polynesian"
   },
   "mya": {
     "name": "Burmese",
     "nativeName": "မြန်မာဘာသာ",
-    "group": "Other Tibeto-Burman",
     "speakers": 33,
     "sampleUrl": "https://youtu.be/27btjlaJIyE?si=WDh9-M6Y84FZX_hD&t=415s",
     "sr": "Ja-ja. La-la-dodeká mavé. Njakalíne njadzigulé. A tandu phipje madzjunajmaré. Suvere. Kidou zendelouzelou ha. Pomeidai doun gju hainei. Dingidairei zet djepairei",
@@ -2371,12 +2370,12 @@
     "verbAspect": "minimal",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Other Tibeto-Burman"
   },
   "nah": {
     "name": "Nahuatl",
     "nativeName": "Nāhuatl",
-    "group": "Uto-Aztecan",
     "speakers": 1.7,
     "sampleUrl": "https://youtu.be/PbEf5jDd_pk?si=RRY7skeKDobQDqOH&t=6",
     "sr": "Keškikmi cikno tlamač ti jámomá sewahj, sema-Nauakón to nit tla-Nilíllo iníkton tlavíka",
@@ -2389,12 +2388,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Uto-Aztecan"
   },
   "nan": {
     "name": "Min Nan Chinese",
     "nativeName": "閩南語",
-    "group": "Sinitic",
     "speakers": 49,
     "sampleUrl": "https://www.youtube.com/watch?v=e-rY2zkCNtU&t=56s",
     "sr": "Sara đesitek đibezitjuokana huaiutokalai delua hjeptinkin surabajeno",
@@ -2407,13 +2406,13 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Sinitic"
   },
   "naq": {
     "name": "Khoekhoe",
     "altName": "Nama",
     "nativeName": "Khoekhoegowab",
-    "group": "Khoisan",
     "speakers": 0.3,
     "sampleUrl": "https://youtu.be/rSTBr8QbCtg?si=xcdByhXP4HfR3pJD&t=120",
     "sr": "Kajzeri djvo or ajta llita di kir* enkaj *ein hürvn staat güldigen *, hain * erat twimo *",
@@ -2426,12 +2425,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 5,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Khoisan"
   },
   "nav": {
     "name": "Navajo",
     "nativeName": "Diné bizaad",
-    "group": "Athabaskan",
     "speakers": 0.17,
     "sampleUrl": "https://youtu.be/YVHD_ZJuNvI?si=9hMXZcjHYAHJStg-&t=19",
     "sr": "Ae bino nátišna aro, našti, aro das obidžnšta, aaeceeja, sco deze nigi",
@@ -2444,12 +2443,12 @@
     "verbAspect": "complex",
     "evidentiality": "optional",
     "nounClassCount": 4,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Athabaskan"
   },
   "nde": {
     "name": "Ndebele",
     "nativeName": "isiNdebele",
-    "group": "Bantu",
     "speakers": 2,
     "sampleUrl": "https://www.youtube.com/watch?v=HCHk1Y7dGMk&t=276s",
     "sr": "Vamćelebonjana auaman kujbambigan njangoba e amabele asjanginigis piilendavalei alumela",
@@ -2462,12 +2461,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 15,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Bantu"
   },
   "nep": {
     "name": "Nepali",
     "nativeName": "नेपाली",
-    "group": "Indo-Aryan",
     "speakers": 16,
     "sampleUrl": "https://www.youtube.com/watch?v=PkowkAdj6go&t=56s",
     "sr": "Vœda haadina vuenid guteda wuanišuda, goarmada",
@@ -2480,13 +2479,13 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Indo-Aryan"
   },
   "new": {
     "name": "Newari",
     "altName": "Nepal Bhasa",
     "nativeName": "नेपाल भाषा",
-    "group": "Other Tibeto-Burman",
     "speakers": 0.8,
     "sampleUrl": "https://youtu.be/8uWwkcUah5g?si=SwpZ2QQcaw6CtkDQ&t=1061",
     "sr": "Ćigu buaniwani papaiko? Medouwadopadouwani dzigu. Dzigu ćee nepali ko?",
@@ -2499,12 +2498,12 @@
     "verbAspect": "minimal",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Other Tibeto-Burman"
   },
   "nld": {
     "name": "Dutch",
     "nativeName": "Nederlands",
-    "group": "West Germanic",
     "speakers": 24,
     "sampleUrl": "https://youtu.be/nKAqeS8B0Wo?si=mKBJs25yNugVBaLT&t=484",
     "sr": "Rick noemde het al even, in de literatuur worden die eigenschappen ook wel de mannentepels van de taal genoemd. Waarom? Nou, ze zitten er, ze zien er interessant uit, misschien hadden ze ooit wel een functie, maar wat je er nu aan hebt, is een raadsel.",
@@ -2517,12 +2516,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 4
+    "maxClusterSize": 4,
+    "lineageKey": "West Germanic"
   },
   "nor": {
     "name": "Norwegian",
     "nativeName": "Norsk",
-    "group": "North Germanic",
     "speakers": 5,
     "sampleUrl": "https://youtu.be/nsCVkb_-wbM?si=dUYsDzaN46-WBlMD&t=47",
     "sr": "Suiga žostüdem nu tiklinga som inskavammo, förme framovi šo vijam skæræ aleven komen, tilevaidmødpø, devis kafin po, i, śuśutajo śuśevirø",
@@ -2535,13 +2534,13 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "North Germanic"
   },
   "nso": {
     "name": "Sesotho",
     "altName": "Sepedi",
     "nativeName": "Sesotho sa Leboa",
-    "group": "Bantu",
     "speakers": 9,
     "sampleUrl": "https://www.youtube.com/watch?v=XtYb5M171rg&t=0",
     "sr": "Čume lambo arawa puku, lelohuno, ri roeli bella, litslakala laborar, nkanen river lelsakala laborar",
@@ -2555,12 +2554,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 15,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Bantu"
   },
   "nup": {
     "name": "Nupe",
     "nativeName": "Nupe",
-    "group": "Niger-Congo",
     "speakers": 6,
     "sampleUrl": "https://youtu.be/lrTF3pPG78E?si=KPh7r19alFtA-9uJ&t=36",
     "sr": "Tane đso bajna bkđiđ-bđe, u ma sala njukua, taga-djenje gajna oma laje la",
@@ -2574,12 +2573,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 1
+    "maxClusterSize": 1,
+    "lineageKey": "Niger-Congo"
   },
   "nus": {
     "name": "Nuer",
     "nativeName": "Thok Naath",
-    "group": "Nilotic",
     "speakers": 8,
     "sampleUrl": "https://youtu.be/EeLYMrHS6S8?si=mPD5aeWPNuz2K2vs&t=256",
     "sr": "Ćaladeuigen, tegen runde naindjo-korodien, eno, djenoa tege ka pin, a kume mala kume, südan, aresef",
@@ -2593,12 +2592,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Nilotic"
   },
   "nya": {
     "name": "Chewa",
     "nativeName": "Chicheŵa",
-    "group": "Bantu",
     "speakers": 12,
     "sampleUrl": "https://youtu.be/yyFsmiNXqXg?si=E15Qe03D8BfDP3Z0&t=17s",
     "sr": "Akaka njimbooo kojeamba njikanimbo-koo čuontuo dzamuan nanga tsallilla",
@@ -2611,12 +2610,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 16,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Bantu"
   },
   "nyk": {
     "name": "Nyaneka",
     "nativeName": "Olunyaneka",
-    "group": "Bantu",
     "speakers": 9,
     "sampleUrl": "https://youtu.be/OFGFkZLlQhc?si=s5KQ0Ra2CBDX-UkO&t=119s",
     "sr": "Uongo rało kuavo hadi, j-jde fejko, m-me jange jane nekere, nei hanga. Huantu vese, ve kefin gona menveja neneka",
@@ -2630,12 +2629,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 16,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Bantu"
   },
   "oji": {
     "name": "Ojibwe",
     "nativeName": "ᐊᓂᔑᓈᐯᒧᐎᓐ",
-    "group": "Algonquian",
     "speakers": 0.09,
     "sampleUrl": "https://youtu.be/0xKZR2azCZo?si=m5yhlvI-3hqlalM_&t=13",
     "sr": "Ma da so bun, gita žikeer, ikenoma di gomikini. Le kiku džtoua cke džeer, en de setoua džaii ",
@@ -2648,12 +2647,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Algonquian"
   },
   "ori": {
     "name": "Odia",
     "nativeName": "ଓଡ଼ିଆ",
-    "group": "Indo-Aryan",
     "speakers": 38,
     "sampleUrl": "https://www.youtube.com/watch?v=_WVdSeDcyNc&t=224s",
     "sr": "Ćonombor kostombo soi to khøstom bođokokoro, to køstombore oći",
@@ -2666,12 +2665,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Indo-Aryan"
   },
   "orm": {
     "name": "Oromo",
     "nativeName": "Afaan Oromoo",
-    "group": "Cushitic",
     "speakers": 37,
     "sampleUrl": "https://www.youtube.com/watch?v=nxNszspT51Y&t=267s",
     "sr": "A tesin-b fazallpan, børumsa an get dizu, ovaj ćudan diesan bøk købara bad denjidi",
@@ -2684,12 +2683,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 4,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Cushitic"
   },
   "pag": {
     "name": "Pangasinan",
     "nativeName": "Pangasinan",
-    "group": "Philippine",
     "speakers": 1.8,
     "sampleUrl": "https://youtu.be/3GMegEqrcjI?si=auYIcsDt2yihasdz&t=152",
     "sr": "Sai kasa l anan, sonjero v i ød ĆIkaro Æ o z. B aløt sai đusumanta T aua gd-sika r aten labai t o e n man pa-ta o l l ida",
@@ -2702,12 +2701,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Philippine"
   },
   "pam": {
     "name": "Kapampangan",
     "nativeName": "Kapampangan",
-    "group": "Philippine",
     "speakers": 2.9,
     "sampleUrl": "https://youtu.be/w9-l1apESLw?si=RBCy64DQoti1zQdy&t=849",
     "sr": "In s anu hareng makatutu k i, ing us t u panga s ülat, ag p a n g king bi n asa møng dayalo g o?",
@@ -2720,12 +2719,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Philippine"
   },
   "pan": {
     "name": "Punjabi",
     "nativeName": "ਪੰਜਾਬੀ",
-    "group": "Indo-Aryan",
     "speakers": 93,
     "sampleUrl": "https://youtu.be/8uDil2kow30?si=oaWTA8UCjecyyLJ2&t=427",
     "sr": "Vi inukea kenee panđabi vičet ar adekuađi uprle pasedekøbøne haldi naldi",
@@ -2738,12 +2737,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Indo-Aryan"
   },
   "pol": {
     "name": "Polish",
     "nativeName": "Polski",
-    "group": "West Slavic",
     "speakers": 40,
     "sampleUrl": "https://youtu.be/oaszOam3vcU?si=WxDJuQsj-CQKxqza&t=574",
     "sr": "Droga na skrůte to znači łatvíjše i še pše, hoć uvažáne často za njebuašćíve sposob oćangnjénćja celu, to znači ak cemje to śa šangnoć, ale zajmja zrobiš to tak jak třeba, to ne probujéme šúkać jakiś přostřeh razvjol, zanji može zrobić zašnje tak dokládnje, bile tyrko dojšć do tego celu.",
@@ -2756,12 +2755,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 4
+    "maxClusterSize": 4,
+    "lineageKey": "West Slavic"
   },
   "por": {
     "name": "Portuguese",
     "nativeName": "Português",
-    "group": "Romance",
     "speakers": 221,
     "sampleUrl": "https://youtu.be/tGvlYsNpY6M?si=vdTCGX6foV037nhM&t=430",
     "sr": "A kiš tampž-mš-pišin-ždmorta ža frituš. Fikaron super št-l-dis ženoh zišti žapruvaejš, ton super savurozuš. A mnje polmy, erom pokinje maiš",
@@ -2774,12 +2773,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Romance"
   },
   "pus": {
     "name": "Pashto",
     "nativeName": "پښتو",
-    "group": "Iranian",
     "speakers": 40,
     "sampleUrl": "https://www.youtube.com/watch?v=zoDSgaHdiTc&t=818s",
     "sr": "No crdo pati kigiu? Jara pati kigi daurodjuorøravas juonimsou dubei kalapatiśi kaladuosou rupei patiśi kaladuonimsou patiśi",
@@ -2792,12 +2791,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Iranian"
   },
   "pwo": {
     "name": "Karen Pwo",
     "nativeName": "ပှၤ",
-    "group": "Karen",
     "speakers": 1.2,
     "sampleUrl": "https://youtu.be/ld5dcK-4qNM?si=fqLgCceY3ouzwjRk&t=229",
     "sr": "A ćumojda čuhi lehajhou amitha adaueda čudauhou amitha ončeja apatakaničeja hano",
@@ -2810,12 +2809,12 @@
     "verbAspect": "minimal",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Karen"
   },
   "quc": {
     "name": "K'iche'",
     "nativeName": "K'iche'",
-    "group": "Mayan",
     "speakers": 1,
     "sampleUrl": "https://youtu.be/9Ew2S5WCMjE?si=ZZrTa1h1GDc3aNmw&t=34",
     "sr": "Konšikule šokun čekaki čekin tahual šumahkanokh tusarela oou",
@@ -2828,12 +2827,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Mayan"
   },
   "que": {
     "name": "Quechua",
     "nativeName": "Runa Simi",
-    "group": "Quechuan",
     "speakers": 8,
     "sampleUrl": "https://youtu.be/Eccfa4iNYP8?si=_QuMQvvIHM4XvA8W&t=279",
     "sr": "Uaira, puiju, otaht indirimeko nata halh aita, ječesah tikoka, taki kuna taro wari, hina wanmi khanja riko halhai taka",
@@ -2846,12 +2845,12 @@
     "verbAspect": "simple",
     "evidentiality": "moderate",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Quechuan"
   },
   "roh": {
     "name": "Romansh",
     "nativeName": "Rumantsch",
-    "group": "Romance",
     "speakers": 0.06,
     "sampleUrl": "https://youtu.be/nFwZWYdAhGg?si=E3MQP-gzZ4aQwqUM&t=490",
     "sr": "Akultí maros nu ene plats ekonsee di žons, era kue feđ feđ krlef. Tike peves bo to, beras di kul tren tu mevas tike tike pešia spok",
@@ -2864,12 +2863,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Romance"
   },
   "rom": {
     "name": "Romani",
     "nativeName": "Romani ćhib",
-    "group": "Indo-Aryan",
     "speakers": 12,
     "sampleUrl": "https://www.youtube.com/watch?v=rvjtjwTLi9A&t=554s",
     "sr": "Ćaćo dromte arakas amaro panda dopolin te putras hiden muršen te kiden zor de čačes ankljas po gor",
@@ -2882,12 +2881,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Indo-Aryan"
   },
   "ron": {
     "name": "Romanian",
     "nativeName": "Română",
-    "group": "Romance",
     "speakers": 24,
     "sampleUrl": "https://youtu.be/5lNu_ESxQD0?si=RluPxyPYayIUYE7O&t=5465",
     "sr": "Petrućá di sparút? Nšć! Di ćemoative nu publika skrjesoára, non pas. Del sulka no publika. Ćel kres to vemi śeluka pabilj se no publiće pentrual će va di kippendru ka nu puate?",
@@ -2900,12 +2899,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Romance"
   },
   "run": {
     "name": "Kirundi",
     "nativeName": "Ikirundi",
-    "group": "Bantu",
     "speakers": 22,
     "sampleUrl": "https://youtu.be/dexSNp6ATUY?si=FWV23vX8kg-0Hv26&t=245",
     "sr": "Baramadze gogo, og, uhindu-kida, i numberombi, vari kovaračamuo, o vara dze hepse, lapurićidim, umberom dzidza",
@@ -2919,12 +2918,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 16,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Bantu"
   },
   "rus": {
     "name": "Russian",
     "nativeName": "Русский",
-    "group": "East Slavic",
     "speakers": 154,
     "sampleUrl": "https://youtu.be/bJDYZmo6ZkQ?si=BF5ns9ucPhQ-Dqoj&t=20883",
     "sr": "Э́то я уби́л тогда́ ста́руху-чино́вницу и сестру́ её Лизаве́ту топоро́м, и огра́бил",
@@ -2937,12 +2936,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 4
+    "maxClusterSize": 4,
+    "lineageKey": "East Slavic"
   },
   "ryu": {
     "name": "Okinawan",
     "nativeName": "沖縄口 / ウチナーグチ",
-    "group": "Japonic",
     "speakers": 0.4,
     "sampleUrl": "https://youtu.be/0T2OnDntxOI?si=0NbM-SW4SkYDtnlq&t=129",
     "sr": "Dokude somne i von narattaka, kumaninone nićida tjen, telüran śikarat kamćihat tjen",
@@ -2955,12 +2954,12 @@
     "verbAspect": "simple",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxClusterSize": 1
+    "maxClusterSize": 1,
+    "lineageKey": "Japonic"
   },
   "sag": {
     "name": "Sango",
     "nativeName": "Sängö",
-    "group": "Niger-Congo",
     "speakers": 10,
     "sampleUrl": "https://youtu.be/ly93UqkqHQ8?si=k-y14juNp4YFQvfz&t=453",
     "sr": "Bada dákuša dljo si kolo sii, lozánge si batakuša najan đula, na kumbi ni, wao kumbi naato đab ma kumba toonllu, dazii ijleke ćiśina majje kazon",
@@ -2974,12 +2973,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 1
+    "maxClusterSize": 1,
+    "lineageKey": "Niger-Congo"
   },
   "sat": {
     "name": "Santali",
     "nativeName": "ᱥᱟᱱᱛᱟᱲᱤ",
-    "group": "Munda",
     "speakers": 7,
     "sampleUrl": "https://www.youtube.com/watch?v=WKifMg7SsEc&t=78s",
     "sr": "Će leka mena bena?",
@@ -2992,13 +2991,13 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Munda"
   },
   "sce": {
     "name": "Santa",
     "altName": "Dongxiang",
     "nativeName": "Santa",
-    "group": "Mongolic",
     "speakers": 0.2,
     "sampleUrl": "https://youtu.be/QZZaLeHRhAA?si=EbzlF9w5wmL465jP&t=62",
     "sr": "Ingesøsma gonje pænfa sumladže k-čuo njefke khaškala konje dzaje kuluhauo",
@@ -3011,12 +3010,12 @@
     "verbAspect": "minimal",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Mongolic"
   },
   "sin": {
     "name": "Sinhala",
     "nativeName": "සිංහල",
-    "group": "Indo-Aryan",
     "speakers": 17,
     "sampleUrl": "https://www.youtube.com/watch?v=_rFja9HZbOk&t=378s",
     "sr": "Jegang c erage laiinegak uakrahaaroue jounadu uakrraharoue djenou tzagaradat tjinemadigingen haugedegidinak",
@@ -3029,12 +3028,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Indo-Aryan"
   },
   "slk": {
     "name": "Slovak",
     "nativeName": "Slovenčina",
-    "group": "West Slavic",
     "speakers": 5,
     "sampleUrl": "https://youtu.be/VO29yOgTMJ4?si=p1jVeeKMArtCdC5A&t=261",
     "sr": "Halyšky spolu z bryndzou poriadnje premiješame, a je v tomto pripadje mohla bit bryndza trošku redšija. Minuly se navšak všetki zdroje a tak sme se s tim musely njejako popasovať",
@@ -3047,12 +3046,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 4
+    "maxClusterSize": 4,
+    "lineageKey": "West Slavic"
   },
   "slv": {
     "name": "Slovenian",
     "nativeName": "Slovenščina",
-    "group": "South Slavic",
     "speakers": 2,
     "sampleUrl": "https://youtu.be/GVdbCjFl2D8?si=EgxXOHs0qRXx6lCA&t=68",
     "sr": "Evo lahkopevno izjavo, Marko. Kako je biti žiu? Nič novega.",
@@ -3065,12 +3064,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 4
+    "maxClusterSize": 4,
+    "lineageKey": "South Slavic"
   },
   "smo": {
     "name": "Samoan",
     "nativeName": "Gagana Sāmoa",
-    "group": "Pacific",
     "speakers": 0.51,
     "sampleUrl": "https://www.youtube.com/watch?v=ittnMW06of0&t=20s",
     "sr": "Ica uala moganda, aua eloa üle samoa, pa cauela moganda, e peole soo noomho adhokto jonoh panakhi møja",
@@ -3083,12 +3082,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 1
+    "maxClusterSize": 1,
+    "lineageKey": "Pacific"
   },
   "sna": {
     "name": "Shona",
     "nativeName": "chiShona",
-    "group": "Bantu",
     "speakers": 15,
     "sampleUrl": "https://www.youtube.com/watch?v=JgibX73Ya3k&t=306s",
     "sr": "Anjaerumun uoko uonouotemei??? Mhm. Mazimuarenei em-hanza. Askana kako penje ragemansako? Karepotanedo adhanei d-g-d-g-d",
@@ -3101,12 +3100,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 16,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Bantu"
   },
   "snd": {
     "name": "Sindhi",
     "nativeName": "سنڌي",
-    "group": "Indo-Aryan",
     "speakers": 25,
     "sampleUrl": "https://youtu.be/npg-0YOkqJc?si=_Ovi_H66N9Z3UISt&t=40",
     "sr": "Taazan dij lijker mej djokoajdo paterakudinajou hanitajngmasduri mildiadeadi",
@@ -3119,12 +3118,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Indo-Aryan"
   },
   "som": {
     "name": "Somali",
     "nativeName": "Soomaali",
-    "group": "Cushitic",
     "speakers": 16,
     "sampleUrl": "https://www.youtube.com/watch?v=P4hdxil8gQo&t=313s",
     "sr": "Auin of bahantheid, o kof o marh, t hau bøhanda mrkedi hawizu at katøh, of diksi kulhajo bahantheid, kof nomarok te ineualakua inšarla, nor kohasomenos naar khof-korhauzo",
@@ -3137,12 +3136,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Cushitic"
   },
   "sot": {
     "name": "Sotho",
     "nativeName": "Sesotho",
-    "group": "Bantu",
     "speakers": 11,
     "sampleUrl": "https://youtu.be/p9QDYQq6NnE?si=ed5veCLhY1aO-FNt&t=1302",
     "sr": "Čačo gjele hua pop kui mueto miha zavalei, püp sem vra đeno heki lorop pljezevljtaj ševljekar ka tou prima",
@@ -3156,12 +3155,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 15,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Bantu"
   },
   "spa": {
     "name": "Spanish",
     "nativeName": "Español",
-    "group": "Romance",
     "speakers": 460,
     "sampleUrl": "https://youtu.be/gG9uyi2rwcU?si=ZUpsn2d2_iLLn1Wm&t=669",
     "sr": "Vamos a velo primero e getee gueta eske: él no dife ke no se kel acorvar el luar. Dise ke no se ked akorvar del nombre! De kujo nombre no kjor akordarme. Del luar se akuerda, en toa la deskripfión es ke ase, si akuera pefetamente",
@@ -3174,12 +3173,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Romance"
   },
   "srb": {
     "name": "Sora",
     "nativeName": "𑃐𑃦𑃝𑃗𑃐𑃝",
-    "group": "Munda",
     "speakers": 0.3,
     "sampleUrl": "https://youtu.be/zkUCNcs6uqI?si=-y0dL_26LxFHQTI0&t=149s",
     "sr": "Jezero jana zimn, jara simkan đora purakn, a zora baka nana luti banga ranga",
@@ -3192,12 +3191,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Munda"
   },
   "srd": {
     "name": "Sardinian",
     "nativeName": "Sardu",
-    "group": "Sardinian",
     "speakers": 1.2,
     "sampleUrl": "https://youtu.be/5as9jMrmjpU?si=OxBbDbmkzXIKlWbT&t=58",
     "sr": "Suzardu estes a limba ki, mi pjake ta pruzu to e totus a limbas a romancasa, est una limba meta i speciale pro mene",
@@ -3210,12 +3209,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Sardinian"
   },
   "srp": {
     "name": "Serbian",
     "nativeName": "Српски",
-    "group": "South Slavic",
     "speakers": 9,
     "sampleUrl": "https://youtu.be/uy0tYdLFXuU?si=CYgOAihs1shEpWRn&t=401",
     "sr": "Samo pazi, nemoj biti lakom: njednu drugu voćku ili stvarku da nisi tako ni slučajno! Ako nešto drugo dineš-darneš, u reci će se praćaknuti štuka, uzleteće tica šljuka, šljuka će sleteti na bukvu, veverica će ispustiti orahovu ljusku, ljuska će pasti na puteljak  kicošu na razdeljak. Kicoš će izvaditi ogledalce da popravi, licne kosu, sa ogledalceta će se odbiti zraka i zaustaviti se na nosu poljara koji spava. Poljar će zviznuti, psi će zarežati, ne vredi ti bežati.",
@@ -3228,12 +3227,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 4
+    "maxClusterSize": 4,
+    "lineageKey": "South Slavic"
   },
   "ssw": {
     "name": "Swati",
     "nativeName": "siSwati",
-    "group": "Bantu",
     "speakers": 2.5,
     "sampleUrl": "https://youtu.be/4YulGwJpjpQ?t=102",
     "sr": "Uobabani gatbaja_balalalanjetcula. Emadjibasoua_palalalanjetcula gepaptcula aguoko",
@@ -3246,12 +3245,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 15,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Bantu"
   },
   "suk": {
     "name": "Sukuma",
     "nativeName": "Kɪsukuma",
-    "group": "Bantu",
     "speakers": 10,
     "sampleUrl": "https://www.youtube.com/watch?v=dsUH7my4fTs&t=0",
     "sr": "Mlemla vavaba navam majo, elinalia nena lite no pedjilo njili, nalenha zilin saidizi, haćokikuća dalle salama, tanzania",
@@ -3265,12 +3264,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 16,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Bantu"
   },
   "sun": {
     "name": "Sundanese",
     "nativeName": "Basa Sunda",
-    "group": "Austronesian",
     "speakers": 32,
     "sampleUrl": "https://www.youtube.com/watch?v=6oX6idGoUfo&t=257s",
     "sr": "Anđena tu đupuluhtaun, anđena bd ankat. Mrn a jasa bulanga i pugu",
@@ -3283,12 +3282,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Austronesian"
   },
   "swa": {
     "name": "Swahili",
     "nativeName": "Kiswahili",
-    "group": "Niger-Congo",
     "speakers": 87,
     "sampleUrl": "https://youtu.be/ydRRS0JNpLI?si=gUJOr9g8e67jOTkd&t=459",
     "sr": "Mana medalihini kwamba e kila đambolina hitađi uatouini uwezo na udžuzi, iliuaeze kpanji kiwa",
@@ -3301,12 +3300,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 15,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Niger-Congo"
   },
   "swe": {
     "name": "Swedish",
     "nativeName": "Svenska",
-    "group": "North Germanic",
     "speakers": 10,
     "sampleUrl": "https://www.youtube.com/watch?v=9bJety6xmxM&t=61s",
     "sr": "Uo dee meke benis se tatjo banhanski verme siikok sat, ten es tan alti annølünda, tø muulike partíjina. Ervmø fasman kæšju pliev-ron liiknanø",
@@ -3319,12 +3318,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "North Germanic"
   },
   "tam": {
     "name": "Tamil",
     "nativeName": "தமிழ்",
-    "group": "South Dravidian",
     "speakers": 75,
     "sampleUrl": "https://youtu.be/5poSFYGGkGk?si=qtvHrV8c__2yQ35U&t=168",
     "sr": "Serde beide koudavei arepis pø-noukaćot masala ser-ta-rlong? Ćat masa-la-jr-maser-te-kovai-linala,baravai-le?",
@@ -3337,12 +3336,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "South Dravidian"
   },
   "tat": {
     "name": "Tatar",
     "nativeName": "Татарча",
-    "group": "Kipchak Turkic",
     "speakers": 5.2,
     "sampleUrl": "https://www.youtube.com/watch?v=DGxhL7d-v7U&t=223s",
     "sr": "Teržimesen üzen oša uzdørøp, matori tripka tlabula",
@@ -3355,12 +3354,12 @@
     "verbAspect": "minimal",
     "evidentiality": "simple",
     "nounClassCount": 0,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Kipchak Turkic"
   },
   "tcy": {
     "name": "Tulu",
     "nativeName": "ತುಳು",
-    "group": "South Dravidian",
     "speakers": 2,
     "sampleUrl": "https://youtu.be/ORo4MKKB_8A?si=qa53MFopiKib7Usw&t=85",
     "sr": "A manelela arama nàkelltjra, enda tumba diu sad melési guada mahko-luma-néhrlije, ako-tomas-rala-héi digerøn tøkeløi-tøhóndøprešne",
@@ -3373,12 +3372,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "South Dravidian"
   },
   "tel": {
     "name": "Telugu",
     "nativeName": "తెలుగు",
-    "group": "Central Dravidian",
     "speakers": 74,
     "sampleUrl": "https://youtube.com/watch?v=944syVmlEks&t=131s",
     "sr": "Teripatilo darsinćiwalisena alia-lo, sri varahaswami alejo, sri andenejaswami alejo",
@@ -3391,12 +3390,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Central Dravidian"
   },
   "tgk": {
     "name": "Tajik",
     "nativeName": "Тоҷикӣ",
-    "group": "Iranian",
     "speakers": 8,
     "sampleUrl": "https://www.youtube.com/watch?v=_sDdWR6f7fM&t=555s",
     "sr": "Adu soneazizø, megujan du, stojabjanondaro uški vasmi hubitoži konrohumakan",
@@ -3409,12 +3408,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Iranian"
   },
   "tgl": {
     "name": "Tagalog",
     "nativeName": "Tagalog",
-    "group": "Philippine",
     "speakers": 25,
     "sampleUrl": "https://youtu.be/gA4CX2ylkf0?si=Yviv8MutyjBWG7YX&t=125",
     "sr": "Ai a baitopan, isang Asalmakateto-Hanen, sapamo mu osap-nan ka nila din guita an di Sohat i bitim kam tan",
@@ -3427,12 +3426,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Philippine"
   },
   "tha": {
     "name": "Thai",
     "nativeName": "ไทย",
-    "group": "Kra-Dai",
     "speakers": 71,
     "sampleUrl": "https://youtu.be/sNODZM60ok0?si=F9bZ_Ic7Iqf1pIN2&t=657",
     "sr": "Hoha meha mahai hon juu maahloj, naha halo Menangrulalo kotja me hen me nekaa, meert Meenaha",
@@ -3445,12 +3444,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Kra-Dai"
   },
   "tir": {
     "name": "Tigrinya",
     "nativeName": "ትግርኛ",
-    "group": "Semitic",
     "speakers": 7,
     "sampleUrl": "https://www.youtube.com/watch?v=VyuK6ggrZCc&t=179s",
     "sr": "Na ameta fkonze uman bekonas, dzjara. Zdemogaja, zitz efbogaja",
@@ -3463,12 +3462,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Semitic"
   },
   "ton": {
     "name": "Tongan",
     "nativeName": "Lea Fakatonga",
-    "group": "Pacific",
     "speakers": 0.2,
     "sampleUrl": "https://youtu.be/l9v3xCCJ9-w?si=B6JYcI1xunTrcsel&t=35",
     "sr": "Tou tou tauaki ma u pe-ena tu, va ka i, iekajane, ka asi pea moma hae hae",
@@ -3481,12 +3480,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 1
+    "maxClusterSize": 1,
+    "lineageKey": "Pacific"
   },
   "tsn": {
     "name": "Tswana",
     "nativeName": "Setswana",
-    "group": "Bantu",
     "speakers": 4.1,
     "sampleUrl": "https://youtu.be/wSi5BVkty8M?si=hT-uqTaZ4UtlRk_A&t=192s",
     "sr": "Som meke som nuskuanaro soma, kem uasare, ovorhaporo kolla. Ryzokola ge jan nore xarxeren buela harplamu. Trla łeba naguo haigua raba tüsa. Hor uanaga, sloze, ki, kigi gjema sová, gjema so mepe dja ree baba, e, e.",
@@ -3499,12 +3498,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 15,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Bantu"
   },
   "tuk": {
     "name": "Turkmen",
     "nativeName": "Türkmençe",
-    "group": "Oghuz Turkic",
     "speakers": 4.3,
     "sampleUrl": "https://youtu.be/-5KQjoWjhw0?si=-eY4oxkmcxx_wtWo&t=39s",
     "sr": "Teke jonok tjagargøjok ljong ahalele brholok, kltha brdzo ajgojurüš, aslorgur leleti",
@@ -3517,12 +3516,12 @@
     "verbAspect": "minimal",
     "evidentiality": "simple",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Oghuz Turkic"
   },
   "tum": {
     "name": "Tumbuka",
     "nativeName": "Chitumbuka",
-    "group": "Bantu",
     "speakers": 9,
     "sampleUrl": "https://youtu.be/9YpuXIgASRI?si=HUvw2WlDNAOAM1k6&t=175",
     "sr": "Va mama vamaronda, va dada vamaronda, va dada fada, va mama ma?A, vamaronda, businesswoman",
@@ -3536,12 +3535,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 14,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Bantu"
   },
   "tur": {
     "name": "Turkish",
     "nativeName": "Türkçe",
-    "group": "Oghuz Turkic",
     "speakers": 76,
     "sampleUrl": "https://youtu.be/_qhk5ZBY_SI?si=k2dDk8qCL9Qt_E2x&t=349",
     "sr": "Čok skmadan uzalji købølje fčurum, čok skmadan sarma veresørurus, čok søkajsans sarma lerønzøn altøna usøndøn patnamaloroldžaktir, ve ičaldžet hanamen d šrč prdžektř",
@@ -3554,12 +3553,12 @@
     "verbAspect": "minimal",
     "evidentiality": "simple",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Oghuz Turkic"
   },
   "uig": {
     "name": "Uyghur",
     "nativeName": "ئۇيغۇرچە",
-    "group": "Karluk Turkic",
     "speakers": 12,
     "sampleUrl": "https://youtu.be/U1XJa71MuVw?si=kU5-Er_48Ojol5bN&t=193",
     "sr": "Bitih khlumš køn mjü-ze, ben basful tu kel bir-tim, men saboi je mebir er suksus-tu-ken samabal-trum",
@@ -3572,12 +3571,12 @@
     "verbAspect": "minimal",
     "evidentiality": "simple",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Karluk Turkic"
   },
   "ukr": {
     "name": "Ukrainian",
     "nativeName": "Українська",
-    "group": "East Slavic",
     "speakers": 45,
     "sampleUrl": "https://www.youtube.com/watch?v=9Ml4InS1KvY&t=439s",
     "sr": "Нам відо́мо, що у вісімна́eцетому столі́тці, борщ забі́лјували смета́ною або я́йћами, які́ або відва́рјувалi та натира́лi, або влiва́лi увуа́риво-сјури́мi. А щø його́ затира́ли, тобто заправля́ли, тро́хи підсма́женим пшени́чним борошно́м.",
@@ -3590,12 +3589,12 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 4
+    "maxClusterSize": 4,
+    "lineageKey": "East Slavic"
   },
   "unr": {
     "name": "Mundari",
     "nativeName": "मुण्डारी",
-    "group": "Munda",
     "speakers": 1.2,
     "sampleUrl": "https://www.youtube.com/watch?v=6BvNihbWwsQ&t=67s",
     "sr": "Taka, te adela ataka e, kulkeda, nemo kare s-ri, narendremodita-kin-kin-kađíkedaći ća-saba-saka, mireseno i đan geelmijad, sirma kore, i suba dlihu vaka na",
@@ -3608,12 +3607,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Munda"
   },
   "urd": {
     "name": "Urdu",
     "nativeName": "اردو",
-    "group": "Indo-Aryan",
     "speakers": 68,
     "sampleUrl": "https://www.youtube.com/watch?v=0E8KWBufEDs&t=24s",
     "sr": "Taza sabznja taza pæl haljiz duud ormakøn vuaha a sanjisi dasdeabhe",
@@ -3626,12 +3625,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "Indo-Aryan"
   },
   "uzb": {
     "name": "Uzbek",
     "nativeName": "Oʻzbek",
-    "group": "Karluk Turkic",
     "speakers": 32,
     "sampleUrl": "https://www.youtube.com/watch?v=eQSFTCaVxBI&t=68s",
     "sr": "Šnaka-tikjes tenna-khamar buguni-čuoje jakšla-müšla, i kigje-bülö, zoualečeleza",
@@ -3644,12 +3643,12 @@
     "verbAspect": "minimal",
     "evidentiality": "simple",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Karluk Turkic"
   },
   "ven": {
     "name": "Venda",
     "nativeName": "Tshivenḓa",
-    "group": "Bantu",
     "speakers": 7,
     "sampleUrl": "https://youtu.be/7SOhQ3W1KqY?si=Wmram3PT2XVzITMU&t=819",
     "sr": "Ua doua hapua rauana urhuha huna karusamaj fidzoja ungokuambana, una karusemaj fi, kanakarusami rerroo",
@@ -3663,12 +3662,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 16,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Bantu"
   },
   "vie": {
     "name": "Vietnamese",
     "nativeName": "Tiếng Việt",
-    "group": "Mon-Khmer",
     "speakers": 76,
     "sampleUrl": "https://youtu.be/Ok7e6RmpmZo?si=K3zN1O4STSQW6Lqu&t=610",
     "sr": "Jenjela noil~~~~ djinoj lhljm namnam gimmiəmiə nəmnəb",
@@ -3681,12 +3680,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Mon-Khmer"
   },
   "war": {
     "name": "Waray",
     "nativeName": "Winaray",
-    "group": "Philippine",
     "speakers": 3.5,
     "sampleUrl": "https://youtu.be/ZPMZpBDBBRc?si=wWz0lWp99JqOcD3x&t=140",
     "sr": "Dirika bara nunum düman bata-kata, na duduk-dukain bajabas njeneng-sasaka",
@@ -3699,12 +3698,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Philippine"
   },
   "wol": {
     "name": "Wolof",
     "nativeName": "Wolof",
-    "group": "Atlantic",
     "speakers": 5,
     "sampleUrl": "https://youtu.be/l3y9I9Kf1Sc?si=wFv27NMGn-dIi6k9&t=1036",
     "sr": "Taeila đuruo mnjente elo fanci veeru septambar",
@@ -3717,12 +3716,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Atlantic"
   },
   "wuu": {
     "name": "Wu Chinese",
     "nativeName": "吴语",
-    "group": "Sinitic",
     "speakers": 77,
     "sampleUrl": "https://www.youtube.com/watch?v=zOb8s6GAj5E&t=7s",
     "sr": "Jazønier ir wen wogodonze jagobe ćađobidonzem voæjulajgobe æambe",
@@ -3735,12 +3734,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Sinitic"
   },
   "xal": {
     "name": "Kalmyk",
     "nativeName": "Хальмг",
-    "group": "Mongolic",
     "speakers": 0.15,
     "sampleUrl": "https://youtu.be/LWGlGZgjpkk?si=hxCbPRt_NwMHoVeo&t=18",
     "sr": "Jene, namrar, mečerloos, er haurar ürsarlauže, kirhšċkok, cajlorsm arhørhøm mčr gelüge, o šugen zalusø, cok-top",
@@ -3753,12 +3752,12 @@
     "verbAspect": "minimal",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Mongolic"
   },
   "xho": {
     "name": "Xhosa",
     "nativeName": "isiXhosa",
-    "group": "Bantu",
     "speakers": 8,
     "sampleUrl": "https://youtu.be/6iFSxAlJsSM?si=kKU9iiVe3pUAxvis&t=9",
     "sr": "Koþohano mama uno t'olo horponge? Kalléllo lake ko purtesolo vuimilles t'hosa. Kumsii tueke, tek leje obobánđele, gyizi kohlem kollu lekue pitúlli",
@@ -3771,12 +3770,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 15,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Bantu"
   },
   "yid": {
     "name": "Yiddish",
     "nativeName": "ייִדיש",
-    "group": "West Germanic",
     "speakers": 2,
     "sampleUrl": "https://youtu.be/rUtH8MGuFXw?si=4XSoGnxAnnaWrnKJ&t=390",
     "sr": "Er kompozir de všemvaje lideh, oparo ohet niš klopingta vi met welehe fohmat firdere sa viber fa de ojlend",
@@ -3789,12 +3788,12 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxClusterSize": 4
+    "maxClusterSize": 4,
+    "lineageKey": "West Germanic"
   },
   "yor": {
     "name": "Yoruba",
     "nativeName": "Yorùbá",
-    "group": "Niger-Congo",
     "speakers": 44,
     "sampleUrl": "https://www.youtube.com/watch?v=jV_1iyMC-zw&t=1214s",
     "sr": "A, oliki djoanatia manlo fissia pua lenia, late mu ki ulija ni nau-U? A tiki nu lendu?",
@@ -3807,12 +3806,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 1
+    "maxClusterSize": 1,
+    "lineageKey": "Niger-Congo"
   },
   "yua": {
     "name": "Yucatec Maya",
     "nativeName": "Màaya T'àan",
-    "group": "Mayan",
     "speakers": 0.8,
     "sampleUrl": "https://youtu.be/z8eTwjQCCuA?si=T-wkN89rnNpkAOvM&t=58",
     "sr": "Džs majnuo bøšićuou kobuel telega binenega pimuaituei teninvuohe maija",
@@ -3825,12 +3824,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Mayan"
   },
   "yue": {
     "name": "Cantonese",
     "nativeName": "粵語",
-    "group": "Sinitic",
     "speakers": 84,
     "sampleUrl": "https://www.youtube.com/watch?v=1PPgx7LGo4s&t=655s",
     "sr": "Hau dzalu tonquaa donu hallou, o dzeloi gaua launjizima hounczou gouzoumjuje malamju donuarivanjule",
@@ -3843,12 +3842,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Sinitic"
   },
   "zha": {
     "name": "Zhuang",
     "nativeName": "Vahcuengh",
-    "group": "Kra-Dai",
     "speakers": 18,
     "sampleUrl": "https://youtu.be/qM0_3b1yQSg?si=SQKcJK7UoE-HYvby&t=9",
     "sr": "Dzelome, demedzelem, tunúnnâu, digome dzelúnǎu, dilimenja, gibo bjadon gjam, inigdon, pinliu",
@@ -3861,13 +3860,13 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Kra-Dai"
   },
   "zhx": {
     "name": "Yue Chinese",
     "altName": "Taishanese",
     "nativeName": "台山話",
-    "group": "Sinitic",
     "speakers": 0.5,
     "sampleUrl": "https://www.youtube.com/watch?v=45C7-nLT5Dg&t=112s",
     "sr": "Nei hom hoji fon naiflong meiji penfliangaa",
@@ -3880,12 +3879,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Sinitic"
   },
   "zul": {
     "name": "Zulu",
     "nativeName": "isiZulu",
-    "group": "Bantu",
     "speakers": 12,
     "sampleUrl": "https://www.youtube.com/watch?v=x_KB_0kRfNQ&t=3448s",
     "sr": "Monguas tandingua đas baluna banja bantu, uzoba fundelania bantuana, obouzuba fundela pelingua đasbalouena, o mena mena mena mena mjonegomnem nangede",
@@ -3898,12 +3897,12 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 15,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Bantu"
   },
   "jam": {
     "name": "Jamaican Creole",
     "nativeName": "Patwa",
-    "group": "English Creole",
     "speakers": 3,
     "sampleUrl": "https://youtu.be/MUgIZwZe65o?si=QNBAXcAbH6aINmSa&t=282",
     "sr": "Abetse, nemno nuo sao dompling",
@@ -3916,12 +3915,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "English Creole"
   },
   "tpi": {
     "name": "Tok Pisin",
     "nativeName": "Tok Pisin",
-    "group": "English Creole",
     "speakers": 4,
     "sampleUrl": "https://youtu.be/ccL15j22AOQ?si=lVBpK0qdagcpNS68&t=185",
     "sr": "O? Ama amini o amas pela brada, na amas pela susa",
@@ -3934,12 +3933,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "English Creole"
   },
   "pcm": {
     "name": "Nigerian Pidgin",
     "nativeName": "Naija",
-    "group": "English Creole",
     "speakers": 75,
     "sampleUrl": "https://youtu.be/CTXGerFrqKM?si=qdNR4xt2TXYrRWGZ&t=712",
     "sr": "Daš mi moni nau, kom daš, jea kom kom kom daš mi, moni, i mins komaan gimi moni fri of čardž, džos gimi mon, džos cip mi, daš mi moni nau, oo, aj lajk dis jo topoo, jo go daš mi?",
@@ -3952,12 +3951,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "English Creole"
   },
   "bis": {
     "name": "Bislama",
     "nativeName": "Bislama",
-    "group": "English Creole",
     "speakers": 0.2,
     "sampleUrl": "https://youtu.be/-NrSATT7Y7M?si=bAQ1Wu5Vc-8iJ3Iu&t=33",
     "sr": "Naháet toh uot krange... I kušui tnomoi si ueo, uot krangemoord, liee di lagen plo - uot krange",
@@ -3970,12 +3969,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "English Creole"
   },
   "srn": {
     "name": "Sranan Tongo",
     "nativeName": "Sranantongo",
-    "group": "English Creole",
     "speakers": 0.5,
     "sampleUrl": "https://youtu.be/bnHvb_9_zFA?si=j9Av00tLCYkFKHD6&t=1201",
     "sr": "Ina samsana ućuća uaseti, oki, teda mav stret mi đo pikunu! Teda mav, teda mav ftre mi đo pikunu, to uno tak tak digi-jan-jan-jan-ja-nog-ja-non-ja-nja-njo, kop konorop konoro let abujare",
@@ -3988,12 +3987,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "English Creole"
   },
   "hat": {
     "name": "Haitian Creole",
     "nativeName": "Kreyòl Ayisyen",
-    "group": "French Creole",
     "speakers": 12,
     "sampleUrl": "https://youtu.be/xpD9GeclZPc?si=0NMwZhLLjSRaveXt&t=150",
     "sr": "La nuge, e šalot mue ra še, ef ui mue genje zonjola mueráše an žulijen",
@@ -4006,12 +4005,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "French Creole"
   },
   "mfe": {
     "name": "Mauritian Creole",
     "nativeName": "Kreol Morisien",
-    "group": "French Creole",
     "speakers": 1.2,
     "sampleUrl": "https://youtu.be/uoQCM3qyz78?si=GTFNAe2YVuYi51MQ&t=196",
     "sr": "I no ankoo? Pam lezet omonim? Kiśje mo? To ko ni",
@@ -4024,12 +4023,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "French Creole"
   },
   "crs": {
     "name": "Seychellois Creole",
     "nativeName": "Kreol Seselwa",
-    "group": "French Creole",
     "speakers": 0.073,
     "sampleUrl": "https://youtu.be/R983dDrWSjw?si=MtxUtxeAz0UyhkB_&t=340",
     "sr": "Ee, le uadapei, cifeer, dzi tuđimon, ki lepođimon i rakonzedmo liskili, ja don longanciso focinon gans",
@@ -4042,12 +4041,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "French Creole"
   },
   "rcf": {
     "name": "Réunion Creole",
     "nativeName": "Kréol Rénioné",
-    "group": "French Creole",
     "speakers": 0.56,
     "sampleUrl": "https://youtu.be/-yQ3E7Ygigs?si=6kb_vmb_DaCOM7LA&t=773",
     "sr": "Are gj źa bjoj źidja bjojd bol, etj izolí. Kga kga bja đi bju, vad izolí? Ansjuit, bjod, njbajdijah, fton thek mon",
@@ -4060,12 +4059,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "French Creole"
   },
   "gcr": {
     "name": "Guadeloupean Creole",
     "nativeName": "Kréyòl Gwadloup",
-    "group": "French Creole",
     "speakers": 0.4,
     "sampleUrl": "https://youtu.be/9CKPkN3y91I?si=HeYv_4LMpvsJmMi-&t=541",
     "sr": "Ame mi žan ke, se je fin makaton. Ze fini, ojuga di fituur, adoo fhaz ki pani vebe d'histonsieel",
@@ -4078,12 +4077,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "French Creole"
   },
   "acf": {
     "name": "Saint Lucian Creole",
     "nativeName": "Kwéyòl",
-    "group": "French Creole",
     "speakers": 0.16,
     "sampleUrl": "https://youtu.be/VT5mPpelt-4?si=moZlIT3tpUQx1kSr&t=313",
     "sr": "Ksimunipoo, kote žu neon, ifi, k-ce bajza, upasamem, c-heagaja nine",
@@ -4096,12 +4095,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "French Creole"
   },
   "kea": {
     "name": "Kabuverdianu",
     "nativeName": "Kriolu",
-    "group": "Portuguese Creole",
     "speakers": 0.87,
     "sampleUrl": "https://youtu.be/hiYG0AoI2CQ?si=GAWXpGAlWgJxyN7c&t=142",
     "sr": "E subina un kavalu na madiera, ez brinka na reje, i ez brinka ku bisikleta na madiera",
@@ -4114,12 +4113,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Portuguese Creole"
   },
   "pap": {
     "name": "Papiamento",
     "nativeName": "Papiamentu",
-    "group": "Portuguese Creole",
     "speakers": 0.34,
     "sampleUrl": "https://youtu.be/tYYY5mAO58k?si=CkZsLCWlWJPUd7dz&t=110",
     "sr": "Sere ma śinko o se bistibo paje neaći dreća bunita, no staban sali. Æuin, no sta kumisa di sero. Saka e heruta mefoi korijente. La ge paja nan numa, orenos buolde kaas, mi mista kabadi labana",
@@ -4132,12 +4131,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Portuguese Creole"
   },
   "cri": {
     "name": "Sãotomense",
     "nativeName": "Forro",
-    "group": "Portuguese Creole",
     "speakers": 0.07,
     "sampleUrl": "https://youtu.be/iMXl-GQhprc?si=hotfc8oDCqCZmqN0&t=164",
     "sr": "Noš temsu maj luzon lingvištika tunš leva, apei sar k toordu sartu mees fala tan tubíš",
@@ -4150,12 +4149,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Portuguese Creole"
   },
   "cbk": {
     "name": "Chavacano",
     "nativeName": "Chavacano",
-    "group": "Spanish Creole",
     "speakers": 2.5,
     "sampleUrl": "https://youtu.be/xgKKyDll20U?si=_AALdmp3hTPaED-w&t=58",
     "sr": "Kuando pa jo ćikito, sabija jo ćabakano, polki mi tata i nana kunmigo ja insinja",
@@ -4168,12 +4167,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Spanish Creole"
   },
   "pln": {
     "name": "Palenquero",
     "nativeName": "Lengua",
-    "group": "Spanish Creole",
     "speakers": 0.0025,
     "sampleUrl": "https://youtu.be/7kwxnJeADj8?si=rvL_g2AR5H0zFJ28&t=198",
     "sr": "Uedeneze kaki kolaua, keke aki kolaua neke keka dja ki kola",
@@ -4186,12 +4185,12 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 2
+    "maxClusterSize": 2,
+    "lineageKey": "Spanish Creole"
   },
   "sco": {
     "name": "Scots",
     "nativeName": "Scots",
-    "group": "West Germanic",
     "speakers": 1.5,
     "sampleUrl": "https://youtu.be/sNhUL4SrcRg?si=a6lesioCIYtU2eWz&t=12",
     "sr": "Mebi je lent e skjuul de dis wos sleng ed wosnie aproprie, en mebi ju dine kene spelo wods, en je senli wudn uze in rijtn, bu hu no? Skots es e lid, ez gjed ez oni adar",
@@ -4204,6 +4203,7 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxClusterSize": 3
+    "maxClusterSize": 3,
+    "lineageKey": "West Germanic"
   }
 }

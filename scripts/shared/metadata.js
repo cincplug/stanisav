@@ -28,7 +28,7 @@ export function loadLanguagesData() {
     return JSON.parse(jsonData);
   } catch (error) {
     console.error(
-      `[ERROR] Failed to parse languages.json at ${LANGUAGES_JSON}`
+      `[ERROR] Failed to parse languages.json at ${LANGUAGES_JSON}`,
     );
     console.error(`Error: ${error.message}`);
     return null;
@@ -80,5 +80,5 @@ export function getMetadataTitle(filename, languagesData) {
   }
 
   const lang = languagesData[iso];
-  return `${lang.name} - ${iso} - ${lang.group} - luka`;
+  return `${lang.name} - ${iso} - luka`;
 }

@@ -35,7 +35,6 @@ function App() {
     sampleUrl,
     name,
     speakers,
-    group,
     morphology,
     wordOrder,
     wordOrderFlexibility,
@@ -60,8 +59,6 @@ function App() {
       />
       {hasSubtitle && selectedLanguage && (
         <div className="subtitle">
-          <p>{group} group</p>
-          <br />
           <p>{morphology}</p>
           <p>
             {wordOrder} ({wordOrderFlexibility})

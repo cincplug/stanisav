@@ -7,9 +7,7 @@ function TabRenderer({
   activeTab,
   controls,
   onControlChange,
-  groupedLanguages,
   languageData,
-  availableGroups,
   data,
   filteringUtils,
   onFilteringUtilsChange,
@@ -31,9 +29,7 @@ function TabRenderer({
 
       {activeTab === "languages" && (
         <LanguagesTab
-          groupedLanguages={groupedLanguages}
           languageData={languageData}
-          availableGroups={availableGroups}
           isActive={activeTab === "languages"}
         />
       )}

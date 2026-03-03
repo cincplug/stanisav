@@ -54,7 +54,6 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
     const results = filterLanguagesByFeatures(data, filteringUtils);
     return results.map((result) => ({
       ...result,
-      groupName: data?.languageData?.[result.code]?.group || "Unknown",
     }));
   }, [data, filteringUtils]);
 
@@ -117,11 +116,8 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
                     ? currentValues.map(Number).includes(Number(value))
                     : currentValues.includes(value);
 
-                  // Get color for group/family filters
+                  // Get color for family filters
                   let buttonColor = null;
-                  if (feature === "group") {
-                    buttonColor = data?.groupInfo?.[value]?.color;
-                  }
 
                   // Get description for title attribute if available
                   const description = getFeatureDescription(feature, value);
@@ -177,14 +173,11 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
                   selectedLanguage === lang.code ? "selected" : ""
                 }`}
                 onClick={() => onLanguageFocus(lang.code)}
-                title={`${lang.name} (${lang.groupName}) - ${Object.entries(
-                  lang.features,
-                )
+                title={`${lang.name} - ${Object.entries(lang.features)
                   .map(([k, v]) => `${k}: ${v}`)
                   .join(", ")}`}
               >
-                <div className="language-name">{lang.name}</div>
-                <small className="language-group">{lang.groupName}</small>
+                {lang.name}
               </button>
             ))}
           </div>

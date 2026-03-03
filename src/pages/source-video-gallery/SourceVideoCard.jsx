@@ -38,8 +38,7 @@ function trimByInterpunction(str) {
 }
 
 const SourceVideoCard = ({ language }) => {
-  const { name, code, nativeName, group, speakers, sampleUrl, sr, ...rest } =
-    language;
+  const { name, code, nativeName, speakers, sampleUrl, sr, ...rest } = language;
   const embedUrl = getYoutubeEmbedUrl(sampleUrl);
   const videoRef = useRef();
   const [isVisible, setIsVisible] = useState(false);
@@ -79,10 +78,8 @@ const SourceVideoCard = ({ language }) => {
       <dl className="svgallery-attributes">
         <dt>iso code</dt>
         <dd>{code}</dd>
-        <dt>native Name</dt>
+        <dt>native name</dt>
         <dd>{nativeName}</dd>
-        <dt>language group</dt>
-        <dd>{group}</dd>
         <dt>native speakers</dt>
         <dd>{formatSpeakerNumber(speakers)}</dd>
         {Object.entries(rest).map(([key, value]) => {

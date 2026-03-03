@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useControls } from "../../contexts/ControlsContext";
 import { useSearch } from "../../hooks/useSearch";
-import { useTabHandlers } from "../../hooks/useTabHandlers";
 import { BurgerIcon, CloseIcon } from "./MenuIcons";
 import tabsConfig from "../../config/tabsConfig.json";
 import TabNavigation from "./TabNavigation";
@@ -18,15 +17,13 @@ function Menu({
   isCollapsed,
   onToggleCollapse,
   filteringUtils,
-  onFilteringUtilsChange
+  onFilteringUtilsChange,
 }) {
   const { controls, updateControl } = useControls();
   const [activeTab, setActiveTab] = useState(tabsConfig.defaultTab);
 
   const { searchTerm, setSearchTerm, searchResults, clearSearch } =
     useSearch(data);
-
-  const { availableGroups, groupedLanguages } = useTabHandlers(data);
 
   if (isLoading) {
     return null;
@@ -83,9 +80,7 @@ function Menu({
             activeTab={activeTab}
             controls={controls}
             onControlChange={handleControlChange}
-            groupedLanguages={groupedLanguages}
             languageData={data?.languages || {}}
-            availableGroups={availableGroups}
             data={data}
             filteringUtils={filteringUtils}
             onFilteringUtilsChange={onFilteringUtilsChange}

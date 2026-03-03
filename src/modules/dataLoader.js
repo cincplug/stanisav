@@ -1,5 +1,4 @@
 import languages from "../config/languages.json";
-import groupInfo from "../config/groupInfo.json";
 import linguisticConfig from "../config/linguisticConfig.json";
 
 class DataLoader {
@@ -11,10 +10,9 @@ class DataLoader {
     try {
       this.data = {
         languages,
-        groupInfo,
         languageCodes: Object.keys(languages),
         languageData: {},
-        languageGroups: {},
+        languageLineages: {},
         speakerData: {},
         typologicalFeatures: {},
         numericFeatureValues: {},
@@ -22,28 +20,29 @@ class DataLoader {
 
       const {
         languageData,
-        languageGroups,
+        languageLineages,
         speakerData,
         typologicalFeatures,
         numericFeatureValues,
       } = this.data;
 
       Object.entries(languages).forEach(([code, langData]) => {
-        const { group, speakers, ...typology } = langData;
+        const { lineageKey, speakers, ...typology } = langData;
 
-        languageData[code] = languages[code];
-        languageGroups[code] = group;
+        if (!lineageKey) {
+          throw new Error(`Missing lineageKey in languages.json for '${code}'`);
+        }
+
+        languageData[code] = langData;
+        languageLineages[code] = lineageKey;
         speakerData[code] = speakers;
         typologicalFeatures[code] = typology;
       });
 
-      // Add groupInfo to typologicalFeatures for easy access in sorting/filtering
-      typologicalFeatures._groupInfo = groupInfo;
-
       // Extract unique values for numeric features
       this.extractNumericFeatureValues(
         numericFeatureValues,
-        typologicalFeatures
+        typologicalFeatures,
       );
 
       return this.data;
@@ -71,7 +70,7 @@ class DataLoader {
         }
       });
       numericFeatureValues[feature] = Array.from(uniqueValues).sort(
-        (a, b) => a - b
+        (a, b) => a - b,
       );
     });
   }
