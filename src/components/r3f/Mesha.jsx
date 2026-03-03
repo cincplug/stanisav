@@ -82,12 +82,12 @@ const Mesha = ({
   });
 
   const leftCheekMaterial = useTonalityMaterial(
-    shiftHue(color, -30),
+    shiftHue(color, -60),
     shiftHue(color, 60),
     tonalityType,
   );
   const rightCheekMaterial = useTonalityMaterial(
-    shiftHue(color, 30),
+    shiftHue(color, 60),
     shiftHue(color, -60),
     tonalityType,
   );
