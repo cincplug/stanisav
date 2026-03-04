@@ -3,23 +3,20 @@ import lineages from "../config/lineages.json";
 
 const toOklch = converter("oklch");
 
-const wrapHue = (h) => ((h % 360) + 360) % 360;
-const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
-
 const oklchToHex = ({ l, c, h }) =>
   formatHex({
     mode: "oklch",
-    l: clamp(l, 0, 1),
-    c: clamp(c, 0, 0.37),
-    h: wrapHue(h),
+    l,
+    c,
+    h,
   });
 
-export const shiftHue = (color, shift = 0) => {
+export const shiftHue = (color, shift) => {
   const parsed = toOklch(color);
   return oklchToHex({
-    l: parsed.l ?? 0.62,
-    c: parsed.c ?? 0.16,
-    h: (parsed.h ?? 0) + shift,
+    l: parsed.l,
+    c: parsed.c,
+    h: parsed.h + shift,
   });
 };
 
@@ -38,16 +35,14 @@ export const calculateLanguageColors = (
   const buckets = {};
 
   const nodeChildren = new Map();
-  const nodeDepth = new Map();
   const nodeFirstSeen = new Map();
   const ownLanguageCount = new Map();
+  const rootsSet = new Set();
 
   const languageCodes = Object.keys(languageData);
 
-  const touchNode = (node, depth, seenIndex) => {
+  const touchNode = (node, seenIndex) => {
     if (!nodeChildren.has(node)) nodeChildren.set(node, new Set());
-    if (!nodeDepth.has(node) || depth < nodeDepth.get(node))
-      nodeDepth.set(node, depth);
     if (!nodeFirstSeen.has(node) || seenIndex < nodeFirstSeen.get(node)) {
       nodeFirstSeen.set(node, seenIndex);
     }
@@ -66,12 +61,12 @@ export const calculateLanguageColors = (
 
     const ancestors = lineages?.[lineageKey] ?? [];
     const path = [...ancestors, lineageKey];
+    if (path.length > 0) rootsSet.add(path[0]);
 
     path.forEach((node, depth) => {
-      touchNode(node, depth, seenIndex);
+      touchNode(node, seenIndex);
       if (depth === 0) return;
       const parent = path[depth - 1];
-      touchNode(parent, depth - 1, seenIndex);
       nodeChildren.get(parent).add(node);
     });
   });
@@ -93,10 +88,7 @@ export const calculateLanguageColors = (
     return total;
   };
 
-  const roots = [...nodeDepth.entries()]
-    .filter(([, depth]) => depth === 0)
-    .map(([node]) => node)
-    .sort(byFirstSeen);
+  const roots = [...rootsSet].sort(byFirstSeen);
 
   const nodeHue = new Map();
 
