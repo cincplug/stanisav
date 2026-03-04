@@ -1,5 +1,5 @@
 import "./LanguagesTab.css";
-import { useEffect, useRef, useMemo } from "react";
+import { useEffect, useRef, useMemo, useCallback } from "react";
 import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
@@ -9,84 +9,9 @@ import numericFeatures from "../../config/numericFeatures.json";
 import lineages from "../../config/lineages.json";
 import { sortLanguages } from "../../utils/sortingUtils";
 import { calculateLanguageColors } from "../../utils/colorUtils";
+import { buildLanguageTree } from "../../utils/languageGroupingUtils";
 import ControlItem from "./ControlItem";
-
-function buildLineageTree(languageCodes, languageData, lineages) {
-  const tree = {};
-
-  languageCodes.forEach((langCode) => {
-    const lineageKey = languageData[langCode].lineageKey;
-    const lineagePath = lineages[lineageKey]
-      ? [...lineages[lineageKey], lineageKey]
-      : [lineageKey];
-
-    let node = tree;
-    lineagePath.forEach((level, idx) => {
-      if (!node[level]) {
-        node[level] = { children: {}, languages: [] };
-      }
-      if (idx === lineagePath.length - 1) {
-        node[level].languages.push(langCode);
-      }
-      node = node[level].children;
-    });
-  });
-
-  return tree;
-}
-
-function renderLineageTree(
-  tree,
-  languageData,
-  labelContent,
-  selectedLanguage,
-  buttonRefs,
-  selectLanguage,
-  startFromLanguage,
-  languageColors,
-  depth = 0,
-) {
-  return Object.entries(tree).map(([lineage, node]) => (
-    <div key={lineage} className={depth === 0 ? "" : "indent"}>
-      <h3>{lineage}</h3>
-      <div className="languages-in-group">
-        {node.languages.map((langCode) => {
-          const label =
-            labelContent === "isoCode"
-              ? langCode
-              : languageData[langCode]?.[labelContent];
-          return (
-            <button
-              key={langCode}
-              ref={(el) => (buttonRefs.current[langCode] = el)}
-              style={{ background: languageColors[langCode] }}
-              className={`language-item-button ${
-                selectedLanguage === langCode ? "selected" : ""
-              } ${!languageData[langCode]?.sr ? "todo-item" : ""}`}
-              onClick={() => {
-                selectLanguage(langCode);
-                startFromLanguage(langCode);
-              }}
-            >
-              {label}
-            </button>
-          );
-        })}
-      </div>
-      {renderLineageTree(
-        node.children,
-        languageData,
-        labelContent,
-        selectedLanguage,
-        buttonRefs,
-        selectLanguage,
-        startFromLanguage,
-        languageColors,
-        depth + 1,
-      )}
-    </div>
-  ));
-}
+import LanguageTree from "./LanguageTree";
 
 function LanguagesTab({ languageData, isActive }) {
   const { selectedLanguage, selectLanguage } = useLanguageSelection();
@@ -149,9 +74,9 @@ function LanguagesTab({ languageData, isActive }) {
   );
 
   // Only apply nested lineage grouping for sortBy === "family"
-  const lineageTree = useMemo(() => {
+  const languageTreeData = useMemo(() => {
     if (sortBy === "family") {
-      return buildLineageTree(sortedLanguageCodes, languageData, lineages);
+      return buildLanguageTree(sortedLanguageCodes, languageData, lineages);
     }
     return null;
   }, [sortedLanguageCodes, sortBy, languageData]);
@@ -254,6 +179,14 @@ function LanguagesTab({ languageData, isActive }) {
     [languageData, languageLineages],
   );
 
+  const onSelectLanguage = useCallback(
+    (langCode) => {
+      selectLanguage(langCode);
+      startFromLanguage(langCode);
+    },
+    [selectLanguage, startFromLanguage],
+  );
+
   return (
     <div className="control-section">
       <div className="controls-grid sorting-controls">
@@ -268,49 +201,35 @@ function LanguagesTab({ languageData, isActive }) {
       </div>
 
       <div className="languages-list">
-        {sortBy === "family"
-          ? renderLineageTree(
-              lineageTree,
-              languageData,
-              labelContent,
-              selectedLanguage,
-              buttonRefs,
-              selectLanguage,
-              startFromLanguage,
-              languageColors,
-            )
-          : groupedByCategory.map((group) => (
-              <div key={group.title} className="language-group-container">
-                {sortBy !== "speakers" && (
-                  <h3 className="group-header">{group.title}</h3>
-                )}
-                <div className="languages-in-group">
-                  {group.languages.map((langCode) => {
-                    const label =
-                      labelContent === "isoCode"
-                        ? langCode
-                        : languageData[langCode]?.[labelContent];
+        {sortBy === "family" ? (
+          <LanguageTree
+            tree={languageTreeData}
+            languageData={languageData}
+            labelContent={labelContent}
+            selectedLanguage={selectedLanguage}
+            buttonRefs={buttonRefs}
+            onSelectLanguage={onSelectLanguage}
+            languageColors={languageColors}
+          />
+        ) : (
+          groupedByCategory.map((group) => (
+            <section key={group.title} className="language-group-container">
+              {sortBy !== "speakers" && (
+                <h3 className="group-header">{group.title}</h3>
+              )}
 
-                    return (
-                      <button
-                        key={langCode}
-                        ref={(el) => (buttonRefs.current[langCode] = el)}
-                        style={{ background: languageColors[langCode] }}
-                        className={`language-item-button ${
-                          selectedLanguage === langCode ? "selected" : ""
-                        } ${!languageData[langCode]?.sr ? "todo-item" : ""}`}
-                        onClick={() => {
-                          selectLanguage(langCode);
-                          startFromLanguage(langCode);
-                        }}
-                      >
-                        {label}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
+              <LanguageTree
+                languages={group.languages}
+                languageData={languageData}
+                labelContent={labelContent}
+                selectedLanguage={selectedLanguage}
+                buttonRefs={buttonRefs}
+                onSelectLanguage={onSelectLanguage}
+                languageColors={languageColors}
+              />
+            </section>
+          ))
+        )}
       </div>
     </div>
   );
