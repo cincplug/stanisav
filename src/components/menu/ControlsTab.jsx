@@ -18,13 +18,10 @@ const ControlGroup = ({ groupName, controls, updateControl }) => {
   const groupControls = getControlsByGroup(groupName);
   if (groupControls.length === 0) return null;
 
-  const gridClass =
-    groupName === "Colors" ? "controls-grid-colors" : "controls-grid";
-
   return (
     <fieldset className="control-group">
       <legend>{groupName}</legend>
-      <div className={gridClass}>
+      <div className="controls-grid">
         {groupControls.map((control) => (
           <ControlItem
             key={control.id}

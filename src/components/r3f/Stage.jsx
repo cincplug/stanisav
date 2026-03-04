@@ -30,6 +30,13 @@ const Stage = ({
     far,
     backgroundColor,
     isMyMesha,
+    hueStart,
+    hueCircle,
+    maxSiblingSpread,
+    globalLightnessScale,
+    globalLightnessOffset,
+    globalChromaScale,
+    globalChromaOffset,
   } = controls;
   const { filteringUtils, selectedLanguage } = useLanguageSelection();
 
@@ -58,8 +65,28 @@ const Stage = ({
 
   const languageColors = useMemo(() => {
     if (!data?.languageData || !data?.languageLineages) return {};
-    return calculateLanguageColors(data.languageData, data.languageLineages);
-  }, [data?.languageData, data?.languageLineages]);
+    return calculateLanguageColors(
+      data.languageData,
+      data.languageLineages,
+      hueStart,
+      hueCircle,
+      maxSiblingSpread,
+      globalLightnessScale,
+      globalLightnessOffset,
+      globalChromaScale,
+      globalChromaOffset,
+    );
+  }, [
+    data?.languageData,
+    data?.languageLineages,
+    hueStart,
+    hueCircle,
+    maxSiblingSpread,
+    globalLightnessScale,
+    globalLightnessOffset,
+    globalChromaScale,
+    globalChromaOffset,
+  ]);
 
   const meshaLanguageCode = selectedLanguage || sortedLanguageCodes[0];
   const meshaLinguisticProperties =

@@ -338,5 +338,75 @@
     "defaultValue": 0.6,
     "isUserEditable": true,
     "group": "Mesha"
+  },
+  "hueStart": {
+    "type": "range",
+    "label": "Hue start",
+    "min": 0,
+    "max": 360,
+    "step": 1,
+    "defaultValue": 0,
+    "isUserEditable": true,
+    "group": "Colors"
+  },
+  "hueCircle": {
+    "type": "range",
+    "label": "Hue circle",
+    "min": 60,
+    "max": 360,
+    "step": 1,
+    "defaultValue": 360,
+    "isUserEditable": true,
+    "group": "Colors"
+  },
+  "maxSiblingSpread": {
+    "type": "range",
+    "label": "Sibling hue spread",
+    "min": 0,
+    "max": 90,
+    "step": 1,
+    "defaultValue": 30,
+    "isUserEditable": true,
+    "group": "Colors"
+  },
+  "globalLightnessScale": {
+    "type": "range",
+    "label": "Lightness scale",
+    "min": 0,
+    "max": 2,
+    "step": 0.01,
+    "defaultValue": 1,
+    "isUserEditable": true,
+    "group": "Colors"
+  },
+  "globalLightnessOffset": {
+    "type": "range",
+    "label": "Lightness offset",
+    "min": -0.5,
+    "max": 0.5,
+    "step": 0.01,
+    "defaultValue": 0,
+    "isUserEditable": true,
+    "group": "Colors"
+  },
+  "globalChromaScale": {
+    "type": "range",
+    "label": "Chroma scale",
+    "min": 0,
+    "max": 2,
+    "step": 0.01,
+    "defaultValue": 1,
+    "isUserEditable": true,
+    "group": "Colors"
+  },
+  "globalChromaOffset": {
+    "type": "range",
+    "label": "Chroma offset",
+    "min": -0.2,
+    "max": 0.2,
+    "step": 0.01,
+    "defaultValue": 0,
+    "isUserEditable": true,
+    "group": "Colors"
   }
 }

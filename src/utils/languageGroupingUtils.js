@@ -10,12 +10,12 @@ export function buildLanguageTree(languageCodes, languageData, lineagesConfig) {
       : [lineageKey];
 
     let node = tree;
-    lineagePath.forEach((level, idx) => {
+    lineagePath.forEach((level, index) => {
       if (!node[level]) {
         node[level] = { children: {}, languages: [] };
       }
 
-      if (idx === lineagePath.length - 1) {
+      if (index === lineagePath.length - 1) {
         node[level].languages.push(langCode);
       }
 

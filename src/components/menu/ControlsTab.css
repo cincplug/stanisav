@@ -6,8 +6,6 @@
 }
 
 .control-item {
-  margin-bottom: 10px;
-
   label {
     display: flex;
     margin-bottom: 5px;
@@ -31,10 +29,4 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--gap-double);
-}
-
-.controls-grid-colors {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: var(--gap);
 }

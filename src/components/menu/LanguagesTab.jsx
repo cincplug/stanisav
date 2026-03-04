@@ -19,7 +19,18 @@ function LanguagesTab({ languageData, isActive }) {
   const { controls, updateControl } = useControls();
   const buttonRefs = useRef({});
 
-  const { sortBy, labelContent, isReverse } = controls;
+  const {
+    sortBy,
+    labelContent,
+    isReverse,
+    hueStart,
+    hueCircle,
+    maxSiblingSpread,
+    globalLightnessScale,
+    globalLightnessOffset,
+    globalChromaScale,
+    globalChromaOffset,
+  } = controls;
 
   // Prepare all required data for sorting
   const languageCodes = useMemo(
@@ -124,8 +135,8 @@ function LanguagesTab({ languageData, isActive }) {
 
       if (sortBy === "family") {
         const lineageKey = languageLineages[langCode];
-        const ancestors = lineages[lineageKey] || [];
-        categoryKey = ancestors[0] || lineageKey;
+        const ancestors = lineages[lineageKey];
+        categoryKey = ancestors[0];
         categoryLabel = categoryKey;
       } else if (linguisticConfig[sortBy]?.values) {
         categoryKey = languageData[langCode][sortBy];
@@ -134,9 +145,6 @@ function LanguagesTab({ languageData, isActive }) {
       } else if (numericFeatures.includes(sortBy)) {
         categoryKey = languageData[langCode][sortBy];
         categoryLabel = `${categoryKey}`;
-      } else {
-        categoryKey = "all";
-        categoryLabel = "All languages";
       }
 
       if (!result[categoryKey]) {
@@ -173,10 +181,30 @@ function LanguagesTab({ languageData, isActive }) {
     }
   }, [selectedLanguage, isActive]);
 
-  // Calculate colors for all languages with hue shifts
   const languageColors = useMemo(
-    () => calculateLanguageColors(languageData, languageLineages),
-    [languageData, languageLineages],
+    () =>
+      calculateLanguageColors(
+        languageData,
+        languageLineages,
+        hueStart,
+        hueCircle,
+        maxSiblingSpread,
+        globalLightnessScale,
+        globalLightnessOffset,
+        globalChromaScale,
+        globalChromaOffset,
+      ),
+    [
+      languageData,
+      languageLineages,
+      hueStart,
+      hueCircle,
+      maxSiblingSpread,
+      globalLightnessScale,
+      globalLightnessOffset,
+      globalChromaScale,
+      globalChromaOffset,
+    ],
   );
 
   const onSelectLanguage = useCallback(
