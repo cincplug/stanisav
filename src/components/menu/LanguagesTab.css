@@ -9,17 +9,6 @@
     width: auto;
     display: inline-block;
   }
-
-  .group-header {
-    /* Remove font-size and font-weight here, use .group-title/.subgroup-title instead */
-    margin: 0;
-  }
-}
-
-/* Language button layout */
-.language-button span {
-  font-style: italic;
-  margin-top: 2px;
 }
 
 .language-item-button {
@@ -47,13 +36,4 @@
   .checkbox-control {
     grid-column: span 1;
   }
-}
-
-/* Languages list */
-.languages-list > div {
-  margin-left: 0;
-}
-
-.languages-list > div > div {
-  margin-left: var(--gap-double);
 }

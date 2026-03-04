@@ -1,8 +1,3 @@
-/**
- * Linguistic Filters Utility
- * Functions for filtering languages by typological features
- */
-
 import lineages from "../config/lineages.json";
 
 const getFamily = (lineageKey) => {

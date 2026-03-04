@@ -195,22 +195,6 @@ legend {
   position: relative;
 }
 
-.group-title {
-  font-weight: bold;
-  font-size: var(--font-size-big);
-  margin: var(--gap-triple) 0 var(--gap) 0; /* large top, small bottom */
-  color: var(--color-text);
-  padding: 0;
-}
-
-.subgroup-title {
-  font-weight: normal;
-  font-size: var(--font-size-normal);
-  color: var(--color-text);
-  margin: var(--gap-double) 0 var(--gap-half) 0; /* medium top, minimal bottom */
-  padding: 0;
-}
-
 .languages-in-group {
   display: flex;
   flex-wrap: wrap;
@@ -218,15 +202,7 @@ legend {
   margin-bottom: var(--gap-half);
 }
 
-.indent-0 {
-  margin-left: 0;
-}
-.indent-1 {
+.indent {
   margin-left: var(--gap-double);
-}
-.indent-2 {
-  margin-left: calc(var(--gap-double) * 2);
-}
-.indent-3 {
-  margin-left: calc(var(--gap-double) * 3);
+  position: relative;
 }

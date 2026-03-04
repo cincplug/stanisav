@@ -1,6 +1,5 @@
 import "./LanguagesTab.css";
 import { useEffect, useRef, useMemo } from "react";
-import { useAppState } from "../../contexts/AppStateContext";
 import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
@@ -12,9 +11,7 @@ import { sortLanguages } from "../../utils/sortingUtils";
 import { calculateLanguageColors } from "../../utils/colorUtils";
 import ControlItem from "./ControlItem";
 
-// Helper: recursively build lineage tree
 function buildLineageTree(languageCodes, languageData, lineages) {
-  // Group languages by their lineage path
   const tree = {};
 
   languageCodes.forEach((langCode) => {
@@ -26,19 +23,18 @@ function buildLineageTree(languageCodes, languageData, lineages) {
     let node = tree;
     lineagePath.forEach((level, idx) => {
       if (!node[level]) {
-        node[level] = { __children: {}, __languages: [] };
+        node[level] = { children: {}, languages: [] };
       }
       if (idx === lineagePath.length - 1) {
-        node[level].__languages.push(langCode);
+        node[level].languages.push(langCode);
       }
-      node = node[level].__children;
+      node = node[level].children;
     });
   });
 
   return tree;
 }
 
-// Helper: recursively render lineage tree
 function renderLineageTree(
   tree,
   languageData,
@@ -51,12 +47,10 @@ function renderLineageTree(
   depth = 0,
 ) {
   return Object.entries(tree).map(([lineage, node]) => (
-    <div key={lineage} className={`indent-${depth}`}>
-      <h3 className={depth === 0 ? "group-title" : "subgroup-title"}>
-        {lineage}
-      </h3>
+    <div key={lineage} className={depth === 0 ? "" : "indent"}>
+      <h3>{lineage}</h3>
       <div className="languages-in-group">
-        {node.__languages.map((langCode) => {
+        {node.languages.map((langCode) => {
           const label =
             labelContent === "isoCode"
               ? langCode
@@ -80,7 +74,7 @@ function renderLineageTree(
         })}
       </div>
       {renderLineageTree(
-        node.__children,
+        node.children,
         languageData,
         labelContent,
         selectedLanguage,
@@ -99,7 +93,6 @@ function LanguagesTab({ languageData, isActive }) {
   const { startFromLanguage } = usePlaylist();
   const { controls, updateControl } = useControls();
   const buttonRefs = useRef({});
-  const { data } = useAppState();
 
   const { sortBy, labelContent, isReverse } = controls;
 
