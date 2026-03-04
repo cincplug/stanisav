@@ -1,5 +1,3 @@
-import LanguageList from "./LanguageList";
-
 const LanguageTree = ({
   tree,
   languages,
@@ -12,7 +10,6 @@ const LanguageTree = ({
   depth = 0,
   parentKey = "root",
 }) => {
-  // Flat list mode (replaces old LanguageList)
   if (Array.isArray(languages)) {
     return (
       <ul className="languages-in-group" role="list">
