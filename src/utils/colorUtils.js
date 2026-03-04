@@ -59,7 +59,7 @@ export const calculateLanguageColors = (
       (ownLanguageCount.get(lineageKey) ?? 0) + 1,
     );
 
-    const ancestors = lineages?.[lineageKey] ?? [];
+    const ancestors = lineages?.[lineageKey];
     const path = [...ancestors, lineageKey];
     if (path.length > 0) rootsSet.add(path[0]);
 
@@ -71,15 +71,14 @@ export const calculateLanguageColors = (
     });
   });
 
-  const byFirstSeen = (a, b) =>
-    (nodeFirstSeen.get(a) ?? 0) - (nodeFirstSeen.get(b) ?? 0);
+  const byFirstSeen = (a, b) => nodeFirstSeen.get(a) - nodeFirstSeen.get(b);
 
   const subtreeMemo = new Map();
   const getSubtreeWeight = (node) => {
     if (subtreeMemo.has(node)) return subtreeMemo.get(node);
 
     let total = ownLanguageCount.get(node) ?? 0;
-    const children = [...(nodeChildren.get(node) ?? [])];
+    const children = [...nodeChildren.get(node)];
     children.forEach((child) => {
       total += getSubtreeWeight(child);
     });
@@ -94,8 +93,10 @@ export const calculateLanguageColors = (
 
   const assignRanges = (nodes, start, end) => {
     const span = end - start;
-    const totalWeight =
-      nodes.reduce((sum, node) => sum + getSubtreeWeight(node), 0) || 1;
+    const totalWeight = nodes.reduce(
+      (sum, node) => sum + getSubtreeWeight(node),
+      0,
+    );
 
     let cursor = start;
     nodes.forEach((node) => {
@@ -105,7 +106,7 @@ export const calculateLanguageColors = (
 
       nodeHue.set(node, center);
 
-      const children = [...(nodeChildren.get(node) ?? [])].sort(byFirstSeen);
+      const children = [...nodeChildren.get(node)].sort(byFirstSeen);
       if (children.length > 0)
         assignRanges(children, cursor, cursor + nodeSpan);
 
@@ -137,7 +138,7 @@ export const calculateLanguageColors = (
     result[code] = oklchToHex({
       l,
       c,
-      h: (nodeHue.get(lineageKey) ?? 0) + spread,
+      h: nodeHue.get(lineageKey) + spread,
     });
   });
 
