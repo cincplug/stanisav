@@ -120,3 +120,13 @@ export const calculateSizeMultiplier = (
 
   return outMin + normalizedRank * (outMax - outMin);
 };
+
+export const calculateRadialOffset = (position) => {
+  const length = Math.sqrt(
+    position[0] * position[0] +
+      position[1] * position[1] +
+      position[2] * position[2],
+  );
+  if (length === 0) return [0, 0, 0];
+  return [position[0] / length, position[1] / length, position[2] / length];
+};

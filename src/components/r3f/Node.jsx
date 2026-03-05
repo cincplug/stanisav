@@ -1,10 +1,15 @@
-import { useCallback, useMemo } from "react";
+import { useCallback, useMemo, useRef } from "react";
+import { a, useSpring } from "@react-spring/three";
+import { useFrame } from "@react-three/fiber";
 import layoutConfig from "../../config/layoutConfig.json";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
 import { usePlaylist } from "../../contexts/PlaylistContext.jsx";
 import { useAppState } from "../../contexts/AppStateContext.jsx";
-import { calculateSizeMultiplier } from "../../utils/sceneUtils.js";
+import {
+  calculateSizeMultiplier,
+  calculateRadialOffset,
+} from "../../utils/sceneUtils.js";
 import Label from "./Label.jsx";
 
 const Node = ({
@@ -14,6 +19,7 @@ const Node = ({
   isSelected = false,
   color,
 }) => {
+  const groupRef = useRef();
   const { controls } = useControls();
   const { data } = useAppState();
   const { filteredLanguages, filteringUtils, selectLanguage } =
@@ -34,7 +40,6 @@ const Node = ({
     }
   };
 
-  // Don't render if filters are active and this language is not in filtered set
   if (
     Object.keys(filteringUtils).length > 0 &&
     !filteredLanguages.has(languageCode)
@@ -59,8 +64,29 @@ const Node = ({
 
   const labelText = getLabelText(language, languageCode, labelContent);
 
+  const radialOffset = useMemo(
+    () => calculateRadialOffset(position),
+    [position],
+  );
+
+  const spring = useSpring({
+    offset: isSelected ? 3 : 0,
+    config: { tension: 170, friction: 26 },
+  });
+
+  useFrame(() => {
+    if (groupRef.current) {
+      const offset = spring.offset.get();
+      groupRef.current.position.set(
+        position[0] + radialOffset[0] * offset,
+        position[1] + radialOffset[1] * offset,
+        position[2] + radialOffset[2] * offset,
+      );
+    }
+  });
+
   return (
-    <group position={position} onClick={handleClick}>
+    <group ref={groupRef} position={position} onClick={handleClick}>
       <Label
         fontSize={fontSize}
         isSelected={isSelected}
