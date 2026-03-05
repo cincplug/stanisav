@@ -39,7 +39,7 @@ export const tonalityFragmentShader = /* glsl */ `
       mask = max(mask, stripe);
     }
 
-    return mask; // 0 outside stripe, 1 inside stripe
+    return mask;
   }
 
   // Tonality-specific stripe selection.
@@ -53,30 +53,38 @@ export const tonalityFragmentShader = /* glsl */ `
     } else if (type == 3) {
       return getVerticalStripeMask(uv.x, 10);
     }
-    return 0.0; // type 0 => no extra stripe pattern
+    return 0.0;
   }
 
   void main() {
-    vec3 lightDir = normalize(vec3(5.0, -5.0, 5.0));
-    float diffuse = max(dot(normalize(vNormal), lightDir), 0.0);
+    vec3 normal = normalize(vNormal);
+    
     float ambient = 0.7;
-    float lighting = ambient + diffuse * 0.5;
+    vec3 light1 = normalize(vec3(-1.0, 0.0, 1.0));
+    vec3 light2 = normalize(vec3(1.0, 0.0, 1.0));
+    vec3 light3 = normalize(vec3(0.0, 1.0, 1.0));
+    
+    float diffuse1 = max(dot(normal, light1), 0.0);
+    float diffuse2 = max(dot(normal, light2), 0.0);
+    float diffuse3 = max(dot(normal, light3), 0.0);
+    
+    float lighting = ambient + (diffuse1 + diffuse2 + diffuse3) * 0.5;
+    lighting = clamp(lighting, 0.7, 1.8);
 
-    // Checker is always visible: base <-> slightly darker base.
+    vec3 litBaseColor = uBaseColor * lighting;
+    
+    vec3 litLighterColor = litBaseColor * 1.5;
+
+    // Checker pattern
     const float CHECKER_SHADE = 0.96;
     float checkerMask = getCheckerMask(vUv);
-    vec3 darkerBase = uBaseColor * CHECKER_SHADE;
-    vec3 checkerColor = mix(uBaseColor, darkerBase, checkerMask);
+    vec3 darkerBase = litBaseColor * CHECKER_SHADE;
+    vec3 checkerColor = mix(litBaseColor, darkerBase, checkerMask);
 
-    // Hardcoded accent opacity
-    const float ACCENT_OPACITY = 0.5;
-
-    // Stripes overlay checker and switch to accent where mask == 1.
+    // Stripes use lighter version
     float stripeMask = getStripeMask(vUv, uTonalityType);
-    vec3 accentBlend = mix(checkerColor, uAccentColor, ACCENT_OPACITY);
-    vec3 color = mix(checkerColor, accentBlend, stripeMask);
+    vec3 color = mix(checkerColor, litLighterColor, stripeMask);
 
-    color *= lighting;
     gl_FragColor = vec4(color, 1.0);
   }
 `;
