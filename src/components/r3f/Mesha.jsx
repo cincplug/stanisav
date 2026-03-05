@@ -26,6 +26,7 @@ const Mesha = ({
   animateFromAudio,
   tonalityType,
   looksAround,
+  lightIntensityMultiplier,
 }) => {
   const groupRef = useRef();
   const lookAroundRef = useRef();
@@ -78,7 +79,7 @@ const Mesha = ({
   const spring = useSpring({
     position,
     scale: meshaSize,
-    config: { mass: 1, tension: 120, friction: 20 },
+    config: { tension: 120, friction: 20 },
   });
 
   const leftCheekMaterial = useTonalityMaterial(
@@ -184,7 +185,7 @@ const Mesha = ({
           />
         )}
       </group>
-      <MeshaLight spread={2} />
+      <MeshaLight spread={2} intensityMultiplier={lightIntensityMultiplier} />
     </a.group>
   );
 };

@@ -1,8 +1,9 @@
 import { useRef } from "react";
+import { a } from "@react-spring/three";
 import { useThree, useFrame } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext";
 
-const StageLight = () => {
+const StageLight = ({ intensity }) => {
   const { camera } = useThree();
   const lightRef = useRef();
   const { controls } = useControls();
@@ -16,15 +17,13 @@ const StageLight = () => {
   });
 
   return (
-    <>
-      <pointLight
-        ref={lightRef}
-        intensity={controls.stageLightIntensity}
-        decay={controls.stageLightDecay}
-        distance={controls.stageLightDistance}
-        color={"#ffeedd"}
-      />
-    </>
+    <a.pointLight
+      ref={lightRef}
+      intensity={intensity}
+      decay={controls.stageLightDecay}
+      distance={controls.stageLightDistance}
+      color="#ffeedd"
+    />
   );
 };
 

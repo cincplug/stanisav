@@ -1,6 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useEffect, useMemo } from "react";
+import { useSpring } from "@react-spring/three";
 import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { useDataManager } from "../../hooks/useDataManager";
@@ -121,6 +122,16 @@ const Stage = ({
     }
   }, [showEmptyMessage, onEmptyFilterChange]);
 
+  const { stageLightMultiplier, meshaLightMultiplier } = useSpring({
+    stageLightMultiplier: selectedLanguage ? 0 : 1,
+    meshaLightMultiplier: 1,
+    config: { tension: 120, friction: 22 },
+  });
+
+  const stageLightIntensity = stageLightMultiplier.to(
+    (m) => controls.stageLightIntensity * m,
+  );
+
   if (!data || !isInitialized || sortedLanguageCodes.length === 0) {
     return null;
   }
@@ -145,7 +156,7 @@ const Stage = ({
         enableRotate={!selectedLanguage}
       />
 
-      {!selectedLanguage && <StageLight />}
+      <StageLight intensity={stageLightIntensity} />
 
       <Camera
         languageNodes={formattedPositions}
@@ -164,6 +175,7 @@ const Stage = ({
           animateFromAudio={isMyMesha}
           tonalityType={tonalityType}
           looksAround={true}
+          lightIntensityMultiplier={meshaLightMultiplier}
         />
         {!showEmptyMessage &&
           sortedLanguageCodes.map((langCode, index) => {

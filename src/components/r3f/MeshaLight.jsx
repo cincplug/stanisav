@@ -1,9 +1,10 @@
 import { useRef } from "react";
+import { a } from "@react-spring/three";
 import { Color } from "three";
 import { useFrame } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 
-const MeshaLight = ({ spread }) => {
+const MeshaLight = ({ spread, intensityMultiplier = 1 }) => {
   const groupRef = useRef();
   const { controls } = useControls();
   const { meshaLightDistance, meshaLightDecay, meshaLightIntensity } = controls;
@@ -16,25 +17,30 @@ const MeshaLight = ({ spread }) => {
     }
   });
 
+  const intensity =
+    typeof intensityMultiplier?.to === "function"
+      ? intensityMultiplier.to((m) => meshaLightIntensity * m)
+      : meshaLightIntensity * intensityMultiplier;
+
   return (
     <group ref={groupRef}>
-      <pointLight
+      <a.pointLight
         position={[-spread, 0, 3]}
-        intensity={meshaLightIntensity}
+        intensity={intensity}
         distance={meshaLightDistance}
         decay={meshaLightDecay}
         color={lightColor}
       />
-      <pointLight
+      <a.pointLight
         position={[spread, 0, 3]}
-        intensity={meshaLightIntensity}
+        intensity={intensity}
         distance={meshaLightDistance}
         decay={meshaLightDecay}
         color={lightColor}
       />
-      <pointLight
+      <a.pointLight
         position={[0, 5, 8]}
-        intensity={meshaLightIntensity}
+        intensity={intensity}
         distance={meshaLightDistance}
         decay={meshaLightDecay}
         color={lightColor}
