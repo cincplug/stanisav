@@ -25,7 +25,14 @@ const Node = ({
   const { filteredLanguages, filteringUtils, selectLanguage } =
     useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
-  const { labelContent, labelSize, backgroundColor, sortBy } = controls;
+  const {
+    labelContent,
+    labelSize,
+    backgroundColor,
+    sortBy,
+    tension,
+    friction,
+  } = controls;
 
   const getLabelText = (language, languageCode, labelContent) => {
     switch (labelContent) {
@@ -70,8 +77,8 @@ const Node = ({
   );
 
   const spring = useSpring({
-    offset: isSelected ? 3 : 0,
-    config: { tension: 170, friction: 26 },
+    offset: isSelected ? 3.3 : 0,
+    config: { tension, friction },
   });
 
   useFrame(() => {

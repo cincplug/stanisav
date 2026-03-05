@@ -34,7 +34,7 @@ const Mesha = ({
   const lookAroundRotationRef = useRef(0); // <-- renamed from meshaRotationRef
 
   const { controls } = useControls();
-  const { meshaSize, eyeZ, eyeX, eyeY, noseSize } = controls;
+  const { meshaSize, eyeZ, eyeX, eyeY, noseSize, tension, friction } = controls;
 
   useEffect(() => {
     const shouldCapture = animateFromAudio && !audioSource;
@@ -79,7 +79,7 @@ const Mesha = ({
   const spring = useSpring({
     position,
     scale: meshaSize,
-    config: { tension: 120, friction: 20 },
+    config: { tension, friction },
   });
 
   const leftCheekMaterial = useTonalityMaterial(

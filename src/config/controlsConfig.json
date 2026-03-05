@@ -249,6 +249,26 @@
     "isUserEditable": false,
     "group": "Camera"
   },
+  "tension": {
+    "type": "range",
+    "label": "Tension",
+    "min": 50,
+    "max": 400,
+    "step": 1,
+    "defaultValue": 150,
+    "isUserEditable": true,
+    "group": "Motion"
+  },
+  "friction": {
+    "type": "range",
+    "label": "Friction",
+    "min": 1,
+    "max": 80,
+    "step": 1,
+    "defaultValue": 22,
+    "isUserEditable": true,
+    "group": "Motion"
+  },
   "meshaSize": {
     "type": "range",
     "label": "Mesha size",

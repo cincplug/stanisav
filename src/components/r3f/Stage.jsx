@@ -38,6 +38,8 @@ const Stage = ({
     globalLightnessOffset,
     globalChromaScale,
     globalChromaOffset,
+    tension,
+    friction,
   } = controls;
   const { filteringUtils, selectedLanguage } = useLanguageSelection();
 
@@ -125,7 +127,7 @@ const Stage = ({
   const { stageLightMultiplier, meshaLightMultiplier } = useSpring({
     stageLightMultiplier: selectedLanguage ? 0 : 1,
     meshaLightMultiplier: 1,
-    config: { tension: 120, friction: 22 },
+    config: { tension, friction },
   });
 
   const stageLightIntensity = stageLightMultiplier.to(
