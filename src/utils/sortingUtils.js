@@ -1,4 +1,6 @@
 import { getFeatureScore, isNumericFeature } from "./linguisticUtils";
+import { getLanguageLabel } from "./languageDisplayUtils";
+import { getLocalizedLanguageName } from "../i18n/runtime";
 import lineages from "../config/lineages.json";
 
 const collator = new Intl.Collator("und", {
@@ -48,10 +50,8 @@ export function sortLanguages({
     switch (sortBy) {
       case "alphabetically":
         return allLanguages.sort((a, b) => {
-          const labelA =
-            labelContent === "isoCode" ? a : languageData[a]?.[labelContent];
-          const labelB =
-            labelContent === "isoCode" ? b : languageData[b]?.[labelContent];
+          const labelA = getLanguageLabel(a, languageData, labelContent);
+          const labelB = getLanguageLabel(b, languageData, labelContent);
 
           invariant(labelA != null, `Missing '${labelContent}' for '${a}'`);
           invariant(labelB != null, `Missing '${labelContent}' for '${b}'`);
@@ -70,7 +70,10 @@ export function sortLanguages({
           const byPath = comparePath(pathA, pathB);
           if (byPath !== 0) return byPath;
 
-          return collator.compare(languageData[a].name, languageData[b].name);
+          return collator.compare(
+            getLocalizedLanguageName(a),
+            getLocalizedLanguageName(b),
+          );
         });
 
       case "tonality":
@@ -95,7 +98,10 @@ export function sortLanguages({
           const cmp = collator.compare(String(featureA), String(featureB));
           if (cmp !== 0) return cmp;
 
-          return collator.compare(languageData[a].name, languageData[b].name);
+          return collator.compare(
+            getLocalizedLanguageName(a),
+            getLocalizedLanguageName(b),
+          );
         });
 
       case "phonemeCount":
@@ -104,7 +110,10 @@ export function sortLanguages({
           const cmp =
             typologicalFeatures[b][sortBy] - typologicalFeatures[a][sortBy];
           if (cmp !== 0) return cmp;
-          return collator.compare(languageData[a].name, languageData[b].name);
+          return collator.compare(
+            getLocalizedLanguageName(a),
+            getLocalizedLanguageName(b),
+          );
         });
 
       default:

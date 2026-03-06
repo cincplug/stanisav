@@ -1,6 +1,10 @@
 import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import controlsConfig from "../../config/controlsConfig.json";
+import {
+  getControlGroupLabel,
+  localizeControlConfig,
+} from "../../utils/configI18nUtils";
 import ControlItem from "./ControlItem";
 import "./ControlsTab.css";
 
@@ -12,7 +16,7 @@ const getControlsByGroup = (groupName) =>
         config.isUserEditable &&
         config.group !== "Sorting",
     )
-    .map(([id, config]) => ({ id, ...config }));
+    .map(([id, config]) => ({ id, ...localizeControlConfig(id, config) }));
 
 const ControlGroup = ({ groupName, controls, updateControl }) => {
   const groupControls = getControlsByGroup(groupName);
@@ -20,7 +24,7 @@ const ControlGroup = ({ groupName, controls, updateControl }) => {
 
   return (
     <fieldset className="control-group">
-      <legend>{groupName}</legend>
+      <legend>{getControlGroupLabel(groupName)}</legend>
       <div className="controls-grid">
         {groupControls.map((control) => (
           <ControlItem

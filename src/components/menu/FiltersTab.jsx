@@ -5,17 +5,20 @@ import {
 } from "../../utils/filteringUtils";
 import {
   getAllFeatures,
+  getFeatureName,
   getFeatureLabel,
   getFeatureDescription,
 } from "../../utils/linguisticUtils";
 import { sortFeatureValues } from "../../utils/sortingUtils";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
+import { useI18n } from "../../hooks/useI18n";
 import "./FiltersTab.css";
 
 function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
   const { filteringUtils, updateFilteringUtils } = useLanguageSelection();
   const features = getAllFeatures();
   const [allowMultipleChoices, setAllowMultipleChoices] = useState(false);
+  const { t } = useI18n();
 
   const handleCheckboxChange = (feature, value, checked) => {
     let newFilters = { ...filteringUtils };
@@ -62,7 +65,7 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
       <div className="linguistic-filters">
         {/* Title row with Filter by and allow multiple choices */}
         <div className="filters-tab-header">
-          <h2>Filter by</h2>
+          <h2>{t("filters.title")}</h2>
           <div className="control-item checkbox-control">
             <label>
               <input
@@ -70,7 +73,7 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
                 checked={allowMultipleChoices}
                 onChange={(e) => setAllowMultipleChoices(e.target.checked)}
               />
-              <span>Allow multiple choices</span>
+              <span>{t("filters.allowMultipleChoices")}</span>
             </label>
           </div>
         </div>
@@ -104,7 +107,7 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
                   htmlFor={`${feature}-all`}
                   className={`checkbox-button ${isAllSelected ? "active" : ""}`}
                 >
-                  All
+                  {t("filters.all")}
                 </label>
                 {values.map((value) => {
                   // For numeric features, use the number directly; for categorical, use label
@@ -163,7 +166,7 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
       {linguisticResults && linguisticResults.length > 0 && (
         <fieldset className="results-fieldset">
           <legend className="results-legend">
-            Filter results ({linguisticResults.length})
+            {t("filters.results", { count: linguisticResults.length })}
           </legend>
           <div className="language-grid">
             {linguisticResults.map((lang) => (
@@ -174,7 +177,12 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
                 }`}
                 onClick={() => onLanguageFocus(lang.code)}
                 title={`${lang.name} - ${Object.entries(lang.features)
-                  .map(([k, v]) => `${k}: ${v}`)
+                  .map(([k, v]) => {
+                    const featureName = getFeatureName(k);
+                    const valueLabel =
+                      typeof v === "number" ? v : getFeatureLabel(k, v);
+                    return `${featureName}: ${valueLabel}`;
+                  })
                   .join(", ")}`}
               >
                 {lang.name}

@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import tabsConfig from "../config/tabsConfig.json";
+import { getLocalizedLanguageName } from "../i18n/runtime";
 
 // Relevance score constants
 const RELEVANCE_SCORES = {
@@ -9,13 +10,13 @@ const RELEVANCE_SCORES = {
   CONTAINS: 50,
   FUZZY_BASE: 30, // Base score for fuzzy matches
   FUZZY_MAX: 45, // Maximum fuzzy match score
-  NO_MATCH: 0
+  NO_MATCH: 0,
 };
 
 // Bonus for matching in primary name vs native name
 const NAME_TYPE_BONUS = {
   PRIMARY: 10, // Bonus for matching in main name
-  NATIVE: 0 // No bonus for native name matches
+  NATIVE: 0, // No bonus for native name matches
 };
 
 // Maximum edit distance to consider for fuzzy matching
@@ -41,9 +42,10 @@ export function useSearch(data) {
     const matchingLanguages = Object.keys(data.languageData)
       .map((code) => {
         const language = data.languageData[code];
+        const localizedName = getLocalizedLanguageName(code);
 
         // Calculate scores for both name and nativeName
-        const nameScore = calculateRelevanceScore(language.name, term);
+        const nameScore = calculateRelevanceScore(localizedName, term);
         const nativeNameScore = language.nativeName
           ? calculateRelevanceScore(language.nativeName, term)
           : RELEVANCE_SCORES.NO_MATCH;
@@ -57,7 +59,7 @@ export function useSearch(data) {
           nativeNameScore +
             (nativeNameScore > RELEVANCE_SCORES.NO_MATCH
               ? NAME_TYPE_BONUS.NATIVE
-              : 0)
+              : 0),
         );
 
         // Only include if there's a match
@@ -67,17 +69,17 @@ export function useSearch(data) {
 
         return {
           code,
-          name: language.name,
+          name: localizedName,
           nativeName: language.nativeName,
           score: bestScore,
-          matchedIn: nameScore >= nativeNameScore ? "name" : "nativeName"
+          matchedIn: nameScore >= nativeNameScore ? "name" : "nativeName",
         };
       })
       .filter(Boolean)
       .sort((a, b) => b.score - a.score);
 
     return {
-      languages: matchingLanguages
+      languages: matchingLanguages,
     };
   }, [data, searchTerm]);
 
@@ -89,7 +91,7 @@ export function useSearch(data) {
     searchTerm,
     setSearchTerm,
     searchResults,
-    clearSearch
+    clearSearch,
   };
 }
 
@@ -121,7 +123,7 @@ function calculateRelevanceScore(text, searchTerm) {
   // Fuzzy match for typos (only if edit distance is reasonable)
   const distance = levenshteinDistance(lowerText, lowerTerm);
   const maxAllowedDistance = Math.ceil(
-    lowerTerm.length * MAX_EDIT_DISTANCE_RATIO
+    lowerTerm.length * MAX_EDIT_DISTANCE_RATIO,
   );
 
   if (distance <= maxAllowedDistance) {
@@ -157,7 +159,7 @@ function levenshteinDistance(str1, str2) {
         matrix[i][j] = Math.min(
           matrix[i - 1][j - 1] + 1,
           matrix[i][j - 1] + 1,
-          matrix[i - 1][j] + 1
+          matrix[i - 1][j] + 1,
         );
       }
     }

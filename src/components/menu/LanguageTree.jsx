@@ -1,3 +1,6 @@
+import { getLanguageLabel } from "../../utils/languageDisplayUtils";
+import { getFamilyLabel } from "../../utils/configI18nUtils";
+
 const LanguageTree = ({
   tree,
   languages,
@@ -14,10 +17,7 @@ const LanguageTree = ({
     return (
       <ul className="languages-in-group" role="list">
         {languages.map((langCode) => {
-          const label =
-            labelContent === "isoCode"
-              ? langCode
-              : languageData[langCode]?.[labelContent];
+          const label = getLanguageLabel(langCode, languageData, labelContent);
 
           return (
             <li key={langCode}>
@@ -51,7 +51,7 @@ const LanguageTree = ({
           depth > 0 ? "nested" : ""
         }`}
       >
-        <h3 className="group-header">{lineage}</h3>
+        <h3 className="group-header">{getFamilyLabel(lineage)}</h3>
 
         <LanguageTree
           languages={node.languages || []}

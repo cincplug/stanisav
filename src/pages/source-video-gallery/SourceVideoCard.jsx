@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import { getLocalizedLanguageName } from "../../i18n/runtime";
 
 const formatSpeakerNumber = (num) => {
   if (!num) return "N/A";
@@ -38,7 +39,8 @@ function trimByInterpunction(str) {
 }
 
 const SourceVideoCard = ({ language }) => {
-  const { name, code, nativeName, speakers, sampleUrl, sr, ...rest } = language;
+  const { code, nativeName, speakers, sampleUrl, sr, ...rest } = language;
+  const localizedLanguageName = getLocalizedLanguageName(code);
   const embedUrl = getYoutubeEmbedUrl(sampleUrl);
   const videoRef = useRef();
   const [isVisible, setIsVisible] = useState(false);
@@ -65,7 +67,7 @@ const SourceVideoCard = ({ language }) => {
         {isVisible && embedUrl ? (
           <iframe
             src={embedUrl}
-            title={name}
+            title={localizedLanguageName}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             frameBorder="0"
@@ -74,7 +76,7 @@ const SourceVideoCard = ({ language }) => {
           <div className="svgallery-novideo">No video available</div>
         )}
       </div>
-      <h2>{name}</h2>
+      <h2>{localizedLanguageName}</h2>
       <dl className="svgallery-attributes">
         <dt>iso code</dt>
         <dd>{code}</dd>

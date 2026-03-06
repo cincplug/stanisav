@@ -7,6 +7,12 @@ import controlsConfig from "../../config/controlsConfig.json";
 import linguisticConfig from "../../config/linguisticConfig.json";
 import numericFeatures from "../../config/numericFeatures.json";
 import lineages from "../../config/lineages.json";
+import {
+  getFamilyLabel,
+  localizeControlConfig,
+} from "../../utils/configI18nUtils";
+import { getFeatureLabel } from "../../utils/linguisticUtils";
+import { getLanguageLabel } from "../../utils/languageDisplayUtils";
 import { sortLanguages } from "../../utils/sortingUtils";
 import { calculateLanguageColors } from "../../utils/colorUtils";
 import { buildLanguageTree } from "../../utils/languageGroupingUtils";
@@ -105,17 +111,10 @@ function LanguagesTab({ languageData, isActive }) {
     if (sortBy === "alphabetically") {
       const result = {};
       sortedLanguageCodes.forEach((langCode) => {
-        let label;
-        if (labelContent === "isoCode") {
-          label = langCode;
-        } else {
-          label = languageData[langCode]?.[labelContent] || langCode;
-        }
+        const label = getLanguageLabel(langCode, languageData, labelContent);
         // Use the first Unicode character, uppercased for grouping
-        const safeLabel =
-          typeof label === "string" && label.trim() ? label.trim() : langCode;
         const firstChar =
-          Array.from(safeLabel)[0]?.toLocaleUpperCase("und") || "#";
+          Array.from(label.trim())[0]?.toLocaleUpperCase("und") || "#";
         if (!result[firstChar]) {
           result[firstChar] = {
             title: firstChar,
@@ -135,13 +134,18 @@ function LanguagesTab({ languageData, isActive }) {
 
       if (sortBy === "family") {
         const lineageKey = languageLineages[langCode];
+        if (!lineageKey) {
+          throw new Error(`Missing lineageKey for '${langCode}'`);
+        }
         const ancestors = lineages[lineageKey];
-        categoryKey = ancestors[0];
-        categoryLabel = categoryKey;
+        categoryKey =
+          Array.isArray(ancestors) && ancestors.length > 0
+            ? ancestors[0]
+            : lineageKey;
+        categoryLabel = getFamilyLabel(categoryKey);
       } else if (linguisticConfig[sortBy]?.values) {
         categoryKey = languageData[langCode][sortBy];
-        const config = linguisticConfig[sortBy].values?.[categoryKey];
-        categoryLabel = config?.label;
+        categoryLabel = getFeatureLabel(sortBy, categoryKey);
       } else if (numericFeatures.includes(sortBy)) {
         categoryKey = languageData[langCode][sortBy];
         categoryLabel = `${categoryKey}`;
@@ -170,7 +174,7 @@ function LanguagesTab({ languageData, isActive }) {
       ([_id, config]) =>
         config.group === "Languages tab" && config.isUserEditable,
     )
-    .map(([id, config]) => ({ id, ...config }));
+    .map(([id, config]) => ({ id, ...localizeControlConfig(id, config) }));
 
   useEffect(() => {
     if (isActive && selectedLanguage && buttonRefs.current[selectedLanguage]) {

@@ -1,4 +1,6 @@
 import linguisticConfig from "../config/linguisticConfig.json";
+import { translate } from "../i18n/runtime";
+import { getFamilyLabel } from "./configI18nUtils";
 
 /**
  * Linguistic Configuration Utility
@@ -9,9 +11,9 @@ import linguisticConfig from "../config/linguisticConfig.json";
 export const getLinguisticFeatures = () => {
   return Object.entries(linguisticConfig)
     .filter(([_, config]) => config.values) // Only features with values object
-    .map(([key, config]) => ({
+    .map(([key]) => ({
       key,
-      label: config.name,
+      label: translate(`linguistic.${key}.name`),
     }));
 };
 
@@ -19,14 +21,14 @@ export const getLinguisticFeatures = () => {
 export const getFeatureLabel = (feature, value) => {
   // Special handling for family - just return the name as-is
   if (feature === "family") {
-    return value;
+    return getFamilyLabel(value);
   }
 
   const featureConfig = linguisticConfig[feature];
   if (!featureConfig?.values?.[value]) {
-    return value; // fallback to raw value
+    throw new Error(`Missing feature value config for '${feature}.${value}'`);
   }
-  return featureConfig.values[value].label;
+  return translate(`linguistic.${feature}.values.${value}.label`);
 };
 
 // Get feature description from config
@@ -35,7 +37,7 @@ export const getFeatureDescription = (feature, value) => {
   if (!featureConfig?.values?.[value]) {
     return null;
   }
-  return featureConfig.values[value].description;
+  return translate(`linguistic.${feature}.values.${value}.description`);
 };
 
 // Get feature score from config
@@ -59,9 +61,9 @@ export const getFeatureScoreList = (linguisticProperties, features) => {
 export const getFeatureName = (feature) => {
   const featureConfig = linguisticConfig[feature];
   if (!featureConfig) {
-    return feature; // fallback to key
+    throw new Error(`Missing feature config for '${feature}'`);
   }
-  return featureConfig.name;
+  return translate(`linguistic.${feature}.name`);
 };
 
 // Get all values for a feature from config
@@ -77,9 +79,9 @@ export const getFeatureValuesFromConfig = (feature) => {
 export const getNumericFeatures = () => {
   return Object.entries(linguisticConfig)
     .filter(([_, config]) => config.template)
-    .map(([key, config]) => ({
+    .map(([key]) => ({
       key,
-      label: config.name,
+      label: translate(`linguistic.${key}.name`),
     }));
 };
 
@@ -95,7 +97,7 @@ export const getAllFeatures = () => {
     .filter(([_, config]) => config.values || config.template || config.name)
     .map(([key, config]) => ({
       key,
-      label: config.name,
+      label: translate(`linguistic.${key}.name`),
       isNumeric: config.template !== undefined,
       isFamily: key === "family",
     }));

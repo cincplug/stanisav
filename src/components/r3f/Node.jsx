@@ -10,6 +10,7 @@ import {
   calculateSizeMultiplier,
   calculateRadialOffset,
 } from "../../utils/sceneUtils.js";
+import { getLanguageLabel } from "../../utils/languageDisplayUtils.js";
 import Label from "./Label.jsx";
 
 const Node = ({
@@ -34,19 +35,6 @@ const Node = ({
     friction,
   } = controls;
 
-  const getLabelText = (language, languageCode, labelContent) => {
-    switch (labelContent) {
-      case "name":
-        return language.name;
-      case "nativeName":
-        return language.nativeName;
-      case "isoCode":
-        return languageCode;
-      default:
-        return language.name;
-    }
-  };
-
   if (
     Object.keys(filteringUtils).length > 0 &&
     !filteredLanguages.has(languageCode)
@@ -69,7 +57,11 @@ const Node = ({
   );
   const fontSize = labelSize * sizeMultiplier;
 
-  const labelText = getLabelText(language, languageCode, labelContent);
+  const labelText = getLanguageLabel(
+    languageCode,
+    data.languageData,
+    labelContent,
+  );
 
   const radialOffset = useMemo(
     () => calculateRadialOffset(position),

@@ -1,4 +1,5 @@
 import lineages from "../config/lineages.json";
+import { getLocalizedLanguageName } from "../i18n/runtime";
 
 const getFamily = (lineageKey) => {
   const lineage = lineages[lineageKey];
@@ -68,7 +69,7 @@ export const filterLanguagesByFeatures = (data, filters) => {
 
       results.push({
         code,
-        name: data.languageData[code].name,
+        name: getLocalizedLanguageName(code),
         groupName: lineageKey,
         groupKey: lineageKey,
         features: data.typologicalFeatures?.[code] || {},

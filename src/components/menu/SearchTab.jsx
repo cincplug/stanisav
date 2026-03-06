@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
 import { useI18n } from "../../hooks/useI18n";
+import { getFamilyLabel } from "../../utils/configI18nUtils";
 import tabsConfig from "../../config/tabsConfig.json";
 import "./SearchTab.css";
 
@@ -32,6 +33,9 @@ function SearchResults({ searchTerm, searchResults, languageData }) {
         <div className="language-grid">
           {searchResults.languages.map((lang) => {
             const lineageKey = languageData?.[lang.code]?.lineageKey;
+            const localizedLineageLabel = lineageKey
+              ? getFamilyLabel(lineageKey)
+              : null;
             return (
               <button
                 key={lang.code}
@@ -42,7 +46,11 @@ function SearchResults({ searchTerm, searchResults, languageData }) {
                   selectLanguage(lang.code);
                   startFromLanguage(lang.code);
                 }}
-                title={lineageKey ? `${lang.name} (${lineageKey})` : lang.name}
+                title={
+                  localizedLineageLabel
+                    ? `${lang.name} (${localizedLineageLabel})`
+                    : lang.name
+                }
               >
                 <div className="language-name">
                   <div>{lang.name}</div>

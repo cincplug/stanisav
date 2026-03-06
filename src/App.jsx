@@ -7,6 +7,7 @@ import { useAppState } from "./contexts/AppStateContext";
 import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
 import { useControls } from "./contexts/ControlsContext";
 import { usePlaylist } from "./contexts/PlaylistContext";
+import { getLocalizedLanguageName } from "./i18n/runtime";
 import "./App.css";
 
 function App() {
@@ -33,7 +34,6 @@ function App() {
 
   const {
     sampleUrl,
-    name,
     speakers,
     morphology,
     wordOrder,
@@ -44,6 +44,10 @@ function App() {
     tonality,
     phonemeCount,
   } = data?.languageData[selectedLanguage] || {};
+
+  const localizedLanguageName = selectedLanguage
+    ? getLocalizedLanguageName(selectedLanguage)
+    : "";
 
   return (
     <div
@@ -96,9 +100,9 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={pausePlaylist}
-              aria-label={`${name} Source Video (opens in new tab)`}
+              aria-label={`${localizedLanguageName} Source Video (opens in new tab)`}
             >
-              {name} Source Video ↗
+              {localizedLanguageName} Source Video ↗
             </a>
           )}
         </>

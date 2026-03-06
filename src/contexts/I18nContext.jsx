@@ -1,35 +1,23 @@
-import { createContext, useContext, useMemo, useState } from "react";
-import enMessages from "../i18n/messages/en.json";
-
-const messagesByLocale = {
-  en: enMessages,
-};
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { setActiveLocale, translate } from "../i18n/runtime";
 
 const I18nContext = createContext(null);
 
-const interpolate = (message, params = {}) =>
-  message.replace(/\{(\w+)\}/g, (fullMatch, key) => {
-    const value = params[key];
-    return value === undefined || value === null ? fullMatch : String(value);
-  });
-
 export const I18nProvider = ({ children }) => {
-  const [locale, setLocale] = useState("en");
+  const [locale, setLocale] = useState("eng");
 
-  const value = useMemo(() => {
-    const messages = messagesByLocale[locale] || messagesByLocale.en;
+  useEffect(() => {
+    setActiveLocale(locale);
+  }, [locale]);
 
-    const t = (key, params) => {
-      const message = messages[key] || messagesByLocale.en[key];
-      return message ? interpolate(message, params) : key;
-    };
-
-    return {
+  const value = useMemo(
+    () => ({
       locale,
       setLocale,
-      t,
-    };
-  }, [locale]);
+      t: translate,
+    }),
+    [locale],
+  );
 
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
 };
