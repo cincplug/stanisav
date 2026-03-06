@@ -1,17 +1,23 @@
 import eng from "./messages/eng.json";
+import nld from "./messages/nld.json";
 import languageNamesEng from "./language-names/eng.json";
+import languageNamesNld from "./language-names/nld.json";
 import lineageLabelsEng from "./lineage-labels/eng.json";
+import lineageLabelsNld from "./lineage-labels/nld.json";
 
 const messagesByLocale = {
   eng,
+  nld,
 };
 
 const lineageLabelsByLocale = {
   eng: lineageLabelsEng,
+  nld: lineageLabelsNld,
 };
 
 const languageNamesByLocale = {
   eng: languageNamesEng,
+  nld: languageNamesNld,
 };
 
 export const defaultLocale = "eng";

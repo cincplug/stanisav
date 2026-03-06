@@ -1,0 +1,253 @@
+{
+  "controls": {
+    "backgroundColor": { "label": "Achtergrond" },
+    "cameraX": { "label": "Camera X" },
+    "cameraY": { "label": "Camera Y" },
+    "cameraZ": { "label": "Camera Z" },
+    "canEditColors": { "label": "Kleuren bewerken toestaan?" },
+    "eyeProtrusion": { "label": "Ooguitsteking" },
+    "eyeSize": { "label": "Ooggrootte" },
+    "eyeX": { "label": "Oog X" },
+    "eyeY": { "label": "Oog Y" },
+    "eyeZ": { "label": "Oog Z" },
+    "far": { "label": "Ver vlak" },
+    "fov": { "label": "Gezichtsveld" },
+    "friction": { "label": "Wrijving" },
+    "globalChromaOffset": { "label": "Chroma-offset" },
+    "globalChromaScale": { "label": "Chromaschaal" },
+    "globalLightnessOffset": { "label": "Helderheidsoffset" },
+    "globalLightnessScale": { "label": "Helderheidsschaal" },
+    "groups": {
+      "camera": "Camera",
+      "colors": "Kleuren",
+      "languagesTab": "Talen-tab",
+      "mesha": "Mesha",
+      "meshaLight": "Mesha-licht",
+      "motion": "Beweging",
+      "scene": "Scène",
+      "stageLight": "Podiumlicht"
+    },
+    "hasSubtitle": { "label": "Ondertiteling tonen" },
+    "hueCircle": { "label": "Kleurencirkel" },
+    "hueStart": { "label": "Kleurstart" },
+    "isLoop": { "label": "Afspeellijst herhalen" },
+    "isLuka": { "label": "Luka leest voorbeelden" },
+    "isMyMesha": { "label": "Ik ben Mesha" },
+    "isReverse": { "label": "Omgekeerde volgorde" },
+    "labelContent": {
+      "label": "Weergave",
+      "options": {
+        "isoCode": "ISO-codes",
+        "name": "Nederlandse namen",
+        "nativeName": "Inheemse namen"
+      }
+    },
+    "labelSize": { "label": "Labelgrootte" },
+    "maxSiblingSpread": { "label": "Spreiding tussen zusterknooppunten" },
+    "meshaLightDecay": { "label": "Verval" },
+    "meshaLightDistance": { "label": "Afstand" },
+    "meshaLightIntensity": { "label": "Intensiteit" },
+    "meshaSize": { "label": "Mesha-grootte" },
+    "moustacheSize": { "label": "Snorgrootte" },
+    "near": { "label": "Nabij vlak" },
+    "noseSize": { "label": "Neusgrootte" },
+    "showsVideoPreviews": { "label": "Origineel voorbeeld" },
+    "sortBy": {
+      "label": "Talen sorteren op",
+      "options": {
+        "alphabetically": "Alfabetische volgorde",
+        "caseCount": "Aantal naamvallen",
+        "evidentiality": "Evidentialiteit",
+        "family": "Taalfamilie",
+        "maxClusterSize": "Medeklinkerclusters",
+        "morphology": "Morfologie",
+        "nounClassCount": "Naamwoordklassen",
+        "phonemeCount": "Aantal fonemen",
+        "speakers": "Aantal sprekers",
+        "tonality": "Tonaliteit",
+        "verbAspect": "Werkwoordsaspect",
+        "wordOrder": "Woordvolgorde",
+        "wordOrderFlexibility": "Flexibiliteit van woordvolgorde"
+      }
+    },
+    "sphereRadius": { "label": "Straal van de bol" },
+    "stageLightDecay": { "label": "Verval" },
+    "stageLightDistance": { "label": "Afstand" },
+    "stageLightIntensity": { "label": "Intensiteit" },
+    "switchDuration": { "label": "Wisselduur" },
+    "teethSize": { "label": "Tandgrootte" },
+    "tension": { "label": "Spanning" },
+    "zoomDistance": { "label": "Zoomafstand" }
+  },
+  "filters": {
+    "all": "Alle",
+    "allowMultipleChoices": "Meerdere keuzes toestaan",
+    "results": "Filterresultaten ({count})",
+    "title": "Filter op"
+  },
+  "linguistic": {
+    "caseCount": { "name": "Aantal naamvallen" },
+    "evidentiality": {
+      "name": "Evidentialiteit",
+      "values": {
+        "complex": {
+          "description": "Vier of meer evidentialiteitsonderscheidingen, of evidentialiteit samengevoegd met tijd/aspect.",
+          "label": "Complex"
+        },
+        "moderate": {
+          "description": "Driewegonderscheiding (bijv. direct, gerapporteerd, inferentieel).",
+          "label": "Gemiddeld"
+        },
+        "none": {
+          "description": "Geen grammaticale markering van informatiebron.",
+          "label": "Geen"
+        },
+        "optional": {
+          "description": "Evidentialiteitsachtige markeringen bestaan, maar zijn niet verplicht.",
+          "label": "Optioneel"
+        },
+        "simple": {
+          "description": "Tweewegonderscheiding (meestal direct vs. indirect/gerapporteerd).",
+          "label": "Eenvoudig"
+        }
+      }
+    },
+    "family": { "name": "Taalfamilie" },
+    "maxClusterSize": { "name": "Maximale medeklinkers in een cluster" },
+    "morphology": {
+      "name": "Morfologie",
+      "values": {
+        "agglutinative": {
+          "description": "Woorden worden opgebouwd door affixen achter elkaar te stapelen, waarbij elk affix precies één betekenis draagt. De onderdelen blijven duidelijk herkenbaar, als bouwstenen die in elkaar klikken.",
+          "label": "Agglutinerend"
+        },
+        "fusional": {
+          "description": "Woorden veranderen van vorm via uitgangen en prefixen die meerdere grammaticale betekenissen tegelijk bundelen. Eén uitgang kan tegelijk geslacht, getal en naamval uitdrukken, waardoor de onderdelen moeilijk te scheiden zijn.",
+          "label": "Fusioneel"
+        },
+        "introflexive": {
+          "description": "Grammatica zit van binnen in het woord ingebouwd: een medeklinkerwortel draagt de kernbetekenis, terwijl verschillende klinkerpatronen die erdoorheen geweven zijn nieuwe woorden vormen. Zo hangt de Arabische wortel k-t-b samen met schrijven, en kataba, kitāb en kātib komen daaruit voort.",
+          "label": "Introflexief"
+        },
+        "isolating": {
+          "description": "Woorden bestaan meestal uit één morfeem en veranderen niet van vorm. Grammatica wordt uitgedrukt via woordvolgorde en aparte functiewoorden, in plaats van via uitgangen of prefixen.",
+          "label": "Isolerend"
+        },
+        "polysynthetic": {
+          "description": "Eén woord kan uitdrukken wat andere talen in een hele zin zeggen, door werkwoord, onderwerp, object en andere elementen samen te voegen. Komt veel voor in inheemse talen van de Amerika’s en het Noordpoolgebied.",
+          "label": "Polysynthetisch"
+        }
+      }
+    },
+    "nounClassCount": { "name": "Naamwoordklassen / geslachten" },
+    "phonemeCount": { "name": "Aantal fonemen" },
+    "tonality": {
+      "name": "Tonaliteit",
+      "values": {
+        "complex-tonal": {
+          "description": "Toonpatronen beïnvloeden de woordbetekenis aanzienlijk.",
+          "label": "Complex tonaal"
+        },
+        "non-tonal": {
+          "description": "Toonveranderingen beïnvloeden de woordbetekenis niet.",
+          "label": "Niet-tonaal"
+        },
+        "pitch-accent": {
+          "description": "De taal gebruikt toonaccent, waarbij bepaalde lettergrepen worden benadrukt via toonverandering.",
+          "label": "Toonaccent"
+        },
+        "simple-tonal": {
+          "description": "Toonveranderingen beïnvloeden de woordbetekenis in beperkte mate.",
+          "label": "Eenvoudig tonaal"
+        }
+      }
+    },
+    "verbAspect": {
+      "name": "Werkwoordsaspect",
+      "values": {
+        "binary": {
+          "description": "Systematisch tweedelig onderscheid (perfectief/imperfectief).",
+          "label": "Binair"
+        },
+        "complex": {
+          "description": "Meerdere aspectcategorieën met rijke morfologische markering.",
+          "label": "Complex"
+        },
+        "minimal": {
+          "description": "Geen of zeer beperkte grammaticale aspectmarkering.",
+          "label": "Minimaal"
+        },
+        "simple": {
+          "description": "Basisaspectonderscheidingen (bijv. duratief, perfect).",
+          "label": "Eenvoudig"
+        }
+      }
+    },
+    "wordOrder": {
+      "name": "Woordvolgorde",
+      "values": {
+        "SOV": {
+          "description": "Onderwerp-Object-Werkwoord",
+          "label": "SOV"
+        },
+        "SVO": {
+          "description": "Onderwerp-Werkwoord-Object",
+          "label": "SVO"
+        },
+        "VOS": {
+          "description": "Werkwoord-Object-Onderwerp",
+          "label": "VOS"
+        },
+        "VSO": {
+          "description": "Werkwoord-Onderwerp-Object",
+          "label": "VSO"
+        }
+      }
+    },
+    "wordOrderFlexibility": {
+      "name": "Flexibiliteit van woordvolgorde",
+      "values": {
+        "flexible": {
+          "description": "Verschillende woordvolgordes zijn mogelijk voor stilistische doeleinden.",
+          "label": "Flexibel"
+        },
+        "rigid": {
+          "description": "Woorden hebben vaste grammaticale posities.",
+          "label": "Rigide"
+        },
+        "semi-flexible": {
+          "description": "Enige variatie in woordvolgorde is toegestaan voor nadruk.",
+          "label": "Semi-flexibel"
+        }
+      }
+    }
+  },
+  "menu": {
+    "close": "Menu sluiten",
+    "open": "Menu openen"
+  },
+  "playlist": {
+    "controls": "Afspeellijstbediening",
+    "goToBeginning": "Naar het begin (Home-toets)",
+    "next": "Volgende track (rechterpijl)",
+    "pause": "Pauze",
+    "play": "Afspelen",
+    "previous": "Vorige track (linkerpijl)",
+    "progress": "{current} van {total}",
+    "toggleLoop": "Herhalen aan/uit (L-toets)"
+  },
+  "search": {
+    "clear": "Zoekopdracht wissen",
+    "label": "Zoeken",
+    "noResults": "Geen talen gevonden die overeenkomen met \"{term}\"",
+    "results": "Zoekresultaten ({count})",
+    "threshold": "Typ minimaal {threshold} tekens om te zoeken...",
+    "viewAll": "Alles bekijken"
+  },
+  "tabs": {
+    "controls": "Bediening",
+    "filters": "Filters",
+    "languages": "Talen",
+    "search": "Zoeken"
+  }
+}
