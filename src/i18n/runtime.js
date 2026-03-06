@@ -48,6 +48,14 @@ const translations = () => messagesByLocale[currentLocale];
 const localizedLanguageNames = () => languageNamesByLocale[currentLocale];
 const localizedLineageLabels = () => lineageLabelsByLocale[currentLocale];
 
+const getMessageByPath = (messages, key) =>
+  key.split(".").reduce((current, segment) => {
+    if (current && typeof current === "object") {
+      return current[segment];
+    }
+    return undefined;
+  }, messages);
+
 export const setActiveLocale = (locale) => {
   const normalized = normalizeLocaleCode(locale);
   if (!isSupportedLocale(normalized)) {
@@ -62,10 +70,16 @@ export const translate = (key, params) => {
     throw new Error(`Missing locale '${currentLocale}'`);
   }
 
-  const message = localeMessages[key];
-  if (!message) {
+  const message = getMessageByPath(localeMessages, key);
+  if (message === undefined) {
     throw new Error(
       `Missing translation key '${key}' for locale '${currentLocale}'`,
+    );
+  }
+
+  if (typeof message !== "string") {
+    throw new Error(
+      `Translation key '${key}' for locale '${currentLocale}' is not a string`,
     );
   }
 

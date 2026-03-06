@@ -1,20 +1,33 @@
 import { translate, getLocalizedLineageLabel } from "../i18n/runtime";
 
-export const toI18nKeySegment = (value) =>
-  String(value)
+const toGroupKey = (groupName) => {
+  const words = String(groupName)
     .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "_")
-    .replace(/^_+|_+$/g, "");
+    .split(/[^a-zA-Z0-9]+/)
+    .filter(Boolean);
+
+  if (words.length === 0) {
+    throw new Error(`Invalid control group '${groupName}'`);
+  }
+
+  return words
+    .map((word, index) => {
+      const lower = word.toLowerCase();
+      return index === 0
+        ? lower
+        : `${lower.charAt(0).toUpperCase()}${lower.slice(1)}`;
+    })
+    .join("");
+};
 
 export const getControlGroupLabel = (groupName) =>
-  translate(`controls.groups.${toI18nKeySegment(groupName)}`);
+  translate(`controls.groups.${toGroupKey(groupName)}`);
 
 export const getControlLabel = (controlId) =>
   translate(`controls.${controlId}.label`);
 
 export const getControlOptionLabel = (controlId, optionValue) =>
-  translate(`controls.${controlId}.options.${toI18nKeySegment(optionValue)}`);
+  translate(`controls.${controlId}.options.${optionValue}`);
 
 export const localizeControlConfig = (controlId, config) => ({
   ...config,

@@ -1,155 +1,253 @@
 {
-  "controls.backgroundColor.label": "Background",
-  "controls.cameraX.label": "Camera X",
-  "controls.cameraY.label": "Camera Y",
-  "controls.cameraZ.label": "Camera Z",
-  "controls.canEditColors.label": "Can edit colors?",
-  "controls.eyeProtrusion.label": "Eye protrusion",
-  "controls.eyeSize.label": "Eye size",
-  "controls.eyeX.label": "Eye X",
-  "controls.eyeY.label": "Eye Y",
-  "controls.eyeZ.label": "Eye Z",
-  "controls.far.label": "Far plane",
-  "controls.fov.label": "Field of view",
-  "controls.friction.label": "Friction",
-  "controls.globalChromaOffset.label": "Chroma offset",
-  "controls.globalChromaScale.label": "Chroma scale",
-  "controls.globalLightnessOffset.label": "Lightness offset",
-  "controls.globalLightnessScale.label": "Lightness scale",
-  "controls.groups.camera": "Camera",
-  "controls.groups.colors": "Colors",
-  "controls.groups.languages_tab": "Languages tab",
-  "controls.groups.mesha": "Mesha",
-  "controls.groups.mesha_light": "Mesha light",
-  "controls.groups.motion": "Motion",
-  "controls.groups.scene": "Scene",
-  "controls.groups.stage_light": "Stage light",
-  "controls.hasSubtitle.label": "Show subtitle",
-  "controls.hueCircle.label": "Hue circle",
-  "controls.hueStart.label": "Hue start",
-  "controls.isLoop.label": "Loop playlist",
-  "controls.isLuka.label": "Luka reads samples",
-  "controls.isMyMesha.label": "I am Mesha",
-  "controls.isReverse.label": "Reverse order",
-  "controls.labelContent.label": "Display",
-  "controls.labelContent.options.isocode": "ISO codes",
-  "controls.labelContent.options.name": "English names",
-  "controls.labelContent.options.nativename": "Native names",
-  "controls.labelSize.label": "Label size",
-  "controls.maxSiblingSpread.label": "Sibling hue spread",
-  "controls.meshaLightDecay.label": "Decay",
-  "controls.meshaLightDistance.label": "Distance",
-  "controls.meshaLightIntensity.label": "Intensity",
-  "controls.meshaSize.label": "Mesha size",
-  "controls.moustacheSize.label": "Moustache size",
-  "controls.near.label": "Near plane",
-  "controls.noseSize.label": "Nose size",
-  "controls.showsVideoPreviews.label": "Preview original",
-  "controls.sortBy.label": "Sort languages by",
-  "controls.sortBy.options.alphabetically": "Alphabetical order",
-  "controls.sortBy.options.casecount": "Case count",
-  "controls.sortBy.options.evidentiality": "Evidentiality",
-  "controls.sortBy.options.family": "Language family",
-  "controls.sortBy.options.maxclustersize": "Consonant clusters",
-  "controls.sortBy.options.morphology": "Morphology",
-  "controls.sortBy.options.nounclasscount": "Noun classes",
-  "controls.sortBy.options.phonemecount": "Phoneme count",
-  "controls.sortBy.options.speakers": "Speakers' number",
-  "controls.sortBy.options.tonality": "Tonality",
-  "controls.sortBy.options.verbaspect": "Verb aspect",
-  "controls.sortBy.options.wordorder": "Word order",
-  "controls.sortBy.options.wordorderflexibility": "Word order flexibility",
-  "controls.sphereRadius.label": "Sphere radius",
-  "controls.stageLightDecay.label": "Decay",
-  "controls.stageLightDistance.label": "Distance",
-  "controls.stageLightIntensity.label": "Intensity",
-  "controls.switchDuration.label": "Switch duration",
-  "controls.teethSize.label": "Teeth size",
-  "controls.tension.label": "Tension",
-  "controls.zoomDistance.label": "Zoom distance",
-  "filters.all": "All",
-  "filters.allowMultipleChoices": "Allow multiple choices",
-  "filters.results": "Filter results ({count})",
-  "filters.title": "Filter by",
-  "linguistic.caseCount.name": "Case count",
-  "linguistic.evidentiality.name": "Evidentiality",
-  "linguistic.evidentiality.values.complex.description": "Four or more evidential distinctions or evidentiality fused with tense/aspect.",
-  "linguistic.evidentiality.values.complex.label": "Complex",
-  "linguistic.evidentiality.values.moderate.description": "Three-way distinction (e.g., direct, reportative, inferential).",
-  "linguistic.evidentiality.values.moderate.label": "Moderate",
-  "linguistic.evidentiality.values.none.description": "No grammatical marking of information source.",
-  "linguistic.evidentiality.values.none.label": "None",
-  "linguistic.evidentiality.values.optional.description": "Evidential-like markers exist but are not obligatory.",
-  "linguistic.evidentiality.values.optional.label": "Optional",
-  "linguistic.evidentiality.values.simple.description": "Two-way distinction (typically direct vs. indirect/reportative).",
-  "linguistic.evidentiality.values.simple.label": "Simple",
-  "linguistic.family.name": "Language family",
-  "linguistic.maxClusterSize.name": "Max consonants in a cluster",
-  "linguistic.morphology.name": "Morphology",
-  "linguistic.morphology.values.agglutinative.description": "Words are built by stacking affixes one after another, where each affix carries exactly one meaning. The pieces stay clearly recognizable, like building blocks snapped together.",
-  "linguistic.morphology.values.agglutinative.label": "Agglutinative",
-  "linguistic.morphology.values.fusional.description": "Words change their form through endings and prefixes that bundle multiple grammatical meanings at once. A single ending might express gender, number, and case simultaneously, making the pieces hard to pull apart.",
-  "linguistic.morphology.values.fusional.label": "Fusional",
-  "linguistic.morphology.values.introflexive.description": "Grammar is built into the word from the inside: a root of consonants carries the core meaning, while different vowel patterns woven through it create new words. For example, the Arabic root k-t-b relates to writing, and kataba, kitāb, and kātib all come from it.",
-  "linguistic.morphology.values.introflexive.label": "Introflexive",
-  "linguistic.morphology.values.isolating.description": "Words typically consist of single morphemes and don't change their form. Grammar is expressed through word order and separate function words rather than endings or prefixes.",
-  "linguistic.morphology.values.isolating.label": "Isolating",
-  "linguistic.morphology.values.polysynthetic.description": "A single word can express what other languages would say in a whole sentence, by fusing the verb, subject, object, and other elements together. Common in indigenous languages of the Americas and the Arctic.",
-  "linguistic.morphology.values.polysynthetic.label": "Polysynthetic",
-  "linguistic.nounClassCount.name": "Noun classes / genders",
-  "linguistic.phonemeCount.name": "Phoneme count",
-  "linguistic.tonality.name": "Tonality",
-  "linguistic.tonality.values.complex-tonal.description": "Pitch patterns significantly affect word meaning.",
-  "linguistic.tonality.values.complex-tonal.label": "Complex tonal",
-  "linguistic.tonality.values.non-tonal.description": "Pitch changes don't affect word meaning.",
-  "linguistic.tonality.values.non-tonal.label": "Non-tonal",
-  "linguistic.tonality.values.pitch-accent.description": "It uses pitch accent, where certain syllables are emphasized with pitch changes.",
-  "linguistic.tonality.values.pitch-accent.label": "Pitch-accent",
-  "linguistic.tonality.values.simple-tonal.description": "Pitch changes moderately affect word meaning.",
-  "linguistic.tonality.values.simple-tonal.label": "Simple tonal",
-  "linguistic.verbAspect.name": "Verb aspect",
-  "linguistic.verbAspect.values.binary.description": "Two-way systematic distinction (perfective/imperfective).",
-  "linguistic.verbAspect.values.binary.label": "Binary",
-  "linguistic.verbAspect.values.complex.description": "Multiple aspect categories with rich morphological marking.",
-  "linguistic.verbAspect.values.complex.label": "Complex",
-  "linguistic.verbAspect.values.minimal.description": "No or very limited grammatical aspect marking.",
-  "linguistic.verbAspect.values.minimal.label": "Minimal",
-  "linguistic.verbAspect.values.simple.description": "Basic aspectual distinctions (e.g., progressive, perfect).",
-  "linguistic.verbAspect.values.simple.label": "Simple",
-  "linguistic.wordOrder.name": "Word order",
-  "linguistic.wordOrder.values.SOV.description": "Subject-Object-Verb",
-  "linguistic.wordOrder.values.SOV.label": "SOV",
-  "linguistic.wordOrder.values.SVO.description": "Subject-Verb-Object",
-  "linguistic.wordOrder.values.SVO.label": "SVO",
-  "linguistic.wordOrder.values.VOS.description": "Verb-Object-Subject",
-  "linguistic.wordOrder.values.VOS.label": "VOS",
-  "linguistic.wordOrder.values.VSO.description": "Verb-Subject-Object",
-  "linguistic.wordOrder.values.VSO.label": "VSO",
-  "linguistic.wordOrderFlexibility.name": "Word order flexibility",
-  "linguistic.wordOrderFlexibility.values.flexible.description": "Various word arrangements are allowed for stylistic purposes.",
-  "linguistic.wordOrderFlexibility.values.flexible.label": "Flexible",
-  "linguistic.wordOrderFlexibility.values.rigid.description": "Words have fixed grammatical positions.",
-  "linguistic.wordOrderFlexibility.values.rigid.label": "Rigid",
-  "linguistic.wordOrderFlexibility.values.semi-flexible.description": "Some variation of word order is allowed for emphasis.",
-  "linguistic.wordOrderFlexibility.values.semi-flexible.label": "Semi-flexible",
-  "menu.close": "Close menu",
-  "menu.open": "Open menu",
-  "playlist.controls": "Playlist controls",
-  "playlist.goToBeginning": "Go to beginning (Home key)",
-  "playlist.next": "Next track (Right arrow)",
-  "playlist.pause": "Pause",
-  "playlist.play": "Play",
-  "playlist.previous": "Previous track (Left arrow)",
-  "playlist.progress": "{current} of {total}",
-  "playlist.toggleLoop": "Toggle loop (L key)",
-  "search.clear": "Clear search",
-  "search.label": "Search",
-  "search.noResults": "No languages found matching \"{term}\"",
-  "search.results": "Search Results ({count})",
-  "search.threshold": "Type at least {threshold} characters to search...",
-  "search.viewAll": "View all",
-  "tabs.controls": "Controls",
-  "tabs.filters": "Filters",
-  "tabs.languages": "Languages",
-  "tabs.search": "Search"
+  "controls": {
+    "backgroundColor": { "label": "Background" },
+    "cameraX": { "label": "Camera X" },
+    "cameraY": { "label": "Camera Y" },
+    "cameraZ": { "label": "Camera Z" },
+    "canEditColors": { "label": "Can edit colors?" },
+    "eyeProtrusion": { "label": "Eye protrusion" },
+    "eyeSize": { "label": "Eye size" },
+    "eyeX": { "label": "Eye X" },
+    "eyeY": { "label": "Eye Y" },
+    "eyeZ": { "label": "Eye Z" },
+    "far": { "label": "Far plane" },
+    "fov": { "label": "Field of view" },
+    "friction": { "label": "Friction" },
+    "globalChromaOffset": { "label": "Chroma offset" },
+    "globalChromaScale": { "label": "Chroma scale" },
+    "globalLightnessOffset": { "label": "Lightness offset" },
+    "globalLightnessScale": { "label": "Lightness scale" },
+    "groups": {
+      "camera": "Camera",
+      "colors": "Colors",
+      "languagesTab": "Languages tab",
+      "mesha": "Mesha",
+      "meshaLight": "Mesha light",
+      "motion": "Motion",
+      "scene": "Scene",
+      "stageLight": "Stage light"
+    },
+    "hasSubtitle": { "label": "Show subtitle" },
+    "hueCircle": { "label": "Hue circle" },
+    "hueStart": { "label": "Hue start" },
+    "isLoop": { "label": "Loop playlist" },
+    "isLuka": { "label": "Luka reads samples" },
+    "isMyMesha": { "label": "I am Mesha" },
+    "isReverse": { "label": "Reverse order" },
+    "labelContent": {
+      "label": "Display",
+      "options": {
+        "isoCode": "ISO codes",
+        "name": "English names",
+        "nativeName": "Native names"
+      }
+    },
+    "labelSize": { "label": "Label size" },
+    "maxSiblingSpread": { "label": "Sibling hue spread" },
+    "meshaLightDecay": { "label": "Decay" },
+    "meshaLightDistance": { "label": "Distance" },
+    "meshaLightIntensity": { "label": "Intensity" },
+    "meshaSize": { "label": "Mesha size" },
+    "moustacheSize": { "label": "Moustache size" },
+    "near": { "label": "Near plane" },
+    "noseSize": { "label": "Nose size" },
+    "showsVideoPreviews": { "label": "Preview original" },
+    "sortBy": {
+      "label": "Sort languages by",
+      "options": {
+        "alphabetically": "Alphabetical order",
+        "caseCount": "Case count",
+        "evidentiality": "Evidentiality",
+        "family": "Language family",
+        "maxClusterSize": "Consonant clusters",
+        "morphology": "Morphology",
+        "nounClassCount": "Noun classes",
+        "phonemeCount": "Phoneme count",
+        "speakers": "Speakers' number",
+        "tonality": "Tonality",
+        "verbAspect": "Verb aspect",
+        "wordOrder": "Word order",
+        "wordOrderFlexibility": "Word order flexibility"
+      }
+    },
+    "sphereRadius": { "label": "Sphere radius" },
+    "stageLightDecay": { "label": "Decay" },
+    "stageLightDistance": { "label": "Distance" },
+    "stageLightIntensity": { "label": "Intensity" },
+    "switchDuration": { "label": "Switch duration" },
+    "teethSize": { "label": "Teeth size" },
+    "tension": { "label": "Tension" },
+    "zoomDistance": { "label": "Zoom distance" }
+  },
+  "filters": {
+    "all": "All",
+    "allowMultipleChoices": "Allow multiple choices",
+    "results": "Filter results ({count})",
+    "title": "Filter by"
+  },
+  "linguistic": {
+    "caseCount": { "name": "Case count" },
+    "evidentiality": {
+      "name": "Evidentiality",
+      "values": {
+        "complex": {
+          "description": "Four or more evidential distinctions or evidentiality fused with tense/aspect.",
+          "label": "Complex"
+        },
+        "moderate": {
+          "description": "Three-way distinction (e.g., direct, reportative, inferential).",
+          "label": "Moderate"
+        },
+        "none": {
+          "description": "No grammatical marking of information source.",
+          "label": "None"
+        },
+        "optional": {
+          "description": "Evidential-like markers exist but are not obligatory.",
+          "label": "Optional"
+        },
+        "simple": {
+          "description": "Two-way distinction (typically direct vs. indirect/reportative).",
+          "label": "Simple"
+        }
+      }
+    },
+    "family": { "name": "Language family" },
+    "maxClusterSize": { "name": "Max consonants in a cluster" },
+    "morphology": {
+      "name": "Morphology",
+      "values": {
+        "agglutinative": {
+          "description": "Words are built by stacking affixes one after another, where each affix carries exactly one meaning. The pieces stay clearly recognizable, like building blocks snapped together.",
+          "label": "Agglutinative"
+        },
+        "fusional": {
+          "description": "Words change their form through endings and prefixes that bundle multiple grammatical meanings at once. A single ending might express gender, number, and case simultaneously, making the pieces hard to pull apart.",
+          "label": "Fusional"
+        },
+        "introflexive": {
+          "description": "Grammar is built into the word from the inside: a root of consonants carries the core meaning, while different vowel patterns woven through it create new words. For example, the Arabic root k-t-b relates to writing, and kataba, kitāb, and kātib all come from it.",
+          "label": "Introflexive"
+        },
+        "isolating": {
+          "description": "Words typically consist of single morphemes and don't change their form. Grammar is expressed through word order and separate function words rather than endings or prefixes.",
+          "label": "Isolating"
+        },
+        "polysynthetic": {
+          "description": "A single word can express what other languages would say in a whole sentence, by fusing the verb, subject, object, and other elements together. Common in indigenous languages of the Americas and the Arctic.",
+          "label": "Polysynthetic"
+        }
+      }
+    },
+    "nounClassCount": { "name": "Noun classes / genders" },
+    "phonemeCount": { "name": "Phoneme count" },
+    "tonality": {
+      "name": "Tonality",
+      "values": {
+        "complex-tonal": {
+          "description": "Pitch patterns significantly affect word meaning.",
+          "label": "Complex tonal"
+        },
+        "non-tonal": {
+          "description": "Pitch changes don't affect word meaning.",
+          "label": "Non-tonal"
+        },
+        "pitch-accent": {
+          "description": "It uses pitch accent, where certain syllables are emphasized with pitch changes.",
+          "label": "Pitch-accent"
+        },
+        "simple-tonal": {
+          "description": "Pitch changes moderately affect word meaning.",
+          "label": "Simple tonal"
+        }
+      }
+    },
+    "verbAspect": {
+      "name": "Verb aspect",
+      "values": {
+        "binary": {
+          "description": "Two-way systematic distinction (perfective/imperfective).",
+          "label": "Binary"
+        },
+        "complex": {
+          "description": "Multiple aspect categories with rich morphological marking.",
+          "label": "Complex"
+        },
+        "minimal": {
+          "description": "No or very limited grammatical aspect marking.",
+          "label": "Minimal"
+        },
+        "simple": {
+          "description": "Basic aspectual distinctions (e.g., progressive, perfect).",
+          "label": "Simple"
+        }
+      }
+    },
+    "wordOrder": {
+      "name": "Word order",
+      "values": {
+        "SOV": {
+          "description": "Subject-Object-Verb",
+          "label": "SOV"
+        },
+        "SVO": {
+          "description": "Subject-Verb-Object",
+          "label": "SVO"
+        },
+        "VOS": {
+          "description": "Verb-Object-Subject",
+          "label": "VOS"
+        },
+        "VSO": {
+          "description": "Verb-Subject-Object",
+          "label": "VSO"
+        }
+      }
+    },
+    "wordOrderFlexibility": {
+      "name": "Word order flexibility",
+      "values": {
+        "flexible": {
+          "description": "Various word arrangements are allowed for stylistic purposes.",
+          "label": "Flexible"
+        },
+        "rigid": {
+          "description": "Words have fixed grammatical positions.",
+          "label": "Rigid"
+        },
+        "semi-flexible": {
+          "description": "Some variation of word order is allowed for emphasis.",
+          "label": "Semi-flexible"
+        }
+      }
+    }
+  },
+  "menu": {
+    "close": "Close menu",
+    "open": "Open menu"
+  },
+  "playlist": {
+    "controls": "Playlist controls",
+    "goToBeginning": "Go to beginning (Home key)",
+    "next": "Next track (Right arrow)",
+    "pause": "Pause",
+    "play": "Play",
+    "previous": "Previous track (Left arrow)",
+    "progress": "{current} of {total}",
+    "toggleLoop": "Toggle loop (L key)"
+  },
+  "search": {
+    "clear": "Clear search",
+    "label": "Search",
+    "noResults": "No languages found matching \"{term}\"",
+    "results": "Search Results ({count})",
+    "threshold": "Type at least {threshold} characters to search...",
+    "viewAll": "View all"
+  },
+  "tabs": {
+    "controls": "Controls",
+    "filters": "Filters",
+    "languages": "Languages",
+    "search": "Search"
+  }
 }
