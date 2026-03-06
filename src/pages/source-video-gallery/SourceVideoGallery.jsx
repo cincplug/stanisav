@@ -1,10 +1,13 @@
 import { useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import languages from "../../config/languages.json";
 import SourceVideoCard from "./SourceVideoCard";
 import "../../index.css";
 import "./SourceVideoGallery.css";
 
 const SourceVideoGallery = () => {
+  const { locale } = useParams();
+
   useEffect(() => {
     document.body.classList.add("svgallery-body");
     return () => {
@@ -14,9 +17,9 @@ const SourceVideoGallery = () => {
 
   return (
     <div className="svgallery-container">
-      <a className="home-link" href="/">
+      <Link className="home-link" to={`/${locale}`}>
         Back to main page
-      </a>
+      </Link>
       <h1 className="svgallery-title">Source Video's Gallery</h1>
       <div className="svgallery-grid">
         {Object.entries(languages).map(([code, lang]) => (

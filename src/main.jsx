@@ -3,12 +3,14 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import SourceVideoGallery from "./pages/source-video-gallery/SourceVideoGallery.jsx";
 import PropertyRoutePage from "./pages/property-showcase/PropertyRoutePage.jsx";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AppStateProvider } from "./contexts/AppStateContext";
 import { ControlsProvider } from "./contexts/ControlsContext";
 import { PlaylistProvider } from "./contexts/PlaylistContext";
 import { LanguageSelectionProvider } from "./contexts/LanguageSelectionContext";
 import { I18nProvider } from "./contexts/I18nContext";
+import LocaleLayout from "./components/routing/LocaleLayout.jsx";
+import { defaultLocale } from "./i18n/runtime";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -20,14 +22,24 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <PlaylistProvider>
               <BrowserRouter>
                 <Routes>
-                  <Route path="/" element={<App />} />
                   <Route
-                    path="/source-video-gallery"
-                    element={<SourceVideoGallery />}
+                    path="/"
+                    element={<Navigate to={`/${defaultLocale}`} replace />}
                   />
+                  <Route path=":locale" element={<LocaleLayout />}>
+                    <Route index element={<App />} />
+                    <Route
+                      path="source-video-gallery"
+                      element={<SourceVideoGallery />}
+                    />
+                    <Route
+                      path="property/:propertyKey"
+                      element={<PropertyRoutePage />}
+                    />
+                  </Route>
                   <Route
-                    path="/property/:propertyKey"
-                    element={<PropertyRoutePage />}
+                    path="*"
+                    element={<Navigate to={`/${defaultLocale}`} replace />}
                   />
                 </Routes>
               </BrowserRouter>

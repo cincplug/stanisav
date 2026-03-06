@@ -3,7 +3,7 @@ import linguisticConfig from "../../config/linguisticConfig.json";
 import PropertyShowcase from "./PropertyShowcase.jsx";
 
 const PropertyRoutePage = () => {
-  const { propertyKey } = useParams();
+  const { locale, propertyKey } = useParams();
   const isValidProperty = Boolean(
     propertyKey &&
     linguisticConfig[propertyKey] &&
@@ -11,7 +11,7 @@ const PropertyRoutePage = () => {
   );
 
   if (!isValidProperty) {
-    return <Navigate to="/" replace />;
+    return <Navigate to={`/${locale}`} replace />;
   }
 
   return <PropertyShowcase propertyKey={propertyKey} />;

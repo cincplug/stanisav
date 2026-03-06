@@ -14,7 +14,26 @@ const languageNamesByLocale = {
   eng: languageNamesEng,
 };
 
-let currentLocale = "eng";
+export const defaultLocale = "eng";
+
+const normalizeLocaleCode = (locale) =>
+  String(locale || "")
+    .trim()
+    .toLowerCase();
+
+const hasLocaleDataset = (locale) =>
+  locale in messagesByLocale &&
+  locale in languageNamesByLocale &&
+  locale in lineageLabelsByLocale;
+
+export const normalizeLocale = (locale) => normalizeLocaleCode(locale);
+
+export const isSupportedLocale = (locale) => {
+  const normalized = normalizeLocaleCode(locale);
+  return Boolean(normalized) && hasLocaleDataset(normalized);
+};
+
+let currentLocale = defaultLocale;
 
 const interpolate = (message, params = {}) =>
   message.replace(/\{(\w+)\}/g, (fullMatch, key) => {
@@ -30,7 +49,11 @@ const localizedLanguageNames = () => languageNamesByLocale[currentLocale];
 const localizedLineageLabels = () => lineageLabelsByLocale[currentLocale];
 
 export const setActiveLocale = (locale) => {
-  currentLocale = locale;
+  const normalized = normalizeLocaleCode(locale);
+  if (!isSupportedLocale(normalized)) {
+    throw new Error(`Unsupported locale '${locale}'`);
+  }
+  currentLocale = normalized;
 };
 
 export const translate = (key, params) => {
