@@ -1,7 +1,10 @@
 import tabsConfig from "../../config/tabsConfig.json";
+import { useI18n } from "../../hooks/useI18n";
 import "./TabNavigation.css";
 
 function TabNavigation({ activeTab, setActiveTab }) {
+  const { t } = useI18n();
+
   return (
     <div className="tab-navigation">
       {tabsConfig.tabs.map((tab) => (
@@ -10,7 +13,7 @@ function TabNavigation({ activeTab, setActiveTab }) {
           onClick={() => setActiveTab(tab.id)}
           className={`tab-button ${activeTab === tab.id ? "active" : ""}`}
         >
-          {tab.label}
+          {t(`tabs.${tab.id}`)}
         </button>
       ))}
     </div>

@@ -3,11 +3,13 @@ import { CloseIcon } from "./MenuIcons";
 import "./SearchTab.css";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
+import { useI18n } from "../../hooks/useI18n";
 
 function SearchBox({ searchTerm, setSearchTerm, clearSearch, autoFocus }) {
   const searchInputRef = useRef(null);
   const { viewAllLanguages } = useLanguageSelection();
   const { pausePlaylist } = usePlaylist();
+  const { t } = useI18n();
 
   useEffect(() => {
     if (autoFocus && searchInputRef.current) {
@@ -30,7 +32,7 @@ function SearchBox({ searchTerm, setSearchTerm, clearSearch, autoFocus }) {
   return (
     <div className="controls-grid search-header">
       <div className="search-input-container">
-        <label htmlFor="language-search">Search</label>
+        <label htmlFor="language-search">{t("search.label")}</label>
         <input
           ref={searchInputRef}
           id="language-search"
@@ -42,14 +44,14 @@ function SearchBox({ searchTerm, setSearchTerm, clearSearch, autoFocus }) {
         <button
           onClick={handleClear}
           className="search-clear-button"
-          aria-label="Clear search"
+          aria-label={t("search.clear")}
           disabled={!searchTerm}
         >
           <CloseIcon />
         </button>
       </div>
       <button onClick={handleViewAll} className="view-all-button">
-        View all
+        {t("search.viewAll")}
       </button>
     </div>
   );

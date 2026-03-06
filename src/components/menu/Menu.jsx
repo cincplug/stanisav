@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useControls } from "../../contexts/ControlsContext";
 import { useSearch } from "../../hooks/useSearch";
+import { useI18n } from "../../hooks/useI18n";
 import { BurgerIcon, CloseIcon } from "./MenuIcons";
 import tabsConfig from "../../config/tabsConfig.json";
 import TabNavigation from "./TabNavigation";
@@ -20,6 +21,7 @@ function Menu({
   onFilteringUtilsChange,
 }) {
   const { controls, updateControl } = useControls();
+  const { t } = useI18n();
   const [activeTab, setActiveTab] = useState(tabsConfig.defaultTab);
 
   const { searchTerm, setSearchTerm, searchResults, clearSearch } =
@@ -58,7 +60,7 @@ function Menu({
         id="menu-toggle"
         onClick={() => onToggleCollapse(!isCollapsed)}
         className="close-button"
-        aria-label={isCollapsed ? "Open menu" : "Close menu"}
+        aria-label={isCollapsed ? t("menu.open") : t("menu.close")}
       >
         {isCollapsed ? <BurgerIcon /> : <CloseIcon />}
       </button>

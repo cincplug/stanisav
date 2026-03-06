@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
+import { useI18n } from "../../hooks/useI18n";
 import tabsConfig from "../../config/tabsConfig.json";
 import "./SearchTab.css";
 
@@ -9,6 +10,7 @@ function SearchResults({ searchTerm, searchResults, languageData }) {
   const threshold = tabsConfig.searchLengthThreshold;
   const { selectLanguage, selectedLanguage } = useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
+  const { t } = useI18n();
 
   if (!searchTerm) return null;
 
@@ -16,7 +18,7 @@ function SearchResults({ searchTerm, searchResults, languageData }) {
   if (searchTerm.length < threshold) {
     return (
       <div className="search-threshold-message">
-        Type at least {threshold} characters to search...
+        {t("search.threshold", { threshold })}
       </div>
     );
   }
@@ -25,7 +27,7 @@ function SearchResults({ searchTerm, searchResults, languageData }) {
     return (
       <fieldset className="results-fieldset">
         <legend className="results-legend">
-          Search Results ({searchResults.languages.length})
+          {t("search.results", { count: searchResults.languages.length })}
         </legend>
         <div className="language-grid">
           {searchResults.languages.map((lang) => {
@@ -57,7 +59,7 @@ function SearchResults({ searchTerm, searchResults, languageData }) {
   if (searchResults.languages && searchResults.languages.length === 0) {
     return (
       <div className="search-no-results">
-        No languages found matching "{searchTerm}"
+        {t("search.noResults", { term: searchTerm })}
       </div>
     );
   }

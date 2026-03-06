@@ -9,9 +9,11 @@ import {
   NextIcon,
   LoopIcon,
 } from "./MenuIcons";
+import { useI18n } from "../../hooks/useI18n";
 import "./Playlist.css";
 
 export default function Playlist() {
+  const { t } = useI18n();
   const {
     isPlaying,
     startPlaylist,
@@ -60,14 +62,8 @@ export default function Playlist() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isPlaying, controls.isLoop]);
 
-  const isAtStart = !isPlaying && currentIndex === 0;
-  let playLabel = "Resume playlist";
-  let playIcon = <PlayIcon />;
-  if (isAtStart) playLabel = "Play all";
-  if (isPlaying) {
-    playLabel = "Pause playlist";
-    playIcon = <PauseIcon />;
-  }
+  const playLabel = isPlaying ? t("playlist.pause") : t("playlist.play");
+  const playIcon = isPlaying ? <PauseIcon /> : <PlayIcon />;
 
   const toggleLoop = () => updateControl("isLoop", !controls.isLoop);
 
@@ -75,35 +71,40 @@ export default function Playlist() {
     <div
       className="playlist-controls"
       role="group"
-      aria-label="Playlist controls"
+      aria-label={t("playlist.controls")}
     >
-      <button onClick={goToBegin} aria-label="Go to beginning (Home key)">
+      <button onClick={goToBegin} aria-label={t("playlist.goToBeginning")}>
         <BeginIcon />
       </button>
-      <button onClick={goToPrev} aria-label="Previous track (Left arrow)">
+      <button onClick={goToPrev} aria-label={t("playlist.previous")}>
         <PrevIcon />
       </button>
       <button
         className="playlist-main"
         onClick={isPlaying ? pausePlaylist : startPlaylist}
-        aria-label={`${playLabel} (Space or K key)`}
+        aria-label={playLabel}
         aria-pressed={isPlaying}
       >
         {playIcon}
       </button>
-      <button onClick={goToNext} aria-label="Next track (Right arrow)">
+      <button onClick={goToNext} aria-label={t("playlist.next")}>
         <NextIcon />
       </button>
       <button
         onClick={toggleLoop}
-        aria-label="Toggle loop (L key)"
+        aria-label={t("playlist.toggleLoop")}
         aria-pressed={controls.isLoop}
         className={controls.isLoop ? "active" : ""}
       >
         <LoopIcon active={controls.isLoop} />
       </button>
       <span className="playlist-progress" aria-live="polite" aria-atomic="true">
-        {playlistLength > 0 ? `${currentIndex + 1} of ${playlistLength}` : ""}
+        {playlistLength > 0
+          ? t("playlist.progress", {
+              current: currentIndex + 1,
+              total: playlistLength,
+            })
+          : ""}
       </span>
     </div>
   );

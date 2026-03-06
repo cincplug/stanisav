@@ -8,30 +8,33 @@ import { AppStateProvider } from "./contexts/AppStateContext";
 import { ControlsProvider } from "./contexts/ControlsContext";
 import { PlaylistProvider } from "./contexts/PlaylistContext";
 import { LanguageSelectionProvider } from "./contexts/LanguageSelectionContext";
+import { I18nProvider } from "./contexts/I18nContext";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AppStateProvider>
-      <ControlsProvider>
-        <LanguageSelectionProvider>
-          <PlaylistProvider>
-            <BrowserRouter>
-              <Routes>
-                <Route path="/" element={<App />} />
-                <Route
-                  path="/source-video-gallery"
-                  element={<SourceVideoGallery />}
-                />
-                <Route
-                  path="/property/:propertyKey"
-                  element={<PropertyRoutePage />}
-                />
-              </Routes>
-            </BrowserRouter>
-          </PlaylistProvider>
-        </LanguageSelectionProvider>
-      </ControlsProvider>
-    </AppStateProvider>
+    <I18nProvider>
+      <AppStateProvider>
+        <ControlsProvider>
+          <LanguageSelectionProvider>
+            <PlaylistProvider>
+              <BrowserRouter>
+                <Routes>
+                  <Route path="/" element={<App />} />
+                  <Route
+                    path="/source-video-gallery"
+                    element={<SourceVideoGallery />}
+                  />
+                  <Route
+                    path="/property/:propertyKey"
+                    element={<PropertyRoutePage />}
+                  />
+                </Routes>
+              </BrowserRouter>
+            </PlaylistProvider>
+          </LanguageSelectionProvider>
+        </ControlsProvider>
+      </AppStateProvider>
+    </I18nProvider>
   </React.StrictMode>,
 );
