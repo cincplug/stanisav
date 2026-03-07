@@ -1,18 +1,21 @@
 import eng from "./messages/eng.json";
 import nld from "./messages/nld.json";
 import srp from "./messages/srp.json";
+import ita from "./messages/ita.json";
 import ces from "./messages/ces.json";
 import mkd from "./messages/mkd.json";
 
 import languageNamesEng from "./language-names/eng.json";
 import languageNamesNld from "./language-names/nld.json";
 import languageNamesSrp from "./language-names/srp.json";
+import languageNamesIta from "./language-names/ita.json";
 import languageNamesCes from "./language-names/ces.json";
 import languageNamesMkd from "./language-names/mkd.json";
 
 import lineageLabelsEng from "./lineage-labels/eng.json";
 import lineageLabelsNld from "./lineage-labels/nld.json";
 import lineageLabelsSrp from "./lineage-labels/srp.json";
+import lineageLabelsIta from "./lineage-labels/ita.json";
 import lineageLabelsCes from "./lineage-labels/ces.json";
 import lineageLabelsMkd from "./lineage-labels/mkd.json";
 
@@ -22,6 +25,7 @@ const messagesByLocale = {
   srp,
   mkd,
   ces,
+  ita,
 };
 
 const lineageLabelsByLocale = {
@@ -30,6 +34,7 @@ const lineageLabelsByLocale = {
   srp: lineageLabelsSrp,
   mkd: lineageLabelsMkd,
   ces: lineageLabelsCes,
+  ita: lineageLabelsIta,
 };
 
 const languageNamesByLocale = {
@@ -38,6 +43,7 @@ const languageNamesByLocale = {
   srp: languageNamesSrp,
   mkd: languageNamesMkd,
   ces: languageNamesCes,
+  ita: languageNamesIta,
 };
 
 export const defaultLocale = "eng";
