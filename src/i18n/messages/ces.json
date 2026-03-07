@@ -1,0 +1,253 @@
+{
+  "controls": {
+    "backgroundColor": { "label": "Pozadí" },
+    "cameraX": { "label": "Kamera X" },
+    "cameraY": { "label": "Kamera Y" },
+    "cameraZ": { "label": "Kamera Z" },
+    "canEditColors": { "label": "Upravovat barvy?" },
+    "eyeProtrusion": { "label": "Vyčnívání oka" },
+    "eyeSize": { "label": "Velikost oka" },
+    "eyeX": { "label": "Oko X" },
+    "eyeY": { "label": "Oko Y" },
+    "eyeZ": { "label": "Oko Z" },
+    "far": { "label": "Vzdálená rovina" },
+    "fov": { "label": "Zorné pole" },
+    "friction": { "label": "Tření" },
+    "globalChromaOffset": { "label": "Posun chromy" },
+    "globalChromaScale": { "label": "Měřítko chromy" },
+    "globalLightnessOffset": { "label": "Posun světlosti" },
+    "globalLightnessScale": { "label": "Měřítko světlosti" },
+    "groups": {
+      "camera": "Kamera",
+      "colors": "Barvy",
+      "languagesTab": "Jazyky",
+      "mesha": "Meša",
+      "meshaLight": "Mešino světlo",
+      "motion": "Pohyb",
+      "scene": "Scéna",
+      "stageLight": "Světlo jeviště"
+    },
+    "hasSubtitle": { "label": "Zobrazit podtitulek" },
+    "hueCircle": { "label": "Kruh odstínů" },
+    "hueStart": { "label": "Počáteční odstín" },
+    "isLoop": { "label": "Opakovat playlist" },
+    "isLuka": { "label": "Luka čte ukázky" },
+    "isMyMesha": { "label": "Jsem Meša" },
+    "isReverse": { "label": "Obrácené pořadí" },
+    "labelContent": {
+      "label": "Zobrazení",
+      "options": {
+        "isoCode": "ISO kódy",
+        "name": "Názvy v angličtině",
+        "nativeName": "Názvy v rodném jazyce"
+      }
+    },
+    "labelSize": { "label": "Velikost popisku" },
+    "maxSiblingSpread": { "label": "Rozptyl odstínů příbuzných" },
+    "meshaLightDecay": { "label": "Útlum" },
+    "meshaLightDistance": { "label": "Vzdálenost" },
+    "meshaLightIntensity": { "label": "Intenzita" },
+    "meshaSize": { "label": "Mešina velikost" },
+    "moustacheSize": { "label": "Velikost kníru" },
+    "near": { "label": "Blízká rovina" },
+    "noseSize": { "label": "Velikost nosu" },
+    "showsVideoPreviews": { "label": "Náhled originálu" },
+    "sortBy": {
+      "label": "Řadit jazyky podle",
+      "options": {
+        "alphabetically": "Abecedního pořadí",
+        "caseCount": "Počtu pádů",
+        "evidentiality": "Evidentnosti",
+        "family": "Jazykové rodiny",
+        "maxClusterSize": "Souhláskových shluků",
+        "morphology": "Morfologie",
+        "nounClassCount": "Jmenných tříd",
+        "phonemeCount": "Počtu fonémů",
+        "speakers": "Počtu mluvčích",
+        "tonality": "Tonality",
+        "verbAspect": "Slovesného vidu",
+        "wordOrder": "Slovosledu",
+        "wordOrderFlexibility": "Flexibility slovosledu"
+      }
+    },
+    "sphereRadius": { "label": "Poloměr koule" },
+    "stageLightDecay": { "label": "Útlum" },
+    "stageLightDistance": { "label": "Vzdálenost" },
+    "stageLightIntensity": { "label": "Intenzita" },
+    "switchDuration": { "label": "Délka přechodu" },
+    "teethSize": { "label": "Velikost zubů" },
+    "tension": { "label": "Napětí" },
+    "zoomDistance": { "label": "Vzdálenost přiblížení" }
+  },
+  "filters": {
+    "all": "Vše",
+    "allowMultipleChoices": "Povolit více voleb",
+    "results": "Výsledky filtru ({count})",
+    "title": "Filtrovat podle"
+  },
+  "linguistic": {
+    "caseCount": { "name": "Počet pádů" },
+    "evidentiality": {
+      "name": "Evidentnost",
+      "values": {
+        "complex": {
+          "description": "Čtyři nebo více evidentních distinkcí nebo evidentnost sloučená s časem/aspektem.",
+          "label": "Složitá"
+        },
+        "moderate": {
+          "description": "Trojí rozlišení (např. přímé, zprostředkované, inferenční).",
+          "label": "Střední"
+        },
+        "none": {
+          "description": "Žádné gramatické označení zdroje informace.",
+          "label": "Žádná"
+        },
+        "optional": {
+          "description": "Existují markery podobné evidentním, ale nejsou povinné.",
+          "label": "Volitelná"
+        },
+        "simple": {
+          "description": "Dvojí rozlišení (typicky přímé vs. nepřímé/zprostředkované).",
+          "label": "Prostá"
+        }
+      }
+    },
+    "family": { "name": "Jazyková rodina" },
+    "maxClusterSize": { "name": "Max. souhlásek ve shluku" },
+    "morphology": {
+      "name": "Morfologie",
+      "values": {
+        "agglutinative": {
+          "description": "Slova se tvoří řazením přípon za sebou, přičemž každá přípona nese právě jeden význam. Části zůstávají jasně rozpoznatelné, jako spojené stavebnice.",
+          "label": "Aglutinační"
+        },
+        "fusional": {
+          "description": "Slova mění svůj tvar pomocí koncovek a předpon, které zároveň nesou více gramatických významů. Jediná koncovka může vyjadřovat rod, číslo a pád najednou, což části ztěžuje oddělení.",
+          "label": "Flektivní"
+        },
+        "introflexive": {
+          "description": "Gramatika je zabudována dovnitř slova: kořen ze souhlásek nese základní význam, zatímco různé samohláskové vzory do něj vetkané vytvářejí nová slova. Například arabský kořen k-t-b se vztahuje k psaní a kataba, kitāb i kātib z něj všechny pocházejí.",
+          "label": "Introflektivní"
+        },
+        "isolating": {
+          "description": "Slova se obvykle skládají z jediného morfému a nemění svůj tvar. Gramatika se vyjadřuje slovosledem a samostatnými funkčními slovy, nikoli koncovkami nebo předponami.",
+          "label": "Izolační"
+        },
+        "polysynthetic": {
+          "description": "Jediné slovo může vyjádřit to, co by jiné jazyky řekly celou větou, sloučením slovesa, podmětu, předmětu a dalších prvků. Typické pro domorodé jazyky Ameriky a Arktidy.",
+          "label": "Polysyntetická"
+        }
+      }
+    },
+    "nounClassCount": { "name": "Jmenné třídy / rody" },
+    "phonemeCount": { "name": "Počet fonémů" },
+    "tonality": {
+      "name": "Tonalita",
+      "values": {
+        "complex-tonal": {
+          "description": "Tónové vzory výrazně ovlivňují význam slov.",
+          "label": "Složitě tónová"
+        },
+        "non-tonal": {
+          "description": "Změny výšky tónu neovlivňují význam slov.",
+          "label": "Netónová"
+        },
+        "pitch-accent": {
+          "description": "Používá tónový přízvuk, kde jsou určité slabiky zdůrazněny změnami výšky tónu.",
+          "label": "Tónový přízvuk"
+        },
+        "simple-tonal": {
+          "description": "Změny výšky tónu mírně ovlivňují význam slov.",
+          "label": "Prostě tónová"
+        }
+      }
+    },
+    "verbAspect": {
+      "name": "Slovesný vid",
+      "values": {
+        "binary": {
+          "description": "Dvojí systematické rozlišení (dokonavý/nedokonavý).",
+          "label": "Binární"
+        },
+        "complex": {
+          "description": "Více aspektových kategorií s bohatým morfologickým označením.",
+          "label": "Složitý"
+        },
+        "minimal": {
+          "description": "Žádné nebo velmi omezené gramatické označení aspektu.",
+          "label": "Minimální"
+        },
+        "simple": {
+          "description": "Základní aspektová rozlišení (např. průběhový, perfektní).",
+          "label": "Prostý"
+        }
+      }
+    },
+    "wordOrder": {
+      "name": "Slovosled",
+      "values": {
+        "SOV": {
+          "description": "Podmět-Předmět-Sloveso",
+          "label": "SOV"
+        },
+        "SVO": {
+          "description": "Podmět-Sloveso-Předmět",
+          "label": "SVO"
+        },
+        "VOS": {
+          "description": "Sloveso-Předmět-Podmět",
+          "label": "VOS"
+        },
+        "VSO": {
+          "description": "Sloveso-Podmět-Předmět",
+          "label": "VSO"
+        }
+      }
+    },
+    "wordOrderFlexibility": {
+      "name": "Flexibilita slovosledu",
+      "values": {
+        "flexible": {
+          "description": "Různá uspořádání slov jsou povolena pro stylistické účely.",
+          "label": "Flexibilní"
+        },
+        "rigid": {
+          "description": "Slova mají pevné gramatické pozice.",
+          "label": "Pevný"
+        },
+        "semi-flexible": {
+          "description": "Určité variace slovosledu jsou povoleny pro zdůraznění.",
+          "label": "Poloflexibilní"
+        }
+      }
+    }
+  },
+  "menu": {
+    "close": "Zavřít nabídku",
+    "open": "Otevřít nabídku"
+  },
+  "playlist": {
+    "controls": "Ovládání playlistu",
+    "goToBeginning": "Na začátek (klávesa Home)",
+    "next": "Další skladba (šipka vpravo)",
+    "pause": "Pozastavit",
+    "play": "Přehrát",
+    "previous": "Předchozí skladba (šipka vlevo)",
+    "progress": "{current} z {total}",
+    "toggleLoop": "Zapnout/vypnout opakování (klávesa L)"
+  },
+  "search": {
+    "clear": "Vymazat hledání",
+    "label": "Hledat",
+    "noResults": "Nebyl nalezen žádný jazyk odpovídající \"{term}\"",
+    "results": "Výsledky hledání ({count})",
+    "threshold": "Zadejte alespoň {threshold} znaky pro hledání...",
+    "viewAll": "Zobrazit vše"
+  },
+  "tabs": {
+    "controls": "Ovládání",
+    "filters": "Filtry",
+    "languages": "Jazyky",
+    "search": "Hledání"
+  }
+}

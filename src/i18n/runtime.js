@@ -1,16 +1,19 @@
 import eng from "./messages/eng.json";
 import nld from "./messages/nld.json";
 import srp from "./messages/srp.json";
+import ces from "./messages/ces.json";
 import mkd from "./messages/mkd.json";
 
 import languageNamesEng from "./language-names/eng.json";
 import languageNamesNld from "./language-names/nld.json";
 import languageNamesSrp from "./language-names/srp.json";
+import languageNamesCes from "./language-names/ces.json";
 import languageNamesMkd from "./language-names/mkd.json";
 
 import lineageLabelsEng from "./lineage-labels/eng.json";
 import lineageLabelsNld from "./lineage-labels/nld.json";
 import lineageLabelsSrp from "./lineage-labels/srp.json";
+import lineageLabelsCes from "./lineage-labels/ces.json";
 import lineageLabelsMkd from "./lineage-labels/mkd.json";
 
 const messagesByLocale = {
@@ -18,6 +21,7 @@ const messagesByLocale = {
   nld,
   srp,
   mkd,
+  ces,
 };
 
 const lineageLabelsByLocale = {
@@ -25,6 +29,7 @@ const lineageLabelsByLocale = {
   nld: lineageLabelsNld,
   srp: lineageLabelsSrp,
   mkd: lineageLabelsMkd,
+  ces: lineageLabelsCes,
 };
 
 const languageNamesByLocale = {
@@ -32,6 +37,7 @@ const languageNamesByLocale = {
   nld: languageNamesNld,
   srp: languageNamesSrp,
   mkd: languageNamesMkd,
+  ces: languageNamesCes,
 };
 
 export const defaultLocale = "eng";
