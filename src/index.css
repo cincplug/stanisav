@@ -174,7 +174,7 @@ legend {
 }
 
 .subtitle {
-  position: fixed;
+  position: absolute;
   bottom: 3rem;
   left: 50%;
   transform: translateX(-50%);
@@ -193,6 +193,18 @@ legend {
   width: 100vw;
   height: 100vh;
   position: relative;
+}
+
+.stage-area {
+  position: relative;
+  height: 100%;
+  min-width: 0;
+  width: 100%;
+}
+
+/* Menu expanded: Stage area excludes menu width */
+.app-container.menu-expanded .stage-area {
+  width: calc(100% - var(--panel-width));
 }
 
 .languages-in-group {

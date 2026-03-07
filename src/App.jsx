@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
-import LoadingOverlay from "./components/menu/Overlay";
+import Overlay from "./components/menu/Overlay";
 import Playlist from "./components/menu/Playlist";
 import { useAppState } from "./contexts/AppStateContext";
 import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
@@ -53,32 +53,39 @@ function App() {
     <div
       className={`app-container ${isLoading ? "loading" : ""} ${isMenuCollapsed ? "menu-collapsed" : "menu-expanded"}`}
     >
-      <Stage
-        isMenuCollapsed={isMenuCollapsed}
-        onDataLoaded={setData}
-        onSceneReady={setSceneReady}
-        onLoadingChange={setIsLoading}
-        onNodesReady={setNodes}
-        onEmptyFilterChange={setIsEmptyFilter}
-      />
-      {hasSubtitle && selectedLanguage && (
-        <div className="subtitle">
-          <p>{morphology}</p>
-          <p>
-            {wordOrder} ({wordOrderFlexibility})
-          </p>
-          <p>{caseCount} cases</p>
-          <p>{verbAspect} verb aspect</p>
-          <p>{evidentiality} evidentiality</p>
-          <p>{tonality}</p>
-          <p>{phonemeCount} phonemes</p>
-          <p>{speakers * 1000000} speakers</p>
-        </div>
-      )}
+      <div className="stage-area">
+        <Stage
+          isMenuCollapsed={isMenuCollapsed}
+          onDataLoaded={setData}
+          onSceneReady={setSceneReady}
+          onLoadingChange={setIsLoading}
+          onNodesReady={setNodes}
+          onEmptyFilterChange={setIsEmptyFilter}
+        />
 
-      {!isLoading && sceneReady ? (
+        {(isLoading || !sceneReady) && <Overlay variant="loading" />}
+        {!isLoading && sceneReady && isEmptyFilter && (
+          <Overlay variant="emptyFilter" />
+        )}
+
+        {hasSubtitle && selectedLanguage && (
+          <div className="subtitle">
+            <p>{morphology}</p>
+            <p>
+              {wordOrder} ({wordOrderFlexibility})
+            </p>
+            <p>{caseCount} cases</p>
+            <p>{verbAspect} verb aspect</p>
+            <p>{evidentiality} evidentiality</p>
+            <p>{tonality}</p>
+            <p>{phonemeCount} phonemes</p>
+            <p>{speakers * 1000000} speakers</p>
+          </div>
+        )}
+      </div>
+
+      {!isLoading && sceneReady && (
         <>
-          {isEmptyFilter && <LoadingOverlay variant="emptyFilter" />}
           <Playlist />
           <Menu
             controls={controls}
@@ -106,8 +113,6 @@ function App() {
             </a>
           )}
         </>
-      ) : (
-        <LoadingOverlay />
       )}
     </div>
   );

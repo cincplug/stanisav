@@ -1,6 +1,6 @@
 import "./Overlay.css";
 
-const LoadingOverlay = ({ variant = "loading" }) => {
+const Overlay = ({ variant = "loading" }) => {
   const isLoading = variant === "loading";
   const isEmptyFilter = variant === "emptyFilter";
 
@@ -44,4 +44,4 @@ const LoadingOverlay = ({ variant = "loading" }) => {
   );
 };
 
-export default LoadingOverlay;
+export default Overlay;
