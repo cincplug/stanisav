@@ -1,0 +1,253 @@
+{
+  "controls": {
+    "backgroundColor": { "label": "Fondo" },
+    "cameraX": { "label": "Cámara X" },
+    "cameraY": { "label": "Cámara Y" },
+    "cameraZ": { "label": "Cámara Z" },
+    "canEditColors": { "label": "¿Editar colores?" },
+    "eyeProtrusion": { "label": "Protrusión del ojo" },
+    "eyeSize": { "label": "Tamaño del ojo" },
+    "eyeX": { "label": "Ojo X" },
+    "eyeY": { "label": "Ojo Y" },
+    "eyeZ": { "label": "Ojo Z" },
+    "far": { "label": "Plano lejano" },
+    "fov": { "label": "Campo de visión" },
+    "friction": { "label": "Fricción" },
+    "globalChromaOffset": { "label": "Desplazamiento de croma" },
+    "globalChromaScale": { "label": "Escala de croma" },
+    "globalLightnessOffset": { "label": "Desplazamiento de luminosidad" },
+    "globalLightnessScale": { "label": "Escala de luminosidad" },
+    "groups": {
+      "camera": "Cámara",
+      "colors": "Colores",
+      "languagesTab": "Idiomas",
+      "mesha": "Mesha",
+      "meshaLight": "Luz de Mesha",
+      "motion": "Movimiento",
+      "scene": "Escena",
+      "stageLight": "Luz de escena"
+    },
+    "hasSubtitle": { "label": "Mostrar subtítulo" },
+    "hueCircle": { "label": "Círculo de matices" },
+    "hueStart": { "label": "Matiz inicial" },
+    "isLoop": { "label": "Repetir lista" },
+    "isLuka": { "label": "Luka lee los ejemplos" },
+    "isMyMesha": { "label": "Soy Mesha" },
+    "isReverse": { "label": "Orden inverso" },
+    "labelContent": {
+      "label": "Visualización",
+      "options": {
+        "isoCode": "Códigos ISO",
+        "name": "Nombres en inglés",
+        "nativeName": "Nombres en lengua nativa"
+      }
+    },
+    "labelSize": { "label": "Tamaño de etiqueta" },
+    "maxSiblingSpread": { "label": "Dispersión de matices afines" },
+    "meshaLightDecay": { "label": "Decaimiento" },
+    "meshaLightDistance": { "label": "Distancia" },
+    "meshaLightIntensity": { "label": "Intensidad" },
+    "meshaSize": { "label": "Tamaño de Mesha" },
+    "moustacheSize": { "label": "Tamaño del bigote" },
+    "near": { "label": "Plano cercano" },
+    "noseSize": { "label": "Tamaño de la nariz" },
+    "showsVideoPreviews": { "label": "Vista previa del original" },
+    "sortBy": {
+      "label": "Ordenar idiomas por",
+      "options": {
+        "alphabetically": "Orden alfabético",
+        "caseCount": "Número de casos",
+        "evidentiality": "Evidencialidad",
+        "family": "Familia lingüística",
+        "maxClusterSize": "Grupos consonánticos",
+        "morphology": "Morfología",
+        "nounClassCount": "Clases nominales",
+        "phonemeCount": "Número de fonemas",
+        "speakers": "Número de hablantes",
+        "tonality": "Tonalidad",
+        "verbAspect": "Aspecto verbal",
+        "wordOrder": "Orden de palabras",
+        "wordOrderFlexibility": "Flexibilidad del orden de palabras"
+      }
+    },
+    "sphereRadius": { "label": "Radio de la esfera" },
+    "stageLightDecay": { "label": "Decaimiento" },
+    "stageLightDistance": { "label": "Distancia" },
+    "stageLightIntensity": { "label": "Intensidad" },
+    "switchDuration": { "label": "Duración de transición" },
+    "teethSize": { "label": "Tamaño de los dientes" },
+    "tension": { "label": "Tensión" },
+    "zoomDistance": { "label": "Distancia de zoom" }
+  },
+  "filters": {
+    "all": "Todos",
+    "allowMultipleChoices": "Permitir selección múltiple",
+    "results": "Resultados del filtro ({count})",
+    "title": "Filtrar por"
+  },
+  "linguistic": {
+    "caseCount": { "name": "Número de casos" },
+    "evidentiality": {
+      "name": "Evidencialidad",
+      "values": {
+        "complex": {
+          "description": "Cuatro o más distinciones evidenciales o evidencialidad fusionada con tiempo/aspecto.",
+          "label": "Compleja"
+        },
+        "moderate": {
+          "description": "Distinción triple (p. ej., directa, reportada, inferencial).",
+          "label": "Moderada"
+        },
+        "none": {
+          "description": "Sin marcación gramatical de la fuente de información.",
+          "label": "Ninguna"
+        },
+        "optional": {
+          "description": "Existen marcadores similares a los evidenciales pero no son obligatorios.",
+          "label": "Opcional"
+        },
+        "simple": {
+          "description": "Distinción binaria (típicamente directa vs. indirecta/reportada).",
+          "label": "Simple"
+        }
+      }
+    },
+    "family": { "name": "Familia lingüística" },
+    "maxClusterSize": { "name": "Máx. consonantes en un grupo" },
+    "morphology": {
+      "name": "Morfología",
+      "values": {
+        "agglutinative": {
+          "description": "Las palabras se forman apilando afijos uno tras otro, donde cada afijo lleva exactamente un significado. Las partes permanecen claramente reconocibles, como piezas ensambladas.",
+          "label": "Aglutinante"
+        },
+        "fusional": {
+          "description": "Las palabras cambian su forma mediante desinencias y prefijos que agrupan múltiples significados gramaticales a la vez. Una sola desinencia puede expresar género, número y caso simultáneamente, dificultando separar las partes.",
+          "label": "Flexiva"
+        },
+        "introflexive": {
+          "description": "La gramática está integrada dentro de la propia palabra: una raíz de consonantes porta el significado central, mientras que distintos patrones vocálicos entretejidos en ella crean nuevas palabras. Por ejemplo, la raíz árabe k-t-b se relaciona con la escritura, y kataba, kitāb y kātib provienen todas de ella.",
+          "label": "Introflexiva"
+        },
+        "isolating": {
+          "description": "Las palabras suelen constar de un solo morfema y no cambian de forma. La gramática se expresa mediante el orden de las palabras y palabras funcionales independientes, no mediante desinencias o prefijos.",
+          "label": "Aislante"
+        },
+        "polysynthetic": {
+          "description": "Una sola palabra puede expresar lo que otros idiomas dirían en toda una oración, fusionando el verbo, el sujeto, el objeto y otros elementos. Común en las lenguas indígenas de las Américas y el Ártico.",
+          "label": "Polisintética"
+        }
+      }
+    },
+    "nounClassCount": { "name": "Clases nominales / géneros" },
+    "phonemeCount": { "name": "Número de fonemas" },
+    "tonality": {
+      "name": "Tonalidad",
+      "values": {
+        "complex-tonal": {
+          "description": "Los patrones tonales afectan significativamente al significado de las palabras.",
+          "label": "Tonal compleja"
+        },
+        "non-tonal": {
+          "description": "Los cambios de tono no afectan al significado de las palabras.",
+          "label": "No tonal"
+        },
+        "pitch-accent": {
+          "description": "Utiliza acento tonal, donde ciertas sílabas se enfatizan con cambios de tono.",
+          "label": "Acento tonal"
+        },
+        "simple-tonal": {
+          "description": "Los cambios de tono afectan moderadamente al significado de las palabras.",
+          "label": "Tonal simple"
+        }
+      }
+    },
+    "verbAspect": {
+      "name": "Aspecto verbal",
+      "values": {
+        "binary": {
+          "description": "Distinción sistemática binaria (perfectivo/imperfectivo).",
+          "label": "Binario"
+        },
+        "complex": {
+          "description": "Múltiples categorías aspectuales con rica marcación morfológica.",
+          "label": "Complejo"
+        },
+        "minimal": {
+          "description": "Sin marcación gramatical del aspecto o muy limitada.",
+          "label": "Mínimo"
+        },
+        "simple": {
+          "description": "Distinciones aspectuales básicas (p. ej., progresivo, perfecto).",
+          "label": "Simple"
+        }
+      }
+    },
+    "wordOrder": {
+      "name": "Orden de palabras",
+      "values": {
+        "SOV": {
+          "description": "Sujeto-Objeto-Verbo",
+          "label": "SOV"
+        },
+        "SVO": {
+          "description": "Sujeto-Verbo-Objeto",
+          "label": "SVO"
+        },
+        "VOS": {
+          "description": "Verbo-Objeto-Sujeto",
+          "label": "VOS"
+        },
+        "VSO": {
+          "description": "Verbo-Sujeto-Objeto",
+          "label": "VSO"
+        }
+      }
+    },
+    "wordOrderFlexibility": {
+      "name": "Flexibilidad del orden de palabras",
+      "values": {
+        "flexible": {
+          "description": "Se permiten distintos órdenes de palabras con fines estilísticos.",
+          "label": "Flexible"
+        },
+        "rigid": {
+          "description": "Las palabras tienen posiciones gramaticales fijas.",
+          "label": "Rígido"
+        },
+        "semi-flexible": {
+          "description": "Se permiten ciertas variaciones del orden de palabras para énfasis.",
+          "label": "Semiflexible"
+        }
+      }
+    }
+  },
+  "menu": {
+    "close": "Cerrar menú",
+    "open": "Abrir menú"
+  },
+  "playlist": {
+    "controls": "Controles de lista",
+    "goToBeginning": "Ir al inicio (tecla Inicio)",
+    "next": "Siguiente pista (flecha derecha)",
+    "pause": "Pausar",
+    "play": "Reproducir",
+    "previous": "Pista anterior (flecha izquierda)",
+    "progress": "{current} de {total}",
+    "toggleLoop": "Activar/desactivar repetición (tecla L)"
+  },
+  "search": {
+    "clear": "Borrar búsqueda",
+    "label": "Buscar",
+    "noResults": "No se encontró ningún idioma que coincida con \"{term}\"",
+    "results": "Resultados de búsqueda ({count})",
+    "threshold": "Escribe al menos {threshold} caracteres para buscar...",
+    "viewAll": "Ver todos"
+  },
+  "tabs": {
+    "controls": "Controles",
+    "filters": "Filtros",
+    "languages": "Idiomas",
+    "search": "Buscar"
+  }
+}
