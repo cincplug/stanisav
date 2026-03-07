@@ -1,23 +1,83 @@
 import eng from "./messages/eng.json";
 import nld from "./messages/nld.json";
+import srp from "./messages/srp.json";
+// import mkd from "./messages/mkd.json";
+// import ces from "./messages/ces.json";
+// import pol from "./messages/pol.json";
+// import ukr from "./messages/ukr.json";
+// import ita from "./messages/ita.json";
+// import spa from "./messages/spa.json";
+// import fra from "./messages/fra.json";
+// import deu from "./messages/deu.json";
+// import dan from "./messages/dan.json";
 import languageNamesEng from "./language-names/eng.json";
 import languageNamesNld from "./language-names/nld.json";
+import languageNamesSrp from "./language-names/srp.json";
+// import languageNamesMkd from "./language-names/mkd.json";
+// import languageNamesCes from "./language-names/ces.json";
+// import languageNamesPol from "./language-names/pol.json";
+// import languageNamesUkr from "./language-names/ukr.json";
+// import languageNamesIta from "./language-names/ita.json";
+// import languageNamesSpa from "./language-names/spa.json";
+// import languageNamesFra from "./language-names/fra.json";
+// import languageNamesDeu from "./language-names/deu.json";
+// import languageNamesDan from "./language-names/dan.json";
 import lineageLabelsEng from "./lineage-labels/eng.json";
 import lineageLabelsNld from "./lineage-labels/nld.json";
+import lineageLabelsSrp from "./lineage-labels/srp.json";
+// import lineageLabelsMkd from "./lineage-labels/mkd.json";
+// import lineageLabelsCes from "./lineage-labels/ces.json";
+// import lineageLabelsPol from "./lineage-labels/pol.json";
+// import lineageLabelsUkr from "./lineage-labels/ukr.json";
+// import lineageLabelsIta from "./lineage-labels/ita.json";
+// import lineageLabelsSpa from "./lineage-labels/spa.json";
+// import lineageLabelsFra from "./lineage-labels/fra.json";
+// import lineageLabelsDeu from "./lineage-labels/deu.json";
+// import lineageLabelsDan from "./lineage-labels/dan.json";
 
 const messagesByLocale = {
   eng,
   nld,
+  srp,
+  // mkd,
+  // ces,
+  // pol,
+  // ukr,
+  // ita,
+  // spa,
+  // fra,
+  // deu,
+  // dan,
 };
 
 const lineageLabelsByLocale = {
   eng: lineageLabelsEng,
   nld: lineageLabelsNld,
+  srp: lineageLabelsSrp,
+  // mkd: lineageLabelsMkd,
+  // ces: lineageLabelsCes,
+  // pol: lineageLabelsPol,
+  // ukr: lineageLabelsUkr,
+  // ita: lineageLabelsIta,
+  // spa: lineageLabelsSpa,
+  // fra: lineageLabelsFra,
+  // deu: lineageLabelsDeu,
+  // dan: lineageLabelsDan,
 };
 
 const languageNamesByLocale = {
   eng: languageNamesEng,
   nld: languageNamesNld,
+  srp: languageNamesSrp,
+  // mkd: languageNamesMkd,
+  // ces: languageNamesCes,
+  // pol: languageNamesPol,
+  // ukr: languageNamesUkr,
+  // ita: languageNamesIta,
+  // spa: languageNamesSpa,
+  // fra: languageNamesFra,
+  // deu: languageNamesDeu,
+  // dan: languageNamesDan,
 };
 
 export const defaultLocale = "eng";

@@ -1,0 +1,253 @@
+{
+  "controls": {
+    "backgroundColor": { "label": "Pozadina" },
+    "cameraX": { "label": "Kamera X" },
+    "cameraY": { "label": "Kamera Y" },
+    "cameraZ": { "label": "Kamera Z" },
+    "canEditColors": { "label": "Izmena boja?" },
+    "eyeProtrusion": { "label": "Isturanje oka" },
+    "eyeSize": { "label": "Veličina oka" },
+    "eyeX": { "label": "Oko X" },
+    "eyeY": { "label": "Oko Y" },
+    "eyeZ": { "label": "Oko Z" },
+    "far": { "label": "Daleka ravan" },
+    "fov": { "label": "Vidno polje" },
+    "friction": { "label": "Trenje" },
+    "globalChromaOffset": { "label": "Pomak hrome" },
+    "globalChromaScale": { "label": "Razmera hrome" },
+    "globalLightnessOffset": { "label": "Pomak svetline" },
+    "globalLightnessScale": { "label": "Razmera svetline" },
+    "groups": {
+      "camera": "Kamera",
+      "colors": "Boje",
+      "languagesTab": "Jezici",
+      "mesha": "Meša",
+      "meshaLight": "Mešino svetlo",
+      "motion": "Kretanje",
+      "scene": "Scena",
+      "stageLight": "Pozorišno svetlo"
+    },
+    "hasSubtitle": { "label": "Prikaži podnaslov" },
+    "hueCircle": { "label": "Krug nijansi" },
+    "hueStart": { "label": "Početna nijansa" },
+    "isLoop": { "label": "Petlja plejliste" },
+    "isLuka": { "label": "Luka čita primere" },
+    "isMyMesha": { "label": "Ja sam Meša" },
+    "isReverse": { "label": "Obrnuti redosled" },
+    "labelContent": {
+      "label": "Prikaz",
+      "options": {
+        "isoCode": "ISO kodovi",
+        "name": "Nazivi na engleskom",
+        "nativeName": "Nazivi na maternjem"
+      }
+    },
+    "labelSize": { "label": "Veličina oznake" },
+    "maxSiblingSpread": { "label": "Raspon nijansi srodnih" },
+    "meshaLightDecay": { "label": "Opadanje" },
+    "meshaLightDistance": { "label": "Daljina" },
+    "meshaLightIntensity": { "label": "Intenzitet" },
+    "meshaSize": { "label": "Mešina veličina" },
+    "moustacheSize": { "label": "Veličina brkova" },
+    "near": { "label": "Bliska ravan" },
+    "noseSize": { "label": "Veličina nosa" },
+    "showsVideoPreviews": { "label": "Pregled originala" },
+    "sortBy": {
+      "label": "Sortiraj jezike po",
+      "options": {
+        "alphabetically": "Abecednom redu",
+        "caseCount": "Broju padeža",
+        "evidentiality": "Evidencijalnosti",
+        "family": "Jezičkoj porodici",
+        "maxClusterSize": "Suglasničkim skupovima",
+        "morphology": "Morfologiji",
+        "nounClassCount": "Imeničkim klasama",
+        "phonemeCount": "Broju fonema",
+        "speakers": "Broju govornika",
+        "tonality": "Tonalnosti",
+        "verbAspect": "Glagolskom vidu",
+        "wordOrder": "Redu reči",
+        "wordOrderFlexibility": "Fleksibilnosti reda reči"
+      }
+    },
+    "sphereRadius": { "label": "Polupречnik sfere" },
+    "stageLightDecay": { "label": "Opadanje" },
+    "stageLightDistance": { "label": "Daljina" },
+    "stageLightIntensity": { "label": "Intenzitet" },
+    "switchDuration": { "label": "Trajanje prelaza" },
+    "teethSize": { "label": "Veličina zuba" },
+    "tension": { "label": "Napon" },
+    "zoomDistance": { "label": "Daljina zuma" }
+  },
+  "filters": {
+    "all": "Svi",
+    "allowMultipleChoices": "Višestruki izbor",
+    "results": "Rezultati filtera ({count})",
+    "title": "Filteri"
+  },
+  "linguistic": {
+    "caseCount": { "name": "Broj padeža" },
+    "evidentiality": {
+      "name": "Evidencijalnost",
+      "values": {
+        "complex": {
+          "description": "Četiri ili više evidencijalnih distinkcija, ili evidencijalnost spojena s vremenom/aspektom.",
+          "label": "Složena"
+        },
+        "moderate": {
+          "description": "Trostruka distinkcija (npr. direktna, preneta, zaključena).",
+          "label": "Umerena"
+        },
+        "none": {
+          "description": "Nema gramatičkog označavanja izvora informacije.",
+          "label": "Nema"
+        },
+        "optional": {
+          "description": "Postoje markeri nalik evidencijalnim, ali nisu obavezni.",
+          "label": "Opcionalna"
+        },
+        "simple": {
+          "description": "Dvostruka distinkcija (tipično direktna nasuprot indirektnoj/prenesenoj).",
+          "label": "Prosta"
+        }
+      }
+    },
+    "family": { "name": "Jezička porodica" },
+    "maxClusterSize": { "name": "Maks. suglasnici u skupu" },
+    "morphology": {
+      "name": "Morfologija",
+      "values": {
+        "agglutinative": {
+          "description": "Reči se grade nizanjem nastavaka jedan za drugim, pri čemu svaki nastavak nosi tačno jedno značenje. Delovi ostaju jasno prepoznatljivi, poput spojenih kockica.",
+          "label": "Aglutinativna"
+        },
+        "fusional": {
+          "description": "Reči menjaju oblik kroz nastavke i prefikse koji istovremeno nose više gramatičkih značenja. Jedan nastavak može izražavati rod, broj i padež odjednom, što delove čini teško razdvojivim.",
+          "label": "Fleksivna"
+        },
+        "introflexive": {
+          "description": "Gramatika je ugrađena unutar same reči: koren od suglasnika nosi osnovno značenje, dok različiti vokalni obrasci istkani kroz njega stvaraju nove reči. Na primer, arapski koren k-t-b odnosi se na pisanje, a kataba, kitāb i kātib svi potiču od njega.",
+          "label": "Introfleksivna"
+        },
+        "isolating": {
+          "description": "Reči se obično sastoje od jednog morfema i ne menjaju oblik. Gramatika se izražava redom reči i posebnim funkcijskim rečima, a ne nastavcima ili prefiksima.",
+          "label": "Izolativna"
+        },
+        "polysynthetic": {
+          "description": "Jedna reč može izraziti ono što bi drugi jezici rekli čitavom rečenicom, spajanjem glagola, subjekta, objekta i ostalih elemenata. Karakteristično za autohtone jezike Amerike i Arktika.",
+          "label": "Polisintetička"
+        }
+      }
+    },
+    "nounClassCount": { "name": "Imeničke klase / rodovi" },
+    "phonemeCount": { "name": "Broj fonema" },
+    "tonality": {
+      "name": "Tonalnost",
+      "values": {
+        "complex-tonal": {
+          "description": "Tonski obrasci značajno utiču na značenje reči.",
+          "label": "Složeno tonska"
+        },
+        "non-tonal": {
+          "description": "Promene visine tona ne utiču na značenje reči.",
+          "label": "Netonska"
+        },
+        "pitch-accent": {
+          "description": "Koristi tonski akcenat, gde se određeni slogovi naglašavaju promenama visine tona.",
+          "label": "Tonski akcenat"
+        },
+        "simple-tonal": {
+          "description": "Promene visine tona umereno utiču na značenje reči.",
+          "label": "Prosto tonska"
+        }
+      }
+    },
+    "verbAspect": {
+      "name": "Glagolski vid",
+      "values": {
+        "binary": {
+          "description": "Dvostruka sistematska distinkcija (svršeni/nesvršeni).",
+          "label": "Binarni"
+        },
+        "complex": {
+          "description": "Više aspektnih kategorija s bogatim morfološkim označavanjem.",
+          "label": "Složeni"
+        },
+        "minimal": {
+          "description": "Nema ili je veoma ograničeno gramatičko označavanje aspekta.",
+          "label": "Minimalni"
+        },
+        "simple": {
+          "description": "Osnovne aspektne distinkcije (npr. progresivni, perfektni).",
+          "label": "Prosti"
+        }
+      }
+    },
+    "wordOrder": {
+      "name": "Red reči",
+      "values": {
+        "SOV": {
+          "description": "Subjekat-Objekat-Glagol",
+          "label": "SOV"
+        },
+        "SVO": {
+          "description": "Subjekat-Glagol-Objekat",
+          "label": "SVO"
+        },
+        "VOS": {
+          "description": "Glagol-Objekat-Subjekat",
+          "label": "VOS"
+        },
+        "VSO": {
+          "description": "Glagol-Subjekat-Objekat",
+          "label": "VSO"
+        }
+      }
+    },
+    "wordOrderFlexibility": {
+      "name": "Fleksibilnost reda reči",
+      "values": {
+        "flexible": {
+          "description": "Različiti rasporedi reči dozvoljeni su u stilske svrhe.",
+          "label": "Fleksibilan"
+        },
+        "rigid": {
+          "description": "Reči imaju fiksne gramatičke pozicije.",
+          "label": "Rigidan"
+        },
+        "semi-flexible": {
+          "description": "Određene varijacije reda reči dozvoljene su radi naglaska.",
+          "label": "Polufleksibilan"
+        }
+      }
+    }
+  },
+  "menu": {
+    "close": "Zatvori meni",
+    "open": "Otvori meni"
+  },
+  "playlist": {
+    "controls": "Kontrole plejliste",
+    "goToBeginning": "Na početak (taster Home)",
+    "next": "Sledeća numera (strelica desno)",
+    "pause": "Pauza",
+    "play": "Reprodukuj",
+    "previous": "Prethodna numera (strelica levo)",
+    "progress": "{current} od {total}",
+    "toggleLoop": "Uključi/isključi petlju (taster L)"
+  },
+  "search": {
+    "clear": "Obriši pretragu",
+    "label": "Pretraga",
+    "noResults": "Nije pronađen nijedan jezik koji odgovara \"{term}\"",
+    "results": "Rezultati pretrage ({count})",
+    "threshold": "Unesite najmanje {threshold} znaka za pretragu...",
+    "viewAll": "Prikaži sve"
+  },
+  "tabs": {
+    "controls": "Kontrole",
+    "filters": "Filteri",
+    "languages": "Jezici",
+    "search": "Pretraga"
+  }
+}
