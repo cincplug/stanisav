@@ -17,6 +17,10 @@ import "./FiltersTab.css";
 function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
   const { filteringUtils, updateFilteringUtils } = useLanguageSelection();
   const features = getAllFeatures();
+  const validFeatureKeys = useMemo(
+    () => new Set(features.map((feature) => feature.key)),
+    [features],
+  );
   const [allowMultipleChoices, setAllowMultipleChoices] = useState(false);
   const { t } = useI18n();
 
@@ -177,6 +181,7 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
                 }`}
                 onClick={() => onLanguageFocus(lang.code)}
                 title={`${lang.name} - ${Object.entries(lang.features)
+                  .filter(([k]) => validFeatureKeys.has(k))
                   .map(([k, v]) => {
                     const featureName = getFeatureName(k);
                     const valueLabel =
