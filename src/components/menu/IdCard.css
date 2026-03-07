@@ -1,0 +1,130 @@
+.id-card {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  background: var(--color-menu-background);
+  color: var(--color-text-active);
+  padding: var(--gap-double);
+  border-radius: var(--border-radius);
+  box-sizing: border-box;
+  width: calc(100% - var(--gap-triple));
+  min-width: 320px;
+}
+
+.id-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--gap);
+  margin-bottom: var(--gap);
+}
+
+.id-card-title {
+  margin: 0;
+  font-size: var(--font-size-big);
+  text-align: left;
+  color: var(--color-text-active);
+  font-weight: normal;
+}
+
+.id-card-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  flex: 1;
+  min-width: 0;
+  gap: var(--gap-half);
+  color: var(--color-text-active);
+  font-weight: normal;
+}
+
+.id-card-breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-half);
+  white-space: normal;
+}
+
+.id-card-breadcrumb-separator {
+  color: var(--color-text-active);
+}
+
+.id-card-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--gap-triple);
+}
+
+.id-card-group {
+  margin: 0;
+  min-width: 0;
+  padding: var(--gap);
+  border: 1px solid var(--color-interactive);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-mild);
+}
+
+.id-card-list {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: var(--gap);
+  row-gap: var(--gap-half);
+}
+
+.id-card-row {
+  display: contents;
+}
+
+.id-card-row dt,
+.id-card-row dd {
+  margin: 0;
+}
+
+.id-card-row dt {
+  display: block;
+  width: 100%;
+  color: var(--color-mild);
+}
+
+.id-card-row dd {
+  text-align: right;
+  color: var(--color-text-active);
+}
+
+@media (max-width: 768px) {
+  .id-card {
+    bottom: 1rem;
+    min-width: auto;
+    width: min(94vw, 720px);
+  }
+
+  .id-card-columns {
+    grid-template-columns: 1fr;
+    row-gap: var(--gap);
+  }
+
+  .id-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .id-card-breadcrumb {
+    justify-content: flex-start;
+  }
+
+  .id-card-list {
+    grid-template-columns: 1fr;
+  }
+
+  .id-card-row {
+    display: block;
+    margin-bottom: var(--gap-half);
+  }
+
+  .id-card-row dd {
+    text-align: left;
+  }
+}

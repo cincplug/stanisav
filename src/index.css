@@ -8,7 +8,7 @@
   --color-text-dark: #000000;
   --color-text-active: #ffffff;
   --color-interactive: #454545;
-  --color-interactive-active: #828282;
+  --color-mild: #8292a2;
   --color-menu-background: #111111;
   --color-highlight: #ffd700;
   --color-video: #0057b7;
@@ -171,21 +171,6 @@ legend {
 
 .text-dark {
   color: var(--color-text-dark);
-}
-
-.subtitle {
-  position: absolute;
-  bottom: 3rem;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: var(--font-size-big);
-  background: var(--color-menu-background);
-  color: var(--color-highlight);
-  padding: var(--gap-double);
-  text-align: center;
-  p {
-    margin: 0;
-  }
 }
 
 .app-container {

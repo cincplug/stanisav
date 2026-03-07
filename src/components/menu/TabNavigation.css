@@ -9,7 +9,7 @@
   button {
     margin: 0 0 0 -1px;
     background-color: var(--color-menu-background);
-    border: 2px solid var(--color-interactive-active);
+    border: 2px solid var(--color-mild);
     border-bottom: none;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;

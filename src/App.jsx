@@ -3,6 +3,7 @@ import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
 import Overlay from "./components/menu/Overlay";
 import Playlist from "./components/menu/Playlist";
+import IdCard from "./components/menu/IdCard";
 import { useAppState } from "./contexts/AppStateContext";
 import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
 import { useControls } from "./contexts/ControlsContext";
@@ -32,18 +33,7 @@ function App() {
   const [isEmptyFilter, setIsEmptyFilter] = useState(false);
   const { hasSubtitle } = controls;
 
-  const {
-    sampleUrl,
-    speakers,
-    morphology,
-    wordOrder,
-    wordOrderFlexibility,
-    caseCount,
-    verbAspect,
-    evidentiality,
-    tonality,
-    phonemeCount,
-  } = data?.languageData[selectedLanguage] || {};
+  const { sampleUrl } = data?.languageData[selectedLanguage] || {};
 
   const localizedLanguageName = selectedLanguage
     ? getLocalizedLanguageName(selectedLanguage)
@@ -69,18 +59,11 @@ function App() {
         )}
 
         {hasSubtitle && selectedLanguage && (
-          <div className="subtitle">
-            <p>{morphology}</p>
-            <p>
-              {wordOrder} ({wordOrderFlexibility})
-            </p>
-            <p>{caseCount} cases</p>
-            <p>{verbAspect} verb aspect</p>
-            <p>{evidentiality} evidentiality</p>
-            <p>{tonality}</p>
-            <p>{phonemeCount} phonemes</p>
-            <p>{speakers * 1000000} speakers</p>
-          </div>
+          <IdCard
+            languageCode={selectedLanguage}
+            language={data?.languageData[selectedLanguage]}
+            languageLineages={data?.languageLineages}
+          />
         )}
       </div>
 
