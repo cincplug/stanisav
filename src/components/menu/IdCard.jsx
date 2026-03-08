@@ -20,6 +20,7 @@ function IdCard({
   sampleUrl,
   onSourceVideoClick,
   sub,
+  headingColor,
 }) {
   const { t } = useI18n();
 
@@ -87,7 +88,10 @@ function IdCard({
     <aside
       className="id-card"
       aria-label={localizedLanguageName}
-      style={{ "--id-card-columns": columns.length }}
+      style={{
+        "--id-card-columns": columns.length,
+        "--id-card-heading-color": headingColor || "var(--color-text-active)",
+      }}
     >
       <p className="subtitle">{sub}</p>
       <div className="id-card-header">
@@ -114,6 +118,7 @@ function IdCard({
 
         {sampleUrl && (
           <a
+            className="id-card-source-video"
             href={sampleUrl}
             target="_blank"
             rel="noopener noreferrer"

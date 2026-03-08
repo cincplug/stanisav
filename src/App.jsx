@@ -8,6 +8,7 @@ import { useAppState } from "./contexts/AppStateContext";
 import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
 import { useControls } from "./contexts/ControlsContext";
 import { usePlaylist } from "./contexts/PlaylistContext";
+import { useLanguageColors } from "./hooks/useLanguageColors";
 import "./App.css";
 
 function App() {
@@ -33,6 +34,12 @@ function App() {
   const { hasSubtitle } = controls;
   const { sampleUrl, sub } = data?.languageData[selectedLanguage] || {};
 
+  const languageColors = useLanguageColors(
+    data?.languageData,
+    data?.languageLineages,
+    controls,
+  );
+
   return (
     <div
       className={`app-container ${isLoading ? "loading" : ""} ${isMenuCollapsed ? "menu-collapsed" : "menu-expanded"}`}
@@ -45,6 +52,7 @@ function App() {
           onLoadingChange={setIsLoading}
           onNodesReady={setNodes}
           onEmptyFilterChange={setIsEmptyFilter}
+          languageColors={languageColors}
         />
 
         {(isLoading || !sceneReady) && <Overlay variant="loading" />}
@@ -60,6 +68,7 @@ function App() {
             sampleUrl={sampleUrl}
             onSourceVideoClick={pausePlaylist}
             sub={sub}
+            headingColor={languageColors[selectedLanguage]}
           />
         )}
       </div>
@@ -78,6 +87,7 @@ function App() {
             onToggleCollapse={() => setIsMenuCollapsed(!isMenuCollapsed)}
             filteringUtils={filteringUtils}
             onFilteringUtilsChange={setFilteringUtils}
+            languageColors={languageColors}
           />
         </>
       )}

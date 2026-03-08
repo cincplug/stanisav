@@ -13,6 +13,7 @@ function TabRenderer({
   onFilteringUtilsChange,
   searchTerm,
   searchResults,
+  languageColors,
 }) {
   return (
     <div className="tabs-inner">
@@ -31,6 +32,7 @@ function TabRenderer({
         <LanguagesTab
           languageData={languageData}
           isActive={activeTab === "languages"}
+          languageColors={languageColors}
         />
       )}
 
@@ -39,6 +41,7 @@ function TabRenderer({
           data={data}
           filteringUtils={filteringUtils}
           onFilteringUtilsChange={onFilteringUtilsChange}
+          languageColors={languageColors}
         />
       )}
 
@@ -47,6 +50,7 @@ function TabRenderer({
           searchTerm={searchTerm}
           searchResults={searchResults}
           languageData={languageData}
+          languageColors={languageColors}
         />
       )}
     </div>

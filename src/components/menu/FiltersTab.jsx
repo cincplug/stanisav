@@ -11,11 +11,18 @@ import {
 } from "../../utils/linguisticUtils";
 import { sortFeatureValues } from "../../utils/sortingUtils";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
+import { usePlaylist } from "../../contexts/PlaylistContext";
 import { useI18n } from "../../hooks/useI18n";
 import "./FiltersTab.css";
 
-function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
-  const { filteringUtils, updateFilteringUtils } = useLanguageSelection();
+function FiltersTab({ data, languageColors = {} }) {
+  const {
+    filteringUtils,
+    updateFilteringUtils,
+    selectedLanguage,
+    selectLanguage,
+  } = useLanguageSelection();
+  const { startFromLanguage } = usePlaylist();
   const features = getAllFeatures();
   const validFeatureKeys = useMemo(
     () => new Set(features.map((feature) => feature.key)),
@@ -176,10 +183,14 @@ function FiltersTab({ data, selectedLanguage, onLanguageFocus }) {
             {linguisticResults.map((lang) => (
               <button
                 key={lang.code}
-                className={`language-button-grid ${
+                className={`language-item-button language-button-grid ${
                   selectedLanguage === lang.code ? "selected" : ""
                 }`}
-                onClick={() => onLanguageFocus(lang.code)}
+                style={{ background: languageColors[lang.code] }}
+                onClick={() => {
+                  selectLanguage(lang.code);
+                  startFromLanguage(lang.code);
+                }}
                 title={`${lang.name} - ${Object.entries(lang.features)
                   .filter(([k]) => validFeatureKeys.has(k))
                   .map(([k, v]) => {

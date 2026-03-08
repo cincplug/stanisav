@@ -19,6 +19,7 @@ function Menu({
   onToggleCollapse,
   filteringUtils,
   onFilteringUtilsChange,
+  languageColors,
 }) {
   const { controls, updateControl } = useControls();
   const { t } = useI18n();
@@ -90,6 +91,7 @@ function Menu({
             setSearchTerm={setSearchTerm}
             searchResults={searchResults}
             clearSearch={clearSearch}
+            languageColors={languageColors}
           />
         </div>
       )}

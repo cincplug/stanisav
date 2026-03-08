@@ -7,7 +7,12 @@ import tabsConfig from "../../config/tabsConfig.json";
 import "./SearchTab.css";
 
 // Search Results Component
-function SearchResults({ searchTerm, searchResults, languageData }) {
+function SearchResults({
+  searchTerm,
+  searchResults,
+  languageData,
+  languageColors = {},
+}) {
   const threshold = tabsConfig.searchLengthThreshold;
   const { selectLanguage, selectedLanguage } = useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
@@ -39,9 +44,10 @@ function SearchResults({ searchTerm, searchResults, languageData }) {
             return (
               <button
                 key={lang.code}
-                className={`language-button-grid ${
+                className={`language-item-button language-button-grid ${
                   selectedLanguage === lang.code ? "selected" : ""
                 }`}
+                style={{ background: languageColors[lang.code] }}
                 onClick={() => {
                   selectLanguage(lang.code);
                   startFromLanguage(lang.code);
@@ -52,10 +58,7 @@ function SearchResults({ searchTerm, searchResults, languageData }) {
                     : lang.name
                 }
               >
-                <div className="language-name">
-                  <div>{lang.name}</div>
-                  <small>{lang.nativeName}</small>
-                </div>
+                {lang.name}
               </button>
             );
           })}
@@ -75,7 +78,12 @@ function SearchResults({ searchTerm, searchResults, languageData }) {
   return null;
 }
 
-function SearchTab({ searchTerm, searchResults, languageData }) {
+function SearchTab({
+  searchTerm,
+  searchResults,
+  languageData,
+  languageColors,
+}) {
   const { selectLanguage, selectedLanguage } = useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
   const lastAutoSelectedRef = useRef(null);
@@ -107,9 +115,8 @@ function SearchTab({ searchTerm, searchResults, languageData }) {
       <SearchResults
         searchTerm={searchTerm}
         searchResults={searchResults}
-        selectedLanguage={selectedLanguage}
-        onLanguageFocus={selectLanguage}
         languageData={languageData}
+        languageColors={languageColors}
       />
     </div>
   );

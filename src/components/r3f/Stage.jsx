@@ -7,7 +7,6 @@ import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { useDataManager } from "../../hooks/useDataManager";
 import { useLayoutManager } from "../../hooks/useLayoutManager";
 import { calculateLanguageFilterStatus } from "../../utils/sceneUtils";
-import { calculateLanguageColors } from "../../utils/colorUtils";
 import { getFeatureScore } from "../../utils/linguisticUtils";
 import StageLight from "./StageLight";
 import Node from "./Node";
@@ -20,6 +19,7 @@ const Stage = ({
   onLoadingChange,
   onNodesReady,
   onEmptyFilterChange,
+  languageColors,
 }) => {
   const { controls } = useControls();
   const {
@@ -31,13 +31,6 @@ const Stage = ({
     far,
     backgroundColor,
     isMyMesha,
-    hueStart,
-    hueCircle,
-    maxSiblingSpread,
-    globalLightnessScale,
-    globalLightnessOffset,
-    globalChromaScale,
-    globalChromaOffset,
     tension,
     friction,
   } = controls;
@@ -65,31 +58,6 @@ const Stage = ({
       data?.languageLineages,
     ],
   );
-
-  const languageColors = useMemo(() => {
-    if (!data?.languageData || !data?.languageLineages) return {};
-    return calculateLanguageColors(
-      data.languageData,
-      data.languageLineages,
-      hueStart,
-      hueCircle,
-      maxSiblingSpread,
-      globalLightnessScale,
-      globalLightnessOffset,
-      globalChromaScale,
-      globalChromaOffset,
-    );
-  }, [
-    data?.languageData,
-    data?.languageLineages,
-    hueStart,
-    hueCircle,
-    maxSiblingSpread,
-    globalLightnessScale,
-    globalLightnessOffset,
-    globalChromaScale,
-    globalChromaOffset,
-  ]);
 
   const meshaLanguageCode = selectedLanguage || sortedLanguageCodes[0];
   const meshaLinguisticProperties =
