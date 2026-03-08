@@ -14,29 +14,17 @@ import {
 import { getFeatureLabel } from "../../utils/linguisticUtils";
 import { getLanguageLabel } from "../../utils/languageDisplayUtils";
 import { sortLanguages } from "../../utils/sortingUtils";
-import { calculateLanguageColors } from "../../utils/colorUtils";
 import { buildLanguageTree } from "../../utils/languageGroupingUtils";
 import ControlItem from "./ControlItem";
 import LanguageTree from "./LanguageTree";
 
-function LanguagesTab({ languageData, isActive }) {
+function LanguagesTab({ languageData, isActive, languageColors = {} }) {
   const { selectedLanguage, selectLanguage } = useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
   const { controls, updateControl } = useControls();
   const buttonRefs = useRef({});
 
-  const {
-    sortBy,
-    labelContent,
-    isReverse,
-    hueStart,
-    hueCircle,
-    maxSiblingSpread,
-    globalLightnessScale,
-    globalLightnessOffset,
-    globalChromaScale,
-    globalChromaOffset,
-  } = controls;
+  const { sortBy, labelContent, isReverse } = controls;
 
   // Prepare all required data for sorting
   const languageCodes = useMemo(
@@ -184,32 +172,6 @@ function LanguagesTab({ languageData, isActive }) {
       });
     }
   }, [selectedLanguage, isActive]);
-
-  const languageColors = useMemo(
-    () =>
-      calculateLanguageColors(
-        languageData,
-        languageLineages,
-        hueStart,
-        hueCircle,
-        maxSiblingSpread,
-        globalLightnessScale,
-        globalLightnessOffset,
-        globalChromaScale,
-        globalChromaOffset,
-      ),
-    [
-      languageData,
-      languageLineages,
-      hueStart,
-      hueCircle,
-      maxSiblingSpread,
-      globalLightnessScale,
-      globalLightnessOffset,
-      globalChromaScale,
-      globalChromaOffset,
-    ],
-  );
 
   const onSelectLanguage = useCallback(
     (langCode) => {

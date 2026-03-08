@@ -17,6 +17,7 @@
   align-items: start;
   gap: var(--gap);
   margin-bottom: var(--gap);
+  color: var(--id-card-heading-color, var(--color-text-active));
 }
 
 .id-card-title {
@@ -103,6 +104,13 @@
   grid-column: 3;
   justify-self: end;
   white-space: nowrap;
+}
+
+.id-card-title,
+.id-card-breadcrumb,
+.id-card-breadcrumb-separator,
+.id-card-source-video {
+  color: inherit;
 }
 
 .subtitle {

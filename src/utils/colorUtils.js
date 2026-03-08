@@ -23,14 +23,18 @@ export const shiftHue = (color, shift) => {
 export const calculateLanguageColors = (
   languageData,
   languageLineages,
-  hueStart,
-  hueCircle,
-  maxSiblingSpread,
-  globalLightnessScale,
-  globalLightnessOffset,
-  globalChromaScale,
-  globalChromaOffset,
+  colorConfig,
 ) => {
+  const {
+    hueStart,
+    hueCircle,
+    maxSiblingSpread,
+    globalLightnessScale,
+    globalLightnessOffset,
+    globalChromaScale,
+    globalChromaOffset,
+  } = colorConfig;
+
   const result = {};
   const buckets = {};
 
