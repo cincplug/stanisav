@@ -67,17 +67,6 @@ function IdCard({
     return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
   }, [columnCount]);
 
-  const columns = useMemo(() => {
-    if (rows.length === 0) return [];
-
-    const actualColumnCount = Math.min(normalizedColumnCount, rows.length);
-    const rowsPerColumn = Math.ceil(rows.length / actualColumnCount);
-
-    return Array.from({ length: actualColumnCount }, (_, index) =>
-      rows.slice(index * rowsPerColumn, (index + 1) * rowsPerColumn),
-    ).filter((group) => group.length > 0);
-  }, [rows, normalizedColumnCount]);
-
   const localizedLanguageName = getLocalizedLanguageName(languageCode);
 
   if (!languageCode || !language || rows.length === 0) {
@@ -89,7 +78,7 @@ function IdCard({
       className="id-card"
       aria-label={localizedLanguageName}
       style={{
-        "--id-card-columns": columns.length,
+        "--id-card-max-columns": normalizedColumnCount,
         "--id-card-heading-color": headingColor || "var(--color-text-active)",
       }}
     >
@@ -131,19 +120,14 @@ function IdCard({
       </div>
 
       <div className="id-card-columns">
-        {columns.map((group, groupIndex) => (
-          <dl
-            key={`id-card-col-${groupIndex}`}
-            className="id-card-list id-card-group"
-          >
-            {group.map((row) => (
-              <div key={row.key} className="id-card-row">
-                <dt>{row.label}</dt>
-                <dd>{row.value}</dd>
-              </div>
-            ))}
-          </dl>
-        ))}
+        <dl className="id-card-list">
+          {rows.map((row) => (
+            <div key={row.key} className="id-card-row">
+              <dt>{row.label}</dt>
+              <dd>{row.value}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </aside>
   );
