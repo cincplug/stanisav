@@ -1,22 +1,56 @@
 {
   "controls": {
-    "backgroundColor": { "label": "Позадина" },
-    "cameraX": { "label": "Камера X" },
-    "cameraY": { "label": "Камера Y" },
-    "cameraZ": { "label": "Камера Z" },
-    "canEditColors": { "label": "Уредување на бои?" },
-    "eyeProtrusion": { "label": "Испакнатост на окото" },
-    "eyeSize": { "label": "Големина на окото" },
-    "eyeX": { "label": "Око X" },
-    "eyeY": { "label": "Око Y" },
-    "eyeZ": { "label": "Око Z" },
-    "far": { "label": "Далечна рамнина" },
-    "fov": { "label": "Видно поле" },
-    "friction": { "label": "Триење" },
-    "globalChromaOffset": { "label": "Помак на хромата" },
-    "globalChromaScale": { "label": "Размер на хромата" },
-    "globalLightnessOffset": { "label": "Помак на светлината" },
-    "globalLightnessScale": { "label": "Размер на светлината" },
+    "backgroundColor": {
+      "label": "Позадина"
+    },
+    "cameraX": {
+      "label": "Камера X"
+    },
+    "cameraY": {
+      "label": "Камера Y"
+    },
+    "cameraZ": {
+      "label": "Камера Z"
+    },
+    "canEditColors": {
+      "label": "Уредување на бои?"
+    },
+    "eyeProtrusion": {
+      "label": "Испакнатост на окото"
+    },
+    "eyeSize": {
+      "label": "Големина на окото"
+    },
+    "eyeX": {
+      "label": "Око X"
+    },
+    "eyeY": {
+      "label": "Око Y"
+    },
+    "eyeZ": {
+      "label": "Око Z"
+    },
+    "far": {
+      "label": "Далечна рамнина"
+    },
+    "fov": {
+      "label": "Видно поле"
+    },
+    "friction": {
+      "label": "Триење"
+    },
+    "globalChromaOffset": {
+      "label": "Помак на хромата"
+    },
+    "globalChromaScale": {
+      "label": "Размер на хромата"
+    },
+    "globalLightnessOffset": {
+      "label": "Помак на светлината"
+    },
+    "globalLightnessScale": {
+      "label": "Размер на светлината"
+    },
     "groups": {
       "camera": "Камера",
       "colors": "Бои",
@@ -27,13 +61,27 @@
       "scene": "Сцена",
       "stageLight": "Сценска светлина"
     },
-    "hasSubtitle": { "label": "Прикажи поднаслов" },
-    "hueCircle": { "label": "Круг на нијанси" },
-    "hueStart": { "label": "Почетна нијанса" },
-    "isLoop": { "label": "Петља на плејлистата" },
-    "isLuka": { "label": "Лука ги чита примерите" },
-    "isMyMesha": { "label": "Јас сум Меша" },
-    "isReverse": { "label": "Обратен редослед" },
+    "hasSubtitle": {
+      "label": "Прикажи поднаслов"
+    },
+    "hueCircle": {
+      "label": "Круг на нијанси"
+    },
+    "hueStart": {
+      "label": "Почетна нијанса"
+    },
+    "isLoop": {
+      "label": "Петља на плејлистата"
+    },
+    "isLuka": {
+      "label": "Лука ги чита примерите"
+    },
+    "isMyMesha": {
+      "label": "Јас сум Меша"
+    },
+    "isReverse": {
+      "label": "Обратен редослед"
+    },
     "labelContent": {
       "label": "Приказ",
       "options": {
@@ -42,16 +90,36 @@
         "nativeName": "Називи на мајчин јазик"
       }
     },
-    "labelSize": { "label": "Големина на ознаката" },
-    "maxSiblingSpread": { "label": "Распон на нијанси на сродни" },
-    "meshaLightDecay": { "label": "Опаѓање" },
-    "meshaLightDistance": { "label": "Оддалеченост" },
-    "meshaLightIntensity": { "label": "Интензитет" },
-    "meshaSize": { "label": "Мешина големина" },
-    "moustacheSize": { "label": "Големина на мустаќите" },
-    "near": { "label": "Блиска рамнина" },
-    "noseSize": { "label": "Големина на носот" },
-    "showsVideoPreviews": { "label": "Преглед на оригинал" },
+    "labelSize": {
+      "label": "Големина на ознаката"
+    },
+    "maxSiblingSpread": {
+      "label": "Распон на нијанси на сродни"
+    },
+    "meshaLightDecay": {
+      "label": "Опаѓање"
+    },
+    "meshaLightDistance": {
+      "label": "Оддалеченост"
+    },
+    "meshaLightIntensity": {
+      "label": "Интензитет"
+    },
+    "meshaSize": {
+      "label": "Мешина големина"
+    },
+    "moustacheSize": {
+      "label": "Големина на мустаќите"
+    },
+    "near": {
+      "label": "Блиска рамнина"
+    },
+    "noseSize": {
+      "label": "Големина на носот"
+    },
+    "showsVideoPreviews": {
+      "label": "Преглед на оригинал"
+    },
     "sortBy": {
       "label": "Сортирај јазици по",
       "options": {
@@ -70,14 +138,30 @@
         "wordOrderFlexibility": "Флексибилност на редот на зборови"
       }
     },
-    "sphereRadius": { "label": "Полупречник на сферата" },
-    "stageLightDecay": { "label": "Опаѓање" },
-    "stageLightDistance": { "label": "Оддалеченост" },
-    "stageLightIntensity": { "label": "Интензитет" },
-    "switchDuration": { "label": "Траење на преодот" },
-    "teethSize": { "label": "Големина на забите" },
-    "tension": { "label": "Напнатост" },
-    "zoomDistance": { "label": "Оддалеченост на зумот" }
+    "sphereRadius": {
+      "label": "Полупречник на сферата"
+    },
+    "stageLightDecay": {
+      "label": "Опаѓање"
+    },
+    "stageLightDistance": {
+      "label": "Оддалеченост"
+    },
+    "stageLightIntensity": {
+      "label": "Интензитет"
+    },
+    "switchDuration": {
+      "label": "Траење на преодот"
+    },
+    "teethSize": {
+      "label": "Големина на забите"
+    },
+    "tension": {
+      "label": "Напнатост"
+    },
+    "zoomDistance": {
+      "label": "Оддалеченост на зумот"
+    }
   },
   "filters": {
     "all": "Сите",
@@ -86,7 +170,9 @@
     "title": "Филтрирај по"
   },
   "linguistic": {
-    "caseCount": { "name": "Број на падежи" },
+    "caseCount": {
+      "name": "Број на падежи"
+    },
     "evidentiality": {
       "name": "Евиденцијалност",
       "values": {
@@ -112,8 +198,12 @@
         }
       }
     },
-    "family": { "name": "Јазично семејство" },
-    "maxClusterSize": { "name": "Макс. согласници во група" },
+    "family": {
+      "name": "Јазично семејство"
+    },
+    "maxClusterSize": {
+      "name": "Макс. согласници во група"
+    },
     "morphology": {
       "name": "Морфологија",
       "values": {
@@ -139,8 +229,12 @@
         }
       }
     },
-    "nounClassCount": { "name": "Именски класи / родови" },
-    "phonemeCount": { "name": "Број на фонеми" },
+    "nounClassCount": {
+      "name": "Именски класи / родови"
+    },
+    "phonemeCount": {
+      "name": "Број на фонеми"
+    },
     "tonality": {
       "name": "Тоналност",
       "values": {
@@ -249,5 +343,13 @@
     "filters": "Филтри",
     "languages": "Јазици",
     "search": "Пребарување"
+  },
+  "overlay": {
+    "slogan": "Колку јазици знаеш, толку пати вредиш како човек.",
+    "emptyFilter": "Нема јазици за таа комбинација на филтри. Веројатно избра премногу филтри."
+  },
+  "idCard": {
+    "sourceVideo": "Изворно видео",
+    "opensInNewTab": "се отвора во ново јазиче"
   }
 }

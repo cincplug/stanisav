@@ -1,6 +1,8 @@
 import "./Overlay.css";
+import { useI18n } from "../../hooks/useI18n";
 
 const Overlay = ({ variant = "loading" }) => {
+  const { t } = useI18n();
   const isLoading = variant === "loading";
   const isEmptyFilter = variant === "emptyFilter";
 
@@ -24,20 +26,8 @@ const Overlay = ({ variant = "loading" }) => {
           </svg>
         )}
         <h1 className="loading-text">
-          {isLoading && (
-            <>
-              Quot linguas calles
-              <br />
-              tot homines vales
-            </>
-          )}
-          {isEmptyFilter && (
-            <>
-              No languages for that
-              <br />
-              filter combination
-            </>
-          )}
+          {isLoading && <>{t("overlay.slogan")}</>}
+          {isEmptyFilter && <>{t("overlay.emptyFilter")}</>}
         </h1>
       </div>
     </div>

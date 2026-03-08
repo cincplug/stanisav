@@ -1,22 +1,56 @@
 {
   "controls": {
-    "backgroundColor": { "label": "Arrière-plan" },
-    "cameraX": { "label": "Caméra X" },
-    "cameraY": { "label": "Caméra Y" },
-    "cameraZ": { "label": "Caméra Z" },
-    "canEditColors": { "label": "Modifier les couleurs ?" },
-    "eyeProtrusion": { "label": "Saillie de l'œil" },
-    "eyeSize": { "label": "Taille de l'œil" },
-    "eyeX": { "label": "Œil X" },
-    "eyeY": { "label": "Œil Y" },
-    "eyeZ": { "label": "Œil Z" },
-    "far": { "label": "Plan éloigné" },
-    "fov": { "label": "Champ de vision" },
-    "friction": { "label": "Friction" },
-    "globalChromaOffset": { "label": "Décalage de chroma" },
-    "globalChromaScale": { "label": "Échelle de chroma" },
-    "globalLightnessOffset": { "label": "Décalage de luminosité" },
-    "globalLightnessScale": { "label": "Échelle de luminosité" },
+    "backgroundColor": {
+      "label": "Arrière-plan"
+    },
+    "cameraX": {
+      "label": "Caméra X"
+    },
+    "cameraY": {
+      "label": "Caméra Y"
+    },
+    "cameraZ": {
+      "label": "Caméra Z"
+    },
+    "canEditColors": {
+      "label": "Modifier les couleurs ?"
+    },
+    "eyeProtrusion": {
+      "label": "Saillie de l'œil"
+    },
+    "eyeSize": {
+      "label": "Taille de l'œil"
+    },
+    "eyeX": {
+      "label": "Œil X"
+    },
+    "eyeY": {
+      "label": "Œil Y"
+    },
+    "eyeZ": {
+      "label": "Œil Z"
+    },
+    "far": {
+      "label": "Plan éloigné"
+    },
+    "fov": {
+      "label": "Champ de vision"
+    },
+    "friction": {
+      "label": "Friction"
+    },
+    "globalChromaOffset": {
+      "label": "Décalage de chroma"
+    },
+    "globalChromaScale": {
+      "label": "Échelle de chroma"
+    },
+    "globalLightnessOffset": {
+      "label": "Décalage de luminosité"
+    },
+    "globalLightnessScale": {
+      "label": "Échelle de luminosité"
+    },
     "groups": {
       "camera": "Caméra",
       "colors": "Couleurs",
@@ -27,13 +61,27 @@
       "scene": "Scène",
       "stageLight": "Lumière de scène"
     },
-    "hasSubtitle": { "label": "Afficher le sous-titre" },
-    "hueCircle": { "label": "Cercle de teintes" },
-    "hueStart": { "label": "Teinte initiale" },
-    "isLoop": { "label": "Répéter la liste" },
-    "isLuka": { "label": "Luka lit les exemples" },
-    "isMyMesha": { "label": "Je suis Mesha" },
-    "isReverse": { "label": "Ordre inversé" },
+    "hasSubtitle": {
+      "label": "Afficher le sous-titre"
+    },
+    "hueCircle": {
+      "label": "Cercle de teintes"
+    },
+    "hueStart": {
+      "label": "Teinte initiale"
+    },
+    "isLoop": {
+      "label": "Répéter la liste"
+    },
+    "isLuka": {
+      "label": "Luka lit les exemples"
+    },
+    "isMyMesha": {
+      "label": "Je suis Mesha"
+    },
+    "isReverse": {
+      "label": "Ordre inversé"
+    },
     "labelContent": {
       "label": "Affichage",
       "options": {
@@ -42,16 +90,36 @@
         "nativeName": "Noms en langue natale"
       }
     },
-    "labelSize": { "label": "Taille de l'étiquette" },
-    "maxSiblingSpread": { "label": "Dispersion des teintes apparentées" },
-    "meshaLightDecay": { "label": "Atténuation" },
-    "meshaLightDistance": { "label": "Distance" },
-    "meshaLightIntensity": { "label": "Intensité" },
-    "meshaSize": { "label": "Taille de Mesha" },
-    "moustacheSize": { "label": "Taille de la moustache" },
-    "near": { "label": "Plan rapproché" },
-    "noseSize": { "label": "Taille du nez" },
-    "showsVideoPreviews": { "label": "Aperçu de l'original" },
+    "labelSize": {
+      "label": "Taille de l'étiquette"
+    },
+    "maxSiblingSpread": {
+      "label": "Dispersion des teintes apparentées"
+    },
+    "meshaLightDecay": {
+      "label": "Atténuation"
+    },
+    "meshaLightDistance": {
+      "label": "Distance"
+    },
+    "meshaLightIntensity": {
+      "label": "Intensité"
+    },
+    "meshaSize": {
+      "label": "Taille de Mesha"
+    },
+    "moustacheSize": {
+      "label": "Taille de la moustache"
+    },
+    "near": {
+      "label": "Plan rapproché"
+    },
+    "noseSize": {
+      "label": "Taille du nez"
+    },
+    "showsVideoPreviews": {
+      "label": "Aperçu de l'original"
+    },
     "sortBy": {
       "label": "Trier les langues par",
       "options": {
@@ -70,14 +138,30 @@
         "wordOrderFlexibility": "Flexibilité de l'ordre des mots"
       }
     },
-    "sphereRadius": { "label": "Rayon de la sphère" },
-    "stageLightDecay": { "label": "Atténuation" },
-    "stageLightDistance": { "label": "Distance" },
-    "stageLightIntensity": { "label": "Intensité" },
-    "switchDuration": { "label": "Durée de transition" },
-    "teethSize": { "label": "Taille des dents" },
-    "tension": { "label": "Tension" },
-    "zoomDistance": { "label": "Distance de zoom" }
+    "sphereRadius": {
+      "label": "Rayon de la sphère"
+    },
+    "stageLightDecay": {
+      "label": "Atténuation"
+    },
+    "stageLightDistance": {
+      "label": "Distance"
+    },
+    "stageLightIntensity": {
+      "label": "Intensité"
+    },
+    "switchDuration": {
+      "label": "Durée de transition"
+    },
+    "teethSize": {
+      "label": "Taille des dents"
+    },
+    "tension": {
+      "label": "Tension"
+    },
+    "zoomDistance": {
+      "label": "Distance de zoom"
+    }
   },
   "filters": {
     "all": "Tous",
@@ -86,7 +170,9 @@
     "title": "Filtrer par"
   },
   "linguistic": {
-    "caseCount": { "name": "Nombre de cas" },
+    "caseCount": {
+      "name": "Nombre de cas"
+    },
     "evidentiality": {
       "name": "Évidentialité",
       "values": {
@@ -112,8 +198,12 @@
         }
       }
     },
-    "family": { "name": "Famille linguistique" },
-    "maxClusterSize": { "name": "Max. consonnes dans un groupe" },
+    "family": {
+      "name": "Famille linguistique"
+    },
+    "maxClusterSize": {
+      "name": "Max. consonnes dans un groupe"
+    },
     "morphology": {
       "name": "Morphologie",
       "values": {
@@ -139,8 +229,12 @@
         }
       }
     },
-    "nounClassCount": { "name": "Classes nominales / genres" },
-    "phonemeCount": { "name": "Nombre de phonèmes" },
+    "nounClassCount": {
+      "name": "Classes nominales / genres"
+    },
+    "phonemeCount": {
+      "name": "Nombre de phonèmes"
+    },
     "tonality": {
       "name": "Tonalité",
       "values": {
@@ -249,5 +343,13 @@
     "filters": "Filtres",
     "languages": "Langues",
     "search": "Rechercher"
+  },
+  "overlay": {
+    "slogan": "Plus tu connais de langues, plus tu vaux en tant que personne.",
+    "emptyFilter": "Aucune langue pour cette combinaison de filtres. Vous avez probablement sélectionné trop de filtres."
+  },
+  "idCard": {
+    "sourceVideo": "Vidéo source",
+    "opensInNewTab": "s'ouvre dans un nouvel onglet"
   }
 }

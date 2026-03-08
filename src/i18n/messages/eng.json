@@ -1,22 +1,56 @@
 {
   "controls": {
-    "backgroundColor": { "label": "Background" },
-    "cameraX": { "label": "Camera X" },
-    "cameraY": { "label": "Camera Y" },
-    "cameraZ": { "label": "Camera Z" },
-    "canEditColors": { "label": "Can edit colors?" },
-    "eyeProtrusion": { "label": "Eye protrusion" },
-    "eyeSize": { "label": "Eye size" },
-    "eyeX": { "label": "Eye X" },
-    "eyeY": { "label": "Eye Y" },
-    "eyeZ": { "label": "Eye Z" },
-    "far": { "label": "Far plane" },
-    "fov": { "label": "Field of view" },
-    "friction": { "label": "Friction" },
-    "globalChromaOffset": { "label": "Chroma offset" },
-    "globalChromaScale": { "label": "Chroma scale" },
-    "globalLightnessOffset": { "label": "Lightness offset" },
-    "globalLightnessScale": { "label": "Lightness scale" },
+    "backgroundColor": {
+      "label": "Background"
+    },
+    "cameraX": {
+      "label": "Camera X"
+    },
+    "cameraY": {
+      "label": "Camera Y"
+    },
+    "cameraZ": {
+      "label": "Camera Z"
+    },
+    "canEditColors": {
+      "label": "Can edit colors?"
+    },
+    "eyeProtrusion": {
+      "label": "Eye protrusion"
+    },
+    "eyeSize": {
+      "label": "Eye size"
+    },
+    "eyeX": {
+      "label": "Eye X"
+    },
+    "eyeY": {
+      "label": "Eye Y"
+    },
+    "eyeZ": {
+      "label": "Eye Z"
+    },
+    "far": {
+      "label": "Far plane"
+    },
+    "fov": {
+      "label": "Field of view"
+    },
+    "friction": {
+      "label": "Friction"
+    },
+    "globalChromaOffset": {
+      "label": "Chroma offset"
+    },
+    "globalChromaScale": {
+      "label": "Chroma scale"
+    },
+    "globalLightnessOffset": {
+      "label": "Lightness offset"
+    },
+    "globalLightnessScale": {
+      "label": "Lightness scale"
+    },
     "groups": {
       "camera": "Camera",
       "colors": "Colors",
@@ -27,13 +61,27 @@
       "scene": "Scene",
       "stageLight": "Stage light"
     },
-    "hasSubtitle": { "label": "Show subtitle" },
-    "hueCircle": { "label": "Hue circle" },
-    "hueStart": { "label": "Hue start" },
-    "isLoop": { "label": "Loop playlist" },
-    "isLuka": { "label": "Luka reads samples" },
-    "isMyMesha": { "label": "I am Mesha" },
-    "isReverse": { "label": "Reverse order" },
+    "hasSubtitle": {
+      "label": "Show subtitle"
+    },
+    "hueCircle": {
+      "label": "Hue circle"
+    },
+    "hueStart": {
+      "label": "Hue start"
+    },
+    "isLoop": {
+      "label": "Loop playlist"
+    },
+    "isLuka": {
+      "label": "Luka reads samples"
+    },
+    "isMyMesha": {
+      "label": "I am Mesha"
+    },
+    "isReverse": {
+      "label": "Reverse order"
+    },
     "labelContent": {
       "label": "Display",
       "options": {
@@ -42,16 +90,36 @@
         "nativeName": "Native names"
       }
     },
-    "labelSize": { "label": "Label size" },
-    "maxSiblingSpread": { "label": "Sibling hue spread" },
-    "meshaLightDecay": { "label": "Decay" },
-    "meshaLightDistance": { "label": "Distance" },
-    "meshaLightIntensity": { "label": "Intensity" },
-    "meshaSize": { "label": "Mesha size" },
-    "moustacheSize": { "label": "Moustache size" },
-    "near": { "label": "Near plane" },
-    "noseSize": { "label": "Nose size" },
-    "showsVideoPreviews": { "label": "Preview original" },
+    "labelSize": {
+      "label": "Label size"
+    },
+    "maxSiblingSpread": {
+      "label": "Sibling hue spread"
+    },
+    "meshaLightDecay": {
+      "label": "Decay"
+    },
+    "meshaLightDistance": {
+      "label": "Distance"
+    },
+    "meshaLightIntensity": {
+      "label": "Intensity"
+    },
+    "meshaSize": {
+      "label": "Mesha size"
+    },
+    "moustacheSize": {
+      "label": "Moustache size"
+    },
+    "near": {
+      "label": "Near plane"
+    },
+    "noseSize": {
+      "label": "Nose size"
+    },
+    "showsVideoPreviews": {
+      "label": "Preview original"
+    },
     "sortBy": {
       "label": "Sort languages by",
       "options": {
@@ -70,14 +138,30 @@
         "wordOrderFlexibility": "Word order flexibility"
       }
     },
-    "sphereRadius": { "label": "Sphere radius" },
-    "stageLightDecay": { "label": "Decay" },
-    "stageLightDistance": { "label": "Distance" },
-    "stageLightIntensity": { "label": "Intensity" },
-    "switchDuration": { "label": "Switch duration" },
-    "teethSize": { "label": "Teeth size" },
-    "tension": { "label": "Tension" },
-    "zoomDistance": { "label": "Zoom distance" }
+    "sphereRadius": {
+      "label": "Sphere radius"
+    },
+    "stageLightDecay": {
+      "label": "Decay"
+    },
+    "stageLightDistance": {
+      "label": "Distance"
+    },
+    "stageLightIntensity": {
+      "label": "Intensity"
+    },
+    "switchDuration": {
+      "label": "Switch duration"
+    },
+    "teethSize": {
+      "label": "Teeth size"
+    },
+    "tension": {
+      "label": "Tension"
+    },
+    "zoomDistance": {
+      "label": "Zoom distance"
+    }
   },
   "filters": {
     "all": "All",
@@ -86,7 +170,9 @@
     "title": "Filter by"
   },
   "linguistic": {
-    "caseCount": { "name": "Case count" },
+    "caseCount": {
+      "name": "Case count"
+    },
     "evidentiality": {
       "name": "Evidentiality",
       "values": {
@@ -112,8 +198,12 @@
         }
       }
     },
-    "family": { "name": "Language family" },
-    "maxClusterSize": { "name": "Max consonants in a cluster" },
+    "family": {
+      "name": "Language family"
+    },
+    "maxClusterSize": {
+      "name": "Max consonants in a cluster"
+    },
     "morphology": {
       "name": "Morphology",
       "values": {
@@ -139,8 +229,12 @@
         }
       }
     },
-    "nounClassCount": { "name": "Noun classes / genders" },
-    "phonemeCount": { "name": "Phoneme count" },
+    "nounClassCount": {
+      "name": "Noun classes / genders"
+    },
+    "phonemeCount": {
+      "name": "Phoneme count"
+    },
     "tonality": {
       "name": "Tonality",
       "values": {
@@ -249,5 +343,13 @@
     "filters": "Filters",
     "languages": "Languages",
     "search": "Search"
+  },
+  "overlay": {
+    "slogan": "The more languages you know, the more people you are worth.",
+    "emptyFilter": "No languages for that filter combination. You probably selected too many filters."
+  },
+  "idCard": {
+    "sourceVideo": "Source video",
+    "opensInNewTab": "opens in new tab"
   }
 }

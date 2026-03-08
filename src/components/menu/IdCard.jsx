@@ -123,9 +123,9 @@ function IdCard({
               target="_blank"
               rel="noopener noreferrer"
               onClick={onSourceVideoClick}
-              aria-label={`${localizedLanguageName} Source Video (opens in new tab)`}
+              aria-label={`${localizedLanguageName} ${t("idCard.sourceVideo")} (${t("idCard.opensInNewTab")})`}
             >
-              Source Video ↗
+              {t("idCard.sourceVideo")} ↗
             </a>
           )}
         </div>

@@ -1,22 +1,56 @@
 {
   "controls": {
-    "backgroundColor": { "label": "Achtergrond" },
-    "cameraX": { "label": "Camera X" },
-    "cameraY": { "label": "Camera Y" },
-    "cameraZ": { "label": "Camera Z" },
-    "canEditColors": { "label": "Kleuren bewerken toestaan?" },
-    "eyeProtrusion": { "label": "Ooguitsteking" },
-    "eyeSize": { "label": "Ooggrootte" },
-    "eyeX": { "label": "Oog X" },
-    "eyeY": { "label": "Oog Y" },
-    "eyeZ": { "label": "Oog Z" },
-    "far": { "label": "Ver vlak" },
-    "fov": { "label": "Gezichtsveld" },
-    "friction": { "label": "Wrijving" },
-    "globalChromaOffset": { "label": "Chroma-offset" },
-    "globalChromaScale": { "label": "Chromaschaal" },
-    "globalLightnessOffset": { "label": "Helderheidsoffset" },
-    "globalLightnessScale": { "label": "Helderheidsschaal" },
+    "backgroundColor": {
+      "label": "Achtergrond"
+    },
+    "cameraX": {
+      "label": "Camera X"
+    },
+    "cameraY": {
+      "label": "Camera Y"
+    },
+    "cameraZ": {
+      "label": "Camera Z"
+    },
+    "canEditColors": {
+      "label": "Kleuren bewerken toestaan?"
+    },
+    "eyeProtrusion": {
+      "label": "Ooguitsteking"
+    },
+    "eyeSize": {
+      "label": "Ooggrootte"
+    },
+    "eyeX": {
+      "label": "Oog X"
+    },
+    "eyeY": {
+      "label": "Oog Y"
+    },
+    "eyeZ": {
+      "label": "Oog Z"
+    },
+    "far": {
+      "label": "Ver vlak"
+    },
+    "fov": {
+      "label": "Gezichtsveld"
+    },
+    "friction": {
+      "label": "Wrijving"
+    },
+    "globalChromaOffset": {
+      "label": "Chroma-offset"
+    },
+    "globalChromaScale": {
+      "label": "Chromaschaal"
+    },
+    "globalLightnessOffset": {
+      "label": "Helderheidsoffset"
+    },
+    "globalLightnessScale": {
+      "label": "Helderheidsschaal"
+    },
     "groups": {
       "camera": "Camera",
       "colors": "Kleuren",
@@ -27,13 +61,27 @@
       "scene": "Scène",
       "stageLight": "Podiumlicht"
     },
-    "hasSubtitle": { "label": "Ondertiteling tonen" },
-    "hueCircle": { "label": "Kleurencirkel" },
-    "hueStart": { "label": "Kleurstart" },
-    "isLoop": { "label": "Afspeellijst herhalen" },
-    "isLuka": { "label": "Luka leest voorbeelden" },
-    "isMyMesha": { "label": "Ik ben Mesha" },
-    "isReverse": { "label": "Omgekeerde volgorde" },
+    "hasSubtitle": {
+      "label": "Ondertiteling tonen"
+    },
+    "hueCircle": {
+      "label": "Kleurencirkel"
+    },
+    "hueStart": {
+      "label": "Kleurstart"
+    },
+    "isLoop": {
+      "label": "Afspeellijst herhalen"
+    },
+    "isLuka": {
+      "label": "Luka leest voorbeelden"
+    },
+    "isMyMesha": {
+      "label": "Ik ben Mesha"
+    },
+    "isReverse": {
+      "label": "Omgekeerde volgorde"
+    },
     "labelContent": {
       "label": "Weergave",
       "options": {
@@ -42,16 +90,36 @@
         "nativeName": "Inheemse namen"
       }
     },
-    "labelSize": { "label": "Labelgrootte" },
-    "maxSiblingSpread": { "label": "Spreiding tussen zusterknooppunten" },
-    "meshaLightDecay": { "label": "Verval" },
-    "meshaLightDistance": { "label": "Afstand" },
-    "meshaLightIntensity": { "label": "Intensiteit" },
-    "meshaSize": { "label": "Mesha-grootte" },
-    "moustacheSize": { "label": "Snorgrootte" },
-    "near": { "label": "Nabij vlak" },
-    "noseSize": { "label": "Neusgrootte" },
-    "showsVideoPreviews": { "label": "Origineel voorbeeld" },
+    "labelSize": {
+      "label": "Labelgrootte"
+    },
+    "maxSiblingSpread": {
+      "label": "Spreiding tussen zusterknooppunten"
+    },
+    "meshaLightDecay": {
+      "label": "Verval"
+    },
+    "meshaLightDistance": {
+      "label": "Afstand"
+    },
+    "meshaLightIntensity": {
+      "label": "Intensiteit"
+    },
+    "meshaSize": {
+      "label": "Mesha-grootte"
+    },
+    "moustacheSize": {
+      "label": "Snorgrootte"
+    },
+    "near": {
+      "label": "Nabij vlak"
+    },
+    "noseSize": {
+      "label": "Neusgrootte"
+    },
+    "showsVideoPreviews": {
+      "label": "Origineel voorbeeld"
+    },
     "sortBy": {
       "label": "Talen sorteren op",
       "options": {
@@ -70,14 +138,30 @@
         "wordOrderFlexibility": "Flexibiliteit van woordvolgorde"
       }
     },
-    "sphereRadius": { "label": "Straal van de bol" },
-    "stageLightDecay": { "label": "Verval" },
-    "stageLightDistance": { "label": "Afstand" },
-    "stageLightIntensity": { "label": "Intensiteit" },
-    "switchDuration": { "label": "Wisselduur" },
-    "teethSize": { "label": "Tandgrootte" },
-    "tension": { "label": "Spanning" },
-    "zoomDistance": { "label": "Zoomafstand" }
+    "sphereRadius": {
+      "label": "Straal van de bol"
+    },
+    "stageLightDecay": {
+      "label": "Verval"
+    },
+    "stageLightDistance": {
+      "label": "Afstand"
+    },
+    "stageLightIntensity": {
+      "label": "Intensiteit"
+    },
+    "switchDuration": {
+      "label": "Wisselduur"
+    },
+    "teethSize": {
+      "label": "Tandgrootte"
+    },
+    "tension": {
+      "label": "Spanning"
+    },
+    "zoomDistance": {
+      "label": "Zoomafstand"
+    }
   },
   "filters": {
     "all": "Alle",
@@ -86,7 +170,9 @@
     "title": "Filter op"
   },
   "linguistic": {
-    "caseCount": { "name": "Aantal naamvallen" },
+    "caseCount": {
+      "name": "Aantal naamvallen"
+    },
     "evidentiality": {
       "name": "Evidentialiteit",
       "values": {
@@ -112,8 +198,12 @@
         }
       }
     },
-    "family": { "name": "Taalfamilie" },
-    "maxClusterSize": { "name": "Maximale medeklinkers in een cluster" },
+    "family": {
+      "name": "Taalfamilie"
+    },
+    "maxClusterSize": {
+      "name": "Maximale medeklinkers in een cluster"
+    },
     "morphology": {
       "name": "Morfologie",
       "values": {
@@ -139,8 +229,12 @@
         }
       }
     },
-    "nounClassCount": { "name": "Naamwoordklassen / geslachten" },
-    "phonemeCount": { "name": "Aantal fonemen" },
+    "nounClassCount": {
+      "name": "Naamwoordklassen / geslachten"
+    },
+    "phonemeCount": {
+      "name": "Aantal fonemen"
+    },
     "tonality": {
       "name": "Tonaliteit",
       "values": {
@@ -249,5 +343,13 @@
     "filters": "Filters",
     "languages": "Talen",
     "search": "Zoeken"
+  },
+  "overlay": {
+    "slogan": "Hoe meer talen je spreekt, hoe meer je als mens waard bent.",
+    "emptyFilter": "Geen talen voor die filtercombinatie. Je hebt waarschijnlijk te veel filters geselecteerd."
+  },
+  "idCard": {
+    "sourceVideo": "Bronvideo",
+    "opensInNewTab": "opent in een nieuw tabblad"
   }
 }

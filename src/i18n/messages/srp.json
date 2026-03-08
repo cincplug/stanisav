@@ -1,22 +1,56 @@
 {
   "controls": {
-    "backgroundColor": { "label": "Pozadina" },
-    "cameraX": { "label": "Kamera X" },
-    "cameraY": { "label": "Kamera Y" },
-    "cameraZ": { "label": "Kamera Z" },
-    "canEditColors": { "label": "Izmena boja?" },
-    "eyeProtrusion": { "label": "Isturanje oka" },
-    "eyeSize": { "label": "Veličina oka" },
-    "eyeX": { "label": "Oko X" },
-    "eyeY": { "label": "Oko Y" },
-    "eyeZ": { "label": "Oko Z" },
-    "far": { "label": "Daleka ravan" },
-    "fov": { "label": "Vidno polje" },
-    "friction": { "label": "Trenje" },
-    "globalChromaOffset": { "label": "Pomak hrome" },
-    "globalChromaScale": { "label": "Razmera hrome" },
-    "globalLightnessOffset": { "label": "Pomak svetline" },
-    "globalLightnessScale": { "label": "Razmera svetline" },
+    "backgroundColor": {
+      "label": "Pozadina"
+    },
+    "cameraX": {
+      "label": "Kamera X"
+    },
+    "cameraY": {
+      "label": "Kamera Y"
+    },
+    "cameraZ": {
+      "label": "Kamera Z"
+    },
+    "canEditColors": {
+      "label": "Izmena boja?"
+    },
+    "eyeProtrusion": {
+      "label": "Isturanje oka"
+    },
+    "eyeSize": {
+      "label": "Veličina oka"
+    },
+    "eyeX": {
+      "label": "Oko X"
+    },
+    "eyeY": {
+      "label": "Oko Y"
+    },
+    "eyeZ": {
+      "label": "Oko Z"
+    },
+    "far": {
+      "label": "Daleka ravan"
+    },
+    "fov": {
+      "label": "Vidno polje"
+    },
+    "friction": {
+      "label": "Trenje"
+    },
+    "globalChromaOffset": {
+      "label": "Pomak hrome"
+    },
+    "globalChromaScale": {
+      "label": "Razmera hrome"
+    },
+    "globalLightnessOffset": {
+      "label": "Pomak svetline"
+    },
+    "globalLightnessScale": {
+      "label": "Razmera svetline"
+    },
     "groups": {
       "camera": "Kamera",
       "colors": "Boje",
@@ -27,13 +61,27 @@
       "scene": "Scena",
       "stageLight": "Pozorišno svetlo"
     },
-    "hasSubtitle": { "label": "Prikaži podnaslov" },
-    "hueCircle": { "label": "Krug nijansi" },
-    "hueStart": { "label": "Početna nijansa" },
-    "isLoop": { "label": "Petlja plejliste" },
-    "isLuka": { "label": "Luka čita primere" },
-    "isMyMesha": { "label": "Ja sam Meša" },
-    "isReverse": { "label": "Obrnuti redosled" },
+    "hasSubtitle": {
+      "label": "Prikaži podnaslov"
+    },
+    "hueCircle": {
+      "label": "Krug nijansi"
+    },
+    "hueStart": {
+      "label": "Početna nijansa"
+    },
+    "isLoop": {
+      "label": "Petlja plejliste"
+    },
+    "isLuka": {
+      "label": "Luka čita primere"
+    },
+    "isMyMesha": {
+      "label": "Ja sam Meša"
+    },
+    "isReverse": {
+      "label": "Obrnuti redosled"
+    },
     "labelContent": {
       "label": "Prikaz",
       "options": {
@@ -42,16 +90,36 @@
         "nativeName": "Nazivi na maternjem"
       }
     },
-    "labelSize": { "label": "Veličina oznake" },
-    "maxSiblingSpread": { "label": "Raspon nijansi srodnih" },
-    "meshaLightDecay": { "label": "Opadanje" },
-    "meshaLightDistance": { "label": "Daljina" },
-    "meshaLightIntensity": { "label": "Intenzitet" },
-    "meshaSize": { "label": "Mešina veličina" },
-    "moustacheSize": { "label": "Veličina brkova" },
-    "near": { "label": "Bliska ravan" },
-    "noseSize": { "label": "Veličina nosa" },
-    "showsVideoPreviews": { "label": "Pregled originala" },
+    "labelSize": {
+      "label": "Veličina oznake"
+    },
+    "maxSiblingSpread": {
+      "label": "Raspon nijansi srodnih"
+    },
+    "meshaLightDecay": {
+      "label": "Opadanje"
+    },
+    "meshaLightDistance": {
+      "label": "Daljina"
+    },
+    "meshaLightIntensity": {
+      "label": "Intenzitet"
+    },
+    "meshaSize": {
+      "label": "Mešina veličina"
+    },
+    "moustacheSize": {
+      "label": "Veličina brkova"
+    },
+    "near": {
+      "label": "Bliska ravan"
+    },
+    "noseSize": {
+      "label": "Veličina nosa"
+    },
+    "showsVideoPreviews": {
+      "label": "Pregled originala"
+    },
     "sortBy": {
       "label": "Sortiraj jezike po",
       "options": {
@@ -70,14 +138,30 @@
         "wordOrderFlexibility": "Fleksibilnosti reda reči"
       }
     },
-    "sphereRadius": { "label": "Polupречnik sfere" },
-    "stageLightDecay": { "label": "Opadanje" },
-    "stageLightDistance": { "label": "Daljina" },
-    "stageLightIntensity": { "label": "Intenzitet" },
-    "switchDuration": { "label": "Trajanje prelaza" },
-    "teethSize": { "label": "Veličina zuba" },
-    "tension": { "label": "Napon" },
-    "zoomDistance": { "label": "Daljina zuma" }
+    "sphereRadius": {
+      "label": "Polupречnik sfere"
+    },
+    "stageLightDecay": {
+      "label": "Opadanje"
+    },
+    "stageLightDistance": {
+      "label": "Daljina"
+    },
+    "stageLightIntensity": {
+      "label": "Intenzitet"
+    },
+    "switchDuration": {
+      "label": "Trajanje prelaza"
+    },
+    "teethSize": {
+      "label": "Veličina zuba"
+    },
+    "tension": {
+      "label": "Napon"
+    },
+    "zoomDistance": {
+      "label": "Daljina zuma"
+    }
   },
   "filters": {
     "all": "Svi",
@@ -86,7 +170,9 @@
     "title": "Filteri"
   },
   "linguistic": {
-    "caseCount": { "name": "Broj padeža" },
+    "caseCount": {
+      "name": "Broj padeža"
+    },
     "evidentiality": {
       "name": "Evidencijalnost",
       "values": {
@@ -112,8 +198,12 @@
         }
       }
     },
-    "family": { "name": "Jezička porodica" },
-    "maxClusterSize": { "name": "Maks. suglasnici u skupu" },
+    "family": {
+      "name": "Jezička porodica"
+    },
+    "maxClusterSize": {
+      "name": "Maks. suglasnici u skupu"
+    },
     "morphology": {
       "name": "Morfologija",
       "values": {
@@ -139,8 +229,12 @@
         }
       }
     },
-    "nounClassCount": { "name": "Imeničke klase / rodovi" },
-    "phonemeCount": { "name": "Broj fonema" },
+    "nounClassCount": {
+      "name": "Imeničke klase / rodovi"
+    },
+    "phonemeCount": {
+      "name": "Broj fonema"
+    },
     "tonality": {
       "name": "Tonalnost",
       "values": {
@@ -249,5 +343,13 @@
     "filters": "Filteri",
     "languages": "Jezici",
     "search": "Pretraga"
+  },
+  "overlay": {
+    "slogan": "Koliko jezika znaš, toliko puta vrediš kao čovek.",
+    "emptyFilter": "Nema jezika za tu kombinaciju filtera. Verovatno si izabrao/la previše filtera."
+  },
+  "idCard": {
+    "sourceVideo": "Izvorni video",
+    "opensInNewTab": "otvara se u novom jezičku"
   }
 }

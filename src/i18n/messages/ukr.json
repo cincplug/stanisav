@@ -1,22 +1,56 @@
 {
   "controls": {
-    "backgroundColor": { "label": "Фон" },
-    "cameraX": { "label": "Камера X" },
-    "cameraY": { "label": "Камера Y" },
-    "cameraZ": { "label": "Камера Z" },
-    "canEditColors": { "label": "Редагувати кольори?" },
-    "eyeProtrusion": { "label": "Виступ ока" },
-    "eyeSize": { "label": "Розмір ока" },
-    "eyeX": { "label": "Око X" },
-    "eyeY": { "label": "Око Y" },
-    "eyeZ": { "label": "Око Z" },
-    "far": { "label": "Далека площина" },
-    "fov": { "label": "Поле зору" },
-    "friction": { "label": "Тертя" },
-    "globalChromaOffset": { "label": "Зміщення хроми" },
-    "globalChromaScale": { "label": "Масштаб хроми" },
-    "globalLightnessOffset": { "label": "Зміщення яскравості" },
-    "globalLightnessScale": { "label": "Масштаб яскравості" },
+    "backgroundColor": {
+      "label": "Фон"
+    },
+    "cameraX": {
+      "label": "Камера X"
+    },
+    "cameraY": {
+      "label": "Камера Y"
+    },
+    "cameraZ": {
+      "label": "Камера Z"
+    },
+    "canEditColors": {
+      "label": "Редагувати кольори?"
+    },
+    "eyeProtrusion": {
+      "label": "Виступ ока"
+    },
+    "eyeSize": {
+      "label": "Розмір ока"
+    },
+    "eyeX": {
+      "label": "Око X"
+    },
+    "eyeY": {
+      "label": "Око Y"
+    },
+    "eyeZ": {
+      "label": "Око Z"
+    },
+    "far": {
+      "label": "Далека площина"
+    },
+    "fov": {
+      "label": "Поле зору"
+    },
+    "friction": {
+      "label": "Тертя"
+    },
+    "globalChromaOffset": {
+      "label": "Зміщення хроми"
+    },
+    "globalChromaScale": {
+      "label": "Масштаб хроми"
+    },
+    "globalLightnessOffset": {
+      "label": "Зміщення яскравості"
+    },
+    "globalLightnessScale": {
+      "label": "Масштаб яскравості"
+    },
     "groups": {
       "camera": "Камера",
       "colors": "Кольори",
@@ -27,13 +61,27 @@
       "scene": "Сцена",
       "stageLight": "Сценічне світло"
     },
-    "hasSubtitle": { "label": "Показати підзаголовок" },
-    "hueCircle": { "label": "Коло відтінків" },
-    "hueStart": { "label": "Початковий відтінок" },
-    "isLoop": { "label": "Повторювати список" },
-    "isLuka": { "label": "Лука читає приклади" },
-    "isMyMesha": { "label": "Я — Меша" },
-    "isReverse": { "label": "Зворотний порядок" },
+    "hasSubtitle": {
+      "label": "Показати підзаголовок"
+    },
+    "hueCircle": {
+      "label": "Коло відтінків"
+    },
+    "hueStart": {
+      "label": "Початковий відтінок"
+    },
+    "isLoop": {
+      "label": "Повторювати список"
+    },
+    "isLuka": {
+      "label": "Лука читає приклади"
+    },
+    "isMyMesha": {
+      "label": "Я — Меша"
+    },
+    "isReverse": {
+      "label": "Зворотний порядок"
+    },
     "labelContent": {
       "label": "Відображення",
       "options": {
@@ -42,16 +90,36 @@
         "nativeName": "Назви рідною мовою"
       }
     },
-    "labelSize": { "label": "Розмір мітки" },
-    "maxSiblingSpread": { "label": "Розкид відтінків споріднених" },
-    "meshaLightDecay": { "label": "Згасання" },
-    "meshaLightDistance": { "label": "Відстань" },
-    "meshaLightIntensity": { "label": "Інтенсивність" },
-    "meshaSize": { "label": "Розмір Меші" },
-    "moustacheSize": { "label": "Розмір вусів" },
-    "near": { "label": "Близька площина" },
-    "noseSize": { "label": "Розмір носа" },
-    "showsVideoPreviews": { "label": "Попередній перегляд оригіналу" },
+    "labelSize": {
+      "label": "Розмір мітки"
+    },
+    "maxSiblingSpread": {
+      "label": "Розкид відтінків споріднених"
+    },
+    "meshaLightDecay": {
+      "label": "Згасання"
+    },
+    "meshaLightDistance": {
+      "label": "Відстань"
+    },
+    "meshaLightIntensity": {
+      "label": "Інтенсивність"
+    },
+    "meshaSize": {
+      "label": "Розмір Меші"
+    },
+    "moustacheSize": {
+      "label": "Розмір вусів"
+    },
+    "near": {
+      "label": "Близька площина"
+    },
+    "noseSize": {
+      "label": "Розмір носа"
+    },
+    "showsVideoPreviews": {
+      "label": "Попередній перегляд оригіналу"
+    },
     "sortBy": {
       "label": "Сортувати мови за",
       "options": {
@@ -70,14 +138,30 @@
         "wordOrderFlexibility": "Гнучкістю порядку слів"
       }
     },
-    "sphereRadius": { "label": "Радіус сфери" },
-    "stageLightDecay": { "label": "Згасання" },
-    "stageLightDistance": { "label": "Відстань" },
-    "stageLightIntensity": { "label": "Інтенсивність" },
-    "switchDuration": { "label": "Тривалість переходу" },
-    "teethSize": { "label": "Розмір зубів" },
-    "tension": { "label": "Натяг" },
-    "zoomDistance": { "label": "Відстань масштабування" }
+    "sphereRadius": {
+      "label": "Радіус сфери"
+    },
+    "stageLightDecay": {
+      "label": "Згасання"
+    },
+    "stageLightDistance": {
+      "label": "Відстань"
+    },
+    "stageLightIntensity": {
+      "label": "Інтенсивність"
+    },
+    "switchDuration": {
+      "label": "Тривалість переходу"
+    },
+    "teethSize": {
+      "label": "Розмір зубів"
+    },
+    "tension": {
+      "label": "Натяг"
+    },
+    "zoomDistance": {
+      "label": "Відстань масштабування"
+    }
   },
   "filters": {
     "all": "Усі",
@@ -86,7 +170,9 @@
     "title": "Фільтрувати за"
   },
   "linguistic": {
-    "caseCount": { "name": "Кількість відмінків" },
+    "caseCount": {
+      "name": "Кількість відмінків"
+    },
     "evidentiality": {
       "name": "Евіденційність",
       "values": {
@@ -112,8 +198,12 @@
         }
       }
     },
-    "family": { "name": "Мовна сім'я" },
-    "maxClusterSize": { "name": "Макс. приголосних у кластері" },
+    "family": {
+      "name": "Мовна сім'я"
+    },
+    "maxClusterSize": {
+      "name": "Макс. приголосних у кластері"
+    },
     "morphology": {
       "name": "Морфологія",
       "values": {
@@ -139,8 +229,12 @@
         }
       }
     },
-    "nounClassCount": { "name": "Іменникові класи / роди" },
-    "phonemeCount": { "name": "Кількість фонем" },
+    "nounClassCount": {
+      "name": "Іменникові класи / роди"
+    },
+    "phonemeCount": {
+      "name": "Кількість фонем"
+    },
     "tonality": {
       "name": "Тональність",
       "values": {
@@ -249,5 +343,13 @@
     "filters": "Фільтри",
     "languages": "Мови",
     "search": "Пошук"
+  },
+  "overlay": {
+    "slogan": "Скільки мов ти знаєш, стільки разів ти людина.",
+    "emptyFilter": "Немає мов для такої комбінації фільтрів. Ймовірно, вибрано забагато фільтрів."
+  },
+  "idCard": {
+    "sourceVideo": "Відео-джерело",
+    "opensInNewTab": "відкривається в новій вкладці"
   }
 }

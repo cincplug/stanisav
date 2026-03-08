@@ -1,22 +1,56 @@
 {
   "controls": {
-    "backgroundColor": { "label": "Pozadí" },
-    "cameraX": { "label": "Kamera X" },
-    "cameraY": { "label": "Kamera Y" },
-    "cameraZ": { "label": "Kamera Z" },
-    "canEditColors": { "label": "Upravovat barvy?" },
-    "eyeProtrusion": { "label": "Vyčnívání oka" },
-    "eyeSize": { "label": "Velikost oka" },
-    "eyeX": { "label": "Oko X" },
-    "eyeY": { "label": "Oko Y" },
-    "eyeZ": { "label": "Oko Z" },
-    "far": { "label": "Vzdálená rovina" },
-    "fov": { "label": "Zorné pole" },
-    "friction": { "label": "Tření" },
-    "globalChromaOffset": { "label": "Posun chromy" },
-    "globalChromaScale": { "label": "Měřítko chromy" },
-    "globalLightnessOffset": { "label": "Posun světlosti" },
-    "globalLightnessScale": { "label": "Měřítko světlosti" },
+    "backgroundColor": {
+      "label": "Pozadí"
+    },
+    "cameraX": {
+      "label": "Kamera X"
+    },
+    "cameraY": {
+      "label": "Kamera Y"
+    },
+    "cameraZ": {
+      "label": "Kamera Z"
+    },
+    "canEditColors": {
+      "label": "Upravovat barvy?"
+    },
+    "eyeProtrusion": {
+      "label": "Vyčnívání oka"
+    },
+    "eyeSize": {
+      "label": "Velikost oka"
+    },
+    "eyeX": {
+      "label": "Oko X"
+    },
+    "eyeY": {
+      "label": "Oko Y"
+    },
+    "eyeZ": {
+      "label": "Oko Z"
+    },
+    "far": {
+      "label": "Vzdálená rovina"
+    },
+    "fov": {
+      "label": "Zorné pole"
+    },
+    "friction": {
+      "label": "Tření"
+    },
+    "globalChromaOffset": {
+      "label": "Posun chromy"
+    },
+    "globalChromaScale": {
+      "label": "Měřítko chromy"
+    },
+    "globalLightnessOffset": {
+      "label": "Posun světlosti"
+    },
+    "globalLightnessScale": {
+      "label": "Měřítko světlosti"
+    },
     "groups": {
       "camera": "Kamera",
       "colors": "Barvy",
@@ -27,13 +61,27 @@
       "scene": "Scéna",
       "stageLight": "Světlo jeviště"
     },
-    "hasSubtitle": { "label": "Zobrazit podtitulek" },
-    "hueCircle": { "label": "Kruh odstínů" },
-    "hueStart": { "label": "Počáteční odstín" },
-    "isLoop": { "label": "Opakovat playlist" },
-    "isLuka": { "label": "Luka čte ukázky" },
-    "isMyMesha": { "label": "Jsem Meša" },
-    "isReverse": { "label": "Obrácené pořadí" },
+    "hasSubtitle": {
+      "label": "Zobrazit podtitulek"
+    },
+    "hueCircle": {
+      "label": "Kruh odstínů"
+    },
+    "hueStart": {
+      "label": "Počáteční odstín"
+    },
+    "isLoop": {
+      "label": "Opakovat playlist"
+    },
+    "isLuka": {
+      "label": "Luka čte ukázky"
+    },
+    "isMyMesha": {
+      "label": "Jsem Meša"
+    },
+    "isReverse": {
+      "label": "Obrácené pořadí"
+    },
     "labelContent": {
       "label": "Zobrazení",
       "options": {
@@ -42,16 +90,36 @@
         "nativeName": "Názvy v rodném jazyce"
       }
     },
-    "labelSize": { "label": "Velikost popisku" },
-    "maxSiblingSpread": { "label": "Rozptyl odstínů příbuzných" },
-    "meshaLightDecay": { "label": "Útlum" },
-    "meshaLightDistance": { "label": "Vzdálenost" },
-    "meshaLightIntensity": { "label": "Intenzita" },
-    "meshaSize": { "label": "Mešina velikost" },
-    "moustacheSize": { "label": "Velikost kníru" },
-    "near": { "label": "Blízká rovina" },
-    "noseSize": { "label": "Velikost nosu" },
-    "showsVideoPreviews": { "label": "Náhled originálu" },
+    "labelSize": {
+      "label": "Velikost popisku"
+    },
+    "maxSiblingSpread": {
+      "label": "Rozptyl odstínů příbuzných"
+    },
+    "meshaLightDecay": {
+      "label": "Útlum"
+    },
+    "meshaLightDistance": {
+      "label": "Vzdálenost"
+    },
+    "meshaLightIntensity": {
+      "label": "Intenzita"
+    },
+    "meshaSize": {
+      "label": "Mešina velikost"
+    },
+    "moustacheSize": {
+      "label": "Velikost kníru"
+    },
+    "near": {
+      "label": "Blízká rovina"
+    },
+    "noseSize": {
+      "label": "Velikost nosu"
+    },
+    "showsVideoPreviews": {
+      "label": "Náhled originálu"
+    },
     "sortBy": {
       "label": "Řadit jazyky podle",
       "options": {
@@ -70,14 +138,30 @@
         "wordOrderFlexibility": "Flexibility slovosledu"
       }
     },
-    "sphereRadius": { "label": "Poloměr koule" },
-    "stageLightDecay": { "label": "Útlum" },
-    "stageLightDistance": { "label": "Vzdálenost" },
-    "stageLightIntensity": { "label": "Intenzita" },
-    "switchDuration": { "label": "Délka přechodu" },
-    "teethSize": { "label": "Velikost zubů" },
-    "tension": { "label": "Napětí" },
-    "zoomDistance": { "label": "Vzdálenost přiblížení" }
+    "sphereRadius": {
+      "label": "Poloměr koule"
+    },
+    "stageLightDecay": {
+      "label": "Útlum"
+    },
+    "stageLightDistance": {
+      "label": "Vzdálenost"
+    },
+    "stageLightIntensity": {
+      "label": "Intenzita"
+    },
+    "switchDuration": {
+      "label": "Délka přechodu"
+    },
+    "teethSize": {
+      "label": "Velikost zubů"
+    },
+    "tension": {
+      "label": "Napětí"
+    },
+    "zoomDistance": {
+      "label": "Vzdálenost přiblížení"
+    }
   },
   "filters": {
     "all": "Vše",
@@ -86,7 +170,9 @@
     "title": "Filtrovat podle"
   },
   "linguistic": {
-    "caseCount": { "name": "Počet pádů" },
+    "caseCount": {
+      "name": "Počet pádů"
+    },
     "evidentiality": {
       "name": "Evidentnost",
       "values": {
@@ -112,8 +198,12 @@
         }
       }
     },
-    "family": { "name": "Jazyková rodina" },
-    "maxClusterSize": { "name": "Max. souhlásek ve shluku" },
+    "family": {
+      "name": "Jazyková rodina"
+    },
+    "maxClusterSize": {
+      "name": "Max. souhlásek ve shluku"
+    },
     "morphology": {
       "name": "Morfologie",
       "values": {
@@ -139,8 +229,12 @@
         }
       }
     },
-    "nounClassCount": { "name": "Jmenné třídy / rody" },
-    "phonemeCount": { "name": "Počet fonémů" },
+    "nounClassCount": {
+      "name": "Jmenné třídy / rody"
+    },
+    "phonemeCount": {
+      "name": "Počet fonémů"
+    },
     "tonality": {
       "name": "Tonalita",
       "values": {
@@ -249,5 +343,13 @@
     "filters": "Filtry",
     "languages": "Jazyky",
     "search": "Hledání"
+  },
+  "overlay": {
+    "slogan": "Kolik jazyků umíš, tolikrát jsi člověkem.",
+    "emptyFilter": "Pro tuto kombinaci filtrů nejsou žádné jazyky. Pravděpodobně jsi vybral(a) příliš mnoho filtrů."
+  },
+  "idCard": {
+    "sourceVideo": "Zdrojové video",
+    "opensInNewTab": "otevře se na nové kartě"
   }
 }
