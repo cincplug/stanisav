@@ -84,32 +84,3 @@
   opacity: 0.7;
   font-style: italic;
 }
-
-/* Search results */
-.search-results {
-  max-height: 400px;
-  overflow-y: auto;
-}
-
-/* Language grid for search results */
-.language-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-top: 10px;
-}
-
-.language-button-grid {
-  border: 1px solid var(--color-interactive);
-  background-color: var(--color-interactive);
-  color: var(--color-text);
-  padding: 8px;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  font-size: var(--font-size-normal);
-  text-align: left;
-}
-
-.language-name {
-  margin-bottom: 2px;
-}

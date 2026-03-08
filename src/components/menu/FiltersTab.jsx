@@ -179,32 +179,33 @@ function FiltersTab({ data, languageColors = {} }) {
           <legend className="results-legend">
             {t("filters.results", { count: linguisticResults.length })}
           </legend>
-          <div className="language-grid">
+          <ul className="languages-in-group" role="list">
             {linguisticResults.map((lang) => (
-              <button
-                key={lang.code}
-                className={`language-item-button language-button-grid ${
-                  selectedLanguage === lang.code ? "selected" : ""
-                }`}
-                style={{ background: languageColors[lang.code] }}
-                onClick={() => {
-                  selectLanguage(lang.code);
-                  startFromLanguage(lang.code);
-                }}
-                title={`${lang.name} - ${Object.entries(lang.features)
-                  .filter(([k]) => validFeatureKeys.has(k))
-                  .map(([k, v]) => {
-                    const featureName = getFeatureName(k);
-                    const valueLabel =
-                      typeof v === "number" ? v : getFeatureLabel(k, v);
-                    return `${featureName}: ${valueLabel}`;
-                  })
-                  .join(", ")}`}
-              >
-                {lang.name}
-              </button>
+              <li key={lang.code}>
+                <button
+                  className={`language-item-button ${
+                    selectedLanguage === lang.code ? "selected" : ""
+                  }`}
+                  style={{ background: languageColors[lang.code] }}
+                  onClick={() => {
+                    selectLanguage(lang.code);
+                    startFromLanguage(lang.code);
+                  }}
+                  title={`${lang.name} - ${Object.entries(lang.features)
+                    .filter(([k]) => validFeatureKeys.has(k))
+                    .map(([k, v]) => {
+                      const featureName = getFeatureName(k);
+                      const valueLabel =
+                        typeof v === "number" ? v : getFeatureLabel(k, v);
+                      return `${featureName}: ${valueLabel}`;
+                    })
+                    .join(", ")}`}
+                >
+                  {lang.name}
+                </button>
+              </li>
             ))}
-          </div>
+          </ul>
         </fieldset>
       )}
     </div>

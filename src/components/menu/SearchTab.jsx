@@ -35,34 +35,35 @@ function SearchResults({
         <legend className="results-legend">
           {t("search.results", { count: searchResults.languages.length })}
         </legend>
-        <div className="language-grid">
+        <ul className="languages-in-group" role="list">
           {searchResults.languages.map((lang) => {
             const lineageKey = languageData?.[lang.code]?.lineageKey;
             const localizedLineageLabel = lineageKey
               ? getFamilyLabel(lineageKey)
               : null;
             return (
-              <button
-                key={lang.code}
-                className={`language-item-button language-button-grid ${
-                  selectedLanguage === lang.code ? "selected" : ""
-                }`}
-                style={{ background: languageColors[lang.code] }}
-                onClick={() => {
-                  selectLanguage(lang.code);
-                  startFromLanguage(lang.code);
-                }}
-                title={
-                  localizedLineageLabel
-                    ? `${lang.name} (${localizedLineageLabel})`
-                    : lang.name
-                }
-              >
-                {lang.name}
-              </button>
+              <li key={lang.code}>
+                <button
+                  className={`language-item-button ${
+                    selectedLanguage === lang.code ? "selected" : ""
+                  }`}
+                  style={{ background: languageColors[lang.code] }}
+                  onClick={() => {
+                    selectLanguage(lang.code);
+                    startFromLanguage(lang.code);
+                  }}
+                  title={
+                    localizedLineageLabel
+                      ? `${lang.name} (${localizedLineageLabel})`
+                      : lang.name
+                  }
+                >
+                  {lang.name}
+                </button>
+              </li>
             );
           })}
-        </div>
+        </ul>
       </fieldset>
     );
   }
