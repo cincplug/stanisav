@@ -12,7 +12,15 @@ import {
 import { getFamilyLabel } from "../../utils/configI18nUtils";
 import "./IdCard.css";
 
-function IdCard({ languageCode, language, languageLineages, columnCount = 4 }) {
+function IdCard({
+  languageCode,
+  language,
+  languageLineages,
+  columnCount = 4,
+  sampleUrl,
+  onSourceVideoClick,
+  sub,
+}) {
   const { t } = useI18n();
 
   const lineageTrail = useMemo(() => {
@@ -69,6 +77,8 @@ function IdCard({ languageCode, language, languageLineages, columnCount = 4 }) {
     ).filter((group) => group.length > 0);
   }, [rows, normalizedColumnCount]);
 
+  const localizedLanguageName = getLocalizedLanguageName(languageCode);
+
   if (!languageCode || !language || rows.length === 0) {
     return null;
   }
@@ -76,29 +86,42 @@ function IdCard({ languageCode, language, languageLineages, columnCount = 4 }) {
   return (
     <aside
       className="id-card"
-      aria-label={getLocalizedLanguageName(languageCode)}
+      aria-label={localizedLanguageName}
       style={{ "--id-card-columns": columns.length }}
     >
+      <p className="subtitle">{sub}</p>
       <div className="id-card-header">
-        <h2 className="id-card-title">
-          {getLocalizedLanguageName(languageCode)}
-        </h2>
+        <h2 className="id-card-title">{localizedLanguageName}</h2>
 
         {lineageTrail.length > 0 && (
-          <div className="id-card-breadcrumb" role="list">
-            {lineageTrail.map((lineageItem, index) => (
-              <span
-                key={lineageItem}
-                className="id-card-breadcrumb-item"
-                role="listitem"
-              >
-                {index > 0 && (
-                  <span className="id-card-breadcrumb-separator">→</span>
-                )}
-                <span>{getFamilyLabel(lineageItem)}</span>
-              </span>
-            ))}
+          <div className="id-card-breadcrumb-wrap">
+            <div className="id-card-breadcrumb" role="list">
+              {lineageTrail.map((lineageItem, index) => (
+                <span
+                  key={lineageItem}
+                  className="id-card-breadcrumb-item"
+                  role="listitem"
+                >
+                  {index > 0 && (
+                    <span className="id-card-breadcrumb-separator">→</span>
+                  )}
+                  <span>{getFamilyLabel(lineageItem)}</span>
+                </span>
+              ))}
+            </div>
           </div>
+        )}
+
+        {sampleUrl && (
+          <a
+            href={sampleUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={onSourceVideoClick}
+            aria-label={`${localizedLanguageName} Source Video (opens in new tab)`}
+          >
+            Source Video ↗
+          </a>
         )}
       </div>
 

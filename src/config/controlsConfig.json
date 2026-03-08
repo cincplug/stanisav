@@ -70,7 +70,7 @@
   "hasSubtitle": {
     "type": "checkbox",
     "label": "Show subtitle",
-    "defaultValue": false,
+    "defaultValue": true,
     "isUserEditable": true,
     "group": "Languages tab"
   },

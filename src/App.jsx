@@ -8,7 +8,6 @@ import { useAppState } from "./contexts/AppStateContext";
 import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
 import { useControls } from "./contexts/ControlsContext";
 import { usePlaylist } from "./contexts/PlaylistContext";
-import { getLocalizedLanguageName } from "./i18n/runtime";
 import "./App.css";
 
 function App() {
@@ -32,12 +31,7 @@ function App() {
   const { pausePlaylist } = usePlaylist();
   const [isEmptyFilter, setIsEmptyFilter] = useState(false);
   const { hasSubtitle } = controls;
-
-  const { sampleUrl } = data?.languageData[selectedLanguage] || {};
-
-  const localizedLanguageName = selectedLanguage
-    ? getLocalizedLanguageName(selectedLanguage)
-    : "";
+  const { sampleUrl, sub } = data?.languageData[selectedLanguage] || {};
 
   return (
     <div
@@ -58,11 +52,14 @@ function App() {
           <Overlay variant="emptyFilter" />
         )}
 
-        {hasSubtitle && selectedLanguage && (
+        {selectedLanguage && hasSubtitle && (
           <IdCard
             languageCode={selectedLanguage}
             language={data?.languageData[selectedLanguage]}
             languageLineages={data?.languageLineages}
+            sampleUrl={sampleUrl}
+            onSourceVideoClick={pausePlaylist}
+            sub={sub}
           />
         )}
       </div>
@@ -82,19 +79,6 @@ function App() {
             filteringUtils={filteringUtils}
             onFilteringUtilsChange={setFilteringUtils}
           />
-
-          {sampleUrl && (
-            <a
-              className="button show-video"
-              href={sampleUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={pausePlaylist}
-              aria-label={`${localizedLanguageName} Source Video (opens in new tab)`}
-            >
-              {localizedLanguageName} Source Video ↗
-            </a>
-          )}
         </>
       )}
     </div>
