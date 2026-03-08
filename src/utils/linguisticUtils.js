@@ -1,4 +1,5 @@
 import linguisticConfig from "../config/linguisticConfig.json";
+import lineages from "../config/lineages.json";
 import { translate } from "../i18n/runtime";
 import { getFamilyLabel } from "./configI18nUtils";
 
@@ -101,4 +102,18 @@ export const getAllFeatures = () => {
       isNumeric: config.template !== undefined,
       isFamily: key === "family",
     }));
+};
+
+export const formatNumber = (value) => new Intl.NumberFormat().format(value);
+
+export const formatSpeakers = (speakersInMillions) => {
+  if (!Number.isFinite(speakersInMillions)) return null;
+  return formatNumber(Math.round(speakersInMillions * 1000000));
+};
+
+export const getLineageTrail = (lineageKey) => {
+  if (!lineageKey) return [];
+  const ancestors = lineages[lineageKey];
+  if (!Array.isArray(ancestors)) return [lineageKey];
+  return [...ancestors, lineageKey];
 };

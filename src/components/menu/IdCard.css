@@ -53,7 +53,7 @@
 
 .id-card-columns {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--id-card-columns, 2), minmax(0, 1fr));
   column-gap: var(--gap-triple);
 }
 
@@ -92,39 +92,4 @@
 .id-card-row dd {
   text-align: right;
   color: var(--color-text-active);
-}
-
-@media (max-width: 768px) {
-  .id-card {
-    bottom: 1rem;
-    min-width: auto;
-    width: min(94vw, 720px);
-  }
-
-  .id-card-columns {
-    grid-template-columns: 1fr;
-    row-gap: var(--gap);
-  }
-
-  .id-card-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .id-card-breadcrumb {
-    justify-content: flex-start;
-  }
-
-  .id-card-list {
-    grid-template-columns: 1fr;
-  }
-
-  .id-card-row {
-    display: block;
-    margin-bottom: var(--gap-half);
-  }
-
-  .id-card-row dd {
-    text-align: left;
-  }
 }

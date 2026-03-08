@@ -165,8 +165,5 @@
   "nounClassCount": {
     "name": "Noun classes / genders",
     "template": "It has {count} noun classes / genders."
-  },
-  "family": {
-    "name": "Language family"
   }
 }
