@@ -55,7 +55,6 @@ function App() {
           languageColors={languageColors}
         />
 
-        {(isLoading || !sceneReady) && <Overlay variant="loading" />}
         {!isLoading && sceneReady && isEmptyFilter && (
           <Overlay variant="emptyFilter" />
         )}
@@ -94,6 +93,8 @@ function App() {
           />
         </>
       )}
+
+      {(isLoading || !sceneReady) && <Overlay variant="loading" />}
     </div>
   );
 }

@@ -1,6 +1,6 @@
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { useSpring } from "@react-spring/three";
 import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
@@ -12,6 +12,26 @@ import StageLight from "./StageLight";
 import Node from "./Node";
 import Mesha from "./Mesha";
 import Camera from "./Camera";
+
+const SceneReadyGate = ({ hasDrawableScene, onSceneReady }) => {
+  const visualReadyRef = useRef(false);
+
+  useEffect(() => {
+    if (!hasDrawableScene) {
+      visualReadyRef.current = false;
+      onSceneReady(false);
+    }
+  }, [hasDrawableScene, onSceneReady]);
+
+  useFrame(() => {
+    if (hasDrawableScene && !visualReadyRef.current) {
+      visualReadyRef.current = true;
+      onSceneReady(true);
+    }
+  });
+
+  return null;
+};
 
 const Stage = ({
   onDataLoaded,
@@ -34,6 +54,7 @@ const Stage = ({
     tension,
     friction,
   } = controls;
+
   const { filteringUtils, selectedLanguage } = useLanguageSelection();
 
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
@@ -82,12 +103,6 @@ const Stage = ({
   const showEmptyMessage = hasActiveFilters && visibleLanguages.length === 0;
 
   useEffect(() => {
-    if (isInitialized && data && Object.keys(formattedPositions).length > 0) {
-      onSceneReady(true);
-    }
-  }, [isInitialized, data, formattedPositions, onSceneReady]);
-
-  useEffect(() => {
     if (onEmptyFilterChange) {
       onEmptyFilterChange(showEmptyMessage);
     }
@@ -102,6 +117,11 @@ const Stage = ({
   const stageLightIntensity = stageLightMultiplier.to(
     (m) => controls.stageLightIntensity * m,
   );
+
+  const hasDrawableScene =
+    Boolean(meshaColor) &&
+    Object.keys(formattedPositions).length > 0 &&
+    (showEmptyMessage || visibleLanguages.length > 0);
 
   if (!data || !isInitialized || sortedLanguageCodes.length === 0) {
     return null;
@@ -118,6 +138,11 @@ const Stage = ({
       }}
       gl={{ antialias: true, clearColor: backgroundColor }}
     >
+      <SceneReadyGate
+        hasDrawableScene={hasDrawableScene}
+        onSceneReady={onSceneReady}
+      />
+
       <color attach="background" args={[backgroundColor]} />
 
       <OrbitControls
@@ -148,6 +173,7 @@ const Stage = ({
           looksAround={true}
           lightIntensityMultiplier={meshaLightMultiplier}
         />
+
         {!showEmptyMessage &&
           sortedLanguageCodes.map((langCode, index) => {
             const position = formattedPositions[langCode];
