@@ -8,7 +8,7 @@ import { useDataManager } from "../../hooks/useDataManager";
 import { useLayoutManager } from "../../hooks/useLayoutManager";
 import { calculateLanguageFilterStatus } from "../../utils/sceneUtils";
 import { calculateLanguageColors } from "../../utils/colorUtils";
-import { getTonalityType } from "../../utils/linguisticUtils";
+import { getFeatureScore } from "../../utils/linguisticUtils";
 import StageLight from "./StageLight";
 import Node from "./Node";
 import Mesha from "./Mesha";
@@ -96,7 +96,8 @@ const Stage = ({
     data?.typologicalFeatures?.[meshaLanguageCode];
   const meshaColor = languageColors[meshaLanguageCode];
   const meshaAudioSource = data?.languageData?.[meshaLanguageCode]?.sampleUrl;
-  const tonalityType = getTonalityType(meshaLinguisticProperties);
+  const tonalityType =
+    getFeatureScore("tonality", meshaLinguisticProperties?.tonality) - 1;
 
   const meshaPosition = useMemo(() => {
     if (selectedLanguage && formattedPositions[selectedLanguage]) {

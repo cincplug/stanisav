@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext";
 import linguisticConfig from "../../config/linguisticConfig.json";
 import Mesha from "../../components/r3f/Mesha";
-import { getTonalityType } from "../../utils/linguisticUtils";
+import { getFeatureScore } from "../../utils/linguisticUtils";
 import "./PropertyShowcase.css";
 
 const baseLinguisticProperties = {
@@ -47,7 +47,8 @@ const PropertyShowcase = ({ propertyKey }) => {
           label: variantKey,
           color: "#ffcc99",
           linguisticProperties,
-          tonalityType: getTonalityType(linguisticProperties),
+          tonalityType:
+            getFeatureScore("tonality", linguisticProperties?.tonality) - 1,
         };
       }),
     [variants, propertyKey],
