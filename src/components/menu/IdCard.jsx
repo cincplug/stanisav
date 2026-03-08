@@ -10,6 +10,7 @@ import {
   getLineageTrail,
 } from "../../utils/linguisticUtils";
 import { getFamilyLabel } from "../../utils/configI18nUtils";
+import { CloseIcon } from "./MenuIcons";
 import "./IdCard.css";
 
 function IdCard({
@@ -19,6 +20,7 @@ function IdCard({
   columnCount = 4,
   sampleUrl,
   onSourceVideoClick,
+  onToggleSubtitle,
   sub,
   headingColor,
 }) {
@@ -82,6 +84,14 @@ function IdCard({
         "--id-card-heading-color": headingColor || "var(--color-text-active)",
       }}
     >
+      <button
+        className="close-button id-card-close-button"
+        onClick={() => onToggleSubtitle?.(false)}
+        aria-label={t("controls.hasSubtitle.label")}
+      >
+        <CloseIcon />
+      </button>
+
       <p className="subtitle">{sub}</p>
       <div className="id-card-header">
         <h2 className="id-card-title">{localizedLanguageName}</h2>
@@ -105,18 +115,20 @@ function IdCard({
           </div>
         )}
 
-        {sampleUrl && (
-          <a
-            className="id-card-source-video"
-            href={sampleUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={onSourceVideoClick}
-            aria-label={`${localizedLanguageName} Source Video (opens in new tab)`}
-          >
-            Source Video ↗
-          </a>
-        )}
+        <div className="id-card-actions">
+          {sampleUrl && (
+            <a
+              className="id-card-source-video"
+              href={sampleUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={onSourceVideoClick}
+              aria-label={`${localizedLanguageName} Source Video (opens in new tab)`}
+            >
+              Source Video ↗
+            </a>
+          )}
+        </div>
       </div>
 
       <div className="id-card-columns">

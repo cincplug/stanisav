@@ -67,6 +67,9 @@ function App() {
             languageLineages={data?.languageLineages}
             sampleUrl={sampleUrl}
             onSourceVideoClick={pausePlaylist}
+            onToggleSubtitle={(nextValue) =>
+              updateControl("hasSubtitle", nextValue)
+            }
             sub={sub}
             headingColor={languageColors[selectedLanguage]}
           />

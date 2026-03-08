@@ -8,6 +8,8 @@
   box-sizing: border-box;
   border-top: 1px solid var(--color-interactive);
   width: 100%;
+  max-height: 33vh;
+  overflow: auto;
 }
 
 .id-card-header {
@@ -102,9 +104,21 @@
 }
 
 .id-card-source-video {
+  white-space: nowrap;
+}
+
+.id-card-actions {
   grid-column: 3;
   justify-self: end;
-  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-half);
+}
+
+.id-card-close-button {
+  position: absolute;
+  top: var(--gap);
+  right: var(--gap);
 }
 
 .id-card-title,
@@ -121,9 +135,12 @@
   width: 100%;
   margin-top: 0;
   padding-bottom: var(--gap-double);
+  padding-right: var(--gap-triple);
   font-size: var(--font-size-big);
   background: var(--color-menu-background);
   border-bottom: 1px solid var(--color-interactive);
   color: var(--color-highlight);
   text-align: center;
+  box-sizing: border-box;
+  text-wrap: balance;
 }
