@@ -29,9 +29,12 @@ function FiltersTab({ data, languageColors = {} }) {
     [features],
   );
   const [allowMultipleChoices, setAllowMultipleChoices] = useState(false);
+  const [lastChangedFeature, setLastChangedFeature] = useState(null);
   const { t } = useI18n();
 
   const handleCheckboxChange = (feature, value, checked) => {
+    setLastChangedFeature(feature);
+
     let newFilters = { ...filteringUtils };
 
     const currentValues = newFilters[feature] || [];
@@ -169,45 +172,52 @@ function FiltersTab({ data, languageColors = {} }) {
                   );
                 })}
               </div>
+
+              {feature === lastChangedFeature &&
+                linguisticResults.length > 0 && (
+                  <fieldset className="results-fieldset">
+                    <legend className="results-legend">
+                      {t("filters.results", {
+                        count: linguisticResults.length,
+                      })}
+                    </legend>
+                    <ul className="languages-in-group" role="list">
+                      {linguisticResults.map((lang) => (
+                        <li key={lang.code}>
+                          <button
+                            className={`language-item-button ${
+                              selectedLanguage === lang.code ? "selected" : ""
+                            }`}
+                            style={{ background: languageColors[lang.code] }}
+                            onClick={() => {
+                              selectLanguage(lang.code);
+                              startFromLanguage(lang.code);
+                            }}
+                            title={`${lang.name} - ${Object.entries(
+                              lang.features,
+                            )
+                              .filter(([k]) => validFeatureKeys.has(k))
+                              .map(([k, v]) => {
+                                const featureName = getFeatureName(k);
+                                const valueLabel =
+                                  typeof v === "number"
+                                    ? v
+                                    : getFeatureLabel(k, v);
+                                return `${featureName}: ${valueLabel}`;
+                              })
+                              .join(", ")}`}
+                          >
+                            {lang.name}
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </fieldset>
+                )}
             </div>
           );
         })}
       </div>
-
-      {linguisticResults && linguisticResults.length > 0 && (
-        <fieldset className="results-fieldset">
-          <legend className="results-legend">
-            {t("filters.results", { count: linguisticResults.length })}
-          </legend>
-          <ul className="languages-in-group" role="list">
-            {linguisticResults.map((lang) => (
-              <li key={lang.code}>
-                <button
-                  className={`language-item-button ${
-                    selectedLanguage === lang.code ? "selected" : ""
-                  }`}
-                  style={{ background: languageColors[lang.code] }}
-                  onClick={() => {
-                    selectLanguage(lang.code);
-                    startFromLanguage(lang.code);
-                  }}
-                  title={`${lang.name} - ${Object.entries(lang.features)
-                    .filter(([k]) => validFeatureKeys.has(k))
-                    .map(([k, v]) => {
-                      const featureName = getFeatureName(k);
-                      const valueLabel =
-                        typeof v === "number" ? v : getFeatureLabel(k, v);
-                      return `${featureName}: ${valueLabel}`;
-                    })
-                    .join(", ")}`}
-                >
-                  {lang.name}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </fieldset>
-      )}
     </div>
   );
 }
