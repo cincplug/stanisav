@@ -349,6 +349,7 @@
     "emptyFilter": "Brak języków dla tej kombinacji filtrów. Prawdopodobnie wybrano zbyt wiele filtrów."
   },
   "idCard": {
+    "speakers": "Liczba użytkowników",
     "sourceVideo": "Wideo źródłowe",
     "opensInNewTab": "otwiera się w nowej karcie"
   }

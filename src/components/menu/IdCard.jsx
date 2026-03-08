@@ -24,7 +24,7 @@ function IdCard({
   sub,
   headingColor,
 }) {
-  const { t } = useI18n();
+  const { locale, t } = useI18n();
 
   const lineageTrail = useMemo(() => {
     const lineageKey = languageLineages?.[languageCode];
@@ -33,6 +33,14 @@ function IdCard({
 
   const rows = useMemo(() => {
     if (!languageCode || !language) return [];
+
+    const usesNominativeSpeakersLabel = new Set([
+      "srp",
+      "ces",
+      "pol",
+      "ukr",
+      "mkd",
+    ]).has(locale);
 
     const linguisticRows = getAllFeatures().map(({ key, isNumeric }) => {
       const rawValue = language[key];
@@ -56,13 +64,15 @@ function IdCard({
       ...linguisticRows,
       {
         key: "speakers",
-        label: t("controls.sortBy.options.speakers"),
+        label: usesNominativeSpeakersLabel
+          ? t("idCard.speakers")
+          : t("controls.sortBy.options.speakers"),
         value: formatSpeakers(language.speakers),
       },
     ];
 
     return allRows.filter((row) => row.value !== null);
-  }, [languageCode, language, t]);
+  }, [languageCode, language, locale, t]);
 
   const normalizedColumnCount = useMemo(() => {
     const parsed = Number.parseInt(columnCount, 10);

@@ -349,6 +349,7 @@
     "emptyFilter": "Pro tuto kombinaci filtrů nejsou žádné jazyky. Pravděpodobně jsi vybral(a) příliš mnoho filtrů."
   },
   "idCard": {
+    "speakers": "Počet mluvčích",
     "sourceVideo": "Zdrojové video",
     "opensInNewTab": "otevře se na nové kartě"
   }

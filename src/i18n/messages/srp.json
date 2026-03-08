@@ -349,6 +349,7 @@
     "emptyFilter": "Nema jezika za tu kombinaciju filtera. Verovatno si izabrao/la previše filtera."
   },
   "idCard": {
+    "speakers": "Broj govornika",
     "sourceVideo": "Izvorni video",
     "opensInNewTab": "otvara se u novom jezičku"
   }
