@@ -120,6 +120,35 @@ const languageNamesByLocale = {
 
 export const defaultLocale = "eng";
 
+// Derive URL slug ↔ ISO 639-3 mappings dynamically via Intl.Locale
+const iso3ToSlug = Object.fromEntries(
+  Object.keys(messagesByLocale).map((iso3) => [
+    iso3,
+    new Intl.Locale(iso3).language,
+  ]),
+);
+const slugToIso3 = Object.fromEntries(
+  Object.entries(iso3ToSlug).map(([iso3, slug]) => [slug, iso3]),
+);
+
+export const defaultUrlSlug = iso3ToSlug[defaultLocale];
+
+/** Converts an internal ISO 639-3 code to its URL slug (BCP 47 shortest). */
+export const toUrlSlug = (iso3) => iso3ToSlug[iso3] || iso3;
+
+/**
+ * Resolves a URL slug (or ISO 639-3 code) to the internal ISO 639-3 code.
+ * Returns null if the locale is not supported.
+ */
+export const resolveUrlLocale = (slug) => {
+  const normalized = String(slug || "")
+    .trim()
+    .toLowerCase();
+  return slugToIso3[normalized] || messagesByLocale[normalized]
+    ? (slugToIso3[normalized] ?? normalized)
+    : null;
+};
+
 const normalizeLocaleCode = (locale) =>
   String(locale || "")
     .trim()

@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { Navigate, Outlet, useLocation, useParams } from "react-router-dom";
 import { useI18n } from "../../hooks/useI18n";
 import {
-  defaultLocale,
-  isSupportedLocale,
-  normalizeLocale,
+  defaultUrlSlug,
+  resolveUrlLocale,
+  toUrlSlug,
 } from "../../i18n/runtime";
 
 const getPathWithoutLocale = (pathname) => pathname.replace(/^\/[^/]+/, "");
@@ -14,29 +14,30 @@ function LocaleLayout() {
   const location = useLocation();
   const { setLocale } = useI18n();
 
-  const normalizedLocale = normalizeLocale(locale);
+  const iso3 = resolveUrlLocale(locale);
+  const canonicalSlug = iso3 ? toUrlSlug(iso3) : null;
 
   useEffect(() => {
-    if (isSupportedLocale(normalizedLocale)) {
-      setLocale(normalizedLocale);
+    if (iso3) {
+      setLocale(iso3);
     }
-  }, [normalizedLocale, setLocale]);
+  }, [iso3, setLocale]);
 
-  if (!isSupportedLocale(normalizedLocale)) {
+  if (!iso3) {
     const restPath = getPathWithoutLocale(location.pathname);
     return (
       <Navigate
-        to={`/${defaultLocale}${restPath}${location.search}${location.hash}`}
+        to={`/${defaultUrlSlug}${restPath}${location.search}${location.hash}`}
         replace
       />
     );
   }
 
-  if (locale !== normalizedLocale) {
+  if (locale !== canonicalSlug) {
     const restPath = getPathWithoutLocale(location.pathname);
     return (
       <Navigate
-        to={`/${normalizedLocale}${restPath}${location.search}${location.hash}`}
+        to={`/${canonicalSlug}${restPath}${location.search}${location.hash}`}
         replace
       />
     );

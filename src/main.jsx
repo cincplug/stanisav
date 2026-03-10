@@ -10,7 +10,7 @@ import { PlaylistProvider } from "./contexts/PlaylistContext";
 import { LanguageSelectionProvider } from "./contexts/LanguageSelectionContext";
 import { I18nProvider } from "./contexts/I18nContext";
 import LocaleLayout from "./components/routing/LocaleLayout.jsx";
-import { defaultLocale } from "./i18n/runtime";
+import { defaultUrlSlug } from "./i18n/runtime";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -24,7 +24,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                 <Routes>
                   <Route
                     path="/"
-                    element={<Navigate to={`/${defaultLocale}`} replace />}
+                    element={<Navigate to={`/${defaultUrlSlug}`} replace />}
                   />
                   <Route path=":locale" element={<LocaleLayout />}>
                     <Route index element={<App />} />
@@ -39,7 +39,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                   </Route>
                   <Route
                     path="*"
-                    element={<Navigate to={`/${defaultLocale}`} replace />}
+                    element={<Navigate to={`/${defaultUrlSlug}`} replace />}
                   />
                 </Routes>
               </BrowserRouter>
