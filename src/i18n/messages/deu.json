@@ -1,0 +1,355 @@
+{
+  "controls": {
+    "backgroundColor": {
+      "label": "Hintergrund"
+    },
+    "cameraX": {
+      "label": "Kamera X"
+    },
+    "cameraY": {
+      "label": "Kamera Y"
+    },
+    "cameraZ": {
+      "label": "Kamera Z"
+    },
+    "canEditColors": {
+      "label": "Farben bearbeitbar?"
+    },
+    "eyeProtrusion": {
+      "label": "Augenvorsprung"
+    },
+    "eyeSize": {
+      "label": "Augengröße"
+    },
+    "eyeX": {
+      "label": "Auge X"
+    },
+    "eyeY": {
+      "label": "Auge Y"
+    },
+    "eyeZ": {
+      "label": "Auge Z"
+    },
+    "far": {
+      "label": "Fernebene"
+    },
+    "fov": {
+      "label": "Sichtfeld"
+    },
+    "friction": {
+      "label": "Reibung"
+    },
+    "globalChromaOffset": {
+      "label": "Chroma-Versatz"
+    },
+    "globalChromaScale": {
+      "label": "Chroma-Skalierung"
+    },
+    "globalLightnessOffset": {
+      "label": "Helligkeitsversatz"
+    },
+    "globalLightnessScale": {
+      "label": "Helligkeitsskalierung"
+    },
+    "groups": {
+      "camera": "Kamera",
+      "colors": "Farben",
+      "languagesTab": "Sprachen-Tab",
+      "mesha": "Mesha",
+      "meshaLight": "Mesha-Licht",
+      "motion": "Bewegung",
+      "scene": "Szene",
+      "stageLight": "Bühnenlicht"
+    },
+    "hasSubtitle": {
+      "label": "Untertitel anzeigen"
+    },
+    "hueCircle": {
+      "label": "Farbkreis"
+    },
+    "hueStart": {
+      "label": "Farbton-Start"
+    },
+    "isLoop": {
+      "label": "Playlist wiederholen"
+    },
+    "isLuka": {
+      "label": "Luka liest Beispiele vor"
+    },
+    "isMyMesha": {
+      "label": "Ich bin Mesha"
+    },
+    "isReverse": {
+      "label": "Umgekehrte Reihenfolge"
+    },
+    "labelContent": {
+      "label": "Anzeige",
+      "options": {
+        "isoCode": "ISO-Codes",
+        "name": "Englische Namen",
+        "nativeName": "Eigennamen"
+      }
+    },
+    "labelSize": {
+      "label": "Beschriftungsgröße"
+    },
+    "maxSiblingSpread": {
+      "label": "Geschwister-Farbtonstreuung"
+    },
+    "meshaLightDecay": {
+      "label": "Abfall"
+    },
+    "meshaLightDistance": {
+      "label": "Distanz"
+    },
+    "meshaLightIntensity": {
+      "label": "Intensität"
+    },
+    "meshaSize": {
+      "label": "Mesha-Größe"
+    },
+    "moustacheSize": {
+      "label": "Schnurrbart-Größe"
+    },
+    "near": {
+      "label": "Nahebene"
+    },
+    "noseSize": {
+      "label": "Nasengröße"
+    },
+    "showsVideoPreviews": {
+      "label": "Original vorschau"
+    },
+    "sortBy": {
+      "label": "Sprachen sortieren nach",
+      "options": {
+        "alphabetically": "Alphabetische Reihenfolge",
+        "caseCount": "Kasusanzahl",
+        "evidentiality": "Evidentialität",
+        "family": "Sprachfamilie",
+        "maxClusterSize": "Konsonantencluster",
+        "morphology": "Morphologie",
+        "nounClassCount": "Nominalklassen",
+        "phonemeCount": "Phonemanzahl",
+        "speakers": "Sprecheranzahl",
+        "tonality": "Tonalität",
+        "verbAspect": "Verbalaspekt",
+        "wordOrder": "Wortstellung",
+        "wordOrderFlexibility": "Wortstellungsflexibilität"
+      }
+    },
+    "sphereRadius": {
+      "label": "Kugelradius"
+    },
+    "stageLightDecay": {
+      "label": "Abfall"
+    },
+    "stageLightDistance": {
+      "label": "Distanz"
+    },
+    "stageLightIntensity": {
+      "label": "Intensität"
+    },
+    "switchDuration": {
+      "label": "Wechseldauer"
+    },
+    "teethSize": {
+      "label": "Zahnzgröße"
+    },
+    "tension": {
+      "label": "Spannung"
+    },
+    "zoomDistance": {
+      "label": "Zoom-Distanz"
+    }
+  },
+  "filters": {
+    "all": "Alle",
+    "allowMultipleChoices": "Mehrfachauswahl erlauben",
+    "results": "Filterergebnisse ({count})",
+    "title": "Filtern nach"
+  },
+  "linguistic": {
+    "caseCount": {
+      "name": "Kasusanzahl"
+    },
+    "evidentiality": {
+      "name": "Evidentialität",
+      "values": {
+        "complex": {
+          "description": "Vier oder mehr Evidentialitätsunterscheidungen oder Evidentialität kombiniert mit Tempus/Aspekt.",
+          "label": "Komplex"
+        },
+        "moderate": {
+          "description": "Dreiteilige Unterscheidung (z. B. direkt, reportativ, inferentiell).",
+          "label": "Moderat"
+        },
+        "none": {
+          "description": "Keine grammatikalische Markierung der Informationsquelle.",
+          "label": "Keine"
+        },
+        "optional": {
+          "description": "Evidentialitätsähnliche Marker existieren, sind aber nicht obligatorisch.",
+          "label": "Optional"
+        },
+        "simple": {
+          "description": "Zweiteilige Unterscheidung (typischerweise direkt vs. indirekt/reportativ).",
+          "label": "Einfach"
+        }
+      }
+    },
+    "family": {
+      "name": "Sprachfamilie"
+    },
+    "maxClusterSize": {
+      "name": "Maximale Konsonanten in einem Cluster"
+    },
+    "morphology": {
+      "name": "Morphologie",
+      "values": {
+        "agglutinative": {
+          "description": "Wörter werden durch das Aneinanderreihen von Affixen gebildet, wobei jedes Affix genau eine Bedeutung trägt. Die Teile bleiben klar erkennbar, wie zusammengesteckte Bausteine.",
+          "label": "Agglutinierend"
+        },
+        "fusional": {
+          "description": "Wörter verändern ihre Form durch Endungen und Präfixe, die mehrere grammatikalische Bedeutungen gleichzeitig bündeln. Eine einzelne Endung kann Geschlecht, Zahl und Kasus gleichzeitig ausdrücken, was die Teile schwer trennbar macht.",
+          "label": "Flektierend"
+        },
+        "introflexive": {
+          "description": "Grammatik ist von innen in das Wort eingebaut: Eine Konsonantenwurzel trägt die Kernbedeutung, während verschiedene Vokalmuster neue Wörter erzeugen. Zum Beispiel bezieht sich die arabische Wurzel k-t-b auf das Schreiben, und kataba, kitāb und kātib stammen alle davon ab.",
+          "label": "Introflexiv"
+        },
+        "isolating": {
+          "description": "Wörter bestehen typischerweise aus einzelnen Morphemen und ändern ihre Form nicht. Grammatik wird durch Wortstellung und separate Funktionswörter ausgedrückt, nicht durch Endungen oder Präfixe.",
+          "label": "Isolierend"
+        },
+        "polysynthetic": {
+          "description": "Ein einzelnes Wort kann ausdrücken, was andere Sprachen in einem ganzen Satz sagen würden, indem Verb, Subjekt, Objekt und andere Elemente zusammengefügt werden. Häufig in indigenen Sprachen Amerikas und der Arktis.",
+          "label": "Polysynthetisch"
+        }
+      }
+    },
+    "nounClassCount": {
+      "name": "Nominalklassen / Genera"
+    },
+    "phonemeCount": {
+      "name": "Phonemanzahl"
+    },
+    "tonality": {
+      "name": "Tonalität",
+      "values": {
+        "complex-tonal": {
+          "description": "Tonmuster beeinflussen die Wortbedeutung erheblich.",
+          "label": "Komplex tonal"
+        },
+        "non-tonal": {
+          "description": "Tonveränderungen beeinflussen die Wortbedeutung nicht.",
+          "label": "Nicht tonal"
+        },
+        "pitch-accent": {
+          "description": "Die Sprache verwendet Tonhöhenakzent, bei dem bestimmte Silben durch Tonhöhenänderungen betont werden.",
+          "label": "Tonhöhenakzent"
+        },
+        "simple-tonal": {
+          "description": "Tonveränderungen beeinflussen die Wortbedeutung mäßig.",
+          "label": "Einfach tonal"
+        }
+      }
+    },
+    "verbAspect": {
+      "name": "Verbalaspekt",
+      "values": {
+        "binary": {
+          "description": "Zweiteilige systematische Unterscheidung (perfektiv/imperfektiv).",
+          "label": "Binär"
+        },
+        "complex": {
+          "description": "Mehrere Aspektkategorien mit reicher morphologischer Markierung.",
+          "label": "Komplex"
+        },
+        "minimal": {
+          "description": "Keine oder sehr begrenzte grammatikalische Aspektmarkierung.",
+          "label": "Minimal"
+        },
+        "simple": {
+          "description": "Grundlegende Aspektunterscheidungen (z. B. progressiv, perfekt).",
+          "label": "Einfach"
+        }
+      }
+    },
+    "wordOrder": {
+      "name": "Wortstellung",
+      "values": {
+        "SOV": {
+          "description": "Subjekt-Objekt-Verb",
+          "label": "SOV"
+        },
+        "SVO": {
+          "description": "Subjekt-Verb-Objekt",
+          "label": "SVO"
+        },
+        "VOS": {
+          "description": "Verb-Objekt-Subjekt",
+          "label": "VOS"
+        },
+        "VSO": {
+          "description": "Verb-Subjekt-Objekt",
+          "label": "VSO"
+        }
+      }
+    },
+    "wordOrderFlexibility": {
+      "name": "Wortstellungsflexibilität",
+      "values": {
+        "flexible": {
+          "description": "Verschiedene Wortanordnungen sind aus stilistischen Gründen erlaubt.",
+          "label": "Flexibel"
+        },
+        "rigid": {
+          "description": "Wörter haben feste grammatikalische Positionen.",
+          "label": "Starr"
+        },
+        "semi-flexible": {
+          "description": "Eine gewisse Variation der Wortstellung ist zur Betonung erlaubt.",
+          "label": "Semi-flexibel"
+        }
+      }
+    }
+  },
+  "menu": {
+    "close": "Menü schließen",
+    "open": "Menü öffnen"
+  },
+  "playlist": {
+    "controls": "Playlist-Steuerung",
+    "goToBeginning": "Zum Anfang (Pos1-Taste)",
+    "next": "Nächster Titel (Pfeil rechts)",
+    "pause": "Pause",
+    "play": "Abspielen",
+    "previous": "Vorheriger Titel (Pfeil links)",
+    "progress": "{current} von {total}",
+    "toggleLoop": "Wiederholen umschalten (L-Taste)"
+  },
+  "search": {
+    "clear": "Suche löschen",
+    "label": "Suche",
+    "noResults": "Keine Sprachen gefunden, die \"{term}\" entsprechen",
+    "results": "Suchergebnisse ({count})",
+    "threshold": "Mindestens {threshold} Zeichen eingeben zum Suchen…",
+    "viewAll": "Alle anzeigen"
+  },
+  "tabs": {
+    "controls": "Einstellungen",
+    "filters": "Filter",
+    "languages": "Sprachen",
+    "search": "Suche"
+  },
+  "overlay": {
+    "slogan": "Je mehr Sprachen du kennst, desto mehr Menschen bist du wert.",
+    "emptyFilter": "Keine Sprachen für diese Filterkombination. Du hast wahrscheinlich zu viele Filter ausgewählt."
+  },
+  "idCard": {
+    "sourceVideo": "Quellvideo",
+    "opensInNewTab": "öffnet in neuem Tab"
+  }
+}
