@@ -8,6 +8,7 @@ export const I18nProvider = ({ children }) => {
 
   useEffect(() => {
     setActiveLocale(locale);
+    document.documentElement.lang = new Intl.Locale(locale).language;
   }, [locale]);
 
   const value = useMemo(
