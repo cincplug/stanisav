@@ -1,0 +1,355 @@
+{
+  "controls": {
+    "backgroundColor": {
+      "label": "الخلفية"
+    },
+    "cameraX": {
+      "label": "الكاميرا X"
+    },
+    "cameraY": {
+      "label": "الكاميرا Y"
+    },
+    "cameraZ": {
+      "label": "الكاميرا Z"
+    },
+    "canEditColors": {
+      "label": "هل يمكن تعديل الألوان؟"
+    },
+    "eyeProtrusion": {
+      "label": "بروز العين"
+    },
+    "eyeSize": {
+      "label": "حجم العين"
+    },
+    "eyeX": {
+      "label": "العين X"
+    },
+    "eyeY": {
+      "label": "العين Y"
+    },
+    "eyeZ": {
+      "label": "العين Z"
+    },
+    "far": {
+      "label": "مستوى القطع البعيد"
+    },
+    "fov": {
+      "label": "زاوية الرؤية"
+    },
+    "friction": {
+      "label": "الاحتكاك"
+    },
+    "globalChromaOffset": {
+      "label": "إزاحة الكروما"
+    },
+    "globalChromaScale": {
+      "label": "مقياس الكروما"
+    },
+    "globalLightnessOffset": {
+      "label": "إزاحة السطوع"
+    },
+    "globalLightnessScale": {
+      "label": "مقياس السطوع"
+    },
+    "groups": {
+      "camera": "الكاميرا",
+      "colors": "الألوان",
+      "languagesTab": "تبويب اللغات",
+      "mesha": "Mesha",
+      "meshaLight": "إضاءة Mesha",
+      "motion": "الحركة",
+      "scene": "المشهد",
+      "stageLight": "إضاءة المسرح"
+    },
+    "hasSubtitle": {
+      "label": "عرض الترجمة"
+    },
+    "hueCircle": {
+      "label": "دائرة الألوان"
+    },
+    "hueStart": {
+      "label": "نقطة بداية الصبغة"
+    },
+    "isLoop": {
+      "label": "تكرار قائمة التشغيل"
+    },
+    "isLuka": {
+      "label": "Luka يقرأ الأمثلة"
+    },
+    "isMyMesha": {
+      "label": "أنا Mesha"
+    },
+    "isReverse": {
+      "label": "ترتيب عكسي"
+    },
+    "labelContent": {
+      "label": "العرض",
+      "options": {
+        "isoCode": "رموز ISO",
+        "name": "الأسماء الإنجليزية",
+        "nativeName": "الأسماء المحلية"
+      }
+    },
+    "labelSize": {
+      "label": "حجم التسمية"
+    },
+    "maxSiblingSpread": {
+      "label": "انتشار صبغة العناصر الشقيقة"
+    },
+    "meshaLightDecay": {
+      "label": "التلاشي"
+    },
+    "meshaLightDistance": {
+      "label": "المسافة"
+    },
+    "meshaLightIntensity": {
+      "label": "الشدة"
+    },
+    "meshaSize": {
+      "label": "حجم Mesha"
+    },
+    "moustacheSize": {
+      "label": "حجم الشارب"
+    },
+    "near": {
+      "label": "مستوى القطع القريب"
+    },
+    "noseSize": {
+      "label": "حجم الأنف"
+    },
+    "showsVideoPreviews": {
+      "label": "معاينة الأصل"
+    },
+    "sortBy": {
+      "label": "ترتيب اللغات حسب",
+      "options": {
+        "alphabetically": "الترتيب الأبجدي",
+        "caseCount": "عدد الحالات الإعرابية",
+        "evidentiality": "الإسناد الدليلي",
+        "family": "الفصيلة اللغوية",
+        "maxClusterSize": "التجمعات الصوتية",
+        "morphology": "الصرف",
+        "nounClassCount": "فئات الأسماء",
+        "phonemeCount": "عدد الفونيمات",
+        "speakers": "عدد المتحدثين",
+        "tonality": "النبرية",
+        "verbAspect": "جهة الفعل",
+        "wordOrder": "ترتيب الكلمات",
+        "wordOrderFlexibility": "مرونة ترتيب الكلمات"
+      }
+    },
+    "sphereRadius": {
+      "label": "نصف قطر الكرة"
+    },
+    "stageLightDecay": {
+      "label": "التلاشي"
+    },
+    "stageLightDistance": {
+      "label": "المسافة"
+    },
+    "stageLightIntensity": {
+      "label": "الشدة"
+    },
+    "switchDuration": {
+      "label": "مدة التبديل"
+    },
+    "teethSize": {
+      "label": "حجم الأسنان"
+    },
+    "tension": {
+      "label": "الشد"
+    },
+    "zoomDistance": {
+      "label": "مسافة التكبير"
+    }
+  },
+  "filters": {
+    "all": "الكل",
+    "allowMultipleChoices": "السماح بتحديدات متعددة",
+    "results": "نتائج التصفية ({count})",
+    "title": "تصفية حسب"
+  },
+  "linguistic": {
+    "caseCount": {
+      "name": "عدد الحالات الإعرابية"
+    },
+    "evidentiality": {
+      "name": "الإسناد الدليلي",
+      "values": {
+        "complex": {
+          "description": "أربعة تمييزات دليلية أو أكثر، أو اندماج الدلالة الإسنادية مع الزمن أو الجهة.",
+          "label": "معقد"
+        },
+        "moderate": {
+          "description": "تمييز ثلاثي (مثل: مباشر، منقول، استدلالي).",
+          "label": "متوسط"
+        },
+        "none": {
+          "description": "لا توجد علامة نحوية لمصدر المعلومة.",
+          "label": "لا يوجد"
+        },
+        "optional": {
+          "description": "توجد علامات شبيهة بالإسناد الدليلي لكنها غير إلزامية.",
+          "label": "اختياري"
+        },
+        "simple": {
+          "description": "تمييز ثنائي (عادةً مباشر مقابل غير مباشر أو منقول).",
+          "label": "بسيط"
+        }
+      }
+    },
+    "family": {
+      "name": "الفصيلة اللغوية"
+    },
+    "maxClusterSize": {
+      "name": "الحد الأقصى للصوامت في التجمع"
+    },
+    "morphology": {
+      "name": "الصرف",
+      "values": {
+        "agglutinative": {
+          "description": "تُبنى الكلمات بتراكم اللواصق واحدة تلو الأخرى، إذ تحمل كل لاصقة معنىً واحداً بعينه. تظل الأجزاء واضحة ومتميزة كالمكعبات المتشابكة.",
+          "label": "إلصاقية"
+        },
+        "fusional": {
+          "description": "تتغير الكلمات بالنهايات والسوابق التي تدمج معاني نحوية متعددة في آنٍ واحد. فقد تعبر نهاية واحدة عن الجنس والعدد والإعراب معاً، مما يجعل الفصل بين الأجزاء أمراً عسيراً.",
+          "label": "اندماجية"
+        },
+        "introflexive": {
+          "description": "تُبنى القواعد من داخل الكلمة: جذر من الصوامت يحمل المعنى الأساسي، وأنماط متباينة من الحركات تنسج خلاله لتُكوّن كلمات جديدة. فمثلاً الجذر العربي ك-ت-ب يرتبط بالكتابة، وتنبثق منه كلمات: كَتَبَ وكِتَاب وكَاتِب.",
+          "label": "تحويلية داخلية"
+        },
+        "isolating": {
+          "description": "تتألف الكلمات عادةً من مورفيم واحد ولا تتغير صيغتها. يُعبَّر عن القواعد النحوية بترتيب الكلمات وأدوات الوظيفة المستقلة لا بالنهايات أو السوابق.",
+          "label": "عازلة"
+        },
+        "polysynthetic": {
+          "description": "يمكن لكلمة واحدة أن تؤدي ما تؤديه جملة كاملة في لغات أخرى، بدمج الفعل والفاعل والمفعول وعناصر أخرى معاً. شائعة في اللغات الأصلية للأمريكتين ومنطقة القطب الشمالي.",
+          "label": "تجميعية متشعبة"
+        }
+      }
+    },
+    "nounClassCount": {
+      "name": "فئات الأسماء / الأجناس"
+    },
+    "phonemeCount": {
+      "name": "عدد الفونيمات"
+    },
+    "tonality": {
+      "name": "النبرية",
+      "values": {
+        "complex-tonal": {
+          "description": "تؤثر أنماط النبر تأثيراً بالغاً في معنى الكلمة.",
+          "label": "نبرية معقدة"
+        },
+        "non-tonal": {
+          "description": "لا تؤثر تغيرات درجة الصوت في معنى الكلمة.",
+          "label": "غير نبرية"
+        },
+        "pitch-accent": {
+          "description": "تستخدم نبر الطبقة الصوتية، إذ تُبرَز مقاطع بعينها بتغيرات في درجة الصوت.",
+          "label": "نبر الطبقة الصوتية"
+        },
+        "simple-tonal": {
+          "description": "تؤثر تغيرات درجة الصوت تأثيراً معتدلاً في معنى الكلمة.",
+          "label": "نبرية بسيطة"
+        }
+      }
+    },
+    "verbAspect": {
+      "name": "جهة الفعل",
+      "values": {
+        "binary": {
+          "description": "تمييز منهجي ثنائي (تام / غير تام).",
+          "label": "ثنائي"
+        },
+        "complex": {
+          "description": "فئات جهوية متعددة مع علامات صرفية غنية.",
+          "label": "معقد"
+        },
+        "minimal": {
+          "description": "لا توجد علامة نحوية للجهة أو تكاد.",
+          "label": "ضئيل"
+        },
+        "simple": {
+          "description": "تمييزات جهوية أساسية (مثل: الاستمراري والتام).",
+          "label": "بسيط"
+        }
+      }
+    },
+    "wordOrder": {
+      "name": "ترتيب الكلمات",
+      "values": {
+        "SOV": {
+          "description": "فاعل-مفعول-فعل",
+          "label": "SOV"
+        },
+        "SVO": {
+          "description": "فاعل-فعل-مفعول",
+          "label": "SVO"
+        },
+        "VOS": {
+          "description": "فعل-مفعول-فاعل",
+          "label": "VOS"
+        },
+        "VSO": {
+          "description": "فعل-فاعل-مفعول",
+          "label": "VSO"
+        }
+      }
+    },
+    "wordOrderFlexibility": {
+      "name": "مرونة ترتيب الكلمات",
+      "values": {
+        "flexible": {
+          "description": "يُسمح بترتيبات متنوعة للكلمات لأغراض أسلوبية.",
+          "label": "مرن"
+        },
+        "rigid": {
+          "description": "للكلمات مواضع نحوية ثابتة.",
+          "label": "جامد"
+        },
+        "semi-flexible": {
+          "description": "يُسمح بقدر من التنوع في ترتيب الكلمات للتأكيد.",
+          "label": "شبه مرن"
+        }
+      }
+    }
+  },
+  "menu": {
+    "close": "إغلاق القائمة",
+    "open": "فتح القائمة"
+  },
+  "playlist": {
+    "controls": "التحكم في قائمة التشغيل",
+    "goToBeginning": "الانتقال إلى البداية (مفتاح Home)",
+    "next": "المقطع التالي (السهم الأيمن)",
+    "pause": "إيقاف مؤقت",
+    "play": "تشغيل",
+    "previous": "المقطع السابق (السهم الأيسر)",
+    "progress": "{current} من {total}",
+    "toggleLoop": "تبديل التكرار (مفتاح L)"
+  },
+  "search": {
+    "clear": "مسح البحث",
+    "label": "بحث",
+    "noResults": "لم يتم العثور على لغات تطابق \"{term}\"",
+    "results": "نتائج البحث ({count})",
+    "threshold": "اكتب {threshold} أحرف على الأقل للبحث…",
+    "viewAll": "عرض الكل"
+  },
+  "tabs": {
+    "controls": "الإعدادات",
+    "filters": "التصفية",
+    "languages": "اللغات",
+    "search": "بحث"
+  },
+  "overlay": {
+    "slogan": "كلما عرفت لغات أكثر، كلما كنت تساوي أناساً أكثر.",
+    "emptyFilter": "لا توجد لغات لهذه التوليفة من المرشحات. ربما اخترت عدداً كبيراً جداً من المرشحات."
+  },
+  "idCard": {
+    "sourceVideo": "الفيديو المصدر",
+    "opensInNewTab": "يفتح في تبويب جديد"
+  }
+}
