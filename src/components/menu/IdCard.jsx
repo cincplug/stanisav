@@ -104,7 +104,9 @@ function IdCard({
 
       <p className="subtitle">{sub}</p>
       <div className="id-card-header">
-        <h2 className="id-card-title">{localizedLanguageName}</h2>
+        <h2 className="id-card-title">
+          {localizedLanguageName} ({language.nativeName})
+        </h2>
 
         {lineageTrail.length > 0 && (
           <div className="id-card-breadcrumb-wrap">
