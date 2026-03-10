@@ -1,0 +1,355 @@
+{
+  "controls": {
+    "backgroundColor": {
+      "label": "Mandharinyuma"
+    },
+    "cameraX": {
+      "label": "Kamera X"
+    },
+    "cameraY": {
+      "label": "Kamera Y"
+    },
+    "cameraZ": {
+      "label": "Kamera Z"
+    },
+    "canEditColors": {
+      "label": "Unaweza kuhariri rangi?"
+    },
+    "eyeProtrusion": {
+      "label": "Uchomaji wa jicho"
+    },
+    "eyeSize": {
+      "label": "Ukubwa wa jicho"
+    },
+    "eyeX": {
+      "label": "Jicho X"
+    },
+    "eyeY": {
+      "label": "Jicho Y"
+    },
+    "eyeZ": {
+      "label": "Jicho Z"
+    },
+    "far": {
+      "label": "Ndege ya kukatia ya mbali"
+    },
+    "fov": {
+      "label": "Uwanja wa mtazamo"
+    },
+    "friction": {
+      "label": "Msuguano"
+    },
+    "globalChromaOffset": {
+      "label": "Mwelekeo wa kroma"
+    },
+    "globalChromaScale": {
+      "label": "Kipimo cha kroma"
+    },
+    "globalLightnessOffset": {
+      "label": "Mwelekeo wa mwangaza"
+    },
+    "globalLightnessScale": {
+      "label": "Kipimo cha mwangaza"
+    },
+    "groups": {
+      "camera": "Kamera",
+      "colors": "Rangi",
+      "languagesTab": "Kichupo cha lugha",
+      "mesha": "Mesha",
+      "meshaLight": "Mwanga wa Mesha",
+      "motion": "Mwendo",
+      "scene": "Eneo",
+      "stageLight": "Mwanga wa jukwaa"
+    },
+    "hasSubtitle": {
+      "label": "Onyesha manukuu"
+    },
+    "hueCircle": {
+      "label": "Mzunguko wa rangi"
+    },
+    "hueStart": {
+      "label": "Mwanzo wa tani ya rangi"
+    },
+    "isLoop": {
+      "label": "Rudia orodha ya kucheza"
+    },
+    "isLuka": {
+      "label": "Luka anasoma mifano"
+    },
+    "isMyMesha": {
+      "label": "Mimi ni Mesha"
+    },
+    "isReverse": {
+      "label": "Mpangilio wa nyuma"
+    },
+    "labelContent": {
+      "label": "Onyesha",
+      "options": {
+        "isoCode": "Misimbo ya ISO",
+        "name": "Majina ya Kiingereza",
+        "nativeName": "Majina ya asili"
+      }
+    },
+    "labelSize": {
+      "label": "Ukubwa wa lebo"
+    },
+    "maxSiblingSpread": {
+      "label": "Utawanyiko wa rangi ya ndugu"
+    },
+    "meshaLightDecay": {
+      "label": "Upunguzaji"
+    },
+    "meshaLightDistance": {
+      "label": "Umbali"
+    },
+    "meshaLightIntensity": {
+      "label": "Nguvu"
+    },
+    "meshaSize": {
+      "label": "Ukubwa wa Mesha"
+    },
+    "moustacheSize": {
+      "label": "Ukubwa wa masharubu"
+    },
+    "near": {
+      "label": "Ndege ya kukatia ya karibu"
+    },
+    "noseSize": {
+      "label": "Ukubwa wa pua"
+    },
+    "showsVideoPreviews": {
+      "label": "Hakiki asili"
+    },
+    "sortBy": {
+      "label": "Panga lugha kulingana na",
+      "options": {
+        "alphabetically": "Mpangilio wa alfabeti",
+        "caseCount": "Idadi ya hali",
+        "evidentiality": "Ushahidi wa kisarufi",
+        "family": "Familia ya lugha",
+        "maxClusterSize": "Vishwirishwiri vya konsonanti",
+        "morphology": "Mofolojia",
+        "nounClassCount": "Madarasa ya nomino",
+        "phonemeCount": "Idadi ya fonimu",
+        "speakers": "Idadi ya wasemaji",
+        "tonality": "Utonali",
+        "verbAspect": "Kipengele cha kitenzi",
+        "wordOrder": "Mpangilio wa maneno",
+        "wordOrderFlexibility": "Kubadilika kwa mpangilio wa maneno"
+      }
+    },
+    "sphereRadius": {
+      "label": "Radi ya tufe"
+    },
+    "stageLightDecay": {
+      "label": "Upunguzaji"
+    },
+    "stageLightDistance": {
+      "label": "Umbali"
+    },
+    "stageLightIntensity": {
+      "label": "Nguvu"
+    },
+    "switchDuration": {
+      "label": "Muda wa kubadilisha"
+    },
+    "teethSize": {
+      "label": "Ukubwa wa meno"
+    },
+    "tension": {
+      "label": "Mvutano"
+    },
+    "zoomDistance": {
+      "label": "Umbali wa kukuza"
+    }
+  },
+  "filters": {
+    "all": "Yote",
+    "allowMultipleChoices": "Ruhusu chaguo nyingi",
+    "results": "Matokeo ya kichujio ({count})",
+    "title": "Chuja kulingana na"
+  },
+  "linguistic": {
+    "caseCount": {
+      "name": "Idadi ya hali"
+    },
+    "evidentiality": {
+      "name": "Ushahidi wa kisarufi",
+      "values": {
+        "complex": {
+          "description": "Tofauti nne au zaidi za ushahidi, au ushahidi uliounganishwa na wakati/kipengele.",
+          "label": "Changamano"
+        },
+        "moderate": {
+          "description": "Tofauti ya pande tatu (mfano: moja kwa moja, ripoti, maelezo).",
+          "label": "Ya kati"
+        },
+        "none": {
+          "description": "Hakuna alama ya kisarufi ya chanzo cha taarifa.",
+          "label": "Hakuna"
+        },
+        "optional": {
+          "description": "Alama zinazofanana na ushahidi zipo lakini si za lazima.",
+          "label": "Ya hiari"
+        },
+        "simple": {
+          "description": "Tofauti ya pande mbili (kawaida moja kwa moja dhidi ya isiyo ya moja kwa moja/ripoti).",
+          "label": "Rahisi"
+        }
+      }
+    },
+    "family": {
+      "name": "Familia ya lugha"
+    },
+    "maxClusterSize": {
+      "name": "Idadi ya juu ya konsonanti katika kishwirishwiri"
+    },
+    "morphology": {
+      "name": "Mofolojia",
+      "values": {
+        "agglutinative": {
+          "description": "Maneno huundwa kwa kuongeza viambishi kimoja baada ya kingine, ambapo kila kiambishi hubeba maana moja tu. Sehemu hubaki zinazoonekana wazi, kama vipande vilivyounganishwa.",
+          "label": "Uongezaji"
+        },
+        "fusional": {
+          "description": "Maneno hubadilisha umbo lake kupitia viishio na viambishi awali vinavyounganisha maana nyingi za kisarufi kwa wakati mmoja. Kiishio kimoja kinaweza kuonyesha jinsia, idadi, na hali kwa pamoja, na kufanya vigumu kutenganisha sehemu.",
+          "label": "Muunganiko"
+        },
+        "introflexive": {
+          "description": "Sarufi hujengwa ndani ya neno: mzizi wa konsonanti hubeba maana kuu, huku mifumo tofauti ya irabu iliyosukwa ndani yake ikiumba maneno mapya. Kwa mfano, mzizi wa Kiarabu k-t-b unahusiana na uandishi, na kataba, kitāb na kātib wote hutoka humo.",
+          "label": "Mabadiliko ya ndani"
+        },
+        "isolating": {
+          "description": "Maneno kwa kawaida yana mofimu moja tu na hayabadilishi umbo lake. Sarufi huonyeshwa kupitia mpangilio wa maneno na maneno ya kazi tofauti badala ya viishio au viambishi awali.",
+          "label": "Utengano"
+        },
+        "polysynthetic": {
+          "description": "Neno moja linaweza kueleza kile ambacho lugha nyingine zingesema katika sentensi nzima, kwa kuunganisha kitenzi, mtenda, kitendwa, na vipengele vingine pamoja. Kawaida katika lugha za asili za Amerika na Aktiki.",
+          "label": "Uunganiko mwingi"
+        }
+      }
+    },
+    "nounClassCount": {
+      "name": "Madarasa ya nomino / jinsia"
+    },
+    "phonemeCount": {
+      "name": "Idadi ya fonimu"
+    },
+    "tonality": {
+      "name": "Utonali",
+      "values": {
+        "complex-tonal": {
+          "description": "Mifumo ya toni huathiri sana maana ya maneno.",
+          "label": "Toni changamano"
+        },
+        "non-tonal": {
+          "description": "Mabadiliko ya sauti hayaathiri maana ya maneno.",
+          "label": "Isiyo na toni"
+        },
+        "pitch-accent": {
+          "description": "Hutumia lafudhi ya sauti, ambapo silabi fulani husisitizwa kwa mabadiliko ya sauti.",
+          "label": "Lafudhi ya sauti"
+        },
+        "simple-tonal": {
+          "description": "Mabadiliko ya sauti huathiri maana ya maneno kwa kiasi.",
+          "label": "Toni rahisi"
+        }
+      }
+    },
+    "verbAspect": {
+      "name": "Kipengele cha kitenzi",
+      "values": {
+        "binary": {
+          "description": "Tofauti ya kimfumo ya pande mbili (timilifu/kutimilifu).",
+          "label": "Ya pande mbili"
+        },
+        "complex": {
+          "description": "Makundi mengi ya kipengele yenye alama tajiri za kimofolojia.",
+          "label": "Changamano"
+        },
+        "minimal": {
+          "description": "Hakuna au alama chache sana za kisarufi za kipengele.",
+          "label": "Kidogo"
+        },
+        "simple": {
+          "description": "Tofauti za msingi za kipengele (mfano: endeleo, timilifu).",
+          "label": "Rahisi"
+        }
+      }
+    },
+    "wordOrder": {
+      "name": "Mpangilio wa maneno",
+      "values": {
+        "SOV": {
+          "description": "Mtenda-Kitendwa-Kitenzi",
+          "label": "SOV"
+        },
+        "SVO": {
+          "description": "Mtenda-Kitenzi-Kitendwa",
+          "label": "SVO"
+        },
+        "VOS": {
+          "description": "Kitenzi-Kitendwa-Mtenda",
+          "label": "VOS"
+        },
+        "VSO": {
+          "description": "Kitenzi-Mtenda-Kitendwa",
+          "label": "VSO"
+        }
+      }
+    },
+    "wordOrderFlexibility": {
+      "name": "Kubadilika kwa mpangilio wa maneno",
+      "values": {
+        "flexible": {
+          "description": "Mipangilio mbalimbali ya maneno inaruhusiwa kwa madhumuni ya kimtindo.",
+          "label": "Inayobadilika"
+        },
+        "rigid": {
+          "description": "Maneno yana nafasi zake za kisarufi zilizowekwa.",
+          "label": "Isiyobadilika"
+        },
+        "semi-flexible": {
+          "description": "Tofauti fulani ya mpangilio wa maneno inaruhusiwa kwa msisitizo.",
+          "label": "Inayobadilika kiasi"
+        }
+      }
+    }
+  },
+  "menu": {
+    "close": "Funga menyu",
+    "open": "Fungua menyu"
+  },
+  "playlist": {
+    "controls": "Udhibiti wa orodha ya kucheza",
+    "goToBeginning": "Nenda mwanzo (kitufe cha Home)",
+    "next": "Wimbo unaofuata (mshale wa kulia)",
+    "pause": "Simamisha",
+    "play": "Cheza",
+    "previous": "Wimbo uliotangulia (mshale wa kushoto)",
+    "progress": "{current} kati ya {total}",
+    "toggleLoop": "Badilisha kurudia (kitufe cha L)"
+  },
+  "search": {
+    "clear": "Futa utafutaji",
+    "label": "Tafuta",
+    "noResults": "Hakuna lugha zinazolingana na \"{term}\"",
+    "results": "Matokeo ya utafutaji ({count})",
+    "threshold": "Andika angalau herufi {threshold} kutafuta…",
+    "viewAll": "Angalia zote"
+  },
+  "tabs": {
+    "controls": "Mipangilio",
+    "filters": "Vichujio",
+    "languages": "Lugha",
+    "search": "Tafuta"
+  },
+  "overlay": {
+    "slogan": "Kadiri unavyojua lugha nyingi, ndivyo unavyokuwa na thamani ya watu wengi zaidi.",
+    "emptyFilter": "Hakuna lugha kwa mchanganyiko huo wa vichujio. Labda umechagua vichujio vingi mno."
+  },
+  "idCard": {
+    "sourceVideo": "Video chanzo",
+    "opensInNewTab": "inafungua katika kichupo kipya"
+  }
+}
