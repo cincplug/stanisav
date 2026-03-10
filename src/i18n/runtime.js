@@ -1,6 +1,7 @@
 import eng from "./messages/eng.json";
 import nld from "./messages/nld.json";
 import srp from "./messages/srp.json";
+import hin from "./messages/hin.json";
 import ind from "./messages/ind.json";
 import ara from "./messages/ara.json";
 import jpn from "./messages/jpn.json";
@@ -18,6 +19,7 @@ import mkd from "./messages/mkd.json";
 import languageNamesEng from "./language-names/eng.json";
 import languageNamesNld from "./language-names/nld.json";
 import languageNamesSrp from "./language-names/srp.json";
+import languageNamesHin from "./language-names/hin.json";
 import languageNamesInd from "./language-names/ind.json";
 import languageNamesAra from "./language-names/ara.json";
 import languageNamesJpn from "./language-names/jpn.json";
@@ -35,6 +37,7 @@ import languageNamesMkd from "./language-names/mkd.json";
 import lineageLabelsEng from "./lineage-labels/eng.json";
 import lineageLabelsNld from "./lineage-labels/nld.json";
 import lineageLabelsSrp from "./lineage-labels/srp.json";
+import lineageLabelsHin from "./lineage-labels/hin.json";
 import lineageLabelsInd from "./lineage-labels/ind.json";
 import lineageLabelsAra from "./lineage-labels/ara.json";
 import lineageLabelsJpn from "./lineage-labels/jpn.json";
@@ -66,6 +69,7 @@ const messagesByLocale = {
   jpn,
   ara,
   ind,
+  hin,
 };
 
 const lineageLabelsByLocale = {
@@ -85,6 +89,7 @@ const lineageLabelsByLocale = {
   jpn: lineageLabelsJpn,
   ara: lineageLabelsAra,
   ind: lineageLabelsInd,
+  hin: lineageLabelsHin,
 };
 
 const languageNamesByLocale = {
@@ -104,6 +109,7 @@ const languageNamesByLocale = {
   jpn: languageNamesJpn,
   ara: languageNamesAra,
   ind: languageNamesInd,
+  hin: languageNamesHin,
 };
 
 export const defaultLocale = "eng";

@@ -1,0 +1,355 @@
+{
+  "controls": {
+    "backgroundColor": {
+      "label": "पृष्ठभूमि"
+    },
+    "cameraX": {
+      "label": "कैमरा X"
+    },
+    "cameraY": {
+      "label": "कैमरा Y"
+    },
+    "cameraZ": {
+      "label": "कैमरा Z"
+    },
+    "canEditColors": {
+      "label": "रंग संपादित कर सकते हैं?"
+    },
+    "eyeProtrusion": {
+      "label": "आँख का उभार"
+    },
+    "eyeSize": {
+      "label": "आँख का आकार"
+    },
+    "eyeX": {
+      "label": "आँख X"
+    },
+    "eyeY": {
+      "label": "आँख Y"
+    },
+    "eyeZ": {
+      "label": "आँख Z"
+    },
+    "far": {
+      "label": "दूर क्लिपिंग तल"
+    },
+    "fov": {
+      "label": "दृष्टि क्षेत्र"
+    },
+    "friction": {
+      "label": "घर्षण"
+    },
+    "globalChromaOffset": {
+      "label": "क्रोमा ऑफ़सेट"
+    },
+    "globalChromaScale": {
+      "label": "क्रोमा स्केल"
+    },
+    "globalLightnessOffset": {
+      "label": "चमक ऑफ़सेट"
+    },
+    "globalLightnessScale": {
+      "label": "चमक स्केल"
+    },
+    "groups": {
+      "camera": "कैमरा",
+      "colors": "रंग",
+      "languagesTab": "भाषाएँ टैब",
+      "mesha": "Mesha",
+      "meshaLight": "Mesha प्रकाश",
+      "motion": "गति",
+      "scene": "दृश्य",
+      "stageLight": "मंच प्रकाश"
+    },
+    "hasSubtitle": {
+      "label": "उपशीर्षक दिखाएँ"
+    },
+    "hueCircle": {
+      "label": "रंग चक्र"
+    },
+    "hueStart": {
+      "label": "रंग आरंभ"
+    },
+    "isLoop": {
+      "label": "प्लेलिस्ट दोहराएँ"
+    },
+    "isLuka": {
+      "label": "Luka नमूने पढ़ता है"
+    },
+    "isMyMesha": {
+      "label": "मैं Mesha हूँ"
+    },
+    "isReverse": {
+      "label": "उल्टा क्रम"
+    },
+    "labelContent": {
+      "label": "प्रदर्शन",
+      "options": {
+        "isoCode": "ISO कोड",
+        "name": "अंग्रेज़ी नाम",
+        "nativeName": "देशी नाम"
+      }
+    },
+    "labelSize": {
+      "label": "लेबल आकार"
+    },
+    "maxSiblingSpread": {
+      "label": "सहोदर रंग विस्तार"
+    },
+    "meshaLightDecay": {
+      "label": "क्षय"
+    },
+    "meshaLightDistance": {
+      "label": "दूरी"
+    },
+    "meshaLightIntensity": {
+      "label": "तीव्रता"
+    },
+    "meshaSize": {
+      "label": "Mesha आकार"
+    },
+    "moustacheSize": {
+      "label": "मूँछ का आकार"
+    },
+    "near": {
+      "label": "निकट क्लिपिंग तल"
+    },
+    "noseSize": {
+      "label": "नाक का आकार"
+    },
+    "showsVideoPreviews": {
+      "label": "मूल का पूर्वावलोकन"
+    },
+    "sortBy": {
+      "label": "भाषाएँ क्रमबद्ध करें",
+      "options": {
+        "alphabetically": "वर्णमाला क्रम",
+        "caseCount": "कारक संख्या",
+        "evidentiality": "साक्ष्यता",
+        "family": "भाषा परिवार",
+        "maxClusterSize": "व्यंजन गुच्छ",
+        "morphology": "रूपविज्ञान",
+        "nounClassCount": "संज्ञा वर्ग",
+        "phonemeCount": "स्वनिम संख्या",
+        "speakers": "बोलने वालों की संख्या",
+        "tonality": "स्वरात्मकता",
+        "verbAspect": "क्रिया पक्ष",
+        "wordOrder": "शब्द क्रम",
+        "wordOrderFlexibility": "शब्द क्रम लचीलापन"
+      }
+    },
+    "sphereRadius": {
+      "label": "गोले की त्रिज्या"
+    },
+    "stageLightDecay": {
+      "label": "क्षय"
+    },
+    "stageLightDistance": {
+      "label": "दूरी"
+    },
+    "stageLightIntensity": {
+      "label": "तीव्रता"
+    },
+    "switchDuration": {
+      "label": "स्विच अवधि"
+    },
+    "teethSize": {
+      "label": "दाँतों का आकार"
+    },
+    "tension": {
+      "label": "तनाव"
+    },
+    "zoomDistance": {
+      "label": "ज़ूम दूरी"
+    }
+  },
+  "filters": {
+    "all": "सभी",
+    "allowMultipleChoices": "एकाधिक चयन की अनुमति दें",
+    "results": "फ़िल्टर परिणाम ({count})",
+    "title": "इसके अनुसार फ़िल्टर करें"
+  },
+  "linguistic": {
+    "caseCount": {
+      "name": "कारक संख्या"
+    },
+    "evidentiality": {
+      "name": "साक्ष्यता",
+      "values": {
+        "complex": {
+          "description": "चार या अधिक साक्ष्यता भेद, या काल/पक्ष के साथ मिश्रित साक्ष्यता।",
+          "label": "जटिल"
+        },
+        "moderate": {
+          "description": "तीन-तरफा भेद (जैसे प्रत्यक्ष, उद्धृत, अनुमानित)।",
+          "label": "मध्यम"
+        },
+        "none": {
+          "description": "सूचना स्रोत का कोई व्याकरणिक चिह्न नहीं।",
+          "label": "कोई नहीं"
+        },
+        "optional": {
+          "description": "साक्ष्यता-जैसे चिह्न मौजूद हैं लेकिन अनिवार्य नहीं।",
+          "label": "वैकल्पिक"
+        },
+        "simple": {
+          "description": "दो-तरफा भेद (आमतौर पर प्रत्यक्ष बनाम अप्रत्यक्ष/उद्धृत)।",
+          "label": "सरल"
+        }
+      }
+    },
+    "family": {
+      "name": "भाषा परिवार"
+    },
+    "maxClusterSize": {
+      "name": "गुच्छ में अधिकतम व्यंजन"
+    },
+    "morphology": {
+      "name": "रूपविज्ञान",
+      "values": {
+        "agglutinative": {
+          "description": "शब्द एक के बाद एक प्रत्यय जोड़कर बनाए जाते हैं, जहाँ प्रत्येक प्रत्यय ठीक एक अर्थ वहन करता है। भाग स्पष्ट रूप से पहचाने जाने योग्य रहते हैं, जैसे जुड़े हुए खंड।",
+          "label": "योगात्मक"
+        },
+        "fusional": {
+          "description": "शब्द अंत और उपसर्गों के माध्यम से अपना रूप बदलते हैं जो एक साथ कई व्याकरणिक अर्थ बंडल करते हैं। एक ही अंत लिंग, वचन और कारक एक साथ व्यक्त कर सकती है, जिससे भागों को अलग करना कठिन हो जाता है।",
+          "label": "रूपान्तरी"
+        },
+        "introflexive": {
+          "description": "व्याकरण शब्द के भीतर से बनता है: व्यंजनों की एक मूल मूल अर्थ वहन करती है, जबकि उसमें बुने गए विभिन्न स्वर पैटर्न नए शब्द बनाते हैं। उदाहरण के लिए अरबी मूल k-t-b लेखन से संबंधित है, और kataba, kitāb तथा kātib सभी इससे आते हैं।",
+          "label": "आंतरिक रूपान्तरी"
+        },
+        "isolating": {
+          "description": "शब्द आमतौर पर एकल रूपिम से बने होते हैं और अपना रूप नहीं बदलते। व्याकरण शब्द क्रम और अलग कार्य शब्दों के माध्यम से व्यक्त होता है न कि अंत या उपसर्गों से।",
+          "label": "वियोगात्मक"
+        },
+        "polysynthetic": {
+          "description": "एक शब्द वह व्यक्त कर सकता है जो अन्य भाषाएँ पूरे वाक्य में कहती हैं, क्रिया, कर्ता, कर्म और अन्य तत्वों को एक साथ जोड़कर। अमेरिका और आर्कटिक की स्वदेशी भाषाओं में सामान्य।",
+          "label": "बहुसंश्लेषी"
+        }
+      }
+    },
+    "nounClassCount": {
+      "name": "संज्ञा वर्ग / लिंग"
+    },
+    "phonemeCount": {
+      "name": "स्वनिम संख्या"
+    },
+    "tonality": {
+      "name": "स्वरात्मकता",
+      "values": {
+        "complex-tonal": {
+          "description": "स्वर पैटर्न शब्द अर्थ को महत्वपूर्ण रूप से प्रभावित करते हैं।",
+          "label": "जटिल स्वरात्मक"
+        },
+        "non-tonal": {
+          "description": "स्वर परिवर्तन शब्द अर्थ को प्रभावित नहीं करते।",
+          "label": "अस्वरात्मक"
+        },
+        "pitch-accent": {
+          "description": "इसमें पिच उच्चारण का उपयोग होता है, जहाँ कुछ शब्दांश पिच परिवर्तन से जोर दिए जाते हैं।",
+          "label": "पिच उच्चारण"
+        },
+        "simple-tonal": {
+          "description": "स्वर परिवर्तन शब्द अर्थ को मध्यम रूप से प्रभावित करते हैं।",
+          "label": "सरल स्वरात्मक"
+        }
+      }
+    },
+    "verbAspect": {
+      "name": "क्रिया पक्ष",
+      "values": {
+        "binary": {
+          "description": "दो-तरफा व्यवस्थित भेद (सम्पूर्ण/असम्पूर्ण)।",
+          "label": "द्विआधारी"
+        },
+        "complex": {
+          "description": "समृद्ध रूपात्मक चिह्नन के साथ कई पक्ष श्रेणियाँ।",
+          "label": "जटिल"
+        },
+        "minimal": {
+          "description": "कोई या बहुत सीमित व्याकरणिक पक्ष चिह्नन नहीं।",
+          "label": "न्यूनतम"
+        },
+        "simple": {
+          "description": "बुनियादी पक्ष भेद (जैसे प्रगतिशील, पूर्ण)।",
+          "label": "सरल"
+        }
+      }
+    },
+    "wordOrder": {
+      "name": "शब्द क्रम",
+      "values": {
+        "SOV": {
+          "description": "कर्ता-कर्म-क्रिया",
+          "label": "SOV"
+        },
+        "SVO": {
+          "description": "कर्ता-क्रिया-कर्म",
+          "label": "SVO"
+        },
+        "VOS": {
+          "description": "क्रिया-कर्म-कर्ता",
+          "label": "VOS"
+        },
+        "VSO": {
+          "description": "क्रिया-कर्ता-कर्म",
+          "label": "VSO"
+        }
+      }
+    },
+    "wordOrderFlexibility": {
+      "name": "शब्द क्रम लचीलापन",
+      "values": {
+        "flexible": {
+          "description": "शैलीगत उद्देश्यों के लिए विभिन्न शब्द व्यवस्थाएँ अनुमत हैं।",
+          "label": "लचीला"
+        },
+        "rigid": {
+          "description": "शब्दों की निश्चित व्याकरणिक स्थिति होती है।",
+          "label": "कठोर"
+        },
+        "semi-flexible": {
+          "description": "जोर देने के लिए कुछ शब्द क्रम भिन्नता अनुमत है।",
+          "label": "अर्ध-लचीला"
+        }
+      }
+    }
+  },
+  "menu": {
+    "close": "मेनू बंद करें",
+    "open": "मेनू खोलें"
+  },
+  "playlist": {
+    "controls": "प्लेलिस्ट नियंत्रण",
+    "goToBeginning": "शुरुआत पर जाएँ (Home कुंजी)",
+    "next": "अगला ट्रैक (दाएँ तीर)",
+    "pause": "रोकें",
+    "play": "चलाएँ",
+    "previous": "पिछला ट्रैक (बाएँ तीर)",
+    "progress": "{current} / {total}",
+    "toggleLoop": "लूप बदलें (L कुंजी)"
+  },
+  "search": {
+    "clear": "खोज साफ़ करें",
+    "label": "खोजें",
+    "noResults": "\"{term}\" से मेल खाती कोई भाषा नहीं मिली",
+    "results": "खोज परिणाम ({count})",
+    "threshold": "खोजने के लिए कम से कम {threshold} अक्षर टाइप करें…",
+    "viewAll": "सभी देखें"
+  },
+  "tabs": {
+    "controls": "सेटिंग्स",
+    "filters": "फ़िल्टर",
+    "languages": "भाषाएँ",
+    "search": "खोजें"
+  },
+  "overlay": {
+    "slogan": "आप जितनी अधिक भाषाएँ जानते हैं, आप उतने अधिक लोगों के मूल्य के होते हैं।",
+    "emptyFilter": "उस फ़िल्टर संयोजन के लिए कोई भाषा नहीं है। आपने शायद बहुत अधिक फ़िल्टर चुने हैं।"
+  },
+  "idCard": {
+    "sourceVideo": "स्रोत वीडियो",
+    "opensInNewTab": "नए टैब में खुलता है"
+  }
+}
