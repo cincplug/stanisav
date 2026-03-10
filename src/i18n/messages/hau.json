@@ -1,0 +1,355 @@
+{
+  "controls": {
+    "backgroundColor": {
+      "label": "Launin bango"
+    },
+    "cameraX": {
+      "label": "Kyamara X"
+    },
+    "cameraY": {
+      "label": "Kyamara Y"
+    },
+    "cameraZ": {
+      "label": "Kyamara Z"
+    },
+    "canEditColors": {
+      "label": "Za a iya gyara launuka?"
+    },
+    "eyeProtrusion": {
+      "label": "Fita ido"
+    },
+    "eyeSize": {
+      "label": "Girman ido"
+    },
+    "eyeX": {
+      "label": "Ido X"
+    },
+    "eyeY": {
+      "label": "Ido Y"
+    },
+    "eyeZ": {
+      "label": "Ido Z"
+    },
+    "far": {
+      "label": "Fagen yanke na nesa"
+    },
+    "fov": {
+      "label": "Filin gani"
+    },
+    "friction": {
+      "label": "Gogayya"
+    },
+    "globalChromaOffset": {
+      "label": "Matsayin kroma"
+    },
+    "globalChromaScale": {
+      "label": "Ma'aunin kroma"
+    },
+    "globalLightnessOffset": {
+      "label": "Matsayin haske"
+    },
+    "globalLightnessScale": {
+      "label": "Ma'aunin haske"
+    },
+    "groups": {
+      "camera": "Kyamara",
+      "colors": "Launuka",
+      "languagesTab": "Tab na harsuna",
+      "mesha": "Mesha",
+      "meshaLight": "Haske na Mesha",
+      "motion": "Motsi",
+      "scene": "Yanayi",
+      "stageLight": "Haske na mataki"
+    },
+    "hasSubtitle": {
+      "label": "Nuna rubutun ƙasa"
+    },
+    "hueCircle": {
+      "label": "Da'irar launi"
+    },
+    "hueStart": {
+      "label": "Farkon launi"
+    },
+    "isLoop": {
+      "label": "Maimaita jerin waƙoƙi"
+    },
+    "isLuka": {
+      "label": "Luka yana karanta misalai"
+    },
+    "isMyMesha": {
+      "label": "Ni ne Mesha"
+    },
+    "isReverse": {
+      "label": "Tsarin baya"
+    },
+    "labelContent": {
+      "label": "Nuni",
+      "options": {
+        "isoCode": "Lambobin ISO",
+        "name": "Sunaye na Turanci",
+        "nativeName": "Sunaye na asali"
+      }
+    },
+    "labelSize": {
+      "label": "Girman alama"
+    },
+    "maxSiblingSpread": {
+      "label": "Rarrabawar launi na 'yan'uwa"
+    },
+    "meshaLightDecay": {
+      "label": "Raguwa"
+    },
+    "meshaLightDistance": {
+      "label": "Nisa"
+    },
+    "meshaLightIntensity": {
+      "label": "Ƙarfi"
+    },
+    "meshaSize": {
+      "label": "Girman Mesha"
+    },
+    "moustacheSize": {
+      "label": "Girman gashin baki"
+    },
+    "near": {
+      "label": "Fagen yanke na kusa"
+    },
+    "noseSize": {
+      "label": "Girman hanci"
+    },
+    "showsVideoPreviews": {
+      "label": "Duba asali"
+    },
+    "sortBy": {
+      "label": "Tsara harsuna bisa",
+      "options": {
+        "alphabetically": "Tsarin haruffa",
+        "caseCount": "Yawan shari'o'i",
+        "evidentiality": "Shaida ta nahawu",
+        "family": "Dangin harshe",
+        "maxClusterSize": "Tarin baƙaƙe",
+        "morphology": "Ilimin sifar kalma",
+        "nounClassCount": "Azuzuwan suna",
+        "phonemeCount": "Yawan sauti",
+        "speakers": "Yawan masu magana",
+        "tonality": "Sautin kari",
+        "verbAspect": "Fuska ta fi'ili",
+        "wordOrder": "Tsarin kalma",
+        "wordOrderFlexibility": "Sassauci na tsarin kalma"
+      }
+    },
+    "sphereRadius": {
+      "label": "Radius na bulo"
+    },
+    "stageLightDecay": {
+      "label": "Raguwa"
+    },
+    "stageLightDistance": {
+      "label": "Nisa"
+    },
+    "stageLightIntensity": {
+      "label": "Ƙarfi"
+    },
+    "switchDuration": {
+      "label": "Tsawon canzawa"
+    },
+    "teethSize": {
+      "label": "Girman haƙori"
+    },
+    "tension": {
+      "label": "Ƙarfin ja"
+    },
+    "zoomDistance": {
+      "label": "Nisan zum"
+    }
+  },
+  "filters": {
+    "all": "Duka",
+    "allowMultipleChoices": "Bari zaɓe da yawa",
+    "results": "Sakamakon tace ({count})",
+    "title": "Tace bisa"
+  },
+  "linguistic": {
+    "caseCount": {
+      "name": "Yawan shari'o'i"
+    },
+    "evidentiality": {
+      "name": "Shaida ta nahawu",
+      "values": {
+        "complex": {
+          "description": "Nau'ikan shaida huɗu ko fiye, ko shaida da aka haɗa da lokaci/fuska.",
+          "label": "Rikitacce"
+        },
+        "moderate": {
+          "description": "Rarrabuwa ta hanyoyi uku (misali: kai tsaye, rahoto, yanke hukunci).",
+          "label": "Matsakaici"
+        },
+        "none": {
+          "description": "Babu alamar nahawu na tushen bayanai.",
+          "label": "Babu"
+        },
+        "optional": {
+          "description": "Alamomin da suka yi kama da shaida suna nan amma ba tilas ba ne.",
+          "label": "Na zaɓi"
+        },
+        "simple": {
+          "description": "Rarrabuwa ta hanyoyi biyu (yawanci kai tsaye da ba kai tsaye ba/rahoto).",
+          "label": "Sauƙi"
+        }
+      }
+    },
+    "family": {
+      "name": "Dangin harshe"
+    },
+    "maxClusterSize": {
+      "name": "Mafi yawan baƙaƙe a cikin tari"
+    },
+    "morphology": {
+      "name": "Ilimin sifar kalma",
+      "values": {
+        "agglutinative": {
+          "description": "Ana gina kalmomi ta hanyar ƙara ƙari ɗaya bayan ɗaya, inda kowane ƙari ke ɗauke da ma'ana ɗaya kawai. Sassan suna nan a bayyane kamar tubalan da aka haɗa.",
+          "label": "Haɗawa"
+        },
+        "fusional": {
+          "description": "Kalmomi suna canza sifansu ta hanyar ƙarshe da gaban-magana waɗanda ke haɗa ma'anoni da yawa na nahawu a lokaci guda. Ƙarshewa ɗaya na iya bayyana jinsi, lamba, da shari'a tare, wanda ke sa rarrabuwa ya yi wuya.",
+          "label": "Haɗuwa"
+        },
+        "introflexive": {
+          "description": "Ana gina nahawu daga cikin kalmar: tushe na baƙaƙe yana ɗauke da ma'anar asali, yayin da tsare-tsaren wasali daban-daban da aka saka cikinsa ke ƙirƙirar sabbin kalmomi. Misali, tushen Larabci k-t-b yana da alaƙa da rubutu, kuma kataba, kitāb da kātib duk sun fito daga gare shi.",
+          "label": "Canjin ciki"
+        },
+        "isolating": {
+          "description": "Kalmomi yawanci sun ƙunshi morpheme ɗaya kuma ba sa canza sifansu. Ana bayyana nahawu ta hanyar tsarin kalma da kalmomi na aiki daban-daban maimakon ƙarshe ko gaban-magana.",
+          "label": "Rarrabuwa"
+        },
+        "polysynthetic": {
+          "description": "Kalma ɗaya na iya bayyana abin da wasu yarukan za su faɗa a cikin jimla gaba ɗaya, ta hanyar haɗa fi'ili, mai aikata, abin da ake yi masa, da sauran abubuwa tare. Yafi zama gama-gari a cikin yarukan asali na Amurka da Arctic.",
+          "label": "Haɗuwa mai yawa"
+        }
+      }
+    },
+    "nounClassCount": {
+      "name": "Azuzuwan suna / jinsi"
+    },
+    "phonemeCount": {
+      "name": "Yawan sauti"
+    },
+    "tonality": {
+      "name": "Sautin kari",
+      "values": {
+        "complex-tonal": {
+          "description": "Tsare-tsaren kari suna shafar ma'anar kalma sosai.",
+          "label": "Kari rikitacce"
+        },
+        "non-tonal": {
+          "description": "Canjin murya ba ya shafar ma'anar kalma.",
+          "label": "Maras kari"
+        },
+        "pitch-accent": {
+          "description": "Yana amfani da lafazin murya, inda ake jaddada wasu syllabai ta canjin murya.",
+          "label": "Lafazin murya"
+        },
+        "simple-tonal": {
+          "description": "Canjin murya yana shafar ma'anar kalma a hankali.",
+          "label": "Kari sauƙi"
+        }
+      }
+    },
+    "verbAspect": {
+      "name": "Fuska ta fi'ili",
+      "values": {
+        "binary": {
+          "description": "Rarrabuwa ta tsari biyu (cikakke/mara cikawa).",
+          "label": "Biyu-biyu"
+        },
+        "complex": {
+          "description": "Nau'ikan fuska da yawa tare da alamomi masu arziki na ilimin sifar kalma.",
+          "label": "Rikitacce"
+        },
+        "minimal": {
+          "description": "Babu ko ƙarancin alamar nahawu na fuska.",
+          "label": "Ƙarami"
+        },
+        "simple": {
+          "description": "Rarrabuwar fuska ta asali (misali: ci gaba, cikakke).",
+          "label": "Sauƙi"
+        }
+      }
+    },
+    "wordOrder": {
+      "name": "Tsarin kalma",
+      "values": {
+        "SOV": {
+          "description": "Mai aikatawa-Abin da ake yi masa-Fi'ili",
+          "label": "SOV"
+        },
+        "SVO": {
+          "description": "Mai aikatawa-Fi'ili-Abin da ake yi masa",
+          "label": "SVO"
+        },
+        "VOS": {
+          "description": "Fi'ili-Abin da ake yi masa-Mai aikatawa",
+          "label": "VOS"
+        },
+        "VSO": {
+          "description": "Fi'ili-Mai aikatawa-Abin da ake yi masa",
+          "label": "VSO"
+        }
+      }
+    },
+    "wordOrderFlexibility": {
+      "name": "Sassauci na tsarin kalma",
+      "values": {
+        "flexible": {
+          "description": "Ana ba da izinin tsare-tsare daban-daban na kalmomi don dalilai na salo.",
+          "label": "Mai sassauci"
+        },
+        "rigid": {
+          "description": "Kalmomi suna da matsayi na nahawu da aka ƙayyade.",
+          "label": "Mai tsauri"
+        },
+        "semi-flexible": {
+          "description": "Ana ba da izinin wani bambanci na tsarin kalma don jaddadawa.",
+          "label": "Semi-mai sassauci"
+        }
+      }
+    }
+  },
+  "menu": {
+    "close": "Rufe menu",
+    "open": "Buɗe menu"
+  },
+  "playlist": {
+    "controls": "Kula da jerin waƙoƙi",
+    "goToBeginning": "Je farko (maɓallin Home)",
+    "next": "Waƙa mai zuwa (kibiyar dama)",
+    "pause": "Tsaya",
+    "play": "Kunna",
+    "previous": "Waƙar da ta gabata (kibiyar hagu)",
+    "progress": "{current} daga {total}",
+    "toggleLoop": "Canza maimaita (maɓallin L)"
+  },
+  "search": {
+    "clear": "Share bincike",
+    "label": "Bincika",
+    "noResults": "Ba a sami harsuna da suka dace da \"{term}\" ba",
+    "results": "Sakamakon bincike ({count})",
+    "threshold": "Rubuta haruffa {threshold} aƙalla don bincika…",
+    "viewAll": "Duba duka"
+  },
+  "tabs": {
+    "controls": "Saitunan",
+    "filters": "Tacewa",
+    "languages": "Harsuna",
+    "search": "Bincika"
+  },
+  "overlay": {
+    "slogan": "Ƙarin harsuna da ka sani, ƙarin mutane ne ka cancanta.",
+    "emptyFilter": "Babu harsuna don wannan haɗin tace. Wataƙila ka zaɓi tacewa da yawa."
+  },
+  "idCard": {
+    "sourceVideo": "Bidiyon tushe",
+    "opensInNewTab": "yana buɗewa a sabon tab"
+  }
+}
