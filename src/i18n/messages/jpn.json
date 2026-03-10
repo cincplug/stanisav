@@ -1,0 +1,355 @@
+{
+  "controls": {
+    "backgroundColor": {
+      "label": "背景"
+    },
+    "cameraX": {
+      "label": "カメラ X"
+    },
+    "cameraY": {
+      "label": "カメラ Y"
+    },
+    "cameraZ": {
+      "label": "カメラ Z"
+    },
+    "canEditColors": {
+      "label": "色を編集できますか？"
+    },
+    "eyeProtrusion": {
+      "label": "眼球の突出度"
+    },
+    "eyeSize": {
+      "label": "目のサイズ"
+    },
+    "eyeX": {
+      "label": "目 X"
+    },
+    "eyeY": {
+      "label": "目 Y"
+    },
+    "eyeZ": {
+      "label": "目 Z"
+    },
+    "far": {
+      "label": "遠クリッピング面"
+    },
+    "fov": {
+      "label": "視野角"
+    },
+    "friction": {
+      "label": "摩擦"
+    },
+    "globalChromaOffset": {
+      "label": "彩度オフセット"
+    },
+    "globalChromaScale": {
+      "label": "彩度スケール"
+    },
+    "globalLightnessOffset": {
+      "label": "明度オフセット"
+    },
+    "globalLightnessScale": {
+      "label": "明度スケール"
+    },
+    "groups": {
+      "camera": "カメラ",
+      "colors": "色",
+      "languagesTab": "言語タブ",
+      "mesha": "Mesha",
+      "meshaLight": "Meshaライト",
+      "motion": "モーション",
+      "scene": "シーン",
+      "stageLight": "ステージライト"
+    },
+    "hasSubtitle": {
+      "label": "字幕を表示"
+    },
+    "hueCircle": {
+      "label": "色相環"
+    },
+    "hueStart": {
+      "label": "色相の開始値"
+    },
+    "isLoop": {
+      "label": "プレイリストをループ"
+    },
+    "isLuka": {
+      "label": "Lukaがサンプルを読み上げる"
+    },
+    "isMyMesha": {
+      "label": "私はMesha"
+    },
+    "isReverse": {
+      "label": "逆順"
+    },
+    "labelContent": {
+      "label": "表示内容",
+      "options": {
+        "isoCode": "ISOコード",
+        "name": "英語名",
+        "nativeName": "現地語名"
+      }
+    },
+    "labelSize": {
+      "label": "ラベルサイズ"
+    },
+    "maxSiblingSpread": {
+      "label": "兄弟要素の色相分散"
+    },
+    "meshaLightDecay": {
+      "label": "減衰"
+    },
+    "meshaLightDistance": {
+      "label": "距離"
+    },
+    "meshaLightIntensity": {
+      "label": "強度"
+    },
+    "meshaSize": {
+      "label": "Meshaのサイズ"
+    },
+    "moustacheSize": {
+      "label": "口ひげのサイズ"
+    },
+    "near": {
+      "label": "近クリッピング面"
+    },
+    "noseSize": {
+      "label": "鼻のサイズ"
+    },
+    "showsVideoPreviews": {
+      "label": "オリジナルをプレビュー"
+    },
+    "sortBy": {
+      "label": "言語の並び順",
+      "options": {
+        "alphabetically": "アルファベット順",
+        "caseCount": "格の数",
+        "evidentiality": "証拠性",
+        "family": "語族",
+        "maxClusterSize": "子音クラスター",
+        "morphology": "形態論",
+        "nounClassCount": "名詞クラス",
+        "phonemeCount": "音素数",
+        "speakers": "話者数",
+        "tonality": "声調性",
+        "verbAspect": "動詞アスペクト",
+        "wordOrder": "語順",
+        "wordOrderFlexibility": "語順の柔軟性"
+      }
+    },
+    "sphereRadius": {
+      "label": "球の半径"
+    },
+    "stageLightDecay": {
+      "label": "減衰"
+    },
+    "stageLightDistance": {
+      "label": "距離"
+    },
+    "stageLightIntensity": {
+      "label": "強度"
+    },
+    "switchDuration": {
+      "label": "切替時間"
+    },
+    "teethSize": {
+      "label": "歯のサイズ"
+    },
+    "tension": {
+      "label": "テンション"
+    },
+    "zoomDistance": {
+      "label": "ズーム距離"
+    }
+  },
+  "filters": {
+    "all": "すべて",
+    "allowMultipleChoices": "複数選択を許可",
+    "results": "フィルター結果（{count}）",
+    "title": "絞り込み条件"
+  },
+  "linguistic": {
+    "caseCount": {
+      "name": "格の数"
+    },
+    "evidentiality": {
+      "name": "証拠性",
+      "values": {
+        "complex": {
+          "description": "4種類以上の証拠性の区別、またはテンス・アスペクトと融合した証拠性。",
+          "label": "複雑"
+        },
+        "moderate": {
+          "description": "3項対立（例：直接・伝聞・推論）。",
+          "label": "中程度"
+        },
+        "none": {
+          "description": "情報源の文法的マーキングなし。",
+          "label": "なし"
+        },
+        "optional": {
+          "description": "証拠性に似たマーカーは存在するが、義務的ではない。",
+          "label": "任意"
+        },
+        "simple": {
+          "description": "2項対立（一般的に直接証拠と間接証拠・伝聞の区別）。",
+          "label": "単純"
+        }
+      }
+    },
+    "family": {
+      "name": "語族"
+    },
+    "maxClusterSize": {
+      "name": "子音クラスターの最大子音数"
+    },
+    "morphology": {
+      "name": "形態論",
+      "values": {
+        "agglutinative": {
+          "description": "語は接辞を次々と積み重ねることで形成され、各接辞はひとつの意味のみを担う。各部分は積み木のようにはっきりと識別できる。",
+          "label": "膠着語"
+        },
+        "fusional": {
+          "description": "語は複数の文法的意味を一度に束ねた語尾や接頭辞によって形を変える。ひとつの語尾が性・数・格を同時に表すことがあり、各部分を切り離すことが難しい。",
+          "label": "屈折語"
+        },
+        "introflexive": {
+          "description": "文法は語の内部から構築される。子音からなる語根が核心的な意味を担い、そこに織り込まれる異なる母音パターンが新しい語を生み出す。例えばアラビア語の語根 k-t-b は「書く」に関連し、kataba・kitāb・kātib はすべてそこから派生する。",
+          "label": "内屈折語"
+        },
+        "isolating": {
+          "description": "語は通常ひとつの形態素からなり、形を変えない。文法は語順や独立した機能語によって表され、語尾や接頭辞には依存しない。",
+          "label": "孤立語"
+        },
+        "polysynthetic": {
+          "description": "ひとつの語が、他の言語では文全体で表すような内容を表現できる。動詞・主語・目的語などの要素が融合している。南北アメリカや北極圏の先住民言語に多く見られる。",
+          "label": "抱合語"
+        }
+      }
+    },
+    "nounClassCount": {
+      "name": "名詞クラス・性の数"
+    },
+    "phonemeCount": {
+      "name": "音素数"
+    },
+    "tonality": {
+      "name": "声調性",
+      "values": {
+        "complex-tonal": {
+          "description": "ピッチパターンが語の意味に大きく影響する。",
+          "label": "複雑な声調"
+        },
+        "non-tonal": {
+          "description": "音の高低変化が語の意味に影響しない。",
+          "label": "非声調"
+        },
+        "pitch-accent": {
+          "description": "特定の音節がピッチの変化によって強調されるピッチアクセントを持つ。",
+          "label": "ピッチアクセント"
+        },
+        "simple-tonal": {
+          "description": "音の高低変化が語の意味にある程度影響する。",
+          "label": "単純な声調"
+        }
+      }
+    },
+    "verbAspect": {
+      "name": "動詞アスペクト",
+      "values": {
+        "binary": {
+          "description": "2項対立による体の区別（完結相・非完結相）。",
+          "label": "二項対立"
+        },
+        "complex": {
+          "description": "豊富な形態論的マーキングを伴う複数のアスペクト範疇。",
+          "label": "複雑"
+        },
+        "minimal": {
+          "description": "文法的なアスペクトのマーキングがないか、ほぼない。",
+          "label": "最小限"
+        },
+        "simple": {
+          "description": "基本的なアスペクトの区別（例：進行形・完了形）。",
+          "label": "単純"
+        }
+      }
+    },
+    "wordOrder": {
+      "name": "語順",
+      "values": {
+        "SOV": {
+          "description": "主語・目的語・動詞",
+          "label": "SOV"
+        },
+        "SVO": {
+          "description": "主語・動詞・目的語",
+          "label": "SVO"
+        },
+        "VOS": {
+          "description": "動詞・目的語・主語",
+          "label": "VOS"
+        },
+        "VSO": {
+          "description": "動詞・主語・目的語",
+          "label": "VSO"
+        }
+      }
+    },
+    "wordOrderFlexibility": {
+      "name": "語順の柔軟性",
+      "values": {
+        "flexible": {
+          "description": "文体的な目的のためにさまざまな語の配置が許される。",
+          "label": "柔軟"
+        },
+        "rigid": {
+          "description": "語は固定した文法的位置を持つ。",
+          "label": "固定"
+        },
+        "semi-flexible": {
+          "description": "強調のためにある程度の語順変化が許される。",
+          "label": "半固定"
+        }
+      }
+    }
+  },
+  "menu": {
+    "close": "メニューを閉じる",
+    "open": "メニューを開く"
+  },
+  "playlist": {
+    "controls": "プレイリスト操作",
+    "goToBeginning": "最初に戻る（Homeキー）",
+    "next": "次のトラック（右矢印キー）",
+    "pause": "一時停止",
+    "play": "再生",
+    "previous": "前のトラック（左矢印キー）",
+    "progress": "{current} / {total}",
+    "toggleLoop": "ループ切替（Lキー）"
+  },
+  "search": {
+    "clear": "検索をクリア",
+    "label": "検索",
+    "noResults": "「{term}」に一致する言語は見つかりませんでした",
+    "results": "検索結果（{count}）",
+    "threshold": "検索するには{threshold}文字以上入力してください…",
+    "viewAll": "すべて表示"
+  },
+  "tabs": {
+    "controls": "設定",
+    "filters": "フィルター",
+    "languages": "言語",
+    "search": "検索"
+  },
+  "overlay": {
+    "slogan": "知っている言語が多ければ多いほど、あなたはより多くの人間の価値を持つ。",
+    "emptyFilter": "そのフィルターの組み合わせに該当する言語はありません。フィルターを選びすぎている可能性があります。"
+  },
+  "idCard": {
+    "sourceVideo": "元の動画",
+    "opensInNewTab": "新しいタブで開く"
+  }
+}
