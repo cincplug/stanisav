@@ -1,131 +1,42 @@
-import eng from "./messages/eng.json";
-import nld from "./messages/nld.json";
-import srp from "./messages/srp.json";
-import swa from "./messages/swa.json";
-import hin from "./messages/hin.json";
-import ind from "./messages/ind.json";
-import ara from "./messages/ara.json";
-import jpn from "./messages/jpn.json";
-import cmn from "./messages/cmn.json";
-import deu from "./messages/deu.json";
-import ukr from "./messages/ukr.json";
-import fra from "./messages/fra.json";
-import por from "./messages/por.json";
-import spa from "./messages/spa.json";
-import pol from "./messages/pol.json";
-import ita from "./messages/ita.json";
-import ces from "./messages/ces.json";
-import mkd from "./messages/mkd.json";
+// Lazy loaders — Vite splits each JSON into its own chunk, loaded on demand
+const messageLoaders = import.meta.glob("./messages/*.json");
+const languageNameLoaders = import.meta.glob("./language-names/*.json");
+const lineageLabelLoaders = import.meta.glob("./lineage-labels/*.json");
 
-import languageNamesEng from "./language-names/eng.json";
-import languageNamesNld from "./language-names/nld.json";
-import languageNamesSrp from "./language-names/srp.json";
-import languageNamesSwa from "./language-names/swa.json";
-import languageNamesHin from "./language-names/hin.json";
-import languageNamesInd from "./language-names/ind.json";
-import languageNamesAra from "./language-names/ara.json";
-import languageNamesJpn from "./language-names/jpn.json";
-import languageNamesCmn from "./language-names/cmn.json";
-import languageNamesDeu from "./language-names/deu.json";
-import languageNamesUkr from "./language-names/ukr.json";
-import languageNamesFra from "./language-names/fra.json";
-import languageNamesPor from "./language-names/por.json";
-import languageNamesSpa from "./language-names/spa.json";
-import languageNamesPol from "./language-names/pol.json";
-import languageNamesIta from "./language-names/ita.json";
-import languageNamesCes from "./language-names/ces.json";
-import languageNamesMkd from "./language-names/mkd.json";
+// Eagerly load the default locale so the app renders immediately
+import defaultMessages from "./messages/eng.json";
+import defaultLanguageNames from "./language-names/eng.json";
+import defaultLineageLabels from "./lineage-labels/eng.json";
 
-import lineageLabelsEng from "./lineage-labels/eng.json";
-import lineageLabelsNld from "./lineage-labels/nld.json";
-import lineageLabelsSrp from "./lineage-labels/srp.json";
-import lineageLabelsSwa from "./lineage-labels/swa.json";
-import lineageLabelsHin from "./lineage-labels/hin.json";
-import lineageLabelsInd from "./lineage-labels/ind.json";
-import lineageLabelsAra from "./lineage-labels/ara.json";
-import lineageLabelsJpn from "./lineage-labels/jpn.json";
-import lineageLabelsCmn from "./lineage-labels/cmn.json";
-import lineageLabelsDeu from "./lineage-labels/deu.json";
-import lineageLabelsUkr from "./lineage-labels/ukr.json";
-import lineageLabelsFra from "./lineage-labels/fra.json";
-import lineageLabelsPor from "./lineage-labels/por.json";
-import lineageLabelsSpa from "./lineage-labels/spa.json";
-import lineageLabelsPol from "./lineage-labels/pol.json";
-import lineageLabelsIta from "./lineage-labels/ita.json";
-import lineageLabelsCes from "./lineage-labels/ces.json";
-import lineageLabelsMkd from "./lineage-labels/mkd.json";
+// Extract supported locale codes from the file system (Vite resolves at build time)
+const extractCode = (path) => path.match(/\/(\w+)\.json$/)[1];
 
-const messagesByLocale = {
-  eng,
-  nld,
-  srp,
-  mkd,
-  ces,
-  ita,
-  pol,
-  spa,
-  por,
-  fra,
-  ukr,
-  deu,
-  cmn,
-  jpn,
-  ara,
-  ind,
-  hin,
-  swa,
-};
+const supportedLocales = new Set(Object.keys(messageLoaders).map(extractCode));
 
-const lineageLabelsByLocale = {
-  eng: lineageLabelsEng,
-  nld: lineageLabelsNld,
-  srp: lineageLabelsSrp,
-  mkd: lineageLabelsMkd,
-  ces: lineageLabelsCes,
-  ita: lineageLabelsIta,
-  pol: lineageLabelsPol,
-  spa: lineageLabelsSpa,
-  por: lineageLabelsPor,
-  fra: lineageLabelsFra,
-  ukr: lineageLabelsUkr,
-  deu: lineageLabelsDeu,
-  cmn: lineageLabelsCmn,
-  jpn: lineageLabelsJpn,
-  ara: lineageLabelsAra,
-  ind: lineageLabelsInd,
-  hin: lineageLabelsHin,
-  swa: lineageLabelsSwa,
-};
+// Caches for loaded locale data
+const messagesByLocale = { eng: defaultMessages };
+const languageNamesByLocale = { eng: defaultLanguageNames };
+const lineageLabelsByLocale = { eng: defaultLineageLabels };
 
-const languageNamesByLocale = {
-  eng: languageNamesEng,
-  nld: languageNamesNld,
-  srp: languageNamesSrp,
-  mkd: languageNamesMkd,
-  ces: languageNamesCes,
-  ita: languageNamesIta,
-  pol: languageNamesPol,
-  spa: languageNamesSpa,
-  por: languageNamesPor,
-  fra: languageNamesFra,
-  ukr: languageNamesUkr,
-  deu: languageNamesDeu,
-  cmn: languageNamesCmn,
-  jpn: languageNamesJpn,
-  ara: languageNamesAra,
-  ind: languageNamesInd,
-  hin: languageNamesHin,
-  swa: languageNamesSwa,
+const loadLocaleData = async (locale) => {
+  if (messagesByLocale[locale]) return;
+
+  const [messages, languageNames, lineageLabels] = await Promise.all([
+    messageLoaders[`./messages/${locale}.json`](),
+    languageNameLoaders[`./language-names/${locale}.json`](),
+    lineageLabelLoaders[`./lineage-labels/${locale}.json`](),
+  ]);
+
+  messagesByLocale[locale] = messages.default;
+  languageNamesByLocale[locale] = languageNames.default;
+  lineageLabelsByLocale[locale] = lineageLabels.default;
 };
 
 export const defaultLocale = "eng";
 
 // Derive URL slug ↔ ISO 639-3 mappings dynamically via Intl.Locale
 const iso3ToSlug = Object.fromEntries(
-  Object.keys(messagesByLocale).map((iso3) => [
-    iso3,
-    new Intl.Locale(iso3).language,
-  ]),
+  [...supportedLocales].map((iso3) => [iso3, new Intl.Locale(iso3).language]),
 );
 const slugToIso3 = Object.fromEntries(
   Object.entries(iso3ToSlug).map(([iso3, slug]) => [slug, iso3]),
@@ -144,9 +55,9 @@ export const resolveUrlLocale = (slug) => {
   const normalized = String(slug || "")
     .trim()
     .toLowerCase();
-  return slugToIso3[normalized] || messagesByLocale[normalized]
-    ? (slugToIso3[normalized] ?? normalized)
-    : null;
+  if (slugToIso3[normalized]) return slugToIso3[normalized];
+  if (supportedLocales.has(normalized)) return normalized;
+  return null;
 };
 
 const normalizeLocaleCode = (locale) =>
@@ -154,16 +65,11 @@ const normalizeLocaleCode = (locale) =>
     .trim()
     .toLowerCase();
 
-const hasLocaleDataset = (locale) =>
-  locale in messagesByLocale &&
-  locale in languageNamesByLocale &&
-  locale in lineageLabelsByLocale;
-
 export const normalizeLocale = (locale) => normalizeLocaleCode(locale);
 
 export const isSupportedLocale = (locale) => {
   const normalized = normalizeLocaleCode(locale);
-  return Boolean(normalized) && hasLocaleDataset(normalized);
+  return Boolean(normalized) && supportedLocales.has(normalized);
 };
 
 let currentLocale = defaultLocale;
@@ -189,11 +95,12 @@ const getMessageByPath = (messages, key) =>
     return undefined;
   }, messages);
 
-export const setActiveLocale = (locale) => {
+export const setActiveLocale = async (locale) => {
   const normalized = normalizeLocaleCode(locale);
   if (!isSupportedLocale(normalized)) {
     throw new Error(`Unsupported locale '${locale}'`);
   }
+  await loadLocaleData(normalized);
   currentLocale = normalized;
 };
 

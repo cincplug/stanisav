@@ -5,10 +5,20 @@ const I18nContext = createContext(null);
 
 export const I18nProvider = ({ children }) => {
   const [locale, setLocale] = useState("eng");
+  const [isLocaleReady, setIsLocaleReady] = useState(true);
 
   useEffect(() => {
-    setActiveLocale(locale);
-    document.documentElement.lang = new Intl.Locale(locale).language;
+    let cancelled = false;
+    setIsLocaleReady(false);
+    setActiveLocale(locale).then(() => {
+      if (!cancelled) {
+        document.documentElement.lang = new Intl.Locale(locale).language;
+        setIsLocaleReady(true);
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [locale]);
 
   const value = useMemo(
@@ -16,8 +26,9 @@ export const I18nProvider = ({ children }) => {
       locale,
       setLocale,
       t: translate,
+      isLocaleReady,
     }),
-    [locale],
+    [locale, isLocaleReady],
   );
 
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
