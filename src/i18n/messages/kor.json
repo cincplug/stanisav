@@ -1,0 +1,355 @@
+{
+  "controls": {
+    "backgroundColor": {
+      "label": "배경"
+    },
+    "cameraX": {
+      "label": "카메라 X"
+    },
+    "cameraY": {
+      "label": "카메라 Y"
+    },
+    "cameraZ": {
+      "label": "카메라 Z"
+    },
+    "canEditColors": {
+      "label": "색상 편집 가능?"
+    },
+    "eyeProtrusion": {
+      "label": "눈 돌출도"
+    },
+    "eyeSize": {
+      "label": "눈 크기"
+    },
+    "eyeX": {
+      "label": "눈 X"
+    },
+    "eyeY": {
+      "label": "눈 Y"
+    },
+    "eyeZ": {
+      "label": "눈 Z"
+    },
+    "far": {
+      "label": "원거리 클리핑 면"
+    },
+    "fov": {
+      "label": "시야각"
+    },
+    "friction": {
+      "label": "마찰"
+    },
+    "globalChromaOffset": {
+      "label": "채도 오프셋"
+    },
+    "globalChromaScale": {
+      "label": "채도 스케일"
+    },
+    "globalLightnessOffset": {
+      "label": "명도 오프셋"
+    },
+    "globalLightnessScale": {
+      "label": "명도 스케일"
+    },
+    "groups": {
+      "camera": "카메라",
+      "colors": "색상",
+      "languagesTab": "언어 탭",
+      "mesha": "Mesha",
+      "meshaLight": "Mesha 조명",
+      "motion": "모션",
+      "scene": "장면",
+      "stageLight": "무대 조명"
+    },
+    "hasSubtitle": {
+      "label": "자막 표시"
+    },
+    "hueCircle": {
+      "label": "색상환"
+    },
+    "hueStart": {
+      "label": "색조 시작값"
+    },
+    "isLoop": {
+      "label": "재생목록 반복"
+    },
+    "isLuka": {
+      "label": "Luka가 예문을 읽습니다"
+    },
+    "isMyMesha": {
+      "label": "나는 Mesha입니다"
+    },
+    "isReverse": {
+      "label": "역순 정렬"
+    },
+    "labelContent": {
+      "label": "표시 내용",
+      "options": {
+        "isoCode": "ISO 코드",
+        "name": "영어 이름",
+        "nativeName": "현지어 이름"
+      }
+    },
+    "labelSize": {
+      "label": "레이블 크기"
+    },
+    "maxSiblingSpread": {
+      "label": "형제 요소 색조 분산"
+    },
+    "meshaLightDecay": {
+      "label": "감쇠"
+    },
+    "meshaLightDistance": {
+      "label": "거리"
+    },
+    "meshaLightIntensity": {
+      "label": "강도"
+    },
+    "meshaSize": {
+      "label": "Mesha 크기"
+    },
+    "moustacheSize": {
+      "label": "콧수염 크기"
+    },
+    "near": {
+      "label": "근거리 클리핑 면"
+    },
+    "noseSize": {
+      "label": "코 크기"
+    },
+    "showsVideoPreviews": {
+      "label": "원본 미리보기"
+    },
+    "sortBy": {
+      "label": "언어 정렬 기준",
+      "options": {
+        "alphabetically": "알파벳순",
+        "caseCount": "격 수",
+        "evidentiality": "증거성",
+        "family": "어족",
+        "maxClusterSize": "자음 클러스터",
+        "morphology": "형태론",
+        "nounClassCount": "명사 부류",
+        "phonemeCount": "음소 수",
+        "speakers": "화자 수",
+        "tonality": "성조성",
+        "verbAspect": "동사상",
+        "wordOrder": "어순",
+        "wordOrderFlexibility": "어순 유연성"
+      }
+    },
+    "sphereRadius": {
+      "label": "구 반지름"
+    },
+    "stageLightDecay": {
+      "label": "감쇠"
+    },
+    "stageLightDistance": {
+      "label": "거리"
+    },
+    "stageLightIntensity": {
+      "label": "강도"
+    },
+    "switchDuration": {
+      "label": "전환 시간"
+    },
+    "teethSize": {
+      "label": "치아 크기"
+    },
+    "tension": {
+      "label": "장력"
+    },
+    "zoomDistance": {
+      "label": "줌 거리"
+    }
+  },
+  "filters": {
+    "all": "전체",
+    "allowMultipleChoices": "다중 선택 허용",
+    "results": "필터 결과 ({count})",
+    "title": "필터 기준"
+  },
+  "linguistic": {
+    "caseCount": {
+      "name": "격 수"
+    },
+    "evidentiality": {
+      "name": "증거성",
+      "values": {
+        "complex": {
+          "description": "네 가지 이상의 증거성 구분, 또는 시제·상과 융합된 증거성.",
+          "label": "복잡"
+        },
+        "moderate": {
+          "description": "세 가지 구분 (예: 직접, 전달, 추론).",
+          "label": "중간"
+        },
+        "none": {
+          "description": "정보 출처에 대한 문법적 표시 없음.",
+          "label": "없음"
+        },
+        "optional": {
+          "description": "증거성 유사 표지가 존재하지만 의무적이지 않음.",
+          "label": "선택적"
+        },
+        "simple": {
+          "description": "두 가지 구분 (일반적으로 직접 대 간접/전달).",
+          "label": "단순"
+        }
+      }
+    },
+    "family": {
+      "name": "어족"
+    },
+    "maxClusterSize": {
+      "name": "클러스터 내 최대 자음 수"
+    },
+    "morphology": {
+      "name": "형태론",
+      "values": {
+        "agglutinative": {
+          "description": "단어는 접사를 하나씩 차례로 붙여 형성되며, 각 접사는 정확히 하나의 의미를 담는다. 각 부분은 맞물린 블록처럼 명확히 구분된다.",
+          "label": "교착어"
+        },
+        "fusional": {
+          "description": "단어는 여러 문법적 의미를 한꺼번에 묶는 어미와 접두사를 통해 형태를 바꾼다. 하나의 어미가 성·수·격을 동시에 나타낼 수 있어 각 부분을 분리하기 어렵다.",
+          "label": "굴절어"
+        },
+        "introflexive": {
+          "description": "문법이 단어 내부에서 구성된다. 자음으로 이루어진 어근이 핵심 의미를 담고, 그 안에 짜인 다양한 모음 패턴이 새로운 단어를 만든다. 예를 들어 아랍어 어근 k-t-b는 쓰기와 관련되며, kataba·kitāb·kātib가 모두 여기서 파생된다.",
+          "label": "내부 굴절어"
+        },
+        "isolating": {
+          "description": "단어는 일반적으로 하나의 형태소로 이루어지며 형태를 바꾸지 않는다. 문법은 어미나 접두사가 아닌 어순과 별도의 기능어로 표현된다.",
+          "label": "고립어"
+        },
+        "polysynthetic": {
+          "description": "하나의 단어가 다른 언어에서 문장 전체로 표현할 내용을 동사·주어·목적어 등을 융합하여 나타낼 수 있다. 아메리카 및 북극 지역의 토착 언어에 많다.",
+          "label": "포합어"
+        }
+      }
+    },
+    "nounClassCount": {
+      "name": "명사 부류 / 성"
+    },
+    "phonemeCount": {
+      "name": "음소 수"
+    },
+    "tonality": {
+      "name": "성조성",
+      "values": {
+        "complex-tonal": {
+          "description": "성조 패턴이 단어 의미에 큰 영향을 미침.",
+          "label": "복잡 성조"
+        },
+        "non-tonal": {
+          "description": "음높이 변화가 단어 의미에 영향을 미치지 않음.",
+          "label": "비성조"
+        },
+        "pitch-accent": {
+          "description": "특정 음절이 음높이 변화로 강조되는 고저 악센트를 사용.",
+          "label": "고저 악센트"
+        },
+        "simple-tonal": {
+          "description": "음높이 변화가 단어 의미에 어느 정도 영향을 미침.",
+          "label": "단순 성조"
+        }
+      }
+    },
+    "verbAspect": {
+      "name": "동사상",
+      "values": {
+        "binary": {
+          "description": "두 가지 체계적 구분 (완료상/미완료상).",
+          "label": "이분"
+        },
+        "complex": {
+          "description": "풍부한 형태론적 표지를 갖춘 다수의 상 범주.",
+          "label": "복잡"
+        },
+        "minimal": {
+          "description": "문법적 상 표지가 없거나 매우 제한적.",
+          "label": "최소"
+        },
+        "simple": {
+          "description": "기본적인 상 구분 (예: 진행상, 완료상).",
+          "label": "단순"
+        }
+      }
+    },
+    "wordOrder": {
+      "name": "어순",
+      "values": {
+        "SOV": {
+          "description": "주어-목적어-동사",
+          "label": "SOV"
+        },
+        "SVO": {
+          "description": "주어-동사-목적어",
+          "label": "SVO"
+        },
+        "VOS": {
+          "description": "동사-목적어-주어",
+          "label": "VOS"
+        },
+        "VSO": {
+          "description": "동사-주어-목적어",
+          "label": "VSO"
+        }
+      }
+    },
+    "wordOrderFlexibility": {
+      "name": "어순 유연성",
+      "values": {
+        "flexible": {
+          "description": "문체적 목적을 위해 다양한 어순 배열이 허용됨.",
+          "label": "유연"
+        },
+        "rigid": {
+          "description": "단어의 문법적 위치가 고정되어 있음.",
+          "label": "고정"
+        },
+        "semi-flexible": {
+          "description": "강조를 위한 일정한 어순 변형이 허용됨.",
+          "label": "반유연"
+        }
+      }
+    }
+  },
+  "menu": {
+    "close": "메뉴 닫기",
+    "open": "메뉴 열기"
+  },
+  "playlist": {
+    "controls": "재생목록 컨트롤",
+    "goToBeginning": "처음으로 (Home 키)",
+    "next": "다음 트랙 (오른쪽 화살표)",
+    "pause": "일시정지",
+    "play": "재생",
+    "previous": "이전 트랙 (왼쪽 화살표)",
+    "progress": "{current} / {total}",
+    "toggleLoop": "반복 전환 (L 키)"
+  },
+  "search": {
+    "clear": "검색 지우기",
+    "label": "검색",
+    "noResults": "\"{term}\"와 일치하는 언어를 찾을 수 없습니다",
+    "results": "검색 결과 ({count})",
+    "threshold": "검색하려면 {threshold}자 이상 입력하세요…",
+    "viewAll": "전체 보기"
+  },
+  "tabs": {
+    "controls": "설정",
+    "filters": "필터",
+    "languages": "언어",
+    "search": "검색"
+  },
+  "overlay": {
+    "slogan": "언어를 많이 알수록 더 많은 사람의 가치를 지닙니다.",
+    "emptyFilter": "해당 필터 조합에 맞는 언어가 없습니다. 필터를 너무 많이 선택하셨을 수 있습니다."
+  },
+  "idCard": {
+    "sourceVideo": "원본 영상",
+    "opensInNewTab": "새 탭에서 열립니다"
+  }
+}
