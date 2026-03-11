@@ -1,0 +1,355 @@
+{
+  "controls": {
+    "backgroundColor": {
+      "label": "Nền"
+    },
+    "cameraX": {
+      "label": "Máy ảnh X"
+    },
+    "cameraY": {
+      "label": "Máy ảnh Y"
+    },
+    "cameraZ": {
+      "label": "Máy ảnh Z"
+    },
+    "canEditColors": {
+      "label": "Có thể chỉnh màu không?"
+    },
+    "eyeProtrusion": {
+      "label": "Độ lồi của mắt"
+    },
+    "eyeSize": {
+      "label": "Kích thước mắt"
+    },
+    "eyeX": {
+      "label": "Mắt X"
+    },
+    "eyeY": {
+      "label": "Mắt Y"
+    },
+    "eyeZ": {
+      "label": "Mắt Z"
+    },
+    "far": {
+      "label": "Mặt phẳng cắt xa"
+    },
+    "fov": {
+      "label": "Góc nhìn"
+    },
+    "friction": {
+      "label": "Ma sát"
+    },
+    "globalChromaOffset": {
+      "label": "Độ lệch chroma"
+    },
+    "globalChromaScale": {
+      "label": "Tỉ lệ chroma"
+    },
+    "globalLightnessOffset": {
+      "label": "Độ lệch độ sáng"
+    },
+    "globalLightnessScale": {
+      "label": "Tỉ lệ độ sáng"
+    },
+    "groups": {
+      "camera": "Máy ảnh",
+      "colors": "Màu sắc",
+      "languagesTab": "Tab ngôn ngữ",
+      "mesha": "Mesha",
+      "meshaLight": "Ánh sáng Mesha",
+      "motion": "Chuyển động",
+      "scene": "Cảnh",
+      "stageLight": "Ánh sáng sân khấu"
+    },
+    "hasSubtitle": {
+      "label": "Hiển thị phụ đề"
+    },
+    "hueCircle": {
+      "label": "Vòng tròn màu sắc"
+    },
+    "hueStart": {
+      "label": "Màu sắc bắt đầu"
+    },
+    "isLoop": {
+      "label": "Lặp danh sách phát"
+    },
+    "isLuka": {
+      "label": "Luka đọc các mẫu"
+    },
+    "isMyMesha": {
+      "label": "Tôi là Mesha"
+    },
+    "isReverse": {
+      "label": "Thứ tự ngược"
+    },
+    "labelContent": {
+      "label": "Hiển thị",
+      "options": {
+        "isoCode": "Mã ISO",
+        "name": "Tên tiếng Anh",
+        "nativeName": "Tên bản ngữ"
+      }
+    },
+    "labelSize": {
+      "label": "Kích thước nhãn"
+    },
+    "maxSiblingSpread": {
+      "label": "Độ phân tán màu sắc anh chị em"
+    },
+    "meshaLightDecay": {
+      "label": "Suy giảm"
+    },
+    "meshaLightDistance": {
+      "label": "Khoảng cách"
+    },
+    "meshaLightIntensity": {
+      "label": "Cường độ"
+    },
+    "meshaSize": {
+      "label": "Kích thước Mesha"
+    },
+    "moustacheSize": {
+      "label": "Kích thước ria mép"
+    },
+    "near": {
+      "label": "Mặt phẳng cắt gần"
+    },
+    "noseSize": {
+      "label": "Kích thước mũi"
+    },
+    "showsVideoPreviews": {
+      "label": "Xem trước bản gốc"
+    },
+    "sortBy": {
+      "label": "Sắp xếp ngôn ngữ theo",
+      "options": {
+        "alphabetically": "Thứ tự bảng chữ cái",
+        "caseCount": "Số lượng cách",
+        "evidentiality": "Tính chứng cứ",
+        "family": "Ngữ hệ",
+        "maxClusterSize": "Cụm phụ âm",
+        "morphology": "Hình thái học",
+        "nounClassCount": "Lớp danh từ",
+        "phonemeCount": "Số lượng âm vị",
+        "speakers": "Số người nói",
+        "tonality": "Tính thanh điệu",
+        "verbAspect": "Thể động từ",
+        "wordOrder": "Trật tự từ",
+        "wordOrderFlexibility": "Độ linh hoạt trật tự từ"
+      }
+    },
+    "sphereRadius": {
+      "label": "Bán kính hình cầu"
+    },
+    "stageLightDecay": {
+      "label": "Suy giảm"
+    },
+    "stageLightDistance": {
+      "label": "Khoảng cách"
+    },
+    "stageLightIntensity": {
+      "label": "Cường độ"
+    },
+    "switchDuration": {
+      "label": "Thời gian chuyển đổi"
+    },
+    "teethSize": {
+      "label": "Kích thước răng"
+    },
+    "tension": {
+      "label": "Độ căng"
+    },
+    "zoomDistance": {
+      "label": "Khoảng cách thu phóng"
+    }
+  },
+  "filters": {
+    "all": "Tất cả",
+    "allowMultipleChoices": "Cho phép chọn nhiều",
+    "results": "Kết quả lọc ({count})",
+    "title": "Lọc theo"
+  },
+  "linguistic": {
+    "caseCount": {
+      "name": "Số lượng cách"
+    },
+    "evidentiality": {
+      "name": "Tính chứng cứ",
+      "values": {
+        "complex": {
+          "description": "Bốn phân biệt chứng cứ trở lên, hoặc tính chứng cứ kết hợp với thì/thể.",
+          "label": "Phức tạp"
+        },
+        "moderate": {
+          "description": "Phân biệt ba chiều (ví dụ: trực tiếp, tường thuật, suy luận).",
+          "label": "Trung bình"
+        },
+        "none": {
+          "description": "Không có đánh dấu ngữ pháp cho nguồn thông tin.",
+          "label": "Không có"
+        },
+        "optional": {
+          "description": "Các dấu hiệu tương tự chứng cứ tồn tại nhưng không bắt buộc.",
+          "label": "Tùy chọn"
+        },
+        "simple": {
+          "description": "Phân biệt hai chiều (thường là trực tiếp so với gián tiếp/tường thuật).",
+          "label": "Đơn giản"
+        }
+      }
+    },
+    "family": {
+      "name": "Ngữ hệ"
+    },
+    "maxClusterSize": {
+      "name": "Số phụ âm tối đa trong một cụm"
+    },
+    "morphology": {
+      "name": "Hình thái học",
+      "values": {
+        "agglutinative": {
+          "description": "Từ được tạo thành bằng cách xếp chồng các phụ tố lên nhau, trong đó mỗi phụ tố mang đúng một nghĩa. Các phần vẫn có thể nhận ra rõ ràng, như những khối ghép lại với nhau.",
+          "label": "Kết dính"
+        },
+        "fusional": {
+          "description": "Từ thay đổi hình thức qua các hậu tố và tiền tố gói gọn nhiều nghĩa ngữ pháp cùng một lúc. Một hậu tố có thể diễn đạt giống, số và cách đồng thời, khiến các phần khó tách rời.",
+          "label": "Khuất chiết"
+        },
+        "introflexive": {
+          "description": "Ngữ pháp được xây dựng từ bên trong từ: một gốc phụ âm mang nghĩa cốt lõi, trong khi các mẫu nguyên âm khác nhau được dệt vào đó tạo ra các từ mới. Ví dụ, gốc tiếng Ả Rập k-t-b liên quan đến viết, và kataba, kitāb và kātib đều đến từ đó.",
+          "label": "Khuất chiết nội tại"
+        },
+        "isolating": {
+          "description": "Từ thường bao gồm một hình vị duy nhất và không thay đổi hình thức. Ngữ pháp được thể hiện qua trật tự từ và các từ chức năng riêng biệt thay vì hậu tố hay tiền tố.",
+          "label": "Đơn lập"
+        },
+        "polysynthetic": {
+          "description": "Một từ duy nhất có thể diễn đạt những gì các ngôn ngữ khác phải nói trong cả một câu, bằng cách kết hợp động từ, chủ ngữ, tân ngữ và các yếu tố khác lại với nhau. Phổ biến trong các ngôn ngữ bản địa của châu Mỹ và Bắc Cực.",
+          "label": "Tổng hợp đa phức"
+        }
+      }
+    },
+    "nounClassCount": {
+      "name": "Lớp danh từ / giống"
+    },
+    "phonemeCount": {
+      "name": "Số lượng âm vị"
+    },
+    "tonality": {
+      "name": "Tính thanh điệu",
+      "values": {
+        "complex-tonal": {
+          "description": "Các mẫu cao độ ảnh hưởng đáng kể đến nghĩa của từ.",
+          "label": "Thanh điệu phức tạp"
+        },
+        "non-tonal": {
+          "description": "Thay đổi cao độ không ảnh hưởng đến nghĩa của từ.",
+          "label": "Không có thanh điệu"
+        },
+        "pitch-accent": {
+          "description": "Sử dụng trọng âm cao độ, trong đó một số âm tiết được nhấn mạnh bằng thay đổi cao độ.",
+          "label": "Trọng âm cao độ"
+        },
+        "simple-tonal": {
+          "description": "Thay đổi cao độ ảnh hưởng vừa phải đến nghĩa của từ.",
+          "label": "Thanh điệu đơn giản"
+        }
+      }
+    },
+    "verbAspect": {
+      "name": "Thể động từ",
+      "values": {
+        "binary": {
+          "description": "Phân biệt hệ thống hai chiều (hoàn thành/chưa hoàn thành).",
+          "label": "Nhị phân"
+        },
+        "complex": {
+          "description": "Nhiều phạm trù thể với đánh dấu hình thái phong phú.",
+          "label": "Phức tạp"
+        },
+        "minimal": {
+          "description": "Không có hoặc rất ít đánh dấu ngữ pháp về thể.",
+          "label": "Tối thiểu"
+        },
+        "simple": {
+          "description": "Phân biệt thể cơ bản (ví dụ: tiếp diễn, hoàn thành).",
+          "label": "Đơn giản"
+        }
+      }
+    },
+    "wordOrder": {
+      "name": "Trật tự từ",
+      "values": {
+        "SOV": {
+          "description": "Chủ ngữ-Tân ngữ-Động từ",
+          "label": "SOV"
+        },
+        "SVO": {
+          "description": "Chủ ngữ-Động từ-Tân ngữ",
+          "label": "SVO"
+        },
+        "VOS": {
+          "description": "Động từ-Tân ngữ-Chủ ngữ",
+          "label": "VOS"
+        },
+        "VSO": {
+          "description": "Động từ-Chủ ngữ-Tân ngữ",
+          "label": "VSO"
+        }
+      }
+    },
+    "wordOrderFlexibility": {
+      "name": "Độ linh hoạt trật tự từ",
+      "values": {
+        "flexible": {
+          "description": "Nhiều cách sắp xếp từ khác nhau được phép vì mục đích văn phong.",
+          "label": "Linh hoạt"
+        },
+        "rigid": {
+          "description": "Các từ có vị trí ngữ pháp cố định.",
+          "label": "Cố định"
+        },
+        "semi-flexible": {
+          "description": "Một số biến thể trật tự từ được phép để nhấn mạnh.",
+          "label": "Nửa linh hoạt"
+        }
+      }
+    }
+  },
+  "menu": {
+    "close": "Đóng menu",
+    "open": "Mở menu"
+  },
+  "playlist": {
+    "controls": "Điều khiển danh sách phát",
+    "goToBeginning": "Về đầu (phím Home)",
+    "next": "Bài tiếp theo (phím mũi tên phải)",
+    "pause": "Tạm dừng",
+    "play": "Phát",
+    "previous": "Bài trước (phím mũi tên trái)",
+    "progress": "{current} / {total}",
+    "toggleLoop": "Bật/tắt lặp (phím L)"
+  },
+  "search": {
+    "clear": "Xóa tìm kiếm",
+    "label": "Tìm kiếm",
+    "noResults": "Không tìm thấy ngôn ngữ nào khớp với \"{term}\"",
+    "results": "Kết quả tìm kiếm ({count})",
+    "threshold": "Nhập ít nhất {threshold} ký tự để tìm kiếm…",
+    "viewAll": "Xem tất cả"
+  },
+  "tabs": {
+    "controls": "Cài đặt",
+    "filters": "Bộ lọc",
+    "languages": "Ngôn ngữ",
+    "search": "Tìm kiếm"
+  },
+  "overlay": {
+    "slogan": "Bạn biết càng nhiều ngôn ngữ, bạn càng có giá trị bằng nhiều con người.",
+    "emptyFilter": "Không có ngôn ngữ nào cho tổ hợp bộ lọc đó. Bạn có thể đã chọn quá nhiều bộ lọc."
+  },
+  "idCard": {
+    "sourceVideo": "Video nguồn",
+    "opensInNewTab": "mở trong tab mới"
+  }
+}

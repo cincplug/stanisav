@@ -69,7 +69,7 @@ const Node = ({
   );
 
   const spring = useSpring({
-    offset: isSelected ? 3.3 : 0,
+    offset: isSelected ? 4 : 0,
     config: { tension, friction },
   });
 
