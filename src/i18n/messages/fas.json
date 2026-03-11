@@ -1,0 +1,355 @@
+{
+  "controls": {
+    "backgroundColor": {
+      "label": "پس‌زمینه"
+    },
+    "cameraX": {
+      "label": "دوربین X"
+    },
+    "cameraY": {
+      "label": "دوربین Y"
+    },
+    "cameraZ": {
+      "label": "دوربین Z"
+    },
+    "canEditColors": {
+      "label": "آیا می‌توان رنگ‌ها را ویرایش کرد؟"
+    },
+    "eyeProtrusion": {
+      "label": "برجستگی چشم"
+    },
+    "eyeSize": {
+      "label": "اندازه چشم"
+    },
+    "eyeX": {
+      "label": "چشم X"
+    },
+    "eyeY": {
+      "label": "چشم Y"
+    },
+    "eyeZ": {
+      "label": "چشم Z"
+    },
+    "far": {
+      "label": "صفحه برش دور"
+    },
+    "fov": {
+      "label": "میدان دید"
+    },
+    "friction": {
+      "label": "اصطکاک"
+    },
+    "globalChromaOffset": {
+      "label": "افست کروما"
+    },
+    "globalChromaScale": {
+      "label": "مقیاس کروما"
+    },
+    "globalLightnessOffset": {
+      "label": "افست روشنایی"
+    },
+    "globalLightnessScale": {
+      "label": "مقیاس روشنایی"
+    },
+    "groups": {
+      "camera": "دوربین",
+      "colors": "رنگ‌ها",
+      "languagesTab": "تب زبان‌ها",
+      "mesha": "Mesha",
+      "meshaLight": "نور Mesha",
+      "motion": "حرکت",
+      "scene": "صحنه",
+      "stageLight": "نور صحنه"
+    },
+    "hasSubtitle": {
+      "label": "نمایش زیرنویس"
+    },
+    "hueCircle": {
+      "label": "چرخه رنگ"
+    },
+    "hueStart": {
+      "label": "شروع رنگ"
+    },
+    "isLoop": {
+      "label": "تکرار پلی‌لیست"
+    },
+    "isLuka": {
+      "label": "Luka نمونه‌ها را می‌خواند"
+    },
+    "isMyMesha": {
+      "label": "من Mesha هستم"
+    },
+    "isReverse": {
+      "label": "ترتیب معکوس"
+    },
+    "labelContent": {
+      "label": "نمایش",
+      "options": {
+        "isoCode": "کدهای ISO",
+        "name": "نام‌های انگلیسی",
+        "nativeName": "نام‌های بومی"
+      }
+    },
+    "labelSize": {
+      "label": "اندازه برچسب"
+    },
+    "maxSiblingSpread": {
+      "label": "پراکندگی رنگ عناصر هم‌رده"
+    },
+    "meshaLightDecay": {
+      "label": "افت"
+    },
+    "meshaLightDistance": {
+      "label": "فاصله"
+    },
+    "meshaLightIntensity": {
+      "label": "شدت"
+    },
+    "meshaSize": {
+      "label": "اندازه Mesha"
+    },
+    "moustacheSize": {
+      "label": "اندازه سبیل"
+    },
+    "near": {
+      "label": "صفحه برش نزدیک"
+    },
+    "noseSize": {
+      "label": "اندازه بینی"
+    },
+    "showsVideoPreviews": {
+      "label": "پیش‌نمایش اصل"
+    },
+    "sortBy": {
+      "label": "مرتب‌سازی زبان‌ها بر اساس",
+      "options": {
+        "alphabetically": "ترتیب الفبایی",
+        "caseCount": "تعداد حالت‌های دستوری",
+        "evidentiality": "شواهدنمایی",
+        "family": "خانواده زبانی",
+        "maxClusterSize": "خوشه‌های همخوان",
+        "morphology": "ریخت‌شناسی",
+        "nounClassCount": "رده‌های اسمی",
+        "phonemeCount": "تعداد واج‌ها",
+        "speakers": "تعداد گویشوران",
+        "tonality": "لحن‌داری",
+        "verbAspect": "وجه فعل",
+        "wordOrder": "ترتیب کلمات",
+        "wordOrderFlexibility": "انعطاف‌پذیری ترتیب کلمات"
+      }
+    },
+    "sphereRadius": {
+      "label": "شعاع کره"
+    },
+    "stageLightDecay": {
+      "label": "افت"
+    },
+    "stageLightDistance": {
+      "label": "فاصله"
+    },
+    "stageLightIntensity": {
+      "label": "شدت"
+    },
+    "switchDuration": {
+      "label": "مدت زمان تغییر"
+    },
+    "teethSize": {
+      "label": "اندازه دندان‌ها"
+    },
+    "tension": {
+      "label": "کشش"
+    },
+    "zoomDistance": {
+      "label": "فاصله زوم"
+    }
+  },
+  "filters": {
+    "all": "همه",
+    "allowMultipleChoices": "اجازه انتخاب چندگانه",
+    "results": "نتایج فیلتر ({count})",
+    "title": "فیلتر بر اساس"
+  },
+  "linguistic": {
+    "caseCount": {
+      "name": "تعداد حالت‌های دستوری"
+    },
+    "evidentiality": {
+      "name": "شواهدنمایی",
+      "values": {
+        "complex": {
+          "description": "چهار یا بیشتر تمایز شواهدی، یا شواهدنمایی ادغام‌شده با زمان/وجه.",
+          "label": "پیچیده"
+        },
+        "moderate": {
+          "description": "تمایز سه‌گانه (مثلاً مستقیم، نقل‌قولی، استنتاجی).",
+          "label": "متوسط"
+        },
+        "none": {
+          "description": "بدون نشانه‌گذاری دستوری برای منبع اطلاعات.",
+          "label": "ندارد"
+        },
+        "optional": {
+          "description": "نشانگرهای شبیه به شواهد وجود دارند اما اجباری نیستند.",
+          "label": "اختیاری"
+        },
+        "simple": {
+          "description": "تمایز دوگانه (معمولاً مستقیم در برابر غیرمستقیم/نقل‌قولی).",
+          "label": "ساده"
+        }
+      }
+    },
+    "family": {
+      "name": "خانواده زبانی"
+    },
+    "maxClusterSize": {
+      "name": "حداکثر همخوان‌ها در یک خوشه"
+    },
+    "morphology": {
+      "name": "ریخت‌شناسی",
+      "values": {
+        "agglutinative": {
+          "description": "کلمات با افزودن وند پشت سر هم ساخته می‌شوند، هر وند دقیقاً یک معنا دارد. اجزا به‌وضوح قابل تشخیص‌اند، مانند قطعاتی که به هم وصل شده‌اند.",
+          "label": "التصاقی"
+        },
+        "fusional": {
+          "description": "کلمات از طریق پسوندها و پیشوندهایی که چندین معنای دستوری را با هم بسته‌بندی می‌کنند، شکل خود را تغییر می‌دهند. یک پسوند می‌تواند همزمان جنس، شمار و حالت را بیان کند، که جداسازی اجزا را دشوار می‌سازد.",
+          "label": "تصریفی"
+        },
+        "introflexive": {
+          "description": "دستور زبان از درون کلمه ساخته می‌شود: ریشه‌ای از همخوان‌ها معنای اصلی را حمل می‌کند، در حالی که الگوهای متفاوت مصوت که در آن بافته می‌شوند کلمات جدیدی می‌سازند. برای مثال ریشه عربی k-t-b به نوشتن مربوط است، و kataba، kitāb و kātib همه از آن می‌آیند.",
+          "label": "درون‌تصریفی"
+        },
+        "isolating": {
+          "description": "کلمات معمولاً از یک تکواژ تشکیل می‌شوند و شکل خود را تغییر نمی‌دهند. دستور زبان از طریق ترتیب کلمات و کلمات نقشی مستقل بیان می‌شود نه پسوند یا پیشوند.",
+          "label": "تحلیلی"
+        },
+        "polysynthetic": {
+          "description": "یک کلمه می‌تواند چیزی را بیان کند که زبان‌های دیگر در یک جمله کامل می‌گویند، با ادغام فعل، فاعل، مفعول و سایر عناصر با یکدیگر. در زبان‌های بومی آمریکا و قطب شمال رایج است.",
+          "label": "پیوندی"
+        }
+      }
+    },
+    "nounClassCount": {
+      "name": "رده‌های اسمی / جنس"
+    },
+    "phonemeCount": {
+      "name": "تعداد واج‌ها"
+    },
+    "tonality": {
+      "name": "لحن‌داری",
+      "values": {
+        "complex-tonal": {
+          "description": "الگوهای لحنی به‌طور قابل توجهی بر معنای کلمه تأثیر می‌گذارند.",
+          "label": "لحن‌دار پیچیده"
+        },
+        "non-tonal": {
+          "description": "تغییرات لحنی بر معنای کلمه تأثیر نمی‌گذارند.",
+          "label": "غیرلحن‌دار"
+        },
+        "pitch-accent": {
+          "description": "از تکیه آهنگی استفاده می‌کند، جایی که هجاهای خاصی با تغییرات لحنی تأکید می‌شوند.",
+          "label": "تکیه آهنگی"
+        },
+        "simple-tonal": {
+          "description": "تغییرات لحنی به‌طور متوسط بر معنای کلمه تأثیر می‌گذارند.",
+          "label": "لحن‌دار ساده"
+        }
+      }
+    },
+    "verbAspect": {
+      "name": "وجه فعل",
+      "values": {
+        "binary": {
+          "description": "تمایز نظام‌مند دوگانه (کامل/ناکامل).",
+          "label": "دوگانه"
+        },
+        "complex": {
+          "description": "چندین رده وجهی با نشانه‌گذاری ریخت‌شناختی غنی.",
+          "label": "پیچیده"
+        },
+        "minimal": {
+          "description": "بدون یا با بسیار کم نشانه‌گذاری دستوری وجه.",
+          "label": "حداقلی"
+        },
+        "simple": {
+          "description": "تمایزات وجهی پایه (مثلاً استمراری، کامل).",
+          "label": "ساده"
+        }
+      }
+    },
+    "wordOrder": {
+      "name": "ترتیب کلمات",
+      "values": {
+        "SOV": {
+          "description": "فاعل-مفعول-فعل",
+          "label": "SOV"
+        },
+        "SVO": {
+          "description": "فاعل-فعل-مفعول",
+          "label": "SVO"
+        },
+        "VOS": {
+          "description": "فعل-مفعول-فاعل",
+          "label": "VOS"
+        },
+        "VSO": {
+          "description": "فعل-فاعل-مفعول",
+          "label": "VSO"
+        }
+      }
+    },
+    "wordOrderFlexibility": {
+      "name": "انعطاف‌پذیری ترتیب کلمات",
+      "values": {
+        "flexible": {
+          "description": "چینش‌های مختلف کلمات برای اهداف سبکی مجاز است.",
+          "label": "انعطاف‌پذیر"
+        },
+        "rigid": {
+          "description": "کلمات جایگاه‌های دستوری ثابتی دارند.",
+          "label": "سخت"
+        },
+        "semi-flexible": {
+          "description": "برخی تنوع در ترتیب کلمات برای تأکید مجاز است.",
+          "label": "نیمه‌انعطاف‌پذیر"
+        }
+      }
+    }
+  },
+  "menu": {
+    "close": "بستن منو",
+    "open": "باز کردن منو"
+  },
+  "playlist": {
+    "controls": "کنترل‌های پلی‌لیست",
+    "goToBeginning": "رفتن به ابتدا (کلید Home)",
+    "next": "آهنگ بعدی (فلش راست)",
+    "pause": "مکث",
+    "play": "پخش",
+    "previous": "آهنگ قبلی (فلش چپ)",
+    "progress": "{current} از {total}",
+    "toggleLoop": "تغییر حالت تکرار (کلید L)"
+  },
+  "search": {
+    "clear": "پاک کردن جستجو",
+    "label": "جستجو",
+    "noResults": "هیچ زبانی مطابق با \"{term}\" یافت نشد",
+    "results": "نتایج جستجو ({count})",
+    "threshold": "برای جستجو حداقل {threshold} کاراکتر وارد کنید…",
+    "viewAll": "مشاهده همه"
+  },
+  "tabs": {
+    "controls": "تنظیمات",
+    "filters": "فیلترها",
+    "languages": "زبان‌ها",
+    "search": "جستجو"
+  },
+  "overlay": {
+    "slogan": "هر چه زبان‌های بیشتری بدانی، به اندازه انسان‌های بیشتری ارزش داری.",
+    "emptyFilter": "هیچ زبانی برای این ترکیب فیلتر وجود ندارد. احتمالاً فیلترهای زیادی انتخاب کرده‌اید."
+  },
+  "idCard": {
+    "sourceVideo": "ویدیوی منبع",
+    "opensInNewTab": "در تب جدید باز می‌شود"
+  }
+}
