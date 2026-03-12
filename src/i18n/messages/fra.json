@@ -135,7 +135,8 @@
         "tonality": "Tonalité",
         "verbAspect": "Aspect verbal",
         "wordOrder": "Ordre des mots",
-        "wordOrderFlexibility": "Flexibilité de l'ordre des mots"
+        "wordOrderFlexibility": "Flexibilité de l'ordre des mots",
+        "scripts": "Écritures"
       }
     },
     "sphereRadius": {
@@ -234,6 +235,131 @@
     },
     "phonemeCount": {
       "name": "Nombre de phonèmes"
+    },
+    "scripts": {
+      "name": "Écritures",
+      "values": {
+        "Arabic": {
+          "label": "Arabe"
+        },
+        "Armenian": {
+          "label": "Arménien"
+        },
+        "Balinese": {
+          "label": "Balinais"
+        },
+        "Bengali": {
+          "label": "Bengali"
+        },
+        "Canadian Aboriginal Syllabics": {
+          "label": "Syllabaire autochtone canadien"
+        },
+        "Cherokee": {
+          "label": "Cherokee"
+        },
+        "Cyrillic": {
+          "label": "Cyrillique"
+        },
+        "Devanagari": {
+          "label": "Dévanâgarî"
+        },
+        "Ethiopic": {
+          "label": "Éthiopien"
+        },
+        "Georgian": {
+          "label": "Géorgien"
+        },
+        "Greek": {
+          "label": "Grec"
+        },
+        "Gujarati": {
+          "label": "Gujarati"
+        },
+        "Gurmukhi": {
+          "label": "Gurmukhî"
+        },
+        "Han": {
+          "label": "Sinogrammes"
+        },
+        "Hangul": {
+          "label": "Hangûl"
+        },
+        "Hebrew": {
+          "label": "Hébreu"
+        },
+        "Hiragana": {
+          "label": "Hiragana"
+        },
+        "Javanese": {
+          "label": "Javanais"
+        },
+        "Kannada": {
+          "label": "Kannada"
+        },
+        "Katakana": {
+          "label": "Katakana"
+        },
+        "Khmer": {
+          "label": "Khmer"
+        },
+        "Lao": {
+          "label": "Lao"
+        },
+        "Latin": {
+          "label": "Latin"
+        },
+        "Lepcha": {
+          "label": "Lepcha"
+        },
+        "Malayalam": {
+          "label": "Malayalam"
+        },
+        "Meitei Mayek": {
+          "label": "Meitei Mayek"
+        },
+        "Mongolian": {
+          "label": "Mongol"
+        },
+        "Myanmar": {
+          "label": "Birman"
+        },
+        "Newa": {
+          "label": "Newa"
+        },
+        "Odia": {
+          "label": "Odia"
+        },
+        "Ol Chiki": {
+          "label": "Ol Chiki"
+        },
+        "Sinhala": {
+          "label": "Cingalais"
+        },
+        "Sorang Sompeng": {
+          "label": "Sorang Sompeng"
+        },
+        "Tamil": {
+          "label": "Tamoul"
+        },
+        "Telugu": {
+          "label": "Télougou"
+        },
+        "Thai": {
+          "label": "Thaï"
+        },
+        "Tibetan": {
+          "label": "Tibétain"
+        },
+        "Tirhuta": {
+          "label": "Tirhuta"
+        },
+        "Warang Citi": {
+          "label": "Warang Citi"
+        },
+        "Yi": {
+          "label": "Yi"
+        }
+      }
     },
     "tonality": {
       "name": "Tonalité",

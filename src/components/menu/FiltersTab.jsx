@@ -202,7 +202,11 @@ function FiltersTab({ data, languageColors = {} }) {
                                 const valueLabel =
                                   typeof v === "number"
                                     ? v
-                                    : getFeatureLabel(k, v);
+                                    : Array.isArray(v)
+                                      ? v
+                                          .map((s) => getFeatureLabel(k, s))
+                                          .join(", ")
+                                      : getFeatureLabel(k, v);
                                 return `${featureName}: ${valueLabel}`;
                               })
                               .join(", ")}`}

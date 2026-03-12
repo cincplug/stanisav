@@ -28,8 +28,12 @@ export const getFeatureValues = (data, feature) => {
 
   const values = new Set();
   Object.values(data.typologicalFeatures).forEach((lang) => {
-    if (lang[feature] !== undefined && lang[feature] !== null) {
-      values.add(lang[feature]);
+    const val = lang[feature];
+    if (val === undefined || val === null) return;
+    if (Array.isArray(val)) {
+      val.forEach((v) => values.add(v));
+    } else {
+      values.add(val);
     }
   });
 
@@ -57,6 +61,9 @@ export const filterLanguagesByFeatures = (data, filters) => {
         if (!features) return false;
 
         const featureValue = features[feature];
+        if (Array.isArray(featureValue)) {
+          return featureValue.some((v) => values.includes(v));
+        }
         if (typeof featureValue === "number") {
           return values.map(Number).includes(featureValue);
         }

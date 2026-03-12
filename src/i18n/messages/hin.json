@@ -135,7 +135,8 @@
         "tonality": "स्वरात्मकता",
         "verbAspect": "क्रिया पक्ष",
         "wordOrder": "शब्द क्रम",
-        "wordOrderFlexibility": "शब्द क्रम लचीलापन"
+        "wordOrderFlexibility": "शब्द क्रम लचीलापन",
+        "scripts": "लिपियाँ"
       }
     },
     "sphereRadius": {
@@ -234,6 +235,131 @@
     },
     "phonemeCount": {
       "name": "स्वनिम संख्या"
+    },
+    "scripts": {
+      "name": "लिपियाँ",
+      "values": {
+        "Arabic": {
+          "label": "अरबी"
+        },
+        "Armenian": {
+          "label": "आर्मेनियाई"
+        },
+        "Balinese": {
+          "label": "बाली"
+        },
+        "Bengali": {
+          "label": "बांग्ला"
+        },
+        "Canadian Aboriginal Syllabics": {
+          "label": "कनाडाई मूलनिवासी अक्षरमाला"
+        },
+        "Cherokee": {
+          "label": "चेरोकी"
+        },
+        "Cyrillic": {
+          "label": "सिरिलिक"
+        },
+        "Devanagari": {
+          "label": "देवनागरी"
+        },
+        "Ethiopic": {
+          "label": "इथियोपिक"
+        },
+        "Georgian": {
+          "label": "जॉर्जियाई"
+        },
+        "Greek": {
+          "label": "यूनानी"
+        },
+        "Gujarati": {
+          "label": "गुजराती"
+        },
+        "Gurmukhi": {
+          "label": "गुरमुखी"
+        },
+        "Han": {
+          "label": "हान"
+        },
+        "Hangul": {
+          "label": "हंगुल"
+        },
+        "Hebrew": {
+          "label": "हिब्रू"
+        },
+        "Hiragana": {
+          "label": "हिरागाना"
+        },
+        "Javanese": {
+          "label": "जावानीस"
+        },
+        "Kannada": {
+          "label": "कन्नड़"
+        },
+        "Katakana": {
+          "label": "काताकाना"
+        },
+        "Khmer": {
+          "label": "ख्मेर"
+        },
+        "Lao": {
+          "label": "लाओ"
+        },
+        "Latin": {
+          "label": "लैटिन"
+        },
+        "Lepcha": {
+          "label": "लेप्चा"
+        },
+        "Malayalam": {
+          "label": "मलयालम"
+        },
+        "Meitei Mayek": {
+          "label": "मैतै मायेक"
+        },
+        "Mongolian": {
+          "label": "मंगोलियाई"
+        },
+        "Myanmar": {
+          "label": "म्यांमार"
+        },
+        "Newa": {
+          "label": "नेवा"
+        },
+        "Odia": {
+          "label": "ओड़िया"
+        },
+        "Ol Chiki": {
+          "label": "ओल चिकी"
+        },
+        "Sinhala": {
+          "label": "सिंहली"
+        },
+        "Sorang Sompeng": {
+          "label": "सोरंग सोमपेंग"
+        },
+        "Tamil": {
+          "label": "तमिल"
+        },
+        "Telugu": {
+          "label": "तेलुगु"
+        },
+        "Thai": {
+          "label": "थाई"
+        },
+        "Tibetan": {
+          "label": "तिब्बती"
+        },
+        "Tirhuta": {
+          "label": "तिरहुता"
+        },
+        "Warang Citi": {
+          "label": "वारंग क्षिती"
+        },
+        "Yi": {
+          "label": "यी"
+        }
+      }
     },
     "tonality": {
       "name": "स्वरात्मकता",

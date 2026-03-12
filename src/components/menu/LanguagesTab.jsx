@@ -132,8 +132,16 @@ function LanguagesTab({ languageData, isActive, languageColors = {} }) {
             : lineageKey;
         categoryLabel = getFamilyLabel(categoryKey);
       } else if (linguisticConfig[sortBy]?.values) {
-        categoryKey = languageData[langCode][sortBy];
-        categoryLabel = getFeatureLabel(sortBy, categoryKey);
+        const raw = languageData[langCode][sortBy];
+        const keys = Array.isArray(raw) ? raw : [raw];
+        keys.forEach((key) => {
+          const label = getFeatureLabel(sortBy, key);
+          if (!result[key]) {
+            result[key] = { title: label, languages: [] };
+          }
+          result[key].languages.push(langCode);
+        });
+        return;
       } else if (numericFeatures.includes(sortBy)) {
         categoryKey = languageData[langCode][sortBy];
         categoryLabel = `${categoryKey}`;
@@ -147,7 +155,9 @@ function LanguagesTab({ languageData, isActive, languageColors = {} }) {
       }
       result[categoryKey].languages.push(langCode);
     });
-    return Object.values(result);
+    return Object.values(result).sort((a, b) =>
+      a.title.localeCompare(b.title, "und", { sensitivity: "base" }),
+    );
   }, [
     sortedLanguageCodes,
     sortBy,

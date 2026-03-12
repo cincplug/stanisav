@@ -135,7 +135,8 @@
         "tonality": "Тональністю",
         "verbAspect": "Видом дієслова",
         "wordOrder": "Порядком слів",
-        "wordOrderFlexibility": "Гнучкістю порядку слів"
+        "wordOrderFlexibility": "Гнучкістю порядку слів",
+        "scripts": "Письменності"
       }
     },
     "sphereRadius": {
@@ -234,6 +235,131 @@
     },
     "phonemeCount": {
       "name": "Кількість фонем"
+    },
+    "scripts": {
+      "name": "Письменності",
+      "values": {
+        "Arabic": {
+          "label": "Арабиця"
+        },
+        "Armenian": {
+          "label": "Вірменська"
+        },
+        "Balinese": {
+          "label": "Балійська"
+        },
+        "Bengali": {
+          "label": "Бенгальська"
+        },
+        "Canadian Aboriginal Syllabics": {
+          "label": "Канадська складова абетка"
+        },
+        "Cherokee": {
+          "label": "Черокі"
+        },
+        "Cyrillic": {
+          "label": "Кирилиця"
+        },
+        "Devanagari": {
+          "label": "Деванагарі"
+        },
+        "Ethiopic": {
+          "label": "Ефіопська"
+        },
+        "Georgian": {
+          "label": "Грузинська"
+        },
+        "Greek": {
+          "label": "Грецька"
+        },
+        "Gujarati": {
+          "label": "Гуджараті"
+        },
+        "Gurmukhi": {
+          "label": "Ґурмукхі"
+        },
+        "Han": {
+          "label": "Китайська"
+        },
+        "Hangul": {
+          "label": "Хангиль"
+        },
+        "Hebrew": {
+          "label": "Гебрейська"
+        },
+        "Hiragana": {
+          "label": "Хірагана"
+        },
+        "Javanese": {
+          "label": "Яванська"
+        },
+        "Kannada": {
+          "label": "Каннада"
+        },
+        "Katakana": {
+          "label": "Катакана"
+        },
+        "Khmer": {
+          "label": "Кхмерська"
+        },
+        "Lao": {
+          "label": "Лаоська"
+        },
+        "Latin": {
+          "label": "Латиниця"
+        },
+        "Lepcha": {
+          "label": "Лепча"
+        },
+        "Malayalam": {
+          "label": "Малаялам"
+        },
+        "Meitei Mayek": {
+          "label": "Мейтей Маєк"
+        },
+        "Mongolian": {
+          "label": "Монгольська"
+        },
+        "Myanmar": {
+          "label": "М'янманська"
+        },
+        "Newa": {
+          "label": "Нева"
+        },
+        "Odia": {
+          "label": "Одія"
+        },
+        "Ol Chiki": {
+          "label": "Ол-чікі"
+        },
+        "Sinhala": {
+          "label": "Сингальська"
+        },
+        "Sorang Sompeng": {
+          "label": "Соранг Сомпенг"
+        },
+        "Tamil": {
+          "label": "Тамільська"
+        },
+        "Telugu": {
+          "label": "Телугу"
+        },
+        "Thai": {
+          "label": "Тайська"
+        },
+        "Tibetan": {
+          "label": "Тибетська"
+        },
+        "Tirhuta": {
+          "label": "Тірхута"
+        },
+        "Warang Citi": {
+          "label": "Варанг-кшіті"
+        },
+        "Yi": {
+          "label": "Ї"
+        }
+      }
     },
     "tonality": {
       "name": "Тональність",

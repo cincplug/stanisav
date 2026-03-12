@@ -76,6 +76,23 @@ export function sortLanguages({
           );
         });
 
+      case "scripts":
+        return allLanguages.sort((a, b) => {
+          const scriptsA = typologicalFeatures[a][sortBy];
+          const scriptsB = typologicalFeatures[b][sortBy];
+
+          const cmp = collator.compare(
+            String(scriptsA[0]),
+            String(scriptsB[0]),
+          );
+          if (cmp !== 0) return cmp;
+
+          return collator.compare(
+            getLocalizedLanguageName(a),
+            getLocalizedLanguageName(b),
+          );
+        });
+
       case "tonality":
       case "morphology":
       case "wordOrderFlexibility":

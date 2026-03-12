@@ -42,6 +42,9 @@ export const calculateLanguageFilterStatus = (
         }
 
         const featureValue = features[feature];
+        if (Array.isArray(featureValue)) {
+          return featureValue.some((v) => values.includes(v));
+        }
         if (typeof featureValue === "number") {
           return values.map(Number).includes(featureValue);
         }

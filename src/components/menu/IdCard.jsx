@@ -56,7 +56,9 @@ function IdCard({
           ? Number.isFinite(rawValue)
             ? formatNumber(rawValue)
             : null
-          : getFeatureLabel(key, rawValue),
+          : Array.isArray(rawValue)
+            ? rawValue.map((v) => getFeatureLabel(key, v)).join(", ")
+            : getFeatureLabel(key, rawValue),
       };
     });
 

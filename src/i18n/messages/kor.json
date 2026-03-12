@@ -135,7 +135,8 @@
         "tonality": "성조성",
         "verbAspect": "동사상",
         "wordOrder": "어순",
-        "wordOrderFlexibility": "어순 유연성"
+        "wordOrderFlexibility": "어순 유연성",
+        "scripts": "문자"
       }
     },
     "sphereRadius": {
@@ -234,6 +235,131 @@
     },
     "phonemeCount": {
       "name": "음소 수"
+    },
+    "scripts": {
+      "name": "문자",
+      "values": {
+        "Arabic": {
+          "label": "아랍 문자"
+        },
+        "Armenian": {
+          "label": "아르메니아 문자"
+        },
+        "Balinese": {
+          "label": "발리 문자"
+        },
+        "Bengali": {
+          "label": "벵골 문자"
+        },
+        "Canadian Aboriginal Syllabics": {
+          "label": "캐나다 원주민 음절 문자"
+        },
+        "Cherokee": {
+          "label": "체로키 문자"
+        },
+        "Cyrillic": {
+          "label": "키릴 문자"
+        },
+        "Devanagari": {
+          "label": "데바나가리"
+        },
+        "Ethiopic": {
+          "label": "에티오피아 문자"
+        },
+        "Georgian": {
+          "label": "조지아 문자"
+        },
+        "Greek": {
+          "label": "그리스 문자"
+        },
+        "Gujarati": {
+          "label": "구자라트 문자"
+        },
+        "Gurmukhi": {
+          "label": "구르무키 문자"
+        },
+        "Han": {
+          "label": "한자"
+        },
+        "Hangul": {
+          "label": "한글"
+        },
+        "Hebrew": {
+          "label": "히브리 문자"
+        },
+        "Hiragana": {
+          "label": "히라가나"
+        },
+        "Javanese": {
+          "label": "자바 문자"
+        },
+        "Kannada": {
+          "label": "칸나다 문자"
+        },
+        "Katakana": {
+          "label": "가타카나"
+        },
+        "Khmer": {
+          "label": "크메르 문자"
+        },
+        "Lao": {
+          "label": "라오 문자"
+        },
+        "Latin": {
+          "label": "라틴 문자"
+        },
+        "Lepcha": {
+          "label": "렙차 문자"
+        },
+        "Malayalam": {
+          "label": "말라얄람 문자"
+        },
+        "Meitei Mayek": {
+          "label": "메이테이 마옉"
+        },
+        "Mongolian": {
+          "label": "몽골 문자"
+        },
+        "Myanmar": {
+          "label": "미얀마 문자"
+        },
+        "Newa": {
+          "label": "네와 문자"
+        },
+        "Odia": {
+          "label": "오디아 문자"
+        },
+        "Ol Chiki": {
+          "label": "올치키 문자"
+        },
+        "Sinhala": {
+          "label": "싱할라 문자"
+        },
+        "Sorang Sompeng": {
+          "label": "소랑솜펭"
+        },
+        "Tamil": {
+          "label": "타밀 문자"
+        },
+        "Telugu": {
+          "label": "텔루구 문자"
+        },
+        "Thai": {
+          "label": "태국 문자"
+        },
+        "Tibetan": {
+          "label": "티베트 문자"
+        },
+        "Tirhuta": {
+          "label": "티르후타 문자"
+        },
+        "Warang Citi": {
+          "label": "와랑치티"
+        },
+        "Yi": {
+          "label": "이 문자"
+        }
+      }
     },
     "tonality": {
       "name": "성조성",

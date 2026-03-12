@@ -35,7 +35,7 @@ export const getFeatureLabel = (feature, value) => {
 // Get feature description from config
 export const getFeatureDescription = (feature, value) => {
   const featureConfig = linguisticConfig[feature];
-  if (!featureConfig?.values?.[value]) {
+  if (!featureConfig?.values?.[value]?.description) {
     return null;
   }
   return translate(`linguistic.${feature}.values.${value}.description`);

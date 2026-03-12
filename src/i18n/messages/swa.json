@@ -135,7 +135,8 @@
         "tonality": "Utonali",
         "verbAspect": "Kipengele cha kitenzi",
         "wordOrder": "Mpangilio wa maneno",
-        "wordOrderFlexibility": "Kubadilika kwa mpangilio wa maneno"
+        "wordOrderFlexibility": "Kubadilika kwa mpangilio wa maneno",
+        "scripts": "Maandishi"
       }
     },
     "sphereRadius": {
@@ -234,6 +235,131 @@
     },
     "phonemeCount": {
       "name": "Idadi ya fonimu"
+    },
+    "scripts": {
+      "name": "Maandishi",
+      "values": {
+        "Arabic": {
+          "label": "Kiarabu"
+        },
+        "Armenian": {
+          "label": "Kiarmenia"
+        },
+        "Balinese": {
+          "label": "Kibali"
+        },
+        "Bengali": {
+          "label": "Kibengali"
+        },
+        "Canadian Aboriginal Syllabics": {
+          "label": "Herufi za Waaborijini wa Kanada"
+        },
+        "Cherokee": {
+          "label": "Cherokee"
+        },
+        "Cyrillic": {
+          "label": "Kisirili"
+        },
+        "Devanagari": {
+          "label": "Devanagari"
+        },
+        "Ethiopic": {
+          "label": "Kiethiopia"
+        },
+        "Georgian": {
+          "label": "Kigeorgia"
+        },
+        "Greek": {
+          "label": "Kigiriki"
+        },
+        "Gujarati": {
+          "label": "Kigujarat"
+        },
+        "Gurmukhi": {
+          "label": "Gurmukhi"
+        },
+        "Han": {
+          "label": "Han"
+        },
+        "Hangul": {
+          "label": "Hangul"
+        },
+        "Hebrew": {
+          "label": "Kiebrania"
+        },
+        "Hiragana": {
+          "label": "Hiragana"
+        },
+        "Javanese": {
+          "label": "Kijava"
+        },
+        "Kannada": {
+          "label": "Kikannada"
+        },
+        "Katakana": {
+          "label": "Katakana"
+        },
+        "Khmer": {
+          "label": "Kikambodia"
+        },
+        "Lao": {
+          "label": "Kilao"
+        },
+        "Latin": {
+          "label": "Kilatini"
+        },
+        "Lepcha": {
+          "label": "Lepcha"
+        },
+        "Malayalam": {
+          "label": "Kimalayalam"
+        },
+        "Meitei Mayek": {
+          "label": "Meitei Mayek"
+        },
+        "Mongolian": {
+          "label": "Kimongolia"
+        },
+        "Myanmar": {
+          "label": "Kimyanmar"
+        },
+        "Newa": {
+          "label": "Newa"
+        },
+        "Odia": {
+          "label": "Odia"
+        },
+        "Ol Chiki": {
+          "label": "Ol Chiki"
+        },
+        "Sinhala": {
+          "label": "Kisinhala"
+        },
+        "Sorang Sompeng": {
+          "label": "Sorang Sompeng"
+        },
+        "Tamil": {
+          "label": "Kitamili"
+        },
+        "Telugu": {
+          "label": "Kitelugu"
+        },
+        "Thai": {
+          "label": "Kithai"
+        },
+        "Tibetan": {
+          "label": "Kitibeti"
+        },
+        "Tirhuta": {
+          "label": "Tirhuta"
+        },
+        "Warang Citi": {
+          "label": "Warang Citi"
+        },
+        "Yi": {
+          "label": "Yi"
+        }
+      }
     },
     "tonality": {
       "name": "Utonali",

@@ -135,7 +135,8 @@
         "tonality": "Sautin kari",
         "verbAspect": "Fuska ta fi'ili",
         "wordOrder": "Tsarin kalma",
-        "wordOrderFlexibility": "Sassauci na tsarin kalma"
+        "wordOrderFlexibility": "Sassauci na tsarin kalma",
+        "scripts": "Tsarin rubutu"
       }
     },
     "sphereRadius": {
@@ -234,6 +235,131 @@
     },
     "phonemeCount": {
       "name": "Yawan sauti"
+    },
+    "scripts": {
+      "name": "Tsarin rubutu",
+      "values": {
+        "Arabic": {
+          "label": "Larabci"
+        },
+        "Armenian": {
+          "label": "Armeniyanci"
+        },
+        "Balinese": {
+          "label": "Balinanci"
+        },
+        "Bengali": {
+          "label": "Bengali"
+        },
+        "Canadian Aboriginal Syllabics": {
+          "label": "Tsarin rubutun 'yan asalin Kanada"
+        },
+        "Cherokee": {
+          "label": "Cherokee"
+        },
+        "Cyrillic": {
+          "label": "Sirilik"
+        },
+        "Devanagari": {
+          "label": "Devanagari"
+        },
+        "Ethiopic": {
+          "label": "Habashanci"
+        },
+        "Georgian": {
+          "label": "Jojiyanci"
+        },
+        "Greek": {
+          "label": "Girkanci"
+        },
+        "Gujarati": {
+          "label": "Gujarati"
+        },
+        "Gurmukhi": {
+          "label": "Gurmukhi"
+        },
+        "Han": {
+          "label": "Han"
+        },
+        "Hangul": {
+          "label": "Hangul"
+        },
+        "Hebrew": {
+          "label": "Ibrananci"
+        },
+        "Hiragana": {
+          "label": "Hiragana"
+        },
+        "Javanese": {
+          "label": "Javanci"
+        },
+        "Kannada": {
+          "label": "Kannada"
+        },
+        "Katakana": {
+          "label": "Katakana"
+        },
+        "Khmer": {
+          "label": "Khmer"
+        },
+        "Lao": {
+          "label": "Lao"
+        },
+        "Latin": {
+          "label": "Latin"
+        },
+        "Lepcha": {
+          "label": "Lepcha"
+        },
+        "Malayalam": {
+          "label": "Malayalam"
+        },
+        "Meitei Mayek": {
+          "label": "Meitei Mayek"
+        },
+        "Mongolian": {
+          "label": "Mongoliyanci"
+        },
+        "Myanmar": {
+          "label": "Myanmar"
+        },
+        "Newa": {
+          "label": "Newa"
+        },
+        "Odia": {
+          "label": "Odia"
+        },
+        "Ol Chiki": {
+          "label": "Ol Chiki"
+        },
+        "Sinhala": {
+          "label": "Sinhala"
+        },
+        "Sorang Sompeng": {
+          "label": "Sorang Sompeng"
+        },
+        "Tamil": {
+          "label": "Tamil"
+        },
+        "Telugu": {
+          "label": "Telugu"
+        },
+        "Thai": {
+          "label": "Thai"
+        },
+        "Tibetan": {
+          "label": "Tibet"
+        },
+        "Tirhuta": {
+          "label": "Tirhuta"
+        },
+        "Warang Citi": {
+          "label": "Warang Citi"
+        },
+        "Yi": {
+          "label": "Yi"
+        }
+      }
     },
     "tonality": {
       "name": "Sautin kari",

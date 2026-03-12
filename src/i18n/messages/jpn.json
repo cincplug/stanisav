@@ -135,7 +135,8 @@
         "tonality": "声調性",
         "verbAspect": "動詞アスペクト",
         "wordOrder": "語順",
-        "wordOrderFlexibility": "語順の柔軟性"
+        "wordOrderFlexibility": "語順の柔軟性",
+        "scripts": "文字体系"
       }
     },
     "sphereRadius": {
@@ -234,6 +235,131 @@
     },
     "phonemeCount": {
       "name": "音素数"
+    },
+    "scripts": {
+      "name": "文字体系",
+      "values": {
+        "Arabic": {
+          "label": "アラビア文字"
+        },
+        "Armenian": {
+          "label": "アルメニア文字"
+        },
+        "Balinese": {
+          "label": "バリ文字"
+        },
+        "Bengali": {
+          "label": "ベンガル文字"
+        },
+        "Canadian Aboriginal Syllabics": {
+          "label": "カナダ先住民文字"
+        },
+        "Cherokee": {
+          "label": "チェロキー文字"
+        },
+        "Cyrillic": {
+          "label": "キリル文字"
+        },
+        "Devanagari": {
+          "label": "デーヴァナーガリー"
+        },
+        "Ethiopic": {
+          "label": "エチオピア文字"
+        },
+        "Georgian": {
+          "label": "ジョージア文字"
+        },
+        "Greek": {
+          "label": "ギリシア文字"
+        },
+        "Gujarati": {
+          "label": "グジャラート文字"
+        },
+        "Gurmukhi": {
+          "label": "グルムキー文字"
+        },
+        "Han": {
+          "label": "漢字"
+        },
+        "Hangul": {
+          "label": "ハングル"
+        },
+        "Hebrew": {
+          "label": "ヘブライ文字"
+        },
+        "Hiragana": {
+          "label": "ひらがな"
+        },
+        "Javanese": {
+          "label": "ジャワ文字"
+        },
+        "Kannada": {
+          "label": "カンナダ文字"
+        },
+        "Katakana": {
+          "label": "カタカナ"
+        },
+        "Khmer": {
+          "label": "クメール文字"
+        },
+        "Lao": {
+          "label": "ラオ文字"
+        },
+        "Latin": {
+          "label": "ラテン文字"
+        },
+        "Lepcha": {
+          "label": "レプチャ文字"
+        },
+        "Malayalam": {
+          "label": "マラヤーラム文字"
+        },
+        "Meitei Mayek": {
+          "label": "メイテイ・マイェク"
+        },
+        "Mongolian": {
+          "label": "モンゴル文字"
+        },
+        "Myanmar": {
+          "label": "ミャンマー文字"
+        },
+        "Newa": {
+          "label": "ネワール文字"
+        },
+        "Odia": {
+          "label": "オリヤー文字"
+        },
+        "Ol Chiki": {
+          "label": "オルチキ文字"
+        },
+        "Sinhala": {
+          "label": "シンハラ文字"
+        },
+        "Sorang Sompeng": {
+          "label": "ソラング・ソンペング"
+        },
+        "Tamil": {
+          "label": "タミル文字"
+        },
+        "Telugu": {
+          "label": "テルグ文字"
+        },
+        "Thai": {
+          "label": "タイ文字"
+        },
+        "Tibetan": {
+          "label": "チベット文字"
+        },
+        "Tirhuta": {
+          "label": "ティルフータ文字"
+        },
+        "Warang Citi": {
+          "label": "ワラング・クシティ"
+        },
+        "Yi": {
+          "label": "イ文字"
+        }
+      }
     },
     "tonality": {
       "name": "声調性",
