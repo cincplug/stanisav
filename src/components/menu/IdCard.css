@@ -12,6 +12,7 @@
   overflow: auto;
 }
 
+
 .id-card-header {
   position: relative;
   display: grid;
@@ -23,11 +24,27 @@
   padding: 0 var(--gap-triple) 0 var(--gap-double);
 }
 
+html.rtl .id-card-header {
+  padding: 0 var(--gap-double) 0 var(--gap-triple);
+}
+
+.id-card-close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+
+html.rtl .id-card-close-button {
+  right: auto;
+  left: 0;
+}
+
 .id-card-title {
   grid-column: 1;
   margin: 0;
   font-size: var(--font-size-big);
-  text-align: left;
+  text-align: start;
   color: var(--color-text-active);
   font-weight: normal;
 }

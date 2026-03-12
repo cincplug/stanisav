@@ -1,7 +1,7 @@
 /* Language group container */
 .language-group-container {
   margin-bottom: var(--gap-double);
-  margin-left: 0;
+  margin-inline-start: 0;
 }
 
 .group-header {
@@ -31,7 +31,7 @@
 }
 
 .lineage-group.nested {
-  margin-left: var(--gap-double);
+  margin-inline-start: var(--gap-double);
 }
 
 .lineage-children {

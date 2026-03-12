@@ -75,7 +75,7 @@
 
 .svgallery-attributes dd {
   color: var(--color-text-active);
-  margin-left: 1rem;
+  margin-inline-start: 1rem;
 }
 
 .svgallery-attributes {
@@ -91,5 +91,5 @@ small {
 
 .home-link {
   display: block;
-  text-align: right;
+  text-align: end;
 }

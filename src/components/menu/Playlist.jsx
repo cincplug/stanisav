@@ -74,10 +74,10 @@ export default function Playlist() {
       aria-label={t("playlist.controls")}
     >
       <button onClick={goToBegin} aria-label={t("playlist.goToBeginning")}>
-        <BeginIcon />
+        <BeginIcon className="begin-icon" />
       </button>
       <button onClick={goToPrev} aria-label={t("playlist.previous")}>
-        <PrevIcon />
+        <PrevIcon className="prev-icon" />
       </button>
       <button
         className="playlist-main"
@@ -87,8 +87,8 @@ export default function Playlist() {
       >
         {playIcon}
       </button>
-      <button onClick={goToNext} aria-label={t("playlist.next")}>
-        <NextIcon />
+      <button onClick={goToNext} aria-label={t("playlist.next")}> 
+        <NextIcon className="next-icon" />
       </button>
       <button
         onClick={toggleLoop}

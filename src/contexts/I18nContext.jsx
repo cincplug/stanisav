@@ -3,6 +3,10 @@ import { setActiveLocale, translate } from "../i18n/runtime";
 
 const I18nContext = createContext(null);
 
+
+// List of RTL ISO 639-3 codes supported by the app
+const RTL_LOCALES = new Set(["ara", "heb", "fas", "urd"]); // Arabic, Hebrew, Persian, Urdu
+
 export const I18nProvider = ({ children }) => {
   const [locale, setLocale] = useState("eng");
   const [isLocaleReady, setIsLocaleReady] = useState(true);
@@ -12,7 +16,11 @@ export const I18nProvider = ({ children }) => {
     setIsLocaleReady(false);
     setActiveLocale(locale).then(() => {
       if (!cancelled) {
-        document.documentElement.lang = new Intl.Locale(locale).language;
+        const lang = new Intl.Locale(locale).language;
+        document.documentElement.lang = lang;
+        const isRtl = RTL_LOCALES.has(locale);
+        document.documentElement.dir = isRtl ? "rtl" : "ltr";
+        document.documentElement.classList.toggle("rtl", isRtl);
         setIsLocaleReady(true);
       }
     });

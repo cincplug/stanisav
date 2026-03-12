@@ -21,6 +21,8 @@ function Menu({
   onFilteringUtilsChange,
   languageColors,
 }) {
+  // Detect RTL from document direction
+  const isRtl = typeof window !== "undefined" && document.documentElement.classList.contains("rtl");
   const { controls, updateControl } = useControls();
   const { t } = useI18n();
   const [activeTab, setActiveTab] = useState(tabsConfig.defaultTab);
@@ -62,6 +64,7 @@ function Menu({
         onClick={() => onToggleCollapse(!isCollapsed)}
         className="close-button"
         aria-label={isCollapsed ? t("menu.open") : t("menu.close")}
+        style={isRtl ? { left: 16, right: "auto" } : {}}
       >
         {isCollapsed ? <BurgerIcon /> : <CloseIcon />}
       </button>

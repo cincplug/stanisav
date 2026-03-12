@@ -200,6 +200,6 @@ legend {
 }
 
 .indent {
-  margin-left: var(--gap-double);
+  margin-inline-start: var(--gap-double);
   position: relative;
 }

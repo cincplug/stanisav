@@ -17,6 +17,28 @@
   box-sizing: border-box;
 }
 
+html.rtl .menu {
+  border-left: none;
+  border-right: 1px solid var(--color-interactive);
+  left: 0;
+  right: auto;
+  direction: rtl;
+  /* Padding stays the same for now, but can be adjusted if needed */
+}
+
+/* Mirror close button for RTL */
+.menu-close {
+  position: absolute;
+  top: var(--gap-double);
+  right: var(--gap-double);
+  z-index: 10;
+}
+
+html.rtl .menu-close {
+  right: auto;
+  left: var(--gap-double);
+}
+
 .tabs-inner {
   overflow-y: auto;
   padding: var(--gap-half);

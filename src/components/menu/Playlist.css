@@ -1,54 +1,69 @@
+html.rtl .playlist-controls .begin-icon,
+html.rtl .playlist-controls .prev-icon,
+html.rtl .playlist-controls .next-icon {
+  transform: scaleX(-1);
+}
+
+/* LTR default */
 .playlist-controls {
   position: absolute;
   top: var(--gap-double);
   left: var(--gap-double);
+  right: auto;
   display: flex;
   gap: 8px;
   align-items: center;
   z-index: 10;
+}
 
-  @media (max-width: 768px) {
+html.rtl .playlist-controls {
+  left: auto;
+  right: var(--gap-double);
+}
+
+@media (max-width: 768px) {
+  .playlist-controls {
     bottom: 0;
     top: auto;
     left: 0;
     padding: var(--gap-double);
     background: var(--color-menu-background);
   }
+}
 
-  button {
-    background-color: var(--color-interactive);
-    border: 1px solid var(--color-interactive);
-    color: var(--color-text);
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    font-weight: normal;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
+.playlist-controls button {
+  background-color: var(--color-interactive);
+  border: 1px solid var(--color-interactive);
+  color: var(--color-text);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
 
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-  }
+.playlist-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
-  .playlist-main {
-    border-radius: var(--border-radius);
-    background: var(--color-video);
-    border: none;
-    box-shadow: var(--shadow-mild);
-    color: var(--color-text);
-    cursor: pointer;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.playlist-main {
+  border-radius: var(--border-radius);
+  background: var(--color-video);
+  border: none;
+  box-shadow: var(--shadow-mild);
+  color: var(--color-text);
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .playlist-progress {
-    min-width: fit-content;
-    text-align: center;
-    color: var(--color-text);
-  }
+.playlist-progress {
+  min-width: fit-content;
+  text-align: center;
+  color: var(--color-text);
 }
