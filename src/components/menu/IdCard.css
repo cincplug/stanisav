@@ -20,6 +20,7 @@
   gap: var(--gap);
   margin-bottom: var(--gap);
   color: var(--id-card-heading-color, var(--color-text-active));
+  padding: 0 var(--gap-triple) 0 var(--gap-double);
 }
 
 .id-card-title {
@@ -105,6 +106,9 @@
 
 .id-card-source-video {
   white-space: nowrap;
+  position: relative;
+  bottom: var(--gap-half);
+  right: var(--gap-double);
 }
 
 .id-card-actions {

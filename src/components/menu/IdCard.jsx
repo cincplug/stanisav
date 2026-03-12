@@ -102,7 +102,6 @@ function IdCard({
         <CloseIcon />
       </button>
 
-      <p className="subtitle">{sub}</p>
       <div className="id-card-header">
         <h2 className="id-card-title">
           {localizedLanguageName} ({language.nativeName})
