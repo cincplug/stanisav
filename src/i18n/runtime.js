@@ -11,7 +11,8 @@ import defaultLineageLabels from "./lineage-labels/eng.json";
 // Extract supported locale codes from the file system (Vite resolves at build time)
 const extractCode = (path) => path.match(/\/(\w+)\.json$/)[1];
 
-const supportedLocales = new Set(Object.keys(messageLoaders).map(extractCode));
+export const getSupportedLocales = () =>
+  Array.from(Object.keys(messageLoaders).map(extractCode));
 
 // Caches for loaded locale data
 const messagesByLocale = { eng: defaultMessages };
@@ -35,8 +36,9 @@ const loadLocaleData = async (locale) => {
 export const defaultLocale = "eng";
 
 // Derive URL slug ↔ ISO 639-3 mappings dynamically via Intl.Locale
+const supportedLocalesArr = getSupportedLocales();
 const iso3ToSlug = Object.fromEntries(
-  [...supportedLocales].map((iso3) => [iso3, new Intl.Locale(iso3).language]),
+  supportedLocalesArr.map((iso3) => [iso3, new Intl.Locale(iso3).language]),
 );
 const slugToIso3 = Object.fromEntries(
   Object.entries(iso3ToSlug).map(([iso3, slug]) => [slug, iso3]),
@@ -56,7 +58,7 @@ export const resolveUrlLocale = (slug) => {
     .trim()
     .toLowerCase();
   if (slugToIso3[normalized]) return slugToIso3[normalized];
-  if (supportedLocales.has(normalized)) return normalized;
+  if (supportedLocalesArr.includes(normalized)) return normalized;
   return null;
 };
 
@@ -69,7 +71,7 @@ export const normalizeLocale = (locale) => normalizeLocaleCode(locale);
 
 export const isSupportedLocale = (locale) => {
   const normalized = normalizeLocaleCode(locale);
-  return Boolean(normalized) && supportedLocales.has(normalized);
+  return Boolean(normalized) && supportedLocalesArr.includes(normalized);
 };
 
 let currentLocale = defaultLocale;
