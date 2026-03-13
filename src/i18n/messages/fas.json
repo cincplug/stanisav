@@ -135,7 +135,8 @@
         "tonality": "لحن‌داری",
         "verbAspect": "وجه فعل",
         "wordOrder": "ترتیب کلمات",
-        "wordOrderFlexibility": "انعطاف‌پذیری ترتیب کلمات"
+        "wordOrderFlexibility": "انعطاف‌پذیری ترتیب کلمات",
+        "scripts": "خط‌ها"
       }
     },
     "sphereRadius": {
@@ -234,6 +235,131 @@
     },
     "phonemeCount": {
       "name": "تعداد واج‌ها"
+    },
+    "scripts": {
+      "name": "خط‌ها",
+      "values": {
+        "Arabic": {
+          "label": "عربی"
+        },
+        "Armenian": {
+          "label": "ارمنی"
+        },
+        "Balinese": {
+          "label": "بالیایی"
+        },
+        "Bengali": {
+          "label": "بنگالی"
+        },
+        "Canadian Aboriginal Syllabics": {
+          "label": "هجانویسی بومیان کانادا"
+        },
+        "Cherokee": {
+          "label": "چروکی"
+        },
+        "Cyrillic": {
+          "label": "سیریلیک"
+        },
+        "Devanagari": {
+          "label": "دوناگری"
+        },
+        "Ethiopic": {
+          "label": "اتیوپیک"
+        },
+        "Georgian": {
+          "label": "گرجی"
+        },
+        "Greek": {
+          "label": "یونانی"
+        },
+        "Gujarati": {
+          "label": "گجراتی"
+        },
+        "Gurmukhi": {
+          "label": "گورموکهی"
+        },
+        "Han": {
+          "label": "هان"
+        },
+        "Hangul": {
+          "label": "هانگول"
+        },
+        "Hebrew": {
+          "label": "عبری"
+        },
+        "Hiragana": {
+          "label": "هیراگانا"
+        },
+        "Javanese": {
+          "label": "جاوایی"
+        },
+        "Kannada": {
+          "label": "کانادا"
+        },
+        "Katakana": {
+          "label": "کاتاکانا"
+        },
+        "Khmer": {
+          "label": "خمر"
+        },
+        "Lao": {
+          "label": "لائوسی"
+        },
+        "Latin": {
+          "label": "لاتین"
+        },
+        "Lepcha": {
+          "label": "لپچا"
+        },
+        "Malayalam": {
+          "label": "مالایالام"
+        },
+        "Meitei Mayek": {
+          "label": "میتی مایک"
+        },
+        "Mongolian": {
+          "label": "مغولی"
+        },
+        "Myanmar": {
+          "label": "میانماری"
+        },
+        "Newa": {
+          "label": "نِوا"
+        },
+        "Odia": {
+          "label": "اودیا"
+        },
+        "Ol Chiki": {
+          "label": "اول چیکی"
+        },
+        "Sinhala": {
+          "label": "سینهالا"
+        },
+        "Sorang Sompeng": {
+          "label": "سورانگ سومپنگ"
+        },
+        "Tamil": {
+          "label": "تامیلی"
+        },
+        "Telugu": {
+          "label": "تلوگو"
+        },
+        "Thai": {
+          "label": "تایلندی"
+        },
+        "Tibetan": {
+          "label": "تبتی"
+        },
+        "Tirhuta": {
+          "label": "تیرهوتا"
+        },
+        "Warang Citi": {
+          "label": "وارانگ سیتی"
+        },
+        "Yi": {
+          "label": "یی"
+        }
+      }
     },
     "tonality": {
       "name": "لحن‌داری",
