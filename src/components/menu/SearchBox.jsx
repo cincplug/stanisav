@@ -1,4 +1,3 @@
-import { useRef, useEffect, useRef as useReactRef } from "react";
 import { CloseIcon } from "./MenuIcons";
 import "./SearchTab.css";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
@@ -39,9 +38,6 @@ function SearchBox({ searchTerm, setSearchTerm, clearSearch }) {
           <CloseIcon />
         </button>
       </div>
-      <button onClick={handleViewAll} className="view-all-button">
-        {t("search.viewAll")}
-      </button>
     </div>
   );
 }

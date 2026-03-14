@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import SearchBox from "./SearchBox";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
 import { useI18n } from "../../hooks/useI18n";
@@ -84,6 +85,8 @@ function SearchTab({
   searchResults,
   languageData,
   languageColors,
+  setSearchTerm,
+  clearSearch,
 }) {
   const { selectLanguage, selectedLanguage } = useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
@@ -113,6 +116,11 @@ function SearchTab({
 
   return (
     <div className="control-section">
+      <SearchBox
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        clearSearch={clearSearch}
+      />
       <SearchResults
         searchTerm={searchTerm}
         searchResults={searchResults}

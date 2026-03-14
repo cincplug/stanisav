@@ -18,6 +18,8 @@ import { Link } from "react-router-dom";
 import "./FiltersTab.css";
 
 function FiltersTab({ data, languageColors = {} }) {
+  const { viewAllLanguages } = useLanguageSelection();
+  const { pausePlaylist } = usePlaylist();
   const {
     filteringUtils,
     updateFilteringUtils,
@@ -76,8 +78,16 @@ function FiltersTab({ data, languageColors = {} }) {
     }));
   }, [data, filteringUtils]);
 
+  const handleViewAll = () => {
+    pausePlaylist();
+    viewAllLanguages();
+  };
+
   return (
     <div className="control-section">
+      <button onClick={handleViewAll} className="view-all-button">
+        {t("search.viewAll")}
+      </button>
       <div className="linguistic-filters">
         {/* Title row with Filter by and allow multiple choices */}
         <div className="filters-tab-header">

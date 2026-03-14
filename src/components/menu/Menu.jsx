@@ -75,14 +75,6 @@ function Menu({
         <div className="menu">
           <TabNavigation activeTab={activeTab} setActiveTab={handleTabChange} />
 
-          <SearchBox
-            searchTerm={searchTerm}
-            setSearchTerm={setSearchTerm}
-            clearSearch={clearSearch}
-            sceneReady={sceneReady}
-            onCameraFocus={onCameraFocus}
-          />
-
           <TabRenderer
             activeTab={activeTab}
             controls={controls}

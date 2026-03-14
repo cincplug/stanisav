@@ -2,7 +2,7 @@
 .tab-navigation {
   display: flex;
   border-bottom: var(--tab-border-width) solid var(--color-highlight);
-  margin-bottom: var(--tab-border-width);
+  margin-bottom: var(--gap-double);
   position: sticky;
   top: 0;
 
