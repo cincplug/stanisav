@@ -5,6 +5,7 @@ import linguisticConfig from "../../config/linguisticConfig.json";
 import Mesha from "../../components/r3f/Mesha";
 import { getFeatureScore } from "../../utils/linguisticUtils";
 import "./PropertyShowcase.css";
+import { useI18n } from "../../hooks/useI18n";
 
 const baseLinguisticProperties = {
   tonality: "non-tonal",
@@ -21,6 +22,7 @@ const baseLinguisticProperties = {
 
 const PropertyShowcase = ({ propertyKey }) => {
   const { controls } = useControls();
+  const { t, locale } = useI18n();
   const {
     cameraX,
     cameraY,
@@ -35,28 +37,32 @@ const PropertyShowcase = ({ propertyKey }) => {
   const property = linguisticConfig[propertyKey];
   const variants = useMemo(() => Object.entries(property.values), [property]);
 
-  const meshas = useMemo(
-    () =>
-      variants.map(([variantKey], index) => {
-        const linguisticProperties = {
-          ...baseLinguisticProperties,
-          [propertyKey]: variantKey,
-        };
-        return {
-          key: `${propertyKey}-${variantKey}`,
-          label: variantKey,
-          color: "#ffcc99",
-          linguisticProperties,
-          tonalityType:
-            getFeatureScore("tonality", linguisticProperties?.tonality) - 1,
-        };
-      }),
-    [variants, propertyKey],
-  );
+  // Remove useMemo for meshas, compute directly in render
+  const meshas = variants.map(([variantKey], index) => {
+    const linguisticProperties = {
+      ...baseLinguisticProperties,
+      [propertyKey]: variantKey,
+    };
+    const label = t(`linguistic.${propertyKey}.values.${variantKey}.label`);
+    const description = t(
+      `linguistic.${propertyKey}.values.${variantKey}.description`,
+    );
+    return {
+      key: `${propertyKey}-${variantKey}`,
+      label,
+      description,
+      color: "#ecb",
+      linguisticProperties,
+      tonalityType:
+        getFeatureScore("tonality", linguisticProperties?.tonality) - 1,
+    };
+  });
 
   return (
     <div className="property-showcase" style={{ background: backgroundColor }}>
-      <div className="property-showcase-title">{property.name}</div>
+      <div className="property-showcase-title">
+        {t(`linguistic.${propertyKey}.name`) || property.name}
+      </div>
       <div className="property-showcase-flex">
         {meshas.map((mesha) => (
           <div className="property-showcase-item" key={mesha.key}>
@@ -74,14 +80,20 @@ const PropertyShowcase = ({ propertyKey }) => {
                 <Mesha
                   linguisticProperties={mesha.linguisticProperties}
                   color={mesha.color}
-                  position={[0, -5, 100]}
+                  position={[0, -5, 80]}
                   audioSource={null}
                   animateFromAudio={false}
+                  looksAround
                   tonalityType={mesha.tonalityType}
                 />
               </Canvas>
             </div>
             <div className="property-showcase-label">{mesha.label}</div>
+            {mesha.description && (
+              <div className="property-showcase-description">
+                {mesha.description}
+              </div>
+            )}
           </div>
         ))}
       </div>
