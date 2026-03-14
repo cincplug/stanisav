@@ -1,19 +1,12 @@
 import { Navigate, useParams } from "react-router-dom";
-import linguisticConfig from "../../config/linguisticConfig.json";
+import { isPropertyDescribed } from "../../utils/linguisticUtils";
 import PropertyShowcase from "./PropertyShowcase.jsx";
 
 const PropertyRoutePage = () => {
   const { locale, propertyKey } = useParams();
-  const isValidProperty = Boolean(
-    propertyKey &&
-    linguisticConfig[propertyKey] &&
-    linguisticConfig[propertyKey].values,
-  );
-
-  if (!isValidProperty) {
+  if (!isPropertyDescribed(propertyKey)) {
     return <Navigate to={`/${locale}`} replace />;
   }
-
   return <PropertyShowcase propertyKey={propertyKey} />;
 };
 

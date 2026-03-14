@@ -8,11 +8,13 @@ import {
   getFeatureName,
   getFeatureLabel,
   getFeatureDescription,
+  isPropertyDescribed,
 } from "../../utils/linguisticUtils";
 import { sortFeatureValues } from "../../utils/sortingUtils";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
 import { useI18n } from "../../hooks/useI18n";
+import { Link } from "react-router-dom";
 import "./FiltersTab.css";
 
 function FiltersTab({ data, languageColors = {} }) {
@@ -30,7 +32,7 @@ function FiltersTab({ data, languageColors = {} }) {
   );
   const [allowMultipleChoices, setAllowMultipleChoices] = useState(false);
   const [lastChangedFeature, setLastChangedFeature] = useState(null);
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
 
   const handleCheckboxChange = (feature, value, checked) => {
     setLastChangedFeature(feature);
@@ -107,7 +109,21 @@ function FiltersTab({ data, languageColors = {} }) {
 
           return (
             <div key={feature} className="filter-group">
-              <h3 className="filter-group-title">{label}</h3>
+              <h3
+                className="filter-group-title"
+                style={{ display: "flex", alignItems: "center", gap: 6 }}
+              >
+                {label}
+                {isPropertyDescribed(feature) && (
+                  <Link
+                    className="info-link"
+                    to={`/${locale}/property/${feature}`}
+                    aria-label={label}
+                  >
+                    ⓘ
+                  </Link>
+                )}
+              </h3>
               <div className="checkbox-button-group">
                 <input
                   type="checkbox"

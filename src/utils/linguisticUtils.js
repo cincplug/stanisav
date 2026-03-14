@@ -104,6 +104,17 @@ export const getAllFeatures = () => {
     }));
 };
 
+export const isPropertyDescribed = (propertyKey) => {
+  if (
+    !propertyKey ||
+    !linguisticConfig[propertyKey] ||
+    !linguisticConfig[propertyKey].values
+  )
+    return false;
+  const values = linguisticConfig[propertyKey].values;
+  return Object.values(values).some((v) => !!v.description);
+};
+
 export const formatNumber = (value) => new Intl.NumberFormat().format(value);
 
 export const formatSpeakers = (speakersInMillions) => {
