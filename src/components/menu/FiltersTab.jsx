@@ -85,13 +85,12 @@ function FiltersTab({ data, languageColors = {} }) {
 
   return (
     <div className="control-section">
-      <button onClick={handleViewAll} className="view-all-button">
-        {t("search.viewAll")}
-      </button>
       <div className="linguistic-filters">
         {/* Title row with Filter by and allow multiple choices */}
         <div className="filters-tab-header">
-          <h2>{t("filters.title")}</h2>
+          <button onClick={handleViewAll} className="view-all-button">
+            {t("search.viewAll")}
+          </button>
           <div className="control-item checkbox-control">
             <label>
               <input
@@ -103,6 +102,7 @@ function FiltersTab({ data, languageColors = {} }) {
             </label>
           </div>
         </div>
+        <h2>{t("filters.title")}</h2>
 
         {features.map(({ key: feature, label, isNumeric }) => {
           // For numeric features, get values from pre-computed data
