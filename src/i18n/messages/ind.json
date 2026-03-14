@@ -1,481 +1,401 @@
 {
   "controls": {
     "backgroundColor": {
-      "label": "Background"
+      "label": "Latar belakang"
     },
     "cameraX": {
-      "label": "Camera X"
+      "label": "Kamera X"
     },
     "cameraY": {
-      "label": "Camera Y"
+      "label": "Kamera Y"
     },
     "cameraZ": {
-      "label": "Camera Z"
+      "label": "Kamera Z"
     },
     "canEditColors": {
-      "label": "Can edit colors?"
+      "label": "Warna dapat diedit?"
     },
     "eyeProtrusion": {
-      "label": "Eye protrusion"
+      "label": "Tonjolan mata"
     },
     "eyeSize": {
-      "label": "Eye size"
+      "label": "Ukuran mata"
     },
     "eyeX": {
-      "label": "Eye X"
+      "label": "Mata X"
     },
     "eyeY": {
-      "label": "Eye Y"
+      "label": "Mata Y"
     },
     "eyeZ": {
-      "label": "Eye Z"
+      "label": "Mata Z"
     },
     "far": {
-      "label": "Far plane"
+      "label": "Bidang potong jauh"
     },
     "fov": {
-      "label": "Field of view"
+      "label": "Sudut pandang"
     },
     "friction": {
-      "label": "Friction"
+      "label": "Gesekan"
     },
     "globalChromaOffset": {
-      "label": "Chroma offset"
+      "label": "Offset kroma"
     },
     "globalChromaScale": {
-      "label": "Chroma scale"
+      "label": "Skala kroma"
     },
     "globalLightnessOffset": {
-      "label": "Lightness offset"
+      "label": "Offset kecerahan"
     },
     "globalLightnessScale": {
-      "label": "Lightness scale"
+      "label": "Skala kecerahan"
     },
     "groups": {
-      "camera": "Camera",
-      "colors": "Colors",
-      "languagesTab": "Languages tab",
+      "camera": "Kamera",
+      "colors": "Warna",
+      "languagesTab": "Tab bahasa",
       "mesha": "Mesha",
-      "meshaLight": "Mesha light",
-      "motion": "Motion",
-      "scene": "Scene",
-      "stageLight": "Stage light"
+      "meshaLight": "Cahaya Mesha",
+      "motion": "Gerakan",
+      "scene": "Adegan",
+      "stageLight": "Cahaya panggung"
     },
     "hasSubtitle": {
-      "label": "Show subtitle"
+      "label": "Tampilkan subjudul"
     },
     "hueCircle": {
-      "label": "Hue circle"
+      "label": "Lingkaran rona"
     },
     "hueStart": {
-      "label": "Hue start"
+      "label": "Rona awal"
     },
     "isLoop": {
-      "label": "Loop playlist"
+      "label": "Ulangi daftar putar"
     },
     "isLuka": {
-      "label": "Luka reads samples"
+      "label": "Luka membaca contoh"
     },
     "isMyMesha": {
-      "label": "I am Mesha"
+      "label": "Saya adalah Mesha"
     },
     "isReverse": {
-      "label": "Reverse order"
+      "label": "Urutan terbalik"
     },
     "labelContent": {
-      "label": "Display",
+      "label": "Tampilan",
       "options": {
-        "isoCode": "ISO codes",
-        "name": "English names",
-        "nativeName": "Native names"
+        "isoCode": "Kode ISO",
+        "name": "Nama dalam bahasa Inggris",
+        "nativeName": "Nama dalam bahasa asli"
       }
     },
     "labelSize": {
-      "label": "Label size"
+      "label": "Ukuran label"
     },
     "maxSiblingSpread": {
-      "label": "Sibling hue spread"
+      "label": "Sebaran rona elemen saudara"
     },
     "meshaLightDecay": {
-      "label": "Decay"
+      "label": "Peluruhan"
     },
     "meshaLightDistance": {
-      "label": "Distance"
+      "label": "Jarak"
     },
     "meshaLightIntensity": {
-      "label": "Intensity"
+      "label": "Intensitas"
     },
     "meshaSize": {
-      "label": "Mesha size"
+      "label": "Ukuran Mesha"
     },
     "moustacheSize": {
-      "label": "Moustache size"
+      "label": "Ukuran kumis"
     },
     "near": {
-      "label": "Near plane"
+      "label": "Bidang potong dekat"
     },
     "noseSize": {
-      "label": "Nose size"
+      "label": "Ukuran hidung"
     },
     "showsVideoPreviews": {
-      "label": "Preview original"
+      "label": "Pratinjau asli"
     },
     "sortBy": {
-      "label": "Sort languages by",
+      "label": "Urutkan bahasa berdasarkan",
       "options": {
-        "alphabetically": "Alphabetical order",
-        "caseCount": "Case count",
-        "evidentiality": "Evidentiality",
-        "family": "Language family",
-        "maxClusterSize": "Consonant clusters",
-        "morphology": "Morphology",
-        "nounClassCount": "Noun classes",
-        "phonemeCount": "Phoneme count",
-        "speakers": "Speakers' number",
-        "tonality": "Tonality",
-        "verbAspect": "Verb aspect",
-        "wordOrder": "Word order",
-        "wordOrderFlexibility": "Word order flexibility",
+        "alphabetically": "Urutan alfabet",
+        "caseCount": "Jumlah kasus",
+        "evidentiality": "Evidensialitas",
+        "family": "Rumpun bahasa",
+        "maxClusterSize": "Kluster konsonan",
+        "morphology": "Morfologi",
+        "nounClassCount": "Kelas nomina",
+        "phonemeCount": "Jumlah fonem",
+        "speakers": "Jumlah penutur",
+        "tonality": "Tonalitas",
+        "verbAspect": "Aspek verba",
+        "wordOrder": "Urutan kata",
+        "wordOrderFlexibility": "Fleksibilitas urutan kata",
         "scripts": "Aksara"
       }
     },
     "sphereRadius": {
-      "label": "Sphere radius"
+      "label": "Jari-jari bola"
     },
     "stageLightDecay": {
-      "label": "Decay"
+      "label": "Peluruhan"
     },
     "stageLightDistance": {
-      "label": "Distance"
+      "label": "Jarak"
     },
     "stageLightIntensity": {
-      "label": "Intensity"
+      "label": "Intensitas"
     },
     "switchDuration": {
-      "label": "Switch duration"
+      "label": "Durasi peralihan"
     },
     "teethSize": {
-      "label": "Teeth size"
+      "label": "Ukuran gigi"
     },
     "tension": {
-      "label": "Tension"
+      "label": "Tegangan"
     },
     "zoomDistance": {
-      "label": "Zoom distance"
+      "label": "Jarak zoom"
     }
   },
   "filters": {
-    "all": "All",
-    "allowMultipleChoices": "Allow multiple choices",
-    "results": "Filter results ({count})",
-    "title": "Filter by"
+    "all": "Semua",
+    "allowMultipleChoices": "Izinkan beberapa pilihan",
+    "results": "Hasil filter ({count})",
+    "title": "Filter berdasarkan"
   },
   "linguistic": {
     "caseCount": {
-      "name": "Case count"
+      "name": "Jumlah kasus"
     },
     "evidentiality": {
-      "name": "Evidentiality",
+      "name": "Evidensialitas",
       "values": {
         "complex": {
-          "description": "Four or more evidential distinctions or evidentiality fused with tense/aspect.",
-          "label": "Complex"
+          "description": "Empat atau lebih perbedaan evidensial, atau evidensialitas yang menyatu dengan kala/aspek.",
+          "label": "Kompleks"
         },
         "moderate": {
-          "description": "Three-way distinction (e.g., direct, reportative, inferential).",
-          "label": "Moderate"
+          "description": "Perbedaan tiga arah (misalnya langsung, laporan, inferensial).",
+          "label": "Sedang"
         },
         "none": {
-          "description": "No grammatical marking of information source.",
-          "label": "None"
+          "description": "Tidak ada penanda gramatikal untuk sumber informasi.",
+          "label": "Tidak ada"
         },
         "optional": {
-          "description": "Evidential-like markers exist but are not obligatory.",
-          "label": "Optional"
+          "description": "Penanda mirip evidensial ada tetapi tidak wajib.",
+          "label": "Opsional"
         },
         "simple": {
-          "description": "Two-way distinction (typically direct vs. indirect/reportative).",
-          "label": "Simple"
+          "description": "Perbedaan dua arah (biasanya langsung vs. tidak langsung/laporan).",
+          "label": "Sederhana"
         }
       }
     },
     "family": {
-      "name": "Language family"
+      "name": "Rumpun bahasa"
     },
     "maxClusterSize": {
-      "name": "Max consonants in a cluster"
+      "name": "Jumlah maksimal konsonan dalam kluster"
     },
     "morphology": {
-      "name": "Morphology",
+      "name": "Morfologi",
       "values": {
         "agglutinative": {
-          "description": "Words are built by stacking affixes one after another, where each affix carries exactly one meaning. The pieces stay clearly recognizable, like building blocks snapped together.",
-          "label": "Agglutinative"
+          "description": "Kata dibentuk dengan menumpuk imbuhan satu per satu, di mana setiap imbuhan membawa tepat satu makna. Bagian-bagiannya tetap dapat dikenali dengan jelas, seperti balok-balok yang disatukan.",
+          "label": "Aglutinasi"
         },
         "fusional": {
-          "description": "Words change their form through endings and prefixes that bundle multiple grammatical meanings at once. A single ending might express gender, number, and case simultaneously, making the pieces hard to pull apart.",
-          "label": "Fusional"
+          "description": "Kata mengubah bentuknya melalui akhiran dan prefiks yang sekaligus menggabungkan beberapa makna gramatikal. Satu akhiran bisa mengungkapkan gender, jumlah, dan kasus secara bersamaan, sehingga sulit untuk memisahkan bagian-bagiannya.",
+          "label": "Fleksi"
         },
         "introflexive": {
-          "description": "Grammar is built into the word from the inside: a root of consonants carries the core meaning, while different vowel patterns woven through it create new words. For example, the Arabic root k-t-b relates to writing, and kataba, kitāb, and kātib all come from it.",
-          "label": "Introflexive"
+          "description": "Tata bahasa dibangun dari dalam kata: akar konsonan membawa makna inti, sementara pola vokal berbeda yang disisipkan ke dalamnya membentuk kata-kata baru. Misalnya, akar bahasa Arab k-t-b berkaitan dengan tulisan, dan kataba, kitāb, serta kātib semuanya berasal darinya.",
+          "label": "Introfleksi"
         },
         "isolating": {
-          "description": "Words typically consist of single morphemes and don't change their form. Grammar is expressed through word order and separate function words rather than endings or prefixes.",
-          "label": "Isolating"
+          "description": "Kata biasanya terdiri dari satu morfem dan tidak mengubah bentuknya. Tata bahasa dinyatakan melalui urutan kata dan kata fungsi terpisah, bukan melalui akhiran atau prefiks.",
+          "label": "Isolasi"
         },
         "polysynthetic": {
-          "description": "A single word can express what other languages would say in a whole sentence, by fusing the verb, subject, object, and other elements together. Common in indigenous languages of the Americas and the Arctic.",
-          "label": "Polysynthetic"
+          "description": "Satu kata dapat mengungkapkan apa yang akan dikatakan bahasa lain dalam kalimat penuh, dengan menyatukan verba, subjek, objek, dan unsur-unsur lainnya. Umum ditemukan dalam bahasa-bahasa asli Amerika dan Arktik.",
+          "label": "Polisintesis"
         }
       }
     },
     "nounClassCount": {
-      "name": "Noun classes / genders"
+      "name": "Kelas nomina / gender"
     },
     "phonemeCount": {
-      "name": "Phoneme count"
+      "name": "Jumlah fonem"
     },
     "scripts": {
       "name": "Aksara",
       "values": {
-        "Arabic": {
-          "label": "Arab"
-        },
-        "Armenian": {
-          "label": "Armenia"
-        },
-        "Balinese": {
-          "label": "Bali"
-        },
-        "Bengali": {
-          "label": "Bengali"
-        },
-        "Canadian Aboriginal Syllabics": {
-          "label": "Suku kata Aborigin Kanada"
-        },
-        "Cherokee": {
-          "label": "Cherokee"
-        },
-        "Cyrillic": {
-          "label": "Sirilik"
-        },
-        "Devanagari": {
-          "label": "Devanagari"
-        },
-        "Ethiopic": {
-          "label": "Etiopia"
-        },
-        "Georgian": {
-          "label": "Georgia"
-        },
-        "Greek": {
-          "label": "Yunani"
-        },
-        "Gujarati": {
-          "label": "Gujarat"
-        },
-        "Gurmukhi": {
-          "label": "Gurmukhi"
-        },
-        "Han": {
-          "label": "Han"
-        },
-        "Hangul": {
-          "label": "Hangul"
-        },
-        "Hebrew": {
-          "label": "Ibrani"
-        },
-        "Hiragana": {
-          "label": "Hiragana"
-        },
-        "Javanese": {
-          "label": "Jawa"
-        },
-        "Kannada": {
-          "label": "Kannada"
-        },
-        "Katakana": {
-          "label": "Katakana"
-        },
-        "Khmer": {
-          "label": "Khmer"
-        },
-        "Lao": {
-          "label": "Lao"
-        },
-        "Latin": {
-          "label": "Latin"
-        },
-        "Lepcha": {
-          "label": "Lepcha"
-        },
-        "Malayalam": {
-          "label": "Malayalam"
-        },
-        "Meitei Mayek": {
-          "label": "Meitei Mayek"
-        },
-        "Mongolian": {
-          "label": "Mongolia"
-        },
-        "Myanmar": {
-          "label": "Myanmar"
-        },
-        "Newa": {
-          "label": "Newa"
-        },
-        "Odia": {
-          "label": "Odia"
-        },
-        "Ol Chiki": {
-          "label": "Ol Chiki"
-        },
-        "Sinhala": {
-          "label": "Sinhala"
-        },
-        "Sorang Sompeng": {
-          "label": "Sorang Sompeng"
-        },
-        "Tamil": {
-          "label": "Tamil"
-        },
-        "Telugu": {
-          "label": "Telugu"
-        },
-        "Thai": {
-          "label": "Thai"
-        },
-        "Tibetan": {
-          "label": "Tibet"
-        },
-        "Tirhuta": {
-          "label": "Tirhuta"
-        },
-        "Warang Citi": {
-          "label": "Warang Citi"
-        },
-        "Yi": {
-          "label": "Yi"
-        }
+        "Arabic": { "label": "Arab" },
+        "Armenian": { "label": "Armenia" },
+        "Balinese": { "label": "Bali" },
+        "Bengali": { "label": "Bengali" },
+        "Canadian Aboriginal Syllabics": { "label": "Suku Aborigin Kanada" },
+        "Cherokee": { "label": "Cherokee" },
+        "Cyrillic": { "label": "Sirilik" },
+        "Devanagari": { "label": "Devanagari" },
+        "Ethiopic": { "label": "Etiopia" },
+        "Georgian": { "label": "Georgia" },
+        "Greek": { "label": "Yunani" },
+        "Gujarati": { "label": "Gujarati" },
+        "Gurmukhi": { "label": "Gurmukhi" },
+        "Han": { "label": "Han" },
+        "Hangul": { "label": "Hangul" },
+        "Hebrew": { "label": "Ibrani" },
+        "Hiragana": { "label": "Hiragana" },
+        "Javanese": { "label": "Jawa" },
+        "Kannada": { "label": "Kannada" },
+        "Katakana": { "label": "Katakana" },
+        "Khmer": { "label": "Khmer" },
+        "Lao": { "label": "Lao" },
+        "Latin": { "label": "Latin" },
+        "Lepcha": { "label": "Lepcha" },
+        "Malayalam": { "label": "Malayalam" },
+        "Meitei Mayek": { "label": "Meitei Mayek" },
+        "Mongolian": { "label": "Mongolia" },
+        "Myanmar": { "label": "Myanmar" },
+        "Newa": { "label": "Newa" },
+        "Odia": { "label": "Odia" },
+        "Ol Chiki": { "label": "Ol Chiki" },
+        "Sinhala": { "label": "Sinhala" },
+        "Sorang Sompeng": { "label": "Sorang Sompeng" },
+        "Tamil": { "label": "Tamil" },
+        "Telugu": { "label": "Telugu" },
+        "Thai": { "label": "Thai" },
+        "Tibetan": { "label": "Tibet" },
+        "Tirhuta": { "label": "Tirhuta" },
+        "Warang Citi": { "label": "Warang Citi" },
+        "Yi": { "label": "Yi" }
       }
     },
     "tonality": {
-      "name": "Tonality",
+      "name": "Tonalitas",
       "values": {
         "complex-tonal": {
-          "description": "Pitch patterns significantly affect word meaning.",
-          "label": "Complex tonal"
+          "description": "Pola nada sangat mempengaruhi makna kata.",
+          "label": "Tonal kompleks"
         },
         "non-tonal": {
-          "description": "Pitch changes don't affect word meaning.",
+          "description": "Perubahan nada tidak mempengaruhi makna kata.",
           "label": "Non-tonal"
         },
         "pitch-accent": {
-          "description": "It uses pitch accent, where certain syllables are emphasized with pitch changes.",
-          "label": "Pitch-accent"
+          "description": "Menggunakan aksen nada, di mana suku kata tertentu ditekankan dengan perubahan nada.",
+          "label": "Aksen nada"
         },
         "simple-tonal": {
-          "description": "Pitch changes moderately affect word meaning.",
-          "label": "Simple tonal"
+          "description": "Perubahan nada sedikit mempengaruhi makna kata.",
+          "label": "Tonal sederhana"
         }
       }
     },
     "verbAspect": {
-      "name": "Verb aspect",
+      "name": "Aspek verba",
       "values": {
         "binary": {
-          "description": "Two-way systematic distinction (perfective/imperfective).",
-          "label": "Binary"
+          "description": "Perbedaan sistematis dua arah (perfektif/imperfektif).",
+          "label": "Biner"
         },
         "complex": {
-          "description": "Multiple aspect categories with rich morphological marking.",
-          "label": "Complex"
+          "description": "Beberapa kategori aspek dengan penandaan morfologis yang kaya.",
+          "label": "Kompleks"
         },
         "minimal": {
-          "description": "No or very limited grammatical aspect marking.",
+          "description": "Tidak ada atau sangat sedikit penandaan aspek gramatikal.",
           "label": "Minimal"
         },
         "simple": {
-          "description": "Basic aspectual distinctions (e.g., progressive, perfect).",
-          "label": "Simple"
+          "description": "Perbedaan aspek dasar (misalnya progresif, perfek).",
+          "label": "Sederhana"
         }
       }
     },
     "wordOrder": {
-      "name": "Word order",
+      "name": "Urutan kata",
       "values": {
         "SOV": {
-          "description": "Subject-Object-Verb",
+          "description": "Subjek-Objek-Verba",
           "label": "SOV"
         },
         "SVO": {
-          "description": "Subject-Verb-Object",
+          "description": "Subjek-Verba-Objek",
           "label": "SVO"
         },
         "VOS": {
-          "description": "Verb-Object-Subject",
+          "description": "Verba-Objek-Subjek",
           "label": "VOS"
         },
         "VSO": {
-          "description": "Verb-Subject-Object",
+          "description": "Verba-Subjek-Objek",
           "label": "VSO"
         }
       }
     },
     "wordOrderFlexibility": {
-      "name": "Word order flexibility",
+      "name": "Fleksibilitas urutan kata",
       "values": {
         "flexible": {
-          "description": "Various word arrangements are allowed for stylistic purposes.",
-          "label": "Flexible"
+          "description": "Berbagai susunan kata diizinkan untuk tujuan stilistika.",
+          "label": "Fleksibel"
         },
         "rigid": {
-          "description": "Words have fixed grammatical positions.",
-          "label": "Rigid"
+          "description": "Kata-kata memiliki posisi gramatikal yang tetap.",
+          "label": "Kaku"
         },
         "semi-flexible": {
-          "description": "Some variation of word order is allowed for emphasis.",
-          "label": "Semi-flexible"
+          "description": "Sejumlah variasi urutan kata diizinkan untuk penekanan.",
+          "label": "Semi-fleksibel"
         }
       }
     }
   },
   "menu": {
-    "close": "Close menu",
-    "open": "Open menu"
+    "close": "Tutup menu",
+    "open": "Buka menu"
   },
   "playlist": {
-    "controls": "Playlist controls",
-    "goToBeginning": "Go to beginning (Home key)",
-    "next": "Next track (Right arrow)",
-    "pause": "Pause",
-    "play": "Play",
-    "previous": "Previous track (Left arrow)",
-    "progress": "{current} of {total}",
-    "toggleLoop": "Toggle loop (L key)"
+    "controls": "Kontrol daftar putar",
+    "goToBeginning": "Ke awal (tombol Home)",
+    "next": "Trek berikutnya (panah kanan)",
+    "pause": "Jeda",
+    "play": "Putar",
+    "previous": "Trek sebelumnya (panah kiri)",
+    "progress": "{current} dari {total}",
+    "toggleLoop": "Alihkan pengulangan (tombol L)"
   },
   "search": {
-    "clear": "Clear search",
-    "label": "Search",
-    "noResults": "No languages found matching \"{term}\"",
-    "results": "Search Results ({count})",
-    "threshold": "Type at least {threshold} characters to search...",
-    "viewAll": "View all"
+    "clear": "Hapus pencarian",
+    "label": "Cari",
+    "noResults": "Tidak ada bahasa yang cocok dengan \"{term}\"",
+    "results": "Hasil pencarian ({count})",
+    "threshold": "Ketik setidaknya {threshold} karakter untuk mencari…",
+    "viewAll": "Lihat semua"
   },
   "tabs": {
-    "controls": "Controls",
-    "filters": "Filters",
-    "languages": "Languages",
-    "search": "Search"
+    "controls": "Pengaturan",
+    "filters": "Filter",
+    "languages": "Bahasa",
+    "search": "Cari"
   },
   "overlay": {
-    "slogan": "The more languages you know, the more people you are worth.",
-    "emptyFilter": "No languages for that filter combination. You probably selected too many filters."
+    "slogan": "Semakin banyak bahasa yang kamu kuasai, semakin berharga dirimu.",
+    "emptyFilter": "Tidak ada bahasa untuk kombinasi filter tersebut. Kamu mungkin memilih terlalu banyak filter."
   },
   "idCard": {
-    "sourceVideo": "Source video",
-    "opensInNewTab": "opens in new tab"
+    "sourceVideo": "Video sumber",
+    "opensInNewTab": "membuka di tab baru"
   }
 }
