@@ -22,7 +22,9 @@ function Menu({
   languageColors,
 }) {
   // Detect RTL from document direction
-  const isRtl = typeof window !== "undefined" && document.documentElement.classList.contains("rtl");
+  const isRtl =
+    typeof window !== "undefined" &&
+    document.documentElement.classList.contains("rtl");
   const { controls, updateControl } = useControls();
   const { t } = useI18n();
   const [activeTab, setActiveTab] = useState(tabsConfig.defaultTab);
@@ -77,7 +79,6 @@ function Menu({
             searchTerm={searchTerm}
             setSearchTerm={setSearchTerm}
             clearSearch={clearSearch}
-            autoFocus={activeTab === "search"}
             sceneReady={sceneReady}
             onCameraFocus={onCameraFocus}
           />
