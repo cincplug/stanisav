@@ -13,7 +13,7 @@ import { useControls } from "./contexts/ControlsContext";
 import { usePlaylist } from "./contexts/PlaylistContext";
 import { useLanguageColors } from "./hooks/useLanguageColors";
 import { isPropertyDescribed } from "./utils/linguisticUtils";
-import { useI18n } from "./hooks/useTranslations";
+import { useI18n } from "./contexts/I18nContext";
 import "./App.css";
 
 function App() {

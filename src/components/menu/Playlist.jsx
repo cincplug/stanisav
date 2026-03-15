@@ -9,7 +9,7 @@ import {
   NextIcon,
   LoopIcon,
 } from "./MenuIcons";
-import { useI18n } from "../../hooks/useTranslations";
+import { useI18n } from "../../contexts/I18nContext";
 import "./Playlist.css";
 
 export default function Playlist() {

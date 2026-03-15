@@ -13,7 +13,7 @@ import {
 import { sortFeatureValues } from "../../utils/sortingUtils";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
-import { useI18n } from "../../hooks/useTranslations";
+import { useI18n } from "../../contexts/I18nContext";
 import { Link } from "react-router-dom";
 import "./FiltersTab.css";
 
