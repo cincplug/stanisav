@@ -8,12 +8,12 @@
 
   button {
     margin: 0 0 0 -1px;
-    background-color: var(--color-menu-background);
-    border: 2px solid var(--color-mild);
+    background-color: var(--color-2);
+    border: 2px solid var(--color-4);
     border-bottom: none;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    color: var(--color-text);
+    color: var(--color-5);
     padding: var(--gap) var(--gap-double);
     cursor: pointer;
     font-size: var(--font-size-normal);
@@ -24,7 +24,7 @@
     &.active {
       outline: none;
       border-color: var(--color-highlight);
-      border-bottom-color: var(--color-menu-background);
+      border-bottom-color: var(--color-2);
     }
     &.active {
       position: relative;

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams, useLocation, Navigate } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
 import Overlay from "./components/menu/Overlay";
@@ -47,7 +47,6 @@ function App() {
   );
 
   const params = useParams();
-  const location = useLocation();
   const showPropertyOverlay = Boolean(params.propertyKey);
 
   if (showPropertyOverlay && !isPropertyDescribed(params.propertyKey)) {

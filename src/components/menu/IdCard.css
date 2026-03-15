@@ -2,16 +2,15 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  background: var(--color-menu-background);
-  color: var(--color-text-active);
+  background: var(--color-2);
+  color: var(--color-6);
   padding: var(--gap-double);
   box-sizing: border-box;
-  border-top: 1px solid var(--color-interactive);
+  border-top: 1px solid var(--color-3);
   width: 100%;
   max-height: 33vh;
   overflow: auto;
 }
-
 
 .id-card-header {
   position: relative;
@@ -20,7 +19,7 @@
   align-items: start;
   gap: var(--gap);
   margin-bottom: var(--gap);
-  color: var(--id-card-heading-color, var(--color-text-active));
+  color: var(--id-card-heading-color, var(--color-6));
   padding: 0 var(--gap-triple) 0 var(--gap-double);
 }
 
@@ -45,7 +44,7 @@ html.rtl .id-card-close-button {
   margin: 0;
   font-size: var(--font-size-big);
   text-align: start;
-  color: var(--color-text-active);
+  color: var(--color-6);
   font-weight: normal;
 }
 
@@ -61,7 +60,7 @@ html.rtl .id-card-close-button {
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--gap-half);
-  color: var(--color-text-active);
+  color: var(--color-6);
   font-weight: normal;
   min-width: 0;
 }
@@ -74,7 +73,7 @@ html.rtl .id-card-close-button {
 }
 
 .id-card-breadcrumb-separator {
-  color: var(--color-text-active);
+  color: var(--color-6);
 }
 
 .id-card-columns {
@@ -93,7 +92,7 @@ html.rtl .id-card-close-button {
   max-width: 100%;
   margin: 0;
   padding: calc(var(--gap-half) + 1px) var(--gap);
-  border: 1px solid var(--color-interactive);
+  border: 1px solid var(--color-3);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-mild);
   display: inline-flex;
@@ -108,7 +107,7 @@ html.rtl .id-card-close-button {
 
 .id-card-row dt {
   display: inline;
-  color: var(--color-mild);
+  color: var(--color-4);
 }
 
 .id-card-row dt::after {
@@ -118,7 +117,7 @@ html.rtl .id-card-close-button {
 .id-card-row dd {
   display: inline;
   min-width: 0;
-  color: var(--color-text-active);
+  color: var(--color-6);
 }
 
 .id-card-source-video {
@@ -158,8 +157,8 @@ html.rtl .id-card-close-button {
   padding-bottom: var(--gap-double);
   padding-right: var(--gap-triple);
   font-size: var(--font-size-big);
-  background: var(--color-menu-background);
-  border-bottom: 1px solid var(--color-interactive);
+  background: var(--color-2);
+  border-bottom: 1px solid var(--color-3);
   color: var(--color-highlight);
   text-align: center;
   box-sizing: border-box;

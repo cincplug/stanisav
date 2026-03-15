@@ -7,10 +7,10 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: var(--color-menu-background);
-  border-left: 1px solid var(--color-interactive);
+  background-color: var(--color-2);
+  border-left: 1px solid var(--color-3);
   padding: var(--gap-double);
-  color: var(--color-text);
+  color: var(--color-5);
   font-size: var(--font-size-normal);
   overflow-y: auto;
   overflow-x: hidden;
@@ -19,7 +19,7 @@
 
 html.rtl .menu {
   border-left: none;
-  border-right: 1px solid var(--color-interactive);
+  border-right: 1px solid var(--color-3);
   left: 0;
   right: auto;
   direction: rtl;
@@ -45,7 +45,7 @@ html.rtl .menu-close {
 }
 
 .radio-control fieldset {
-  border: 1px solid var(--color-interactive);
+  border: 1px solid var(--color-3);
   border-radius: var(--border-radius);
   padding: 8px;
   margin: 0;

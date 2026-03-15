@@ -22,17 +22,9 @@ const baseLinguisticProperties = {
 
 const PropertyShowcase = ({ propertyKey }) => {
   const { controls } = useControls();
-  const { t, locale } = useI18n();
-  const {
-    cameraX,
-    cameraY,
-    cameraZ,
-    fov,
-    near,
-    far,
-    backgroundColor,
-    meshaSize,
-  } = controls;
+  const { t } = useI18n();
+  const { cameraX, cameraY, cameraZ, fov, near, far, backgroundColor } =
+    controls;
 
   const property = linguisticConfig[propertyKey];
   const variants = useMemo(() => Object.entries(property.values), [property]);

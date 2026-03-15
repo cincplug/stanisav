@@ -3,12 +3,12 @@
 }
 .svgallery-container {
   padding: 2rem;
-  background: var(--color-menu-background);
+  background: var(--color-2);
   min-height: 100vh;
 }
 
 .svgallery-title {
-  color: var(--color-text);
+  color: var(--color-5);
 }
 
 .svgallery-grid {
@@ -18,13 +18,13 @@
 }
 
 .svgallery-card {
-  background: var(--color-interactive);
+  background: var(--color-3);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-mild);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  color: var(--color-text);
+  color: var(--color-5);
 }
 
 .svgallery-video {
@@ -43,7 +43,7 @@
 }
 
 .svgallery-novideo {
-  color: var(--color-text-dark);
+  color: var(--color-1);
   font-size: 1rem;
 }
 
@@ -66,7 +66,7 @@
 
 .svgallery-attributes dt {
   min-width: 120px;
-  color: var(--color-text);
+  color: var(--color-5);
   font-weight: normal;
   &:after {
     content: ":";
@@ -74,7 +74,7 @@
 }
 
 .svgallery-attributes dd {
-  color: var(--color-text-active);
+  color: var(--color-6);
   margin-inline-start: 1rem;
 }
 

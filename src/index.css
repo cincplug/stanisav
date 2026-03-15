@@ -4,12 +4,12 @@
   --font-size-small: 0.8rem;
 
   /* Semantic colors */
-  --color-text: #eeeeee;
-  --color-text-dark: #000000;
-  --color-text-active: #ffffff;
-  --color-interactive: #454545;
-  --color-mild: #8292a2;
-  --color-menu-background: #111111;
+  --color-1: #000000;
+  --color-2: #141618;
+  --color-3: #353739;
+  --color-4: #828486;
+  --color-5: #e4e6e8;
+  --color-6: #ffffff;
   --color-highlight: #ffd700;
   --color-video: #0057b7;
   --color-new-item: #6a1b9a;
@@ -21,13 +21,14 @@
   --border-radius: 8px;
   --shadow-mild: 0px -1px 1px 0px rgba(0, 0, 0, 0.3);
   --outline-default: 3px solid var(--color-highlight);
-  --gap: 6px;
+  --gap: 7px;
   --gap-double: calc(var(--gap) * 2);
   --gap-triple: calc(var(--gap) * 3);
   --gap-half: calc(var(--gap) / 2);
   --gap-reduced: calc(var(--gap) / 3 * 2);
   --tab-border-width: 2px;
   --clear-button-size: 20px;
+  --modal-offset: 4rem;
 
   /* Layout */
   --panel-width: 375px;
@@ -36,7 +37,7 @@
 /* Global scrollbar styles using standard CSS */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-interactive) var(--color-text-dark);
+  scrollbar-color: var(--color-3) var(--color-1);
 }
 
 /* React-specific styles */
@@ -72,11 +73,11 @@ textarea {
 button,
 .button {
   padding: var(--gap) var(--gap-double);
-  background-color: var(--color-interactive);
+  background-color: var(--color-3);
   border-radius: var(--border-radius);
   border: none;
   text-decoration: none;
-  color: var(--color-text);
+  color: var(--color-5);
   font-size: var(--font-size-normal);
 }
 
@@ -114,14 +115,14 @@ input[type="radio"] {
 }
 
 fieldset {
-  border: 1px solid var(--color-interactive);
+  border: 1px solid var(--color-3);
   border-radius: var(--border-radius);
   padding: var(--gap);
   margin-bottom: var(--gap-double);
 }
 
 legend {
-  color: var(--color-text);
+  color: var(--color-5);
   margin: 0 0 var(--gap) -2px;
 }
 
@@ -132,7 +133,7 @@ legend {
   z-index: 1111;
   background-color: transparent;
   border: none;
-  color: var(--color-text);
+  color: var(--color-5);
   padding: 2px;
   border-radius: var(--border-radius);
   cursor: pointer;
@@ -164,8 +165,8 @@ legend {
 }
 
 .checkbox-button {
-  background-color: var(--color-interactive);
-  color: var(--color-text);
+  background-color: var(--color-3);
+  color: var(--color-5);
   padding: 6px 12px;
   border-radius: var(--border-radius);
   cursor: pointer;
@@ -175,7 +176,7 @@ legend {
 }
 
 .text-dark {
-  color: var(--color-text-dark);
+  color: var(--color-1);
 }
 
 .app-container {

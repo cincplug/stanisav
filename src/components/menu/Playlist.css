@@ -27,14 +27,14 @@ html.rtl .playlist-controls {
     top: auto;
     left: 0;
     padding: var(--gap-double);
-    background: var(--color-menu-background);
+    background: var(--color-2);
   }
 }
 
 .playlist-controls button {
-  background-color: var(--color-interactive);
-  border: 1px solid var(--color-interactive);
-  color: var(--color-text);
+  background-color: var(--color-3);
+  border: 1px solid var(--color-3);
+  color: var(--color-5);
   border-radius: var(--border-radius);
   cursor: pointer;
   font-weight: normal;
@@ -54,7 +54,7 @@ html.rtl .playlist-controls {
   background: var(--color-video);
   border: none;
   box-shadow: var(--shadow-mild);
-  color: var(--color-text);
+  color: var(--color-5);
   cursor: pointer;
   font-weight: bold;
   display: flex;
@@ -65,5 +65,5 @@ html.rtl .playlist-controls {
 .playlist-progress {
   min-width: fit-content;
   text-align: center;
-  color: var(--color-text);
+  color: var(--color-5);
 }
