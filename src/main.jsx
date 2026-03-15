@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import SourceVideoGallery from "./pages/source-video-gallery/SourceVideoGallery.jsx";
-import PropertyRoutePage from "./pages/property-showcase/PropertyRoutePage.jsx";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AppStateProvider } from "./contexts/AppStateContext";
 import { ControlsProvider } from "./contexts/ControlsContext";
@@ -32,10 +31,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                       path="source-video-gallery"
                       element={<SourceVideoGallery />}
                     />
-                    <Route
-                      path="property/:propertyKey"
-                      element={<PropertyRoutePage />}
-                    />
+                    <Route path="property/:propertyKey" element={<App />} />
                   </Route>
                   <Route
                     path="*"

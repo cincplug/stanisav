@@ -64,9 +64,8 @@ function Menu({
       <button
         id="menu-toggle"
         onClick={() => onToggleCollapse(!isCollapsed)}
-        className="close-button"
+        className={`close-button ${isRtl ? "close-button-rtl" : ""}`}
         aria-label={isCollapsed ? t("menu.open") : t("menu.close")}
-        style={isRtl ? { left: 16, right: "auto" } : {}}
       >
         {isCollapsed ? <BurgerIcon /> : <CloseIcon />}
       </button>

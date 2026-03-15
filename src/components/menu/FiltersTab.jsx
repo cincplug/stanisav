@@ -119,10 +119,7 @@ function FiltersTab({ data, languageColors = {} }) {
 
           return (
             <div key={feature} className="filter-group">
-              <h3
-                className="filter-group-title"
-                style={{ display: "flex", alignItems: "center", gap: 6 }}
-              >
+              <h3 className="filter-group-title">
                 {label}
                 {isPropertyDescribed(feature) && (
                   <Link

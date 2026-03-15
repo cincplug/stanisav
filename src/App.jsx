@@ -1,4 +1,8 @@
 import { useState } from "react";
+import { useParams, useLocation, Navigate } from "react-router-dom";
+import PropertyShowcase from "./pages/property-showcase/PropertyShowcase.jsx";
+import { CloseIcon } from "./components/menu/MenuIcons";
+import { isPropertyDescribed } from "./utils/linguisticUtils";
 import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
 import Overlay from "./components/menu/Overlay";
@@ -40,6 +44,14 @@ function App() {
     controls,
   );
 
+  const params = useParams();
+  const location = useLocation();
+  const showPropertyOverlay = Boolean(params.propertyKey);
+
+  if (showPropertyOverlay && !isPropertyDescribed(params.propertyKey)) {
+    return <Navigate to={`/${params.locale || ""}`} replace />;
+  }
+
   return (
     <div
       className={`app-container ${isLoading ? "loading" : ""} ${isMenuCollapsed ? "menu-collapsed" : "menu-expanded"}`}
@@ -72,6 +84,18 @@ function App() {
             sub={sub}
             headingColor={languageColors[selectedLanguage]}
           />
+        )}
+        {showPropertyOverlay && (
+          <div className="property-overlay">
+            <button
+              className={`close-button`}
+              aria-label="Close property overlay"
+              onClick={() => window.history.back()}
+            >
+              <CloseIcon />
+            </button>
+            <PropertyShowcase propertyKey={params.propertyKey} />
+          </div>
         )}
       </div>
 

@@ -59,7 +59,7 @@ const PropertyShowcase = ({ propertyKey }) => {
   });
 
   return (
-    <div className="property-showcase" style={{ background: backgroundColor }}>
+    <div className="property-showcase">
       <div className="property-showcase-title">
         {t(`linguistic.${propertyKey}.name`) || property.name}
       </div>

@@ -143,6 +143,11 @@ legend {
   width: auto;
 }
 
+.close-button-rtl {
+  left: var(--gap);
+  right: auto;
+}
+
 .close-button svg {
   width: 24px;
   height: 24px;
