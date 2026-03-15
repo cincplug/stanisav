@@ -1,6 +1,6 @@
 .property-showcase {
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
   position: relative;
   background: var(--color-bg);
   display: flex;
@@ -12,7 +12,7 @@
 }
 
 .property-showcase-title {
-  position: absolute;
+  /* position: absolute; */
   left: var(--gap-double);
   top: var(--gap-double);
   font-size: var(--font-size-big);
@@ -21,24 +21,29 @@
 }
 
 .property-showcase-flex {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  max-width: 1200px; /* 3 cards * 400px max, adjust as needed */
+  margin: 0 auto;
   gap: var(--gap-double);
   width: 100%;
-  overflow-x: hidden;
+  padding: var(--gap-double);
+  box-sizing: border-box;
+  align-items: stretch; /* Ensures equal height */
 }
 
 .property-showcase-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--gap);
-  min-width: 220px;
-  max-width: 400px;
-  flex: 1 1 220px;
+  background: var(--color-menu-background);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  padding: var(--gap-double);
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+  height: 100%; /* Fill grid cell height */
 }
 
 .property-showcase-canvas {

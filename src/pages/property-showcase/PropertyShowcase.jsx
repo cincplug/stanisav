@@ -66,6 +66,7 @@ const PropertyShowcase = ({ propertyKey }) => {
       <div className="property-showcase-flex">
         {meshas.map((mesha) => (
           <div className="property-showcase-item" key={mesha.key}>
+            <div className="property-showcase-label">{mesha.label}</div>
             <div className="property-showcase-canvas">
               <Canvas
                 camera={{
@@ -80,7 +81,7 @@ const PropertyShowcase = ({ propertyKey }) => {
                 <Mesha
                   linguisticProperties={mesha.linguisticProperties}
                   color={mesha.color}
-                  position={[0, -5, 80]}
+                  position={[0, -5, 100]}
                   audioSource={null}
                   animateFromAudio={false}
                   looksAround
@@ -88,12 +89,10 @@ const PropertyShowcase = ({ propertyKey }) => {
                 />
               </Canvas>
             </div>
-            <div className="property-showcase-label">{mesha.label}</div>
-            {mesha.description && (
-              <div className="property-showcase-description">
-                {mesha.description}
-              </div>
-            )}
+
+            <div className="property-showcase-description">
+              {mesha.description}
+            </div>
           </div>
         ))}
       </div>
