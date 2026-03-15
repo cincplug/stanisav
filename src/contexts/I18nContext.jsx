@@ -3,7 +3,6 @@ import { setActiveLocale, translate } from "../i18n/runtime";
 
 const I18nContext = createContext(null);
 
-
 // List of RTL ISO 639-3 codes supported by the app
 const RTL_LOCALES = new Set(["ara", "heb", "fas", "urd"]); // Arabic, Hebrew, Persian, Urdu
 
@@ -11,6 +10,7 @@ export const I18nProvider = ({ children }) => {
   const [locale, setLocale] = useState("eng");
   const [isLocaleReady, setIsLocaleReady] = useState(true);
 
+  const [isRtl, setIsRtl] = useState(RTL_LOCALES.has(locale));
   useEffect(() => {
     let cancelled = false;
     setIsLocaleReady(false);
@@ -18,9 +18,10 @@ export const I18nProvider = ({ children }) => {
       if (!cancelled) {
         const lang = new Intl.Locale(locale).language;
         document.documentElement.lang = lang;
-        const isRtl = RTL_LOCALES.has(locale);
-        document.documentElement.dir = isRtl ? "rtl" : "ltr";
-        document.documentElement.classList.toggle("rtl", isRtl);
+        const rtl = RTL_LOCALES.has(locale);
+        setIsRtl(rtl);
+        document.documentElement.dir = rtl ? "rtl" : "ltr";
+        document.documentElement.classList.toggle("rtl", rtl);
         setIsLocaleReady(true);
       }
     });
@@ -35,8 +36,9 @@ export const I18nProvider = ({ children }) => {
       setLocale,
       t: translate,
       isLocaleReady,
+      isRtl,
     }),
-    [locale, isLocaleReady],
+    [locale, isLocaleReady, isRtl],
   );
 
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;

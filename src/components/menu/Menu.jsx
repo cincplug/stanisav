@@ -6,27 +6,20 @@ import { BurgerIcon, CloseIcon } from "./MenuIcons";
 import tabsConfig from "../../config/tabsConfig.json";
 import TabNavigation from "./TabNavigation";
 import TabRenderer from "./TabRenderer";
-import SearchBox from "./SearchBox";
 import "./Menu.css";
 
 function Menu({
   onControlChange,
   data,
   isLoading,
-  sceneReady,
-  onCameraFocus,
   isCollapsed,
   onToggleCollapse,
   filteringUtils,
   onFilteringUtilsChange,
   languageColors,
 }) {
-  // Detect RTL from document direction
-  const isRtl =
-    typeof window !== "undefined" &&
-    document.documentElement.classList.contains("rtl");
   const { controls, updateControl } = useControls();
-  const { t } = useI18n();
+  const { t, isRtl } = useI18n();
   const [activeTab, setActiveTab] = useState(tabsConfig.defaultTab);
 
   const { searchTerm, setSearchTerm, searchResults, clearSearch } =

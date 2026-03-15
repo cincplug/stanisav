@@ -1,21 +1,23 @@
 import { useState } from "react";
 import { useParams, useLocation, Navigate } from "react-router-dom";
-import PropertyShowcase from "./pages/property-showcase/PropertyShowcase.jsx";
-import { CloseIcon } from "./components/menu/MenuIcons";
-import { isPropertyDescribed } from "./utils/linguisticUtils";
 import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
 import Overlay from "./components/menu/Overlay";
 import Playlist from "./components/menu/Playlist";
+import PropertyShowcase from "./pages/property-showcase/PropertyShowcase.jsx";
 import IdCard from "./components/menu/IdCard";
+import { CloseIcon } from "./components/menu/MenuIcons";
 import { useAppState } from "./contexts/AppStateContext";
 import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
 import { useControls } from "./contexts/ControlsContext";
 import { usePlaylist } from "./contexts/PlaylistContext";
 import { useLanguageColors } from "./hooks/useLanguageColors";
+import { isPropertyDescribed } from "./utils/linguisticUtils";
+import { useI18n } from "./hooks/useTranslations";
 import "./App.css";
 
 function App() {
+  const { t, isRtl } = useI18n();
   const {
     isLoading,
     data,
@@ -54,7 +56,7 @@ function App() {
 
   return (
     <div
-      className={`app-container ${isLoading ? "loading" : ""} ${isMenuCollapsed ? "menu-collapsed" : "menu-expanded"}`}
+      className={`app-container${isRtl ? " rtl" : ""} ${isLoading ? "loading" : ""} ${isMenuCollapsed ? "menu-collapsed" : "menu-expanded"}`}
     >
       <div className="stage-area">
         <Stage
@@ -88,8 +90,8 @@ function App() {
         {showPropertyOverlay && (
           <div className="property-overlay">
             <button
-              className={`close-button`}
-              aria-label="Close property overlay"
+              className={`close-button${isRtl ? " close-button-rtl" : ""}`}
+              aria-label={t("menu.close")}
               onClick={() => window.history.back()}
             >
               <CloseIcon />
