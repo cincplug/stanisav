@@ -1,55 +1,17 @@
-.stage-area {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.property-overlay {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  z-index: 100;
-  background: rgba(0, 0, 0, 0.92);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  overflow: hidden;
-}
-
-.app-container.menu-collapsed .property-overlay {
-  left: 0;
-  right: 0;
-  width: 100%;
-}
-
-.app-container.menu-expanded .property-overlay {
-  left: var(--panel-width);
-  width: calc(100% - var(--panel-width));
-  right: 0;
-}
-
-html.rtl .app-container.menu-expanded .property-overlay {
-  left: 0;
-  right: var(--panel-width);
-  width: calc(100% - var(--panel-width));
-}
-
-html.rtl .property-overlay {
-  direction: rtl;
-}
-
+/* App Container */
 .app-container {
   width: 100%;
   height: 100vh;
   position: relative;
-  background-color: #000000;
-}
-
-.app-container.loading {
-  background-color: #000000;
 }
 
 .app-container.loading .r3f-canvas {
   visibility: hidden;
+}
+
+/* Stage Area */
+.stage-area {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }

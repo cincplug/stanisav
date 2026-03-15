@@ -60,14 +60,14 @@ const PropertyShowcase = ({ propertyKey }) => {
 
   return (
     <div className="property-showcase">
-      <div className="property-showcase-title">
+      <h2 className="property-showcase-title">
         {t(`linguistic.${propertyKey}.name`) || property.name}
-      </div>
-      <div className="property-showcase-flex">
+      </h2>
+      <div className="property-showcase-items">
         {meshas.map((mesha) => (
           <div className="property-showcase-item" key={mesha.key}>
-            <div className="property-showcase-label">{mesha.label}</div>
-            <div className="property-showcase-canvas">
+            <h3 className="property-showcase-label">{mesha.label}</h3>
+            <div className="property-showcase-mesha">
               <Canvas
                 camera={{
                   position: [cameraX, cameraY, cameraZ],

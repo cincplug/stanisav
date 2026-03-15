@@ -88,7 +88,8 @@ function App() {
           />
         )}
         {showPropertyOverlay && (
-          <div className="property-overlay">
+          <>
+            <PropertyShowcase propertyKey={params.propertyKey} />
             <button
               className={`close-button${isRtl ? " close-button-rtl" : ""}`}
               aria-label={t("menu.close")}
@@ -96,8 +97,7 @@ function App() {
             >
               <CloseIcon />
             </button>
-            <PropertyShowcase propertyKey={params.propertyKey} />
-          </div>
+          </>
         )}
       </div>
 
