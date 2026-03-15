@@ -1,5 +1,5 @@
 import "./Overlay.css";
-import { useI18n } from "../../hooks/useI18n";
+import { useI18n } from "../../hooks/useTranslations";
 
 const Overlay = ({ variant = "loading" }) => {
   const { t } = useI18n();

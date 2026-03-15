@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Navigate, Outlet, useLocation, useParams } from "react-router-dom";
-import { useI18n } from "../../hooks/useI18n";
+import { useI18n } from "../../hooks/useTranslations";
 import {
   defaultUrlSlug,
   resolveUrlLocale,

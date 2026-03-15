@@ -9,7 +9,7 @@ import {
   NextIcon,
   LoopIcon,
 } from "./MenuIcons";
-import { useI18n } from "../../hooks/useI18n";
+import { useI18n } from "../../hooks/useTranslations";
 import "./Playlist.css";
 
 export default function Playlist() {
@@ -87,7 +87,7 @@ export default function Playlist() {
       >
         {playIcon}
       </button>
-      <button onClick={goToNext} aria-label={t("playlist.next")}> 
+      <button onClick={goToNext} aria-label={t("playlist.next")}>
         <NextIcon className="next-icon" />
       </button>
       <button

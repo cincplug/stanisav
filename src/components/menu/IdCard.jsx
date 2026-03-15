@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useI18n } from "../../hooks/useI18n";
+import { useI18n } from "../../hooks/useTranslations";
 import { getLocalizedLanguageName } from "../../i18n/runtime";
 import {
   getAllFeatures,

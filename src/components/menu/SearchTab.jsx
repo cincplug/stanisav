@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import SearchBox from "./SearchBox";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
-import { useI18n } from "../../hooks/useI18n";
+import { useI18n } from "../../hooks/useTranslations";
 import { getFamilyLabel } from "../../utils/configI18nUtils";
 import tabsConfig from "../../config/tabsConfig.json";
 import "./SearchTab.css";

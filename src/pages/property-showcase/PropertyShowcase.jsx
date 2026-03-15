@@ -5,7 +5,7 @@ import linguisticConfig from "../../config/linguisticConfig.json";
 import Mesha from "../../components/r3f/Mesha";
 import { getFeatureScore } from "../../utils/linguisticUtils";
 import "./PropertyShowcase.css";
-import { useI18n } from "../../hooks/useI18n";
+import { useI18n } from "../../hooks/useTranslations";
 
 const baseLinguisticProperties = {
   tonality: "non-tonal",
