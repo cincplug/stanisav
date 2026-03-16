@@ -117,6 +117,8 @@ function LanguagesTab({ languageData, isActive, languageColors = {} }) {
       );
     }
     const result = {};
+    // For sorting group keys
+    let groupSortArr = [];
     sortedLanguageCodes.forEach((langCode) => {
       let categoryKey, categoryLabel;
 
@@ -137,7 +139,7 @@ function LanguagesTab({ languageData, isActive, languageColors = {} }) {
         keys.forEach((key) => {
           const label = getFeatureLabel(sortBy, key);
           if (!result[key]) {
-            result[key] = { title: label, languages: [] };
+            result[key] = { title: label, languages: [], _key: key };
           }
           result[key].languages.push(langCode);
         });
@@ -151,19 +153,42 @@ function LanguagesTab({ languageData, isActive, languageColors = {} }) {
         result[categoryKey] = {
           title: categoryLabel,
           languages: [],
+          _key: categoryKey,
         };
       }
       result[categoryKey].languages.push(langCode);
     });
-    return Object.values(result).sort((a, b) =>
-      a.title.localeCompare(b.title, "und", { sensitivity: "base" }),
-    );
+
+    let groups = Object.values(result);
+    // Determine sorting method for group titles
+    if (linguisticConfig[sortBy]?.values) {
+      // Sort by score for scored features
+      groups.sort((a, b) => {
+        const scoreA = linguisticConfig[sortBy].values[a._key]?.score ?? 0;
+        const scoreB = linguisticConfig[sortBy].values[b._key]?.score ?? 0;
+        return isReverse ? scoreB - scoreA : scoreA - scoreB;
+      });
+    } else if (numericFeatures.includes(sortBy)) {
+      // Sort numerically for numeric features
+      groups.sort((a, b) => {
+        const numA = Number(a._key);
+        const numB = Number(b._key);
+        return isReverse ? numB - numA : numA - numB;
+      });
+    } else {
+      // Fallback: alphabetical
+      groups.sort((a, b) =>
+        a.title.localeCompare(b.title, "und", { sensitivity: "base" }),
+      );
+    }
+    return groups;
   }, [
     sortedLanguageCodes,
     sortBy,
     languageData,
     labelContent,
     languageLineages,
+    isReverse,
   ]);
 
   // Get Sorting controls
