@@ -1,6 +1,7 @@
-import { Canvas, useFrame } from "@react-three/fiber";
+import SceneReadyGate from "./SceneReadyGate";
+import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo } from "react";
 import { useSpring } from "@react-spring/three";
 import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
@@ -12,26 +13,6 @@ import StageLight from "./StageLight";
 import Label from "./Label";
 import Mesha from "./Mesha";
 import Camera from "./Camera";
-
-const SceneReadyGate = ({ hasDrawableScene, onSceneReady }) => {
-  const visualReadyRef = useRef(false);
-
-  useEffect(() => {
-    if (!hasDrawableScene) {
-      visualReadyRef.current = false;
-      onSceneReady(false);
-    }
-  }, [hasDrawableScene, onSceneReady]);
-
-  useFrame(() => {
-    if (hasDrawableScene && !visualReadyRef.current) {
-      visualReadyRef.current = true;
-      onSceneReady(true);
-    }
-  });
-
-  return null;
-};
 
 const Stage = ({
   onDataLoaded,
@@ -175,7 +156,7 @@ const Stage = ({
         />
 
         {!showEmptyMessage &&
-          sortedLanguageCodes.map((langCode, index) => {
+          sortedLanguageCodes.map((langCode) => {
             const position = formattedPositions[langCode];
             const filterStatus = languageFilterStatus[langCode];
             if (!position || !filterStatus?.isVisible) return null;
@@ -190,7 +171,6 @@ const Stage = ({
                 position={[position.x, position.y, position.z]}
                 isSelected={selectedLanguage === langCode}
                 color={color}
-                labelPrefix={`${index + 1} `}
               />
             );
           })}

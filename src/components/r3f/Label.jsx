@@ -14,13 +14,7 @@ import {
 } from "../../utils/sceneUtils.js";
 import { getLanguageLabel } from "../../utils/languageDisplayUtils.js";
 
-const Label = ({
-  languageCode,
-  position,
-  isSelected = false,
-  color,
-  labelPrefix = "",
-}) => {
+const Label = ({ languageCode, position, isSelected = false, color }) => {
   const groupRef = useRef();
   const labelRef = useRef();
   const { controls } = useControls();
