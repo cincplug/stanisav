@@ -18,7 +18,7 @@ export const calculateLanguageFilterStatus = (
 ) => {
   if (Object.keys(filteringUtils).length === 0) {
     return languages.reduce((acc, langCode) => {
-      acc[langCode] = { isVisible: true, isFiltered: false };
+      acc[langCode] = { isVisible: true };
       return acc;
     }, {});
   }
@@ -52,7 +52,9 @@ export const calculateLanguageFilterStatus = (
       },
     );
 
-    acc[langCode] = { isVisible: matchesFilters, isFiltered: !matchesFilters };
+    acc[langCode] = {
+      isVisible: matchesFilters,
+    };
     return acc;
   }, {});
 };
