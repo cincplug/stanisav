@@ -9,7 +9,7 @@ import { useLayoutManager } from "../../hooks/useLayoutManager";
 import { calculateLanguageFilterStatus } from "../../utils/sceneUtils";
 import { getFeatureScore } from "../../utils/linguisticUtils";
 import StageLight from "./StageLight";
-import Node from "./Node";
+import Label from "./Label";
 import Mesha from "./Mesha";
 import Camera from "./Camera";
 
@@ -183,14 +183,12 @@ const Stage = ({
             const color = languageColors[langCode];
 
             return (
-              <Node
+              <Label
                 key={langCode}
                 languageCode={langCode}
                 language={data.languageData[langCode]}
                 position={[position.x, position.y, position.z]}
-                speakerCount={data.speakerData[langCode] || 1}
                 isSelected={selectedLanguage === langCode}
-                isFiltered={filterStatus.isFiltered}
                 color={color}
                 labelPrefix={`${index + 1} `}
               />
