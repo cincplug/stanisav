@@ -34,6 +34,7 @@ const Stage = ({
     isMyMesha,
     tension,
     friction,
+    sphereRadius,
   } = controls;
 
   const { filteringUtils, selectedLanguage } = useLanguageSelection();
@@ -74,7 +75,7 @@ const Stage = ({
       const pos = formattedPositions[selectedLanguage];
       return [pos.x, pos.y, pos.z];
     }
-    return [0, 0, 0];
+    return [0, 0, sphereRadius];
   }, [selectedLanguage, formattedPositions]);
 
   const hasActiveFilters = Object.keys(filteringUtils).length > 0;
