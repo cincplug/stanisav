@@ -33,15 +33,11 @@ html.rtl .playlist-controls {
 
 .playlist-controls button {
   background-color: var(--color-3);
-  border: 1px solid var(--color-3);
-  color: var(--color-5);
-  border-radius: var(--border-radius);
-  cursor: pointer;
   font-weight: normal;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0;
+  padding: var(--gap);
 }
 
 .playlist-controls button:disabled {
