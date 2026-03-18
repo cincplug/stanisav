@@ -453,6 +453,7 @@
     "pause": "Duraklat",
     "play": "Oynat",
     "previous": "Önceki parça (Sol ok)",
+    "stop": "Durdur",
     "progress": "{current} / {total}",
     "toggleLoop": "Döngüyü aç/kapat (L tuşu)"
   },

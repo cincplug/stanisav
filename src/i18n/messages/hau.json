@@ -452,6 +452,7 @@
     "next": "Waƙa mai zuwa (kibiyar dama)",
     "pause": "Tsaya",
     "play": "Kunna",
+    "stop": "Tsaya",
     "previous": "Waƙar da ta gabata (kibiyar hagu)",
     "progress": "{current} daga {total}",
     "toggleLoop": "Canza maimaita (maɓallin L)"

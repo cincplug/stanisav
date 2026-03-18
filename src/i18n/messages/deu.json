@@ -453,6 +453,7 @@
     "pause": "Pause",
     "play": "Abspielen",
     "previous": "Vorheriger Titel (Pfeil links)",
+    "stop": "Stopp",
     "progress": "{current} von {total}",
     "toggleLoop": "Wiederholen umschalten (L-Taste)"
   },

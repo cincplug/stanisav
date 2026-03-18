@@ -453,6 +453,7 @@
     "pause": "Pauza",
     "play": "Reprodukuj",
     "previous": "Prethodna numera (strelica levo)",
+    "stop": "Zaustavi",
     "progress": "{current} od {total}",
     "toggleLoop": "Uključi/isključi petlju (taster L)"
   },

@@ -452,6 +452,7 @@
     "next": "次のトラック（右矢印キー）",
     "pause": "一時停止",
     "play": "再生",
+    "stop": "停止",
     "previous": "前のトラック（左矢印キー）",
     "progress": "{current} / {total}",
     "toggleLoop": "ループ切替（Lキー）"

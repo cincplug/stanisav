@@ -326,6 +326,7 @@
     "next": "Bài tiếp theo (phím mũi tên phải)",
     "pause": "Tạm dừng",
     "play": "Phát",
+    "stop": "Dừng",
     "previous": "Bài trước (phím mũi tên trái)",
     "progress": "{current} / {total}",
     "toggleLoop": "Bật/tắt lặp (phím L)"

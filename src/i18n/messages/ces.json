@@ -453,6 +453,7 @@
     "pause": "Pozastavit",
     "play": "Přehrát",
     "previous": "Předchozí skladba (šipka vlevo)",
+    "stop": "Zastavit",
     "progress": "{current} z {total}",
     "toggleLoop": "Zapnout/vypnout opakování (klávesa L)"
   },

@@ -453,6 +453,7 @@
     "pause": "Pauza",
     "play": "Odtwórz",
     "previous": "Poprzedni utwór (strzałka w lewo)",
+    "stop": "Zatrzymaj",
     "progress": "{current} z {total}",
     "toggleLoop": "Włącz/wyłącz zapętlenie (klawisz L)"
   },

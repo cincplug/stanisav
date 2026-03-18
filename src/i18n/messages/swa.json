@@ -452,6 +452,7 @@
     "next": "Wimbo unaofuata (mshale wa kulia)",
     "pause": "Simamisha",
     "play": "Cheza",
+    "stop": "Simamisha kabisa",
     "previous": "Wimbo uliotangulia (mshale wa kushoto)",
     "progress": "{current} kati ya {total}",
     "toggleLoop": "Badilisha kurudia (kitufe cha L)"

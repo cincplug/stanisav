@@ -452,6 +452,7 @@
     "next": "Volgende track (rechterpijl)",
     "pause": "Pauze",
     "play": "Afspelen",
+    "stop": "Stop",
     "previous": "Vorige track (linkerpijl)",
     "progress": "{current} van {total}",
     "toggleLoop": "Herhalen aan/uit (L-toets)"

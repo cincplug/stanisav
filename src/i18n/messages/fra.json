@@ -453,6 +453,7 @@
     "pause": "Pause",
     "play": "Lire",
     "previous": "Piste précédente (flèche gauche)",
+    "stop": "Arrêter",
     "progress": "{current} sur {total}",
     "toggleLoop": "Activer/désactiver la répétition (touche L)"
   },

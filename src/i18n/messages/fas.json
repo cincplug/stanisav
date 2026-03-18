@@ -452,6 +452,7 @@
     "next": "آهنگ بعدی (فلش راست)",
     "pause": "مکث",
     "play": "پخش",
+    "stop": "توقف",
     "previous": "آهنگ قبلی (فلش چپ)",
     "progress": "{current} از {total}",
     "toggleLoop": "تغییر حالت تکرار (کلید L)"

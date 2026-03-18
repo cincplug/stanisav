@@ -453,6 +453,7 @@
     "pause": "Pausa",
     "play": "Riproduci",
     "previous": "Brano precedente (freccia sinistra)",
+    "stop": "Ferma",
     "progress": "{current} di {total}",
     "toggleLoop": "Attiva/disattiva ripetizione (tasto L)"
   },

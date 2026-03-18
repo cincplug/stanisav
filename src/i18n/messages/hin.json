@@ -448,10 +448,11 @@
   },
   "playlist": {
     "controls": "प्लेलिस्ट नियंत्रण",
-    "goToBeginning": "शुरुआत पर जाएँ (Home कुंजी)",
-    "next": "अगला ट्रैक (दाएँ तीर)",
+    "goToBeginning": "शुरुआत पर जाएं (Home कुंजी)",
+    "next": "अगला ट्रैक (दाएं तीर)",
     "pause": "रोकें",
-    "play": "चलाएँ",
+    "play": "चलाएं",
+    "stop": "रुकें",
     "previous": "पिछला ट्रैक (बाएँ तीर)",
     "progress": "{current} / {total}",
     "toggleLoop": "लूप बदलें (L कुंजी)"

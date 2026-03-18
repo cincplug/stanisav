@@ -372,6 +372,7 @@
     "next": "Trek berikutnya (panah kanan)",
     "pause": "Jeda",
     "play": "Putar",
+    "stop": "Berhenti",
     "previous": "Trek sebelumnya (panah kiri)",
     "progress": "{current} dari {total}",
     "toggleLoop": "Alihkan pengulangan (tombol L)"
