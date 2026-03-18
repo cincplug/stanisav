@@ -38,7 +38,7 @@ const MeshaTeeth = ({ toothCount, clusterSize }) => {
       const rotationAngle =
         Math.sign(positionInCluster - clusterCenter) *
         rotationIntensity *
-        (Math.PI / 12);
+        (Math.PI / 8);
 
       return {
         x: Math.cos(angle) * meshaSize,
@@ -75,12 +75,12 @@ const MeshaTeeth = ({ toothCount, clusterSize }) => {
   if (!teeth.length) return null;
 
   return (
-    <group position={[0, meshaSize, meshaSize * 0.7]} scale={teethSize}>
+    <group position={[0, meshaSize, meshaSize]} scale={teethSize}>
       {teeth.map((tooth, i) => (
         <group
           key={tooth.key}
-          position={[tooth.x, tooth.y, tooth.z]}
-          rotation={[0, 0, tooth.rotationAngle]}
+          position={[tooth.x, tooth.y, tooth.z - 1]}
+          rotation={[tooth.rotationAngle, 0, 0]}
         >
           <mesh ref={(el) => (teethRefs.current[i] = el)}>
             <parametricGeometry args={[createToothShape, 16, 8]} />

@@ -56,15 +56,20 @@ const MeshaMoustache = ({ moustacheCount, color, y, z }) => {
     if (!tufts.length) return [];
 
     const centerIndex = (moustacheCount - 1) / 2;
+    const minScale = 0.5; // scale at center
+    const maxScale = 1; // scale at edges
 
     return tufts.map((tuft, i) => {
-      const offsetFromCenter = i - centerIndex;
+      const offsetFromCenter = Math.abs(i - centerIndex);
+      const t = centerIndex === 0 ? 0 : offsetFromCenter / centerIndex; // 0 at center, 1 at edge
+      const scale = minScale + (maxScale - minScale) * t;
       const deg =
-        (angleConfig.centerDeg + offsetFromCenter * angleConfig.stepDeg + 360) %
+        (angleConfig.centerDeg +
+          (i - centerIndex) * angleConfig.stepDeg +
+          360) %
         360;
       const rotationRad = (deg * Math.PI) / 180;
-
-      return { ...tuft, rotationRad };
+      return { ...tuft, rotationRad, scale };
     });
   }, [tufts, moustacheCount, angleConfig]);
 
@@ -104,7 +109,7 @@ const MeshaMoustache = ({ moustacheCount, color, y, z }) => {
           ref={(el) => (tuftsRef.current[i] = el)}
           position={[tuft.x, tuft.y, tuft.z]}
         >
-          <mesh rotation={[0, 0, tuft.rotationRad]}>
+          <mesh rotation={[0, 0, tuft.rotationRad]} scale={tuft.scale}>
             <parametricGeometry args={[tuftSurface, 12, 12]} />
             <meshStandardMaterial color={moustacheColor} side={2} />
           </mesh>
