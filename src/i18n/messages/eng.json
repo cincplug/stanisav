@@ -452,6 +452,7 @@
     "next": "Next track (Right arrow)",
     "pause": "Pause",
     "play": "Play",
+    "stop": "Stop",
     "previous": "Previous track (Left arrow)",
     "progress": "{current} of {total}",
     "toggleLoop": "Toggle loop (L key)"

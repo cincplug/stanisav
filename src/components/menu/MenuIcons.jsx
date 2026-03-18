@@ -1,3 +1,22 @@
+export const StopIcon = (props) => (
+  <svg
+    width={iconSize}
+    height={iconSize}
+    viewBox={viewBox}
+    fill="none"
+    {...props}
+  >
+    <rect
+      x="6"
+      y="6"
+      width="12"
+      height="12"
+      fill={iconColor}
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+    />
+  </svg>
+);
 const iconColor = "#fff";
 const iconSize = 24;
 const viewBox = `0 0 ${iconSize} ${iconSize}`;

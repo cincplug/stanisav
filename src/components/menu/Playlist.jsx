@@ -8,12 +8,15 @@ import {
   PrevIcon,
   NextIcon,
   LoopIcon,
+  StopIcon,
 } from "./MenuIcons";
 import { useI18n } from "../../contexts/I18nContext";
+import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import "./Playlist.css";
 
 export default function Playlist() {
   const { t } = useI18n();
+  const { viewAllLanguages } = useLanguageSelection();
   const {
     isPlaying,
     startPlaylist,
@@ -64,8 +67,16 @@ export default function Playlist() {
 
   const playLabel = isPlaying ? t("playlist.pause") : t("playlist.play");
   const playIcon = isPlaying ? <PauseIcon /> : <PlayIcon />;
+  // Fallback for stop label if not present in translations
+  const stopLabel = "playlist.stop";
 
   const toggleLoop = () => updateControl("isLoop", !controls.isLoop);
+
+  // Stop button handler: same as viewAll in FiltersTab
+  const handleStop = () => {
+    pausePlaylist();
+    viewAllLanguages();
+  };
 
   return (
     <div
@@ -86,6 +97,9 @@ export default function Playlist() {
         aria-pressed={isPlaying}
       >
         {playIcon}
+      </button>
+      <button onClick={handleStop} aria-label={stopLabel} className="stop-icon">
+        <StopIcon />
       </button>
       <button onClick={goToNext} aria-label={t("playlist.next")}>
         <NextIcon className="next-icon" />
