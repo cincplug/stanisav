@@ -26,7 +26,6 @@ const Mesha = ({
   animateFromAudio,
   tonalityType,
   looksAround,
-  lightIntensityMultiplier,
 }) => {
   const groupRef = useRef();
   const lookAroundRef = useRef();
@@ -185,7 +184,7 @@ const Mesha = ({
           />
         )}
       </group>
-      <MeshaLight spread={2} intensityMultiplier={lightIntensityMultiplier} />
+      <MeshaLight spread={1.5} />
     </a.group>
   );
 };

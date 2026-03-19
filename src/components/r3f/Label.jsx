@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useRef } from "react";
-import { a, useSpring } from "@react-spring/three";
+import { useSpring } from "@react-spring/three";
 import { useFrame } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
 import { MeshStandardMaterial } from "three";

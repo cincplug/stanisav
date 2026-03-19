@@ -90,9 +90,8 @@ const Stage = ({
     }
   }, [showEmptyMessage, onEmptyFilterChange]);
 
-  const { stageLightMultiplier, meshaLightMultiplier } = useSpring({
+  const { stageLightMultiplier } = useSpring({
     stageLightMultiplier: selectedLanguage ? 0 : 1,
-    meshaLightMultiplier: 1,
     config: { tension, friction },
   });
 
@@ -153,7 +152,6 @@ const Stage = ({
           animateFromAudio={isMyMesha}
           tonalityType={tonalityType}
           looksAround={true}
-          lightIntensityMultiplier={meshaLightMultiplier}
         />
 
         {!showEmptyMessage &&

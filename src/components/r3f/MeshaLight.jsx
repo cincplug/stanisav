@@ -4,7 +4,7 @@ import { Color } from "three";
 import { useFrame } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 
-const MeshaLight = ({ spread, intensityMultiplier = 1 }) => {
+const MeshaLight = ({ spread }) => {
   const groupRef = useRef();
   const { controls } = useControls();
   const { meshaLightDistance, meshaLightDecay, meshaLightIntensity } = controls;
@@ -17,10 +17,7 @@ const MeshaLight = ({ spread, intensityMultiplier = 1 }) => {
     }
   });
 
-  const intensity =
-    typeof intensityMultiplier?.to === "function"
-      ? intensityMultiplier.to((m) => meshaLightIntensity * m)
-      : meshaLightIntensity * intensityMultiplier;
+  const intensity = meshaLightIntensity;
 
   return (
     <group ref={groupRef}>
@@ -39,7 +36,7 @@ const MeshaLight = ({ spread, intensityMultiplier = 1 }) => {
         color={lightColor}
       />
       <a.pointLight
-        position={[0, 5, 8]}
+        position={[0, 3, 5]}
         intensity={intensity}
         distance={meshaLightDistance}
         decay={meshaLightDecay}
