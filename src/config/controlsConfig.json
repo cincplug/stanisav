@@ -106,7 +106,7 @@
   "backgroundColor": {
     "type": "color",
     "label": "Background",
-    "defaultValue": "#000000",
+    "defaultValue": "#1a1c1e",
     "isUserEditable": false,
     "group": "Colors"
   },
