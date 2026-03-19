@@ -7,17 +7,15 @@ import { createAudioReactiveSurface } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
 
-const MeshaCheek = ({
-  leftCheekMaterial,
-  rightCheekMaterial,
+const MeshaEar = ({
+  leftEarMaterial,
+  rightEarMaterial,
   meshaSize,
   bend,
   leftSegments,
   rightSegments,
-  cheekPosition,
+  earPosition,
 }) => {
-  const mesh1Ref = useRef();
-  const mesh2Ref = useRef();
   const lastAudioDataRef = useRef(defaultAudioData);
   const { audioData: rawAudioData } = useAudioAnimation();
 
@@ -40,33 +38,25 @@ const MeshaCheek = ({
     [audioData, meshaSize, bend],
   );
 
-  const { x, y, z } = cheekPosition;
+  const { x, y, z } = earPosition;
 
   return (
     <>
-      <mesh
-        ref={mesh2Ref}
-        position={[-x, y, z]}
-        scale={[-0.6, 3 / rightSegments, 1]}
-      >
+      <mesh position={[-x, y, z]} scale={[-0.6, 3 / rightSegments, 1]}>
         <parametricGeometry
           args={[audioReactiveSurface, leftSegments, leftSegments]}
         />
-        <shaderMaterial args={[leftCheekMaterial]} />
+        <shaderMaterial args={[leftEarMaterial]} />
       </mesh>
 
-      <mesh
-        ref={mesh1Ref}
-        position={[x, y, z]}
-        scale={[0.6, 3 / rightSegments, 1]}
-      >
+      <mesh position={[x, y, z]} scale={[0.6, 3 / rightSegments, 1]}>
         <parametricGeometry
           args={[audioReactiveSurface, rightSegments, rightSegments]}
         />
-        <shaderMaterial args={[rightCheekMaterial]} />
+        <shaderMaterial args={[rightEarMaterial]} />
       </mesh>
     </>
   );
 };
 
-export default MeshaCheek;
+export default MeshaEar;

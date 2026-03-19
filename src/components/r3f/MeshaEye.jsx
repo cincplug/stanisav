@@ -9,7 +9,6 @@ const MeshaEye = ({ position, color, sizeSignal, depthSignal }) => {
   const irisSize = eyeSize * 0.75;
   const pupilSize = eyeSize * 0.5;
 
-  // Representational logic lives here
   const eyeScale = 1 + sizeSignal / 4;
   const depthFactor = depthSignal / 4;
 

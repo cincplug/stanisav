@@ -9,7 +9,7 @@ import { useTonalityMaterial } from "../../hooks/useTonalityMaterial.js";
 import { getFeatureScoreList } from "../../utils/linguisticUtils.js";
 import { shiftHue } from "../../utils/colorUtils";
 import MeshaEye from "./MeshaEye.jsx";
-import MeshaCheek from "./MeshaCheek.jsx";
+import MeshaEar from "./MeshaEar.jsx";
 import MeshaTongue from "./MeshaTongue.jsx";
 import MeshaNose from "./MeshaNose.jsx";
 import MeshaTeeth from "./MeshaTeeth.jsx";
@@ -81,12 +81,12 @@ const Mesha = ({
     config: { tension, friction },
   });
 
-  const leftCheekMaterial = useTonalityMaterial(
+  const leftEarMaterial = useTonalityMaterial(
     shiftHue(color, -60),
     shiftHue(color, 60),
     tonalityType,
   );
-  const rightCheekMaterial = useTonalityMaterial(
+  const rightEarMaterial = useTonalityMaterial(
     shiftHue(color, 60),
     shiftHue(color, -60),
     tonalityType,
@@ -121,7 +121,7 @@ const Mesha = ({
   const segments = audioVisualizationConfig.meshDeformation.meshSegments;
   const mainZ = meshaSize * eyeZ;
 
-  const cheekPosition = useMemo(
+  const earPosition = useMemo(
     () => ({
       x: 1.37 - scores.morphology / 2,
       y: (scores.morphology + 1) / 4,
@@ -133,14 +133,14 @@ const Mesha = ({
   return (
     <a.group ref={groupRef} position={spring.position} scale={spring.scale}>
       <group ref={lookAroundRef}>
-        <MeshaCheek
-          leftCheekMaterial={leftCheekMaterial}
-          rightCheekMaterial={rightCheekMaterial}
+        <MeshaEar
+          leftEarMaterial={leftEarMaterial}
+          rightEarMaterial={rightEarMaterial}
           meshaSize={meshaSize}
           bend={scores.morphology / 3}
           leftSegments={10 - scores.morphology}
           rightSegments={2 + scores.morphology * 2}
-          cheekPosition={cheekPosition}
+          earPosition={earPosition}
         />
 
         <group ref={eyesGroupRef} position={[0, 1, mainZ]}>
