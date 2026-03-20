@@ -36,6 +36,24 @@ const comparePath = (aPath, bPath) => {
   return 0;
 };
 
+export function getSortingData(languageData) {
+  const languageCodes = Object.keys(languageData);
+  const languageLineages = {};
+  const speakerData = {};
+  const typologicalFeatures = {};
+  languageCodes.forEach((code) => {
+    languageLineages[code] = languageData[code].lineageKey;
+    speakerData[code] = languageData[code].speakers;
+    typologicalFeatures[code] = languageData[code];
+  });
+  return {
+    languageCodes,
+    languageLineages,
+    speakerData,
+    typologicalFeatures,
+  };
+}
+
 export function sortLanguages({
   allLanguages,
   languageData,

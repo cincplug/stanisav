@@ -8,7 +8,7 @@ import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { useDataManager } from "../../hooks/useDataManager";
 import { calculateLanguageFilterStatus } from "../../utils/sceneUtils";
 import { getFeatureScore } from "../../utils/linguisticUtils";
-import { sortLanguages } from "../../utils/sortingUtils";
+import { getSortingData, sortLanguages } from "../../utils/sortingUtils";
 import { LayoutEngine } from "../../modules/layoutEngine";
 import StageLight from "./StageLight";
 import Label from "./Label";
@@ -44,15 +44,8 @@ const Stage = ({
 
   const { sortBy, labelContent, isReverse } = controls;
   const languageData = data?.languageData || {};
-  const languageCodes = Object.keys(languageData);
-  const languageLineages = {};
-  const speakerData = {};
-  const typologicalFeatures = {};
-  languageCodes.forEach((code) => {
-    languageLineages[code] = languageData[code].lineageKey;
-    speakerData[code] = languageData[code].speakers;
-    typologicalFeatures[code] = languageData[code];
-  });
+  const { languageCodes, languageLineages, speakerData, typologicalFeatures } =
+    getSortingData(languageData);
   const sortedLanguageCodes = sortLanguages({
     allLanguages: [...languageCodes],
     languageData,

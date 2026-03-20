@@ -10,6 +10,7 @@ import { useAppState } from "./AppStateContext";
 import { useControls } from "./ControlsContext";
 import { useLanguageSelection } from "./LanguageSelectionContext";
 import { sortLanguages } from "../utils/sortingUtils";
+import { getSortingData } from "../utils/sortingUtils";
 
 const PlaylistContext = createContext(null);
 
@@ -49,8 +50,14 @@ export const PlaylistProvider = ({ children }) => {
   const getSortedLanguageCodes = useCallback(() => {
     if (!data?.languageData) return [];
 
-    let allLanguages = Object.keys(data.languageData);
+    const {
+      languageCodes,
+      languageLineages,
+      speakerData,
+      typologicalFeatures,
+    } = getSortingData(data.languageData);
 
+    let allLanguages = [...languageCodes];
     // Filter by active filters if any
     if (Object.keys(filteringUtils).length > 0 && filteredLanguages.size > 0) {
       allLanguages = allLanguages.filter((code) => filteredLanguages.has(code));
@@ -59,9 +66,9 @@ export const PlaylistProvider = ({ children }) => {
     return sortLanguages({
       allLanguages,
       languageData: data.languageData,
-      languageLineages: data.languageLineages,
-      speakerData: data.speakerData,
-      typologicalFeatures: data.typologicalFeatures,
+      languageLineages,
+      speakerData,
+      typologicalFeatures,
       sortBy,
       labelContent,
       isReverse,

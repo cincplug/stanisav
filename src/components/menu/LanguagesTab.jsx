@@ -13,7 +13,7 @@ import {
 } from "../../utils/configI18nUtils";
 import { getFeatureLabel } from "../../utils/linguisticUtils";
 import { getLanguageLabel } from "../../utils/languageDisplayUtils";
-import { sortLanguages } from "../../utils/sortingUtils";
+import { getSortingData, sortLanguages } from "../../utils/sortingUtils";
 import { buildLanguageTree } from "../../utils/languageGroupingUtils";
 import ControlItem from "./ControlItem";
 import LanguageTree from "./LanguageTree";
@@ -26,34 +26,8 @@ function LanguagesTab({ languageData, isActive, languageColors = {} }) {
 
   const { sortBy, labelContent, isReverse } = controls;
 
-  // Prepare all required data for sorting
-  const languageCodes = useMemo(
-    () => Object.keys(languageData),
-    [languageData],
-  );
-  const languageLineages = useMemo(() => {
-    const lineages = {};
-    languageCodes.forEach((code) => {
-      lineages[code] = languageData[code].lineageKey;
-    });
-    return lineages;
-  }, [languageCodes, languageData]);
-  const speakerData = useMemo(() => {
-    const speakers = {};
-    languageCodes.forEach((code) => {
-      speakers[code] = languageData[code].speakers;
-    });
-    return speakers;
-  }, [languageCodes, languageData]);
-  const typologicalFeatures = useMemo(() => {
-    const features = {};
-    languageCodes.forEach((code) => {
-      features[code] = languageData[code];
-    });
-    return features;
-  }, [languageCodes, languageData]);
-
-  // Get sorted language codes using sortingUtils
+  const { languageCodes, languageLineages, speakerData, typologicalFeatures } =
+    useMemo(() => getSortingData(languageData), [languageData]);
   const sortedLanguageCodes = useMemo(
     () =>
       sortLanguages({
