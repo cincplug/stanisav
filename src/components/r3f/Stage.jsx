@@ -6,9 +6,10 @@ import { useSpring } from "@react-spring/three";
 import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { useDataManager } from "../../hooks/useDataManager";
-import { useLayoutManager } from "../../hooks/useLayoutManager";
 import { calculateLanguageFilterStatus } from "../../utils/sceneUtils";
 import { getFeatureScore } from "../../utils/linguisticUtils";
+import { sortLanguages } from "../../utils/sortingUtils";
+import { LayoutEngine } from "../../modules/layoutEngine";
 import StageLight from "./StageLight";
 import Label from "./Label";
 import Mesha from "./Mesha";
@@ -40,10 +41,38 @@ const Stage = ({
   const { filteringUtils, selectedLanguage } = useLanguageSelection();
 
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
-  const { formattedPositions, sortedLanguageCodes } = useLayoutManager(
-    data,
+
+  const { sortBy, labelContent, isReverse } = controls;
+  const languageData = data?.languageData || {};
+  const languageCodes = Object.keys(languageData);
+  const languageLineages = {};
+  const speakerData = {};
+  const typologicalFeatures = {};
+  languageCodes.forEach((code) => {
+    languageLineages[code] = languageData[code].lineageKey;
+    speakerData[code] = languageData[code].speakers;
+    typologicalFeatures[code] = languageData[code];
+  });
+  const sortedLanguageCodes = sortLanguages({
+    allLanguages: [...languageCodes],
+    languageData,
+    languageLineages,
+    speakerData,
+    typologicalFeatures,
+    sortBy,
+    labelContent,
+    isReverse,
+  });
+
+  const layoutEngine = useMemo(() => new LayoutEngine(), []);
+  const { positions: formattedPositions } = layoutEngine.calculateLayout(
+    {
+      languageData,
+      languageLineages,
+      speakerData,
+      typologicalFeatures,
+    },
     controls,
-    onNodesReady,
   );
 
   const languageFilterStatus = useMemo(
