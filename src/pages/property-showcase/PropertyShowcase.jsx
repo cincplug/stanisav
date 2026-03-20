@@ -74,8 +74,7 @@ const PropertyShowcase = ({ propertyKey }) => {
                   linguisticProperties={mesha.linguisticProperties}
                   color={mesha.color}
                   position={[0, -5, 100]}
-                  audioSource={null}
-                  animateFromAudio={false}
+                  isMyMesha={false}
                   looksAround
                   tonalityType={mesha.tonalityType}
                 />

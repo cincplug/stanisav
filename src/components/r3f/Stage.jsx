@@ -66,7 +66,6 @@ const Stage = ({
   const meshaLinguisticProperties =
     data?.typologicalFeatures?.[meshaLanguageCode];
   const meshaColor = languageColors[meshaLanguageCode];
-  const meshaAudioSource = data?.languageData?.[meshaLanguageCode]?.sampleUrl;
   const tonalityType =
     getFeatureScore("tonality", meshaLinguisticProperties?.tonality) - 1;
 
@@ -148,8 +147,7 @@ const Stage = ({
           linguisticProperties={meshaLinguisticProperties}
           color={meshaColor}
           position={meshaPosition}
-          audioSource={meshaAudioSource}
-          animateFromAudio={isMyMesha}
+          isMyMesha={isMyMesha}
           tonalityType={tonalityType}
           looksAround={true}
         />

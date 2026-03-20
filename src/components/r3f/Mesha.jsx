@@ -22,22 +22,20 @@ const Mesha = ({
   linguisticProperties,
   color,
   position,
-  audioSource,
-  animateFromAudio,
+  isMyMesha,
   tonalityType,
   looksAround,
 }) => {
   const groupRef = useRef();
   const lookAroundRef = useRef();
   const eyesGroupRef = useRef();
-  const lookAroundRotationRef = useRef(0); // <-- renamed from meshaRotationRef
+  const lookAroundRotationRef = useRef(0);
 
   const { controls } = useControls();
   const { meshaSize, eyeZ, eyeX, eyeY, noseSize, tension, friction } = controls;
 
   useEffect(() => {
-    const shouldCapture = animateFromAudio && !audioSource;
-    if (shouldCapture) {
+    if (isMyMesha) {
       microphoneService.startCapture();
     } else {
       microphoneService.stopCapture();
@@ -45,7 +43,7 @@ const Mesha = ({
     return () => {
       microphoneService.stopCapture();
     };
-  }, [animateFromAudio, audioSource]);
+  }, [isMyMesha]);
 
   if (!color || !position) return null;
 

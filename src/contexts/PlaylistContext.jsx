@@ -16,8 +16,21 @@ const PlaylistContext = createContext(null);
 export const PlaylistProvider = ({ children }) => {
   const { data, sceneReady } = useAppState();
   const { controls } = useControls();
-  const { selectLanguage, filteredLanguages, filteringUtils } =
-    useLanguageSelection();
+  const {
+    isLoop,
+    isMyMesha,
+    isLuka,
+    switchDuration,
+    sortBy,
+    labelContent,
+    isReverse,
+  } = controls;
+  const {
+    selectLanguage,
+    filteredLanguages,
+    filteringUtils,
+    selectedLanguage,
+  } = useLanguageSelection();
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -27,11 +40,11 @@ export const PlaylistProvider = ({ children }) => {
   const audioRef = useRef(null);
   const currentAudioElement = useRef(null);
   const delayTimeoutRef = useRef(null);
-  const isLoopRef = useRef(controls.isLoop);
+  const isLoopRef = useRef(isLoop);
 
   useEffect(() => {
-    isLoopRef.current = controls.isLoop;
-  }, [controls.isLoop]);
+    isLoopRef.current = isLoop;
+  }, [isLoop]);
 
   const getSortedLanguageCodes = useCallback(() => {
     if (!data?.languageData) return [];
@@ -49,15 +62,15 @@ export const PlaylistProvider = ({ children }) => {
       languageLineages: data.languageLineages,
       speakerData: data.speakerData,
       typologicalFeatures: data.typologicalFeatures,
-      sortBy: controls.sortBy,
-      labelContent: controls.labelContent,
-      isReverse: controls.isReverse,
+      sortBy,
+      labelContent,
+      isReverse,
     });
   }, [
     data,
-    controls.sortBy,
-    controls.labelContent,
-    controls.isReverse,
+    sortBy,
+    labelContent,
+    isReverse,
     filteringUtils,
     filteredLanguages,
   ]);
@@ -118,27 +131,27 @@ export const PlaylistProvider = ({ children }) => {
 
   const goToPrev = useCallback(() => {
     setCurrentIndex((index) => Math.max(0, index - 1));
-    if (controls.isLoop) {
+    if (isLoop) {
       setPlaylistSession((s) => s + 1);
     }
-  }, [controls.isLoop]);
+  }, [isLoop]);
 
   const goToNext = useCallback(() => {
     setCurrentIndex((index) => {
       const codes = playlistRef.current;
       return Math.min(codes.length - 1, index + 1);
     });
-    if (controls.isLoop) {
+    if (isLoop) {
       setPlaylistSession((s) => s + 1);
     }
-  }, [controls.isLoop]);
+  }, [isLoop]);
 
   const goToBegin = useCallback(() => {
     setCurrentIndex(0);
-    if (controls.isLoop) {
+    if (isLoop) {
       setPlaylistSession((s) => s + 1);
     }
-  }, [controls.isLoop]);
+  }, [isLoop]);
 
   const handleAudioEnded = useCallback(() => {
     if (isLoopRef.current) {
@@ -156,6 +169,15 @@ export const PlaylistProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
+    if (isMyMesha) {
+      setIsPlaying(false);
+      stopCurrentAudio();
+      return;
+    }
+    if (!isMyMesha && selectedLanguage && !isPlaying) {
+      setIsPlaying(true);
+      setPlaylistSession((s) => s + 1);
+    }
     if (!isPlaying || !sceneReady) return;
 
     const codes = playlistRef.current;
@@ -170,8 +192,6 @@ export const PlaylistProvider = ({ children }) => {
     let cleanup = () => {};
 
     const playAudio = async () => {
-      const { isLuka, switchDuration } = controls;
-
       stopCurrentAudio();
       setIsAnimating(true);
 
@@ -224,10 +244,13 @@ export const PlaylistProvider = ({ children }) => {
     currentIndex,
     playlistSession,
     sceneReady,
-    controls,
+    isMyMesha,
+    isLuka,
+    switchDuration,
     stopCurrentAudio,
     handleAudioEnded,
     selectLanguage,
+    selectedLanguage,
   ]);
 
   useEffect(() => {
