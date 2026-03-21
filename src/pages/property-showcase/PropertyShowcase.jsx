@@ -23,8 +23,7 @@ const baseLinguisticProperties = {
 const PropertyShowcase = ({ propertyKey }) => {
   const { controls } = useControls();
   const { t } = useI18n();
-  const { cameraX, cameraY, cameraZ, fov, near, far, backgroundColor } =
-    controls;
+  const { cameraX, cameraY, cameraZ, fov, near, far, bgColor } = controls;
 
   const property = linguisticConfig[propertyKey];
   const variants = useMemo(() => Object.entries(property.values), [property]);
@@ -67,9 +66,9 @@ const PropertyShowcase = ({ propertyKey }) => {
                   near,
                   far,
                 }}
-                gl={{ antialias: true, clearColor: backgroundColor }}
+                gl={{ antialias: true, clearColor: bgColor }}
               >
-                <color attach="background" args={[backgroundColor]} />
+                <color attach="background" args={[bgColor]} />
                 <Mesha
                   linguisticProperties={mesha.linguisticProperties}
                   color={mesha.color}

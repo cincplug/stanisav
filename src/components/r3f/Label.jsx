@@ -22,14 +22,8 @@ const Label = ({ languageCode, position, isSelected = false, color }) => {
   const { filteredLanguages, filteringUtils, selectLanguage } =
     useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
-  const {
-    labelContent,
-    labelSize,
-    backgroundColor,
-    sortBy,
-    tension,
-    friction,
-  } = controls;
+  const { labelContent, labelSize, bgColor, sortBy, tension, friction } =
+    controls;
 
   if (
     Object.keys(filteringUtils).length > 0 &&
@@ -86,9 +80,9 @@ const Label = ({ languageCode, position, isSelected = false, color }) => {
   const textMaterial = useMemo(
     () =>
       new MeshStandardMaterial({
-        color: backgroundColor,
+        color: bgColor,
       }),
-    [backgroundColor],
+    [bgColor],
   );
 
   return (
@@ -102,7 +96,7 @@ const Label = ({ languageCode, position, isSelected = false, color }) => {
         anchorY="middle"
         outlineWidth={fontSize / 2}
         outlineColor={color}
-        color={backgroundColor}
+        color={bgColor}
         material={textMaterial}
       >
         {labelText}

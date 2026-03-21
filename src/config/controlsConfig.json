@@ -103,7 +103,7 @@
     "isUserEditable": false,
     "group": "Scene"
   },
-  "backgroundColor": {
+  "bgColor": {
     "type": "color",
     "label": "Background",
     "defaultValue": "#0a0c0e",

@@ -31,7 +31,7 @@ const Stage = ({
     fov,
     near,
     far,
-    backgroundColor,
+    bgColor,
     isMyMesha,
     tension,
     friction,
@@ -138,14 +138,14 @@ const Stage = ({
         near,
         far,
       }}
-      gl={{ antialias: true, clearColor: backgroundColor }}
+      gl={{ antialias: true, clearColor: bgColor }}
     >
       <SceneReadyGate
         hasDrawableScene={hasDrawableScene}
         onSceneReady={onSceneReady}
       />
 
-      <color attach="background" args={[backgroundColor]} />
+      <color attach="background" args={[bgColor]} />
 
       <OrbitControls
         enableDamping={true}
