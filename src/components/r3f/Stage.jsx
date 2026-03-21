@@ -2,6 +2,7 @@ import SceneReadyGate from "./SceneReadyGate";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useEffect, useMemo } from "react";
+import { interpolateColorsByTime } from "../../utils/colorUtils";
 import { useSpring } from "@react-spring/three";
 import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
@@ -23,7 +24,8 @@ const Stage = ({
   onEmptyFilterChange,
   languageColors,
 }) => {
-  const { controls } = useControls();
+  const { controls, updateControl } = useControls();
+
   const {
     cameraX,
     cameraY,
@@ -37,6 +39,14 @@ const Stage = ({
     friction,
     sphereRadius,
   } = controls;
+
+  useEffect(() => {
+    const now = new Date();
+    const hour = now.getHours();
+    const { bgColor, bgColorNoon } = controls;
+    const newBg = interpolateColorsByTime({ bgColor, bgColorNoon, hour });
+    updateControl("bgColor", newBg);
+  }, []);
 
   const { filteringUtils, selectedLanguage } = useLanguageSelection();
 

@@ -1,5 +1,14 @@
-import { converter, formatHex } from "culori";
+import { parse, interpolate, converter, formatHex } from "culori";
 import lineages from "../config/lineages.json";
+
+export function interpolateColorsByTime({ bgColor, bgColorNoon, hour }) {
+  let t = hour <= 12 ? hour / 12 : (24 - hour) / 12;
+  t = Math.max(0, Math.min(1, t));
+  const interp = interpolate([parse(bgColor), parse(bgColorNoon)], "oklch");
+  const oklchObj = interp(t);
+  if (!oklchObj) return bgColor;
+  return formatHex({ ...oklchObj, mode: "oklch" });
+}
 
 const toOklch = converter("oklch");
 

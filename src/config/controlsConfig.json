@@ -107,8 +107,15 @@
     "type": "color",
     "label": "Background",
     "defaultValue": "#0a0c0e",
-    "isUserEditable": false,
+    "isUserEditable": true,
     "group": "Colors"
+  },
+  "bgColorNoon": {
+    "group": "Colors",
+    "type": "color",
+    "label": "Background lighter",
+    "defaultValue": "#505c5e",
+    "isUserEditable": true
   },
   "meshaLightIntensity": {
     "group": "Mesha light",
