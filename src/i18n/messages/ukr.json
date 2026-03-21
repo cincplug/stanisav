@@ -1,6 +1,6 @@
 {
   "controls": {
-    "backgroundColor": {
+    "bgColor": {
       "label": "Фон"
     },
     "cameraX": {

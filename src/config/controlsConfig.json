@@ -106,7 +106,7 @@
   "bgColor": {
     "type": "color",
     "label": "Background",
-    "defaultValue": "#0a0c0e",
+    "defaultValue": "#040608",
     "isUserEditable": true,
     "group": "Colors"
   },
@@ -114,8 +114,8 @@
     "group": "Colors",
     "type": "color",
     "label": "Background lighter",
-    "defaultValue": "#505c5e",
-    "isUserEditable": true
+    "defaultValue": "#303c3e",
+    "isUserEditable": false
   },
   "meshaLightIntensity": {
     "group": "Mesha light",

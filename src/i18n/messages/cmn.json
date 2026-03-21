@@ -1,6 +1,6 @@
 {
   "controls": {
-    "backgroundColor": {
+    "bgColor": {
       "label": "背景"
     },
     "cameraX": {

@@ -1,6 +1,6 @@
 {
   "controls": {
-    "backgroundColor": {
+    "bgColor": {
       "label": "पृष्ठभूमि"
     },
     "cameraX": {
