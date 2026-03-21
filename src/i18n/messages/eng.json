@@ -142,6 +142,9 @@
     "sphereRadius": {
       "label": "Sphere radius"
     },
+    "segmentation": {
+      "label": "Segmentation"
+    },
     "stageLightDecay": {
       "label": "Decay"
     },

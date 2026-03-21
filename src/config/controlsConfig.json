@@ -61,6 +61,16 @@
     "isUserEditable": true,
     "group": "Scene"
   },
+  "segmentation": {
+    "type": "range",
+    "label": "Segmentation",
+    "min": 1,
+    "max": 50,
+    "step": 1,
+    "defaultValue": 10,
+    "isUserEditable": true,
+    "group": "Scene"
+  },
   "isMyMesha": {
     "type": "checkbox",
     "label": "I am Mesha",
@@ -114,7 +124,7 @@
     "group": "Colors",
     "type": "color",
     "label": "Background lighter",
-    "defaultValue": "#303c3e",
+    "defaultValue": "#1a1c1e",
     "isUserEditable": false
   },
   "meshaLightIntensity": {
@@ -154,7 +164,7 @@
     "min": 0,
     "max": 1,
     "step": 0.1,
-    "defaultValue": 0.2,
+    "defaultValue": 0.5,
     "isUserEditable": true
   },
   "meshaLightDistance": {
@@ -174,7 +184,7 @@
     "min": 50,
     "max": 200,
     "step": 1,
-    "defaultValue": 116,
+    "defaultValue": 175,
     "isUserEditable": true
   },
   "cameraX": {

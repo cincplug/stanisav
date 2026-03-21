@@ -11,6 +11,7 @@ import { calculateLanguageFilterStatus } from "../../utils/sceneUtils";
 import { getFeatureScore } from "../../utils/linguisticUtils";
 import { getSortingData, sortLanguages } from "../../utils/sortingUtils";
 import { LayoutEngine } from "../../modules/layoutEngine";
+import lineageTree from "../../config/lineages.json";
 import StageLight from "./StageLight";
 import Label from "./Label";
 import Mesha from "./Mesha";
@@ -72,6 +73,7 @@ const Stage = ({
     {
       languageData,
       languageLineages,
+      lineageTree,
       speakerData,
       typologicalFeatures,
     },
