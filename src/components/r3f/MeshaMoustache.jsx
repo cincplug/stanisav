@@ -115,7 +115,7 @@ const MeshaMoustache = ({
           key={tuft.key}
           ref={(el) => (tuftsRef.current[i] = el)}
           position={[tuft.x, tuft.y, tuft.z]}
-          onPointerDown={(e) => {
+          onClick={(e) => {
             e.stopPropagation();
             onShowTooltip?.();
           }}

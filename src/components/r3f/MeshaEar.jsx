@@ -47,7 +47,7 @@ const MeshaEar = ({
       <mesh
         position={[-x, y, z]}
         scale={[-0.6, 3 / rightSegments, 1]}
-        onPointerDown={(e) => {
+        onClick={(e) => {
           e.stopPropagation();
           onShowTooltip?.();
         }}
@@ -70,7 +70,7 @@ const MeshaEar = ({
       <mesh
         position={[x, y, z]}
         scale={[0.6, 3 / rightSegments, 1]}
-        onPointerDown={(e) => {
+        onClick={(e) => {
           e.stopPropagation();
           onShowTooltip?.();
         }}

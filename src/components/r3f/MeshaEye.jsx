@@ -27,7 +27,7 @@ const MeshaEye = ({
       ref={groupRef}
       position={position}
       scale={eyeScale}
-      onPointerDown={(e) => {
+      onClick={(e) => {
         e.stopPropagation();
         onShowTooltip?.();
       }}

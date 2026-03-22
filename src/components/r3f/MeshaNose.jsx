@@ -36,7 +36,7 @@ const MeshaNose = ({
       ref={groupRef}
       position={position}
       scale={scale}
-      onPointerDown={(e) => {
+      onClick={(e) => {
         e.stopPropagation();
         onShowTooltip?.();
       }}

@@ -1,36 +1,4 @@
-import {
-  useRef,
-  useMemo,
-  useEffect,
-  useState,
-  createContext,
-  useContext,
-} from "react";
-import { Text } from "@react-three/drei";
-// Simple 3D tooltip component using Drei's <Text>
-const Tooltip3D = ({ position, label, value, onClose }) => {
-  if (!position) return null;
-  return (
-    <group position={position}>
-      <mesh>
-        <planeGeometry args={[1.5, 0.5]} />
-        <meshStandardMaterial color="#222" transparent opacity={0.85} />
-      </mesh>
-      <Text
-        position={[0, 0, 0.01]}
-        fontSize={0.18}
-        anchorX="center"
-        anchorY="middle"
-        color="#fff"
-        outlineWidth={0}
-        maxWidth={1.4}
-        fontWeight="normal"
-      >
-        {`${label}: ${value}`}
-      </Text>
-    </group>
-  );
-};
+import { useRef, useMemo, useEffect, useState, createContext } from "react";
 import { extend, useFrame } from "@react-three/fiber";
 import { a, useSpring } from "@react-spring/three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
@@ -41,6 +9,7 @@ import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useTonalityMaterial } from "../../hooks/useTonalityMaterial.js";
 import { getFeatureScoreList } from "../../utils/linguisticUtils.js";
 import { shiftHue } from "../../utils/colorUtils";
+import MeshaInteractionContext from "../../contexts/MeshaInteractionContext.jsx";
 import MeshaEye from "./MeshaEye.jsx";
 import MeshaEar from "./MeshaEar.jsx";
 import MeshaTongue from "./MeshaTongue.jsx";
@@ -48,12 +17,10 @@ import MeshaNose from "./MeshaNose.jsx";
 import MeshaTeeth from "./MeshaTeeth.jsx";
 import MeshaMoustache from "./MeshaMoustache.jsx";
 import MeshaLight from "./MeshaLight.jsx";
+import Tooltip from "./Tooltip.jsx";
 
 extend({ ParametricGeometry });
 extend({ TextGeometry });
-
-// Context to signal if Mesha is hovered
-export const MeshaHoverContext = createContext(false);
 
 const Mesha = ({
   linguisticProperties,
@@ -62,10 +29,9 @@ const Mesha = ({
   isMyMesha,
   tonalityType,
   looksAround,
-  setMeshaHovered, // optional callback for parent
 }) => {
   // Track if any subcomponent is hovered
-  const [hovered, setHovered] = useState(false);
+  const [interacting, setInteracting] = useState(false);
   const groupRef = useRef();
   const lookAroundRef = useRef();
   const eyesGroupRef = useRef();
@@ -180,7 +146,7 @@ const Mesha = ({
   );
 
   return (
-    <MeshaHoverContext.Provider value={hovered}>
+    <MeshaInteractionContext.Provider value={interacting}>
       <a.group ref={groupRef} position={spring.position} scale={spring.scale}>
         <group ref={lookAroundRef}>
           <MeshaEar
@@ -200,13 +166,9 @@ const Mesha = ({
               })
             }
             selected={tooltip?.key === "morphology"}
-            onPointerOver={() => {
-              setHovered(true);
-              setMeshaHovered?.(true);
-            }}
-            onPointerOut={() => {
-              setHovered(false);
-              setMeshaHovered?.(false);
+            onClick={() => {
+              setInteracting(true);
+              setTimeout(() => setInteracting(false), 300); // short window for tap/click
             }}
           />
 
@@ -225,13 +187,9 @@ const Mesha = ({
                 })
               }
               selected={tooltip?.key === "evidentiality"}
-              onPointerOver={() => {
-                setHovered(true);
-                setMeshaHovered?.(true);
-              }}
-              onPointerOut={() => {
-                setHovered(false);
-                setMeshaHovered?.(false);
+              onClick={() => {
+                setInteracting(true);
+                setTimeout(() => setInteracting(false), 300);
               }}
             />
             <MeshaEye
@@ -248,13 +206,9 @@ const Mesha = ({
                 })
               }
               selected={tooltip?.key === "evidentiality"}
-              onPointerOver={() => {
-                setHovered(true);
-                setMeshaHovered?.(true);
-              }}
-              onPointerOut={() => {
-                setHovered(false);
-                setMeshaHovered?.(false);
+              onClick={() => {
+                setInteracting(true);
+                setTimeout(() => setInteracting(false), 300);
               }}
             />
             <MeshaNose
@@ -272,13 +226,9 @@ const Mesha = ({
                 })
               }
               selected={tooltip?.key === "wordOrderFlexibility"}
-              onPointerOver={() => {
-                setHovered(true);
-                setMeshaHovered?.(true);
-              }}
-              onPointerOut={() => {
-                setHovered(false);
-                setMeshaHovered?.(false);
+              onClick={() => {
+                setInteracting(true);
+                setTimeout(() => setInteracting(false), 300);
               }}
             />
           </group>
@@ -300,13 +250,9 @@ const Mesha = ({
                 })
               }
               selected={tooltip?.key === "caseCount"}
-              onPointerOver={() => {
-                setHovered(true);
-                setMeshaHovered?.(true);
-              }}
-              onPointerOut={() => {
-                setHovered(false);
-                setMeshaHovered?.(false);
+              onClick={() => {
+                setInteracting(true);
+                setTimeout(() => setInteracting(false), 300);
               }}
             />
           )}
@@ -325,13 +271,9 @@ const Mesha = ({
                 })
               }
               selected={tooltip?.key === "nounClassCount"}
-              onPointerOver={() => {
-                setHovered(true);
-                setMeshaHovered?.(true);
-              }}
-              onPointerOut={() => {
-                setHovered(false);
-                setMeshaHovered?.(false);
+              onClick={() => {
+                setInteracting(true);
+                setTimeout(() => setInteracting(false), 300);
               }}
             />
           )}
@@ -339,15 +281,14 @@ const Mesha = ({
         <MeshaLight spread={1.5} />
         {/* Tooltip3D overlay */}
         {tooltip && (
-          <Tooltip3D
+          <Tooltip
             position={tooltip.position}
             label={tooltip.label}
             value={tooltip.value}
-            onClose={handleHideTooltip}
           />
         )}
       </a.group>
-    </MeshaHoverContext.Provider>
+    </MeshaInteractionContext.Provider>
   );
 };
 
