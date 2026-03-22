@@ -1,17 +1,18 @@
 import { useState, useCallback } from "react";
 
-// Returns a function to get tooltip data for a given part
-export function getTooltipData({
-  part,
-  scores,
-  earPosition,
-  eyeX,
-  eyeY,
-  mainZ,
-  meshaSize,
-  caseCount,
-  nounClassCount,
-}) {
+// Returns tooltip data for a given part and context
+// (internal, not exported)
+function getTooltipDataFromEvent(part, context) {
+  const {
+    scores,
+    earPosition,
+    eyeX,
+    eyeY,
+    mainZ,
+    meshaSize,
+    caseCount,
+    nounClassCount,
+  } = context;
   switch (part) {
     case "ear":
       return {
@@ -20,18 +21,11 @@ export function getTooltipData({
         position: [-earPosition.x, earPosition.y, earPosition.z],
         key: "morphology",
       };
-    case "leftEye":
+    case "eye":
       return {
         label: "Evidentiality",
         value: scores.evidentiality,
         position: [-eyeX, eyeY, mainZ],
-        key: "evidentiality",
-      };
-    case "rightEye":
-      return {
-        label: "Evidentiality",
-        value: scores.evidentiality,
-        position: [eyeX, eyeY, mainZ],
         key: "evidentiality",
       };
     case "nose":
@@ -64,9 +58,12 @@ export function getTooltipData({
 export function useTooltips() {
   const [tooltip, setTooltip] = useState(null);
 
-  // Centralized handler: expects tooltipData from subcomponents
-  const showTooltip = useCallback((e, tooltipData) => {
+  // Centralized handler: expects event and context
+  const showTooltip = useCallback((e, context) => {
     e?.stopPropagation();
+    const part = e?.object?.meshaPart;
+    if (!part) return;
+    const tooltipData = getTooltipDataFromEvent(part, context);
     setTooltip(tooltipData);
   }, []);
 

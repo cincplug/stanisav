@@ -16,8 +16,7 @@ const MeshaEar = ({
   rightSegments,
   earPosition,
   onShowTooltip,
-  tooltipData,
-  selected,
+  isSelected,
 }) => {
   const lastAudioDataRef = useRef(defaultAudioData);
   const { audioData: rawAudioData } = useAudioAnimation();
@@ -48,14 +47,14 @@ const MeshaEar = ({
       <mesh
         position={[-x, y, z]}
         scale={[-0.6, 3 / rightSegments, 1]}
-        onClick={(e) => onShowTooltip(e, tooltipData)}
-        userData={{ isMeshaPart: true }}
+        onClick={onShowTooltip}
+        meshaPart="ear"
       >
         <parametricGeometry
           args={[audioReactiveSurface, leftSegments, leftSegments]}
         />
         <shaderMaterial args={[leftEarMaterial]} />
-        {selected && (
+        {isSelected && (
           <mesh position={[0, 0, 0]}>
             <parametricGeometry
               args={[audioReactiveSurface, leftSegments, leftSegments]}
@@ -68,14 +67,14 @@ const MeshaEar = ({
       <mesh
         position={[x, y, z]}
         scale={[0.6, 3 / rightSegments, 1]}
-        onClick={(e) => onShowTooltip(e, tooltipData)}
-        userData={{ isMeshaPart: true }}
+        onClick={onShowTooltip}
+        meshaPart="ear"
       >
         <parametricGeometry
           args={[audioReactiveSurface, rightSegments, rightSegments]}
         />
         <shaderMaterial args={[rightEarMaterial]} />
-        {selected && (
+        {isSelected && (
           <mesh position={[0, 0, 0]}>
             <parametricGeometry
               args={[audioReactiveSurface, rightSegments, rightSegments]}

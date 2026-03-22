@@ -40,7 +40,7 @@ const Label = ({ languageCode, position, isSelected = false, color }) => {
       // If the top intersection is a Mesha part, block label click
       if (event.intersections && event.intersections.length > 0) {
         const top = event.intersections[0].object;
-        if (top && top.userData && top.userData.isMeshaPart) {
+        if (top?.meshaPart) {
           return;
         }
       }

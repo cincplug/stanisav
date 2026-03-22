@@ -7,8 +7,7 @@ const MeshaEye = ({
   sizeSignal,
   depthSignal,
   onShowTooltip,
-  tooltipData,
-  selected,
+  isSelected,
 }) => {
   const groupRef = useRef();
   const { controls } = useControls();
@@ -28,15 +27,14 @@ const MeshaEye = ({
       ref={groupRef}
       position={position}
       scale={eyeScale}
-      onClick={(e) => onShowTooltip(e, tooltipData)}
-      userData={{ isMeshaPart: true }}
+      onClick={onShowTooltip}
     >
-      <mesh>
+      <mesh meshaPart="eye">
         <sphereGeometry args={[eyeSize, 32, 32]} />
         <meshStandardMaterial color="#ffffff" />
-        {selected && (
+        {isSelected && (
           <mesh position={[0, 0, 0]}>
-            <sphereGeometry args={[eyeSize * 1.05, 32, 32]} />
+            <sphereGeometry args={[eyeSize, 32, 32]} />
             <meshBasicMaterial color="#ff0" wireframe />
           </mesh>
         )}

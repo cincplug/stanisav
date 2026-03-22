@@ -10,13 +10,13 @@ import { createTuftShape } from "../../utils/shapeUtils.js";
 extend({ ParametricGeometry });
 
 const MeshaMoustache = ({
+  meshaPart,
   moustacheCount,
   color,
   y,
   z,
   onShowTooltip,
-  tooltipData,
-  selected,
+  isSelected,
 }) => {
   const tuftsRef = useRef([]);
   const lastAudioDataRef = useRef(defaultAudioData);
@@ -116,13 +116,16 @@ const MeshaMoustache = ({
           key={tuft.key}
           ref={(el) => (tuftsRef.current[i] = el)}
           position={[tuft.x, tuft.y, tuft.z]}
-          onClick={(e) => onShowTooltip(e, tooltipData)}
-          userData={{ isMeshaPart: true }}
+          onClick={onShowTooltip}
         >
-          <mesh rotation={[0, 0, tuft.rotationRad]} scale={tuft.scale}>
+          <mesh
+            rotation={[0, 0, tuft.rotationRad]}
+            scale={tuft.scale}
+            meshaPart={meshaPart}
+          >
             <parametricGeometry args={[tuftSurface, 12, 12]} />
             <meshStandardMaterial color={moustacheColor} side={2} />
-            {selected && (
+            {isSelected && (
               <mesh position={[0, 0, 0]}>
                 <parametricGeometry args={[tuftSurface, 12, 12]} />
                 <meshBasicMaterial color="#ff0" wireframe />

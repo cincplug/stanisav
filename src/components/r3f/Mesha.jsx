@@ -7,7 +7,7 @@ import audioVisualizationConfig from "../../config/audioVisualizationConfig.json
 import microphoneService from "../../services/microphoneService.js";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useTonalityMaterial } from "../../hooks/useTonalityMaterial.js";
-import { useTooltips, getTooltipData } from "../../hooks/useTooltips.js";
+import { useTooltips } from "../../hooks/useTooltips.js";
 import { getFeatureScoreList } from "../../utils/linguisticUtils.js";
 import { shiftHue } from "../../utils/colorUtils";
 import MeshaInteractionContext from "../../contexts/MeshaInteractionContext.jsx";
@@ -136,10 +136,9 @@ const Mesha = ({
     [scores.morphology],
   );
 
-  // Helper to get tooltip data for each part
-  const tooltipDataFor = (part) =>
-    getTooltipData({
-      part,
+  // Centralized tooltip handler: event-based
+  const handleShowTooltip = (e) => {
+    showTooltip(e, {
       scores,
       earPosition,
       eyeX,
@@ -149,6 +148,7 @@ const Mesha = ({
       caseCount,
       nounClassCount,
     });
+  };
 
   // Memoized interaction handler
   const handleInteraction = useCallback(() => {
@@ -168,8 +168,8 @@ const Mesha = ({
             leftSegments={10 - scores.morphology}
             rightSegments={2 + scores.morphology * 2}
             earPosition={earPosition}
-            onShowTooltip={(e) => showTooltip(e, tooltipDataFor("ear"))}
-            selected={tooltip?.key === "morphology"}
+            onShowTooltip={handleShowTooltip}
+            isSelected={tooltip?.key === "morphology"}
             onClick={handleInteraction}
           />
 
@@ -179,8 +179,8 @@ const Mesha = ({
               color={color}
               sizeSignal={eyeSizeSignal}
               depthSignal={eyeDepthSignal}
-              onShowTooltip={(e) => showTooltip(e, tooltipDataFor("leftEye"))}
-              selected={tooltip?.key === "evidentiality"}
+              onShowTooltip={handleShowTooltip}
+              isSelected={tooltip?.key === "evidentiality"}
               onClick={handleInteraction}
             />
             <MeshaEye
@@ -188,8 +188,8 @@ const Mesha = ({
               color={color}
               sizeSignal={eyeSizeSignal}
               depthSignal={eyeDepthSignal}
-              onShowTooltip={(e) => showTooltip(e, tooltipDataFor("rightEye"))}
-              selected={tooltip?.key === "evidentiality"}
+              onShowTooltip={handleShowTooltip}
+              isSelected={tooltip?.key === "evidentiality"}
               onClick={handleInteraction}
             />
             <MeshaNose
@@ -198,8 +198,8 @@ const Mesha = ({
               segmentColors={noseSegmentColors}
               motionIntensity={noseMotionIntensity}
               lookAroundRotationRef={lookAroundRotationRef}
-              onShowTooltip={(e) => showTooltip(e, tooltipDataFor("nose"))}
-              selected={tooltip?.key === "wordOrderFlexibility"}
+              onShowTooltip={handleShowTooltip}
+              isSelected={tooltip?.key === "wordOrderFlexibility"}
               onClick={handleInteraction}
             />
           </group>
@@ -208,27 +208,25 @@ const Mesha = ({
           <MeshaTeeth toothCount={phonemeCount} clusterSize={maxClusterSize} />
           {caseCount && (
             <MeshaMoustache
+              meshaPart="caseMoustache"
               moustacheCount={caseCount}
               color={color}
               y={meshaSize * 0.7}
               z={0.5}
-              onShowTooltip={(e) =>
-                showTooltip(e, tooltipDataFor("caseMoustache"))
-              }
-              selected={tooltip?.key === "caseCount"}
+              onShowTooltip={handleShowTooltip}
+              isSelected={tooltip?.key === "caseCount"}
               onClick={handleInteraction}
             />
           )}
           {nounClassCount && (
             <MeshaMoustache
+              meshaPart="nounClassMoustache"
               moustacheCount={nounClassCount}
               color={shiftHue(color, 120)}
               y={meshaSize * 1.4}
               z={0}
-              onShowTooltip={(e) =>
-                showTooltip(e, tooltipDataFor("nounClassMoustache"))
-              }
-              selected={tooltip?.key === "nounClassCount"}
+              onShowTooltip={handleShowTooltip}
+              isSelected={tooltip?.key === "nounClassCount"}
               onClick={handleInteraction}
             />
           )}
