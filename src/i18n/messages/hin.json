@@ -162,7 +162,8 @@
     },
     "zoomDistance": {
       "label": "ज़ूम दूरी"
-    }
+    },
+    "segmentation": { "label": "खंडन" }
   },
   "filters": {
     "all": "सभी",

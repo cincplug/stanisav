@@ -162,7 +162,8 @@
     },
     "zoomDistance": {
       "label": "Відстань масштабування"
-    }
+    },
+    "segmentation": { "label": "Сегментація" }
   },
   "filters": {
     "all": "Усі",

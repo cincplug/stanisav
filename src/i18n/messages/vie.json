@@ -161,7 +161,8 @@
     },
     "zoomDistance": {
       "label": "Khoảng cách thu phóng"
-    }
+    },
+    "segmentation": { "label": "Phân đoạn" }
   },
   "filters": {
     "all": "Tất cả",

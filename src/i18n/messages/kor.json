@@ -162,7 +162,8 @@
     },
     "zoomDistance": {
       "label": "줌 거리"
-    }
+    },
+    "segmentation": { "label": "세분화" }
   },
   "filters": {
     "all": "전체",

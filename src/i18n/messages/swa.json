@@ -162,7 +162,8 @@
     },
     "zoomDistance": {
       "label": "Umbali wa kukuza"
-    }
+    },
+    "segmentation": { "label": "Mgawanyiko" }
   },
   "filters": {
     "all": "Yote",

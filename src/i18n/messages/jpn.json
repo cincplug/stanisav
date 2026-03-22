@@ -162,7 +162,8 @@
     },
     "zoomDistance": {
       "label": "ズーム距離"
-    }
+    },
+    "segmentation": { "label": "セグメンテーション" }
   },
   "filters": {
     "all": "すべて",

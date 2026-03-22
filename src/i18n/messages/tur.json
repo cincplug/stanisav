@@ -162,7 +162,8 @@
     },
     "zoomDistance": {
       "label": "Yakınlaştırma mesafesi"
-    }
+    },
+    "segmentation": { "label": "Bölütleme" }
   },
   "filters": {
     "all": "Tümü",

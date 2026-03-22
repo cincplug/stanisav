@@ -162,7 +162,8 @@
     },
     "zoomDistance": {
       "label": "Оддалеченост на зумот"
-    }
+    },
+    "segmentation": { "label": "Сегментација" }
   },
   "filters": {
     "all": "Сите",

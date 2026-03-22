@@ -162,7 +162,8 @@
     },
     "zoomDistance": {
       "label": "மேலோட்ட தூரம்"
-    }
+    },
+    "segmentation": { "label": "பிரித்தல்" }
   },
   "filters": {
     "all": "அனைத்தும்",

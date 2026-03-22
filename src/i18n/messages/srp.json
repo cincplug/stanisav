@@ -162,7 +162,8 @@
     },
     "zoomDistance": {
       "label": "Daljina zuma"
-    }
+    },
+    "segmentation": { "label": "Segmentacija" }
   },
   "filters": {
     "all": "Svi",

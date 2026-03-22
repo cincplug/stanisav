@@ -1,3 +1,7 @@
+  "controls": {
+    ...existing code...
+    "segmentation": { "label": "分割" }
+  }
 {
   "controls": {
     "bgColor": {
