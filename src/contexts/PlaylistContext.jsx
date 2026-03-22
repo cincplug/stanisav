@@ -37,6 +37,8 @@ export const PlaylistProvider = ({ children }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [playlistSession, setPlaylistSession] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  // Track if user explicitly paused (not via isMyMesha)
+  const userPausedRef = useRef(false);
   const playlistRef = useRef([]);
   const audioRef = useRef(null);
   const currentAudioElement = useRef(null);
@@ -111,6 +113,7 @@ export const PlaylistProvider = ({ children }) => {
     playlistRef.current = codes;
     setIsPlaying(true);
     setPlaylistSession((s) => s + 1);
+    userPausedRef.current = false;
     if (currentIndex >= codes.length || currentIndex < 0) {
       setCurrentIndex(0);
     }
@@ -133,6 +136,7 @@ export const PlaylistProvider = ({ children }) => {
   const pausePlaylist = useCallback(() => {
     setIsPlaying(false);
     setIsAnimating(false);
+    userPausedRef.current = true;
     stopCurrentAudio();
   }, [stopCurrentAudio]);
 
@@ -176,15 +180,24 @@ export const PlaylistProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
+    // If switching to MyMesha, always pause playlist and audio
     if (isMyMesha) {
       setIsPlaying(false);
+      userPausedRef.current = false; // reset user pause on mode switch
       stopCurrentAudio();
       return;
     }
-    if (!isMyMesha && selectedLanguage && !isPlaying) {
+    // If switching from MyMesha to playlist mode, only resume if not user-paused
+    if (
+      !isMyMesha &&
+      selectedLanguage &&
+      !isPlaying &&
+      !userPausedRef.current
+    ) {
       setIsPlaying(true);
       setPlaylistSession((s) => s + 1);
     }
+    // If user paused, do not auto-resume
     if (!isPlaying || !sceneReady) return;
 
     const codes = playlistRef.current;
