@@ -136,7 +136,6 @@ const Mesha = ({
     [scores.morphology],
   );
 
-  // Centralized tooltip handler: event-based
   const handleShowTooltip = (e) => {
     showTooltip(e, {
       scores,
@@ -147,6 +146,8 @@ const Mesha = ({
       meshaSize,
       caseCount,
       nounClassCount,
+      phonemeCount,
+      linguisticProperties,
     });
   };
 
@@ -205,7 +206,12 @@ const Mesha = ({
           </group>
 
           <MeshaTongue mouthMaterial={mouthMaterial} segments={segments} />
-          <MeshaTeeth toothCount={phonemeCount} clusterSize={maxClusterSize} />
+          <MeshaTeeth
+            toothCount={phonemeCount}
+            clusterSize={maxClusterSize}
+            onShowTooltip={handleShowTooltip}
+            isSelected={tooltip?.key === "phonemeCount"}
+          />
           {caseCount && (
             <MeshaMoustache
               meshaPart="caseMoustache"
@@ -232,7 +238,7 @@ const Mesha = ({
           )}
         </group>
         <MeshaLight spread={1.5} />
-        {/* Tooltip3D overlay */}
+
         {tooltip && (
           <Tooltip
             position={tooltip.position}

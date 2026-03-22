@@ -8,7 +8,7 @@ import { createToothShape } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
 
-const MeshaTeeth = ({ toothCount, clusterSize }) => {
+const MeshaTeeth = ({ toothCount, clusterSize, onShowTooltip, isSelected }) => {
   const teethRefs = useRef([]);
   const lastAudioDataRef = useRef(defaultAudioData);
   const { controls } = useControls();
@@ -82,9 +82,19 @@ const MeshaTeeth = ({ toothCount, clusterSize }) => {
           position={[tooth.x, tooth.y, tooth.z - 1]}
           rotation={[tooth.rotationAngle, 0, 0]}
         >
-          <mesh ref={(el) => (teethRefs.current[i] = el)}>
+          <mesh
+            ref={(el) => (teethRefs.current[i] = el)}
+            meshaPart="teeth"
+            onClick={onShowTooltip}
+          >
             <parametricGeometry args={[createToothShape, 16, 8]} />
             <meshStandardMaterial color="#ffffff" />
+            {isSelected && (
+              <mesh position={[0, 0, 0]}>
+                <parametricGeometry args={[createToothShape, 16, 8]} />
+                <meshBasicMaterial color="#ff0" wireframe />
+              </mesh>
+            )}
           </mesh>
         </group>
       ))}

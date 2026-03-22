@@ -2,6 +2,8 @@ import { useState, useCallback } from "react";
 
 // Returns tooltip data for a given part and context
 // (internal, not exported)
+import { getFeatureLabel } from "../utils/linguisticUtils";
+
 function getTooltipDataFromEvent(part, context) {
   const {
     scores,
@@ -12,42 +14,59 @@ function getTooltipDataFromEvent(part, context) {
     meshaSize,
     caseCount,
     nounClassCount,
+    phonemeCount,
+    linguisticProperties,
   } = context;
+  // Tooltip position: always relative to whole mesha (center)
+  const tooltipPosition = [2, 2, 3];
   switch (part) {
-    case "ear":
+    case "ear": {
+      const value = linguisticProperties?.morphology;
       return {
         label: "Morphology",
-        value: scores.morphology,
-        position: [-earPosition.x, earPosition.y, earPosition.z],
+        value: value ? getFeatureLabel("morphology", value) : "",
+        position: tooltipPosition,
         key: "morphology",
       };
-    case "eye":
+    }
+    case "eye": {
+      const value = linguisticProperties?.evidentiality;
       return {
         label: "Evidentiality",
-        value: scores.evidentiality,
-        position: [-eyeX, eyeY, mainZ],
+        value: value ? getFeatureLabel("evidentiality", value) : "",
+        position: tooltipPosition,
         key: "evidentiality",
       };
-    case "nose":
+    }
+    case "nose": {
+      const value = linguisticProperties?.wordOrderFlexibility;
       return {
         label: "Word Order Flexibility",
-        value: scores.wordOrderFlexibility,
-        position: [0, eyeY - eyeX / 2, 0],
+        value: value ? getFeatureLabel("wordOrderFlexibility", value) : "",
+        position: tooltipPosition,
         key: "wordOrderFlexibility",
       };
+    }
     case "caseMoustache":
       return {
         label: "Case Count",
         value: caseCount,
-        position: [0, meshaSize * 0.7, 0.5],
+        position: tooltipPosition,
         key: "caseCount",
       };
     case "nounClassMoustache":
       return {
         label: "Noun Class Count",
         value: nounClassCount,
-        position: [0, meshaSize * 1.4, 0],
+        position: tooltipPosition,
         key: "nounClassCount",
+      };
+    case "teeth":
+      return {
+        label: "Phoneme Count",
+        value: phonemeCount,
+        position: tooltipPosition,
+        key: "phonemeCount",
       };
     default:
       return null;
