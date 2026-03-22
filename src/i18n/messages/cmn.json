@@ -1,7 +1,3 @@
-  "controls": {
-    ...existing code...
-    "segmentation": { "label": "分割" }
-  }
 {
   "controls": {
     "bgColor": {
@@ -146,6 +142,7 @@
     "sphereRadius": {
       "label": "球体半径"
     },
+    "segmentation": { "label": "分割" },
     "stageLightDecay": {
       "label": "衰减"
     },
