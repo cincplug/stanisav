@@ -8,6 +8,8 @@ const MeshaNose = ({
   segmentColors,
   motionIntensity,
   lookAroundRotationRef,
+  onShowTooltip,
+  selected,
 }) => {
   const groupRef = useRef();
   const segmentARef = useRef();
@@ -30,12 +32,35 @@ const MeshaNose = ({
   const segments = 12;
 
   return (
-    <group ref={groupRef} position={position} scale={scale}>
+    <group
+      ref={groupRef}
+      position={position}
+      scale={scale}
+      onPointerDown={(e) => {
+        e.stopPropagation();
+        onShowTooltip?.();
+      }}
+      userData={{ isMeshaPart: true }}
+    >
       <mesh ref={segmentARef} scale={1}>
         <sphereGeometry
           args={[pupilSize, segments, segments, -Math.PI / 2, Math.PI]}
         />
         <meshStandardMaterial color={segmentColors[0]} side={2} />
+        {selected && (
+          <mesh position={[0, 0, 0]}>
+            <sphereGeometry
+              args={[
+                pupilSize * 1.05,
+                segments,
+                segments,
+                -Math.PI / 2,
+                Math.PI,
+              ]}
+            />
+            <meshBasicMaterial color="#ff0" wireframe />
+          </mesh>
+        )}
       </mesh>
       <mesh ref={segmentBRef} scale={0.8}>
         <sphereGeometry

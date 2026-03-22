@@ -1,7 +1,14 @@
 import { useRef } from "react";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 
-const MeshaEye = ({ position, color, sizeSignal, depthSignal }) => {
+const MeshaEye = ({
+  position,
+  color,
+  sizeSignal,
+  depthSignal,
+  onShowTooltip,
+  selected,
+}) => {
   const groupRef = useRef();
   const { controls } = useControls();
   const { eyeSize, eyeProtrusion } = controls;
@@ -16,10 +23,25 @@ const MeshaEye = ({ position, color, sizeSignal, depthSignal }) => {
   const pupilZ = eyeProtrusion + depthFactor * eyeProtrusion;
 
   return (
-    <group ref={groupRef} position={position} scale={eyeScale}>
+    <group
+      ref={groupRef}
+      position={position}
+      scale={eyeScale}
+      onPointerDown={(e) => {
+        e.stopPropagation();
+        onShowTooltip?.();
+      }}
+      userData={{ isMeshaPart: true }}
+    >
       <mesh>
         <sphereGeometry args={[eyeSize, 32, 32]} />
         <meshStandardMaterial color="#ffffff" />
+        {selected && (
+          <mesh position={[0, 0, 0]}>
+            <sphereGeometry args={[eyeSize * 1.05, 32, 32]} />
+            <meshBasicMaterial color="#ff0" wireframe />
+          </mesh>
+        )}
       </mesh>
       <mesh position={[0, 0, irisZ]}>
         <sphereGeometry args={[irisSize, 32, 32]} />

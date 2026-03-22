@@ -1,4 +1,5 @@
-import { useCallback, useMemo, useRef } from "react";
+import { useCallback, useMemo, useRef, useContext } from "react";
+import { MeshaHoverContext } from "./Mesha.jsx";
 import { useSpring } from "@react-spring/three";
 import { useFrame } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
@@ -32,13 +33,23 @@ const Label = ({ languageCode, position, isSelected = false, color }) => {
     return null;
   }
 
-  const handleClick = useCallback(
+  const meshaHovered = useContext(MeshaHoverContext);
+
+  const handlePointerDown = useCallback(
     (event) => {
+      // If the top intersection is a Mesha part, block label click
+      if (event.intersections && event.intersections.length > 0) {
+        const top = event.intersections[0].object;
+        if (top && top.userData && top.userData.isMeshaPart) {
+          return;
+        }
+      }
+      if (meshaHovered) return;
       event.stopPropagation();
       selectLanguage(languageCode);
       startFromLanguage(languageCode);
     },
-    [selectLanguage, startFromLanguage, languageCode],
+    [selectLanguage, startFromLanguage, languageCode, meshaHovered],
   );
 
   const sizeMultiplier = useMemo(
@@ -86,7 +97,7 @@ const Label = ({ languageCode, position, isSelected = false, color }) => {
   );
 
   return (
-    <group ref={groupRef} position={position} onClick={handleClick}>
+    <group ref={groupRef} position={position} onPointerDown={handlePointerDown}>
       <Text
         position={[0, 0, 0]}
         ref={labelRef}
