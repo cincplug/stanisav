@@ -1,4 +1,4 @@
-import { useRef, useMemo, useEffect, useState, createContext } from "react";
+import { useRef, useMemo, useEffect, useState, useCallback } from "react";
 import { extend, useFrame } from "@react-three/fiber";
 import { a, useSpring } from "@react-spring/three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
@@ -7,6 +7,7 @@ import audioVisualizationConfig from "../../config/audioVisualizationConfig.json
 import microphoneService from "../../services/microphoneService.js";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useTonalityMaterial } from "../../hooks/useTonalityMaterial.js";
+import { useTooltips, getTooltipData } from "../../hooks/useTooltips.js";
 import { getFeatureScoreList } from "../../utils/linguisticUtils.js";
 import { shiftHue } from "../../utils/colorUtils";
 import MeshaInteractionContext from "../../contexts/MeshaInteractionContext.jsx";
@@ -30,23 +31,13 @@ const Mesha = ({
   tonalityType,
   looksAround,
 }) => {
-  // Track if any subcomponent is hovered
   const [interacting, setInteracting] = useState(false);
   const groupRef = useRef();
   const lookAroundRef = useRef();
   const eyesGroupRef = useRef();
   const lookAroundRotationRef = useRef(0);
 
-  // Tooltip state: { label, value, position, key }
-  const [tooltip, setTooltip] = useState(null);
-
-  // Show tooltip handler
-  const handleShowTooltip = ({ label, value, position, key }) => {
-    setTooltip({ label, value, position, key });
-  };
-
-  // Hide tooltip handler
-  const handleHideTooltip = () => setTooltip(null);
+  const { tooltip, showTooltip } = useTooltips();
 
   const { controls } = useControls();
   const { meshaSize, eyeZ, eyeX, eyeY, noseSize, tension, friction } = controls;
@@ -145,6 +136,26 @@ const Mesha = ({
     [scores.morphology],
   );
 
+  // Helper to get tooltip data for each part
+  const tooltipDataFor = (part) =>
+    getTooltipData({
+      part,
+      scores,
+      earPosition,
+      eyeX,
+      eyeY,
+      mainZ,
+      meshaSize,
+      caseCount,
+      nounClassCount,
+    });
+
+  // Memoized interaction handler
+  const handleInteraction = useCallback(() => {
+    setInteracting(true);
+    setTimeout(() => setInteracting(false), 300);
+  }, []);
+
   return (
     <MeshaInteractionContext.Provider value={interacting}>
       <a.group ref={groupRef} position={spring.position} scale={spring.scale}>
@@ -157,19 +168,9 @@ const Mesha = ({
             leftSegments={10 - scores.morphology}
             rightSegments={2 + scores.morphology * 2}
             earPosition={earPosition}
-            onShowTooltip={() =>
-              handleShowTooltip({
-                label: "Morphology", // TODO: localize
-                value: scores.morphology,
-                position: [-earPosition.x, earPosition.y, earPosition.z],
-                key: "morphology",
-              })
-            }
+            onShowTooltip={(e) => showTooltip(e, tooltipDataFor("ear"))}
             selected={tooltip?.key === "morphology"}
-            onClick={() => {
-              setInteracting(true);
-              setTimeout(() => setInteracting(false), 300); // short window for tap/click
-            }}
+            onClick={handleInteraction}
           />
 
           <group ref={eyesGroupRef} position={[0, 1, mainZ]}>
@@ -178,38 +179,18 @@ const Mesha = ({
               color={color}
               sizeSignal={eyeSizeSignal}
               depthSignal={eyeDepthSignal}
-              onShowTooltip={() =>
-                handleShowTooltip({
-                  label: "Evidentiality", // TODO: localize
-                  value: scores.evidentiality,
-                  position: [-eyeX, eyeY, mainZ],
-                  key: "evidentiality",
-                })
-              }
+              onShowTooltip={(e) => showTooltip(e, tooltipDataFor("leftEye"))}
               selected={tooltip?.key === "evidentiality"}
-              onClick={() => {
-                setInteracting(true);
-                setTimeout(() => setInteracting(false), 300);
-              }}
+              onClick={handleInteraction}
             />
             <MeshaEye
               position={[eyeX, eyeY, 0]}
               color={color}
               sizeSignal={eyeSizeSignal}
               depthSignal={eyeDepthSignal}
-              onShowTooltip={() =>
-                handleShowTooltip({
-                  label: "Evidentiality", // TODO: localize
-                  value: scores.evidentiality,
-                  position: [eyeX, eyeY, mainZ],
-                  key: "evidentiality",
-                })
-              }
+              onShowTooltip={(e) => showTooltip(e, tooltipDataFor("rightEye"))}
               selected={tooltip?.key === "evidentiality"}
-              onClick={() => {
-                setInteracting(true);
-                setTimeout(() => setInteracting(false), 300);
-              }}
+              onClick={handleInteraction}
             />
             <MeshaNose
               position={[0, eyeY - eyeX / 2, 0]}
@@ -217,19 +198,9 @@ const Mesha = ({
               segmentColors={noseSegmentColors}
               motionIntensity={noseMotionIntensity}
               lookAroundRotationRef={lookAroundRotationRef}
-              onShowTooltip={() =>
-                handleShowTooltip({
-                  label: "Word Order Flexibility", // TODO: localize
-                  value: scores.wordOrderFlexibility,
-                  position: [0, eyeY - eyeX / 2, 0],
-                  key: "wordOrderFlexibility",
-                })
-              }
+              onShowTooltip={(e) => showTooltip(e, tooltipDataFor("nose"))}
               selected={tooltip?.key === "wordOrderFlexibility"}
-              onClick={() => {
-                setInteracting(true);
-                setTimeout(() => setInteracting(false), 300);
-              }}
+              onClick={handleInteraction}
             />
           </group>
 
@@ -241,19 +212,11 @@ const Mesha = ({
               color={color}
               y={meshaSize * 0.7}
               z={0.5}
-              onShowTooltip={() =>
-                handleShowTooltip({
-                  label: "Case Count", // TODO: localize
-                  value: caseCount,
-                  position: [0, meshaSize * 0.7, 0.5],
-                  key: "caseCount",
-                })
+              onShowTooltip={(e) =>
+                showTooltip(e, tooltipDataFor("caseMoustache"))
               }
               selected={tooltip?.key === "caseCount"}
-              onClick={() => {
-                setInteracting(true);
-                setTimeout(() => setInteracting(false), 300);
-              }}
+              onClick={handleInteraction}
             />
           )}
           {nounClassCount && (
@@ -262,19 +225,11 @@ const Mesha = ({
               color={shiftHue(color, 120)}
               y={meshaSize * 1.4}
               z={0}
-              onShowTooltip={() =>
-                handleShowTooltip({
-                  label: "Noun Class Count", // TODO: localize
-                  value: nounClassCount,
-                  position: [0, meshaSize * 1.4, 0],
-                  key: "nounClassCount",
-                })
+              onShowTooltip={(e) =>
+                showTooltip(e, tooltipDataFor("nounClassMoustache"))
               }
               selected={tooltip?.key === "nounClassCount"}
-              onClick={() => {
-                setInteracting(true);
-                setTimeout(() => setInteracting(false), 300);
-              }}
+              onClick={handleInteraction}
             />
           )}
         </group>

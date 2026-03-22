@@ -7,6 +7,7 @@ const MeshaEye = ({
   sizeSignal,
   depthSignal,
   onShowTooltip,
+  tooltipData,
   selected,
 }) => {
   const groupRef = useRef();
@@ -27,10 +28,7 @@ const MeshaEye = ({
       ref={groupRef}
       position={position}
       scale={eyeScale}
-      onClick={(e) => {
-        e.stopPropagation();
-        onShowTooltip?.();
-      }}
+      onClick={(e) => onShowTooltip(e, tooltipData)}
       userData={{ isMeshaPart: true }}
     >
       <mesh>

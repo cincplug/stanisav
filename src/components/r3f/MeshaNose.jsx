@@ -9,6 +9,7 @@ const MeshaNose = ({
   motionIntensity,
   lookAroundRotationRef,
   onShowTooltip,
+  tooltipData,
   selected,
 }) => {
   const groupRef = useRef();
@@ -36,10 +37,7 @@ const MeshaNose = ({
       ref={groupRef}
       position={position}
       scale={scale}
-      onClick={(e) => {
-        e.stopPropagation();
-        onShowTooltip?.();
-      }}
+      onClick={(e) => onShowTooltip(e, tooltipData)}
       userData={{ isMeshaPart: true }}
     >
       <mesh ref={segmentARef} scale={1}>

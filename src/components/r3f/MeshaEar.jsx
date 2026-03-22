@@ -16,6 +16,7 @@ const MeshaEar = ({
   rightSegments,
   earPosition,
   onShowTooltip,
+  tooltipData,
   selected,
 }) => {
   const lastAudioDataRef = useRef(defaultAudioData);
@@ -47,10 +48,7 @@ const MeshaEar = ({
       <mesh
         position={[-x, y, z]}
         scale={[-0.6, 3 / rightSegments, 1]}
-        onClick={(e) => {
-          e.stopPropagation();
-          onShowTooltip?.();
-        }}
+        onClick={(e) => onShowTooltip(e, tooltipData)}
         userData={{ isMeshaPart: true }}
       >
         <parametricGeometry
@@ -70,10 +68,7 @@ const MeshaEar = ({
       <mesh
         position={[x, y, z]}
         scale={[0.6, 3 / rightSegments, 1]}
-        onClick={(e) => {
-          e.stopPropagation();
-          onShowTooltip?.();
-        }}
+        onClick={(e) => onShowTooltip(e, tooltipData)}
         userData={{ isMeshaPart: true }}
       >
         <parametricGeometry

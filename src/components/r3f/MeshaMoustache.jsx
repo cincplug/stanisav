@@ -15,6 +15,7 @@ const MeshaMoustache = ({
   y,
   z,
   onShowTooltip,
+  tooltipData,
   selected,
 }) => {
   const tuftsRef = useRef([]);
@@ -115,10 +116,7 @@ const MeshaMoustache = ({
           key={tuft.key}
           ref={(el) => (tuftsRef.current[i] = el)}
           position={[tuft.x, tuft.y, tuft.z]}
-          onClick={(e) => {
-            e.stopPropagation();
-            onShowTooltip?.();
-          }}
+          onClick={(e) => onShowTooltip(e, tooltipData)}
           userData={{ isMeshaPart: true }}
         >
           <mesh rotation={[0, 0, tuft.rotationRad]} scale={tuft.scale}>
