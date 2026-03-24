@@ -8,7 +8,6 @@
   box-sizing: border-box;
   border-top: 1px solid var(--color-3);
   width: 100%;
-  max-height: 33vh;
   overflow: auto;
 }
 
@@ -78,26 +77,33 @@ html.rtl .id-card-close-button {
 
 .id-card-columns {
   min-width: 0;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .id-card-list {
   margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(0, 350px));
+}
+
+.id-card-row {
+  margin: 0;
+  padding: var(--gap) var(--gap);
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: none;
   display: flex;
-  flex-wrap: wrap;
   align-items: flex-start;
   gap: var(--gap);
 }
 
-.id-card-row {
-  max-width: 100%;
-  margin: 0;
-  padding: calc(var(--gap-half) + 1px) var(--gap);
-  border: 1px solid var(--color-3);
+.id-card-row.selected {
+  background: var(--color-1);
+  outline: 2px solid var(--color-highlight);
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow-mild);
-  display: inline-flex;
-  align-items: baseline;
-  gap: var(--gap-half);
+  width: max-content;
 }
 
 .id-card-row dt,

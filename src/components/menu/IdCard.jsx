@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { useI18n } from "../../contexts/I18nContext";
+import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { getLocalizedLanguageName } from "../../i18n/runtime";
 import {
   getAllFeatures,
@@ -21,7 +22,6 @@ function IdCard({
   sampleUrl,
   onSourceVideoClick,
   onToggleSubtitle,
-  sub,
   headingColor,
 }) {
   const { locale, t } = useI18n();
@@ -30,6 +30,8 @@ function IdCard({
     const lineageKey = languageLineages?.[languageCode];
     return getLineageTrail(lineageKey);
   }, [languageCode, languageLineages]);
+
+  const { selectedProperty } = useLanguageSelection();
 
   const rows = useMemo(() => {
     if (!languageCode || !language) return [];
@@ -147,7 +149,10 @@ function IdCard({
       <div className="id-card-columns">
         <dl className="id-card-list">
           {rows.map((row) => (
-            <div key={row.key} className="id-card-row">
+            <div
+              key={row.key}
+              className={`id-card-row${row.key === selectedProperty ? " selected" : ""}`}
+            >
               <dt>{row.label}</dt>
               <dd>{row.value}</dd>
             </div>
