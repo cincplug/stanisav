@@ -14,7 +14,7 @@ extend({ ParametricGeometry });
  * @param {object} props
  * @param {boolean} props.isSelected - highlight if selectedProperty matches
  */
-const MeshaTeeth = ({ toothCount, clusterSize, onShowTooltip, isSelected }) => {
+const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
   const teethRefs = useRef([]);
   const lastAudioDataRef = useRef(defaultAudioData);
   const { controls } = useControls();
@@ -90,8 +90,8 @@ const MeshaTeeth = ({ toothCount, clusterSize, onShowTooltip, isSelected }) => {
         >
           <mesh
             ref={(el) => (teethRefs.current[i] = el)}
-            meshaPart="teeth"
-            onClick={onShowTooltip}
+            linguisticProperty="phonemeCount"
+            onClick={onClick}
           >
             <parametricGeometry args={[createToothShape, 16, 8]} />
             <meshStandardMaterial color="#ffffff" />

@@ -21,7 +21,6 @@ const Stage = ({
   onDataLoaded,
   onSceneReady,
   onLoadingChange,
-  onNodesReady,
   onEmptyFilterChange,
   languageColors,
 }) => {

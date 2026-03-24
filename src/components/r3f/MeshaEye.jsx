@@ -7,7 +7,7 @@ const MeshaEye = ({
   color,
   sizeSignal,
   depthSignal,
-  onShowTooltip,
+  onClick,
   isSelectedOuter,
   isSelectedInner,
 }) => {
@@ -26,7 +26,7 @@ const MeshaEye = ({
 
   return (
     <group ref={groupRef} position={position} scale={eyeScale}>
-      <mesh meshaPart="eyeOuter" onClick={onShowTooltip}>
+      <mesh linguisticProperty="evidentiality" onClick={onClick}>
         <sphereGeometry args={[eyeSize, 32, 32]} />
         <meshStandardMaterial color="#ffffff" />
         {isSelectedOuter && (
@@ -38,8 +38,8 @@ const MeshaEye = ({
       </mesh>
       <mesh
         position={[0, 0, irisZ]}
-        meshaPart="eyeInner"
-        onClick={onShowTooltip}
+        linguisticProperty="verbAspect"
+        onClick={onClick}
       >
         <sphereGeometry args={[irisSize, 32, 32]} />
         <meshStandardMaterial color={color} />

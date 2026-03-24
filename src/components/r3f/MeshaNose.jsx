@@ -9,7 +9,7 @@ const MeshaNose = ({
   segmentColors,
   motionIntensity,
   lookAroundRotationRef,
-  onShowTooltip,
+  onClick,
   isSelectedOuter,
   isSelectedInner,
 }) => {
@@ -38,8 +38,8 @@ const MeshaNose = ({
       <mesh
         ref={segmentARef}
         scale={1}
-        meshaPart="noseOuter"
-        onClick={onShowTooltip}
+        linguisticProperty="wordOrder"
+        onClick={onClick}
       >
         <sphereGeometry
           args={[pupilSize, segments, segments, -Math.PI / 2, Math.PI]}
@@ -61,8 +61,8 @@ const MeshaNose = ({
       <mesh
         ref={segmentBRef}
         scale={0.8}
-        meshaPart="noseInner"
-        onClick={onShowTooltip}
+        linguisticProperty="wordOrderFlexibility"
+        onClick={onClick}
       >
         <sphereGeometry
           args={[pupilSize, segments, segments, 0, Math.PI * 2, 0, Math.PI / 2]}
@@ -83,7 +83,7 @@ const MeshaNose = ({
           />
         )}
       </mesh>
-      <mesh ref={segmentCRef} scale={0.6} meshaPart="noseInner">
+      <mesh ref={segmentCRef} scale={0.6} linguisticProperty="noseInner">
         <sphereGeometry
           args={[pupilSize, segments, segments, Math.PI, Math.PI, 0, Math.PI]}
         />

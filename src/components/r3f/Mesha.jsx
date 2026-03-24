@@ -8,7 +8,6 @@ import microphoneService from "../../services/microphoneService.js";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
 import { useTonalityMaterial } from "../../hooks/useTonalityMaterial.js";
-import { useTooltips } from "../../hooks/useTooltips.js";
 import { getFeatureScoreList } from "../../utils/linguisticUtils.js";
 import { shiftHue } from "../../utils/colorUtils";
 import MeshaEye from "./MeshaEye.jsx";
@@ -18,7 +17,6 @@ import MeshaNose from "./MeshaNose.jsx";
 import MeshaTeeth from "./MeshaTeeth.jsx";
 import MeshaMoustache from "./MeshaMoustache.jsx";
 import MeshaLight from "./MeshaLight.jsx";
-import Tooltip from "./Tooltip.jsx";
 
 extend({ ParametricGeometry });
 extend({ TextGeometry });
@@ -35,8 +33,6 @@ const Mesha = ({
   const lookAroundRef = useRef();
   const eyesGroupRef = useRef();
   const lookAroundRotationRef = useRef(0);
-
-  const { tooltip, showTooltip } = useTooltips();
 
   const { controls } = useControls();
   const { meshaSize, eyeZ, eyeX, eyeY, noseSize, tension, friction } = controls;
@@ -136,38 +132,10 @@ const Mesha = ({
     [scores.morphology],
   );
 
-  // Map part to property value
-  const partToProperty = {
-    ear: "morphology",
-    teeth: "phonemeCount",
-    caseMoustache: "caseCount",
-    nounClassMoustache: "nounClassCount",
-    eyeOuter: "evidentiality",
-    eyeInner: "verbAspect",
-    pupil: "verbAspect",
-    noseOuter: "wordOrder",
-    noseInner: "wordOrderFlexibility",
-  };
-
   // Handler for click: set selectedProperty if part is mapped
-  const handleShowTooltip = (e) => {
+  const handlePropertyClick = (e) => {
     e.stopPropagation();
-    const part = e?.object?.meshaPart;
-    if (part && partToProperty[part]) {
-      setSelectedProperty(partToProperty[part]);
-    }
-    showTooltip(e, {
-      scores,
-      earPosition,
-      eyeX,
-      eyeY,
-      mainZ,
-      meshaSize,
-      caseCount,
-      nounClassCount,
-      phonemeCount,
-      linguisticProperties,
-    });
+    setSelectedProperty(e.object.linguisticProperty);
   };
 
   return (
@@ -181,7 +149,7 @@ const Mesha = ({
           leftSegments={10 - scores.morphology}
           rightSegments={2 + scores.morphology * 2}
           earPosition={earPosition}
-          onShowTooltip={handleShowTooltip}
+          onClick={handlePropertyClick}
           isSelected={selectedProperty === "morphology"}
         />
 
@@ -191,7 +159,7 @@ const Mesha = ({
             color={color}
             sizeSignal={eyeSizeSignal}
             depthSignal={eyeDepthSignal}
-            onShowTooltip={handleShowTooltip}
+            onClick={handlePropertyClick}
             isSelectedOuter={selectedProperty === "evidentiality"}
             isSelectedInner={selectedProperty === "verbAspect"}
           />
@@ -200,7 +168,7 @@ const Mesha = ({
             color={color}
             sizeSignal={eyeSizeSignal}
             depthSignal={eyeDepthSignal}
-            onShowTooltip={handleShowTooltip}
+            onClick={handlePropertyClick}
             isSelectedOuter={selectedProperty === "evidentiality"}
             isSelectedInner={selectedProperty === "verbAspect"}
           />
@@ -210,7 +178,7 @@ const Mesha = ({
             segmentColors={noseSegmentColors}
             motionIntensity={noseMotionIntensity}
             lookAroundRotationRef={lookAroundRotationRef}
-            onShowTooltip={handleShowTooltip}
+            onClick={handlePropertyClick}
             isSelectedOuter={selectedProperty === "wordOrder"}
             isSelectedInner={selectedProperty === "wordOrderFlexibility"}
           />
@@ -220,41 +188,33 @@ const Mesha = ({
         <MeshaTeeth
           toothCount={phonemeCount}
           clusterSize={maxClusterSize}
-          onShowTooltip={handleShowTooltip}
+          onClick={handlePropertyClick}
           isSelected={selectedProperty === "phonemeCount"}
         />
         {caseCount && (
           <MeshaMoustache
-            meshaPart="caseMoustache"
+            linguisticProperty="caseCount"
             moustacheCount={caseCount}
             color={color}
             y={meshaSize * 0.7}
             z={0.5}
-            onShowTooltip={handleShowTooltip}
+            onClick={handlePropertyClick}
             isSelected={selectedProperty === "caseCount"}
           />
         )}
         {nounClassCount && (
           <MeshaMoustache
-            meshaPart="nounClassMoustache"
+            linguisticProperty="nounClassCount"
             moustacheCount={nounClassCount}
             color={shiftHue(color, 120)}
             y={meshaSize * 1.4}
             z={0}
-            onShowTooltip={handleShowTooltip}
+            onClick={handlePropertyClick}
             isSelected={selectedProperty === "nounClassCount"}
           />
         )}
       </group>
       <MeshaLight spread={1.5} />
-
-      {tooltip && (
-        <Tooltip
-          position={tooltip.position}
-          label={tooltip.label}
-          value={tooltip.value}
-        />
-      )}
     </a.group>
   );
 };

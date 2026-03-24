@@ -21,7 +21,7 @@ const MeshaEar = ({
   leftSegments,
   rightSegments,
   earPosition,
-  onShowTooltip,
+  onClick,
   isSelected,
 }) => {
   const lastAudioDataRef = useRef(defaultAudioData);
@@ -53,8 +53,8 @@ const MeshaEar = ({
       <mesh
         position={[-x, y, z]}
         scale={[-0.6, 3 / rightSegments, 1]}
-        onClick={onShowTooltip}
-        meshaPart="ear"
+        onClick={onClick}
+        linguisticProperty="morphology"
       >
         <parametricGeometry
           args={[audioReactiveSurface, leftSegments, leftSegments]}
@@ -71,8 +71,8 @@ const MeshaEar = ({
       <mesh
         position={[x, y, z]}
         scale={[0.6, 3 / rightSegments, 1]}
-        onClick={onShowTooltip}
-        meshaPart="ear"
+        onClick={onClick}
+        linguisticProperty="morphology"
       >
         <parametricGeometry
           args={[audioReactiveSurface, rightSegments, rightSegments]}

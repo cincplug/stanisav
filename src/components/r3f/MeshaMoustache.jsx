@@ -16,12 +16,12 @@ extend({ ParametricGeometry });
  * @param {boolean} props.isSelected - highlight if selectedProperty matches
  */
 const MeshaMoustache = ({
-  meshaPart,
+  linguisticProperty,
   moustacheCount,
   color,
   y,
   z,
-  onShowTooltip,
+  onClick,
   isSelected,
 }) => {
   const tuftsRef = useRef([]);
@@ -122,12 +122,12 @@ const MeshaMoustache = ({
           key={tuft.key}
           ref={(el) => (tuftsRef.current[i] = el)}
           position={[tuft.x, tuft.y, tuft.z]}
-          onClick={onShowTooltip}
+          onClick={onClick}
         >
           <mesh
             rotation={[0, 0, tuft.rotationRad]}
             scale={tuft.scale}
-            meshaPart={meshaPart}
+            linguisticProperty={linguisticProperty}
           >
             <parametricGeometry args={[tuftSurface, 12, 12]} />
             <meshStandardMaterial color={moustacheColor} side={2} />
