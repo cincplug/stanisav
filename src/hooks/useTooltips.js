@@ -5,18 +5,8 @@ import { useState, useCallback } from "react";
 import { getFeatureLabel } from "../utils/linguisticUtils";
 
 function getTooltipDataFromEvent(part, context) {
-  const {
-    scores,
-    earPosition,
-    eyeX,
-    eyeY,
-    mainZ,
-    meshaSize,
-    caseCount,
-    nounClassCount,
-    phonemeCount,
-    linguisticProperties,
-  } = context;
+  const { caseCount, nounClassCount, phonemeCount, linguisticProperties } =
+    context;
   // Tooltip position: always relative to whole mesha (center)
   const tooltipPosition = [2, 2, 3];
   switch (part) {

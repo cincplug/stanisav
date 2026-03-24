@@ -10,7 +10,6 @@ import { useTonalityMaterial } from "../../hooks/useTonalityMaterial.js";
 import { useTooltips } from "../../hooks/useTooltips.js";
 import { getFeatureScoreList } from "../../utils/linguisticUtils.js";
 import { shiftHue } from "../../utils/colorUtils";
-import MeshaInteractionContext from "../../contexts/MeshaInteractionContext.jsx";
 import MeshaEye from "./MeshaEye.jsx";
 import MeshaEar from "./MeshaEar.jsx";
 import MeshaTongue from "./MeshaTongue.jsx";
@@ -31,7 +30,6 @@ const Mesha = ({
   tonalityType,
   looksAround,
 }) => {
-  const [interacting, setInteracting] = useState(false);
   const groupRef = useRef();
   const lookAroundRef = useRef();
   const eyesGroupRef = useRef();
@@ -151,103 +149,89 @@ const Mesha = ({
     });
   };
 
-  // Memoized interaction handler
-  const handleInteraction = useCallback(() => {
-    setInteracting(true);
-    setTimeout(() => setInteracting(false), 300);
-  }, []);
-
   return (
-    <MeshaInteractionContext.Provider value={interacting}>
-      <a.group ref={groupRef} position={spring.position} scale={spring.scale}>
-        <group ref={lookAroundRef}>
-          <MeshaEar
-            leftEarMaterial={leftEarMaterial}
-            rightEarMaterial={rightEarMaterial}
-            meshaSize={meshaSize}
-            bend={scores.morphology / 3}
-            leftSegments={10 - scores.morphology}
-            rightSegments={2 + scores.morphology * 2}
-            earPosition={earPosition}
-            onShowTooltip={handleShowTooltip}
-            isSelected={tooltip?.key === "morphology"}
-            onClick={handleInteraction}
-          />
+    <a.group ref={groupRef} position={spring.position} scale={spring.scale}>
+      <group ref={lookAroundRef}>
+        <MeshaEar
+          leftEarMaterial={leftEarMaterial}
+          rightEarMaterial={rightEarMaterial}
+          meshaSize={meshaSize}
+          bend={scores.morphology / 3}
+          leftSegments={10 - scores.morphology}
+          rightSegments={2 + scores.morphology * 2}
+          earPosition={earPosition}
+          onShowTooltip={handleShowTooltip}
+          isSelected={tooltip?.key === "morphology"}
+        />
 
-          <group ref={eyesGroupRef} position={[0, 1, mainZ]}>
-            <MeshaEye
-              position={[-eyeX, eyeY, 0]}
-              color={color}
-              sizeSignal={eyeSizeSignal}
-              depthSignal={eyeDepthSignal}
-              onShowTooltip={handleShowTooltip}
-              isSelected={tooltip?.key === "evidentiality"}
-              onClick={handleInteraction}
-            />
-            <MeshaEye
-              position={[eyeX, eyeY, 0]}
-              color={color}
-              sizeSignal={eyeSizeSignal}
-              depthSignal={eyeDepthSignal}
-              onShowTooltip={handleShowTooltip}
-              isSelected={tooltip?.key === "evidentiality"}
-              onClick={handleInteraction}
-            />
-            <MeshaNose
-              position={[0, eyeY - eyeX / 2, 0]}
-              scale={noseSize}
-              segmentColors={noseSegmentColors}
-              motionIntensity={noseMotionIntensity}
-              lookAroundRotationRef={lookAroundRotationRef}
-              onShowTooltip={handleShowTooltip}
-              isSelected={tooltip?.key === "wordOrderFlexibility"}
-              onClick={handleInteraction}
-            />
-          </group>
-
-          <MeshaTongue mouthMaterial={mouthMaterial} segments={segments} />
-          <MeshaTeeth
-            toothCount={phonemeCount}
-            clusterSize={maxClusterSize}
+        <group ref={eyesGroupRef} position={[0, 1, mainZ]}>
+          <MeshaEye
+            position={[-eyeX, eyeY, 0]}
+            color={color}
+            sizeSignal={eyeSizeSignal}
+            depthSignal={eyeDepthSignal}
             onShowTooltip={handleShowTooltip}
-            isSelected={tooltip?.key === "phonemeCount"}
+            isSelected={tooltip?.key === "evidentiality"}
           />
-          {caseCount && (
-            <MeshaMoustache
-              meshaPart="caseMoustache"
-              moustacheCount={caseCount}
-              color={color}
-              y={meshaSize * 0.7}
-              z={0.5}
-              onShowTooltip={handleShowTooltip}
-              isSelected={tooltip?.key === "caseCount"}
-              onClick={handleInteraction}
-            />
-          )}
-          {nounClassCount && (
-            <MeshaMoustache
-              meshaPart="nounClassMoustache"
-              moustacheCount={nounClassCount}
-              color={shiftHue(color, 120)}
-              y={meshaSize * 1.4}
-              z={0}
-              onShowTooltip={handleShowTooltip}
-              isSelected={tooltip?.key === "nounClassCount"}
-              onClick={handleInteraction}
-            />
-          )}
+          <MeshaEye
+            position={[eyeX, eyeY, 0]}
+            color={color}
+            sizeSignal={eyeSizeSignal}
+            depthSignal={eyeDepthSignal}
+            onShowTooltip={handleShowTooltip}
+            isSelected={tooltip?.key === "evidentiality"}
+          />
+          <MeshaNose
+            position={[0, eyeY - eyeX / 2, 0]}
+            scale={noseSize}
+            segmentColors={noseSegmentColors}
+            motionIntensity={noseMotionIntensity}
+            lookAroundRotationRef={lookAroundRotationRef}
+            onShowTooltip={handleShowTooltip}
+            isSelected={tooltip?.key === "wordOrderFlexibility"}
+          />
         </group>
-        <MeshaLight spread={1.5} />
 
-        {tooltip && (
-          <Tooltip
-            position={tooltip.position}
-            label={tooltip.label}
-            value={tooltip.value}
+        <MeshaTongue mouthMaterial={mouthMaterial} segments={segments} />
+        <MeshaTeeth
+          toothCount={phonemeCount}
+          clusterSize={maxClusterSize}
+          onShowTooltip={handleShowTooltip}
+          isSelected={tooltip?.key === "phonemeCount"}
+        />
+        {caseCount && (
+          <MeshaMoustache
+            meshaPart="caseMoustache"
+            moustacheCount={caseCount}
+            color={color}
+            y={meshaSize * 0.7}
+            z={0.5}
+            onShowTooltip={handleShowTooltip}
+            isSelected={tooltip?.key === "caseCount"}
           />
         )}
-      </a.group>
-    </MeshaInteractionContext.Provider>
+        {nounClassCount && (
+          <MeshaMoustache
+            meshaPart="nounClassMoustache"
+            moustacheCount={nounClassCount}
+            color={shiftHue(color, 120)}
+            y={meshaSize * 1.4}
+            z={0}
+            onShowTooltip={handleShowTooltip}
+            isSelected={tooltip?.key === "nounClassCount"}
+          />
+        )}
+      </group>
+      <MeshaLight spread={1.5} />
+
+      {tooltip && (
+        <Tooltip
+          position={tooltip.position}
+          label={tooltip.label}
+          value={tooltip.value}
+        />
+      )}
+    </a.group>
   );
 };
 

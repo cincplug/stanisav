@@ -1,5 +1,4 @@
 import { useCallback, useMemo, useRef, useContext } from "react";
-import MeshaInteractionContext from "../../contexts/MeshaInteractionContext.jsx";
 import { useSpring } from "@react-spring/three";
 import { useFrame } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
@@ -33,8 +32,6 @@ const Label = ({ languageCode, position, isSelected = false, color }) => {
     return null;
   }
 
-  const meshaInteracting = useContext(MeshaInteractionContext);
-
   const handleClick = useCallback(
     (event) => {
       // If the top intersection is a Mesha part, block label click
@@ -44,12 +41,11 @@ const Label = ({ languageCode, position, isSelected = false, color }) => {
           return;
         }
       }
-      if (meshaInteracting) return;
       event.stopPropagation();
       selectLanguage(languageCode);
       startFromLanguage(languageCode);
     },
-    [selectLanguage, startFromLanguage, languageCode, meshaInteracting],
+    [selectLanguage, startFromLanguage, languageCode],
   );
 
   const sizeMultiplier = useMemo(
