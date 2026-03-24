@@ -67,11 +67,7 @@ function getTooltipDataFromEvent(part, context) {
 export function useTooltips() {
   const [tooltip, setTooltip] = useState(null);
 
-  // Centralized handler: expects event and context
-  const showTooltip = useCallback((e, context) => {
-    e?.stopPropagation();
-    const part = e?.object?.meshaPart;
-    if (!part) return;
+  const showTooltip = useCallback((_e, context) => {
     const tooltipData = getTooltipDataFromEvent(part, context);
     setTooltip(tooltipData);
   }, []);

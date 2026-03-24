@@ -176,16 +176,6 @@ const Stage = ({
       />
 
       <group>
-        <Mesha
-          languageCode={meshaLanguageCode}
-          linguisticProperties={meshaLinguisticProperties}
-          color={meshaColor}
-          position={meshaPosition}
-          isMyMesha={isMyMesha}
-          tonalityType={tonalityType}
-          looksAround={true}
-        />
-
         {!showEmptyMessage &&
           sortedLanguageCodes.map((langCode) => {
             const position = formattedPositions[langCode];
@@ -205,6 +195,16 @@ const Stage = ({
               />
             );
           })}
+
+        <Mesha
+          languageCode={meshaLanguageCode}
+          linguisticProperties={meshaLinguisticProperties}
+          color={meshaColor}
+          position={meshaPosition}
+          isMyMesha={isMyMesha}
+          tonalityType={tonalityType}
+          looksAround={true}
+        />
       </group>
     </Canvas>
   );

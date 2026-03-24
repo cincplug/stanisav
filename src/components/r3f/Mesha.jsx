@@ -1,4 +1,4 @@
-import { useRef, useMemo, useEffect, useState, useCallback } from "react";
+import { useRef, useMemo, useEffect } from "react";
 import { extend, useFrame } from "@react-three/fiber";
 import { a, useSpring } from "@react-spring/three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
@@ -6,6 +6,7 @@ import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
 import microphoneService from "../../services/microphoneService.js";
 import { useControls } from "../../contexts/ControlsContext.jsx";
+import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
 import { useTonalityMaterial } from "../../hooks/useTonalityMaterial.js";
 import { useTooltips } from "../../hooks/useTooltips.js";
 import { getFeatureScoreList } from "../../utils/linguisticUtils.js";
@@ -39,6 +40,7 @@ const Mesha = ({
 
   const { controls } = useControls();
   const { meshaSize, eyeZ, eyeX, eyeY, noseSize, tension, friction } = controls;
+  const { selectedProperty, setSelectedProperty } = useLanguageSelection();
 
   useEffect(() => {
     if (isMyMesha) {
@@ -134,7 +136,26 @@ const Mesha = ({
     [scores.morphology],
   );
 
+  // Map part to property value
+  const partToProperty = {
+    ear: "morphology",
+    teeth: "phonemeCount",
+    caseMoustache: "caseCount",
+    nounClassMoustache: "nounClassCount",
+    eyeOuter: "evidentiality",
+    eyeInner: "verbAspect",
+    pupil: "verbAspect",
+    noseOuter: "wordOrder",
+    noseInner: "wordOrderFlexibility",
+  };
+
+  // Handler for click: set selectedProperty if part is mapped
   const handleShowTooltip = (e) => {
+    e.stopPropagation();
+    const part = e?.object?.meshaPart;
+    if (part && partToProperty[part]) {
+      setSelectedProperty(partToProperty[part]);
+    }
     showTooltip(e, {
       scores,
       earPosition,
@@ -161,7 +182,7 @@ const Mesha = ({
           rightSegments={2 + scores.morphology * 2}
           earPosition={earPosition}
           onShowTooltip={handleShowTooltip}
-          isSelected={tooltip?.key === "morphology"}
+          isSelected={selectedProperty === "morphology"}
         />
 
         <group ref={eyesGroupRef} position={[0, 1, mainZ]}>
@@ -171,7 +192,8 @@ const Mesha = ({
             sizeSignal={eyeSizeSignal}
             depthSignal={eyeDepthSignal}
             onShowTooltip={handleShowTooltip}
-            isSelected={tooltip?.key === "evidentiality"}
+            isSelectedOuter={selectedProperty === "evidentiality"}
+            isSelectedInner={selectedProperty === "verbAspect"}
           />
           <MeshaEye
             position={[eyeX, eyeY, 0]}
@@ -179,7 +201,8 @@ const Mesha = ({
             sizeSignal={eyeSizeSignal}
             depthSignal={eyeDepthSignal}
             onShowTooltip={handleShowTooltip}
-            isSelected={tooltip?.key === "evidentiality"}
+            isSelectedOuter={selectedProperty === "evidentiality"}
+            isSelectedInner={selectedProperty === "verbAspect"}
           />
           <MeshaNose
             position={[0, eyeY - eyeX / 2, 0]}
@@ -188,7 +211,8 @@ const Mesha = ({
             motionIntensity={noseMotionIntensity}
             lookAroundRotationRef={lookAroundRotationRef}
             onShowTooltip={handleShowTooltip}
-            isSelected={tooltip?.key === "wordOrderFlexibility"}
+            isSelectedOuter={selectedProperty === "wordOrder"}
+            isSelectedInner={selectedProperty === "wordOrderFlexibility"}
           />
         </group>
 
@@ -197,7 +221,7 @@ const Mesha = ({
           toothCount={phonemeCount}
           clusterSize={maxClusterSize}
           onShowTooltip={handleShowTooltip}
-          isSelected={tooltip?.key === "phonemeCount"}
+          isSelected={selectedProperty === "phonemeCount"}
         />
         {caseCount && (
           <MeshaMoustache
@@ -207,7 +231,7 @@ const Mesha = ({
             y={meshaSize * 0.7}
             z={0.5}
             onShowTooltip={handleShowTooltip}
-            isSelected={tooltip?.key === "caseCount"}
+            isSelected={selectedProperty === "caseCount"}
           />
         )}
         {nounClassCount && (
@@ -218,7 +242,7 @@ const Mesha = ({
             y={meshaSize * 1.4}
             z={0}
             onShowTooltip={handleShowTooltip}
-            isSelected={tooltip?.key === "nounClassCount"}
+            isSelected={selectedProperty === "nounClassCount"}
           />
         )}
       </group>

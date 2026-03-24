@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef, useContext } from "react";
+import { useCallback, useMemo, useRef } from "react";
 import { useSpring } from "@react-spring/three";
 import { useFrame } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
@@ -32,21 +32,10 @@ const Label = ({ languageCode, position, isSelected = false, color }) => {
     return null;
   }
 
-  const handleClick = useCallback(
-    (event) => {
-      // If the top intersection is a Mesha part, block label click
-      if (event.intersections && event.intersections.length > 0) {
-        const top = event.intersections[0].object;
-        if (top?.meshaPart) {
-          return;
-        }
-      }
-      event.stopPropagation();
-      selectLanguage(languageCode);
-      startFromLanguage(languageCode);
-    },
-    [selectLanguage, startFromLanguage, languageCode],
-  );
+  const handleClick = useCallback(() => {
+    selectLanguage(languageCode);
+    startFromLanguage(languageCode);
+  }, [languageCode]);
 
   const sizeMultiplier = useMemo(
     () => calculateSizeMultiplier(sortBy, data, languageCode, layoutConfig),

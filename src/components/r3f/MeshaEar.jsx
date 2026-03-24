@@ -8,6 +8,11 @@ import { createAudioReactiveSurface } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
 
+/**
+ * MeshaEar
+ * @param {object} props
+ * @param {boolean} props.isSelected - highlight if selectedProperty matches
+ */
 const MeshaEar = ({
   leftEarMaterial,
   rightEarMaterial,

@@ -1,13 +1,16 @@
 import { createContext, useContext, useState, useCallback } from "react";
 import { filterLanguagesByFeatures } from "../utils/filteringUtils";
+import { useControls } from "./ControlsContext";
 
 const LanguageSelectionContext = createContext();
 
 export const LanguageSelectionProvider = ({ children }) => {
   const [selectedLanguage, setSelectedLanguage] = useState(null);
+  const [selectedProperty, setSelectedProperty] = useState(null);
   const [filteringUtils, setFilteringUtils] = useState({});
   const [filteredLanguages, setFilteredLanguages] = useState(new Set());
   const [cameraFocusRequest, setCameraFocusRequest] = useState(null);
+  const { controls } = useControls();
 
   const selectLanguage = useCallback((languageCode) => {
     setSelectedLanguage(languageCode);
@@ -41,8 +44,13 @@ export const LanguageSelectionProvider = ({ children }) => {
     setCameraFocusRequest({ type: "viewAll" });
   }, []);
 
+  // selectedProperty inherits from controls.sortBy if not set
+  const effectiveSelectedProperty = selectedProperty || controls?.sortBy;
+
   const contextValue = {
     selectedLanguage,
+    selectedProperty: effectiveSelectedProperty,
+    setSelectedProperty,
     filteringUtils,
     filteredLanguages,
     selectLanguage,

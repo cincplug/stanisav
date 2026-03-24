@@ -207,7 +207,9 @@ export const PlaylistProvider = ({ children }) => {
     }
 
     const code = codes[currentIndex];
-    selectLanguage(code);
+    if (selectedLanguage !== code) {
+      selectLanguage(code);
+    }
 
     let cleanup = () => {};
 

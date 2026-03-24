@@ -9,6 +9,11 @@ import { createToothShape } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
 
+/**
+ * MeshaTeeth
+ * @param {object} props
+ * @param {boolean} props.isSelected - highlight if selectedProperty matches
+ */
 const MeshaTeeth = ({ toothCount, clusterSize, onShowTooltip, isSelected }) => {
   const teethRefs = useRef([]);
   const lastAudioDataRef = useRef(defaultAudioData);

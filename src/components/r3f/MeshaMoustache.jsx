@@ -10,6 +10,11 @@ import { createTuftShape } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
 
+/**
+ * MeshaMoustache
+ * @param {object} props
+ * @param {boolean} props.isSelected - highlight if selectedProperty matches
+ */
 const MeshaMoustache = ({
   meshaPart,
   moustacheCount,

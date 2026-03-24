@@ -8,7 +8,8 @@ const MeshaEye = ({
   sizeSignal,
   depthSignal,
   onShowTooltip,
-  isSelected,
+  isSelectedOuter,
+  isSelectedInner,
 }) => {
   const groupRef = useRef();
   const { controls } = useControls();
@@ -24,25 +25,30 @@ const MeshaEye = ({
   const pupilZ = eyeProtrusion + depthFactor * eyeProtrusion;
 
   return (
-    <group
-      ref={groupRef}
-      position={position}
-      scale={eyeScale}
-      onClick={onShowTooltip}
-    >
-      <mesh meshaPart="eye">
+    <group ref={groupRef} position={position} scale={eyeScale}>
+      <mesh meshaPart="eyeOuter" onClick={onShowTooltip}>
         <sphereGeometry args={[eyeSize, 32, 32]} />
         <meshStandardMaterial color="#ffffff" />
-        {isSelected && (
+        {isSelectedOuter && (
           <MeshaHighlight
             geometry="sphereGeometry"
             geometryArgs={[eyeSize, 32, 32]}
           />
         )}
       </mesh>
-      <mesh position={[0, 0, irisZ]}>
+      <mesh
+        position={[0, 0, irisZ]}
+        meshaPart="eyeInner"
+        onClick={onShowTooltip}
+      >
         <sphereGeometry args={[irisSize, 32, 32]} />
         <meshStandardMaterial color={color} />
+        {isSelectedInner && (
+          <MeshaHighlight
+            geometry="sphereGeometry"
+            geometryArgs={[irisSize, 32, 32]}
+          />
+        )}
       </mesh>
       <mesh position={[0, 0, pupilZ]}>
         <sphereGeometry args={[pupilSize, 32, 32]} />

@@ -10,7 +10,8 @@ const MeshaNose = ({
   motionIntensity,
   lookAroundRotationRef,
   onShowTooltip,
-  isSelected,
+  isSelectedOuter,
+  isSelectedInner,
 }) => {
   const groupRef = useRef();
   const segmentARef = useRef();
@@ -33,18 +34,18 @@ const MeshaNose = ({
   const segments = 12;
 
   return (
-    <group
-      ref={groupRef}
-      position={position}
-      scale={scale}
-      onClick={onShowTooltip}
-    >
-      <mesh ref={segmentARef} scale={1} meshaPart="nose">
+    <group ref={groupRef} position={position} scale={scale}>
+      <mesh
+        ref={segmentARef}
+        scale={1}
+        meshaPart="noseOuter"
+        onClick={onShowTooltip}
+      >
         <sphereGeometry
           args={[pupilSize, segments, segments, -Math.PI / 2, Math.PI]}
         />
         <meshStandardMaterial color={segmentColors[0]} side={2} />
-        {isSelected && (
+        {isSelectedOuter && (
           <MeshaHighlight
             geometry="sphereGeometry"
             geometryArgs={[
@@ -57,17 +58,50 @@ const MeshaNose = ({
           />
         )}
       </mesh>
-      <mesh ref={segmentBRef} scale={0.8}>
+      <mesh
+        ref={segmentBRef}
+        scale={0.8}
+        meshaPart="noseInner"
+        onClick={onShowTooltip}
+      >
         <sphereGeometry
           args={[pupilSize, segments, segments, 0, Math.PI * 2, 0, Math.PI / 2]}
         />
         <meshStandardMaterial color={segmentColors[1]} side={2} />
+        {isSelectedInner && (
+          <MeshaHighlight
+            geometry="sphereGeometry"
+            geometryArgs={[
+              pupilSize,
+              segments,
+              segments,
+              0,
+              Math.PI * 2,
+              0,
+              Math.PI / 2,
+            ]}
+          />
+        )}
       </mesh>
-      <mesh ref={segmentCRef} scale={0.6}>
+      <mesh ref={segmentCRef} scale={0.6} meshaPart="noseInner">
         <sphereGeometry
           args={[pupilSize, segments, segments, Math.PI, Math.PI, 0, Math.PI]}
         />
         <meshStandardMaterial color={segmentColors[2]} side={2} />
+        {isSelectedInner && (
+          <MeshaHighlight
+            geometry="sphereGeometry"
+            geometryArgs={[
+              pupilSize,
+              segments,
+              segments,
+              Math.PI,
+              Math.PI,
+              0,
+              Math.PI,
+            ]}
+          />
+        )}
       </mesh>
     </group>
   );
