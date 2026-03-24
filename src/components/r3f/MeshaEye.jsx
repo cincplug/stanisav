@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import MeshaHighlight from "./MeshaHighlight.jsx";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 
 const MeshaEye = ({
@@ -33,10 +34,10 @@ const MeshaEye = ({
         <sphereGeometry args={[eyeSize, 32, 32]} />
         <meshStandardMaterial color="#ffffff" />
         {isSelected && (
-          <mesh position={[0, 0, 0]}>
-            <sphereGeometry args={[eyeSize, 32, 32]} />
-            <meshBasicMaterial color="#ff0" wireframe />
-          </mesh>
+          <MeshaHighlight
+            geometry="sphereGeometry"
+            geometryArgs={[eyeSize, 32, 32]}
+          />
         )}
       </mesh>
       <mesh position={[0, 0, irisZ]}>

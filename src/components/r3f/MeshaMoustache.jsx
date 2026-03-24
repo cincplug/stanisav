@@ -1,4 +1,5 @@
 import { useRef, useMemo } from "react";
+import MeshaHighlight from "./MeshaHighlight.jsx";
 import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useControls } from "../../contexts/ControlsContext.jsx";
@@ -126,10 +127,10 @@ const MeshaMoustache = ({
             <parametricGeometry args={[tuftSurface, 12, 12]} />
             <meshStandardMaterial color={moustacheColor} side={2} />
             {isSelected && (
-              <mesh position={[0, 0, 0]}>
-                <parametricGeometry args={[tuftSurface, 12, 12]} />
-                <meshBasicMaterial color="#ff0" wireframe />
-              </mesh>
+              <MeshaHighlight
+                geometry="parametricGeometry"
+                geometryArgs={[tuftSurface, 12, 12]}
+              />
             )}
           </mesh>
         </group>

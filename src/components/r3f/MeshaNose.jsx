@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import MeshaHighlight from "./MeshaHighlight.jsx";
 import { useFrame } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 
@@ -44,12 +45,16 @@ const MeshaNose = ({
         />
         <meshStandardMaterial color={segmentColors[0]} side={2} />
         {isSelected && (
-          <mesh position={[0, 0, 0]}>
-            <sphereGeometry
-              args={[pupilSize, segments, segments, -Math.PI / 2, Math.PI]}
-            />
-            <meshBasicMaterial color="#ff0" wireframe />
-          </mesh>
+          <MeshaHighlight
+            geometry="sphereGeometry"
+            geometryArgs={[
+              pupilSize,
+              segments,
+              segments,
+              -Math.PI / 2,
+              Math.PI,
+            ]}
+          />
         )}
       </mesh>
       <mesh ref={segmentBRef} scale={0.8}>

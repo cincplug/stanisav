@@ -1,4 +1,5 @@
 import { useRef, useMemo } from "react";
+import MeshaHighlight from "./MeshaHighlight.jsx";
 import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useControls } from "../../contexts/ControlsContext.jsx";
@@ -90,10 +91,10 @@ const MeshaTeeth = ({ toothCount, clusterSize, onShowTooltip, isSelected }) => {
             <parametricGeometry args={[createToothShape, 16, 8]} />
             <meshStandardMaterial color="#ffffff" />
             {isSelected && (
-              <mesh position={[0, 0, 0]}>
-                <parametricGeometry args={[createToothShape, 16, 8]} />
-                <meshBasicMaterial color="#ff0" wireframe />
-              </mesh>
+              <MeshaHighlight
+                geometry="parametricGeometry"
+                geometryArgs={[createToothShape, 16, 8]}
+              />
             )}
           </mesh>
         </group>

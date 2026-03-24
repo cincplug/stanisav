@@ -1,4 +1,5 @@
 import { useRef, useMemo } from "react";
+import MeshaHighlight from "./MeshaHighlight.jsx";
 import { extend } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
@@ -55,12 +56,10 @@ const MeshaEar = ({
         />
         <shaderMaterial args={[leftEarMaterial]} />
         {isSelected && (
-          <mesh position={[0, 0, 0]}>
-            <parametricGeometry
-              args={[audioReactiveSurface, leftSegments, leftSegments]}
-            />
-            <meshBasicMaterial color="#ff0" wireframe />
-          </mesh>
+          <MeshaHighlight
+            geometry="parametricGeometry"
+            geometryArgs={[audioReactiveSurface, leftSegments, leftSegments]}
+          />
         )}
       </mesh>
 
@@ -75,12 +74,10 @@ const MeshaEar = ({
         />
         <shaderMaterial args={[rightEarMaterial]} />
         {isSelected && (
-          <mesh position={[0, 0, 0]}>
-            <parametricGeometry
-              args={[audioReactiveSurface, rightSegments, rightSegments]}
-            />
-            <meshBasicMaterial color="#ff0" wireframe />
-          </mesh>
+          <MeshaHighlight
+            geometry="parametricGeometry"
+            geometryArgs={[audioReactiveSurface, rightSegments, rightSegments]}
+          />
         )}
       </mesh>
     </>
