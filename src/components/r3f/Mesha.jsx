@@ -184,7 +184,12 @@ const Mesha = ({
           />
         </group>
 
-        <MeshaTongue mouthMaterial={mouthMaterial} segments={segments} />
+        <MeshaTongue
+          mouthMaterial={mouthMaterial}
+          segments={segments}
+          onClick={handlePropertyClick}
+          isSelected={selectedProperty === "tonality"}
+        />
         <MeshaTeeth
           toothCount={phonemeCount}
           clusterSize={maxClusterSize}

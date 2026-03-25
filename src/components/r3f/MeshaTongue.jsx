@@ -5,10 +5,11 @@ import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
 import { defaultAudioData } from "../../config/meshaDefaultAudioData.js";
 import { createAudioReactiveSurface } from "../../utils/shapeUtils.js";
 import { useRef, useMemo } from "react";
+import MeshaHighlight from "./MeshaHighlight.jsx";
 
 extend({ ParametricGeometry });
 
-const MeshaTongue = ({ mouthMaterial, segments }) => {
+const MeshaTongue = ({ mouthMaterial, segments, onClick, isSelected }) => {
   const lastAudioDataRef = useRef(defaultAudioData);
   const { controls } = useControls();
   const { audioData: rawAudioData } = useAudioAnimation();
@@ -36,13 +37,20 @@ const MeshaTongue = ({ mouthMaterial, segments }) => {
   return (
     <mesh
       position={[0, meshaSize * 1.5, meshaSize]}
-      scale={[meshaSize / 2, -meshaSize / 4, -meshaSize / 2]}
+      scale={[meshaSize / 2, -meshaSize / 4, -meshaSize]}
       rotation={[1 / 4, Math.PI, 0]}
+      onClick={onClick}
+      linguisticProperty="tonality"
     >
       <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
       <shaderMaterial args={[mouthMaterial]} />
+      {isSelected && (
+        <MeshaHighlight
+          geometry="parametricGeometry"
+          geometryArgs={[audioReactiveSurface, segments, segments]}
+        />
+      )}
     </mesh>
   );
 };
-
 export default MeshaTongue;
