@@ -31,7 +31,7 @@ function IdCard({
     return getLineageTrail(lineageKey);
   }, [languageCode, languageLineages]);
 
-  const { selectedProperty } = useLanguageSelection();
+  const { selectedProperty, setSelectedProperty } = useLanguageSelection();
 
   const rows = useMemo(() => {
     if (!languageCode || !language) return [];
@@ -137,17 +137,22 @@ function IdCard({
       </div>
 
       <div className="id-card-columns">
-        <dl className="id-card-list">
+        <div className="id-card-list" role="list">
           {rows.map((row) => (
-            <div
+            <button
               key={row.key}
+              type="button"
               className={`id-card-row${row.key === selectedProperty ? " selected" : ""}`}
+              aria-pressed={row.key === selectedProperty}
+              role="listitem"
+              tabIndex={0}
+              onClick={() => setSelectedProperty(row.key)}
             >
-              <dt>{row.label}</dt>
-              <dd>{row.value}</dd>
-            </div>
+              <span className="id-card-row-label">{row.label}</span>
+              <span className="id-card-row-value">{row.value}</span>
+            </button>
           ))}
-        </dl>
+        </div>
       </div>
     </aside>
   );

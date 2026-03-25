@@ -9,6 +9,7 @@
   border-top: 1px solid var(--color-3);
   width: 100%;
   overflow: auto;
+  max-height: 33vh;
 }
 
 .id-card-header {
@@ -91,39 +92,39 @@ html.rtl .id-card-close-button {
   margin: 0;
   padding: var(--gap) var(--gap);
   border: none;
-  border-radius: 0;
-  box-shadow: none;
+  border-radius: var(--border-radius);
   background: none;
   display: flex;
   align-items: flex-start;
   gap: var(--gap);
+  cursor: pointer;
+  font: inherit;
+  width: max-content;
+  text-align: left;
 }
 
-.id-card-row.selected {
+.id-card-row:focus {
+  outline: 2px solid var(--color-highlight);
+  outline-offset: 2px;
+  z-index: 1;
+}
+
+.id-card-row.selected,
+.id-card-row[aria-pressed="true"] {
   background: var(--color-1);
   outline: 2px solid var(--color-highlight);
   border-radius: var(--border-radius);
-  width: max-content;
 }
 
-.id-card-row dt,
-.id-card-row dd {
-  margin: 0;
-}
-
-.id-card-row dt {
-  display: inline;
+.id-card-row-label {
   color: var(--color-4);
+  margin-right: var(--gap-half);
 }
 
-.id-card-row dt::after {
-  content: ":";
-}
-
-.id-card-row dd {
-  display: inline;
-  min-width: 0;
+.id-card-row-value {
   color: var(--color-6);
+  min-width: 0;
+  word-break: break-word;
 }
 
 .id-card-source-video {
