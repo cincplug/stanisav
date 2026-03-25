@@ -1,0 +1,485 @@
+{
+  "controls": {
+    "bgColor": {
+      "label": "පසුබිම"
+    },
+    "cameraX": {
+      "label": "කැමරා X"
+    },
+    "cameraY": {
+      "label": "කැමරා Y"
+    },
+    "cameraZ": {
+      "label": "කැමරා Z"
+    },
+    "canEditColors": {
+      "label": "වර්ණ සංස්කරණය කළ හැකිද?"
+    },
+    "eyeProtrusion": {
+      "label": "ඇස් උදා වීම"
+    },
+    "eyeSize": {
+      "label": "ඇස් ප්‍රමාණය"
+    },
+    "eyeX": {
+      "label": "ඇස X"
+    },
+    "eyeY": {
+      "label": "ඇස Y"
+    },
+    "eyeZ": {
+      "label": "ඇස Z"
+    },
+    "far": {
+      "label": "දුර තලය"
+    },
+    "fov": {
+      "label": "දෘශ්‍ය ක්ෂේත්‍රය"
+    },
+    "friction": {
+      "label": "ඝර්ෂණය"
+    },
+    "globalChromaOffset": {
+      "label": "ක්‍රෝමා ඕෆ්සෙට්"
+    },
+    "globalChromaScale": {
+      "label": "ක්‍රෝමා පරිමාණය"
+    },
+    "globalLightnessOffset": {
+      "label": "දීප්තිය ඕෆ්සෙට්"
+    },
+    "globalLightnessScale": {
+      "label": "දීප්තිය පරිමාණය"
+    },
+    "groups": {
+      "camera": "කැමරාව",
+      "colors": "වර්ණ",
+      "languagesTab": "භාෂා ටැබය",
+      "mesha": "මේෂා",
+      "meshaLight": "මේෂා ආලෝකය",
+      "motion": "චලනය",
+      "scene": "දර්ශනය",
+      "stageLight": "වේදිකා ආලෝකය"
+    },
+    "hasSubtitle": {
+      "label": "උපශීර්ෂය පෙන්වන්න"
+    },
+    "hueCircle": {
+      "label": "වර්ණ චක්‍රය"
+    },
+    "hueStart": {
+      "label": "වර්ණ ආරම්භය"
+    },
+    "isLoop": {
+      "label": "ධාවන ලැයිස්තුව ලූප් කරන්න"
+    },
+    "isLuka": {
+      "label": "ලූකා නාම් පාඨ කියවයි"
+    },
+    "isMyMesha": {
+      "label": "මම මේෂා වෙමි"
+    },
+    "isReverse": {
+      "label": "ප්‍රතිලෝම අනුපිළිවෙල"
+    },
+    "labelContent": {
+      "label": "ප්‍රදර්ශනය",
+      "options": {
+        "isoCode": "ISO කේත",
+        "name": "ඉංග්‍රීසි නාම",
+        "nativeName": "දේශීය නාම"
+      }
+    },
+    "labelSize": {
+      "label": "ලේබල් ප්‍රමාණය"
+    },
+    "maxSiblingSpread": {
+      "label": "සහෝදර වර්ණ පැතිරීම"
+    },
+    "meshaLightDecay": {
+      "label": "ක්ෂය වීම"
+    },
+    "meshaLightDistance": {
+      "label": "දුර"
+    },
+    "meshaLightIntensity": {
+      "label": "තීව්‍රතාව"
+    },
+    "meshaSize": {
+      "label": "මේෂා ප්‍රමාණය"
+    },
+    "moustacheSize": {
+      "label": "උඩු රැවුල ප්‍රමාණය"
+    },
+    "near": {
+      "label": "ආසන්න තලය"
+    },
+    "noseSize": {
+      "label": "නාසය ප්‍රමාණය"
+    },
+    "showsVideoPreviews": {
+      "label": "මුල් ප්‍රාග්දර්ශනය"
+    },
+    "sortBy": {
+      "label": "වර්ග කිරීම",
+      "options": {
+        "alphabetically": "අකාරාදී අනුපිළිවෙල",
+        "caseCount": "විභක්ති ගණන",
+        "evidentiality": "ප්‍රමාණිකතාව",
+        "family": "භාෂා කුලය",
+        "maxClusterSize": "ව්‍යාංජන සමූහය",
+        "morphology": "රූප විද්‍යාව",
+        "nounClassCount": "නාම පන්තිය",
+        "phonemeCount": "ධ්වනි ගණන",
+        "speakers": "කතා කරන්නන් ගණන",
+        "tonality": "ස්වරය",
+        "verbAspect": "ක්‍රියාපද පැතිකඩ",
+        "wordOrder": "වචන අනුපිළිවෙල",
+        "wordOrderFlexibility": "වචන අනුපිළිවෙලේ ස්වෙච්ඡාතාවය",
+        "scripts": "අක්ෂර මාලා"
+      }
+    },
+    "sphereRadius": {
+      "label": "ගෝල අරය"
+    },
+    "segmentation": {
+      "label": "ඛණ්ඩනය"
+    },
+    "stageLightDecay": {
+      "label": "ක්ෂය වීම"
+    },
+    "stageLightDistance": {
+      "label": "දුර"
+    },
+    "stageLightIntensity": {
+      "label": "තීව්‍රතාව"
+    },
+    "switchDuration": {
+      "label": "මාරු කාලය"
+    },
+    "teethSize": {
+      "label": "දත් ප්‍රමාණය"
+    },
+    "tension": {
+      "label": "තතුව"
+    },
+    "zoomDistance": {
+      "label": "සූම් දුර"
+    }
+  },
+  "filters": {
+    "all": "සියල්ල",
+    "allowMultipleChoices": "බහු තේරීම් ඉඩ දෙන්න",
+    "results": "පෙරහන් ප්‍රතිඵල ({count})",
+    "title": "පෙරහන් කරන්න"
+  },
+  "linguistic": {
+    "caseCount": {
+      "name": "විභක්ති ගණන"
+    },
+    "evidentiality": {
+      "name": "ප්‍රමාණිකතාව",
+      "values": {
+        "complex": {
+          "description": "සාක්ෂි වෙනස්කම් හතරක් හෝ ඊට වැඩි ප්‍රමාණයක් හෝ කාල/පැතිකඩ සමඟ ඒකාබද්ධ වූ සාක්ෂිකතාව.",
+          "label": "සංකීර්ණ"
+        },
+        "moderate": {
+          "description": "ත්‍රිමාර්ගික වෙනසක් (උදා: ප්‍රත්‍යක්ෂ, වාර්තා, නිගමනීය).",
+          "label": "මධ්‍යස්ථ"
+        },
+        "none": {
+          "description": "තොරතුරු මූලාශ්‍රයේ ව්‍යාකරණ සලකුණු නොමැත.",
+          "label": "නැත"
+        },
+        "optional": {
+          "description": "සාක්ෂි ආකාරයේ සලකුණු පවතී, නමුත් ඒවා අනිවාර්ය නොවේ.",
+          "label": "විකල්ප"
+        },
+        "simple": {
+          "description": "ද්විමාර්ගික වෙනසක් (සාමාන්‍යයෙන් ප්‍රත්‍යක්ෂ හා වක්‍ර/වාර්තා).",
+          "label": "සරල"
+        }
+      }
+    },
+    "family": {
+      "name": "භාෂා කුලය"
+    },
+    "maxClusterSize": {
+      "name": "ඉහළම ව්‍යාංජන සමූහය"
+    },
+    "morphology": {
+      "name": "රූප විද්‍යාව",
+      "values": {
+        "agglutinative": {
+          "description": "වචන ගොඩනගනු ලබන්නේ එකිනෙකට ආකෘති ඇමිණීමෙනි; එක් එක් ආකෘතිය හරියටම එක් අර්ථයක් ගෙන යයි. කොටස් ගොඩනැගිලි ඇණ ගැනෙනවා සේ පැහැදිලිව හඳුනා ගත හැකිය.",
+          "label": "ඇකූලිනේටිව්"
+        },
+        "fusional": {
+          "description": "වචන ඒකවචන/බහුවචන/කාරකාදිය ඒකාබද්ධ ගොනු ලෙස ප්‍රකාශ කරන අවසාන හා උපසර්ග හරහා ස්වරූප වෙනස් කරයි. එකම අවසානය ලිංගය, ගණය සහ කාරකය ඒකවරම ප්‍රකාශ කළ හැකිය.",
+          "label": "ෆ්‍යූෂනල්"
+        },
+        "introflexive": {
+          "description": "ව්‍යාකරණය වචනයේ ඇතුළතින් ගොඩනැගේ: ව්‍යාංජන මූලයක් මූලාර්ථය ගෙන යයි, එය හරහා වෙනස් ස්වර රටා නව වචන සාදයි. නිදසුනක් ලෙස, අරාබි k-t-b මූලය ලිවීම ඇසෙනු සහ kataba, kitāb, kātib ඉන් ලැබේ.",
+          "label": "ඉන්ට්‍රෝෆ්ලෙක්සිව්"
+        },
+        "isolating": {
+          "description": "වචන සාමාන්‍යයෙන් තනි රූපකාංගවලින් සමන්විත වන අතර ස්වරූප වෙනස් නොකරයි. ව්‍යාකරණය ප්‍රකාශ කරනු ලබන්නේ වචන අනුපිළිවෙල හා වෙනම ක්‍රියා-ශ්‍රේණී වචන මඟිනි.",
+          "label": "අයිසොලේටිං"
+        },
+        "polysynthetic": {
+          "description": "එක් වචනයක් ක්‍රියාව, විෂය, කර්මය සහ වෙනත් අංග ඒකාබද්ධ කරමින් වෙනත් භාෂාවල සම්පූර්ණ වාක්‍යයකින් කියයි. ඇමරිකාවේ හා ආර්කිටික් ස්වදේශිකයින්ගේ භාෂාවල සාමාන්‍ය.",
+          "label": "පොලිසින්තටික්"
+        }
+      }
+    },
+    "nounClassCount": {
+      "name": "නාම පන්තියන් / ලිංග"
+    },
+    "phonemeCount": {
+      "name": "ධ්වනි ගණන"
+    },
+    "scripts": {
+      "name": "Scripts",
+      "values": {
+        "Arabic": {
+          "label": "Arabic"
+        },
+        "Armenian": {
+          "label": "Armenian"
+        },
+        "Balinese": {
+          "label": "Balinese"
+        },
+        "Bengali": {
+          "label": "Bengali"
+        },
+        "Canadian Aboriginal Syllabics": {
+          "label": "Canadian Aboriginal Syllabics"
+        },
+        "Cherokee": {
+          "label": "Cherokee"
+        },
+        "Cyrillic": {
+          "label": "Cyrillic"
+        },
+        "Devanagari": {
+          "label": "Devanagari"
+        },
+        "Ethiopic": {
+          "label": "Ethiopic"
+        },
+        "Georgian": {
+          "label": "Georgian"
+        },
+        "Greek": {
+          "label": "Greek"
+        },
+        "Gujarati": {
+          "label": "Gujarati"
+        },
+        "Gurmukhi": {
+          "label": "Gurmukhi"
+        },
+        "Han": {
+          "label": "Han"
+        },
+        "Hangul": {
+          "label": "Hangul"
+        },
+        "Hebrew": {
+          "label": "Hebrew"
+        },
+        "Hiragana": {
+          "label": "Hiragana"
+        },
+        "Javanese": {
+          "label": "Javanese"
+        },
+        "Kannada": {
+          "label": "Kannada"
+        },
+        "Katakana": {
+          "label": "Katakana"
+        },
+        "Khmer": {
+          "label": "Khmer"
+        },
+        "Lao": {
+          "label": "Lao"
+        },
+        "Latin": {
+          "label": "Latin"
+        },
+        "Lepcha": {
+          "label": "Lepcha"
+        },
+        "Malayalam": {
+          "label": "Malayalam"
+        },
+        "Meitei Mayek": {
+          "label": "Meitei Mayek"
+        },
+        "Mongolian": {
+          "label": "Mongolian"
+        },
+        "Myanmar": {
+          "label": "Myanmar"
+        },
+        "Newa": {
+          "label": "Newa"
+        },
+        "Odia": {
+          "label": "Odia"
+        },
+        "Ol Chiki": {
+          "label": "Ol Chiki"
+        },
+        "Sinhala": {
+          "label": "Sinhala"
+        },
+        "Sorang Sompeng": {
+          "label": "Sorang Sompeng"
+        },
+        "Tamil": {
+          "label": "Tamil"
+        },
+        "Telugu": {
+          "label": "Telugu"
+        },
+        "Thai": {
+          "label": "Thai"
+        },
+        "Tibetan": {
+          "label": "Tibetan"
+        },
+        "Tirhuta": {
+          "label": "Tirhuta"
+        },
+        "Warang Citi": {
+          "label": "Warang Citi"
+        },
+        "Yi": {
+          "label": "Yi"
+        }
+      }
+    },
+    "tonality": {
+      "name": "ස්වරය",
+      "values": {
+        "complex-tonal": {
+          "description": "ස්වර රටා වචනයේ අරුත් සැලකිය යුතු ලෙස වෙනස් කරයි.",
+          "label": "සංකීර්ණ ස්වරාත්මක"
+        },
+        "non-tonal": {
+          "description": "ස්වර වෙනස්කම් වචනයේ අරුත් බලපාන්නේ නැත.",
+          "label": "ස්වරරහිත"
+        },
+        "pitch-accent": {
+          "description": "ස්වර තානය භාවිතා කරයි; ස්වර වෙනස් කිරීම් මඟින් ඇතැම් අකුරු ඉස්මතු වේ.",
+          "label": "ස්වරකාරිත"
+        },
+        "simple-tonal": {
+          "description": "ස්වර වෙනස්කම් මධ්‍යස්ථ ලෙස වචනයේ අරුත් බලපායි.",
+          "label": "සරල ස්වරාත්මක"
+        }
+      }
+    },
+    "verbAspect": {
+      "name": "ක්‍රියාපද පැතිකඩ",
+      "values": {
+        "binary": {
+          "description": "ද්විමාර්ගික ක්‍රමවත් වෙනස (සම්පූර්ණ/අසම්පූර්ණ).",
+          "label": "ද්විමාර්ගික"
+        },
+        "complex": {
+          "description": "පොහොසත් රූපාත්මක සලකුණු සහිත බහු පැතිකඩ කාණ්ඩ.",
+          "label": "සංකීර්ණ"
+        },
+        "minimal": {
+          "description": "ව්‍යාකරණ පැතිකඩ සලකුණු නොමැත හෝ ඉතා සීමිතය.",
+          "label": "අවම"
+        },
+        "simple": {
+          "description": "මූලික පැතිකඩ වෙනස්කම් (උදා: ප්‍රගතිශීලි, පරිපූර්ණ).",
+          "label": "සරල"
+        }
+      }
+    },
+    "wordOrder": {
+      "name": "වචන අනුපිළිවෙල",
+      "values": {
+        "SOV": {
+          "description": "විෂය-කර්මය-ක්‍රියාව",
+          "label": "SOV"
+        },
+        "SVO": {
+          "description": "විෂය-ක්‍රියාව-කර්මය",
+          "label": "SVO"
+        },
+        "VOS": {
+          "description": "ක්‍රියාව-කර්මය-විෂය",
+          "label": "VOS"
+        },
+        "VSO": {
+          "description": "ක්‍රියාව-විෂය-කර්මය",
+          "label": "VSO"
+        }
+      }
+    },
+    "wordOrderFlexibility": {
+      "name": "වචන අනුපිළිවෙලේ ස්වෙච්ඡාතාවය",
+      "values": {
+        "flexible": {
+          "description": "රසයට අනුව විවිධ වචන සැකැස්ම් ඉඩ දෙනු ලැබේ.",
+          "label": "නම්‍යශීලී"
+        },
+        "rigid": {
+          "description": "වචනවලට නිශ්චිත ව්‍යාකරණ ස්ථාන ඇත.",
+          "label": "දෘඪ"
+        },
+        "semi-flexible": {
+          "description": "අවධාරණය සඳහා සීමිත වචන අනුපිළිවෙල විචලනයක් ඉඩ දෙනු ලැබේ.",
+          "label": "අර්ධ නම්‍යශීලී"
+        }
+      }
+    }
+  },
+  "menu": {
+    "close": "මෙනුව වසන්න",
+    "open": "මෙනුව විවෘත කරන්න"
+  },
+  "playlist": {
+    "controls": "ධාවන ලැයිස්තු පාලන",
+    "goToBeginning": "ආරම්භයට යන්න (Home යතුර)",
+    "next": "ඊළඟ ගීතය (දකුණු ඊතලය)",
+    "pause": "විරාම",
+    "play": "ධාවනය",
+    "stop": "නැවතීම",
+    "previous": "පෙර ගීතය (වම් ඊතලය)",
+    "progress": "{total} න් {current}",
+    "toggleLoop": "ලූප් මාරු කරන්න (L යතුර)"
+  },
+  "search": {
+    "clear": "සෙවුම් හිස් කරන්න",
+    "label": "සොයන්න",
+    "noResults": "\"{term}\" ගැළපෙන භාෂා හමු නොවිණ",
+    "results": "සෙවුම් ප්‍රතිඵල ({count})",
+    "threshold": "සෙවීමට අවම {threshold} අකුරු ටයිප් කරන්න...",
+    "viewAll": "සියල්ල බලන්න"
+  },
+  "tabs": {
+    "controls": "පාලන",
+    "filters": "පෙරහන්",
+    "languages": "භාෂා",
+    "search": "සොයන්න"
+  },
+  "overlay": {
+    "slogan": "ඔබ දන්නා භාෂා ගණනට අනුව ඔබේ වටිනාකම වැඩිවේ.",
+    "emptyFilter": "එම පෙරහන් සංයෝජනයට භාෂා නොමැත. ඔබ ඉතා වැඩි පෙරහන් ගණනක් තෝරා ඇත."
+  },
+  "idCard": {
+    "sourceVideo": "මූල වීඩියෝව",
+    "opensInNewTab": "නව ටැබයක් විවෘත කරයි"
+  }
+}
