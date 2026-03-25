@@ -125,18 +125,18 @@
       "options": {
         "alphabetically": "Alfabetik sıra",
         "caseCount": "Durum sayısı",
-        "evidentiality": "Kanıtsallık",
+        "evidentiality": "Belirtililik",
         "family": "Dil ailesi",
-        "maxClusterSize": "Ünsüz kümeleri",
+        "maxClusterSize": "Ünsüz kümesi",
         "morphology": "Morfoloji",
-        "nounClassCount": "İsim sınıfları",
+        "nounClassCount": "İsim sınıfı",
         "phonemeCount": "Fonem sayısı",
         "speakers": "Konuşan sayısı",
-        "tonality": "Tonalite",
+        "tonality": "Tonlama",
         "verbAspect": "Fiil görünüşü",
-        "wordOrder": "Sözcük sırası",
-        "wordOrderFlexibility": "Sözcük sırası esnekliği",
-        "scripts": "Yazı sistemleri"
+        "wordOrder": "Sözcük dizilişi",
+        "wordOrderFlexibility": "Sözcük dizilişi esnekliği",
+        "scripts": "Alfabeler"
       }
     },
     "sphereRadius": {

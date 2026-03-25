@@ -122,22 +122,22 @@
       "label": "Náhled originálu"
     },
     "sortBy": {
-      "label": "Řadit jazyky podle",
+      "label": "Řazení",
       "options": {
-        "alphabetically": "Abecedního pořadí",
-        "caseCount": "Počtu pádů",
-        "evidentiality": "Evidentnosti",
-        "family": "Jazykové rodiny",
-        "maxClusterSize": "Souhláskových shluků",
+        "alphabetically": "Abeceda",
+        "caseCount": "Pády",
+        "evidentiality": "Evidencialita",
+        "family": "Jazyková rodina",
+        "maxClusterSize": "Souhláskové shluky",
         "morphology": "Morfologie",
-        "nounClassCount": "Jmenných tříd",
-        "phonemeCount": "Počtu fonémů",
-        "speakers": "Počtu mluvčích",
-        "tonality": "Tonality",
-        "verbAspect": "Slovesného vidu",
-        "wordOrder": "Slovosledu",
-        "wordOrderFlexibility": "Flexibility slovosledu",
-        "scripts": "Písma"
+        "nounClassCount": "Jmenné třídy",
+        "phonemeCount": "Fonémy",
+        "speakers": "Mluvčí",
+        "tonality": "Tonalita",
+        "verbAspect": "Slovesný vid",
+        "wordOrder": "Slovosled",
+        "wordOrderFlexibility": "Flexibilita slovosledu",
+        "scripts": "Písmo"
       }
     },
     "sphereRadius": {
@@ -477,7 +477,6 @@
     "emptyFilter": "Pro tuto kombinaci filtrů nejsou žádné jazyky. Pravděpodobně jsi vybral(a) příliš mnoho filtrů."
   },
   "idCard": {
-    "speakers": "Počet mluvčích",
     "sourceVideo": "Zdrojové video",
     "opensInNewTab": "otevře se na nové kartě"
   }

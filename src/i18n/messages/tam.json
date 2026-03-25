@@ -129,14 +129,14 @@
         "family": "மொழிக் குடும்பம்",
         "maxClusterSize": "மெய்யெழுத்து கொத்து",
         "morphology": "சொல்லமைப்பியல்",
-        "nounClassCount": "பெயர்ச்சொல் வகுப்புகள்",
+        "nounClassCount": "பெயர்ச்சொல் வகுப்பு",
         "phonemeCount": "ஒலியன் எண்ணிக்கை",
         "speakers": "பேசுவோர் எண்ணிக்கை",
         "tonality": "இசைத்தன்மை",
         "verbAspect": "வினைத் தன்மை",
         "wordOrder": "சொல் வரிசை",
         "wordOrderFlexibility": "சொல் வரிசை நெகிழ்வுத்தன்மை",
-        "scripts": "நூல்கள்"
+        "scripts": "எழுத்து முறைகள்"
       }
     },
     "sphereRadius": {

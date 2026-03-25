@@ -36,14 +36,6 @@ function IdCard({
   const rows = useMemo(() => {
     if (!languageCode || !language) return [];
 
-    const usesNominativeSpeakersLabel = new Set([
-      "srp",
-      "ces",
-      "pol",
-      "ukr",
-      "mkd",
-    ]).has(locale);
-
     const linguisticRows = getAllFeatures().map(({ key, isNumeric }) => {
       const rawValue = language[key];
 
@@ -68,9 +60,7 @@ function IdCard({
       ...linguisticRows,
       {
         key: "speakers",
-        label: usesNominativeSpeakersLabel
-          ? t("idCard.speakers")
-          : t("controls.sortBy.options.speakers"),
+        label: t("controls.sortBy.options.speakers"),
         value: formatSpeakers(language.speakers),
       },
     ];

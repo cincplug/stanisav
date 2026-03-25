@@ -59,7 +59,7 @@
       "meshaLight": "Mešino svetlo",
       "motion": "Kretanje",
       "scene": "Scena",
-      "stageLight": "Pozorišno svetlo"
+      "stageLight": "Scensko svetlo"
     },
     "hasSubtitle": {
       "label": "Prikaži podnaslov"
@@ -94,7 +94,7 @@
       "label": "Veličina oznake"
     },
     "maxSiblingSpread": {
-      "label": "Raspon nijansi srodnih"
+      "label": "Raspon nijansi"
     },
     "meshaLightDecay": {
       "label": "Opadanje"
@@ -121,26 +121,26 @@
       "label": "Pregled originala"
     },
     "sortBy": {
-      "label": "Sortiraj jezike po",
+      "label": "Sortiranje",
       "options": {
-        "alphabetically": "Abecednom redu",
-        "caseCount": "Broju padeža",
-        "evidentiality": "Evidencijalnosti",
-        "family": "Jezičkoj porodici",
-        "maxClusterSize": "Suglasničkim skupovima",
-        "morphology": "Morfologiji",
-        "nounClassCount": "Imeničkim klasama",
-        "phonemeCount": "Broju fonema",
-        "speakers": "Broju govornika",
-        "tonality": "Tonalnosti",
-        "verbAspect": "Glagolskom vidu",
-        "wordOrder": "Redu reči",
-        "wordOrderFlexibility": "Fleksibilnosti reda reči",
-        "scripts": "Писма"
+        "alphabetically": "Abecedni red",
+        "caseCount": "Broj padeža",
+        "evidentiality": "Evidencijalnost",
+        "family": "Jezička porodica",
+        "maxClusterSize": "Suglasnički skupovi",
+        "morphology": "Morfologija",
+        "nounClassCount": "Imeničke klase",
+        "phonemeCount": "Broj fonema",
+        "speakers": "Broj govornika",
+        "tonality": "Tonalnost",
+        "verbAspect": "Glagolski vid",
+        "wordOrder": "Red reči",
+        "wordOrderFlexibility": "Fleksibilnost reda reči",
+        "scripts": "Pisma"
       }
     },
     "sphereRadius": {
-      "label": "Polupречnik sfere"
+      "label": "Poluprečnik sfere"
     },
     "stageLightDecay": {
       "label": "Opadanje"
@@ -238,127 +238,127 @@
       "name": "Broj fonema"
     },
     "scripts": {
-      "name": "Писма",
+      "name": "Pisma",
       "values": {
         "Arabic": {
-          "label": "Арапско"
+          "label": "Arapsko"
         },
         "Armenian": {
-          "label": "Јерменско"
+          "label": "Jermensko"
         },
         "Balinese": {
-          "label": "Балијско"
+          "label": "Balijsko"
         },
         "Bengali": {
-          "label": "Бенгалско"
+          "label": "Bengalsko"
         },
         "Canadian Aboriginal Syllabics": {
-          "label": "Канадско слоговно писмо"
+          "label": "Kanadsko slogovno pismo"
         },
         "Cherokee": {
-          "label": "Черокијско"
+          "label": "Cherokijsko"
         },
         "Cyrillic": {
-          "label": "Ћирилица"
+          "label": "Ćirilica"
         },
         "Devanagari": {
-          "label": "Деванагари"
+          "label": "Devanagari"
         },
         "Ethiopic": {
-          "label": "Етиопско"
+          "label": "Etiopsko"
         },
         "Georgian": {
-          "label": "Грузијско"
+          "label": "Gruzijsko"
         },
         "Greek": {
-          "label": "Грчко"
+          "label": "Grčko"
         },
         "Gujarati": {
-          "label": "Гуџаратско"
+          "label": "Gudžaratsko"
         },
         "Gurmukhi": {
-          "label": "Гурмуки"
+          "label": "Gurmuki"
         },
         "Han": {
-          "label": "Кинеско"
+          "label": "Kinesko"
         },
         "Hangul": {
-          "label": "Хангул"
+          "label": "Hangul"
         },
         "Hebrew": {
-          "label": "Хебрејско"
+          "label": "Hebrejsko"
         },
         "Hiragana": {
-          "label": "Хирагана"
+          "label": "Hiragana"
         },
         "Javanese": {
-          "label": "Јаванско"
+          "label": "Javansko"
         },
         "Kannada": {
-          "label": "Канада"
+          "label": "Kanada"
         },
         "Katakana": {
-          "label": "Катакана"
+          "label": "Katakana"
         },
         "Khmer": {
-          "label": "Кмерско"
+          "label": "Kmersko"
         },
         "Lao": {
-          "label": "Лаоско"
+          "label": "Laosko"
         },
         "Latin": {
-          "label": "Латиница"
+          "label": "Latinica"
         },
         "Lepcha": {
-          "label": "Лепча"
+          "label": "Lepča"
         },
         "Malayalam": {
-          "label": "Малајаламско"
+          "label": "Malajalamsko"
         },
         "Meitei Mayek": {
-          "label": "Мејтеј Мајек"
+          "label": "Mejtej Majek"
         },
         "Mongolian": {
-          "label": "Монголско"
+          "label": "Mongolsko"
         },
         "Myanmar": {
-          "label": "Мјанмарско"
+          "label": "Mjanmarsko"
         },
         "Newa": {
-          "label": "Нева"
+          "label": "Neva"
         },
         "Odia": {
-          "label": "Одија"
+          "label": "Odija"
         },
         "Ol Chiki": {
-          "label": "Ол Чики"
+          "label": "Ol Čiki"
         },
         "Sinhala": {
-          "label": "Синхалско"
+          "label": "Sinhalsko"
         },
         "Sorang Sompeng": {
-          "label": "Соранг Сомпенг"
+          "label": "Sorang Sompeng"
         },
         "Tamil": {
-          "label": "Тамилско"
+          "label": "Tamilsko"
         },
         "Telugu": {
-          "label": "Телугу"
+          "label": "Telugu"
         },
         "Thai": {
-          "label": "Тајско"
+          "label": "Tajsko"
         },
         "Tibetan": {
-          "label": "Тибетанско"
+          "label": "Tibetansko"
         },
         "Tirhuta": {
-          "label": "Тирхута"
+          "label": "Tirhuta"
         },
         "Warang Citi": {
-          "label": "Варанг Сити"
+          "label": "Varang Siti"
         },
         "Yi": {
-          "label": "Ји"
+          "label": "Ji"
         }
       }
     },
@@ -430,15 +430,15 @@
       "values": {
         "flexible": {
           "description": "Različiti rasporedi reči dozvoljeni su u stilske svrhe.",
-          "label": "Fleksibilan"
+          "label": "Fleksibilna"
         },
         "rigid": {
           "description": "Reči imaju fiksne gramatičke pozicije.",
-          "label": "Rigidan"
+          "label": "Rigidna"
         },
         "semi-flexible": {
           "description": "Određene varijacije reda reči dozvoljene su radi naglaska.",
-          "label": "Polufleksibilan"
+          "label": "Polufleksibilna"
         }
       }
     }
@@ -451,10 +451,10 @@
     "controls": "Kontrole plejliste",
     "goToBeginning": "Na početak (taster Home)",
     "next": "Sledeća numera (strelica desno)",
-    "pause": "Pauza",
-    "play": "Reprodukuj",
+    "pause": "Čekaj",
+    "play": "Sviraj",
     "previous": "Prethodna numera (strelica levo)",
-    "stop": "Zaustavi",
+    "stop": "Ćuti",
     "progress": "{current} od {total}",
     "toggleLoop": "Uključi/isključi petlju (taster L)"
   },
@@ -477,8 +477,7 @@
     "emptyFilter": "Nema jezika za tu kombinaciju filtera. Verovatno si izabrao/la previše filtera."
   },
   "idCard": {
-    "speakers": "Broj govornika",
     "sourceVideo": "Izvorni video",
-    "opensInNewTab": "otvara se u novom jezičku"
+    "opensInNewTab": "otvara se u novom tabu"
   }
 }

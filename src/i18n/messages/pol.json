@@ -121,22 +121,22 @@
       "label": "Podgląd oryginału"
     },
     "sortBy": {
-      "label": "Sortuj języki według",
+      "label": "Sortowanie",
       "options": {
-        "alphabetically": "Kolejności alfabetycznej",
-        "caseCount": "Liczby przypadków",
-        "evidentiality": "Evidencjalności",
-        "family": "Rodziny językowej",
-        "maxClusterSize": "Grup spółgłoskowych",
-        "morphology": "Morfologii",
-        "nounClassCount": "Klas rzeczownikowych",
-        "phonemeCount": "Liczby fonemów",
-        "speakers": "Liczby użytkowników",
-        "tonality": "Tonalności",
-        "verbAspect": "Aspektu czasownika",
-        "wordOrder": "Szyku zdania",
-        "wordOrderFlexibility": "Elastyczności szyku zdania",
-        "scripts": "Pisma"
+        "alphabetically": "Alfabet",
+        "caseCount": "Przypadki",
+        "evidentiality": "Ewidentność",
+        "family": "Rodzina językowa",
+        "maxClusterSize": "Grupy spółgłoskowe",
+        "morphology": "Morfologia",
+        "nounClassCount": "Klasy rzeczownikowe",
+        "phonemeCount": "Fonemy",
+        "speakers": "Użytkownicy",
+        "tonality": "Tonacja",
+        "verbAspect": "Aspekt czasownika",
+        "wordOrder": "Szyk zdania",
+        "wordOrderFlexibility": "Elastyczność szyku zdania",
+        "scripts": "Pismo"
       }
     },
     "sphereRadius": {
@@ -477,7 +477,6 @@
     "emptyFilter": "Brak języków dla tej kombinacji filtrów. Prawdopodobnie wybrano zbyt wiele filtrów."
   },
   "idCard": {
-    "speakers": "Liczba użytkowników",
     "sourceVideo": "Wideo źródłowe",
     "opensInNewTab": "otwiera się w nowej karcie"
   }

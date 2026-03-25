@@ -121,22 +121,22 @@
       "label": "Попередній перегляд оригіналу"
     },
     "sortBy": {
-      "label": "Сортувати мови за",
+      "label": "Сортування",
       "options": {
-        "alphabetically": "Алфавітним порядком",
-        "caseCount": "Кількістю відмінків",
-        "evidentiality": "Евіденційністю",
-        "family": "Мовною сім'єю",
-        "maxClusterSize": "Приголосними кластерами",
-        "morphology": "Морфологією",
-        "nounClassCount": "Іменниковими класами",
-        "phonemeCount": "Кількістю фонем",
-        "speakers": "Кількістю носіїв",
-        "tonality": "Тональністю",
-        "verbAspect": "Видом дієслова",
-        "wordOrder": "Порядком слів",
-        "wordOrderFlexibility": "Гнучкістю порядку слів",
-        "scripts": "Письменності"
+        "alphabetically": "Алфавіт",
+        "caseCount": "Відмінки",
+        "evidentiality": "Евіденційність",
+        "family": "Мовна сім'я",
+        "maxClusterSize": "Приголосні кластери",
+        "morphology": "Морфологія",
+        "nounClassCount": "Іменникові класи",
+        "phonemeCount": "Фонеми",
+        "speakers": "Носії",
+        "tonality": "Тональність",
+        "verbAspect": "Вид дієслова",
+        "wordOrder": "Порядок слів",
+        "wordOrderFlexibility": "Гнучкість порядку слів",
+        "scripts": "Письмо"
       }
     },
     "sphereRadius": {
@@ -477,7 +477,6 @@
     "emptyFilter": "Немає мов для такої комбінації фільтрів. Ймовірно, вибрано забагато фільтрів."
   },
   "idCard": {
-    "speakers": "Кількість носіїв",
     "sourceVideo": "Відео-джерело",
     "opensInNewTab": "відкривається в новій вкладці"
   }
