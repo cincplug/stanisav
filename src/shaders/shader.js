@@ -45,11 +45,11 @@ export const tonalityFragmentShader = /* glsl */ `
   // Tonality-specific stripe selection.
   float getStripeMask(vec2 uv, int type) {
     if (type == 1) {
-      float stripe1 = step(0.4, uv.y) * step(uv.y, 0.5);
-      float stripe2 = step(0.8, uv.y) * step(uv.y, 0.9);
+      float stripe1 = step(0.2, uv.y) * step(uv.y, 0.3);
+      float stripe2 = step(0.7, uv.y) * step(uv.y, 0.8);
       return max(stripe1, stripe2);
     } else if (type == 2) {
-      return getVerticalStripeMask(uv.x, 4);
+      return getVerticalStripeMask(uv.x, 5);
     } else if (type == 3) {
       return getVerticalStripeMask(uv.x, 10);
     }

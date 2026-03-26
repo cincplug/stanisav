@@ -90,7 +90,7 @@ function SearchTab({
   setSearchTerm,
   clearSearch,
 }) {
-  const { selectLanguage, selectedLanguage } = useLanguageSelection();
+  const { selectLanguage } = useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
   const lastAutoSelectedRef = useRef(null);
 

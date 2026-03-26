@@ -83,17 +83,16 @@ const Mesha = ({
     config: { tension, friction },
   });
 
-  const leftEarMaterial = useShaderMaterial(
+  const earMaterial = useShaderMaterial(
     shiftHue(color, -60),
     shiftHue(color, 60),
     0,
   );
-  const rightEarMaterial = useShaderMaterial(
+  const tongueMaterial = useShaderMaterial(
     shiftHue(color, 60),
     shiftHue(color, -60),
-    0,
+    stripesType,
   );
-  const mouthMaterial = useShaderMaterial(color, color, stripesType);
 
   useFrame(({ camera, clock }) => {
     if (looksAround) {
@@ -143,8 +142,7 @@ const Mesha = ({
     <a.group ref={groupRef} position={spring.position} scale={spring.scale}>
       <group ref={lookAroundRef}>
         <MeshaEar
-          leftEarMaterial={leftEarMaterial}
-          rightEarMaterial={rightEarMaterial}
+          earMaterial={earMaterial}
           meshaSize={meshaSize}
           bend={scores.morphology / 3}
           leftSegments={10 - scores.morphology}
@@ -186,7 +184,7 @@ const Mesha = ({
         </group>
 
         <MeshaTongue
-          mouthMaterial={mouthMaterial}
+          tongueMaterial={tongueMaterial}
           segments={segments}
           onClick={handlePropertyClick}
           isSelected={selectedProperty === "tonality"}
@@ -200,8 +198,8 @@ const Mesha = ({
         {caseCount && (
           <MeshaMoustache
             linguisticProperty="caseCount"
-            moustacheCount={caseCount}
-            color={color}
+            tuftCount={caseCount}
+            color={shiftHue(color, 120)}
             y={meshaSize * 0.7}
             z={0.5}
             onClick={handlePropertyClick}
@@ -211,8 +209,8 @@ const Mesha = ({
         {nounClassCount && (
           <MeshaMoustache
             linguisticProperty="nounClassCount"
-            moustacheCount={nounClassCount}
-            color={shiftHue(color, 120)}
+            tuftCount={nounClassCount}
+            color={color}
             y={meshaSize * 1.4}
             z={0}
             onClick={handlePropertyClick}
