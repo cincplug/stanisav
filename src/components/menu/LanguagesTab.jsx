@@ -19,7 +19,7 @@ import ControlItem from "./ControlItem";
 import LanguageTree from "./LanguageTree";
 
 function LanguagesTab({ languageData, isActive, languageColors = {} }) {
-  const { selectedLanguage, selectLanguage } = useLanguageSelection();
+  const { selectedLanguage } = useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
   const { controls, updateControl } = useControls();
   const buttonRefs = useRef({});
@@ -182,13 +182,9 @@ function LanguagesTab({ languageData, isActive, languageColors = {} }) {
     }
   }, [selectedLanguage, isActive]);
 
-  const onSelectLanguage = useCallback(
-    (langCode) => {
-      selectLanguage(langCode);
-      startFromLanguage(langCode);
-    },
-    [selectLanguage, startFromLanguage],
-  );
+  const onSelectLanguage = useCallback((langCode) => {
+    startFromLanguage(langCode);
+  }, []);
 
   return (
     <div className="control-section">
