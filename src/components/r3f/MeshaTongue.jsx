@@ -36,8 +36,8 @@ const MeshaTongue = ({ mouthMaterial, segments, onClick, isSelected }) => {
 
   return (
     <mesh
-      position={[0, meshaSize * 1.5, meshaSize]}
-      scale={[meshaSize / 2, -meshaSize / 4, -meshaSize]}
+      position={[0, meshaSize * 1.2, meshaSize]}
+      scale={[meshaSize / 2, -meshaSize / 7, -meshaSize]}
       rotation={[1 / 4, Math.PI, 0]}
       onClick={onClick}
       linguisticProperty="tonality"

@@ -44,7 +44,7 @@ const PropertyShowcase = ({ propertyKey }) => {
       description,
       color: "#ecb",
       linguisticProperties,
-      tonalityType:
+      stripesType:
         getFeatureScore("tonality", linguisticProperties?.tonality) - 1,
     };
   });
@@ -75,7 +75,7 @@ const PropertyShowcase = ({ propertyKey }) => {
                   position={[0, -5, 100]}
                   isMyMesha={false}
                   looksAround
-                  tonalityType={mesha.tonalityType}
+                  stripesType={mesha.stripesType}
                 />
               </Canvas>
             </div>

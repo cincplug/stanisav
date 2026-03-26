@@ -12,7 +12,7 @@ export const tonalityVertexShader = /* glsl */ `
 export const tonalityFragmentShader = /* glsl */ `
   uniform vec3 uBaseColor;
   uniform vec3 uAccentColor;
-  uniform int uTonalityType;
+  uniform int uStripesType;
   uniform float uAccentOpacity;
   varying vec2 vUv;
   varying vec3 vNormal;
@@ -82,7 +82,7 @@ export const tonalityFragmentShader = /* glsl */ `
     vec3 checkerColor = mix(litBaseColor, darkerBase, checkerMask);
 
     // Stripes use lighter version
-    float stripeMask = getStripeMask(vUv, uTonalityType);
+    float stripeMask = getStripeMask(vUv, uStripesType);
     vec3 color = mix(checkerColor, litLighterColor, stripeMask);
 
     gl_FragColor = vec4(color, 1.0);

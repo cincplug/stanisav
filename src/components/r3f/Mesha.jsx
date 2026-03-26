@@ -7,7 +7,7 @@ import audioVisualizationConfig from "../../config/audioVisualizationConfig.json
 import microphoneService from "../../services/microphoneService.js";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
-import { useTonalityMaterial } from "../../hooks/useTonalityMaterial.js";
+import { useShaderMaterial } from "../../hooks/useShaderMaterial.js";
 import { getFeatureScoreList } from "../../utils/linguisticUtils.js";
 import { shiftHue } from "../../utils/colorUtils";
 import MeshaEye from "./MeshaEye.jsx";
@@ -26,7 +26,7 @@ const Mesha = ({
   color,
   position,
   isMyMesha,
-  tonalityType,
+  stripesType,
   looksAround,
 }) => {
   const groupRef = useRef();
@@ -83,17 +83,17 @@ const Mesha = ({
     config: { tension, friction },
   });
 
-  const leftEarMaterial = useTonalityMaterial(
+  const leftEarMaterial = useShaderMaterial(
     shiftHue(color, -60),
     shiftHue(color, 60),
-    tonalityType,
+    0,
   );
-  const rightEarMaterial = useTonalityMaterial(
+  const rightEarMaterial = useShaderMaterial(
     shiftHue(color, 60),
     shiftHue(color, -60),
-    tonalityType,
+    0,
   );
-  const mouthMaterial = useTonalityMaterial(color, color, tonalityType);
+  const mouthMaterial = useShaderMaterial(color, color, stripesType);
 
   useFrame(({ camera, clock }) => {
     if (looksAround) {
