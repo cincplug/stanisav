@@ -132,10 +132,11 @@ const Mesha = ({
     [scores.morphology],
   );
 
-  // Handler for click: set selectedProperty if part is mapped
+  // Handler for click: toggle selectedProperty if part is mapped
   const handlePropertyClick = (e) => {
     e.stopPropagation();
-    setSelectedProperty(e.object.linguisticProperty);
+    const prop = e.object.linguisticProperty;
+    setSelectedProperty(selectedProperty === prop ? null : prop);
   };
 
   return (

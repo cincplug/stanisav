@@ -44,12 +44,9 @@ export const LanguageSelectionProvider = ({ children }) => {
     setCameraFocusRequest({ type: "viewAll" });
   }, []);
 
-  // selectedProperty inherits from controls.sortBy if not set
-  const effectiveSelectedProperty = selectedProperty || controls?.sortBy;
-
   const contextValue = {
     selectedLanguage,
-    selectedProperty: effectiveSelectedProperty,
+    selectedProperty,
     setSelectedProperty,
     filteringUtils,
     filteredLanguages,
