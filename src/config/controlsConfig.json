@@ -64,10 +64,10 @@
   "segmentation": {
     "type": "range",
     "label": "Segmentation",
-    "min": 1,
+    "min": 0,
     "max": 50,
     "step": 1,
-    "defaultValue": 10,
+    "defaultValue": 0,
     "isUserEditable": true,
     "group": "Scene"
   },
