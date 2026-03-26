@@ -17,7 +17,7 @@ extend({ ParametricGeometry });
  */
 const MeshaMoustache = ({
   linguisticProperty,
-  moustacheCount,
+  tuftCount,
   color,
   y,
   z,
@@ -40,7 +40,7 @@ const MeshaMoustache = ({
   }
 
   const tuftSurface = useMemo(
-    () => createTuftShape(moustacheSize, moustacheCount),
+    () => createTuftShape(moustacheSize, tuftCount),
     [moustacheSize],
   );
 
@@ -51,25 +51,25 @@ const MeshaMoustache = ({
   }, []);
 
   const tufts = useMemo(() => {
-    if (!moustacheCount) return [];
+    if (!tuftCount) return [];
 
-    const spacing = (eyeX * 4) / moustacheCount;
-    const totalWidth = spacing * (moustacheCount - 1);
+    const spacing = (eyeX * 4) / tuftCount;
+    const totalWidth = spacing * (tuftCount - 1);
     const baseX = totalWidth / 2;
     const baseZ = meshaSize * eyeZ;
 
-    return Array.from({ length: moustacheCount }, (_, i) => ({
+    return Array.from({ length: tuftCount }, (_, i) => ({
       x: baseX - i * spacing,
       y,
       z: baseZ + z,
       key: `moustache-${i}`,
     }));
-  }, [moustacheCount, eyeX, eyeZ, meshaSize, y, z]);
+  }, [tuftCount, eyeX, eyeZ, meshaSize, y, z]);
 
   const tuftsWithRotation = useMemo(() => {
     if (!tufts.length) return [];
 
-    const centerIndex = (moustacheCount - 1) / 2;
+    const centerIndex = (tuftCount - 1) / 2;
     const minScale = 0.5; // scale at center
     const maxScale = 1; // scale at edges
 
@@ -85,7 +85,7 @@ const MeshaMoustache = ({
       const rotationRad = (deg * Math.PI) / 180;
       return { ...tuft, rotationRad, scale };
     });
-  }, [tufts, moustacheCount, angleConfig]);
+  }, [tufts, tuftCount, angleConfig]);
 
   useFrame(() => {
     if (tuftsRef.current && audioData.isActive) {
@@ -103,7 +103,7 @@ const MeshaMoustache = ({
           const amplitude = harmonicsData[bandIndex];
           const baseY = tufts[i].y;
 
-          tuftGroup.position.y = baseY + amplitude / moustacheCount;
+          tuftGroup.position.y = baseY + amplitude / tuftCount;
           const scale = 0.3 + amplitude;
           tuftGroup.scale.set(scale, scale, scale);
         }

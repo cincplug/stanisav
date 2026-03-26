@@ -27,6 +27,10 @@ function FiltersTab({ data, languageColors = {} }) {
     selectLanguage,
   } = useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
+
+  const handleSelectLanguage = (langCode) => {
+    startFromLanguage(langCode);
+  };
   const features = getAllFeatures();
   const validFeatureKeys = useMemo(
     () => new Set(features.map((feature) => feature.key)),
@@ -212,10 +216,7 @@ function FiltersTab({ data, languageColors = {} }) {
                               selectedLanguage === lang.code ? "selected" : ""
                             }`}
                             style={{ background: languageColors[lang.code] }}
-                            onClick={() => {
-                              selectLanguage(lang.code);
-                              startFromLanguage(lang.code);
-                            }}
+                            onClick={() => handleSelectLanguage(lang.code)}
                             title={`${lang.name} - ${Object.entries(
                               lang.features,
                             )

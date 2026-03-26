@@ -7,7 +7,7 @@ import audioVisualizationConfig from "../../config/audioVisualizationConfig.json
 import microphoneService from "../../services/microphoneService.js";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
-import { useTonalityMaterial } from "../../hooks/useTonalityMaterial.js";
+import { useShaderMaterial } from "../../hooks/useShaderMaterial.js";
 import { getFeatureScoreList } from "../../utils/linguisticUtils.js";
 import { shiftHue } from "../../utils/colorUtils";
 import MeshaEye from "./MeshaEye.jsx";
@@ -26,7 +26,7 @@ const Mesha = ({
   color,
   position,
   isMyMesha,
-  tonalityType,
+  stripesType,
   looksAround,
 }) => {
   const groupRef = useRef();
@@ -83,17 +83,16 @@ const Mesha = ({
     config: { tension, friction },
   });
 
-  const leftEarMaterial = useTonalityMaterial(
+  const earMaterial = useShaderMaterial(
     shiftHue(color, -60),
     shiftHue(color, 60),
-    tonalityType,
+    0,
   );
-  const rightEarMaterial = useTonalityMaterial(
+  const tongueMaterial = useShaderMaterial(
     shiftHue(color, 60),
     shiftHue(color, -60),
-    tonalityType,
+    stripesType,
   );
-  const mouthMaterial = useTonalityMaterial(color, color, tonalityType);
 
   useFrame(({ camera, clock }) => {
     if (looksAround) {
@@ -132,18 +131,18 @@ const Mesha = ({
     [scores.morphology],
   );
 
-  // Handler for click: set selectedProperty if part is mapped
+  // Handler for click: toggle selectedProperty if part is mapped
   const handlePropertyClick = (e) => {
     e.stopPropagation();
-    setSelectedProperty(e.object.linguisticProperty);
+    const prop = e.object.linguisticProperty;
+    setSelectedProperty(selectedProperty === prop ? null : prop);
   };
 
   return (
     <a.group ref={groupRef} position={spring.position} scale={spring.scale}>
       <group ref={lookAroundRef}>
         <MeshaEar
-          leftEarMaterial={leftEarMaterial}
-          rightEarMaterial={rightEarMaterial}
+          earMaterial={earMaterial}
           meshaSize={meshaSize}
           bend={scores.morphology / 3}
           leftSegments={10 - scores.morphology}
@@ -185,7 +184,7 @@ const Mesha = ({
         </group>
 
         <MeshaTongue
-          mouthMaterial={mouthMaterial}
+          tongueMaterial={tongueMaterial}
           segments={segments}
           onClick={handlePropertyClick}
           isSelected={selectedProperty === "tonality"}
@@ -199,8 +198,8 @@ const Mesha = ({
         {caseCount && (
           <MeshaMoustache
             linguisticProperty="caseCount"
-            moustacheCount={caseCount}
-            color={color}
+            tuftCount={caseCount}
+            color={shiftHue(color, 120)}
             y={meshaSize * 0.7}
             z={0.5}
             onClick={handlePropertyClick}
@@ -210,8 +209,8 @@ const Mesha = ({
         {nounClassCount && (
           <MeshaMoustache
             linguisticProperty="nounClassCount"
-            moustacheCount={nounClassCount}
-            color={shiftHue(color, 120)}
+            tuftCount={nounClassCount}
+            color={color}
             y={meshaSize * 1.4}
             z={0}
             onClick={handlePropertyClick}

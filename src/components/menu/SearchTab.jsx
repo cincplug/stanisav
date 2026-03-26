@@ -15,9 +15,14 @@ function SearchResults({
   languageColors = {},
 }) {
   const threshold = tabsConfig.searchLengthThreshold;
-  const { selectLanguage, selectedLanguage } = useLanguageSelection();
+  const { selectedLanguage } = useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
   const { t } = useI18n();
+
+  // Handler for selecting a language from results
+  const handleSelectLanguage = (langCode) => {
+    startFromLanguage(langCode);
+  };
 
   if (!searchTerm) return null;
 
@@ -49,10 +54,7 @@ function SearchResults({
                     selectedLanguage === lang.code ? "selected" : ""
                   }`}
                   style={{ background: languageColors[lang.code] }}
-                  onClick={() => {
-                    selectLanguage(lang.code);
-                    startFromLanguage(lang.code);
-                  }}
+                  onClick={() => handleSelectLanguage(lang.code)}
                   title={
                     localizedLineageLabel
                       ? `${lang.name} (${localizedLineageLabel})`
@@ -88,7 +90,7 @@ function SearchTab({
   setSearchTerm,
   clearSearch,
 }) {
-  const { selectLanguage, selectedLanguage } = useLanguageSelection();
+  const { selectLanguage } = useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
   const lastAutoSelectedRef = useRef(null);
 
@@ -108,7 +110,6 @@ function SearchTab({
 
       if (exactMatch && lastAutoSelectedRef.current !== exactMatch.code) {
         lastAutoSelectedRef.current = exactMatch.code;
-        selectLanguage(exactMatch.code);
         startFromLanguage(exactMatch.code);
       }
     }

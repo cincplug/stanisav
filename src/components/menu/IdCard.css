@@ -88,7 +88,7 @@ html.rtl .id-card-close-button {
   grid-template-columns: repeat(auto-fill, minmax(0, 350px));
 }
 
-.id-card-row {
+.id-card-property {
   margin: 0;
   padding: var(--gap) var(--gap);
   border: none;
@@ -103,25 +103,25 @@ html.rtl .id-card-close-button {
   text-align: left;
 }
 
-.id-card-row:focus {
+.id-card-property:focus {
   outline: 2px solid var(--color-highlight);
   outline-offset: 2px;
   z-index: 1;
 }
 
-.id-card-row.selected,
-.id-card-row[aria-pressed="true"] {
+.id-card-property.selected,
+.id-card-property[aria-pressed="true"] {
   background: var(--color-1);
   outline: 2px solid var(--color-highlight);
   border-radius: var(--border-radius);
 }
 
-.id-card-row-label {
+.id-card-property-label {
   color: var(--color-4);
   margin-right: var(--gap-half);
 }
 
-.id-card-row-value {
+.id-card-property-value {
   color: var(--color-6);
   min-width: 0;
   word-break: break-word;

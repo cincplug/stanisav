@@ -99,7 +99,7 @@ const Stage = ({
   const meshaLinguisticProperties =
     data?.typologicalFeatures?.[meshaLanguageCode];
   const meshaColor = languageColors[meshaLanguageCode];
-  const tonalityType =
+  const stripesType =
     getFeatureScore("tonality", meshaLinguisticProperties?.tonality) - 1;
 
   const meshaPosition = useMemo(() => {
@@ -201,7 +201,7 @@ const Stage = ({
           color={meshaColor}
           position={meshaPosition}
           isMyMesha={isMyMesha}
-          tonalityType={tonalityType}
+          stripesType={stripesType}
           looksAround={true}
         />
       </group>

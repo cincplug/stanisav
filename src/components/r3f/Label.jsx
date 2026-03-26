@@ -19,8 +19,7 @@ const Label = ({ languageCode, position, isSelected = false, color }) => {
   const labelRef = useRef();
   const { controls } = useControls();
   const { data } = useAppState();
-  const { filteredLanguages, filteringUtils, selectLanguage } =
-    useLanguageSelection();
+  const { filteredLanguages, filteringUtils } = useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
   const { labelContent, labelSize, bgColor, sortBy, tension, friction } =
     controls;
@@ -33,7 +32,6 @@ const Label = ({ languageCode, position, isSelected = false, color }) => {
   }
 
   const handleClick = useCallback(() => {
-    selectLanguage(languageCode);
     startFromLanguage(languageCode);
   }, [languageCode]);
 

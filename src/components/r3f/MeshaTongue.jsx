@@ -9,7 +9,7 @@ import MeshaHighlight from "./MeshaHighlight.jsx";
 
 extend({ ParametricGeometry });
 
-const MeshaTongue = ({ mouthMaterial, segments, onClick, isSelected }) => {
+const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
   const lastAudioDataRef = useRef(defaultAudioData);
   const { controls } = useControls();
   const { audioData: rawAudioData } = useAudioAnimation();
@@ -36,14 +36,14 @@ const MeshaTongue = ({ mouthMaterial, segments, onClick, isSelected }) => {
 
   return (
     <mesh
-      position={[0, meshaSize * 1.5, meshaSize]}
-      scale={[meshaSize / 2, -meshaSize / 4, -meshaSize]}
-      rotation={[1 / 4, Math.PI, 0]}
+      position={[0, meshaSize, meshaSize]}
+      scale={[meshaSize / 2, -meshaSize / 6, -meshaSize]}
+      rotation={[0, Math.PI, 0]}
       onClick={onClick}
       linguisticProperty="tonality"
     >
       <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
-      <shaderMaterial args={[mouthMaterial]} />
+      <shaderMaterial args={[tongueMaterial]} />
       {isSelected && (
         <MeshaHighlight
           geometry="parametricGeometry"

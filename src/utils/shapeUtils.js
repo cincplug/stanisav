@@ -82,13 +82,13 @@ export const createToothShape = (u, v, target) => {
   target.set(x, y, z);
 };
 
-export function createTuftShape(moustacheSize, moustacheCount) {
+export function createTuftShape(moustacheSize, tuftCount) {
   return function (u, v, target) {
     const theta = u * Math.PI * 2;
     const t = v * 2 - 1;
 
     const halfHeight = moustacheSize;
-    const maxRadius = moustacheSize / moustacheCount;
+    const maxRadius = moustacheSize / tuftCount;
     const tipRadius = moustacheSize * 0.4;
 
     const waist = 1 - Math.abs(t);

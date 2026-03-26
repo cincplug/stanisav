@@ -33,10 +33,10 @@ function IdCard({
 
   const { selectedProperty, setSelectedProperty } = useLanguageSelection();
 
-  const rows = useMemo(() => {
+  const properties = useMemo(() => {
     if (!languageCode || !language) return [];
 
-    const linguisticRows = getAllFeatures().map(({ key, isNumeric }) => {
+    const linguisticProperties = getAllFeatures().map(({ key, isNumeric }) => {
       const rawValue = language[key];
 
       if (rawValue === undefined || rawValue === null || rawValue === "") {
@@ -56,8 +56,8 @@ function IdCard({
       };
     });
 
-    const allRows = [
-      ...linguisticRows,
+    const allProperties = [
+      ...linguisticProperties,
       {
         key: "speakers",
         label: t("controls.sortBy.options.speakers"),
@@ -65,7 +65,7 @@ function IdCard({
       },
     ];
 
-    return allRows.filter((row) => row.value !== null);
+    return allProperties.filter((property) => property.value !== null);
   }, [languageCode, language, locale, t]);
 
   const normalizedColumnCount = useMemo(() => {
@@ -75,7 +75,7 @@ function IdCard({
 
   const localizedLanguageName = getLocalizedLanguageName(languageCode);
 
-  if (!languageCode || !language || rows.length === 0) {
+  if (!languageCode || !language || properties.length === 0) {
     return null;
   }
 
@@ -138,18 +138,22 @@ function IdCard({
 
       <div className="id-card-columns">
         <div className="id-card-list" role="list">
-          {rows.map((row) => (
+          {properties.map((property) => (
             <button
-              key={row.key}
+              key={property.key}
               type="button"
-              className={`id-card-row${row.key === selectedProperty ? " selected" : ""}`}
-              aria-pressed={row.key === selectedProperty}
+              className={`id-card-property${property.key === selectedProperty ? " selected" : ""}`}
+              aria-pressed={property.key === selectedProperty}
               role="listitem"
               tabIndex={0}
-              onClick={() => setSelectedProperty(row.key)}
+              onClick={() =>
+                setSelectedProperty(
+                  selectedProperty === property.key ? null : property.key,
+                )
+              }
             >
-              <span className="id-card-row-label">{row.label}</span>
-              <span className="id-card-row-value">{row.value}</span>
+              <span className="id-card-property-label">{property.label}</span>
+              <span className="id-card-property-value">{property.value}</span>
             </button>
           ))}
         </div>

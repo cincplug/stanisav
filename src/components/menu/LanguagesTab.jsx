@@ -184,10 +184,9 @@ function LanguagesTab({ languageData, isActive, languageColors = {} }) {
 
   const onSelectLanguage = useCallback(
     (langCode) => {
-      selectLanguage(langCode);
       startFromLanguage(langCode);
     },
-    [selectLanguage, startFromLanguage],
+    [startFromLanguage],
   );
 
   return (
