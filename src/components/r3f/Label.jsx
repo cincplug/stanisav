@@ -31,9 +31,13 @@ const Label = ({ languageCode, position, isSelected = false, color }) => {
     return null;
   }
 
-  const handleClick = useCallback(() => {
-    startFromLanguage(languageCode);
-  }, [languageCode]);
+  const handleClick = useCallback(
+    (e) => {
+      e.stopPropagation();
+      startFromLanguage(languageCode);
+    },
+    [languageCode],
+  );
 
   const sizeMultiplier = useMemo(
     () => calculateSizeMultiplier(sortBy, data, languageCode, layoutConfig),
