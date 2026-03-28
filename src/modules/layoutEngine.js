@@ -66,8 +66,12 @@ class LayoutEngine {
       isReverse,
     });
 
+    if (sortedLanguages.length === 0) {
+      return { positions: {}, sortedLanguages: [] };
+    }
+
     // Base sphere — plain sorted layout, segmentation 0
-    const basePoints = this.reorderBySpatialProximity(
+    const basePoints = this.sortSpherePointsByAngle(
       this.generateFibonacciSphere(sortedLanguages.length, sphereRadius),
     );
     const basePositions = {};
@@ -84,33 +88,92 @@ class LayoutEngine {
     });
 
     const clusterKeys = Object.keys(clusters);
-    const avgSize = sortedLanguages.length / clusterKeys.length;
 
-    // Weight centroids by cluster size
-    const weightedSpherePoints = this.generateFibonacciSphere(
-      sortedLanguages.length,
-      sphereRadius,
+    // Derive inter-node spacing from the main sphere so all cluster spheres
+    // share the same surface density. Approximate: d ≈ sqrt(4π r² / n)
+    const nodeSpacing = Math.sqrt(
+      (4 * Math.PI * sphereRadius ** 2) / sortedLanguages.length,
     );
-    let cursor = 0;
-    const centroids = {};
+
+    // Each cluster radius scaled so its surface density matches the main sphere
+    const clusterRadii = {};
     clusterKeys.forEach((key) => {
-      const mid = Math.floor(cursor + clusters[key].length / 2);
-      centroids[key] = weightedSpherePoints[mid];
-      cursor += clusters[key].length;
+      const n = clusters[key].length;
+      clusterRadii[key] = nodeSpacing * Math.sqrt(n / (4 * Math.PI));
     });
 
-    // Clustered positions
+    // Sort clusters largest first so big spheres anchor the grid rows
+    const sortedClusterKeys = [...clusterKeys].sort(
+      (a, b) => clusterRadii[b] - clusterRadii[a],
+    );
+
+    // Pack cluster spheres into rows on the XY plane.
+    // Target row width: roughly square overall layout.
+    const totalDiameter = sortedClusterKeys.reduce(
+      (sum, key) => sum + clusterRadii[key] * 2,
+      0,
+    );
+    const targetRowWidth = Math.sqrt(
+      totalDiameter * nodeSpacing * sortedClusterKeys.length,
+    );
+
+    const rows = []; // each row: [{ key, r }]
+    let currentRow = [];
+    let currentRowWidth = 0;
+
+    sortedClusterKeys.forEach((key) => {
+      const r = clusterRadii[key];
+      const needed = currentRowWidth === 0 ? r * 2 : r * 2 + nodeSpacing;
+      if (currentRowWidth > 0 && currentRowWidth + needed > targetRowWidth) {
+        rows.push(currentRow);
+        currentRow = [];
+        currentRowWidth = 0;
+      }
+      currentRow.push({ key, r });
+      currentRowWidth += needed;
+    });
+    if (currentRow.length > 0) rows.push(currentRow);
+
+    // Assign XY offsets: each row centred on X=0, rows stacked top-to-bottom on Y
+    const clusterOffsets = {};
+    let cursorY = 0;
+
+    rows.forEach((row, rowIndex) => {
+      const rowHeight = Math.max(...row.map(({ r }) => r));
+
+      // Total width of this row
+      const rowWidth = row.reduce(
+        (sum, { r }, i) => sum + r * 2 + (i > 0 ? nodeSpacing : 0),
+        0,
+      );
+
+      let cursorX = -rowWidth / 2;
+      row.forEach(({ key, r }) => {
+        cursorX += r;
+        clusterOffsets[key] = new Vector3(cursorX, -cursorY, 0);
+        cursorX += r + nodeSpacing;
+      });
+
+      cursorY += rowHeight * 2 + nodeSpacing;
+    });
+
+    // Centre the whole grid vertically
+    const totalHeight = cursorY - nodeSpacing;
+    Object.keys(clusterOffsets).forEach((key) => {
+      clusterOffsets[key].y += totalHeight / 2;
+    });
+
+    // Per-cluster sphere positions
     const clusteredPositions = {};
     clusterKeys.forEach((key) => {
-      const centroid = centroids[key];
+      const offset = clusterOffsets[key];
       const members = clusters[key];
-      const territory =
-        sphereRadius * 0.35 * Math.sqrt(members.length / avgSize);
-      const localPoints = this.reorderBySpatialProximity(
-        this.generateFibonacciSphere(members.length, territory),
+      const r = clusterRadii[key];
+      const localPoints = this.sortSpherePointsByAngle(
+        this.generateFibonacciSphere(members.length, r),
       );
       members.forEach((code, j) => {
-        clusteredPositions[code] = centroid.clone().add(localPoints[j]);
+        clusteredPositions[code] = localPoints[j].clone().add(offset);
       });
     });
 
@@ -143,26 +206,21 @@ class LayoutEngine {
     return points;
   }
 
-  reorderBySpatialProximity(points) {
-    if (points.length === 0) return [];
-    const ordered = [];
-    const remaining = [...points];
-    let current = remaining.splice(0, 1)[0];
-    ordered.push(current);
-    while (remaining.length > 0) {
-      let nearestIndex = 0;
-      let nearestDistance = current.distanceTo(remaining[0]);
-      for (let i = 1; i < remaining.length; i++) {
-        const distance = current.distanceTo(remaining[i]);
-        if (distance < nearestDistance) {
-          nearestDistance = distance;
-          nearestIndex = i;
-        }
-      }
-      current = remaining.splice(nearestIndex, 1)[0];
-      ordered.push(current);
-    }
-    return ordered;
+  sortSpherePointsByAngle(points) {
+    const bandCount = Math.round(Math.sqrt(points.length));
+
+    return [...points].sort((a, b) => {
+      const latA = Math.atan2(Math.sqrt(a.x ** 2 + a.y ** 2), a.z);
+      const latB = Math.atan2(Math.sqrt(b.x ** 2 + b.y ** 2), b.z);
+      const bandA = Math.floor((latA / Math.PI) * bandCount);
+      const bandB = Math.floor((latB / Math.PI) * bandCount);
+
+      if (bandA !== bandB) return bandA - bandB;
+
+      const lonA = Math.atan2(a.y, a.x);
+      const lonB = Math.atan2(b.y, b.x);
+      return bandA % 2 === 0 ? lonA - lonB : lonB - lonA;
+    });
   }
 }
 
