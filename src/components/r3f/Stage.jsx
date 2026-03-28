@@ -161,7 +161,7 @@ const Stage = ({
       <OrbitControls
         enableDamping={true}
         makeDefault={true}
-        enableZoom={false}
+        enableZoom={!selectedLanguage}
         enableRotate={!selectedLanguage}
       />
 

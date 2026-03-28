@@ -4,8 +4,8 @@
     "label": "Sort languages by",
     "options": [
       { "value": "alphabetically", "label": "Alphabetical order" },
-      { "value": "family", "label": "Language family" },
       { "value": "speakers", "label": "Speakers' number" },
+      { "value": "family", "label": "Language family" },
       { "value": "scripts", "label": "Scripts" },
       { "value": "tonality", "label": "Tonality" },
       { "value": "morphology", "label": "Morphology" },
@@ -64,10 +64,10 @@
   "segmentation": {
     "type": "range",
     "label": "Segmentation",
-    "min": 1,
-    "max": 100,
+    "min": 0,
+    "max": 120,
     "step": 1,
-    "defaultValue": 1,
+    "defaultValue": 100,
     "isUserEditable": true,
     "group": "Scene"
   },

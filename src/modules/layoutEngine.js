@@ -79,7 +79,8 @@ class LayoutEngine {
       basePositions[code] = basePoints[i];
     });
 
-    // Build clusters
+    // Build clusters — insertion order follows sortedLanguages, preserving
+    // the natural group order established by sortLanguages
     const clusters = {};
     sortedLanguages.forEach((code) => {
       const key = getClusterKey(code);
@@ -102,63 +103,56 @@ class LayoutEngine {
       clusterRadii[key] = nodeSpacing * Math.sqrt(n / (4 * Math.PI));
     });
 
-    // Sort clusters largest first so big spheres anchor the grid rows
-    const sortedClusterKeys = [...clusterKeys].sort(
-      (a, b) => clusterRadii[b] - clusterRadii[a],
+    // Target number of columns: sqrt of cluster count, rounded,
+    // clamped so we never have more columns than clusters
+    const numCols = Math.min(
+      Math.max(1, Math.round(Math.sqrt(clusterKeys.length))),
+      clusterKeys.length,
     );
 
-    // Pack cluster spheres into rows on the XY plane.
-    // Target row width: roughly square overall layout.
-    const totalDiameter = sortedClusterKeys.reduce(
-      (sum, key) => sum + clusterRadii[key] * 2,
+    // Distribute clusters into columns round-robin in natural order
+    const columns = Array.from({ length: numCols }, () => []);
+    clusterKeys.forEach((key, i) => {
+      columns[i % numCols].push(key);
+    });
+
+    // Assign XY offsets: columns side by side on X, items stacked on Y within each column
+    const clusterOffsets = {};
+
+    // First pass: compute each column's width (widest sphere in it) and total height
+    const colWidths = columns.map((col) =>
+      col.length > 0 ? Math.max(...col.map((key) => clusterRadii[key])) : 0,
+    );
+    const colHeights = columns.map((col) =>
+      col.reduce(
+        (sum, key, i) =>
+          sum + clusterRadii[key] * 2 + (i > 0 ? nodeSpacing : 0),
+        0,
+      ),
+    );
+
+    const totalWidth = colWidths.reduce(
+      (sum, w, i) => sum + w * 2 + (i > 0 ? nodeSpacing : 0),
       0,
     );
-    const targetRowWidth = Math.sqrt(
-      totalDiameter * nodeSpacing * sortedClusterKeys.length,
-    );
+    const totalHeight = Math.max(...colHeights);
 
-    const rows = [];
-    let currentRow = [];
-    let currentRowWidth = 0;
+    // Second pass: place each cluster
+    let cursorX = -totalWidth / 2;
+    columns.forEach((col, colIndex) => {
+      const colWidth = colWidths[colIndex];
+      const colCenterX = cursorX + colWidth;
 
-    sortedClusterKeys.forEach((key) => {
-      const r = clusterRadii[key];
-      const needed = currentRowWidth === 0 ? r * 2 : r * 2 + nodeSpacing;
-      if (currentRowWidth > 0 && currentRowWidth + needed > targetRowWidth) {
-        rows.push(currentRow);
-        currentRow = [];
-        currentRowWidth = 0;
-      }
-      currentRow.push({ key, r });
-      currentRowWidth += needed;
-    });
-    if (currentRow.length > 0) rows.push(currentRow);
-
-    // Assign XY offsets: each row centred on X=0, rows stacked top-to-bottom on Y
-    const clusterOffsets = {};
-    let cursorY = 0;
-
-    rows.forEach((row) => {
-      const rowHeight = Math.max(...row.map(({ r }) => r));
-      const rowWidth = row.reduce(
-        (sum, { r }, i) => sum + r * 2 + (i > 0 ? nodeSpacing : 0),
-        0,
-      );
-
-      let cursorX = -rowWidth / 2;
-      row.forEach(({ key, r }) => {
-        cursorX += r;
-        clusterOffsets[key] = new Vector3(cursorX, -cursorY, 0);
-        cursorX += r + nodeSpacing;
+      let cursorY = totalHeight / 2;
+      col.forEach((key, rowIndex) => {
+        const r = clusterRadii[key];
+        if (rowIndex > 0) cursorY -= nodeSpacing;
+        cursorY -= r;
+        clusterOffsets[key] = new Vector3(colCenterX, cursorY, 0);
+        cursorY -= r;
       });
 
-      cursorY += rowHeight * 2 + nodeSpacing;
-    });
-
-    // Centre the whole grid vertically
-    const totalHeight = cursorY - nodeSpacing;
-    Object.keys(clusterOffsets).forEach((key) => {
-      clusterOffsets[key].y += totalHeight / 2;
+      cursorX += colWidth * 2 + nodeSpacing;
     });
 
     // Per-cluster sphere positions
