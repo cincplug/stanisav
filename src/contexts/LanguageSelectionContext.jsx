@@ -23,7 +23,6 @@ export const LanguageSelectionProvider = ({ children }) => {
 
   const updateFilteringUtils = useCallback((filters, data) => {
     setFilteringUtils(filters);
-
     if (Object.keys(filters).length === 0) {
       setFilteredLanguages(new Set());
       return;
@@ -34,7 +33,7 @@ export const LanguageSelectionProvider = ({ children }) => {
 
   const viewAllLanguages = useCallback(() => {
     setSelectedLanguage(null);
-    setCameraFocusRequest({ type: "viewAll" });
+    setCameraFocusRequest({ type: "fitAll" });
     setFilteringUtils({});
     setFilteredLanguages(new Set());
   }, []);

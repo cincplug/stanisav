@@ -80,7 +80,6 @@ export const useCameraController = ({
       animationRef.current = null;
     }
 
-    // Tight bounding box on XY (camera looks along Z)
     let minX = Infinity,
       maxX = -Infinity;
     let minY = Infinity,
@@ -105,7 +104,6 @@ export const useCameraController = ({
     const halfW = (maxX - minX) / 2;
     const halfH = (maxY - minY) / 2;
 
-    // Fit to the larger of width vs height, accounting for aspect ratio
     const aspect = camera.aspect;
     const fovRad = (config.fov * Math.PI) / 180;
     const halfFovV = fovRad / 2;
@@ -148,6 +146,9 @@ export const useCameraController = ({
       case "language":
         focusOnLanguage(target);
         break;
+      case "fitAll":
+        fitToNodes();
+        break;
       case "viewAll":
         setInitialCameraPosition();
         break;
@@ -158,6 +159,7 @@ export const useCameraController = ({
     data,
     focusOnLanguage,
     setInitialCameraPosition,
+    fitToNodes,
     selectedLanguage,
   ]);
 
