@@ -14,7 +14,13 @@ import {
 } from "../../utils/sceneUtils.js";
 import { getLanguageLabel } from "../../utils/languageDisplayUtils.js";
 
-const Label = ({ languageCode, position, isSelected = false, color }) => {
+const Label = ({
+  languageCode,
+  position,
+  isSelected = false,
+  color,
+  opacity = 1,
+}) => {
   const groupRef = useRef();
   const labelRef = useRef();
   const { controls } = useControls();
@@ -43,6 +49,7 @@ const Label = ({ languageCode, position, isSelected = false, color }) => {
     () => calculateSizeMultiplier(sortBy, data, languageCode, layoutConfig),
     [sortBy, data, languageCode],
   );
+
   const fontSize = labelSize * sizeMultiplier;
 
   const labelText = getLanguageLabel(
@@ -61,6 +68,16 @@ const Label = ({ languageCode, position, isSelected = false, color }) => {
     config: { tension, friction },
   });
 
+  const textMaterial = useMemo(
+    () =>
+      new MeshStandardMaterial({
+        color: bgColor,
+        transparent: true,
+        opacity,
+      }),
+    [bgColor],
+  );
+
   useFrame(({ camera }) => {
     if (groupRef.current) {
       const offset = spring.offset.get();
@@ -73,15 +90,10 @@ const Label = ({ languageCode, position, isSelected = false, color }) => {
     if (labelRef.current) {
       labelRef.current.lookAt(camera.position);
     }
+    if (textMaterial) {
+      textMaterial.opacity = opacity;
+    }
   });
-
-  const textMaterial = useMemo(
-    () =>
-      new MeshStandardMaterial({
-        color: bgColor,
-      }),
-    [bgColor],
-  );
 
   return (
     <group ref={groupRef} position={position} onClick={handleClick}>

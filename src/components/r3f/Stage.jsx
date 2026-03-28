@@ -13,7 +13,7 @@ import { getSortingData, sortLanguages } from "../../utils/sortingUtils";
 import { LayoutEngine } from "../../modules/layoutEngine";
 import lineageTree from "../../config/lineages.json";
 import StageLight from "./StageLight";
-import Label from "./Label";
+import LabelsGroup from "./LabelsGroup";
 import Mesha from "./Mesha";
 import Camera from "./Camera";
 
@@ -56,6 +56,7 @@ const Stage = ({
   const languageData = data?.languageData || {};
   const { languageCodes, languageLineages, speakerData, typologicalFeatures } =
     getSortingData(languageData);
+
   const sortedLanguageCodes = sortLanguages({
     allLanguages: [...languageCodes],
     languageData,
@@ -175,25 +176,16 @@ const Stage = ({
       />
 
       <group>
-        {!showEmptyMessage &&
-          sortedLanguageCodes.map((langCode) => {
-            const position = formattedPositions[langCode];
-            const filterStatus = languageFilterStatus[langCode];
-            if (!position || !filterStatus?.isVisible) return null;
-
-            const color = languageColors[langCode];
-
-            return (
-              <Label
-                key={langCode}
-                languageCode={langCode}
-                language={data.languageData[langCode]}
-                position={[position.x, position.y, position.z]}
-                isSelected={selectedLanguage === langCode}
-                color={color}
-              />
-            );
-          })}
+        {!showEmptyMessage && (
+          <LabelsGroup
+            sortedLanguageCodes={sortedLanguageCodes}
+            formattedPositions={formattedPositions}
+            languageFilterStatus={languageFilterStatus}
+            languageColors={languageColors}
+            languageData={languageData}
+            selectedLanguage={selectedLanguage}
+          />
+        )}
 
         <Mesha
           languageCode={meshaLanguageCode}
