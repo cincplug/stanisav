@@ -117,7 +117,7 @@ class LayoutEngine {
       totalDiameter * nodeSpacing * sortedClusterKeys.length,
     );
 
-    const rows = []; // each row: [{ key, r }]
+    const rows = [];
     let currentRow = [];
     let currentRowWidth = 0;
 
@@ -138,10 +138,8 @@ class LayoutEngine {
     const clusterOffsets = {};
     let cursorY = 0;
 
-    rows.forEach((row, rowIndex) => {
+    rows.forEach((row) => {
       const rowHeight = Math.max(...row.map(({ r }) => r));
-
-      // Total width of this row
       const rowWidth = row.reduce(
         (sum, { r }, i) => sum + r * 2 + (i > 0 ? nodeSpacing : 0),
         0,

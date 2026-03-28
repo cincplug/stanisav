@@ -71,16 +71,73 @@ export const useCameraController = ({
     animateCamera(cameraSystem, initialCameraPosition, initialTarget, config);
   }, [cameraSystem, config]);
 
+  const fitToNodes = useCallback(() => {
+    const positions = Object.values(languageNodes);
+    if (positions.length === 0) return;
+
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+      animationRef.current = null;
+    }
+
+    // Tight bounding box on XY (camera looks along Z)
+    let minX = Infinity,
+      maxX = -Infinity;
+    let minY = Infinity,
+      maxY = -Infinity;
+    let minZ = Infinity,
+      maxZ = -Infinity;
+    positions.forEach((p) => {
+      if (p.x < minX) minX = p.x;
+      if (p.x > maxX) maxX = p.x;
+      if (p.y < minY) minY = p.y;
+      if (p.y > maxY) maxY = p.y;
+      if (p.z < minZ) minZ = p.z;
+      if (p.z > maxZ) maxZ = p.z;
+    });
+
+    const center = new Vector3(
+      (minX + maxX) / 2,
+      (minY + maxY) / 2,
+      (minZ + maxZ) / 2,
+    );
+
+    const halfW = (maxX - minX) / 2;
+    const halfH = (maxY - minY) / 2;
+
+    // Fit to the larger of width vs height, accounting for aspect ratio
+    const aspect = camera.aspect;
+    const fovRad = (config.fov * Math.PI) / 180;
+    const halfFovV = fovRad / 2;
+    const halfFovH = Math.atan(Math.tan(halfFovV) * aspect);
+
+    const distForWidth = halfW / Math.tan(halfFovH);
+    const distForHeight = halfH / Math.tan(halfFovV);
+    const distance = Math.max(distForWidth, distForHeight) * 1.05;
+
+    const targetCameraPosition = new Vector3(
+      center.x,
+      center.y,
+      center.z + (maxZ - minZ) / 2 + distance,
+    );
+    animateCamera(cameraSystem, targetCameraPosition, center, config);
+  }, [cameraSystem, languageNodes, config, camera]);
+
+  // On first load use the configured initial position; on subsequent layout
+  // changes fit everything in view (unless a language is focused)
   useEffect(() => {
-    if (
-      !initializedViewRef.current &&
-      languageNodes &&
-      Object.keys(languageNodes).length > 0
-    ) {
+    if (!languageNodes || Object.keys(languageNodes).length === 0) return;
+
+    if (!initializedViewRef.current) {
       initializedViewRef.current = true;
       setInitialCameraPosition();
+      return;
     }
-  }, [languageNodes, setInitialCameraPosition]);
+
+    if (!selectedLanguage) {
+      fitToNodes();
+    }
+  }, [languageNodes]);
 
   useEffect(() => {
     if (!cameraFocusRequest || !languageNodes) {
@@ -124,7 +181,7 @@ export const useCameraController = ({
     [],
   );
 
-  return { setInitialCameraPosition };
+  return { setInitialCameraPosition, fitToNodes };
 };
 
 const animateCamera = (cameraSystem, targetPosition, lookAtTarget, config) => {
