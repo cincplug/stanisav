@@ -63,8 +63,15 @@ const Label = ({
     [position],
   );
 
-  const spring = useSpring({
+  // Spring for selection offset (radial push when selected)
+  const selectionSpring = useSpring({
     offset: isSelected ? 4 : 0,
+    config: { tension, friction },
+  });
+
+  // Spring for position transitions between layouts
+  const positionSpring = useSpring({
+    position,
     config: { tension, friction },
   });
 
@@ -80,11 +87,13 @@ const Label = ({
 
   useFrame(({ camera }) => {
     if (groupRef.current) {
-      const offset = spring.offset.get();
+      const [x, y, z] = positionSpring.position.get();
+      const offset = selectionSpring.offset.get();
+      const radial = calculateRadialOffset([x, y, z]);
       groupRef.current.position.set(
-        position[0] + radialOffset[0] * offset,
-        position[1] + radialOffset[1] * offset,
-        position[2] + radialOffset[2] * offset,
+        x + radial[0] * offset,
+        y + radial[1] * offset,
+        z + radial[2] * offset,
       );
     }
     if (labelRef.current) {
@@ -96,7 +105,7 @@ const Label = ({
   });
 
   return (
-    <group ref={groupRef} position={position} onClick={handleClick}>
+    <group ref={groupRef} onClick={handleClick}>
       <Text
         position={[0, 0, 0]}
         ref={labelRef}
