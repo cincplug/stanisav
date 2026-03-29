@@ -4,22 +4,19 @@ import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
 import controlsConfig from "../../config/controlsConfig.json";
-import linguisticConfig from "../../config/linguisticConfig.json";
-import numericFeatures from "../../config/numericFeatures.json";
 import lineages from "../../config/lineages.json";
-import {
-  getFamilyLabel,
-  localizeControlConfig,
-} from "../../utils/configI18nUtils";
-import { getFeatureLabel } from "../../utils/linguisticUtils";
+import { localizeControlConfig } from "../../utils/configI18nUtils";
 import { getLanguageLabel } from "../../utils/languageDisplayUtils";
 import { getSortingData, sortLanguages } from "../../utils/sortingUtils";
-import { buildLanguageTree } from "../../utils/languageGroupingUtils";
+import {
+  buildLanguageTree,
+  groupLanguages,
+} from "../../utils/languageGroupingUtils";
 import ControlItem from "./ControlItem";
 import LanguageTree from "./LanguageTree";
 
 function LanguagesTab({ languageData, isActive, languageColors = {} }) {
-  const { selectedLanguage, selectLanguage } = useLanguageSelection();
+  const { selectedLanguage } = useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
   const { controls, updateControl } = useControls();
   const buttonRefs = useRef({});
@@ -28,6 +25,7 @@ function LanguagesTab({ languageData, isActive, languageColors = {} }) {
 
   const { languageCodes, languageLineages, speakerData, typologicalFeatures } =
     useMemo(() => getSortingData(languageData), [languageData]);
+
   const sortedLanguageCodes = useMemo(
     () =>
       sortLanguages({
@@ -52,7 +50,6 @@ function LanguagesTab({ languageData, isActive, languageColors = {} }) {
     ],
   );
 
-  // Only apply nested lineage grouping for sortBy === "family"
   const languageTreeData = useMemo(() => {
     if (sortBy === "family") {
       return buildLanguageTree(sortedLanguageCodes, languageData, lineages);
@@ -60,112 +57,27 @@ function LanguagesTab({ languageData, isActive, languageColors = {} }) {
     return null;
   }, [sortedLanguageCodes, sortBy, languageData]);
 
-  // Group for display
-  const groupedByCategory = useMemo(() => {
-    if (sortBy === "speakers") {
-      return [
-        {
-          title: "All languages",
-          languages: sortedLanguageCodes,
-        },
-      ];
-    }
-    if (sortBy === "alphabetically") {
-      const result = {};
-      sortedLanguageCodes.forEach((langCode) => {
-        const label = getLanguageLabel(langCode, languageData, labelContent);
-        // Use the first Unicode character, uppercased for grouping
-        const firstChar =
-          Array.from(label.trim())[0]?.toLocaleUpperCase("und") || "#";
-        if (!result[firstChar]) {
-          result[firstChar] = {
-            title: firstChar,
-            languages: [],
-          };
-        }
-        result[firstChar].languages.push(langCode);
-      });
-      // Sort group titles in full Unicode order
-      return Object.values(result).sort((a, b) =>
-        a.title.localeCompare(b.title, "und", { sensitivity: "base" }),
-      );
-    }
-    const result = {};
-    // For sorting group keys
-    let groupSortArr = [];
-    sortedLanguageCodes.forEach((langCode) => {
-      let categoryKey, categoryLabel;
+  const groups = useMemo(
+    () =>
+      groupLanguages({
+        sortedLanguageCodes,
+        sortBy,
+        languageData,
+        languageLineages,
+        labelContent,
+        lineages,
+        isReverse,
+      }),
+    [
+      sortedLanguageCodes,
+      sortBy,
+      languageData,
+      languageLineages,
+      labelContent,
+      isReverse,
+    ],
+  );
 
-      if (sortBy === "family") {
-        const lineageKey = languageLineages[langCode];
-        if (!lineageKey) {
-          throw new Error(`Missing lineageKey for '${langCode}'`);
-        }
-        const ancestors = lineages[lineageKey];
-        categoryKey =
-          Array.isArray(ancestors) && ancestors.length > 0
-            ? ancestors[0]
-            : lineageKey;
-        categoryLabel = getFamilyLabel(categoryKey);
-      } else if (linguisticConfig[sortBy]?.values) {
-        const raw = languageData[langCode][sortBy];
-        const keys = Array.isArray(raw) ? raw : [raw];
-        keys.forEach((key) => {
-          const label = getFeatureLabel(sortBy, key);
-          if (!result[key]) {
-            result[key] = { title: label, languages: [], _key: key };
-          }
-          result[key].languages.push(langCode);
-        });
-        return;
-      } else if (numericFeatures.includes(sortBy)) {
-        categoryKey = languageData[langCode][sortBy];
-        categoryLabel = `${categoryKey}`;
-      }
-
-      if (!result[categoryKey]) {
-        result[categoryKey] = {
-          title: categoryLabel,
-          languages: [],
-          _key: categoryKey,
-        };
-      }
-      result[categoryKey].languages.push(langCode);
-    });
-
-    let groups = Object.values(result);
-    // Determine sorting method for group titles
-    if (linguisticConfig[sortBy]?.values) {
-      // Sort by score for scored features
-      groups.sort((a, b) => {
-        const scoreA = linguisticConfig[sortBy].values[a._key]?.score ?? 0;
-        const scoreB = linguisticConfig[sortBy].values[b._key]?.score ?? 0;
-        return isReverse ? scoreB - scoreA : scoreA - scoreB;
-      });
-    } else if (numericFeatures.includes(sortBy)) {
-      // Sort numerically for numeric features
-      groups.sort((a, b) => {
-        const numA = Number(a._key);
-        const numB = Number(b._key);
-        return isReverse ? numB - numA : numA - numB;
-      });
-    } else {
-      // Fallback: alphabetical
-      groups.sort((a, b) =>
-        a.title.localeCompare(b.title, "und", { sensitivity: "base" }),
-      );
-    }
-    return groups;
-  }, [
-    sortedLanguageCodes,
-    sortBy,
-    languageData,
-    labelContent,
-    languageLineages,
-    isReverse,
-  ]);
-
-  // Get Sorting controls
   const sortingControls = Object.entries(controlsConfig)
     .filter(
       ([_id, config]) =>
@@ -214,12 +126,11 @@ function LanguagesTab({ languageData, isActive, languageColors = {} }) {
             languageColors={languageColors}
           />
         ) : (
-          groupedByCategory.map((group) => (
+          groups.map((group) => (
             <section key={group.title} className="language-group-container">
               {sortBy !== "speakers" && (
                 <h3 className="group-header">{group.title}</h3>
               )}
-
               <LanguageTree
                 languages={group.languages}
                 languageData={languageData}

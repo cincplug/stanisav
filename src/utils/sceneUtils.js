@@ -1,6 +1,7 @@
 import { getFeatureScore } from "./linguisticUtils.js";
 import numericFeatures from "../config/numericFeatures.json";
 import lineages from "../config/lineages.json";
+import { Vector3 } from "three";
 
 const getFamily = (lineageKey) => {
   const lineage = lineages[lineageKey];
@@ -134,4 +135,76 @@ export const calculateRadialOffset = (position) => {
   );
   if (length === 0) return [0, 0, 0];
   return [position[0] / length, position[1] / length, position[2] / length];
+};
+
+// Returns the centroid X and minimum Y of a cluster's positions,
+// used to anchor the cluster title below the cluster center.
+export const getClusterBottomCenter = (positions) => {
+  const pts = Object.values(positions);
+  if (pts.length === 0) return null;
+  const sumX = pts.reduce((s, p) => s + p.x, 0);
+  const minY = pts.reduce((min, p) => Math.min(min, p.y), Infinity);
+  const avgZ = pts.reduce((s, p) => s + p.z, 0) / pts.length;
+  return new Vector3(sumX / pts.length, minY, avgZ);
+};
+
+// Computes per-language opacity based on occlusion relative to camera→focus ray.
+// Languages between the camera and the selected node are faded out.
+export const computeOpacities = (
+  camera,
+  formattedPositions,
+  selectedLanguage,
+  fadeNear,
+  fadeFar,
+) => {
+  const opacities = {};
+
+  if (!selectedLanguage || !formattedPositions[selectedLanguage]) {
+    Object.keys(formattedPositions).forEach((code) => {
+      opacities[code] = 1;
+    });
+    return opacities;
+  }
+
+  const focusPos = formattedPositions[selectedLanguage];
+  const cameraPos = camera.position;
+
+  const toFocus = new Vector3(
+    focusPos.x - cameraPos.x,
+    focusPos.y - cameraPos.y,
+    focusPos.z - cameraPos.z,
+  );
+  const focusDistance = toFocus.length();
+  const toFocusNorm = toFocus.clone().normalize();
+
+  Object.entries(formattedPositions).forEach(([langCode, pos]) => {
+    if (langCode === selectedLanguage) {
+      opacities[langCode] = 1;
+      return;
+    }
+
+    const toNode = new Vector3(
+      pos.x - cameraPos.x,
+      pos.y - cameraPos.y,
+      pos.z - cameraPos.z,
+    );
+
+    const projectedDepth = toNode.dot(toFocusNorm);
+
+    if (projectedDepth <= 0 || projectedDepth >= focusDistance) {
+      opacities[langCode] = 1;
+      return;
+    }
+
+    const projected = toFocusNorm.clone().multiplyScalar(projectedDepth);
+    const perpendicularDist = toNode.clone().sub(projected).length();
+
+    const t = Math.max(
+      0,
+      Math.min(1, (perpendicularDist - fadeNear) / (fadeFar - fadeNear)),
+    );
+    opacities[langCode] = t;
+  });
+
+  return opacities;
 };

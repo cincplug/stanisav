@@ -2,6 +2,7 @@ import SceneReadyGate from "./SceneReadyGate";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useEffect, useMemo } from "react";
+import { useThree } from "@react-three/fiber";
 import { interpolateColorsByTime } from "../../utils/colorUtils";
 import { useSpring } from "@react-spring/three";
 import { useControls } from "../../contexts/ControlsContext";
@@ -10,12 +11,72 @@ import { useDataManager } from "../../hooks/useDataManager";
 import { calculateLanguageFilterStatus } from "../../utils/sceneUtils";
 import { getFeatureScore } from "../../utils/linguisticUtils";
 import { getSortingData, sortLanguages } from "../../utils/sortingUtils";
+import { groupLanguages } from "../../utils/languageGroupingUtils";
 import { LayoutEngine } from "../../modules/layoutEngine";
-import lineageTree from "../../config/lineages.json";
+import lineages from "../../config/lineages.json";
 import StageLight from "./StageLight";
-import LabelsGroup from "./LabelsGroup";
+import LabelsCluster, { useClusterOpacities } from "./LabelsCluster";
+import Label from "./Label";
 import Mesha from "./Mesha";
 import Camera from "./Camera";
+
+// Renders all labels as a flat list with stable keys so springs persist
+// across sortBy changes, plus per-cluster titles.
+const LabelsLayer = ({
+  groups,
+  formattedPositions,
+  languageFilterStatus,
+  languageColors,
+  languageData,
+  selectedLanguage,
+  segmentation,
+}) => {
+  const { camera } = useThree();
+  const opacities = useClusterOpacities(
+    camera,
+    formattedPositions,
+    selectedLanguage,
+  );
+
+  return (
+    <>
+      {/* Flat label list — stable keys ensure springs animate between layouts */}
+      {Object.keys(formattedPositions).map((langCode) => {
+        const position = formattedPositions[langCode];
+        const filterStatus = languageFilterStatus[langCode];
+
+        if (!position || !filterStatus?.isVisible) return null;
+
+        const opacity = opacities[langCode] ?? 1;
+        if (opacity === 0) return null;
+
+        return (
+          <Label
+            key={langCode}
+            languageCode={langCode}
+            language={languageData[langCode]}
+            position={[position.x, position.y, position.z]}
+            isSelected={selectedLanguage === langCode}
+            color={languageColors[langCode]}
+            opacity={opacity}
+          />
+        );
+      })}
+
+      {/* One title per cluster */}
+      {groups.map((group) => (
+        <LabelsCluster
+          key={group.title ?? "all"}
+          title={group.title}
+          languageCodes={group.languages}
+          formattedPositions={formattedPositions}
+          selectedLanguage={selectedLanguage}
+          segmentation={segmentation}
+        />
+      ))}
+    </>
+  );
+};
 
 const Stage = ({
   onDataLoaded,
@@ -38,6 +99,7 @@ const Stage = ({
     tension,
     friction,
     sphereRadius,
+    segmentation,
   } = controls;
 
   useEffect(() => {
@@ -49,7 +111,6 @@ const Stage = ({
   }, []);
 
   const { filteringUtils, selectedLanguage } = useLanguageSelection();
-
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
 
   const { sortBy, labelContent, isReverse } = controls;
@@ -68,12 +129,33 @@ const Stage = ({
     isReverse,
   });
 
+  const groups = useMemo(
+    () =>
+      groupLanguages({
+        sortedLanguageCodes,
+        sortBy,
+        languageData,
+        languageLineages,
+        labelContent,
+        lineages,
+        isReverse,
+      }),
+    [
+      sortedLanguageCodes,
+      sortBy,
+      languageData,
+      languageLineages,
+      labelContent,
+      isReverse,
+    ],
+  );
+
   const layoutEngine = useMemo(() => new LayoutEngine(), []);
   const { positions: formattedPositions } = layoutEngine.calculateLayout(
     {
       languageData,
       languageLineages,
-      lineageTree,
+      lineageTree: lineages,
       speakerData,
       typologicalFeatures,
     },
@@ -162,7 +244,7 @@ const Stage = ({
       <OrbitControls
         enableDamping={true}
         makeDefault={true}
-        enableZoom={false}
+        enableZoom={!selectedLanguage}
         enableRotate={!selectedLanguage}
       />
 
@@ -177,13 +259,14 @@ const Stage = ({
 
       <group>
         {!showEmptyMessage && (
-          <LabelsGroup
-            sortedLanguageCodes={sortedLanguageCodes}
+          <LabelsLayer
+            groups={groups}
             formattedPositions={formattedPositions}
             languageFilterStatus={languageFilterStatus}
             languageColors={languageColors}
             languageData={languageData}
             selectedLanguage={selectedLanguage}
+            segmentation={segmentation}
           />
         )}
 

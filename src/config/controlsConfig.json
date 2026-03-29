@@ -144,7 +144,7 @@
     "min": 0,
     "max": 70,
     "step": 1,
-    "defaultValue": 16,
+    "defaultValue": 27,
     "isUserEditable": true
   },
   "meshaLightDecay": {
