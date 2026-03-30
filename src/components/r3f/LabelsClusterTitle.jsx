@@ -42,7 +42,7 @@ const LabelsClusterTitle = ({ positions, title, opacity }) => {
     <group>
       <Text
         ref={titleRef}
-        fontSize={2}
+        fontSize={1.5}
         anchorX="center"
         anchorY="top"
         color="white"
