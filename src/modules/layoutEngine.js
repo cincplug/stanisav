@@ -1,5 +1,9 @@
 import { Vector3 } from "three";
-import { sortLanguages } from "../utils/sortingUtils";
+import {
+  sortLanguages,
+  comparePath,
+  getLineagePathForKey,
+} from "../utils/sortingUtils";
 import { getLanguageLabel } from "../utils/languageDisplayUtils";
 
 class LayoutEngine {
@@ -35,16 +39,9 @@ class LayoutEngine {
       switch (sortBy) {
         case "speakers":
           return "all";
-        case "family": {
-          const lineageKey = languageLineages[code];
-          if (!lineageKey) return "isolate";
-          const getRoot = (key) => {
-            const ancestors = lineageTree[key];
-            if (!ancestors || ancestors.length === 0) return key;
-            return getRoot(ancestors[ancestors.length - 1]);
-          };
-          return getRoot(lineageKey);
-        }
+        case "family":
+          // Group by leaf lineage key so e.g. Serbian lands in "South-Slavic"
+          return languageLineages[code] ?? "isolate";
         case "alphabetically": {
           const label = getLanguageLabel(code, languageData, labelContent);
           return Array.from(label.trim())[0]?.toLocaleUpperCase("und");
@@ -70,7 +67,6 @@ class LayoutEngine {
       return { positions: {}, sortedLanguages: [] };
     }
 
-    // Base sphere — plain sorted layout, segmentation 0
     const basePoints = this.sortSpherePointsByAngle(
       this.generateFibonacciSphere(sortedLanguages.length, sphereRadius),
     );
@@ -79,8 +75,6 @@ class LayoutEngine {
       basePositions[code] = basePoints[i];
     });
 
-    // Build clusters — insertion order follows sortedLanguages, preserving
-    // the natural group order established by sortLanguages
     const clusters = {};
     sortedLanguages.forEach((code) => {
       const key = getClusterKey(code);
@@ -88,38 +82,36 @@ class LayoutEngine {
       clusters[key].push(code);
     });
 
-    const clusterKeys = Object.keys(clusters);
+    // For family sort, order cluster keys by their lineage path so sibling
+    // families (e.g. South-Slavic, West-Slavic, East-Slavic) end up adjacent
+    // in the grid. For all other sorts, preserve insertion order.
+    const clusterKeys =
+      sortBy === "family"
+        ? Object.keys(clusters).sort((a, b) =>
+            comparePath(getLineagePathForKey(a), getLineagePathForKey(b)),
+          )
+        : Object.keys(clusters);
 
-    // Derive inter-node spacing from the main sphere so all cluster spheres
-    // share the same surface density. Approximate: d ≈ sqrt(4π r² / n)
     const nodeSpacing = Math.sqrt(
       (4 * Math.PI * sphereRadius ** 2) / sortedLanguages.length,
     );
 
-    // Each cluster radius scaled so its surface density matches the main sphere
     const clusterRadii = {};
     clusterKeys.forEach((key) => {
       const n = clusters[key].length;
       clusterRadii[key] = nodeSpacing * Math.sqrt(n / (4 * Math.PI));
     });
 
-    // Target number of columns: sqrt of cluster count, rounded,
-    // clamped so we never have more columns than clusters
     const numCols = Math.min(
       Math.max(1, Math.round(Math.sqrt(clusterKeys.length))),
       clusterKeys.length,
     );
 
-    // Distribute clusters into columns round-robin in natural order
     const columns = Array.from({ length: numCols }, () => []);
     clusterKeys.forEach((key, i) => {
       columns[i % numCols].push(key);
     });
 
-    // Assign XY offsets: columns side by side on X, items stacked on Y within each column
-    const clusterOffsets = {};
-
-    // First pass: compute each column's width (widest sphere in it) and total height
     const colWidths = columns.map((col) =>
       col.length > 0 ? Math.max(...col.map((key) => clusterRadii[key])) : 0,
     );
@@ -137,7 +129,7 @@ class LayoutEngine {
     );
     const totalHeight = Math.max(...colHeights);
 
-    // Second pass: place each cluster
+    const clusterOffsets = {};
     let cursorX = -totalWidth / 2;
     columns.forEach((col, colIndex) => {
       const colWidth = colWidths[colIndex];
@@ -155,7 +147,6 @@ class LayoutEngine {
       cursorX += colWidth * 2 + nodeSpacing;
     });
 
-    // Per-cluster sphere positions
     const clusteredPositions = {};
     clusterKeys.forEach((key) => {
       const offset = clusterOffsets[key];
@@ -169,7 +160,6 @@ class LayoutEngine {
       });
     });
 
-    // Blend by segmentation (0–100)
     const t = sortBy === "speakers" ? 0 : segmentation / 100;
 
     const positions = {};

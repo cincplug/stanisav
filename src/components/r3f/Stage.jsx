@@ -12,6 +12,7 @@ import { calculateLanguageFilterStatus } from "../../utils/sceneUtils";
 import { getFeatureScore } from "../../utils/linguisticUtils";
 import { getSortingData, sortLanguages } from "../../utils/sortingUtils";
 import { groupLanguages } from "../../utils/languageGroupingUtils";
+import { getFamilyLabel } from "../../utils/configI18nUtils";
 import { LayoutEngine } from "../../modules/layoutEngine";
 import lineages from "../../config/lineages.json";
 import StageLight from "./StageLight";
@@ -19,6 +20,45 @@ import LabelsCluster, { useClusterOpacities } from "./LabelsCluster";
 import Label from "./Label";
 import Mesha from "./Mesha";
 import Camera from "./Camera";
+
+// For the stage, family clusters group by leaf lineage key (e.g. "South-Slavic")
+// so each sub-family gets its own sphere, matching layoutEngine's getClusterKey.
+// All other sortBy cases use the same groupLanguages as the tab.
+const getStageClusterGroups = ({
+  sortedLanguageCodes,
+  sortBy,
+  languageData,
+  languageLineages,
+  labelContent,
+  isReverse,
+}) => {
+  if (sortBy !== "family") {
+    return groupLanguages({
+      sortedLanguageCodes,
+      sortBy,
+      languageData,
+      languageLineages,
+      labelContent,
+      lineages,
+      isReverse,
+    });
+  }
+
+  // Group by leaf lineage key, preserving sortedLanguageCodes order
+  const groups = {};
+  sortedLanguageCodes.forEach((code) => {
+    const leafKey = languageLineages[code] ?? "isolate";
+    if (!groups[leafKey]) {
+      groups[leafKey] = {
+        title: getFamilyLabel(leafKey),
+        languages: [],
+      };
+    }
+    groups[leafKey].languages.push(code);
+  });
+
+  return Object.values(groups);
+};
 
 // Renders all labels as a flat list with stable keys so springs persist
 // across sortBy changes, plus per-cluster titles.
@@ -131,13 +171,12 @@ const Stage = ({
 
   const groups = useMemo(
     () =>
-      groupLanguages({
+      getStageClusterGroups({
         sortedLanguageCodes,
         sortBy,
         languageData,
         languageLineages,
         labelContent,
-        lineages,
         isReverse,
       }),
     [

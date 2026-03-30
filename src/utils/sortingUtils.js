@@ -18,7 +18,7 @@ const getLineageKey = (code, languageLineages) => {
   return lineageKey;
 };
 
-const getLineagePath = (code, languageLineages) => {
+export const getLineagePath = (code, languageLineages) => {
   const lineageKey = getLineageKey(code, languageLineages);
   const ancestors = lineages?.[lineageKey];
   if (!Array.isArray(ancestors)) {
@@ -27,13 +27,20 @@ const getLineagePath = (code, languageLineages) => {
   return [...ancestors, lineageKey];
 };
 
-const comparePath = (aPath, bPath) => {
+export const comparePath = (aPath, bPath) => {
   const len = Math.max(aPath.length, bPath.length);
   for (let i = 0; i < len; i += 1) {
     const cmp = collator.compare(aPath[i] || "", bPath[i] || "");
     if (cmp !== 0) return cmp;
   }
   return 0;
+};
+
+// Returns the lineage path for a leaf lineage key directly (not via language code)
+export const getLineagePathForKey = (lineageKey) => {
+  const ancestors = lineages?.[lineageKey];
+  if (!Array.isArray(ancestors)) return [lineageKey];
+  return [...ancestors, lineageKey];
 };
 
 export function getSortingData(languageData) {
