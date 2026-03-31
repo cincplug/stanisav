@@ -1,15 +1,18 @@
 /* Tab navigation */
+
 .tab-navigation {
   display: flex;
-  border-bottom: var(--tab-border-width) solid var(--color-highlight);
-  margin-bottom: var(--gap-double);
+  flex-wrap: wrap;
+  align-items: flex-end;
+  border-bottom: var(--border-width) solid var(--color-4);
+  margin: 0 calc(-1 * var(--gap-double)) var(--gap-double);
   position: sticky;
   top: 0;
 
   button {
-    margin: 0 0 0 -1px;
+    margin-inline-end: calc(-1 * var(--border-width));
     background-color: var(--color-2);
-    border: 2px solid var(--color-4);
+    border: var(--border-width) solid var(--color-4);
     border-bottom: none;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
@@ -19,17 +22,19 @@
     font-size: var(--font-size-normal);
     width: auto;
     outline: none;
+
+    &:first-child {
+      margin-inline-start: var(--gap-double);
+    }
+
     &:hover,
     &:focus-visible,
     &.active {
       outline: none;
-      border-color: var(--color-highlight);
       border-bottom-color: var(--color-2);
-    }
-    &.active {
       position: relative;
-      top: calc(-1 * var(--tab-border-width));
-      height: calc(100% + var(--tab-border-width) * 2);
+      top: var(--border-width);
+      padding-top: calc(var(--gap) + var(--border-width));
       z-index: 1;
     }
   }

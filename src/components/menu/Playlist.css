@@ -4,31 +4,15 @@ html.rtl .playlist-controls .next-icon {
   transform: scaleX(-1);
 }
 
-/* LTR default */
 .playlist-controls {
-  position: absolute;
   top: var(--gap-double);
   left: var(--gap-double);
   right: auto;
   display: flex;
-  gap: 8px;
+  gap: var(--gap);
+  margin-block: var(--gap-double);
   align-items: center;
   z-index: 10;
-}
-
-html.rtl .playlist-controls {
-  left: auto;
-  right: var(--gap-double);
-}
-
-@media (max-width: 768px) {
-  .playlist-controls {
-    bottom: 0;
-    top: auto;
-    left: 0;
-    padding: var(--gap-double);
-    background: var(--color-2);
-  }
 }
 
 .playlist-controls button {

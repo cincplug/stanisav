@@ -1,0 +1,64 @@
+/* LocaleLinks component styles */
+
+.locale-dropdown-nav {
+  position: relative;
+  display: inline-block;
+}
+
+.locale-dropdown-toggle {
+  background: var(--color-3);
+  color: var(--color-5);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-normal);
+  padding: var(--gap) var(--gap-double);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-half);
+  box-shadow: var(--shadow-mild);
+}
+
+.locale-dropdown-toggle:focus {
+  outline: var(--outline-default);
+  z-index: 101;
+}
+
+.locale-dropdown-arrow {
+  margin-left: var(--gap-half);
+  font-size: var(--font-size-normal);
+  pointer-events: none;
+}
+
+.locale-dropdown-list {
+  position: absolute;
+  z-index: 100;
+  background: var(--color-3);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-strong);
+  margin: 0;
+  padding: var(--gap-double);
+  list-style: none;
+  top: calc(100% + var(--gap-half));
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: var(--panel-width);
+  gap: var(--gap);
+}
+
+.locale-dropdown-option {
+  padding: var(--gap);
+  cursor: pointer;
+  color: var(--color-5);
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: inline-start;
+  font-size: var(--font-size-normal);
+  text-decoration: none;
+}
+
+.locale-dropdown-option:focus,
+.locale-dropdown-option:hover {
+  outline: var(--outline-default);
+}
