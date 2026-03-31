@@ -7,6 +7,7 @@ import tabsConfig from "../../config/tabsConfig.json";
 import TabNavigation from "./TabNavigation";
 import TabRenderer from "./TabRenderer";
 import Playlist from "./Playlist";
+import LocaleLinks from "./LocaleLinks";
 import "./Menu.css";
 
 function Menu({
@@ -66,6 +67,7 @@ function Menu({
 
       {!isCollapsed && (
         <div className="menu">
+          <LocaleLinks />
           <Playlist />
           <TabNavigation activeTab={activeTab} setActiveTab={handleTabChange} />
 

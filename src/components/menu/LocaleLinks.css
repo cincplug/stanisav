@@ -1,0 +1,67 @@
+/* LocaleLinks component styles */
+
+.locale-dropdown-nav {
+  position: relative;
+  display: inline-block;
+}
+
+.locale-dropdown-toggle {
+  background: var(--color-2);
+  color: var(--color-5);
+  border: var(--tab-border-width) solid var(--color-4);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-normal);
+  padding: var(--gap) var(--gap-double);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-half);
+  box-shadow: var(--shadow-mild);
+}
+
+.locale-dropdown-toggle:focus {
+  outline: var(--outline-default);
+  z-index: 1001;
+}
+
+.locale-dropdown-arrow {
+  margin-left: var(--gap-half);
+  font-size: var(--font-size-normal);
+  pointer-events: none;
+}
+
+.locale-dropdown-list {
+  position: absolute;
+  z-index: 100;
+  background: var(--color-2);
+  border: var(--tab-border-width) solid var(--color-4);
+  border-radius: var(--border-radius);
+  margin: 0;
+  padding: var(--gap);
+  list-style: none;
+  top: calc(100% - var(--tab-border-width));
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: var(--panel-width);
+  gap: var(--gap);
+}
+
+.locale-dropdown-option {
+  padding: var(--gap);
+  cursor: pointer;
+  color: var(--color-5);
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: inline-start;
+  font-size: var(--font-size-normal);
+  text-decoration: none;
+}
+
+.locale-dropdown-option:focus,
+.locale-dropdown-option:hover {
+  background: var(--color-3);
+  color: var(--color-6);
+  outline: none;
+}
