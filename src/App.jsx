@@ -3,7 +3,6 @@ import { useParams, Navigate } from "react-router-dom";
 import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
 import Overlay from "./components/menu/Overlay";
-import Playlist from "./components/menu/Playlist";
 import PropertyShowcase from "./pages/property-showcase/PropertyShowcase.jsx";
 import IdCard from "./components/menu/IdCard";
 import { CloseIcon } from "./components/menu/MenuIcons";
@@ -101,22 +100,19 @@ function App() {
       </div>
 
       {!isLoading && sceneReady && (
-        <>
-          <Playlist />
-          <Menu
-            controls={controls}
-            onControlChange={updateControl}
-            data={data}
-            isLoading={isLoading}
-            sceneReady={sceneReady}
-            onCameraFocus={handleCameraFocus}
-            isCollapsed={isMenuCollapsed}
-            onToggleCollapse={() => setIsMenuCollapsed(!isMenuCollapsed)}
-            filteringUtils={filteringUtils}
-            onFilteringUtilsChange={setFilteringUtils}
-            languageColors={languageColors}
-          />
-        </>
+        <Menu
+          controls={controls}
+          onControlChange={updateControl}
+          data={data}
+          isLoading={isLoading}
+          sceneReady={sceneReady}
+          onCameraFocus={handleCameraFocus}
+          isCollapsed={isMenuCollapsed}
+          onToggleCollapse={() => setIsMenuCollapsed(!isMenuCollapsed)}
+          filteringUtils={filteringUtils}
+          onFilteringUtilsChange={setFilteringUtils}
+          languageColors={languageColors}
+        />
       )}
 
       {(isLoading || !sceneReady) && <Overlay variant="loading" />}

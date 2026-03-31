@@ -6,6 +6,7 @@ import { BurgerIcon, CloseIcon } from "./MenuIcons";
 import tabsConfig from "../../config/tabsConfig.json";
 import TabNavigation from "./TabNavigation";
 import TabRenderer from "./TabRenderer";
+import Playlist from "./Playlist";
 import "./Menu.css";
 
 function Menu({
@@ -65,6 +66,7 @@ function Menu({
 
       {!isCollapsed && (
         <div className="menu">
+          <Playlist />
           <TabNavigation activeTab={activeTab} setActiveTab={handleTabChange} />
 
           <TabRenderer
