@@ -6,9 +6,8 @@
 }
 
 .locale-dropdown-toggle {
-  background: var(--color-2);
+  background: var(--color-3);
   color: var(--color-5);
-  border: var(--tab-border-width) solid var(--color-4);
   border-radius: var(--border-radius);
   font-size: var(--font-size-normal);
   padding: var(--gap) var(--gap-double);
@@ -21,7 +20,7 @@
 
 .locale-dropdown-toggle:focus {
   outline: var(--outline-default);
-  z-index: 1001;
+  z-index: 101;
 }
 
 .locale-dropdown-arrow {
@@ -33,13 +32,13 @@
 .locale-dropdown-list {
   position: absolute;
   z-index: 100;
-  background: var(--color-2);
-  border: var(--tab-border-width) solid var(--color-4);
+  background: var(--color-3);
   border-radius: var(--border-radius);
+  box-shadow: var(--shadow-strong);
   margin: 0;
-  padding: var(--gap);
+  padding: var(--gap-double);
   list-style: none;
-  top: calc(100% - var(--tab-border-width));
+  top: calc(100% + var(--gap-half));
   left: 0;
   display: flex;
   flex-wrap: wrap;
@@ -61,7 +60,5 @@
 
 .locale-dropdown-option:focus,
 .locale-dropdown-option:hover {
-  background: var(--color-3);
-  color: var(--color-6);
-  outline: none;
+  outline: var(--outline-default);
 }
