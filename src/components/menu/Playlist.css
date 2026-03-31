@@ -10,7 +10,7 @@ html.rtl .playlist-controls .next-icon {
   right: auto;
   display: flex;
   gap: var(--gap);
-  margin-bottom: var(--gap-double);
+  margin-block: var(--gap-double);
   align-items: center;
   z-index: 10;
 }
