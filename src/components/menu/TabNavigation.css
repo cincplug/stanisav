@@ -4,18 +4,17 @@
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
-  border-bottom: calc(2 * var(--border-width)) solid var(--color-video);
+  border-bottom: var(--border-width) solid var(--color-3);
   margin: 0 calc(-1 * var(--gap-double)) var(--gap-double);
   position: sticky;
   top: 0;
 
   button {
-    margin-inline-end: calc(-1 * var(--border-width));
+    margin-inline-end: var(--border-width);
     background-color: var(--color-2);
-    border: var(--border-width) solid var(--color-4);
+    background: var(--color-3);
     border-bottom: none;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
     color: var(--color-5);
     padding: var(--gap) var(--gap-double);
     cursor: pointer;
