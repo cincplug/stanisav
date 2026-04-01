@@ -82,15 +82,18 @@ button,
   font-size: var(--font-size-normal);
 }
 
+a,
 button,
 input,
 select,
 .checkbox-button {
   &:hover,
-  &:focus-visible,
+  &:focus-visible {
+    outline: var(--outline-default);
+  }
   &:active,
   &.active {
-    outline: var(--outline-default);
+    background: var(--color-video);
   }
 }
 

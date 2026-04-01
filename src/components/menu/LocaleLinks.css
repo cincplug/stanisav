@@ -8,6 +8,7 @@
 .locale-dropdown-toggle {
   background: var(--color-3);
   color: var(--color-5);
+  border: none;
   border-radius: var(--border-radius);
   font-size: var(--font-size-normal);
   padding: var(--gap) var(--gap-double);
@@ -18,7 +19,7 @@
   box-shadow: var(--shadow-mild);
 }
 
-.locale-dropdown-toggle:focus {
+.locale-dropdown-toggle:focus-visible {
   outline: var(--outline-default);
   z-index: 101;
 }
@@ -53,12 +54,17 @@
   background: none;
   border: none;
   width: 100%;
-  text-align: inline-start;
+  text-align: start;
   font-size: var(--font-size-normal);
   text-decoration: none;
+  display: block;
 }
 
-.locale-dropdown-option:focus,
+.locale-dropdown-option:focus-visible,
 .locale-dropdown-option:hover {
+  outline: var(--outline-default);
+}
+
+.locale-dropdown-option[aria-selected="true"] {
   outline: var(--outline-default);
 }

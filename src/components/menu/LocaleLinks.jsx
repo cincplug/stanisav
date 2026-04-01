@@ -11,30 +11,57 @@ export default function LocaleLinks() {
   const buttonRef = useRef(null);
   const listRef = useRef(null);
 
-  // Only show the current locale as the button label, using nativeName from languages.json
   const currentNativeName = languages[locale]?.nativeName || locale;
 
-  // All other locales for dropdown, using native names
-  const otherLocales = locales
-    .filter((code) => code !== locale)
-    .map((code) => ({
-      code,
-      nativeName: languages[code]?.nativeName || code,
-      slug: toUrlSlug(code),
-    }));
+  // All locales including current, for the listbox
+  const allLocales = locales.map((code) => ({
+    code,
+    nativeName: languages[code]?.nativeName || code,
+    slug: toUrlSlug(code),
+  }));
 
-  // Handle keyboard navigation and closing
+  const focusOption = (index) => {
+    const options = listRef.current?.querySelectorAll("[role='option']");
+    if (options?.[index]) options[index].focus();
+  };
+
+  const handleListKeyDown = (e, index) => {
+    const options = listRef.current?.querySelectorAll("[role='option']");
+    const count = options?.length ?? 0;
+
+    if (e.key === "Tab") {
+      const isLast = index === count - 1;
+      const isFirst = index === 0;
+      if ((!e.shiftKey && isLast) || (e.shiftKey && isFirst)) {
+        setOpen(false);
+        // let Tab move focus naturally, don't preventDefault
+      } else {
+        // mid-list Tab: move focus manually and prevent default
+        e.preventDefault();
+        focusOption(e.shiftKey ? index - 1 : index + 1);
+      }
+      return;
+    }
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      focusOption((index + 1) % count);
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      focusOption((index - 1 + count) % count);
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      focusOption(0);
+    } else if (e.key === "End") {
+      e.preventDefault();
+      focusOption(count - 1);
+    } else if (e.key === "Escape") {
+      setOpen(false);
+      buttonRef.current?.focus();
+    }
+  };
+
   useEffect(() => {
     if (!open) return;
-    function handleKeyDown(e) {
-      if (e.key === "Escape") {
-        setOpen(false);
-        buttonRef.current?.focus();
-      }
-      if (e.key === "Tab") {
-        setOpen(false);
-      }
-    }
     function handleClickOutside(e) {
       if (
         listRef.current &&
@@ -45,12 +72,8 @@ export default function LocaleLinks() {
         setOpen(false);
       }
     }
-    document.addEventListener("keydown", handleKeyDown);
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [open]);
 
   return (
@@ -63,15 +86,18 @@ export default function LocaleLinks() {
         aria-controls="locale-dropdown-list"
         onClick={() => setOpen((v) => !v)}
         onKeyDown={(e) => {
-          if (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") {
+          if (e.key === "ArrowDown") {
             e.preventDefault();
             setOpen(true);
-            setTimeout(() => {
-              listRef.current?.querySelector("[role='option']")?.focus();
-            }, 0);
+            setTimeout(() => focusOption(0), 0);
+          } else if (e.key === "ArrowUp") {
+            e.preventDefault();
+            setOpen(true);
+            setTimeout(() => focusOption(allLocales.length - 1), 0);
+          } else if (e.key === "Escape") {
+            setOpen(false);
           }
         }}
-        tabIndex={0}
         aria-label={currentNativeName}
       >
         <span className="locale-dropdown-current">{currentNativeName}</span>
@@ -86,23 +112,19 @@ export default function LocaleLinks() {
           className="locale-dropdown-list"
           role="listbox"
           aria-label="Available languages"
-          tabIndex={-1}
+          aria-activedescendant={`locale-option-${locale}`}
         >
-          {otherLocales.map(({ code, nativeName, slug }) => (
+          {allLocales.map(({ code, nativeName, slug }, index) => (
             <li key={code} role="none">
               <a
+                id={`locale-option-${code}`}
                 href={`/${slug}`}
                 className="locale-dropdown-option"
                 tabIndex={0}
                 role="option"
-                aria-selected={false}
+                aria-selected={code === locale}
                 onClick={() => setOpen(false)}
-                onKeyDown={(e) => {
-                  if (e.key === "Escape") {
-                    setOpen(false);
-                    buttonRef.current?.focus();
-                  }
-                }}
+                onKeyDown={(e) => handleListKeyDown(e, index)}
               >
                 {nativeName}
               </a>
