@@ -21,9 +21,10 @@ import Label from "./Label";
 import Mesha from "./Mesha";
 import Camera from "./Camera";
 
-// For the stage, family clusters group by leaf lineage key (e.g. "South-Slavic")
-// so each sub-family gets its own sphere, matching layoutEngine's getClusterKey.
-// All other sortBy cases use the same groupLanguages as the tab.
+// Stage clusters use single-membership grouping so each language belongs to
+// exactly one cluster, matching layoutEngine's getClusterKey:
+// - family: leaf lineage key with getFamilyLabel title
+// - everything else: delegates to groupLanguages
 const getStageClusterGroups = ({
   sortedLanguageCodes,
   sortBy,
@@ -32,32 +33,27 @@ const getStageClusterGroups = ({
   labelContent,
   isReverse,
 }) => {
-  if (sortBy !== "family") {
-    return groupLanguages({
-      sortedLanguageCodes,
-      sortBy,
-      languageData,
-      languageLineages,
-      labelContent,
-      lineages,
-      isReverse,
+  if (sortBy === "family") {
+    const groups = {};
+    sortedLanguageCodes.forEach((code) => {
+      const leafKey = languageLineages[code] ?? "isolate";
+      if (!groups[leafKey]) {
+        groups[leafKey] = { title: getFamilyLabel(leafKey), languages: [] };
+      }
+      groups[leafKey].languages.push(code);
     });
+    return Object.values(groups);
   }
 
-  // Group by leaf lineage key, preserving sortedLanguageCodes order
-  const groups = {};
-  sortedLanguageCodes.forEach((code) => {
-    const leafKey = languageLineages[code] ?? "isolate";
-    if (!groups[leafKey]) {
-      groups[leafKey] = {
-        title: getFamilyLabel(leafKey),
-        languages: [],
-      };
-    }
-    groups[leafKey].languages.push(code);
+  return groupLanguages({
+    sortedLanguageCodes,
+    sortBy,
+    languageData,
+    languageLineages,
+    labelContent,
+    lineages,
+    isReverse,
   });
-
-  return Object.values(groups);
 };
 
 // Renders all labels as a flat list with stable keys so springs persist

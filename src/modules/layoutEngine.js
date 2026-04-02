@@ -35,19 +35,17 @@ class LayoutEngine {
       controls;
 
     const getClusterKey = (code) => {
-      const lang = languageData[code];
       switch (sortBy) {
         case "speakers":
           return "all";
         case "family":
-          // Group by leaf lineage key so e.g. Serbian lands in "South-Slavic"
           return languageLineages[code] ?? "isolate";
         case "alphabetically": {
           const label = getLanguageLabel(code, languageData, labelContent);
           return Array.from(label.trim())[0]?.toLocaleUpperCase("und");
         }
         default:
-          return String(lang[sortBy]);
+          return String(languageData[code][sortBy]);
       }
     };
 
@@ -82,9 +80,8 @@ class LayoutEngine {
       clusters[key].push(code);
     });
 
-    // For family sort, order cluster keys by their lineage path so sibling
-    // families (e.g. South-Slavic, West-Slavic, East-Slavic) end up adjacent
-    // in the grid. For all other sorts, preserve insertion order.
+    // For family sort, order cluster keys by lineage path so sibling families
+    // end up adjacent in the grid. All other sorts preserve insertion order.
     const clusterKeys =
       sortBy === "family"
         ? Object.keys(clusters).sort((a, b) =>

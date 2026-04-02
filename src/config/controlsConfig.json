@@ -6,7 +6,6 @@
       { "value": "alphabetically", "label": "Alphabetical order" },
       { "value": "speakers", "label": "Speakers' number" },
       { "value": "family", "label": "Language family" },
-      { "value": "scripts", "label": "Scripts" },
       { "value": "tonality", "label": "Tonality" },
       { "value": "morphology", "label": "Morphology" },
       { "value": "wordOrder", "label": "Word order" },
