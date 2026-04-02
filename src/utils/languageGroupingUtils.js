@@ -1,4 +1,5 @@
 import linguisticConfig from "../config/linguisticConfig.json";
+import lineages from "../config/lineages.json";
 import numericFeatures from "../config/numericFeatures.json";
 import { getFamilyLabel } from "./configI18nUtils";
 import { getFeatureLabel } from "./linguisticUtils";
@@ -33,14 +34,15 @@ export function buildLanguageTree(languageCodes, languageData, lineagesConfig) {
 }
 
 // Returns [{ title, languages[] }] for all sortBy cases.
-// Matches the groupedByCategory logic in LanguagesTab.
+// Used by LanguagesTab — allows multi-membership (e.g. a language in multiple
+// script groups). Not suitable for stage layout which requires single-membership.
 export function groupLanguages({
   sortedLanguageCodes,
   sortBy,
   languageData,
   languageLineages,
   labelContent,
-  lineages,
+  lineages: lineagesArg,
   isReverse,
 }) {
   if (sortBy === "speakers") {
@@ -69,7 +71,7 @@ export function groupLanguages({
     if (sortBy === "family") {
       const lineageKey = languageLineages[langCode];
       if (!lineageKey) throw new Error(`Missing lineageKey for '${langCode}'`);
-      const ancestors = lineages[lineageKey];
+      const ancestors = (lineagesArg ?? lineages)[lineageKey];
       const categoryKey =
         Array.isArray(ancestors) && ancestors.length > 0
           ? ancestors[0]
@@ -128,4 +130,38 @@ export function groupLanguages({
   }
 
   return groups;
+}
+
+// Single-membership grouping for the stage, matching layoutEngine's getClusterKey.
+// Each language belongs to exactly one cluster so positions and titles are stable.
+// - family: groups by leaf lineage key
+// - everything else: delegates to groupLanguages
+export function groupLanguagesForStage({
+  sortedLanguageCodes,
+  sortBy,
+  languageData,
+  languageLineages,
+  labelContent,
+  isReverse,
+}) {
+  if (sortBy === "family") {
+    const groups = {};
+    sortedLanguageCodes.forEach((code) => {
+      const leafKey = languageLineages[code] ?? "isolate";
+      if (!groups[leafKey]) {
+        groups[leafKey] = { title: getFamilyLabel(leafKey), languages: [] };
+      }
+      groups[leafKey].languages.push(code);
+    });
+    return Object.values(groups);
+  }
+
+  return groupLanguages({
+    sortedLanguageCodes,
+    sortBy,
+    languageData,
+    languageLineages,
+    labelContent,
+    isReverse,
+  });
 }
