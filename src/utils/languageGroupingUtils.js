@@ -21,11 +21,9 @@ export function buildLanguageTree(languageCodes, languageData, lineagesConfig) {
       if (!node[level]) {
         node[level] = { children: {}, languages: [] };
       }
-
       if (index === lineagePath.length - 1) {
         node[level].languages.push(langCode);
       }
-
       node = node[level].children;
     });
   });
@@ -33,16 +31,12 @@ export function buildLanguageTree(languageCodes, languageData, lineagesConfig) {
   return tree;
 }
 
-// Returns [{ title, languages[] }] for all sortBy cases.
-// Used by LanguagesTab — allows multi-membership (e.g. a language in multiple
-// script groups). Not suitable for stage layout which requires single-membership.
 export function groupLanguages({
   sortedLanguageCodes,
   sortBy,
   languageData,
   languageLineages,
   labelContent,
-  lineages: lineagesArg,
   isReverse,
 }) {
   if (sortBy === "speakers") {
@@ -65,27 +59,29 @@ export function groupLanguages({
     );
   }
 
-  const result = {};
-
-  sortedLanguageCodes.forEach((langCode) => {
-    if (sortBy === "family") {
+  if (sortBy === "family") {
+    const result = {};
+    sortedLanguageCodes.forEach((langCode) => {
       const lineageKey = languageLineages[langCode];
       if (!lineageKey) throw new Error(`Missing lineageKey for '${langCode}'`);
-      const ancestors = (lineagesArg ?? lineages)[lineageKey];
-      const categoryKey =
-        Array.isArray(ancestors) && ancestors.length > 0
-          ? ancestors[0]
-          : lineageKey;
-      const categoryLabel = getFamilyLabel(categoryKey);
+
+      let categoryKey = lineageKey;
+
       if (!result[categoryKey]) {
         result[categoryKey] = {
-          title: categoryLabel,
+          title: getFamilyLabel(categoryKey),
           languages: [],
-          _key: categoryKey,
         };
       }
       result[categoryKey].languages.push(langCode);
-    } else if (linguisticConfig[sortBy]?.values) {
+    });
+    return Object.values(result);
+  }
+
+  const result = {};
+
+  sortedLanguageCodes.forEach((langCode) => {
+    if (linguisticConfig[sortBy]?.values) {
       const raw = languageData[langCode][sortBy];
       const keys = Array.isArray(raw) ? raw : [raw];
       keys.forEach((key) => {
@@ -97,10 +93,9 @@ export function groupLanguages({
       });
     } else if (numericFeatures.includes(sortBy)) {
       const categoryKey = languageData[langCode][sortBy];
-      const categoryLabel = `${categoryKey}`;
       if (!result[categoryKey]) {
         result[categoryKey] = {
-          title: categoryLabel,
+          title: `${categoryKey}`,
           languages: [],
           _key: categoryKey,
         };
@@ -130,38 +125,4 @@ export function groupLanguages({
   }
 
   return groups;
-}
-
-// Single-membership grouping for the stage, matching layoutEngine's getClusterKey.
-// Each language belongs to exactly one cluster so positions and titles are stable.
-// - family: groups by leaf lineage key
-// - everything else: delegates to groupLanguages
-export function groupLanguagesForStage({
-  sortedLanguageCodes,
-  sortBy,
-  languageData,
-  languageLineages,
-  labelContent,
-  isReverse,
-}) {
-  if (sortBy === "family") {
-    const groups = {};
-    sortedLanguageCodes.forEach((code) => {
-      const leafKey = languageLineages[code] ?? "isolate";
-      if (!groups[leafKey]) {
-        groups[leafKey] = { title: getFamilyLabel(leafKey), languages: [] };
-      }
-      groups[leafKey].languages.push(code);
-    });
-    return Object.values(groups);
-  }
-
-  return groupLanguages({
-    sortedLanguageCodes,
-    sortBy,
-    languageData,
-    languageLineages,
-    labelContent,
-    isReverse,
-  });
 }

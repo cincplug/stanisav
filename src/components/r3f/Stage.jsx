@@ -10,7 +10,7 @@ import { useDataManager } from "../../hooks/useDataManager";
 import { calculateLanguageFilterStatus } from "../../utils/sceneUtils";
 import { getFeatureScore } from "../../utils/linguisticUtils";
 import { getSortingData, sortLanguages } from "../../utils/sortingUtils";
-import { groupLanguagesForStage } from "../../utils/languageGroupingUtils";
+import { groupLanguages } from "../../utils/languageGroupingUtils";
 import { LayoutEngine } from "../../modules/layoutEngine";
 import lineages from "../../config/lineages.json";
 import StageLight from "./StageLight";
@@ -72,7 +72,7 @@ const Stage = ({
 
   const groups = useMemo(
     () =>
-      groupLanguagesForStage({
+      groupLanguages({
         sortedLanguageCodes,
         sortBy,
         languageData,

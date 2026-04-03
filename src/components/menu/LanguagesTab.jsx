@@ -64,7 +64,6 @@ function LanguagesTab({ languageData, isActive, languageColors = {} }) {
         languageData,
         languageLineages,
         labelContent,
-        lineages,
         isReverse,
       }),
     [
