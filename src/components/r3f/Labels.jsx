@@ -1,5 +1,5 @@
 import { useThree } from "@react-three/fiber";
-import { useClusterOpacities } from "./LabelsCluster";
+import { useClusterOpacities } from "../../hooks/useClusterOpacities";
 import LabelsCluster from "./LabelsCluster";
 import Label from "./Label";
 
