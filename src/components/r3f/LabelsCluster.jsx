@@ -46,7 +46,12 @@ export const useClusterOpacities = (
   return opacities;
 };
 
-const LabelsCluster = ({ title, languageCodes, formattedPositions }) => {
+const LabelsCluster = ({
+  title,
+  languageCodes,
+  formattedPositions,
+  selectedLanguage,
+}) => {
   const { controls } = useControls();
   const { isSegmented } = controls;
 
@@ -57,7 +62,7 @@ const LabelsCluster = ({ title, languageCodes, formattedPositions }) => {
     }
   });
 
-  if (!title || !isSegmented) return null;
+  if (!isSegmented || selectedLanguage) return null;
 
   return <LabelsClusterTitle positions={clusterPositions} title={title} />;
 };
