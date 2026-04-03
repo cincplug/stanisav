@@ -10,7 +10,6 @@ const Labels = ({
   languageColors,
   languageData,
   selectedLanguage,
-  segmentation,
 }) => {
   const { camera } = useThree();
   const opacities = useClusterOpacities(
@@ -52,7 +51,6 @@ const Labels = ({
           languageCodes={group.languages}
           formattedPositions={formattedPositions}
           selectedLanguage={selectedLanguage}
-          segmentation={segmentation}
         />
       ))}
     </>

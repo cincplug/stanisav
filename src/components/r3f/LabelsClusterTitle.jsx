@@ -6,7 +6,7 @@ import { getClusterBottomCenter } from "../../utils/sceneUtils";
 
 const TITLE_OFFSET_Y = 3;
 
-const LabelsClusterTitle = ({ positions, title, opacity }) => {
+const LabelsClusterTitle = ({ positions, title }) => {
   const titleRef = useRef();
   const lineRef = useRef();
 
@@ -30,11 +30,6 @@ const LabelsClusterTitle = ({ positions, title, opacity }) => {
       points.setXYZ(0, connectorStart.x, connectorStart.y, connectorStart.z);
       points.setXYZ(1, titlePos.x, titlePos.y, titlePos.z);
       points.needsUpdate = true;
-      lineRef.current.material.opacity = opacity;
-    }
-
-    if (titleRef.current.material) {
-      titleRef.current.material.opacity = opacity;
     }
   });
 
@@ -46,8 +41,6 @@ const LabelsClusterTitle = ({ positions, title, opacity }) => {
         anchorX="center"
         anchorY="top"
         color="white"
-        material-transparent
-        material-opacity={opacity}
       >
         {title}
       </Text>
@@ -60,7 +53,7 @@ const LabelsClusterTitle = ({ positions, title, opacity }) => {
             itemSize={3}
           />
         </bufferGeometry>
-        <lineBasicMaterial color="white" transparent opacity={opacity} />
+        <lineBasicMaterial color="white" />
       </line>
     </group>
   );

@@ -41,7 +41,6 @@ const Stage = ({
     tension,
     friction,
     sphereRadius,
-    segmentation,
     sortBy,
     labelContent,
     isReverse,
@@ -206,7 +205,6 @@ const Stage = ({
             languageColors={languageColors}
             languageData={languageData}
             selectedLanguage={selectedLanguage}
-            segmentation={segmentation}
           />
         )}
 

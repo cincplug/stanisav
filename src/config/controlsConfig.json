@@ -61,14 +61,11 @@
     "group": "Scene"
   },
   "segmentation": {
-    "type": "range",
+    "type": "checkbox",
     "label": "Segmentation",
-    "min": 0,
-    "max": 120,
-    "step": 1,
-    "defaultValue": 100,
+    "defaultValue": true,
     "isUserEditable": true,
-    "group": "Scene"
+    "group": "Languages tab"
   },
   "isMyMesha": {
     "type": "checkbox",
@@ -82,7 +79,7 @@
     "label": "Show subtitle",
     "defaultValue": true,
     "isUserEditable": true,
-    "group": "Languages tab"
+    "group": "Scene"
   },
   "isLoop": {
     "type": "checkbox",

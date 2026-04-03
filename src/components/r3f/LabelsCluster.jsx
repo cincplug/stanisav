@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
-import { useThree, useFrame } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
+import { useControls } from "../../contexts/ControlsContext";
 import { computeOpacities } from "../../utils/sceneUtils";
 import LabelsClusterTitle from "./LabelsClusterTitle";
 
@@ -45,14 +46,9 @@ export const useClusterOpacities = (
   return opacities;
 };
 
-const LabelsCluster = ({
-  title,
-  languageCodes,
-  formattedPositions,
-  selectedLanguage,
-  segmentation,
-}) => {
-  const clusterOpacity = selectedLanguage ? 0 : segmentation / 100;
+const LabelsCluster = ({ title, languageCodes, formattedPositions }) => {
+  const { controls } = useControls();
+  const { segmentation } = controls;
 
   const clusterPositions = {};
   languageCodes.forEach((code) => {
@@ -61,15 +57,9 @@ const LabelsCluster = ({
     }
   });
 
-  if (!title || clusterOpacity <= 0) return null;
+  if (!title || !segmentation) return null;
 
-  return (
-    <LabelsClusterTitle
-      positions={clusterPositions}
-      title={title}
-      opacity={clusterOpacity}
-    />
-  );
+  return <LabelsClusterTitle positions={clusterPositions} title={title} />;
 };
 
 export default LabelsCluster;

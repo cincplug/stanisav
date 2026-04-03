@@ -157,7 +157,7 @@ class LayoutEngine {
       });
     });
 
-    const t = sortBy === "speakers" ? 0 : segmentation / 100;
+    const t = sortBy === "speakers" ? 0 : 1;
 
     const positions = {};
     sortedLanguages.forEach((code) => {
