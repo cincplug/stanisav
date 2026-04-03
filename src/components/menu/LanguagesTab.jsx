@@ -6,7 +6,6 @@ import { usePlaylist } from "../../contexts/PlaylistContext";
 import controlsConfig from "../../config/controlsConfig.json";
 import lineages from "../../config/lineages.json";
 import { localizeControlConfig } from "../../utils/configI18nUtils";
-import { getLanguageLabel } from "../../utils/languageDisplayUtils";
 import { getSortingData, sortLanguages } from "../../utils/sortingUtils";
 import {
   buildLanguageTree,

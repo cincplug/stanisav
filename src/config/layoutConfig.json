@@ -1,6 +1,6 @@
 {
   "labelSizeNormalization": {
-    "outMin": 1.7,
-    "outMax": 2.7
+    "outMin": 2.2,
+    "outMax": 2.5
   }
 }
