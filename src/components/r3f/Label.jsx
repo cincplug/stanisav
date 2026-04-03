@@ -42,7 +42,7 @@ const Label = ({
       e.stopPropagation();
       startFromLanguage(languageCode);
     },
-    [languageCode],
+    [languageCode, startFromLanguage],
   );
 
   const sizeMultiplier = useMemo(
