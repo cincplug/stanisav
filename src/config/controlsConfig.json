@@ -56,7 +56,7 @@
     "min": 1,
     "max": 50,
     "step": 1,
-    "defaultValue": 27,
+    "defaultValue": 22,
     "isUserEditable": true,
     "group": "Scene"
   },

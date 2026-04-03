@@ -4,7 +4,7 @@ import { Text } from "@react-three/drei";
 import { Vector3 } from "three";
 import { getClusterBottomCenter } from "../../utils/sceneUtils";
 
-const TITLE_OFFSET_Y = 3;
+const TITLE_OFFSET_Y = 2;
 
 const LabelsClusterTitle = ({ positions, title }) => {
   const titleRef = useRef();
