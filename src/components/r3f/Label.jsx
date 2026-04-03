@@ -3,15 +3,11 @@ import { useSpring } from "@react-spring/three";
 import { useFrame } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
 import { MeshStandardMaterial } from "three";
-import layoutConfig from "../../config/layoutConfig.json";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
 import { usePlaylist } from "../../contexts/PlaylistContext.jsx";
 import { useAppState } from "../../contexts/AppStateContext.jsx";
-import {
-  calculateSizeMultiplier,
-  calculateRadialOffset,
-} from "../../utils/sceneUtils.js";
+import { calculateRadialOffset } from "../../utils/sceneUtils.js";
 import { getLanguageLabel } from "../../utils/languageDisplayUtils.js";
 
 const Label = ({
@@ -44,13 +40,6 @@ const Label = ({
     },
     [languageCode, startFromLanguage],
   );
-
-  const sizeMultiplier = useMemo(
-    () => calculateSizeMultiplier(sortBy, data, languageCode, layoutConfig),
-    [sortBy, data, languageCode],
-  );
-
-  const fontSize = labelSize * sizeMultiplier;
 
   const labelText = getLanguageLabel(
     languageCode,
@@ -109,11 +98,11 @@ const Label = ({
       <Text
         position={[0, 0, 0]}
         ref={labelRef}
-        fontSize={fontSize}
+        fontSize={labelSize}
         fontWeight="bold"
         anchorX="center"
         anchorY="middle"
-        outlineWidth={fontSize / 2}
+        outlineWidth={labelSize / 2}
         outlineColor={color}
         color={bgColor}
         material={textMaterial}
