@@ -142,7 +142,7 @@
     "sphereRadius": {
       "label": "球体半径"
     },
-    "segmentation": { "label": "分割" },
+    "isSegmented": { "label": "分割" },
     "stageLightDecay": {
       "label": "衰减"
     },

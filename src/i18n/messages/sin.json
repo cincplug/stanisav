@@ -142,7 +142,7 @@
     "sphereRadius": {
       "label": "ගෝල අරය"
     },
-    "segmentation": {
+    "isSegmented": {
       "label": "ඛණ්ඩනය"
     },
     "stageLightDecay": {

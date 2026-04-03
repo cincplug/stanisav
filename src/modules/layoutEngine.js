@@ -31,7 +31,7 @@ class LayoutEngine {
       speakerData,
       typologicalFeatures,
     } = data;
-    const { sortBy, sphereRadius, labelContent, isReverse, segmentation } =
+    const { sortBy, sphereRadius, labelContent, isReverse, isSegmented } =
       controls;
 
     const getClusterKey = (code) => {
@@ -157,7 +157,7 @@ class LayoutEngine {
       });
     });
 
-    const t = sortBy === "speakers" ? 0 : 1;
+    const t = sortBy === "speakers" ? 0 : isSegmented ? 1 : 0;
 
     const positions = {};
     sortedLanguages.forEach((code) => {

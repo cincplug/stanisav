@@ -163,7 +163,7 @@
     "zoomDistance": {
       "label": "Jarak zoom"
     },
-    "segmentation": { "label": "Segmentasi" }
+    "isSegmented": { "label": "Segmentasi" }
   },
   "filters": {
     "all": "Semua",

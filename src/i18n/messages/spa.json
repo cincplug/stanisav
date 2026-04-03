@@ -163,7 +163,7 @@
     "zoomDistance": {
       "label": "Distancia de zoom"
     },
-    "segmentation": { "label": "Segmentación" }
+    "isSegmented": { "label": "Segmentación" }
   },
   "filters": {
     "all": "Todos",

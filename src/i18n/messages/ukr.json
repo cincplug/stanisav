@@ -163,7 +163,7 @@
     "zoomDistance": {
       "label": "Відстань масштабування"
     },
-    "segmentation": { "label": "Сегментація" }
+    "isSegmented": { "label": "Сегментація" }
   },
   "filters": {
     "all": "Усі",

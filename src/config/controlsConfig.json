@@ -60,7 +60,7 @@
     "isUserEditable": true,
     "group": "Scene"
   },
-  "segmentation": {
+  "isSegmented": {
     "type": "checkbox",
     "label": "Segmentation",
     "defaultValue": true,

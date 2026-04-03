@@ -44,6 +44,7 @@ const Stage = ({
     sortBy,
     labelContent,
     isReverse,
+    isSegmented,
   } = controls;
 
   useEffect(() => {
@@ -90,15 +91,30 @@ const Stage = ({
   );
 
   const layoutEngine = useMemo(() => new LayoutEngine(), []);
-  const { positions: formattedPositions } = layoutEngine.calculateLayout(
-    {
+  const { positions: formattedPositions } = useMemo(
+    () =>
+      layoutEngine.calculateLayout(
+        {
+          languageData,
+          languageLineages,
+          lineageTree: lineages,
+          speakerData,
+          typologicalFeatures,
+        },
+        controls,
+      ),
+    [
+      layoutEngine,
       languageData,
       languageLineages,
-      lineageTree: lineages,
       speakerData,
       typologicalFeatures,
-    },
-    controls,
+      sortBy,
+      sphereRadius,
+      labelContent,
+      isReverse,
+      isSegmented,
+    ],
   );
 
   const languageFilterStatus = useMemo(

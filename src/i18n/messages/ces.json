@@ -76,7 +76,7 @@
     "isLuka": {
       "label": "Luka čte ukázky"
     },
-    "segmentation": { "label": "Segmentace" },
+    "isSegmented": { "label": "Segmentace" },
     "isMyMesha": {
       "label": "Jsem Meša"
     },

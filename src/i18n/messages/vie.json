@@ -163,7 +163,7 @@
     "zoomDistance": {
       "label": "Khoảng cách thu phóng"
     },
-    "segmentation": { "label": "Phân đoạn" }
+    "isSegmented": { "label": "Phân đoạn" }
   },
   "filters": {
     "all": "Tất cả",

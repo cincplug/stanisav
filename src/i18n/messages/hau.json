@@ -163,7 +163,7 @@
     "zoomDistance": {
       "label": "Nisan zum"
     },
-    "segmentation": { "label": "Rarrabuwa" }
+    "isSegmented": { "label": "Rarrabuwa" }
   },
   "filters": {
     "all": "Duka",

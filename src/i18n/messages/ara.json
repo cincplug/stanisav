@@ -163,7 +163,7 @@
     "zoomDistance": {
       "label": "مسافة التكبير"
     },
-    "segmentation": { "label": "تجزئة" }
+    "isSegmented": { "label": "تجزئة" }
   },
   "filters": {
     "all": "الكل",

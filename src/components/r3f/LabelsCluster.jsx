@@ -48,7 +48,7 @@ export const useClusterOpacities = (
 
 const LabelsCluster = ({ title, languageCodes, formattedPositions }) => {
   const { controls } = useControls();
-  const { segmentation } = controls;
+  const { isSegmented } = controls;
 
   const clusterPositions = {};
   languageCodes.forEach((code) => {
@@ -57,7 +57,7 @@ const LabelsCluster = ({ title, languageCodes, formattedPositions }) => {
     }
   });
 
-  if (!title || !segmentation) return null;
+  if (!title || !isSegmented) return null;
 
   return <LabelsClusterTitle positions={clusterPositions} title={title} />;
 };

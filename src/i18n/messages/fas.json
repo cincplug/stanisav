@@ -163,7 +163,7 @@
     "zoomDistance": {
       "label": "فاصله زوم"
     },
-    "segmentation": { "label": "بخش‌بندی" }
+    "isSegmented": { "label": "بخش‌بندی" }
   },
   "filters": {
     "all": "همه",

@@ -163,7 +163,7 @@
     "zoomDistance": {
       "label": "Daljina zuma"
     },
-    "segmentation": { "label": "Segmentacija" }
+    "isSegmented": { "label": "Segmentacija" }
   },
   "filters": {
     "all": "Svi",
