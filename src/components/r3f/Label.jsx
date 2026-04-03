@@ -10,13 +10,7 @@ import { useAppState } from "../../contexts/AppStateContext.jsx";
 import { calculateRadialOffset } from "../../utils/sceneUtils.js";
 import { getLanguageLabel } from "../../utils/languageDisplayUtils.js";
 
-const Label = ({
-  languageCode,
-  position,
-  isSelected = false,
-  color,
-  opacity = 1,
-}) => {
+const Label = ({ languageCode, position, isSelected, color, opacity }) => {
   const groupRef = useRef();
   const labelRef = useRef();
   const { controls } = useControls();
@@ -78,11 +72,10 @@ const Label = ({
     if (groupRef.current) {
       const [x, y, z] = positionSpring.position.get();
       const offset = selectionSpring.offset.get();
-      const radial = calculateRadialOffset([x, y, z]);
       groupRef.current.position.set(
-        x + radial[0] * offset,
-        y + radial[1] * offset,
-        z + radial[2] * offset,
+        x + radialOffset[0] * offset,
+        y + radialOffset[1] * offset,
+        z + radialOffset[2] * offset,
       );
     }
     if (labelRef.current) {
