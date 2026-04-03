@@ -200,6 +200,8 @@ const Stage = ({
         enableDamping={true}
         makeDefault={true}
         enableZoom={!selectedLanguage}
+        minDistance={50}
+        maxDistance={500}
       />
 
       <StageLight intensity={stageLightIntensity} />
