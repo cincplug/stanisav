@@ -4,17 +4,6 @@ import { getFamilyLabel } from "./configI18nUtils";
 import { getFeatureLabel } from "./linguisticUtils";
 import { getLanguageLabel } from "./languageDisplayUtils";
 
-const speakerGroups = [
-  { title: "< 10M", min: -Infinity, max: 10 },
-  { title: "10 - 50M", min: 10, max: 50 },
-  { title: "50 - 100M", min: 50, max: 100 },
-  { title: "100 - 250M", min: 100, max: 250 },
-  { title: "> 250M", min: 250, max: Infinity },
-];
-
-const getSpeakerGroup = (speakers) =>
-  speakerGroups.find((group) => speakers >= group.min && speakers < group.max);
-
 export function buildLanguageTree(languageCodes, languageData, lineagesConfig) {
   const tree = {};
 
@@ -153,3 +142,13 @@ export function groupLanguages({
 
   return groups;
 }
+
+export const speakerGroups = [
+  { title: "< 10M", min: -Infinity, max: 10 },
+  { title: "10 - 50M", min: 10, max: 50 },
+  { title: "50 - 100M", min: 50, max: 100 },
+  { title: "> 100M", min: 100, max: Infinity },
+];
+
+export const getSpeakerGroup = (speakers) =>
+  speakerGroups.find((group) => speakers >= group.min && speakers < group.max);

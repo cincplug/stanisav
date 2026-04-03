@@ -5,14 +5,7 @@ import {
   getLineagePathForKey,
 } from "../utils/sortingUtils";
 import { getLanguageLabel } from "../utils/languageDisplayUtils";
-
-const getSpeakerGroup = (speakers) => {
-  if (speakers < 10) return "group-1";
-  if (speakers < 50) return "group-2";
-  if (speakers < 100) return "group-3";
-  if (speakers < 250) return "group-4";
-  return "group-5";
-};
+import { getSpeakerGroup } from "../utils/languageGroupingUtils";
 
 class LayoutEngine {
   constructor() {
@@ -46,7 +39,7 @@ class LayoutEngine {
       switch (sortBy) {
         case "speakers":
           return isSegmented
-            ? getSpeakerGroup(languageData[code].speakers)
+            ? (getSpeakerGroup(languageData[code].speakers)?.title ?? "all")
             : "all";
         case "family":
           return languageLineages[code] ?? "isolate";
