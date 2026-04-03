@@ -1,9 +1,19 @@
 import linguisticConfig from "../config/linguisticConfig.json";
-import lineages from "../config/lineages.json";
 import numericFeatures from "../config/numericFeatures.json";
 import { getFamilyLabel } from "./configI18nUtils";
 import { getFeatureLabel } from "./linguisticUtils";
 import { getLanguageLabel } from "./languageDisplayUtils";
+
+const speakerGroups = [
+  { title: "< 10M", min: -Infinity, max: 10 },
+  { title: "10 - 50M", min: 10, max: 50 },
+  { title: "50 - 100M", min: 50, max: 100 },
+  { title: "100 - 250M", min: 100, max: 250 },
+  { title: "> 250M", min: 250, max: Infinity },
+];
+
+const getSpeakerGroup = (speakers) =>
+  speakerGroups.find((group) => speakers >= group.min && speakers < group.max);
 
 export function buildLanguageTree(languageCodes, languageData, lineagesConfig) {
   const tree = {};
@@ -40,7 +50,24 @@ export function groupLanguages({
   isReverse,
 }) {
   if (sortBy === "speakers") {
-    return [{ title: null, languages: sortedLanguageCodes }];
+    const result = {};
+    sortedLanguageCodes.forEach((langCode) => {
+      const group = getSpeakerGroup(languageData[langCode].speakers);
+      if (!group) return;
+
+      if (!result[group.title]) {
+        result[group.title] = {
+          title: group.title,
+          languages: [],
+          _min: group.min,
+        };
+      }
+      result[group.title].languages.push(langCode);
+    });
+
+    return Object.values(result)
+      .sort((a, b) => (isReverse ? b._min - a._min : a._min - b._min))
+      .map(({ title, languages }) => ({ title, languages }));
   }
 
   if (sortBy === "alphabetically") {

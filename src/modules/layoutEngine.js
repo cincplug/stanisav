@@ -6,6 +6,14 @@ import {
 } from "../utils/sortingUtils";
 import { getLanguageLabel } from "../utils/languageDisplayUtils";
 
+const getSpeakerGroup = (speakers) => {
+  if (speakers < 10) return "group-1";
+  if (speakers < 50) return "group-2";
+  if (speakers < 100) return "group-3";
+  if (speakers < 250) return "group-4";
+  return "group-5";
+};
+
 class LayoutEngine {
   constructor() {
     this.algorithms = {
@@ -37,7 +45,9 @@ class LayoutEngine {
     const getClusterKey = (code) => {
       switch (sortBy) {
         case "speakers":
-          return "all";
+          return isSegmented
+            ? getSpeakerGroup(languageData[code].speakers)
+            : "all";
         case "family":
           return languageLineages[code] ?? "isolate";
         case "alphabetically": {
@@ -157,7 +167,7 @@ class LayoutEngine {
       });
     });
 
-    const t = sortBy === "speakers" ? 0 : isSegmented ? 1 : 0;
+    const t = isSegmented ? 1 : 0;
 
     const positions = {};
     sortedLanguages.forEach((code) => {

@@ -124,11 +124,9 @@ function LanguagesTab({ languageData, isActive, languageColors = {} }) {
             languageColors={languageColors}
           />
         ) : (
-          groups.map((group) => (
-            <section key={group.title} className="language-group-container">
-              {sortBy !== "speakers" && (
-                <h3 className="group-header">{group.title}</h3>
-              )}
+          groups.map((group, index) => (
+            <section key={index} className="language-group-container">
+              {group.title && <h3 className="group-header">{group.title}</h3>}
               <LanguageTree
                 languages={group.languages}
                 languageData={languageData}

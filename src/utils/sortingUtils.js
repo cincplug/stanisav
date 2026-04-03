@@ -85,7 +85,14 @@ export function sortLanguages({
         });
 
       case "speakers":
-        return allLanguages.sort((a, b) => speakerData[b] - speakerData[a]);
+        return allLanguages.sort((a, b) => {
+          const cmp = speakerData[a] - speakerData[b];
+          if (cmp !== 0) return cmp;
+          return collator.compare(
+            getLocalizedLanguageName(a),
+            getLocalizedLanguageName(b),
+          );
+        });
 
       case "family":
         return allLanguages.sort((a, b) => {
