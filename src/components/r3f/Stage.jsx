@@ -148,11 +148,11 @@ const Stage = ({
     return [0, 0, sphereRadius];
   }, [selectedLanguage, formattedPositions]);
 
-  const hasActiveFilters = Object.keys(filteringUtils).length > 0;
+  const hasSelectedFilters = Object.keys(filteringUtils).length > 0;
   const visibleLanguages = sortedLanguageCodes.filter(
     (code) => languageFilterStatus[code]?.isVisible,
   );
-  const showEmptyMessage = hasActiveFilters && visibleLanguages.length === 0;
+  const showEmptyMessage = hasSelectedFilters && visibleLanguages.length === 0;
 
   useEffect(() => {
     if (onEmptyFilterChange) {

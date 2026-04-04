@@ -1,11 +1,6 @@
 import audioVisualizationConfig from "../config/audioVisualizationConfig.json";
 
-export const createAudioReactiveSurface = ({
-  audioData,
-  size,
-  bend,
-  radius,
-}) => {
+export const createAudioSurface = ({ audioData, size, bend, radius }) => {
   const {
     maxDeformation,
     fundamentalAmplifier,
@@ -30,7 +25,7 @@ export const createAudioReactiveSurface = ({
 
     let y = y_base;
 
-    if (audioData.isActive) {
+    if (audioData.isSelected) {
       const { fundamentalData, harmonicsData } = audioData;
       const verticalVariation =
         Math.sin(v * Math.PI * 3) * verticalVariationMultiplier;

@@ -120,11 +120,11 @@ export const NextIcon = (props) => (
   </svg>
 );
 
-export function LoopIcon({ active, ...props }) {
+export function LoopIcon({ selected, ...props }) {
   return (
     <svg
       {...props}
-      className={active ? "loop-icon active" : "loop-icon"}
+      className={selected ? "loop-icon selected" : "loop-icon"}
       width={iconSize}
       height={iconSize}
       viewBox={viewBox}

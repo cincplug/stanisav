@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
-import { setActiveLocale, translate } from "../i18n/runtime";
+import { setSelectedLocale, translate } from "../i18n/runtime";
 
 const I18nContext = createContext(null);
 
@@ -14,7 +14,7 @@ export const I18nProvider = ({ children }) => {
   useEffect(() => {
     let cancelled = false;
     setIsLocaleReady(false);
-    setActiveLocale(locale).then(() => {
+    setSelectedLocale(locale).then(() => {
       if (!cancelled) {
         const lang = new Intl.Locale(locale).language;
         document.documentElement.lang = lang;

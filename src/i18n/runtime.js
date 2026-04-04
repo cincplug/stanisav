@@ -97,7 +97,7 @@ const getMessageByPath = (messages, key) =>
     return undefined;
   }, messages);
 
-export const setActiveLocale = async (locale) => {
+export const setSelectedLocale = async (locale) => {
   const normalized = normalizeLocaleCode(locale);
   if (!isSupportedLocale(normalized)) {
     throw new Error(`Unsupported locale '${locale}'`);

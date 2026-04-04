@@ -31,11 +31,11 @@ const MeshaMoustache = ({
   const { audioData: rawAudioData } = useAudioAnimation();
   const { meshaSize, eyeZ, eyeX, moustacheSize } = controls;
 
-  const audioData = rawAudioData.isActive
+  const audioData = rawAudioData.isSelected
     ? rawAudioData
     : lastAudioDataRef.current;
 
-  if (rawAudioData.isActive) {
+  if (rawAudioData.isSelected) {
     lastAudioDataRef.current = rawAudioData;
   }
 
@@ -88,7 +88,7 @@ const MeshaMoustache = ({
   }, [tufts, tuftCount, angleConfig]);
 
   useFrame(() => {
-    if (tuftsRef.current && audioData.isActive) {
+    if (tuftsRef.current && audioData.isSelected) {
       const { harmonicsData } = audioData;
       const count = tuftsRef.current.length;
       const bandDivisor = 6;

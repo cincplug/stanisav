@@ -21,10 +21,10 @@ const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
   const { audioData: rawAudioData } = useAudioAnimation();
   const { meshaSize, teethSize } = controls;
 
-  const audioData = rawAudioData.isActive
+  const audioData = rawAudioData.isSelected
     ? rawAudioData
     : lastAudioDataRef.current;
-  if (rawAudioData.isActive) lastAudioDataRef.current = rawAudioData;
+  if (rawAudioData.isSelected) lastAudioDataRef.current = rawAudioData;
 
   const teeth = useMemo(() => {
     if (toothCount === 0) return [];
@@ -59,7 +59,7 @@ const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
   }, [toothCount, clusterSize, meshaSize]);
 
   useFrame(() => {
-    if (teethRefs.current && audioData.isActive) {
+    if (teethRefs.current && audioData.isSelected) {
       const { fundamentalData } = audioData;
       const count = teethRefs.current.length;
 

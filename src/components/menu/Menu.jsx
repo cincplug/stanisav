@@ -22,7 +22,7 @@ function Menu({
 }) {
   const { controls, updateControl } = useControls();
   const { t, isRtl } = useI18n();
-  const [activeTab, setActiveTab] = useState(tabsConfig.defaultTab);
+  const [selectedTab, setSelectedTab] = useState(tabsConfig.defaultTab);
 
   const { searchTerm, setSearchTerm, searchResults, clearSearch } =
     useSearch(data);
@@ -41,14 +41,14 @@ function Menu({
     if (
       searchTerm &&
       searchTerm.length >= threshold &&
-      activeTab !== "search"
+      selectedTab !== "search"
     ) {
-      setActiveTab("search");
+      setSelectedTab("search");
     }
-  }, [searchTerm, activeTab, setActiveTab, threshold]);
+  }, [searchTerm, selectedTab, setSelectedTab, threshold]);
 
   const handleTabChange = (tabId) => {
-    setActiveTab(tabId);
+    setSelectedTab(tabId);
     if (tabId !== "search") {
       clearSearch();
     }
@@ -69,10 +69,13 @@ function Menu({
         <div className="menu">
           <LocaleLinks />
           <Playlist />
-          <TabNavigation activeTab={activeTab} setActiveTab={handleTabChange} />
+          <TabNavigation
+            selectedTab={selectedTab}
+            setSelectedTab={handleTabChange}
+          />
 
           <TabRenderer
-            activeTab={activeTab}
+            selectedTab={selectedTab}
             controls={controls}
             onControlChange={handleControlChange}
             languageData={data?.languages || {}}

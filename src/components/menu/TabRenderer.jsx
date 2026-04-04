@@ -4,7 +4,7 @@ import LanguagesTab from "./LanguagesTab";
 import FiltersTab from "./FiltersTab";
 
 function TabRenderer({
-  activeTab,
+  selectedTab,
   controls,
   onControlChange,
   languageData,
@@ -19,7 +19,7 @@ function TabRenderer({
 }) {
   return (
     <div className="tabs-inner">
-      {activeTab === "controls" && (
+      {selectedTab === "controls" && (
         <ControlsTab
           controlGroups={{
             state: { controls },
@@ -30,15 +30,15 @@ function TabRenderer({
         />
       )}
 
-      {activeTab === "languages" && (
+      {selectedTab === "languages" && (
         <LanguagesTab
           languageData={languageData}
-          isActive={activeTab === "languages"}
+          isSelected={selectedTab === "languages"}
           languageColors={languageColors}
         />
       )}
 
-      {activeTab === "filters" && (
+      {selectedTab === "filters" && (
         <FiltersTab
           data={data}
           filteringUtils={filteringUtils}
@@ -47,7 +47,7 @@ function TabRenderer({
         />
       )}
 
-      {activeTab === "search" && (
+      {selectedTab === "search" && (
         <SearchTab
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}

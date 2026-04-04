@@ -3,7 +3,7 @@ import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeom
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
 import { defaultAudioData } from "../../config/meshaDefaultAudioData.js";
-import { createAudioReactiveSurface } from "../../utils/shapeUtils.js";
+import { createAudioSurface } from "../../utils/shapeUtils.js";
 import { useRef, useMemo } from "react";
 import MeshaHighlight from "./MeshaHighlight.jsx";
 
@@ -15,17 +15,17 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
   const { audioData: rawAudioData } = useAudioAnimation();
   const { meshaSize } = controls;
 
-  const audioData = rawAudioData.isActive
+  const audioData = rawAudioData.isSelected
     ? rawAudioData
     : lastAudioDataRef.current;
 
-  if (rawAudioData.isActive) {
+  if (rawAudioData.isSelected) {
     lastAudioDataRef.current = rawAudioData;
   }
 
-  const audioReactiveSurface = useMemo(
+  const audioSurface = useMemo(
     () =>
-      createAudioReactiveSurface({
+      createAudioSurface({
         audioData,
         size: meshaSize,
         bend: 0,
@@ -42,12 +42,12 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
       onClick={onClick}
       linguisticProperty="tonality"
     >
-      <parametricGeometry args={[audioReactiveSurface, segments, segments]} />
+      <parametricGeometry args={[audioSurface, segments, segments]} />
       <shaderMaterial args={[tongueMaterial]} />
       {isSelected && (
         <MeshaHighlight
           geometry="parametricGeometry"
-          geometryArgs={[audioReactiveSurface, segments, segments]}
+          geometryArgs={[audioSurface, segments, segments]}
         />
       )}
     </mesh>

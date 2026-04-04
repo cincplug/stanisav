@@ -146,7 +146,7 @@ function FiltersTab({ data, languageColors = {} }) {
                 />
                 <label
                   htmlFor={`${feature}-all`}
-                  className={`checkbox-button ${isAllSelected ? "active" : ""}`}
+                  className={`checkbox-button ${isAllSelected ? "selected" : ""}`}
                 >
                   {t("filters.all")}
                 </label>
@@ -184,7 +184,7 @@ function FiltersTab({ data, languageColors = {} }) {
                         htmlFor={`${feature}-${valueKey}`}
                         className={`checkbox-button 
                           ${buttonColor ? "text-dark" : ""} 
-                          ${isChecked ? "active" : ""}
+                          ${isChecked ? "selected" : ""}
                           `}
                         style={
                           buttonColor

@@ -27,7 +27,8 @@
   box-sizing: border-box;
 
   &.selected {
-    box-shadow: 0 0 0 var(--gap-reduced) var(--color-video);
+    background: var(--color-video) !important;
+    color: var(--color-5);
   }
 }
 

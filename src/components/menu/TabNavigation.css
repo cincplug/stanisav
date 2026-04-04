@@ -30,7 +30,7 @@
     &:focus-visible {
       outline: var(--outline-default);
     }
-    &.active {
+    &.selected {
       padding-top: calc(var(--gap) + var(--border-width));
       border-color: var(--color-video);
     }

@@ -4,7 +4,7 @@ import { extend } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
 import { defaultAudioData } from "../../config/meshaDefaultAudioData.js";
-import { createAudioReactiveSurface } from "../../utils/shapeUtils.js";
+import { createAudioSurface } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
 
@@ -26,17 +26,17 @@ const MeshaEar = ({
   const lastAudioDataRef = useRef(defaultAudioData);
   const { audioData: rawAudioData } = useAudioAnimation();
 
-  const audioData = rawAudioData.isActive
+  const audioData = rawAudioData.isSelected
     ? rawAudioData
     : lastAudioDataRef.current;
 
-  if (rawAudioData.isActive) {
+  if (rawAudioData.isSelected) {
     lastAudioDataRef.current = rawAudioData;
   }
 
-  const audioReactiveSurface = useMemo(
+  const audioSurface = useMemo(
     () =>
-      createAudioReactiveSurface({
+      createAudioSurface({
         audioData,
         size: meshaSize,
         bend,
@@ -55,14 +55,12 @@ const MeshaEar = ({
         onClick={onClick}
         linguisticProperty="morphology"
       >
-        <parametricGeometry
-          args={[audioReactiveSurface, leftSegments, leftSegments]}
-        />
+        <parametricGeometry args={[audioSurface, leftSegments, leftSegments]} />
         <shaderMaterial args={[earMaterial]} />
         {isSelected && (
           <MeshaHighlight
             geometry="parametricGeometry"
-            geometryArgs={[audioReactiveSurface, leftSegments, leftSegments]}
+            geometryArgs={[audioSurface, leftSegments, leftSegments]}
           />
         )}
       </mesh>
@@ -74,13 +72,13 @@ const MeshaEar = ({
         linguisticProperty="morphology"
       >
         <parametricGeometry
-          args={[audioReactiveSurface, rightSegments, rightSegments]}
+          args={[audioSurface, rightSegments, rightSegments]}
         />
         <shaderMaterial args={[earMaterial]} />
         {isSelected && (
           <MeshaHighlight
             geometry="parametricGeometry"
-            geometryArgs={[audioReactiveSurface, rightSegments, rightSegments]}
+            geometryArgs={[audioSurface, rightSegments, rightSegments]}
           />
         )}
       </mesh>

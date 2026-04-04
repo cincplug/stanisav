@@ -108,9 +108,9 @@ export default function Playlist() {
         onClick={toggleLoop}
         aria-label={t("playlist.toggleLoop")}
         aria-pressed={controls.isLoop}
-        className={controls.isLoop ? "active" : ""}
+        className={controls.isLoop ? "selected" : ""}
       >
-        <LoopIcon active={controls.isLoop} />
+        <LoopIcon selected={controls.isLoop} />
       </button>
       <span className="playlist-progress" aria-live="polite" aria-atomic="true">
         {currentIndex + 1} / {playlistLength}

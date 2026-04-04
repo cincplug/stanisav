@@ -7,8 +7,8 @@ import audioAnalysisService from "./audioAnalysisService.js";
 // Simple cache for audio URLs
 const audioUrlCache = new Map();
 
-// Track active audio elements for analysis
-const activeAudioElements = new Set();
+// Track selected audio elements for analysis
+const selectedAudioElements = new Set();
 
 /**
  * Get audio URL for a language using local files
@@ -46,7 +46,7 @@ export async function getLanguageAudioUrl(languageCode, isLuka = true) {
  * Setup audio element for visualization analysis
  */
 export async function setupAudioVisualization(audioElement) {
-  if (!audioElement || activeAudioElements.has(audioElement)) {
+  if (!audioElement || selectedAudioElements.has(audioElement)) {
     return;
   }
 
@@ -58,7 +58,7 @@ export async function setupAudioVisualization(audioElement) {
     audioAnalysisService.connectAudioElement(audioElement);
 
     // Track this element
-    activeAudioElements.add(audioElement);
+    selectedAudioElements.add(audioElement);
 
     // Setup event listeners
     audioElement.addEventListener("play", () => {
@@ -75,7 +75,7 @@ export async function setupAudioVisualization(audioElement) {
 
     // Cleanup when element is removed
     const cleanup = () => {
-      activeAudioElements.delete(audioElement);
+      selectedAudioElements.delete(audioElement);
       audioAnalysisService.stopAnalysis();
     };
 

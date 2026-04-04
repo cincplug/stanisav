@@ -14,7 +14,7 @@ import {
 import ControlItem from "./ControlItem";
 import LanguageTree from "./LanguageTree";
 
-function LanguagesTab({ languageData, isActive, languageColors = {} }) {
+function LanguagesTab({ languageData, isSelected, languageColors = {} }) {
   const { selectedLanguage } = useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
   const { controls, updateControl } = useControls();
@@ -84,13 +84,17 @@ function LanguagesTab({ languageData, isActive, languageColors = {} }) {
     .map(([id, config]) => ({ id, ...localizeControlConfig(id, config) }));
 
   useEffect(() => {
-    if (isActive && selectedLanguage && buttonRefs.current[selectedLanguage]) {
+    if (
+      isSelected &&
+      selectedLanguage &&
+      buttonRefs.current[selectedLanguage]
+    ) {
       buttonRefs.current[selectedLanguage].scrollIntoView({
         behavior: "smooth",
         block: "center",
       });
     }
-  }, [selectedLanguage, isActive]);
+  }, [selectedLanguage, isSelected]);
 
   const onSelectLanguage = useCallback(
     (langCode) => {

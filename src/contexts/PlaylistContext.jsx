@@ -60,7 +60,7 @@ export const PlaylistProvider = ({ children }) => {
     } = getSortingData(data.languageData);
 
     let allLanguages = [...languageCodes];
-    // Filter by active filters if any
+    // Filter by selected filters if any
     if (Object.keys(filteringUtils).length > 0 && filteredLanguages.size > 0) {
       allLanguages = allLanguages.filter((code) => filteredLanguages.has(code));
     }
