@@ -163,6 +163,7 @@ function FiltersTab({ data, languageColors = {} }) {
 
                 <div className="checkbox-button-group">
                   <input
+                    className="screenreader-only"
                     type="checkbox"
                     id={`${feature}-all`}
                     checked={isAllSelected}
