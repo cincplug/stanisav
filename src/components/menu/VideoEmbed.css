@@ -16,7 +16,6 @@
   border-radius: 12px;
   box-shadow: var(--shadow-mild);
   padding: var(--gap);
-  z-index: 1000;
   display: flex;
   flex-direction: column;
   align-items: flex-end;

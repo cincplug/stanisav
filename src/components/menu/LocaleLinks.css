@@ -21,7 +21,7 @@
 
 .locale-dropdown-toggle:focus-visible {
   outline: var(--outline-default);
-  z-index: 101;
+  z-index: 1;
 }
 
 .locale-dropdown-arrow {
@@ -32,7 +32,7 @@
 
 .locale-dropdown-list {
   position: absolute;
-  z-index: 100;
+  z-index: 1;
   background: var(--color-3);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-strong);
@@ -53,7 +53,6 @@
   color: var(--color-5);
   background: none;
   border: none;
-  width: 100%;
   text-align: start;
   font-size: var(--font-size-normal);
   text-decoration: none;
@@ -63,8 +62,5 @@
 .locale-dropdown-option:focus-visible,
 .locale-dropdown-option:hover {
   outline: var(--outline-default);
-}
-
-.locale-dropdown-option[aria-selected="true"] {
-  outline: var(--outline-default);
+  border-radius: var(--border-radius);
 }

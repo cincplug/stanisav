@@ -31,7 +31,6 @@ html.rtl .id-card-header {
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 2;
 }
 
 html.rtl .id-card-close-button {
@@ -106,7 +105,6 @@ html.rtl .id-card-close-button {
 .id-card-property:focus {
   outline: 2px solid var(--color-highlight);
   outline-offset: 2px;
-  z-index: 1;
 }
 
 .id-card-property.selected,

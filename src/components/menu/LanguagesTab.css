@@ -24,9 +24,10 @@
   color: var(--color-1);
   cursor: pointer;
   width: auto;
+  box-sizing: border-box;
 
   &.selected {
-    outline: var(--outline-default);
+    box-shadow: 0 0 0 var(--gap-reduced) var(--color-video);
   }
 }
 

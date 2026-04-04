@@ -29,7 +29,6 @@
     &:hover,
     &:focus-visible {
       outline: var(--outline-default);
-      z-index: 1;
     }
     &.active {
       padding-top: calc(var(--gap) + var(--border-width));

@@ -12,6 +12,7 @@
   --color-6: #ffffff;
   --color-highlight: #ffd700;
   --color-video: #0057b7;
+  --color-semi: #e4e6e8aa;
   --color-new-item: #6a1b9a;
   --color-new-item-hover: #7b1fa2;
   --color-new-item-active: #9c27b0;
@@ -20,7 +21,7 @@
   --color-todo-item-active: #bc2790;
   --shadow-mild: 0px -1px 1px 0px var(--color-2);
   --shadow-strong: 0 0 var(--gap-double) var(--color-1);
-  --outline-default: 3px solid var(--color-highlight);
+  --outline-default: var(--border-width) solid var(--color-highlight);
   --gap: 7px;
   --gap-double: calc(var(--gap) * 2);
   --gap-triple: calc(var(--gap) * 3);
@@ -92,7 +93,8 @@ select,
     outline: var(--outline-default);
   }
   &:active,
-  &.active {
+  &.active,
+  &[aria-selected="true"] {
     background: var(--color-video);
   }
 }
@@ -133,7 +135,7 @@ legend {
   position: absolute;
   top: var(--gap);
   right: var(--gap);
-  z-index: 1111;
+  z-index: 1;
   background-color: transparent;
   border: none;
   color: var(--color-5);
