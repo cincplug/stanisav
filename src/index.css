@@ -12,7 +12,6 @@
   --color-6: #ffffff;
   --color-highlight: #ffd700;
   --color-video: #0057b7;
-  --color-semi: #e4e6e8aa;
   --color-new-item: #6a1b9a;
   --color-new-item-hover: #7b1fa2;
   --color-new-item-selected: #9c27b0;
@@ -91,6 +90,7 @@ select,
   &:hover,
   &:focus-visible {
     outline: var(--outline-default);
+    outline-offset: 1px;
   }
   &:active,
   &.selected,
@@ -214,4 +214,8 @@ legend {
 .indent {
   margin-inline-start: var(--gap-double);
   position: relative;
+}
+
+.white {
+  color: var(--color-6);
 }

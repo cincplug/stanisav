@@ -98,7 +98,9 @@ function IdCard({
 
       <div className="id-card-header">
         <h2 className="id-card-title">
-          {localizedLanguageName} ({language.nativeName})
+          {localizedLanguageName} <span className="white">(</span>
+          {language.nativeName}
+          <span className="white">)</span>
         </h2>
 
         {lineageTrail.length > 0 && (
@@ -110,9 +112,7 @@ function IdCard({
                   className="id-card-breadcrumb-item"
                   role="listitem"
                 >
-                  {index > 0 && (
-                    <span className="id-card-breadcrumb-separator">→</span>
-                  )}
+                  {index > 0 && <span className="white">→</span>}
                   <span>{getFamilyLabel(lineageItem)}</span>
                 </span>
               ))}
@@ -130,7 +130,7 @@ function IdCard({
               onClick={onSourceVideoClick}
               aria-label={`${localizedLanguageName} ${t("idCard.sourceVideo")} (${t("idCard.opensInNewTab")})`}
             >
-              {t("idCard.sourceVideo")} ↗
+              {t("idCard.sourceVideo")} <span className="white">↗</span>
             </a>
           )}
         </div>

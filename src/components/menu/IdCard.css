@@ -71,10 +71,6 @@ html.rtl .id-card-close-button {
   white-space: normal;
 }
 
-.id-card-breadcrumb-separator {
-  color: var(--color-6);
-}
-
 .id-card-columns {
   min-width: 0;
   width: 100%;
@@ -98,24 +94,17 @@ html.rtl .id-card-close-button {
   gap: var(--gap);
   cursor: pointer;
   font: inherit;
-  width: max-content;
+  width: fit-content;
   text-align: left;
-}
-
-.id-card-property:focus {
-  outline: 2px solid var(--color-highlight);
-  outline-offset: 2px;
 }
 
 .id-card-property.selected,
 .id-card-property[aria-pressed="true"] {
   background: var(--color-1);
-  outline: 2px solid var(--color-highlight);
-  border-radius: var(--border-radius);
 }
 
 .id-card-property-label {
-  color: var(--color-4);
+  font-weight: normal;
   margin-right: var(--gap-half);
 }
 
