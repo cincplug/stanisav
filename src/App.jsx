@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
@@ -35,7 +34,6 @@ function App() {
   const { controls, updateControl } = useControls();
   const { selectedLanguage } = useLanguageSelection();
   const { pausePlaylist } = usePlaylist();
-  const [isEmptyFilter, setIsEmptyFilter] = useState(false);
   const { hasSubtitle } = controls;
   const { sampleUrl, sub } = data?.languageData[selectedLanguage] || {};
 
@@ -63,13 +61,8 @@ function App() {
           onSceneReady={setSceneReady}
           onLoadingChange={setIsLoading}
           onNodesReady={setNodes}
-          onEmptyFilterChange={setIsEmptyFilter}
           languageColors={languageColors}
         />
-
-        {!isLoading && sceneReady && isEmptyFilter && (
-          <Overlay variant="emptyFilter" />
-        )}
 
         {selectedLanguage && hasSubtitle && (
           <IdCard

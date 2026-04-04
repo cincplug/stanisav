@@ -33,8 +33,8 @@ export default function Playlist() {
   // Add keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e) => {
-      // Ignore if typing in input
-      if (e.target.matches("input, textarea")) return;
+      // Ignore if focus is on any interactive element
+      if (e.target.matches("input, textarea, select, button, a")) return;
 
       switch (e.key) {
         case " ":

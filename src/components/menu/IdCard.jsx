@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useRef, useEffect } from "react";
 import { useI18n } from "../../contexts/I18nContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { getLocalizedLanguageName } from "../../i18n/runtime";
@@ -73,6 +73,13 @@ function IdCard({
     return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
   }, [columnCount]);
 
+  const closeButtonRef = useRef(null);
+
+  // Move focus into IdCard when it opens
+  useEffect(() => {
+    closeButtonRef.current?.focus();
+  }, []);
+
   const localizedLanguageName = getLocalizedLanguageName(languageCode);
 
   if (!languageCode || !language || properties.length === 0) {
@@ -85,10 +92,11 @@ function IdCard({
       aria-label={localizedLanguageName}
       style={{
         "--id-card-max-columns": normalizedColumnCount,
-        "--id-card-heading-color": headingColor || "var(--color-6)",
+        "--id-card-heading-color": headingColor || "var(--color-5)",
       }}
     >
       <button
+        ref={closeButtonRef}
         className="close-button id-card-close-button"
         onClick={() => onToggleSubtitle?.(false)}
         aria-label={t("controls.hasSubtitle.label")}
@@ -107,11 +115,7 @@ function IdCard({
           <div className="id-card-breadcrumb-wrap">
             <div className="id-card-breadcrumb" role="list">
               {lineageTrail.map((lineageItem, index) => (
-                <span
-                  key={lineageItem}
-                  className="id-card-breadcrumb-item"
-                  role="listitem"
-                >
+                <span key={lineageItem} className="id-card-breadcrumb-item">
                   {index > 0 && <span className="white">→</span>}
                   <span>{getFamilyLabel(lineageItem)}</span>
                 </span>
@@ -144,15 +148,13 @@ function IdCard({
               type="button"
               className={`id-card-property${property.key === selectedProperty ? " selected" : ""}`}
               aria-pressed={property.key === selectedProperty}
-              role="listitem"
-              tabIndex={0}
               onClick={() =>
                 setSelectedProperty(
                   selectedProperty === property.key ? null : property.key,
                 )
               }
             >
-              <span className="id-card-property-label">{property.label}</span>
+              <span className="id-card-property-label">{property.label}:</span>
               <span className="id-card-property-value">{property.value}</span>
             </button>
           ))}

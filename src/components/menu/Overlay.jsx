@@ -4,7 +4,6 @@ import { useI18n } from "../../contexts/I18nContext";
 const Overlay = ({ variant = "loading" }) => {
   const { t } = useI18n();
   const isLoading = variant === "loading";
-  const isEmptyFilter = variant === "emptyFilter";
 
   return (
     <div className="overlay">
@@ -27,7 +26,6 @@ const Overlay = ({ variant = "loading" }) => {
         )}
         <h1 className="loading-text">
           {isLoading && <>{t("overlay.slogan")}</>}
-          {isEmptyFilter && <>{t("overlay.emptyFilter")}</>}
         </h1>
       </div>
     </div>

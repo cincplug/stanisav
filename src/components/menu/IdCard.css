@@ -3,7 +3,7 @@
   bottom: 0;
   left: 0;
   background: var(--color-2);
-  color: var(--color-6);
+  color: var(--color-5);
   padding: var(--gap-double);
   box-sizing: border-box;
   border-top: 1px solid var(--color-3);
@@ -19,12 +19,12 @@
   align-items: start;
   gap: var(--gap);
   margin-bottom: var(--gap);
-  color: var(--id-card-heading-color, var(--color-6));
+  color: var(--id-card-heading-color, var(--color-5));
   padding: 0 var(--gap-triple) 0 var(--gap-double);
-}
 
-html.rtl .id-card-header {
-  padding: 0 var(--gap-double) 0 var(--gap-triple);
+  html.rtl & {
+    padding: 0 var(--gap-double) 0 var(--gap-triple);
+  }
 }
 
 .id-card-close-button {
@@ -43,7 +43,7 @@ html.rtl .id-card-close-button {
   margin: 0;
   font-size: var(--font-size-big);
   text-align: start;
-  color: var(--color-6);
+  color: var(--color-5);
   font-weight: normal;
 }
 
@@ -59,7 +59,7 @@ html.rtl .id-card-close-button {
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--gap-half);
-  color: var(--color-6);
+  color: var(--color-5);
   font-weight: normal;
   min-width: 0;
 }
@@ -85,7 +85,7 @@ html.rtl .id-card-close-button {
 
 .id-card-property {
   margin: 0;
-  padding: var(--gap) var(--gap);
+  padding: var(--gap) var(--gap-double);
   border: none;
   border-radius: var(--border-radius);
   background: none;
@@ -104,12 +104,15 @@ html.rtl .id-card-close-button {
 }
 
 .id-card-property-label {
-  font-weight: normal;
+  color: var(--color-4);
   margin-right: var(--gap-half);
+  .selected & {
+    color: var(--color-5);
+  }
 }
 
 .id-card-property-value {
-  color: var(--color-6);
+  color: var(--color-5);
   min-width: 0;
   word-break: break-word;
 }

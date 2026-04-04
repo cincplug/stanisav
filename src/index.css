@@ -1,5 +1,5 @@
 :root {
-  --font-size-big: 1rem;
+  --font-size-big: 1.2rem;
   --font-size-normal: 0.9rem;
   --font-size-small: 0.8rem;
 
@@ -12,12 +12,7 @@
   --color-6: #ffffff;
   --color-highlight: #ffd700;
   --color-video: #0057b7;
-  --color-new-item: #6a1b9a;
-  --color-new-item-hover: #7b1fa2;
-  --color-new-item-selected: #9c27b0;
-  --color-todo-item: #9a1b6a;
-  --color-todo-item-hover: #ab1f72;
-  --color-todo-item-selected: #bc2790;
+  --color-error: #ba1b6a;
   --shadow-mild: 0px -1px 1px 0px var(--color-2);
   --shadow-strong: 0 0 var(--gap-double) var(--color-1);
   --outline-default: var(--border-width) solid var(--color-highlight);
@@ -38,7 +33,7 @@
 /* Global scrollbar styles using standard CSS */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-3) var(--color-1);
+  scrollbar-color: var(--color-4) var(--color-1);
 }
 
 /* React-specific styles */
@@ -106,7 +101,7 @@ input[type="range"] {
 
 input[type="color"] {
   border-radius: var(--border-radius);
-  border: 1px solid var(--color-6);
+  border: 1px solid var(--color-5);
   cursor: pointer;
   padding: 0;
   background: transparent;
@@ -163,10 +158,10 @@ legend {
   display: flex;
   flex-wrap: wrap;
   gap: var(--gap);
-  padding: var(--gap-half);
 
-  input {
-    display: none;
+  input:focus-visible + label {
+    outline: var(--outline-default);
+    outline-offset: 1px;
   }
 }
 
@@ -217,5 +212,13 @@ legend {
 }
 
 .white {
-  color: var(--color-6);
+  color: var(--color-5);
+}
+
+.screenreader-only {
+  position: absolute;
+  left: -1000vw;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }

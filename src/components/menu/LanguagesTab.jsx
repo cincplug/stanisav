@@ -123,14 +123,18 @@ function LanguagesTab({ languageData, isSelected, languageColors = {} }) {
             languageData={languageData}
             labelContent={labelContent}
             selectedLanguage={selectedLanguage}
+            focusedLang={focusedLang}
+            onFocusLang={setFocusedLang}
             buttonRefs={buttonRefs}
             onSelectLanguage={onSelectLanguage}
             languageColors={languageColors}
           />
         ) : (
           groups.map((group, index) => (
-            <section key={index} className="language-group-container">
-              {group.title && <h3 className="group-header">{group.title}</h3>}
+            <fieldset key={index} className="language-group-container">
+              {group.title && (
+                <legend className="group-header">{group.title}</legend>
+              )}
               <LanguageTree
                 languages={group.languages}
                 languageData={languageData}
@@ -140,7 +144,7 @@ function LanguagesTab({ languageData, isSelected, languageColors = {} }) {
                 onSelectLanguage={onSelectLanguage}
                 languageColors={languageColors}
               />
-            </section>
+            </fieldset>
           ))
         )}
       </div>

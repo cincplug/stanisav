@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useRef, useState, useEffect } from "react";
 import {
   getFeatureValues,
   filterLanguagesByFeatures,
@@ -20,12 +20,8 @@ import "./FiltersTab.css";
 function FiltersTab({ data, languageColors = {} }) {
   const { viewAllLanguages } = useLanguageSelection();
   const { pausePlaylist } = usePlaylist();
-  const {
-    filteringUtils,
-    updateFilteringUtils,
-    selectedLanguage,
-    selectLanguage,
-  } = useLanguageSelection();
+  const { filteringUtils, updateFilteringUtils, selectedLanguage } =
+    useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
 
   const handleSelectLanguage = (langCode) => {
@@ -38,6 +34,8 @@ function FiltersTab({ data, languageColors = {} }) {
   );
   const [allowMultipleChoices, setAllowMultipleChoices] = useState(false);
   const [lastChangedFeature, setLastChangedFeature] = useState(null);
+  const resultsRefs = useRef({});
+  const emptyRefs = useRef({});
   const { t, locale } = useI18n();
 
   const handleCheckboxChange = (feature, value, checked) => {
@@ -87,6 +85,32 @@ function FiltersTab({ data, languageColors = {} }) {
     viewAllLanguages();
   };
 
+  const hasActiveFilters = Object.keys(filteringUtils).length > 0;
+  const hasEmptyResult = hasActiveFilters && linguisticResults.length === 0;
+
+  useEffect(() => {
+    if (!lastChangedFeature) return;
+
+    if (linguisticResults.length > 0) {
+      const resultsEl = resultsRefs.current[lastChangedFeature];
+      if (!resultsEl) return;
+      requestAnimationFrame(() => {
+        resultsEl.scrollIntoView({ behavior: "smooth", block: "center" });
+        resultsEl.focus();
+      });
+      return;
+    }
+
+    if (hasEmptyResult) {
+      const emptyEl = emptyRefs.current[lastChangedFeature];
+      if (!emptyEl) return;
+      requestAnimationFrame(() => {
+        emptyEl.scrollIntoView({ behavior: "smooth", block: "center" });
+        emptyEl.focus();
+      });
+    }
+  }, [lastChangedFeature, linguisticResults.length, hasEmptyResult]);
+
   return (
     <div className="control-section">
       <div className="linguistic-filters">
@@ -122,92 +146,110 @@ function FiltersTab({ data, languageColors = {} }) {
           const isAllSelected = !(feature in filteringUtils);
 
           return (
-            <div key={feature} className="filter-group">
-              <h3 className="filter-group-title">
-                {label}
-                {isPropertyDescribed(feature) && (
-                  <Link
-                    className="info-link"
-                    to={`/${locale}/property/${feature}`}
-                    aria-label={label}
+            <React.Fragment key={feature}>
+              <fieldset className="filter-group">
+                <legend className="filter-group-title">
+                  {label}{" "}
+                  {isPropertyDescribed(feature) && (
+                    <Link
+                      className="info-link filter-group-info"
+                      to={`/${locale}/property/${feature}`}
+                      aria-label={`${label} info`}
+                    >
+                      ⓘ
+                    </Link>
+                  )}
+                </legend>
+
+                <div className="checkbox-button-group">
+                  <input
+                    type="checkbox"
+                    id={`${feature}-all`}
+                    checked={isAllSelected}
+                    onChange={(e) =>
+                      handleCheckboxChange(feature, "all", e.target.checked)
+                    }
+                  />
+                  <label
+                    htmlFor={`${feature}-all`}
+                    className={`checkbox-button ${isAllSelected ? "selected" : ""}`}
                   >
-                    ⓘ
-                  </Link>
-                )}
-              </h3>
-              <div className="checkbox-button-group">
-                <input
-                  type="checkbox"
-                  id={`${feature}-all`}
-                  checked={isAllSelected}
-                  onChange={(e) =>
-                    handleCheckboxChange(feature, "all", e.target.checked)
-                  }
-                />
-                <label
-                  htmlFor={`${feature}-all`}
-                  className={`checkbox-button ${isAllSelected ? "selected" : ""}`}
-                >
-                  {t("filters.all")}
-                </label>
-                {values.map((value) => {
-                  // For numeric features, use the number directly; for categorical, use label
-                  const displayLabel = isNumeric
-                    ? value
-                    : getFeatureLabel(feature, value);
-                  const valueKey = isNumeric ? value : value;
-                  const isChecked = isNumeric
-                    ? currentValues.map(Number).includes(Number(value))
-                    : currentValues.includes(value);
+                    {t("filters.all")}
+                  </label>
+                  {values.map((value) => {
+                    // For numeric features, use the number directly; for categorical, use label
+                    const displayLabel = isNumeric
+                      ? value
+                      : getFeatureLabel(feature, value);
+                    const valueKey = isNumeric ? value : value;
+                    const isChecked = isNumeric
+                      ? currentValues.map(Number).includes(Number(value))
+                      : currentValues.includes(value);
 
-                  // Get color for family filters
-                  let buttonColor = null;
+                    // Get color for family filters
+                    let buttonColor = null;
 
-                  // Get description for title attribute if available
-                  const description = getFeatureDescription(feature, value);
+                    // Get description for title attribute if available
+                    const description = getFeatureDescription(feature, value);
 
-                  return (
-                    <React.Fragment key={valueKey}>
-                      <input
-                        type="checkbox"
-                        id={`${feature}-${valueKey}`}
-                        checked={isChecked}
-                        onChange={(e) =>
-                          handleCheckboxChange(
-                            feature,
-                            valueKey,
-                            e.target.checked,
-                          )
-                        }
-                      />
-                      <label
-                        htmlFor={`${feature}-${valueKey}`}
-                        className={`checkbox-button 
+                    return (
+                      <React.Fragment key={valueKey}>
+                        <input
+                          className="screenreader-only"
+                          type="checkbox"
+                          id={`${feature}-${valueKey}`}
+                          checked={isChecked}
+                          onChange={(e) =>
+                            handleCheckboxChange(
+                              feature,
+                              valueKey,
+                              e.target.checked,
+                            )
+                          }
+                        />
+                        <label
+                          htmlFor={`${feature}-${valueKey}`}
+                          className={`checkbox-button 
                           ${buttonColor ? "text-dark" : ""} 
                           ${isChecked ? "selected" : ""}
                           `}
-                        style={
-                          buttonColor
-                            ? { backgroundColor: buttonColor }
-                            : undefined
-                        }
-                        title={description || undefined}
-                      >
-                        {displayLabel}
-                      </label>
-                    </React.Fragment>
-                  );
-                })}
-              </div>
-
+                          style={
+                            buttonColor
+                              ? { backgroundColor: buttonColor }
+                              : undefined
+                          }
+                          title={description || undefined}
+                        >
+                          {displayLabel}
+                        </label>
+                      </React.Fragment>
+                    );
+                  })}
+                </div>
+              </fieldset>
               {feature === lastChangedFeature &&
                 linguisticResults.length > 0 && (
-                  <fieldset className="results-fieldset">
+                  <fieldset
+                    className="results-fieldset"
+                    tabIndex={-1}
+                    ref={(el) => {
+                      resultsRefs.current[feature] = el;
+                    }}
+                  >
                     <legend className="results-legend">
                       {t("filters.results", {
                         count: linguisticResults.length,
                       })}
                     </legend>
+                    <p
+                      className="screenreader-only"
+                      aria-live="polite"
+                      aria-atomic="true"
+                    >
+                      {t("filters.results", {
+                        count: linguisticResults.length,
+                      })}
+                    </p>
                     <ul className="languages-in-group" role="list">
                       {linguisticResults.map((lang) => (
                         <li key={lang.code}>
@@ -242,7 +284,22 @@ function FiltersTab({ data, languageColors = {} }) {
                     </ul>
                   </fieldset>
                 )}
-            </div>
+
+              {feature === lastChangedFeature && hasEmptyResult && (
+                <div
+                  className="filter-empty-message"
+                  role="status"
+                  aria-live="polite"
+                  aria-atomic="true"
+                  tabIndex={-1}
+                  ref={(el) => {
+                    emptyRefs.current[feature] = el;
+                  }}
+                >
+                  {t("overlay.emptyFilter")}
+                </div>
+              )}
+            </React.Fragment>
           );
         })}
       </div>

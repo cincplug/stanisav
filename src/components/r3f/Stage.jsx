@@ -22,7 +22,6 @@ const Stage = ({
   onDataLoaded,
   onSceneReady,
   onLoadingChange,
-  onEmptyFilterChange,
   languageColors,
 }) => {
   const { controls, updateControl } = useControls();
@@ -154,12 +153,6 @@ const Stage = ({
   );
   const showEmptyMessage = hasSelectedFilters && visibleLanguages.length === 0;
 
-  useEffect(() => {
-    if (onEmptyFilterChange) {
-      onEmptyFilterChange(showEmptyMessage);
-    }
-  }, [showEmptyMessage, onEmptyFilterChange]);
-
   const { stageLightMultiplier } = useSpring({
     stageLightMultiplier: selectedLanguage ? 0 : 1,
     config: { tension, friction },
@@ -181,6 +174,7 @@ const Stage = ({
   return (
     <Canvas
       style={{ width: "100%", height: "100%" }}
+      aria-hidden="true"
       camera={{
         position: [cameraX, cameraY, cameraZ],
         fov,

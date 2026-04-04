@@ -10,30 +10,41 @@
   }
 }
 
-.tab-title {
-  font-weight: bold;
-}
-
-.filter-group {
-  margin-bottom: 15px;
-  border: none;
-  padding: 0;
+.filter-group:focus-visible {
+  outline: var(--outline-default);
+  border-radius: var(--border-radius);
 }
 
 .filter-group-title {
-  font-weight: normal;
-  margin: 0 0 8px;
+  margin: 0 0 var(--gap-half);
   color: var(--color-5);
-  padding: 0;
-  display: flex;
-  align-items: center;
-  gap: var(--gap);
+  font-weight: normal;
+  display: inline;
 }
 
 .info-link {
   text-decoration: none;
+  margin-left: var(--gap);
+}
+
+.filter-group-info {
+  margin-left: var(--gap-half);
+  vertical-align: baseline;
 }
 
 .results-fieldset {
   margin-top: var(--gap-double);
+}
+
+.filter-empty-message {
+  margin: var(--gap-double) 0;
+  padding: var(--gap) var(--gap-double);
+  border-radius: var(--border-radius);
+  color: var(--color-5);
+  background: var(--color-error);
+  box-shadow: var(--shadow-strong);
+}
+
+.filter-empty-message:focus-visible {
+  outline: var(--outline-default);
 }

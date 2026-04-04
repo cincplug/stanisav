@@ -6,6 +6,9 @@
 
 .group-header {
   margin: 0 0 var(--gap-half) 0;
+  padding: 0;
+  color: var(--color-5);
+  font-size: var(--font-size-big);
 }
 
 .languages-in-group {

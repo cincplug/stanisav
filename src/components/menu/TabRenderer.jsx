@@ -17,45 +17,60 @@ function TabRenderer({
   clearSearch,
   languageColors,
 }) {
+  const panelProps = (id) => ({
+    id: `tabpanel-${id}`,
+    role: "tabpanel",
+    "aria-labelledby": `tab-${id}`,
+    tabIndex: 0,
+  });
+
   return (
     <div className="tabs-inner">
       {selectedTab === "controls" && (
-        <ControlsTab
-          controlGroups={{
-            state: { controls },
-            handlers: {
-              onControlChange,
-            },
-          }}
-        />
+        <div {...panelProps("controls")}>
+          <ControlsTab
+            controlGroups={{
+              state: { controls },
+              handlers: {
+                onControlChange,
+              },
+            }}
+          />
+        </div>
       )}
 
       {selectedTab === "languages" && (
-        <LanguagesTab
-          languageData={languageData}
-          isSelected={selectedTab === "languages"}
-          languageColors={languageColors}
-        />
+        <div {...panelProps("languages")}>
+          <LanguagesTab
+            languageData={languageData}
+            isSelected={selectedTab === "languages"}
+            languageColors={languageColors}
+          />
+        </div>
       )}
 
       {selectedTab === "filters" && (
-        <FiltersTab
-          data={data}
-          filteringUtils={filteringUtils}
-          onFilteringUtilsChange={onFilteringUtilsChange}
-          languageColors={languageColors}
-        />
+        <div {...panelProps("filters")}>
+          <FiltersTab
+            data={data}
+            filteringUtils={filteringUtils}
+            onFilteringUtilsChange={onFilteringUtilsChange}
+            languageColors={languageColors}
+          />
+        </div>
       )}
 
       {selectedTab === "search" && (
-        <SearchTab
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-          clearSearch={clearSearch}
-          searchResults={searchResults}
-          languageData={languageData}
-          languageColors={languageColors}
-        />
+        <div {...panelProps("search")}>
+          <SearchTab
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            clearSearch={clearSearch}
+            searchResults={searchResults}
+            languageData={languageData}
+            languageColors={languageColors}
+          />
+        </div>
       )}
     </div>
   );
