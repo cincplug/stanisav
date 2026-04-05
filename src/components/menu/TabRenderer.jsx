@@ -21,7 +21,6 @@ function TabRenderer({
     id: `tabpanel-${id}`,
     role: "tabpanel",
     "aria-labelledby": `tab-${id}`,
-    tabIndex: 0,
   });
 
   return (
