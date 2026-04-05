@@ -61,7 +61,7 @@
       "scene": "Adegan",
       "stageLight": "Cahaya panggung"
     },
-    "hasSubtitle": {
+    "isInfoVisible": {
       "label": "Tampilkan subjudul"
     },
     "hueCircle": {

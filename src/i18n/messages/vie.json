@@ -61,7 +61,7 @@
       "scene": "Cảnh",
       "stageLight": "Ánh sáng sân khấu"
     },
-    "hasSubtitle": {
+    "isInfoVisible": {
       "label": "Hiển thị phụ đề"
     },
     "hueCircle": {

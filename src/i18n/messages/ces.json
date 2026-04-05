@@ -61,7 +61,7 @@
       "scene": "Scéna",
       "stageLight": "Světlo jeviště"
     },
-    "hasSubtitle": {
+    "isInfoVisible": {
       "label": "Zobrazit podtitulek"
     },
     "hueCircle": {

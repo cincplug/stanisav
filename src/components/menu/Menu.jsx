@@ -14,7 +14,7 @@ function Menu({
   onControlChange,
   data,
   isLoading,
-  isCollapsed,
+  isVisible,
   onToggleCollapse,
   filteringUtils,
   onFilteringUtilsChange,
@@ -58,14 +58,14 @@ function Menu({
     <>
       <button
         id="menu-toggle"
-        onClick={() => onToggleCollapse(!isCollapsed)}
+        onClick={() => onToggleCollapse(!isVisible)}
         className={`close-button ${isRtl ? "close-button-rtl" : ""}`}
-        aria-label={isCollapsed ? t("menu.open") : t("menu.close")}
+        aria-label={isVisible ? t("menu.close") : t("menu.open")}
       >
-        {isCollapsed ? <BurgerIcon /> : <CloseIcon />}
+        {isVisible ? <CloseIcon /> : <BurgerIcon />}
       </button>
 
-      {!isCollapsed && (
+      {isVisible && (
         <div className="menu">
           <LocaleLinks />
           <Playlist />

@@ -61,7 +61,7 @@
       "scene": "Szene",
       "stageLight": "Bühnenlicht"
     },
-    "hasSubtitle": {
+    "isInfoVisible": {
       "label": "Untertitel anzeigen"
     },
     "hueCircle": {

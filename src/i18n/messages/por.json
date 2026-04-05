@@ -61,7 +61,7 @@
       "scene": "Cena",
       "stageLight": "Luz de cena"
     },
-    "hasSubtitle": {
+    "isInfoVisible": {
       "label": "Mostrar legenda"
     },
     "hueCircle": {

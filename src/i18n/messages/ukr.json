@@ -61,7 +61,7 @@
       "scene": "Сцена",
       "stageLight": "Сценічне світло"
     },
-    "hasSubtitle": {
+    "isInfoVisible": {
       "label": "Показати підзаголовок"
     },
     "hueCircle": {

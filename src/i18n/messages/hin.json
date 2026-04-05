@@ -61,7 +61,7 @@
       "scene": "दृश्य",
       "stageLight": "मंच प्रकाश"
     },
-    "hasSubtitle": {
+    "isInfoVisible": {
       "label": "उपशीर्षक दिखाएँ"
     },
     "hueCircle": {

@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
@@ -21,22 +22,20 @@ function App() {
     isLoading,
     data,
     sceneReady,
-    isMenuCollapsed,
     filteringUtils,
     selectedMood,
     setData,
     setSceneReady,
     setIsLoading,
     setNodes,
-    setIsMenuCollapsed,
     setFilteringUtils,
     handleCameraFocus,
   } = useAppState();
 
   const { controls, updateControl } = useControls();
   const { selectedLanguage } = useLanguageSelection();
-  const { pausePlaylist } = usePlaylist();
-  const { hasSubtitle } = controls;
+  const { pausePlaylist, startPlaylist } = usePlaylist();
+  const { isInfoVisible, isMenuVisible } = controls;
   const { sampleUrl, sub } = data?.languageData[selectedLanguage] || {};
 
   const languageColors = useLanguageColors(
@@ -59,11 +58,11 @@ function App() {
 
   return (
     <div
-      className={`app-container${isRtl ? " rtl" : ""} ${isLoading ? "loading" : ""} ${isMenuCollapsed ? "menu-collapsed" : "menu-expanded"}`}
+      className={`app-container${isRtl ? " rtl" : ""} ${isLoading ? "loading" : ""} ${isMenuVisible ? "menu-expanded" : "menu-collapsed"}`}
     >
       <div className="stage-area">
         <Stage
-          isMenuCollapsed={isMenuCollapsed}
+          isMenuVisible={isMenuVisible}
           onDataLoaded={setData}
           onSceneReady={setSceneReady}
           onLoadingChange={setIsLoading}
@@ -71,7 +70,7 @@ function App() {
           languageColors={languageColors}
         />
 
-        {selectedLanguage && hasSubtitle && (
+        {selectedLanguage && isInfoVisible && (
           <IdCard
             languageCode={selectedLanguage}
             language={data?.languageData[selectedLanguage]}
@@ -79,7 +78,7 @@ function App() {
             sampleUrl={sampleUrl}
             onSourceVideoClick={pausePlaylist}
             onToggleSubtitle={(nextValue) =>
-              updateControl("hasSubtitle", nextValue)
+              updateControl("isInfoVisible", nextValue)
             }
             sub={sub}
             headingColor={languageColors[selectedLanguage]}
@@ -95,8 +94,10 @@ function App() {
           isLoading={isLoading}
           sceneReady={sceneReady}
           onCameraFocus={handleCameraFocus}
-          isCollapsed={isMenuCollapsed}
-          onToggleCollapse={() => setIsMenuCollapsed(!isMenuCollapsed)}
+          isVisible={isMenuVisible}
+          onToggleCollapse={() =>
+            updateControl("isMenuVisible", !isMenuVisible)
+          }
           filteringUtils={filteringUtils}
           onFilteringUtilsChange={setFilteringUtils}
           languageColors={languageColors}

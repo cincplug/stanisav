@@ -61,7 +61,7 @@
       "scene": "காட்சி",
       "stageLight": "மேடை விளக்கு"
     },
-    "hasSubtitle": {
+    "isInfoVisible": {
       "label": "வசனங்கள் காட்டு"
     },
     "hueCircle": {

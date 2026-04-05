@@ -74,17 +74,24 @@
     "isUserEditable": true,
     "group": "Scene"
   },
-  "hasSubtitle": {
+  "isInfoVisible": {
     "type": "checkbox",
     "label": "Show subtitle",
     "defaultValue": true,
     "isUserEditable": true,
     "group": "Scene"
   },
+  "isMenuVisible": {
+    "type": "checkbox",
+    "label": "Show menu",
+    "defaultValue": false,
+    "isUserEditable": false,
+    "group": "Scene"
+  },
   "isLoop": {
     "type": "checkbox",
     "label": "Loop playlist",
-    "defaultValue": true,
+    "defaultValue": false,
     "isUserEditable": false,
     "group": "Scene"
   },

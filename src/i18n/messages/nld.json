@@ -61,7 +61,7 @@
       "scene": "Scène",
       "stageLight": "Podiumlicht"
     },
-    "hasSubtitle": {
+    "isInfoVisible": {
       "label": "Ondertiteling tonen"
     },
     "hueCircle": {

@@ -61,7 +61,7 @@
       "scene": "场景",
       "stageLight": "舞台灯光"
     },
-    "hasSubtitle": {
+    "isInfoVisible": {
       "label": "显示字幕"
     },
     "hueCircle": {

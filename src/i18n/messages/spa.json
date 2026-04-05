@@ -61,7 +61,7 @@
       "scene": "Escena",
       "stageLight": "Luz de escena"
     },
-    "hasSubtitle": {
+    "isInfoVisible": {
       "label": "Mostrar subtítulo"
     },
     "hueCircle": {

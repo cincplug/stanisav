@@ -61,7 +61,7 @@
       "scene": "장면",
       "stageLight": "무대 조명"
     },
-    "hasSubtitle": {
+    "isInfoVisible": {
       "label": "자막 표시"
     },
     "hueCircle": {

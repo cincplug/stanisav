@@ -61,7 +61,7 @@
       "scene": "Scena",
       "stageLight": "Scensko svetlo"
     },
-    "hasSubtitle": {
+    "isInfoVisible": {
       "label": "Prikaži podnaslov"
     },
     "hueCircle": {

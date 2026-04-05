@@ -61,7 +61,7 @@
       "scene": "صحنه",
       "stageLight": "نور صحنه"
     },
-    "hasSubtitle": {
+    "isInfoVisible": {
       "label": "نمایش زیرنویس"
     },
     "hueCircle": {

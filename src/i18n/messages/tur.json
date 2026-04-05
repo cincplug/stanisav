@@ -61,7 +61,7 @@
       "scene": "Sahne",
       "stageLight": "Sahne ışığı"
     },
-    "hasSubtitle": {
+    "isInfoVisible": {
       "label": "Altyazı göster"
     },
     "hueCircle": {

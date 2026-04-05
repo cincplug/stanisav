@@ -9,7 +9,6 @@ export const AppStateProvider = ({ children }) => {
   const [sceneReady, setSceneReady] = useState(false);
   const [, setNodes] = useState(null);
   const [cameraFocusRequest, setCameraFocusRequest] = useState(null);
-  const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
   const [filteringUtils, setFilteringUtils] = useState({});
   const [selectedMood, setSelectedMood] = useState(() =>
     settingsService.getMood(),
@@ -32,7 +31,6 @@ export const AppStateProvider = ({ children }) => {
     data,
     sceneReady,
     cameraFocusRequest,
-    isMenuCollapsed,
     filteringUtils,
     selectedMood,
 
@@ -41,7 +39,6 @@ export const AppStateProvider = ({ children }) => {
     setSceneReady,
     setIsLoading,
     setNodes,
-    setIsMenuCollapsed,
     setFilteringUtils,
 
     // Handlers

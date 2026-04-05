@@ -61,7 +61,7 @@
       "scene": "المشهد",
       "stageLight": "إضاءة المسرح"
     },
-    "hasSubtitle": {
+    "isInfoVisible": {
       "label": "عرض الترجمة"
     },
     "hueCircle": {
