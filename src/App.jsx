@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
-import Overlay from "./components/menu/Overlay";
 import PropertyShowcase from "./pages/property-showcase/PropertyShowcase.jsx";
 import IdCard from "./components/menu/IdCard";
 import Splash from "./pages/splash/Splash";
@@ -38,11 +37,36 @@ function App() {
   const { isInfoVisible, isMenuVisible } = controls;
   const { sampleUrl, sub } = data?.languageData[selectedLanguage] || {};
 
+  // Track if mood defaults have been applied
+  const moodDefaultsAppliedRef = useRef(false);
+
   const languageColors = useLanguageColors(
     data?.languageData,
     data?.languageLineages,
     controls,
   );
+
+  // Apply mood-specific defaults when scene is ready
+  useEffect(() => {
+    if (
+      !selectedMood ||
+      moodDefaultsAppliedRef.current ||
+      !sceneReady ||
+      !data
+    ) {
+      return;
+    }
+
+    moodDefaultsAppliedRef.current = true;
+
+    if (selectedMood === "listen") {
+      updateControl("isMenuVisible", false);
+      updateControl("isLoop", true);
+      startPlaylist();
+    } else if (selectedMood === "explore") {
+      updateControl("isLoop", false);
+    }
+  }, [selectedMood, sceneReady, data]);
 
   const params = useParams();
   const showPropertyOverlay = Boolean(params.propertyKey);
@@ -51,74 +75,72 @@ function App() {
     return <Navigate to={`/${params.locale || ""}`} replace />;
   }
 
-  // Show splash screen if no mood selected
-  if (!selectedMood) {
-    return <Splash />;
-  }
-
   return (
-    <div
-      className={`app-container${isRtl ? " rtl" : ""} ${isLoading ? "loading" : ""} ${isMenuVisible ? "menu-expanded" : "menu-collapsed"}`}
-    >
-      <div className="stage-area">
-        <Stage
-          isMenuVisible={isMenuVisible}
-          onDataLoaded={setData}
-          onSceneReady={setSceneReady}
-          onLoadingChange={setIsLoading}
-          onNodesReady={setNodes}
-          languageColors={languageColors}
-        />
+    <>
+      {/* Show splash screen overlay if no mood selected */}
+      <div
+        className={`app-container${isRtl ? " rtl" : ""} ${isLoading ? "loading" : ""} ${isMenuVisible ? "menu-expanded" : "menu-collapsed"}`}
+      >
+        <div className="stage-area">
+          <Stage
+            isMenuVisible={isMenuVisible}
+            onDataLoaded={setData}
+            onSceneReady={setSceneReady}
+            onLoadingChange={setIsLoading}
+            onNodesReady={setNodes}
+            languageColors={languageColors}
+          />
 
-        {selectedLanguage && isInfoVisible && (
-          <IdCard
-            languageCode={selectedLanguage}
-            language={data?.languageData[selectedLanguage]}
-            languageLineages={data?.languageLineages}
-            sampleUrl={sampleUrl}
-            onSourceVideoClick={pausePlaylist}
-            onToggleSubtitle={(nextValue) =>
-              updateControl("isInfoVisible", nextValue)
+          {selectedLanguage && isInfoVisible && (
+            <IdCard
+              languageCode={selectedLanguage}
+              language={data?.languageData[selectedLanguage]}
+              languageLineages={data?.languageLineages}
+              sampleUrl={sampleUrl}
+              onSourceVideoClick={pausePlaylist}
+              onToggleSubtitle={(nextValue) =>
+                updateControl("isInfoVisible", nextValue)
+              }
+              sub={sub}
+              headingColor={languageColors[selectedLanguage]}
+            />
+          )}
+        </div>
+
+        {sceneReady && (
+          <Menu
+            controls={controls}
+            onControlChange={updateControl}
+            data={data}
+            isLoading={isLoading}
+            sceneReady={sceneReady}
+            onCameraFocus={handleCameraFocus}
+            isVisible={isMenuVisible}
+            onToggleCollapse={() =>
+              updateControl("isMenuVisible", !isMenuVisible)
             }
-            sub={sub}
-            headingColor={languageColors[selectedLanguage]}
+            filteringUtils={filteringUtils}
+            onFilteringUtilsChange={setFilteringUtils}
+            languageColors={languageColors}
           />
         )}
+
+        {showPropertyOverlay && (
+          <>
+            <PropertyShowcase propertyKey={params.propertyKey} />
+            <button
+              className={`close-button${isRtl ? " close-button-rtl" : ""}`}
+              aria-label={t("menu.close")}
+              onClick={() => window.history.back()}
+            >
+              <CloseIcon />
+            </button>
+          </>
+        )}
+
+        {!selectedMood && <Splash />}
       </div>
-
-      {!isLoading && sceneReady && (
-        <Menu
-          controls={controls}
-          onControlChange={updateControl}
-          data={data}
-          isLoading={isLoading}
-          sceneReady={sceneReady}
-          onCameraFocus={handleCameraFocus}
-          isVisible={isMenuVisible}
-          onToggleCollapse={() =>
-            updateControl("isMenuVisible", !isMenuVisible)
-          }
-          filteringUtils={filteringUtils}
-          onFilteringUtilsChange={setFilteringUtils}
-          languageColors={languageColors}
-        />
-      )}
-
-      {showPropertyOverlay && (
-        <>
-          <PropertyShowcase propertyKey={params.propertyKey} />
-          <button
-            className={`close-button${isRtl ? " close-button-rtl" : ""}`}
-            aria-label={t("menu.close")}
-            onClick={() => window.history.back()}
-          >
-            <CloseIcon />
-          </button>
-        </>
-      )}
-
-      {(isLoading || !sceneReady) && <Overlay variant="loading" />}
-    </div>
+    </>
   );
 }
 

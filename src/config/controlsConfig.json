@@ -84,7 +84,7 @@
   "isMenuVisible": {
     "type": "checkbox",
     "label": "Show menu",
-    "defaultValue": false,
+    "defaultValue": true,
     "isUserEditable": false,
     "group": "Scene"
   },

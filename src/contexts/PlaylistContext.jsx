@@ -175,7 +175,9 @@ export const PlaylistProvider = ({ children }) => {
         return nextIndex;
       });
     } else {
+      // When not looping, treat audio end as user pause to prevent auto-resume
       setIsPlaying(false);
+      userPausedRef.current = true;
     }
   }, []);
 
