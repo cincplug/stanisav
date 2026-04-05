@@ -92,7 +92,6 @@ html.rtl .id-card-close-button {
   display: flex;
   align-items: flex-start;
   gap: var(--gap);
-  cursor: pointer;
   font: inherit;
   width: fit-content;
   text-align: left;

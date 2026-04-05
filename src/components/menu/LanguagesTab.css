@@ -25,7 +25,6 @@
 .language-item-button {
   background-color: var(--color-3);
   color: var(--color-1);
-  cursor: pointer;
   width: auto;
   box-sizing: border-box;
 

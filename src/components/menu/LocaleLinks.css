@@ -13,7 +13,6 @@
   border-radius: var(--border-radius);
   font-size: var(--font-size-normal);
   padding: var(--gap) var(--gap-double);
-  cursor: pointer;
   display: flex;
   align-items: center;
   gap: var(--gap-half);

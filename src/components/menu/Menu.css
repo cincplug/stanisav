@@ -51,7 +51,6 @@ html.rtl .menu-close {
   display: flex;
   align-items: center;
   gap: var(--gap);
-  cursor: pointer;
 }
 
 .radio-option input[type="radio"] {

@@ -34,7 +34,6 @@ html.rtl .playlist-controls .next-icon {
   border: none;
   box-shadow: var(--shadow-mild);
   color: var(--color-5);
-  cursor: pointer;
   font-weight: bold;
   display: flex;
   align-items: center;
