@@ -4,6 +4,7 @@ import Stage from "./components/r3f/Stage";
 import Overlay from "./components/menu/Overlay";
 import PropertyShowcase from "./pages/property-showcase/PropertyShowcase.jsx";
 import IdCard from "./components/menu/IdCard";
+import Splash from "./pages/splash/Splash";
 import { CloseIcon } from "./components/menu/MenuIcons";
 import { useAppState } from "./contexts/AppStateContext";
 import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
@@ -22,6 +23,7 @@ function App() {
     sceneReady,
     isMenuCollapsed,
     filteringUtils,
+    selectedMood,
     setData,
     setSceneReady,
     setIsLoading,
@@ -48,6 +50,11 @@ function App() {
 
   if (showPropertyOverlay && !isPropertyDescribed(params.propertyKey)) {
     return <Navigate to={`/${params.locale || ""}`} replace />;
+  }
+
+  // Show splash screen if no mood selected
+  if (!selectedMood) {
+    return <Splash />;
   }
 
   return (

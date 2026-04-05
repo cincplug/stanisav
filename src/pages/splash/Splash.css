@@ -1,0 +1,122 @@
+.splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-2);
+  color: var(--color-5);
+  overflow: auto;
+  z-index: 1;
+}
+
+.splash-content {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: var(--gap-double);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-triple);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.splash-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-double);
+  text-align: center;
+  margin-top: var(--gap-triple);
+}
+
+.splash-mesha {
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+
+.splash-title {
+  font-size: 4rem;
+  margin: 0;
+  color: var(--color-6);
+}
+
+.splash-description {
+  font-size: var(--font-size-big);
+  max-width: var(--readable-width);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.splash-moods {
+  width: 100%;
+  margin: var(--gap-double) 0;
+}
+
+.splash-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--panel-width), 1fr));
+  gap: var(--gap-double);
+  width: 100%;
+}
+
+.splash-card {
+  background: var(--color-1);
+  border: var(--border-width) solid var(--color-3);
+  border-radius: var(--border-radius);
+  padding: var(--gap-double);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  text-align: center;
+}
+
+.splash-card-title {
+  font-size: var(--font-size-big);
+  margin: 0;
+  color: var(--color-6);
+}
+
+.splash-card-description {
+  margin: 0;
+  flex-grow: 1;
+  line-height: 1.5;
+}
+
+.splash-card-cta {
+  background: var(--color-video);
+  width: fit-content;
+  align-self: center;
+  padding: var(--gap-double) var(--gap-triple);
+  font-size: var(--font-size-big);
+  border-radius: calc(2 * var(--border-radius));
+}
+
+.splash-remember {
+  margin-top: var(--gap-double);
+  display: flex;
+  justify-content: center;
+}
+
+.splash-remember label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-half);
+}
+
+.splash-footer {
+  margin-top: auto;
+  padding: var(--gap-double) 0;
+}
+
+@media (max-width: 768px) {
+  .splash-title {
+    font-size: 3rem;
+  }
+
+  .splash-cards {
+    grid-template-columns: 1fr;
+  }
+}

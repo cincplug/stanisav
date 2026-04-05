@@ -17,7 +17,6 @@
     border-radius: var(--border-radius) var(--border-radius) 0 0;
     color: var(--color-5);
     padding: var(--gap) var(--gap-double);
-    cursor: pointer;
     font-size: var(--font-size-normal);
     width: auto;
     outline: none;

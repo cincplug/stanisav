@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import settingsService from "../services/settingsService";
 
 const AppStateContext = createContext(null);
 
@@ -10,10 +11,19 @@ export const AppStateProvider = ({ children }) => {
   const [cameraFocusRequest, setCameraFocusRequest] = useState(null);
   const [isMenuCollapsed, setIsMenuCollapsed] = useState(false);
   const [filteringUtils, setFilteringUtils] = useState({});
+  const [selectedMood, setSelectedMood] = useState(() =>
+    settingsService.getMood(),
+  );
 
   // Only manages camera focus request state
   const handleCameraFocus = (type, target) => {
     setCameraFocusRequest({ type, target, timestamp: Date.now() });
+  };
+
+  // Handle mood selection with optional persistence
+  const handleMoodSelect = (moodId, remember = false) => {
+    setSelectedMood(moodId);
+    settingsService.saveMood(moodId, remember);
   };
 
   const value = {
@@ -24,6 +34,7 @@ export const AppStateProvider = ({ children }) => {
     cameraFocusRequest,
     isMenuCollapsed,
     filteringUtils,
+    selectedMood,
 
     // Setters
     setData,
@@ -34,7 +45,8 @@ export const AppStateProvider = ({ children }) => {
     setFilteringUtils,
 
     // Handlers
-    handleCameraFocus
+    handleCameraFocus,
+    handleMoodSelect,
   };
 
   return (

@@ -1,0 +1,16 @@
+{
+  "moods": [
+    {
+      "id": "listen",
+      "titleKey": "splash.listen.title",
+      "descriptionKey": "splash.listen.description",
+      "ctaKey": "splash.listen.cta"
+    },
+    {
+      "id": "explore",
+      "titleKey": "splash.explore.title",
+      "descriptionKey": "splash.explore.description",
+      "ctaKey": "splash.explore.cta"
+    }
+  ]
+}

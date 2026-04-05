@@ -32,6 +32,7 @@
   border: 1px solid var(--color-3);
   border-radius: var(--border-radius);
   padding: var(--gap-double);
+  gap: var(--gap-double);
   width: 100%;
   box-sizing: border-box;
   height: 100%;
@@ -54,7 +55,7 @@
   white-space: nowrap;
   pointer-events: none;
   user-select: none;
-  margin-top: var(--gap);
+  margin: 0;
 }
 
 html.rtl .property-overlay {
