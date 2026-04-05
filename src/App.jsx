@@ -78,18 +78,6 @@ function App() {
             headingColor={languageColors[selectedLanguage]}
           />
         )}
-        {showPropertyOverlay && (
-          <>
-            <PropertyShowcase propertyKey={params.propertyKey} />
-            <button
-              className={`close-button${isRtl ? " close-button-rtl" : ""}`}
-              aria-label={t("menu.close")}
-              onClick={() => window.history.back()}
-            >
-              <CloseIcon />
-            </button>
-          </>
-        )}
       </div>
 
       {!isLoading && sceneReady && (
@@ -106,6 +94,19 @@ function App() {
           onFilteringUtilsChange={setFilteringUtils}
           languageColors={languageColors}
         />
+      )}
+
+      {showPropertyOverlay && (
+        <>
+          <PropertyShowcase propertyKey={params.propertyKey} />
+          <button
+            className={`close-button${isRtl ? " close-button-rtl" : ""}`}
+            aria-label={t("menu.close")}
+            onClick={() => window.history.back()}
+          >
+            <CloseIcon />
+          </button>
+        </>
       )}
 
       {(isLoading || !sceneReady) && <Overlay variant="loading" />}
