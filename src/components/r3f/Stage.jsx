@@ -56,18 +56,31 @@ const Stage = ({
 
   const languageData = data?.languageData || {};
   const { languageCodes, languageLineages, speakerData, typologicalFeatures } =
-    getSortingData(languageData);
+    useMemo(() => getSortingData(languageData), [languageData]);
 
-  const sortedLanguageCodes = sortLanguages({
-    allLanguages: [...languageCodes],
-    languageData,
-    languageLineages,
-    speakerData,
-    typologicalFeatures,
-    sortBy,
-    labelContent,
-    isReverse,
-  });
+  const sortedLanguageCodes = useMemo(
+    () =>
+      sortLanguages({
+        allLanguages: [...languageCodes],
+        languageData,
+        languageLineages,
+        speakerData,
+        typologicalFeatures,
+        sortBy,
+        labelContent,
+        isReverse,
+      }),
+    [
+      languageCodes,
+      languageData,
+      languageLineages,
+      speakerData,
+      typologicalFeatures,
+      sortBy,
+      labelContent,
+      isReverse,
+    ],
+  );
 
   const groups = useMemo(
     () =>
