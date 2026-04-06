@@ -1,5 +1,3 @@
-import { useThree } from "@react-three/fiber";
-import { useClusterOpacities } from "../../hooks/useClusterOpacities";
 import LabelsCluster from "./LabelsCluster";
 import Label from "./Label";
 
@@ -11,21 +9,11 @@ const Labels = ({
   languageData,
   selectedLanguage,
 }) => {
-  const { camera } = useThree();
-  const opacities = useClusterOpacities(
-    camera,
-    formattedPositions,
-    selectedLanguage,
-  );
-
   const visibleLabelCodes = Object.keys(formattedPositions).filter(
     (langCode) => {
       const position = formattedPositions[langCode];
       const filterStatus = languageFilterStatus[langCode];
-      const opacity = opacities[langCode] ?? 1;
-      return (
-        Boolean(position) && Boolean(filterStatus?.isVisible) && opacity > 0
-      );
+      return Boolean(position) && Boolean(filterStatus?.isVisible);
     },
   );
 
@@ -36,7 +24,6 @@ const Labels = ({
       {/* Flat list with stable keys so position springs persist across layout changes */}
       {visibleLabelCodes.map((langCode, index) => {
         const position = formattedPositions[langCode];
-        const opacity = opacities[langCode] ?? 1;
         const revealOrder = totalVisibleLabels - 1 - index;
 
         return (
@@ -47,7 +34,7 @@ const Labels = ({
             position={[position.x, position.y, position.z]}
             isSelected={selectedLanguage === langCode}
             color={languageColors[langCode]}
-            opacity={opacity}
+            opacity={1}
             revealOrder={revealOrder}
             totalVisibleLabels={totalVisibleLabels}
           />

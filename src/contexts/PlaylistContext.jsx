@@ -16,7 +16,7 @@ const PlaylistContext = createContext(null);
 
 export const PlaylistProvider = ({ children }) => {
   const { data, sceneReady, selectedMood, setSelectedMood } = useAppState();
-  const { controls } = useControls();
+  const { controls, updateControl } = useControls();
   const {
     isLoop,
     isMyMesha,
@@ -122,6 +122,7 @@ export const PlaylistProvider = ({ children }) => {
   const startFromLanguage = useCallback(
     (languageCode) => {
       if (!selectedMood) setSelectedMood("listen");
+      updateControl("isSegmented", false);
       const codes = getSortedLanguageCodes();
       if (codes.length === 0) return;
       const index = codes.indexOf(languageCode);
