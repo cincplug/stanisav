@@ -43,7 +43,7 @@ const Splash = () => {
     <div className="splash">
       <main className="splash-content" role="main">
         <div className="splash-hero">
-          <div className="splash-mesha" aria-hidden="true">
+          {/* <div className="splash-mesha" aria-hidden="true">
             <Canvas
               camera={{
                 position: [cameraX, cameraY, cameraZ],
@@ -63,7 +63,7 @@ const Splash = () => {
                 stripesType={2}
               />
             </Canvas>
-          </div>
+          </div> */}
 
           <h1 className="splash-title">Mesha</h1>
           <p className="splash-description">{t("splash.description")}</p>

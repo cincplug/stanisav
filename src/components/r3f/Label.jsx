@@ -9,16 +9,16 @@ import { usePlaylist } from "../../contexts/PlaylistContext.jsx";
 import { useAppState } from "../../contexts/AppStateContext.jsx";
 import { calculateRadialOffset } from "../../utils/sceneUtils.js";
 import { getLanguageLabel } from "../../utils/languageDisplayUtils.js";
+import { useEntranceAnimation } from "../../hooks/useEntranceAnimation.js";
 
 const Label = ({ languageCode, position, isSelected, color, opacity }) => {
   const groupRef = useRef();
   const labelRef = useRef();
   const { controls } = useControls();
-  const { data } = useAppState();
+  const { data, skipLabelEntrance } = useAppState();
   const { filteredLanguages, filteringUtils } = useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
-  const { labelContent, labelSize, bgColor, sortBy, tension, friction } =
-    controls;
+  const { labelContent, labelSize, bgColor, tension, friction } = controls;
 
   if (
     Object.keys(filteringUtils).length > 0 &&
@@ -46,15 +46,17 @@ const Label = ({ languageCode, position, isSelected, color, opacity }) => {
     [position],
   );
 
-  // Spring for selection offset (radial push when selected)
+  // Entrance animation from outer space to final position
+  const { positionSpring } = useEntranceAnimation(
+    position,
+    skipLabelEntrance,
+    tension,
+    friction,
+  );
+
+  // Selection offset spring (radial push when selected)
   const selectionSpring = useSpring({
     offset: isSelected ? 4 : 0,
-    config: { tension, friction },
-  });
-
-  // Spring for position transitions between layouts
-  const positionSpring = useSpring({
-    position,
     config: { tension, friction },
   });
 
@@ -72,6 +74,7 @@ const Label = ({ languageCode, position, isSelected, color, opacity }) => {
     if (groupRef.current) {
       const [x, y, z] = positionSpring.position.get();
       const offset = selectionSpring.offset.get();
+
       groupRef.current.position.set(
         x + radialOffset[0] * offset,
         y + radialOffset[1] * offset,

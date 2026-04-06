@@ -6,7 +6,6 @@
   height: 100%;
   color: var(--color-5);
   overflow: auto;
-  background: var(--color-2);
 }
 
 .splash-content {

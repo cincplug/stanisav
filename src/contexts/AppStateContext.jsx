@@ -13,6 +13,7 @@ export const AppStateProvider = ({ children }) => {
   const [selectedMood, setSelectedMood] = useState(() =>
     storageService.getMood(),
   );
+  const [skipLabelEntrance, setSkipLabelEntrance] = useState(false);
 
   // Only manages camera focus request state
   const handleCameraFocus = (type, target) => {
@@ -21,6 +22,7 @@ export const AppStateProvider = ({ children }) => {
 
   // Handle mood selection with optional persistence
   const handleMoodSelect = (moodId, remember = false) => {
+    setSkipLabelEntrance(true);
     setSelectedMood(moodId);
     storageService.saveMood(moodId, remember);
   };
@@ -33,6 +35,7 @@ export const AppStateProvider = ({ children }) => {
     cameraFocusRequest,
     filteringUtils,
     selectedMood,
+    skipLabelEntrance,
 
     // Setters
     setData,
@@ -40,6 +43,7 @@ export const AppStateProvider = ({ children }) => {
     setIsLoading,
     setNodes,
     setFilteringUtils,
+    setSkipLabelEntrance,
 
     // Handlers
     handleCameraFocus,
