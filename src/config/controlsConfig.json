@@ -63,7 +63,7 @@
   "isSegmented": {
     "type": "checkbox",
     "label": "Segmentation",
-    "defaultValue": true,
+    "defaultValue": false,
     "isUserEditable": true,
     "group": "Languages tab"
   },
@@ -84,7 +84,7 @@
   "isMenuVisible": {
     "type": "checkbox",
     "label": "Show menu",
-    "defaultValue": true,
+    "defaultValue": false,
     "isUserEditable": false,
     "group": "Scene"
   },

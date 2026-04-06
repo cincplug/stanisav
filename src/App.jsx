@@ -62,9 +62,13 @@ function App() {
     if (selectedMood === "listen") {
       updateControl("isMenuVisible", false);
       updateControl("isLoop", true);
+      updateControl("isSegmented", false);
       startPlaylist();
     } else if (selectedMood === "explore") {
+      updateControl("isMenuVisible", true);
       updateControl("isLoop", false);
+      updateControl("isSegmented", true);
+      // don't startPlaylist :)
     }
   }, [selectedMood, sceneReady, data]);
 

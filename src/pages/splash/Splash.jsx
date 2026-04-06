@@ -56,7 +56,7 @@ const Splash = () => {
               <color attach="background" args={[bgColor]} />
               <Mesha
                 linguisticProperties={baseLinguisticProperties}
-                color="#0057b7"
+                color="#44aadd"
                 position={[0, -5, 100]}
                 isMyMesha={false}
                 looksAround
