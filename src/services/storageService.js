@@ -3,7 +3,7 @@
  * Manages user preferences in localStorage/sessionStorage
  */
 
-class SettingsService {
+class StorageService {
   constructor() {
     this.STORAGE_KEYS = {
       MOOD: "meshaMood",
@@ -107,5 +107,5 @@ class SettingsService {
 }
 
 // Export singleton instance
-const settingsService = new SettingsService();
-export default settingsService;
+const storageService = new StorageService();
+export default storageService;
