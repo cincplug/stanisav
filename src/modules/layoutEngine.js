@@ -68,7 +68,7 @@ class LayoutEngine {
       return { positions: {}, sortedLanguages: [] };
     }
 
-    const basePoints = this.sortSpherePointsByAngle(
+    const basePoints = this.reorderBySpatialProximity(
       this.generateFibonacciSphere(sortedLanguages.length, sphereRadius),
     );
     const basePositions = {};
@@ -186,6 +186,34 @@ class LayoutEngine {
       points.push(new Vector3(x, y, z));
     }
     return points;
+  }
+
+  reorderBySpatialProximity(points) {
+    if (points.length === 0) return [];
+
+    const ordered = [];
+    const remaining = [...points];
+    let current = remaining.splice(0, 1)[0];
+
+    ordered.push(current);
+
+    while (remaining.length > 0) {
+      let nearestIndex = 0;
+      let nearestDistance = current.distanceTo(remaining[0]);
+
+      for (let i = 1; i < remaining.length; i += 1) {
+        const distance = current.distanceTo(remaining[i]);
+        if (distance < nearestDistance) {
+          nearestDistance = distance;
+          nearestIndex = i;
+        }
+      }
+
+      current = remaining.splice(nearestIndex, 1)[0];
+      ordered.push(current);
+    }
+
+    return ordered;
   }
 
   sortSpherePointsByAngle(points) {
