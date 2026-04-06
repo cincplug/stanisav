@@ -111,7 +111,7 @@ function App() {
           )}
         </div>
 
-        {sceneReady && (
+        {sceneReady && selectedMood && (
           <Menu
             controls={controls}
             onControlChange={updateControl}

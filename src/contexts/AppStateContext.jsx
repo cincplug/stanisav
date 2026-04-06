@@ -43,6 +43,7 @@ export const AppStateProvider = ({ children }) => {
     setIsLoading,
     setNodes,
     setFilteringUtils,
+    setSelectedMood,
     setSkipLabelEntrance,
 
     // Handlers

@@ -484,10 +484,6 @@
   },
   "splash": {
     "description": "Explore and listen to over 200 languages from around the world. Discover their unique sounds and linguistic properties.",
-    "moods": {
-      "label": "Choose your experience",
-      "heading": "How would you like to experience Mesha?"
-    },
     "listen": {
       "title": "Listen",
       "description": "Focus on language samples with minimal distractions",

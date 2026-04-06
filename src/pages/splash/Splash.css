@@ -1,11 +1,12 @@
 .splash {
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: auto;
   color: var(--color-5);
   overflow: auto;
+  background: #000000a0;
 }
 
 .splash-content {
@@ -17,7 +18,6 @@
   justify-content: center;
   align-items: center;
   gap: var(--gap-triple);
-  min-height: 100vh;
   box-sizing: border-box;
 }
 
@@ -31,9 +31,11 @@
 }
 
 .splash-title {
-  font-size: 4rem;
   margin: 0;
-  color: var(--color-6);
+  position: fixed;
+  top: var(--gap-double);
+  left: 0;
+  right: 0;
 }
 
 .splash-description {
@@ -100,8 +102,9 @@
 }
 
 .splash-footer {
-  /* margin-top: auto; */
-  padding: var(--gap-double) 0;
+  position: fixed;
+  top: var(--gap-double);
+  right: var(--gap-double);
 }
 
 @media (max-width: 768px) {

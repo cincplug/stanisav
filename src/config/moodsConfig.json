@@ -3,14 +3,12 @@
     {
       "id": "listen",
       "titleKey": "splash.listen.title",
-      "descriptionKey": "splash.listen.description",
-      "ctaKey": "splash.listen.cta"
+      "descriptionKey": "splash.listen.description"
     },
     {
       "id": "explore",
       "titleKey": "splash.explore.title",
-      "descriptionKey": "splash.explore.description",
-      "ctaKey": "splash.explore.cta"
+      "descriptionKey": "splash.explore.description"
     }
   ]
 }

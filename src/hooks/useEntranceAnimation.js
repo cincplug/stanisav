@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useSpring } from "@react-spring/three";
 
-const ENTRANCE_DURATION = 5000;
+const ENTRANCE_DURATION = 3000;
 const MIN_RADIUS = 1;
 const REVEAL_PORTION = 1 / 2;
 const MIN_REVEAL_DURATION_MS = 120;
@@ -17,7 +17,7 @@ const BASE_TURNS = 11 / 10;
 const EXTRA_TURNS = 2;
 const BASE_RADIUS_MULTIPLIER = 3;
 const EXTRA_RADIUS_MULTIPLIER = 9 / 10;
-const RADIUS_OFFSET = 12;
+const RADIUS_OFFSET = 22;
 const PHI_JITTER = 3 / 5;
 const PHI_MARGIN = 1 / 10;
 

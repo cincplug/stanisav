@@ -22,17 +22,14 @@ const baseLinguisticProperties = {
 };
 
 const Splash = () => {
-  const { controls } = useControls();
   const { handleMoodSelect } = useAppState();
   const { t } = useI18n();
-  const { cameraX, cameraY, cameraZ, fov, near, far, bgColor } = controls;
   const [rememberChoice, setRememberChoice] = useState(false);
 
   const moods = moodsConfig.moods.map((mood) => ({
     id: mood.id,
     title: t(mood.titleKey),
     description: t(mood.descriptionKey),
-    cta: t(mood.ctaKey),
   }));
 
   const handleSelect = (moodId) => {
@@ -43,46 +40,21 @@ const Splash = () => {
     <div className="splash">
       <main className="splash-content" role="main">
         <div className="splash-hero">
-          {/* <div className="splash-mesha" aria-hidden="true">
-            <Canvas
-              camera={{
-                position: [cameraX, cameraY, cameraZ],
-                fov,
-                near,
-                far,
-              }}
-              gl={{ antialias: true, clearColor: bgColor }}
-            >
-              <color attach="background" args={[bgColor]} />
-              <Mesha
-                linguisticProperties={baseLinguisticProperties}
-                color="#44aadd"
-                position={[0, -5, 100]}
-                isMyMesha={false}
-                looksAround
-                stripesType={2}
-              />
-            </Canvas>
-          </div> */}
-
-          <h1 className="splash-title">Mesha</h1>
+          <h1 className="splash-title">John Vowel</h1>
           <p className="splash-description">{t("splash.description")}</p>
         </div>
 
-        <section className="splash-moods" aria-label={t("splash.moods.label")}>
-          <h2 className="sr-only">{t("splash.moods.heading")}</h2>
+        <section className="splash-moods">
           <div className="splash-cards">
             {moods.map((mood) => (
               <article key={mood.id} className="splash-card">
-                <h3 className="splash-card-title">{mood.title}</h3>
-                <p className="splash-card-description">{mood.description}</p>
                 <button
                   className="splash-card-cta"
                   onClick={() => handleSelect(mood.id)}
-                  aria-label={`${mood.title}: ${mood.cta}`}
                 >
-                  {mood.cta}
+                  {mood.title}
                 </button>
+                <p className="splash-card-description">{mood.description}</p>
               </article>
             ))}
           </div>
