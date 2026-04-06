@@ -65,7 +65,7 @@ function App() {
       updateControl("isSegmented", false);
       startPlaylist();
     } else if (selectedMood === "explore") {
-      // updateControl("isMenuVisible", true);
+      updateControl("isMenuVisible", true);
       updateControl("isLoop", false);
       updateControl("isSegmented", true);
       // don't startPlaylist :)
