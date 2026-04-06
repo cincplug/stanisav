@@ -18,17 +18,26 @@ const Labels = ({
     selectedLanguage,
   );
 
+  const visibleLabelCodes = Object.keys(formattedPositions).filter(
+    (langCode) => {
+      const position = formattedPositions[langCode];
+      const filterStatus = languageFilterStatus[langCode];
+      const opacity = opacities[langCode] ?? 1;
+      return (
+        Boolean(position) && Boolean(filterStatus?.isVisible) && opacity > 0
+      );
+    },
+  );
+
+  const totalVisibleLabels = visibleLabelCodes.length;
+
   return (
     <>
       {/* Flat list with stable keys so position springs persist across layout changes */}
-      {Object.keys(formattedPositions).map((langCode) => {
+      {visibleLabelCodes.map((langCode, index) => {
         const position = formattedPositions[langCode];
-        const filterStatus = languageFilterStatus[langCode];
-
-        if (!position || !filterStatus?.isVisible) return null;
-
         const opacity = opacities[langCode] ?? 1;
-        if (opacity === 0) return null;
+        const revealOrder = totalVisibleLabels - 1 - index;
 
         return (
           <Label
@@ -39,6 +48,8 @@ const Labels = ({
             isSelected={selectedLanguage === langCode}
             color={languageColors[langCode]}
             opacity={opacity}
+            revealOrder={revealOrder}
+            totalVisibleLabels={totalVisibleLabels}
           />
         );
       })}

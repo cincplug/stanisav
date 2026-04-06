@@ -11,7 +11,15 @@ import { calculateRadialOffset } from "../../utils/sceneUtils.js";
 import { getLanguageLabel } from "../../utils/languageDisplayUtils.js";
 import { useEntranceAnimation } from "../../hooks/useEntranceAnimation.js";
 
-const Label = ({ languageCode, position, isSelected, color, opacity }) => {
+const Label = ({
+  languageCode,
+  position,
+  isSelected,
+  color,
+  opacity,
+  revealOrder,
+  totalVisibleLabels,
+}) => {
   const groupRef = useRef();
   const labelRef = useRef();
   const { controls } = useControls();
@@ -47,11 +55,13 @@ const Label = ({ languageCode, position, isSelected, color, opacity }) => {
   );
 
   // Entrance animation from outer space to final position
-  const { positionSpring } = useEntranceAnimation(
+  const { positionSpring, revealSpring } = useEntranceAnimation(
     position,
     skipLabelEntrance,
     tension,
     friction,
+    revealOrder,
+    totalVisibleLabels,
   );
 
   // Selection offset spring (radial push when selected)
@@ -83,6 +93,8 @@ const Label = ({ languageCode, position, isSelected, color, opacity }) => {
     }
     if (labelRef.current) {
       labelRef.current.lookAt(camera.position);
+      labelRef.current.outlineWidth =
+        (labelSize / 2) * revealSpring.reveal.get();
     }
     if (textMaterial) {
       textMaterial.opacity = opacity;
@@ -98,7 +110,7 @@ const Label = ({ languageCode, position, isSelected, color, opacity }) => {
         fontWeight="bold"
         anchorX="center"
         anchorY="middle"
-        outlineWidth={labelSize / 2}
+        outlineWidth={0}
         outlineColor={color}
         color={bgColor}
         material={textMaterial}

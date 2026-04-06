@@ -44,6 +44,7 @@ const Stage = ({
     labelContent,
     isReverse,
     isSegmented,
+    meshaSize,
   } = controls;
 
   useEffect(() => {
@@ -157,7 +158,7 @@ const Stage = ({
       const pos = formattedPositions[selectedLanguage];
       return [pos.x, pos.y, pos.z];
     }
-    return [0, 0, sphereRadius];
+    return [0, sphereRadius, 0];
   }, [selectedLanguage, formattedPositions]);
 
   const hasSelectedFilters = Object.keys(filteringUtils).length > 0;
