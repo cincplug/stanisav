@@ -1,25 +1,9 @@
 import { useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { useControls } from "../../contexts/ControlsContext";
 import { useAppState } from "../../contexts/AppStateContext";
-import Mesha from "../../components/r3f/Mesha";
 import LocaleLinks from "../../components/menu/LocaleLinks";
 import { useI18n } from "../../contexts/I18nContext";
 import moodsConfig from "../../config/moodsConfig.json";
 import "./Splash.css";
-
-const baseLinguisticProperties = {
-  tonality: "tonal",
-  morphology: "fusional",
-  wordOrderFlexibility: "flexible",
-  wordOrder: "SOV",
-  verbAspect: "complex",
-  evidentiality: "direct-indirect",
-  caseCount: 6,
-  phonemeCount: 40,
-  maxClusterSize: 3,
-  nounClassCount: 3,
-};
 
 const Splash = () => {
   const { handleMoodSelect } = useAppState();
@@ -39,10 +23,7 @@ const Splash = () => {
   return (
     <div className="splash">
       <main className="splash-content" role="main">
-        <div className="splash-hero">
-          <h1 className="splash-title">John Vowel</h1>
-          <p className="splash-description">{t("splash.description")}</p>
-        </div>
+        <p className="splash-description">{t("splash.description")}</p>
 
         <section className="splash-moods">
           <div className="splash-cards">
