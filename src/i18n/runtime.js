@@ -112,7 +112,11 @@ export const translate = (key, params) => {
     throw new Error(`Missing locale '${currentLocale}'`);
   }
 
-  const message = getMessageByPath(localeMessages, key);
+  let message = getMessageByPath(localeMessages, key);
+  if (message === undefined && currentLocale !== defaultLocale) {
+    message = getMessageByPath(messagesByLocale[defaultLocale], key);
+  }
+
   if (message === undefined) {
     throw new Error(
       `Missing translation key '${key}' for locale '${currentLocale}'`,
