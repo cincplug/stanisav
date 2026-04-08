@@ -54,7 +54,7 @@ const Label = ({
     [position],
   );
 
-  // Entrance animation from outer space to final position
+  // Entrance animation with a subtle staggered move near the final position
   const { positionSpring, revealSpring } = useEntranceAnimation(
     position,
     skipLabelEntrance,
@@ -77,27 +77,27 @@ const Label = ({
         transparent: true,
         opacity,
       }),
-    [bgColor],
+    [bgColor, opacity],
   );
 
   useFrame(({ camera }) => {
     if (groupRef.current) {
       const [x, y, z] = positionSpring.position.get();
       const offset = selectionSpring.offset.get();
+      const reveal = revealSpring.reveal.get();
 
       groupRef.current.position.set(
         x + radialOffset[0] * offset,
         y + radialOffset[1] * offset,
         z + radialOffset[2] * offset,
       );
+      groupRef.current.scale.setScalar(Math.max(reveal, 0.001));
     }
     if (labelRef.current) {
       labelRef.current.lookAt(camera.position);
-      labelRef.current.outlineWidth =
-        (labelSize / 2) * revealSpring.reveal.get();
     }
     if (textMaterial) {
-      textMaterial.opacity = opacity;
+      textMaterial.opacity = opacity * revealSpring.reveal.get();
     }
   });
 
@@ -110,7 +110,7 @@ const Label = ({
         fontWeight="bold"
         anchorX="center"
         anchorY="middle"
-        outlineWidth={0}
+        outlineWidth={labelSize / 2}
         outlineColor={color}
         color={bgColor}
         material={textMaterial}
