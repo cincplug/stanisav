@@ -87,7 +87,7 @@
   gap: var(--gap-half);
 }
 
-.splash-footer {
+.locale-wrap {
   position: fixed;
   top: var(--gap-double);
   right: var(--gap-double);

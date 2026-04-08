@@ -21,7 +21,7 @@ const Splash = () => {
   };
 
   return (
-    <div className="splash">
+    <div className="splash screenreader-only">
       <main className="splash-content" role="main">
         <p className="splash-description">{t("splash.description")}</p>
 
@@ -52,9 +52,9 @@ const Splash = () => {
           </div>
         </section>
 
-        <footer className="splash-footer">
+        <div className="locale-wrap">
           <LocaleLinks />
-        </footer>
+        </div>
       </main>
     </div>
   );
