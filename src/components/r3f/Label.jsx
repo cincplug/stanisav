@@ -54,7 +54,6 @@ const Label = ({
     [position],
   );
 
-  // Entrance animation with a subtle staggered move near the final position
   const { positionSpring, revealSpring } = useEntranceAnimation(
     position,
     skipLabelEntrance,
