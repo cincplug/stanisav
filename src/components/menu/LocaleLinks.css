@@ -6,12 +6,12 @@
 }
 
 .locale-dropdown-toggle {
-  background: var(--color-3);
+  background: none;
   color: var(--color-5);
   border: none;
   border-radius: var(--border-radius);
   font-size: var(--font-size-normal);
-  padding: var(--gap) var(--gap-double);
+  padding: 0;
   display: flex;
   align-items: center;
   gap: var(--gap-half);

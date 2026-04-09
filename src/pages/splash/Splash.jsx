@@ -50,11 +50,10 @@ const Splash = () => {
               {t("splash.rememberChoice")}
             </label>
           </div>
+          <div className="locale-wrap">
+            <LocaleLinks />
+          </div>
         </section>
-
-        <div className="locale-wrap">
-          <LocaleLinks />
-        </div>
       </main>
     </div>
   );

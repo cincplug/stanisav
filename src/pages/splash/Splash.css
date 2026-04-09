@@ -87,12 +87,6 @@
   gap: var(--gap-half);
 }
 
-.locale-wrap {
-  position: fixed;
-  top: var(--gap-double);
-  right: var(--gap-double);
-}
-
 @media (max-width: 768px) {
   .splash-title {
     font-size: 3rem;
