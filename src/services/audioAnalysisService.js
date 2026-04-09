@@ -23,11 +23,6 @@ class AudioAnalysisService {
 
     // Animation frame ID for cleanup
     this.animationFrameId = null;
-    
-    // Frame throttling: only notify callbacks every N frames to reduce React re-renders
-    // At 60fps, notifying every 2 frames = 30Hz updates (still smooth for human perception)
-    this.frameSkipCount = 2;
-    this.frameCounter = 0;
   }
 
   /**
@@ -101,7 +96,6 @@ class AudioAnalysisService {
    */
   stopAnalysis() {
     this.isAnalyzing = false;
-    this.frameCounter = 0; // Reset frame counter when stopping
     if (this.animationFrameId) {
       cancelAnimationFrame(this.animationFrameId);
       this.animationFrameId = null;
@@ -129,19 +123,12 @@ class AudioAnalysisService {
     // Process frequency data
     this.processFrequencyData();
 
-    // Throttle callbacks: only notify on every Nth frame to reduce React re-renders
-    // This reduces from 60+ updates/sec to ~30 updates/sec while maintaining smooth visuals
-    this.frameCounter++;
-    if (this.frameCounter >= this.frameSkipCount) {
-      this.frameCounter = 0;
-      
-      // Notify callbacks
-      this.notifyCallbacks({
-        fundamentalData: [...this.fundamentalData],
-        harmonicsData: [...this.harmonicsData],
-        isSelected: true,
-      });
-    }
+    // Notify callbacks
+    this.notifyCallbacks({
+      fundamentalData: [...this.fundamentalData],
+      harmonicsData: [...this.harmonicsData],
+      isSelected: true,
+    });
 
     // Schedule next frame
     this.animationFrameId = requestAnimationFrame(() => this.analyzeAudio());

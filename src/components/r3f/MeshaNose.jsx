@@ -1,4 +1,4 @@
-import { useRef, memo } from "react";
+import { useRef } from "react";
 import MeshaHighlight from "./MeshaHighlight.jsx";
 import { useFrame } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
@@ -107,6 +107,4 @@ const MeshaNose = ({
   );
 };
 
-// Memoize to prevent re-renders when parent re-renders but props haven't changed
-// This reduces unnecessary Three.js updates since useFrame handles animations
-export default memo(MeshaNose);
+export default MeshaNose;

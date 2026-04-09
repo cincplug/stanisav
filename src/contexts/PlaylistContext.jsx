@@ -238,43 +238,63 @@ export const PlaylistProvider = ({ children }) => {
 
           const audio = new Audio(audioUrl);
           audio.volume = 0.5;
-          
-          // Preload and wait for audio to be ready before playing
-          // This prevents the sample from starting clipped if buffering is slow
+          audio.preload = "auto";
+
+          // Wait until the browser can start playback reliably to reduce clipped starts.
           await new Promise((resolve, reject) => {
-            const handleCanPlayThrough = () => {
-              audio.removeEventListener("canplaythrough", handleCanPlayThrough);
+            const READY_THRESHOLD = 2; // HAVE_CURRENT_DATA
+            let settled = false;
+
+            const cleanupListeners = () => {
+              audio.removeEventListener("canplaythrough", handleReady);
+              audio.removeEventListener("canplay", handleReady);
+              audio.removeEventListener("loadeddata", handleReady);
               audio.removeEventListener("error", handleError);
-              resolve();
             };
-            
-            const handleError = (e) => {
-              audio.removeEventListener("canplaythrough", handleCanPlayThrough);
-              audio.removeEventListener("error", handleError);
-              reject(new Error(`Failed to load audio for ${code}`));
+
+            const settle = (fn) => {
+              if (settled) return;
+              settled = true;
+              clearTimeout(timeoutId);
+              cleanupListeners();
+              fn();
             };
-            
-            // Set a timeout to fallback to "canplay" if canplaythrough takes too long
-            // (for poor network conditions, we'd rather wait than clip)
-            const timeout = setTimeout(() => {
-              if (audio.readyState >= 2) { // HAVE_CURRENT_DATA or better
-                handleCanPlayThrough();
-              }
-            }, 3000); // 3 second timeout to reach at least canplay state
-            
-            const handleCanPlay = () => {
-              clearTimeout(timeout);
-              // Once we have enough data, proceed
-              if (audio.readyState >= 2) {
-                handleCanPlayThrough();
+
+            const handleReady = () => {
+              if (audio.readyState >= READY_THRESHOLD) {
+                settle(resolve);
               }
             };
-            
-            audio.addEventListener("canplaythrough", handleCanPlayThrough);
-            audio.addEventListener("canplay", handleCanPlay);
+
+            const handleError = () => {
+              settle(() =>
+                reject(new Error(`Failed to load audio for ${code}`)),
+              );
+            };
+
+            // Do not block forever on poor networks; proceed once minimum data is available.
+            const timeoutId = setTimeout(() => {
+              if (audio.readyState >= READY_THRESHOLD) {
+                settle(resolve);
+                return;
+              }
+              settle(() =>
+                reject(
+                  new Error(`Audio readiness timeout for language: ${code}`),
+                ),
+              );
+            }, 3500);
+
+            if (audio.readyState >= READY_THRESHOLD) {
+              settle(resolve);
+              return;
+            }
+
+            audio.addEventListener("canplaythrough", handleReady);
+            audio.addEventListener("canplay", handleReady);
+            audio.addEventListener("loadeddata", handleReady);
             audio.addEventListener("error", handleError);
-            
-            // Start loading
+
             audio.load();
           });
 
