@@ -238,6 +238,46 @@ export const PlaylistProvider = ({ children }) => {
 
           const audio = new Audio(audioUrl);
           audio.volume = 0.5;
+          
+          // Preload and wait for audio to be ready before playing
+          // This prevents the sample from starting clipped if buffering is slow
+          await new Promise((resolve, reject) => {
+            const handleCanPlayThrough = () => {
+              audio.removeEventListener("canplaythrough", handleCanPlayThrough);
+              audio.removeEventListener("error", handleError);
+              resolve();
+            };
+            
+            const handleError = (e) => {
+              audio.removeEventListener("canplaythrough", handleCanPlayThrough);
+              audio.removeEventListener("error", handleError);
+              reject(new Error(`Failed to load audio for ${code}`));
+            };
+            
+            // Set a timeout to fallback to "canplay" if canplaythrough takes too long
+            // (for poor network conditions, we'd rather wait than clip)
+            const timeout = setTimeout(() => {
+              if (audio.readyState >= 2) { // HAVE_CURRENT_DATA or better
+                handleCanPlayThrough();
+              }
+            }, 3000); // 3 second timeout to reach at least canplay state
+            
+            const handleCanPlay = () => {
+              clearTimeout(timeout);
+              // Once we have enough data, proceed
+              if (audio.readyState >= 2) {
+                handleCanPlayThrough();
+              }
+            };
+            
+            audio.addEventListener("canplaythrough", handleCanPlayThrough);
+            audio.addEventListener("canplay", handleCanPlay);
+            audio.addEventListener("error", handleError);
+            
+            // Start loading
+            audio.load();
+          });
+
           await setupAudioVisualization(audio);
 
           currentAudioElement.current = audio;

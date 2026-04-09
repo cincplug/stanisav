@@ -22,6 +22,7 @@ const Label = ({
 }) => {
   const groupRef = useRef();
   const labelRef = useRef();
+  const lastCameraPos = useRef(null);
   const { controls } = useControls();
   const { data, skipLabelEntrance } = useAppState();
   const { filteredLanguages, filteringUtils } = useLanguageSelection();
@@ -92,9 +93,24 @@ const Label = ({
       );
       groupRef.current.scale.setScalar(Math.max(reveal, 0.001));
     }
-    if (labelRef.current) {
-      labelRef.current.lookAt(camera.position);
+    
+    // Optimize lookAt: only update when camera has moved significantly
+    // This reduces expensive lookAt calculations from every frame to only when needed
+    if (labelRef.current && camera) {
+      const cameraPos = camera.position;
+      const threshold = 0.1; // Only update if camera has moved more than 0.1 units
+      
+      if (
+        !lastCameraPos.current ||
+        Math.abs(cameraPos.x - lastCameraPos.current.x) > threshold ||
+        Math.abs(cameraPos.y - lastCameraPos.current.y) > threshold ||
+        Math.abs(cameraPos.z - lastCameraPos.current.z) > threshold
+      ) {
+        labelRef.current.lookAt(cameraPos);
+        lastCameraPos.current = { x: cameraPos.x, y: cameraPos.y, z: cameraPos.z };
+      }
     }
+    
     if (textMaterial) {
       textMaterial.opacity = opacity * revealSpring.reveal.get();
     }

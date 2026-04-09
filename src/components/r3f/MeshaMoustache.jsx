@@ -1,4 +1,4 @@
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, memo } from "react";
 import MeshaHighlight from "./MeshaHighlight.jsx";
 import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
@@ -41,7 +41,7 @@ const MeshaMoustache = ({
 
   const tuftSurface = useMemo(
     () => createTuftShape(moustacheSize, tuftCount),
-    [moustacheSize],
+    [moustacheSize, tuftCount],
   );
 
   const angleConfig = useMemo(() => {
@@ -144,4 +144,5 @@ const MeshaMoustache = ({
   );
 };
 
-export default MeshaMoustache;
+// Memoize to prevent re-renders when parent re-renders but props haven't changed
+export default memo(MeshaMoustache);
