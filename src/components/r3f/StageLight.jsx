@@ -14,7 +14,7 @@ const StageLight = ({
   const lightRef = useRef();
 
   const { entranceProgress } = useSpring({
-    from: { entranceProgress: 0 },
+    from: { entranceProgress: 1 / 2 },
     to: { entranceProgress: 1 },
     config: { duration: ENTRANCE_DURATION },
     immediate: skipEntrance,

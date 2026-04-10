@@ -3,7 +3,7 @@ import { useSpring } from "@react-spring/three";
 
 export const ENTRANCE_DURATION = 3000;
 const POSITION_DURATION_MS = 2000;
-const REVEAL_DURATION_MS = 400;
+const REVEAL_DURATION_MS = 1000;
 const START_RADIUS_FACTOR = 7 / 8;
 
 const toInnerStartPosition = ([x, y, z]) => [
