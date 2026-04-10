@@ -207,9 +207,7 @@ const Stage = ({
       <OrbitControls
         enableDamping={true}
         makeDefault={true}
-        enableZoom={!selectedLanguage}
-        minDistance={50}
-        maxDistance={500}
+        enableZoom={false}
       />
 
       <StageLight intensity={stageLightIntensity} />
