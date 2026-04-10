@@ -1,12 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useI18n } from "../../contexts/I18nContext";
 import { getSupportedLocales, toUrlSlug } from "../../i18n/runtime";
 import languages from "../../config/languages.json";
 import "./LocaleLinks.css";
 
 export default function LocaleLinks() {
-  const navigate = useNavigate();
   const { locale } = useI18n();
   const locales = getSupportedLocales().sort();
   const [open, setOpen] = useState(false);
@@ -21,8 +20,12 @@ export default function LocaleLinks() {
     slug: toUrlSlug(code),
   }));
 
-  const handleLanguageChange = (slug) => {
-    navigate(`/${slug}`);
+  const handleLanguageChange = (slug, e = null) => {
+    if (e) {
+      e.preventDefault();
+      setOpen(false);
+    }
+    window.location.assign(`/${slug}`);
   };
 
   const currentNativeName =
@@ -130,7 +133,7 @@ export default function LocaleLinks() {
               <Link
                 to={`/${slug}`}
                 className="locale-dropdown-option"
-                onClick={() => setOpen(false)}
+                onClick={(e) => handleLanguageChange(slug, e)}
                 aria-current={code === locale ? "true" : undefined}
                 onKeyDown={(e) => handleListKeyDown(e, index)}
               >
