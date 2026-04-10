@@ -6,6 +6,7 @@ import { interpolateColorsByTime } from "../../utils/colorUtils";
 import { useSpring } from "@react-spring/three";
 import { useControls } from "../../contexts/ControlsContext";
 import { useAppState } from "../../contexts/AppStateContext";
+import { useI18n } from "../../contexts/I18nContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { useDataManager } from "../../hooks/useDataManager";
 import {
@@ -30,6 +31,7 @@ const Stage = ({
 }) => {
   const { controls, updateControl } = useControls();
   const { skipLabelEntrance } = useAppState();
+  const { locale, isLocaleReady } = useI18n();
   const { filteringUtils, selectedLanguage } = useLanguageSelection();
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
 
@@ -86,6 +88,8 @@ const Stage = ({
       sortBy,
       labelContent,
       isReverse,
+      locale,
+      isLocaleReady,
     ],
   );
 
@@ -106,6 +110,8 @@ const Stage = ({
       languageLineages,
       labelContent,
       isReverse,
+      locale,
+      isLocaleReady,
     ],
   );
 
@@ -133,6 +139,8 @@ const Stage = ({
       labelContent,
       isReverse,
       isSegmented,
+      locale,
+      isLocaleReady,
     ],
   );
 
