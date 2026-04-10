@@ -162,7 +162,7 @@
   },
   "bgColor": {
     "type": "color",
-    "defaultValue": "#040608",
+    "defaultValue": "#141618",
     "isUserEditable": true,
     "group": "Colors"
   },

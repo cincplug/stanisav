@@ -1,10 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { useSpring } from "@react-spring/three";
 
-export const ENTRANCE_DURATION = 3000;
-const POSITION_DURATION_MS = 2000;
-const REVEAL_DURATION_MS = 1000;
-const START_RADIUS_FACTOR = 7 / 8;
+export const ENTRANCE_DURATION = 4400;
+const REVEAL_DURATION_MS = 2000;
+const START_RADIUS_FACTOR = 5 / 8;
 
 const toInnerStartPosition = ([x, y, z]) => [
   x * START_RADIUS_FACTOR,
@@ -23,6 +22,7 @@ export const useEntranceAnimation = (
   const maxRevealDelay = Math.max(0, ENTRANCE_DURATION - REVEAL_DURATION_MS);
   const maxOrder = Math.max(1, totalVisibleLabels - 1);
   const revealDelay = Math.round((revealOrder / maxOrder) * maxRevealDelay);
+  const positionDuration = Math.max(0, ENTRANCE_DURATION - revealDelay);
 
   const entranceStartRef = useRef(null);
   if (entranceStartRef.current === null) {
@@ -51,7 +51,7 @@ export const useEntranceAnimation = (
     delay: phase === "entrance" ? revealDelay : 0,
     config:
       phase === "entrance"
-        ? { duration: POSITION_DURATION_MS }
+        ? { duration: positionDuration }
         : { tension, friction },
     immediate: skipLabelEntrance && phase === "entrance",
     onRest: ({ finished }) => {
