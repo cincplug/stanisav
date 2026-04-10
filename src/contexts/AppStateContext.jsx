@@ -1,5 +1,4 @@
 import { createContext, useContext, useState } from "react";
-import storageService from "../services/storageService";
 
 const AppStateContext = createContext(null);
 
@@ -10,21 +9,11 @@ export const AppStateProvider = ({ children }) => {
   const [, setNodes] = useState(null);
   const [cameraFocusRequest, setCameraFocusRequest] = useState(null);
   const [filteringUtils, setFilteringUtils] = useState({});
-  const [selectedMood, setSelectedMood] = useState(() =>
-    storageService.getMood(),
-  );
   const [skipLabelEntrance, setSkipLabelEntrance] = useState(false);
 
   // Only manages camera focus request state
   const handleCameraFocus = (type, target) => {
     setCameraFocusRequest({ type, target, timestamp: Date.now() });
-  };
-
-  // Handle mood selection with optional persistence
-  const handleMoodSelect = (moodId, remember = false) => {
-    setSkipLabelEntrance(true);
-    setSelectedMood(moodId);
-    storageService.saveMood(moodId, remember);
   };
 
   const value = {
@@ -34,7 +23,6 @@ export const AppStateProvider = ({ children }) => {
     sceneReady,
     cameraFocusRequest,
     filteringUtils,
-    selectedMood,
     skipLabelEntrance,
 
     // Setters
@@ -43,12 +31,10 @@ export const AppStateProvider = ({ children }) => {
     setIsLoading,
     setNodes,
     setFilteringUtils,
-    setSelectedMood,
     setSkipLabelEntrance,
 
     // Handlers
     handleCameraFocus,
-    handleMoodSelect,
   };
 
   return (

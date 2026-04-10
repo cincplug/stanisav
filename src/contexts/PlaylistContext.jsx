@@ -15,7 +15,7 @@ import { getSortingData } from "../utils/sortingUtils";
 const PlaylistContext = createContext(null);
 
 export const PlaylistProvider = ({ children }) => {
-  const { data, sceneReady, selectedMood, setSelectedMood } = useAppState();
+  const { data, sceneReady } = useAppState();
   const { controls, updateControl } = useControls();
   const {
     isLoop,
@@ -121,7 +121,6 @@ export const PlaylistProvider = ({ children }) => {
 
   const startFromLanguage = useCallback(
     (languageCode) => {
-      if (!selectedMood) setSelectedMood("listen");
       updateControl("isSegmented", false);
       const codes = getSortedLanguageCodes();
       if (codes.length === 0) return;

@@ -1,10 +1,8 @@
-import { useEffect, useRef } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
 import PropertyShowcase from "./pages/property-showcase/PropertyShowcase.jsx";
 import IdCard from "./components/menu/IdCard";
-import Splash from "./pages/splash/Splash";
 import { CloseIcon } from "./components/menu/MenuIcons";
 import { useAppState } from "./contexts/AppStateContext";
 import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
@@ -22,7 +20,6 @@ function App() {
     data,
     sceneReady,
     filteringUtils,
-    selectedMood,
     setData,
     setSceneReady,
     setIsLoading,
@@ -33,46 +30,15 @@ function App() {
 
   const { controls, updateControl } = useControls();
   const { selectedLanguage } = useLanguageSelection();
-  const { pausePlaylist, startPlaylist } = usePlaylist();
+  const { pausePlaylist } = usePlaylist();
   const { isInfoVisible, isMenuVisible } = controls;
   const { sampleUrl, sub } = data?.languageData[selectedLanguage] || {};
-
-  // Track if mood defaults have been applied
-  const moodDefaultsAppliedRef = useRef(false);
 
   const languageColors = useLanguageColors(
     data?.languageData,
     data?.languageLineages,
     controls,
   );
-
-  // Apply mood-specific defaults when scene is ready
-  useEffect(() => {
-    if (
-      !selectedMood ||
-      moodDefaultsAppliedRef.current ||
-      !sceneReady ||
-      !data
-    ) {
-      return;
-    }
-
-    moodDefaultsAppliedRef.current = true;
-
-    if (selectedMood === "listen") {
-      updateControl("isMenuVisible", false);
-      updateControl("isInfoVisible", false);
-      updateControl("isSegmented", false);
-      updateControl("isLoop", true);
-      startPlaylist();
-    } else if (selectedMood === "explore") {
-      updateControl("isMenuVisible", true);
-      updateControl("isInfoVisible", true);
-      updateControl("isSegmented", true);
-      updateControl("isLoop", false);
-      // don't startPlaylist :)
-    }
-  }, [selectedMood, sceneReady, data]);
 
   const params = useParams();
   const showPropertyOverlay = Boolean(params.propertyKey);
@@ -82,71 +48,66 @@ function App() {
   }
 
   return (
-    <>
-      {/* Show splash screen overlay if no mood selected */}
-      <div
-        className={`app-container${isRtl ? " rtl" : ""} ${isLoading ? "loading" : ""} ${isMenuVisible ? "menu-expanded" : "menu-collapsed"}`}
-      >
-        <div className="stage-area">
-          <Stage
-            isMenuVisible={isMenuVisible}
-            onDataLoaded={setData}
-            onSceneReady={setSceneReady}
-            onLoadingChange={setIsLoading}
-            onNodesReady={setNodes}
-            languageColors={languageColors}
-          />
+    <div
+      className={`app-container${isRtl ? " rtl" : ""} ${isLoading ? "loading" : ""} ${isMenuVisible ? "menu-expanded" : "menu-collapsed"}`}
+    >
+      <div className="stage-area">
+        <Stage
+          isMenuVisible={isMenuVisible}
+          onDataLoaded={setData}
+          onSceneReady={setSceneReady}
+          onLoadingChange={setIsLoading}
+          onNodesReady={setNodes}
+          languageColors={languageColors}
+        />
 
-          {selectedLanguage && isInfoVisible && (
-            <IdCard
-              languageCode={selectedLanguage}
-              language={data?.languageData[selectedLanguage]}
-              languageLineages={data?.languageLineages}
-              sampleUrl={sampleUrl}
-              onSourceVideoClick={pausePlaylist}
-              onToggleSubtitle={(nextValue) =>
-                updateControl("isInfoVisible", nextValue)
-              }
-              sub={sub}
-              headingColor={languageColors[selectedLanguage]}
-            />
-          )}
-        </div>
-
-        {sceneReady && (
-          <Menu
-            controls={controls}
-            onControlChange={updateControl}
-            data={data}
-            isLoading={isLoading}
-            sceneReady={sceneReady}
-            onCameraFocus={handleCameraFocus}
-            isVisible={isMenuVisible}
-            onToggleCollapse={() =>
-              updateControl("isMenuVisible", !isMenuVisible)
+        {selectedLanguage && isInfoVisible && (
+          <IdCard
+            languageCode={selectedLanguage}
+            language={data?.languageData[selectedLanguage]}
+            languageLineages={data?.languageLineages}
+            sampleUrl={sampleUrl}
+            onSourceVideoClick={pausePlaylist}
+            onToggleSubtitle={(nextValue) =>
+              updateControl("isInfoVisible", nextValue)
             }
-            filteringUtils={filteringUtils}
-            onFilteringUtilsChange={setFilteringUtils}
-            languageColors={languageColors}
+            sub={sub}
+            headingColor={languageColors[selectedLanguage]}
           />
         )}
-
-        {showPropertyOverlay && (
-          <>
-            <PropertyShowcase propertyKey={params.propertyKey} />
-            <button
-              className={`close-button${isRtl ? " close-button-rtl" : ""}`}
-              aria-label={t("menu.close")}
-              onClick={() => window.history.back()}
-            >
-              <CloseIcon />
-            </button>
-          </>
-        )}
-
-        {!selectedMood && <Splash />}
       </div>
-    </>
+
+      {sceneReady && (
+        <Menu
+          controls={controls}
+          onControlChange={updateControl}
+          data={data}
+          isLoading={isLoading}
+          sceneReady={sceneReady}
+          onCameraFocus={handleCameraFocus}
+          isVisible={isMenuVisible}
+          onToggleCollapse={() =>
+            updateControl("isMenuVisible", !isMenuVisible)
+          }
+          filteringUtils={filteringUtils}
+          onFilteringUtilsChange={setFilteringUtils}
+          languageColors={languageColors}
+        />
+      )}
+
+      {showPropertyOverlay && (
+        <>
+          <PropertyShowcase propertyKey={params.propertyKey} />
+          <button
+            className={`close-button${isRtl ? " close-button-rtl" : ""}`}
+            aria-label={t("menu.close")}
+            onClick={() => window.history.back()}
+          >
+            <CloseIcon />
+          </button>
+        </>
+      )}
+    </div>
   );
 }
 

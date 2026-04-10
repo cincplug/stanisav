@@ -481,19 +481,5 @@
   "idCard": {
     "sourceVideo": "Source video",
     "opensInNewTab": "opens in new tab"
-  },
-  "splash": {
-    "description": "Explore and listen to over 200 languages from around the world. Discover their unique sounds and linguistic properties.",
-    "listen": {
-      "title": "Listen",
-      "description": "Focus on language samples with minimal distractions",
-      "cta": "Start Listening"
-    },
-    "explore": {
-      "title": "Explore",
-      "description": "Browse linguistic properties and detailed information",
-      "cta": "Start Exploring"
-    },
-    "rememberChoice": "Remember my choice"
   }
 }
