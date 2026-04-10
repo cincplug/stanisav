@@ -93,6 +93,9 @@
     "labelSize": {
       "label": "Label size"
     },
+    "irrationality": {
+      "label": "Irrationality"
+    },
     "maxSiblingSpread": {
       "label": "Sibling hue spread"
     },

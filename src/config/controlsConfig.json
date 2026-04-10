@@ -50,6 +50,16 @@
     "isUserEditable": true,
     "group": "Scene"
   },
+  "irrationality": {
+    "type": "range",
+    "label": "Irrationality",
+    "min": 1,
+    "max": 200,
+    "step": 1,
+    "defaultValue": 27,
+    "isUserEditable": true,
+    "group": "Scene"
+  },
   "sphereRadius": {
     "type": "range",
     "label": "Sphere radius",
@@ -71,7 +81,7 @@
     "type": "checkbox",
     "label": "I am Mesha",
     "defaultValue": false,
-    "isUserEditable": true,
+    "isUserEditable": false,
     "group": "Scene"
   },
   "isInfoVisible": {

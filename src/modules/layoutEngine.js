@@ -25,15 +25,16 @@ class LayoutEngine {
   }
 
   sphereLayout(data, controls = {}) {
+    const { languageData, languageLineages, speakerData, typologicalFeatures } =
+      data;
     const {
-      languageData,
-      languageLineages,
-      lineageTree,
-      speakerData,
-      typologicalFeatures,
-    } = data;
-    const { sortBy, sphereRadius, labelContent, isReverse, isSegmented } =
-      controls;
+      sortBy,
+      sphereRadius,
+      labelContent,
+      isReverse,
+      isSegmented,
+      irrationality,
+    } = controls;
 
     const getClusterKey = (code) => {
       switch (sortBy) {
@@ -69,7 +70,11 @@ class LayoutEngine {
     }
 
     const angularBasePoints = this.sortSpherePointsByAngle(
-      this.generateFibonacciSphere(sortedLanguages.length, sphereRadius),
+      this.generateFibonacciSphere(
+        sortedLanguages.length,
+        sphereRadius,
+        irrationality,
+      ),
     );
 
     // Keep the legacy angular distribution, but smooth local traversal with
@@ -168,7 +173,7 @@ class LayoutEngine {
       const members = clusters[key];
       const r = clusterRadii[key];
       const localPoints = this.sortSpherePointsByAngle(
-        this.generateFibonacciSphere(members.length, r),
+        this.generateFibonacciSphere(members.length, r, irrationality),
       );
       members.forEach((code, j) => {
         clusteredPositions[code] = localPoints[j].clone().add(offset);
@@ -187,10 +192,10 @@ class LayoutEngine {
     return { positions, sortedLanguages };
   }
 
-  generateFibonacciSphere(numPoints, radius) {
+  generateFibonacciSphere(numPoints, radius, irrationality) {
     const points = [];
-    const goldenRatio = (1 + Math.sqrt(5)) / 2;
-    const angleIncrement = Math.PI * 2 * goldenRatio;
+    const notNecessarilyGoldenRatio = Math.sqrt(irrationality);
+    const angleIncrement = Math.PI * 2 * notNecessarilyGoldenRatio;
     for (let i = 0; i < numPoints; i++) {
       const t = i / numPoints;
       const inclination = Math.acos(1 - 2 * t);
@@ -238,29 +243,26 @@ class LayoutEngine {
   rotatePointsToFrontFacingAnchor(points) {
     if (points.length <= 1) return points;
 
-    let frontIndex = 0;
-    let bestZ = points[0].z;
-    let bestCenterDistanceSq = points[0].x ** 2 + points[0].y ** 2;
+    // Score each candidate cut by front-facingness (z) multiplied by the
+    // gap to its predecessor. This selects a cut that is both camera-facing
+    // and sits at a natural large break in the path, keeping first and last
+    // elements far apart.
+    let bestIndex = 0;
+    let bestScore = -Infinity;
 
-    for (let i = 1; i < points.length; i += 1) {
+    for (let i = 0; i < points.length; i += 1) {
       const p = points[i];
-      const z = p.z;
-      const centerDistanceSq = p.x ** 2 + p.y ** 2;
-
-      if (
-        z > bestZ ||
-        (z === bestZ && centerDistanceSq < bestCenterDistanceSq)
-      ) {
-        bestZ = z;
-        bestCenterDistanceSq = centerDistanceSq;
-        frontIndex = i;
+      const prev = points[(i - 1 + points.length) % points.length];
+      const score = p.z * p.distanceTo(prev);
+      if (score > bestScore) {
+        bestScore = score;
+        bestIndex = i;
       }
     }
 
-    if (frontIndex === 0) return points;
+    if (bestIndex === 0) return points;
 
-    // Keep relative neighbor order but shift so index 0 is camera-front.
-    return [...points.slice(frontIndex), ...points.slice(0, frontIndex)];
+    return [...points.slice(bestIndex), ...points.slice(0, bestIndex)];
   }
 
   sortSpherePointsByAngle(points) {

@@ -53,6 +53,7 @@ const Stage = ({
     isSegmented,
     stageLightDistance,
     stageLightDecay,
+    irrationality,
   } = controls;
 
   useEffect(() => {
@@ -141,6 +142,7 @@ const Stage = ({
       isSegmented,
       locale,
       isLocaleReady,
+      irrationality,
     ],
   );
 
