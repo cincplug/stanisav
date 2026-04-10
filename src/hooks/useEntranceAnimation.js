@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { useSpring } from "@react-spring/three";
 
 export const ENTRANCE_DURATION = 4400;
-const REVEAL_DURATION_MS = 2000;
-const START_RADIUS_FACTOR = 5 / 8;
+const REVEAL_DURATION_MS = 500;
+const START_RADIUS_FACTOR = 1 / 3;
 
 const toInnerStartPosition = ([x, y, z]) => [
   x * START_RADIUS_FACTOR,

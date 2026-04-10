@@ -194,7 +194,7 @@ class LayoutEngine {
 
   generateFibonacciSphere(numPoints, radius, irrationality) {
     const points = [];
-    const notNecessarilyGoldenRatio = Math.sqrt(irrationality);
+    const notNecessarilyGoldenRatio = Math.sqrt(irrationality) + 1;
     const angleIncrement = Math.PI * 2 * notNecessarilyGoldenRatio;
     for (let i = 0; i < numPoints; i++) {
       const t = i / numPoints;
