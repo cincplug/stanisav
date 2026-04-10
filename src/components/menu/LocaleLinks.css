@@ -6,21 +6,14 @@
 }
 
 .locale-dropdown-toggle {
-  background: none;
   color: var(--color-5);
   border: none;
   border-radius: var(--border-radius);
   font-size: var(--font-size-normal);
-  padding: 0;
   display: flex;
   align-items: center;
   gap: var(--gap-half);
   box-shadow: var(--shadow-mild);
-}
-
-.locale-dropdown-toggle:focus-visible {
-  outline: var(--outline-default);
-  z-index: 1;
 }
 
 .locale-dropdown-arrow {
@@ -31,34 +24,39 @@
 
 .locale-dropdown-list {
   position: absolute;
-  background: var(--color-3);
   border-radius: var(--border-radius);
+  background: var(--color-3);
   box-shadow: var(--shadow-strong);
   margin: 0;
-  padding: var(--gap-double);
+  padding: var(--gap);
   list-style: none;
-  top: calc(100% + var(--gap-half));
-  right: 0;
+  top: calc(100% + var(--gap));
+  left: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
   width: calc(var(--panel-width) / 2);
   gap: var(--gap);
+  z-index: 1;
 }
 
 .locale-dropdown-option {
-  padding: var(--gap);
+  padding: var(--gap-half) var(--gap);
   color: var(--color-5);
   background: none;
+  border-radius: var(--border-radius);
   border: none;
   text-align: end;
   font-size: var(--font-size-normal);
   text-decoration: none;
   display: block;
-}
 
-.locale-dropdown-option:focus-visible,
-.locale-dropdown-option:hover {
-  outline: var(--outline-default);
-  border-radius: var(--border-radius);
+  &:focus-visible,
+  &:hover {
+    outline: var(--outline-default);
+  }
+
+  &[aria-current="true"] {
+    background: var(--color-video);
+  }
 }

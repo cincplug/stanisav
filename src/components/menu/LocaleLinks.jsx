@@ -131,6 +131,7 @@ export default function LocaleLinks() {
                 to={`/${slug}`}
                 className="locale-dropdown-option"
                 onClick={() => setOpen(false)}
+                aria-current={code === locale ? "true" : undefined}
                 onKeyDown={(e) => handleListKeyDown(e, index)}
               >
                 {nativeName}
