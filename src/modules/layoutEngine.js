@@ -68,8 +68,23 @@ class LayoutEngine {
       return { positions: {}, sortedLanguages: [] };
     }
 
-    const basePoints = this.reorderBySpatialProximity(
+    const angularBasePoints = this.sortSpherePointsByAngle(
       this.generateFibonacciSphere(sortedLanguages.length, sphereRadius),
+    );
+
+    // Keep the legacy angular distribution, but smooth local traversal with
+    // proximity ordering so language-to-point mapping stays stable for playback.
+    const proximityOrderedBasePoints = this.reorderBySpatialProximity(
+      angularBasePoints,
+      {
+        maxLookahead: Math.max(
+          8,
+          Math.round(Math.sqrt(sortedLanguages.length)),
+        ),
+      },
+    );
+    const basePoints = this.rotatePointsToFrontFacingAnchor(
+      proximityOrderedBasePoints,
     );
     const basePositions = {};
     sortedLanguages.forEach((code, i) => {
@@ -188,8 +203,10 @@ class LayoutEngine {
     return points;
   }
 
-  reorderBySpatialProximity(points) {
+  reorderBySpatialProximity(points, options = {}) {
     if (points.length === 0) return [];
+
+    const { maxLookahead = Number.POSITIVE_INFINITY } = options;
 
     const ordered = [];
     const remaining = [...points];
@@ -201,7 +218,9 @@ class LayoutEngine {
       let nearestIndex = 0;
       let nearestDistance = current.distanceTo(remaining[0]);
 
-      for (let i = 1; i < remaining.length; i += 1) {
+      const searchLimit = Math.min(remaining.length, maxLookahead);
+
+      for (let i = 1; i < searchLimit; i += 1) {
         const distance = current.distanceTo(remaining[i]);
         if (distance < nearestDistance) {
           nearestDistance = distance;
@@ -214,6 +233,34 @@ class LayoutEngine {
     }
 
     return ordered;
+  }
+
+  rotatePointsToFrontFacingAnchor(points) {
+    if (points.length <= 1) return points;
+
+    let frontIndex = 0;
+    let bestZ = points[0].z;
+    let bestCenterDistanceSq = points[0].x ** 2 + points[0].y ** 2;
+
+    for (let i = 1; i < points.length; i += 1) {
+      const p = points[i];
+      const z = p.z;
+      const centerDistanceSq = p.x ** 2 + p.y ** 2;
+
+      if (
+        z > bestZ ||
+        (z === bestZ && centerDistanceSq < bestCenterDistanceSq)
+      ) {
+        bestZ = z;
+        bestCenterDistanceSq = centerDistanceSq;
+        frontIndex = i;
+      }
+    }
+
+    if (frontIndex === 0) return points;
+
+    // Keep relative neighbor order but shift so index 0 is camera-front.
+    return [...points.slice(frontIndex), ...points.slice(0, frontIndex)];
   }
 
   sortSpherePointsByAngle(points) {
