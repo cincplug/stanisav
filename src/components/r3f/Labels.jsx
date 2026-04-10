@@ -34,7 +34,6 @@ const Labels = ({
             position={[position.x, position.y, position.z]}
             isSelected={selectedLanguage === langCode}
             color={languageColors[langCode]}
-            opacity={1}
             revealOrder={revealOrder}
             totalVisibleLabels={totalVisibleLabels}
           />

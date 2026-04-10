@@ -16,7 +16,6 @@ const Label = ({
   position,
   isSelected,
   color,
-  opacity,
   revealOrder,
   totalVisibleLabels,
 }) => {
@@ -74,9 +73,8 @@ const Label = ({
       new MeshStandardMaterial({
         color: bgColor,
         transparent: true,
-        opacity,
       }),
-    [bgColor, opacity],
+    [bgColor],
   );
 
   useFrame(({ camera }) => {
@@ -95,10 +93,6 @@ const Label = ({
     if (labelRef.current && camera) {
       // Copy camera quaternion for smooth billboarding without threshold snapping.
       labelRef.current.quaternion.copy(camera.quaternion);
-    }
-
-    if (textMaterial) {
-      textMaterial.opacity = opacity * revealSpring.reveal.get();
     }
   });
 
