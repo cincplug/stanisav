@@ -138,7 +138,7 @@
   },
   "isLoop": {
     "type": "checkbox",
-    "defaultValue": false,
+    "defaultValue": true,
     "isUserEditable": false,
     "group": "Scene"
   },
