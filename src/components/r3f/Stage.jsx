@@ -5,9 +5,13 @@ import { useEffect, useMemo } from "react";
 import { interpolateColorsByTime } from "../../utils/colorUtils";
 import { useSpring } from "@react-spring/three";
 import { useControls } from "../../contexts/ControlsContext";
+import { useAppState } from "../../contexts/AppStateContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { useDataManager } from "../../hooks/useDataManager";
-import { calculateLanguageFilterStatus } from "../../utils/sceneUtils";
+import {
+  calculateLanguageFilterStatus,
+  getStageLightConfig,
+} from "../../utils/sceneUtils";
 import { getFeatureScore } from "../../utils/linguisticUtils";
 import { getSortingData, sortLanguages } from "../../utils/sortingUtils";
 import { groupLanguages } from "../../utils/languageGroupingUtils";
@@ -25,6 +29,7 @@ const Stage = ({
   languageColors,
 }) => {
   const { controls, updateControl } = useControls();
+  const { skipLabelEntrance } = useAppState();
   const { filteringUtils, selectedLanguage } = useLanguageSelection();
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
 
@@ -44,7 +49,8 @@ const Stage = ({
     labelContent,
     isReverse,
     isSegmented,
-    meshaSize,
+    stageLightDistance,
+    stageLightDecay,
   } = controls;
 
   useEffect(() => {
@@ -176,6 +182,15 @@ const Stage = ({
     (m) => controls.stageLightIntensity * m,
   );
 
+  const stageLightConfig = useMemo(
+    () =>
+      getStageLightConfig({
+        isSegmented,
+        stageLightDistance,
+      }),
+    [isSegmented, stageLightDistance],
+  );
+
   const hasDrawableScene =
     Boolean(meshaColor) &&
     Object.keys(formattedPositions).length > 0 &&
@@ -210,7 +225,13 @@ const Stage = ({
         enableZoom={false}
       />
 
-      <StageLight intensity={stageLightIntensity} />
+      <StageLight
+        stageLightIntensity={stageLightIntensity}
+        stageLightDecay={stageLightDecay}
+        stageLightDistance={stageLightConfig.stageLightDistance}
+        cameraZ={cameraZ}
+        skipEntrance={skipLabelEntrance}
+      />
 
       <Camera
         languageNodes={formattedPositions}
