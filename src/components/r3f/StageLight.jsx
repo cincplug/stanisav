@@ -1,7 +1,9 @@
 import { useRef } from "react";
 import { a, useSpring } from "@react-spring/three";
 import { useThree, useFrame } from "@react-three/fiber";
-import { ENTRANCE_DURATION } from "../../hooks/useEntranceAnimation";
+import sceneConfig from "../../config/sceneConfig.json";
+
+const { entranceDuration } = sceneConfig;
 
 const StageLight = ({
   stageLightIntensity,
@@ -16,7 +18,7 @@ const StageLight = ({
   const { entranceProgress } = useSpring({
     from: { entranceProgress: 1 / 2 },
     to: { entranceProgress: 1 },
-    config: { duration: ENTRANCE_DURATION },
+    config: { duration: entranceDuration },
     immediate: skipEntrance,
   });
 

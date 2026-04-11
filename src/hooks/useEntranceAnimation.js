@@ -1,14 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { useSpring } from "@react-spring/three";
+import sceneConfig from "../config/sceneConfig.json";
 
-export const ENTRANCE_DURATION = 4400;
-const REVEAL_DURATION_MS = 500;
-const START_RADIUS_FACTOR = 1 / 3;
+const { entranceDuration, revealDurationMs, startRadiusFactor } = sceneConfig;
 
 const toInnerStartPosition = ([x, y, z]) => [
-  x * START_RADIUS_FACTOR,
-  y * START_RADIUS_FACTOR,
-  z * START_RADIUS_FACTOR,
+  x * startRadiusFactor,
+  y * startRadiusFactor,
+  z * startRadiusFactor,
 ];
 
 export const useEntranceAnimation = (
@@ -19,10 +18,10 @@ export const useEntranceAnimation = (
   revealOrder,
   totalVisibleLabels,
 ) => {
-  const maxRevealDelay = Math.max(0, ENTRANCE_DURATION - REVEAL_DURATION_MS);
+  const maxRevealDelay = Math.max(0, entranceDuration - revealDurationMs);
   const maxOrder = Math.max(1, totalVisibleLabels - 1);
   const revealDelay = Math.round((revealOrder / maxOrder) * maxRevealDelay);
-  const positionDuration = Math.max(0, ENTRANCE_DURATION - revealDelay);
+  const positionDuration = Math.max(0, entranceDuration - revealDelay);
 
   const entranceStartRef = useRef(null);
   if (entranceStartRef.current === null) {
@@ -65,7 +64,7 @@ export const useEntranceAnimation = (
     from: { reveal: 0 },
     to: { reveal: 1 },
     delay: revealDelay,
-    config: { duration: REVEAL_DURATION_MS },
+    config: { duration: revealDurationMs },
     immediate: skipLabelEntrance,
   });
 
