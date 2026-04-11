@@ -78,7 +78,9 @@ const Mesha = ({
   const eyeDepthSignal = scores.verbAspect;
 
   const spring = useSpring({
-    position,
+    x: position[0],
+    y: position[1],
+    z: position[2],
     scale: meshaSize,
     config: { tension, friction },
   });
@@ -139,7 +141,13 @@ const Mesha = ({
   };
 
   return (
-    <a.group ref={groupRef} position={spring.position} scale={spring.scale}>
+    <a.group
+      ref={groupRef}
+      position-x={spring.x}
+      position-y={spring.y}
+      position-z={spring.z}
+      scale={spring.scale}
+    >
       <group ref={lookAroundRef}>
         <MeshaEar
           earMaterial={earMaterial}

@@ -11,6 +11,7 @@ import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { useDataManager } from "../../hooks/useDataManager";
 import {
   calculateLanguageFilterStatus,
+  calculateRadialOffset,
   getStageLightConfig,
 } from "../../utils/sceneUtils";
 import { getFeatureScore } from "../../utils/linguisticUtils";
@@ -172,7 +173,13 @@ const Stage = ({
   const meshaPosition = useMemo(() => {
     if (selectedLanguage && formattedPositions[selectedLanguage]) {
       const pos = formattedPositions[selectedLanguage];
-      return [pos.x, pos.y, pos.z];
+      const base = [pos.x, pos.y, pos.z];
+      const radial = calculateRadialOffset(base);
+      return [
+        base[0] + radial[0] * 4,
+        base[1] + radial[1] * 4,
+        base[2] + radial[2] * 4,
+      ];
     }
     return [0, sphereRadius, 0];
   }, [selectedLanguage, formattedPositions]);

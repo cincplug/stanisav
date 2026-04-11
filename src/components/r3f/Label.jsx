@@ -22,7 +22,8 @@ const Label = ({
   const labelRef = useRef();
   const { controls } = useControls();
   const { data, skipLabelEntrance } = useAppState();
-  const { filteredLanguages, filteringUtils } = useLanguageSelection();
+  const { filteredLanguages, filteringUtils, selectedLanguage } =
+    useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
   const { labelContent, labelSize, bgColor, tension, friction } = controls;
 
@@ -71,9 +72,10 @@ const Label = ({
     () =>
       new MeshStandardMaterial({
         color: bgColor,
-        depthTest: false,
+        depthTest: !!selectedLanguage,
+        depthWrite: !!selectedLanguage,
       }),
-    [bgColor],
+    [bgColor, selectedLanguage],
   );
 
   useFrame(({ camera }) => {
@@ -90,7 +92,7 @@ const Label = ({
       labelRef.current.scale.setScalar(Math.max(reveal, 0.0001));
 
       // Some kind of 4th dimension
-      labelRef.current.renderOrder = revealOrder;
+      labelRef.current.renderOrder = selectedLanguage ? 0 : revealOrder;
     }
     if (labelRef.current && camera) {
       // Copy camera quaternion for smooth billboarding without threshold snapping.
