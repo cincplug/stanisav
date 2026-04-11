@@ -1,5 +1,6 @@
 {
   "entranceDuration": 4400,
   "revealDurationMs": 500,
-  "startRadiusFactor": 0.333333
+  "startRadiusFactor": 0.333333,
+  "spiralAxis": "z"
 }

@@ -6,6 +6,9 @@ import {
 } from "../utils/sortingUtils";
 import { getLanguageLabel } from "../utils/languageDisplayUtils";
 import { getSpeakerGroup } from "../utils/languageGroupingUtils";
+import sceneConfig from "../config/sceneConfig.json";
+
+const { spiralAxis } = sceneConfig;
 
 class LayoutEngine {
   constructor() {
@@ -200,10 +203,17 @@ class LayoutEngine {
       const t = i / numPoints;
       const inclination = Math.acos(1 - 2 * t);
       const azimuth = angleIncrement * i;
-      const x = radius * Math.sin(inclination) * Math.cos(azimuth);
-      const y = radius * Math.sin(inclination) * Math.sin(azimuth);
-      const z = radius * Math.cos(inclination);
-      points.push(new Vector3(x, y, z));
+      const sin = radius * Math.sin(inclination);
+      const cos = radius * Math.cos(inclination);
+      const u = sin * Math.cos(azimuth);
+      const v = sin * Math.sin(azimuth);
+      const point =
+        spiralAxis === "x"
+          ? new Vector3(cos, u, v)
+          : spiralAxis === "z"
+            ? new Vector3(u, v, cos)
+            : new Vector3(u, cos, v); // y (default)
+      points.push(point);
     }
     return points;
   }
@@ -269,15 +279,35 @@ class LayoutEngine {
     const bandCount = Math.round(Math.sqrt(points.length));
 
     return [...points].sort((a, b) => {
-      const latA = Math.atan2(Math.sqrt(a.x ** 2 + a.y ** 2), a.z);
-      const latB = Math.atan2(Math.sqrt(b.x ** 2 + b.y ** 2), b.z);
+      const latA =
+        spiralAxis === "x"
+          ? Math.atan2(Math.sqrt(a.y ** 2 + a.z ** 2), a.x)
+          : spiralAxis === "z"
+            ? Math.atan2(Math.sqrt(a.x ** 2 + a.y ** 2), a.z)
+            : Math.atan2(Math.sqrt(a.x ** 2 + a.z ** 2), a.y); // y (default)
+      const latB =
+        spiralAxis === "x"
+          ? Math.atan2(Math.sqrt(b.y ** 2 + b.z ** 2), b.x)
+          : spiralAxis === "z"
+            ? Math.atan2(Math.sqrt(b.x ** 2 + b.y ** 2), b.z)
+            : Math.atan2(Math.sqrt(b.x ** 2 + b.z ** 2), b.y); // y (default)
       const bandA = Math.floor((latA / Math.PI) * bandCount);
       const bandB = Math.floor((latB / Math.PI) * bandCount);
 
       if (bandA !== bandB) return bandA - bandB;
 
-      const lonA = Math.atan2(a.y, a.x);
-      const lonB = Math.atan2(b.y, b.x);
+      const lonA =
+        spiralAxis === "x"
+          ? Math.atan2(a.z, a.y)
+          : spiralAxis === "z"
+            ? Math.atan2(a.y, a.x)
+            : Math.atan2(a.z, a.x);
+      const lonB =
+        spiralAxis === "x"
+          ? Math.atan2(b.z, b.y)
+          : spiralAxis === "z"
+            ? Math.atan2(b.y, b.x)
+            : Math.atan2(b.z, b.x);
       return bandA % 2 === 0 ? lonA - lonB : lonB - lonA;
     });
   }

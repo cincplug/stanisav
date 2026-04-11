@@ -87,7 +87,7 @@ const Label = ({
         y + radialOffset[1] * offset,
         z + radialOffset[2] * offset,
       );
-      groupRef.current.scale.setScalar(Math.max(reveal, 0.001));
+      groupRef.current.scale.setScalar(Math.max(reveal, 0.0001));
     }
     if (labelRef.current && camera) {
       // Copy camera quaternion for smooth billboarding without threshold snapping.
