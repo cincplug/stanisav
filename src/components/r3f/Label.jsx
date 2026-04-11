@@ -72,7 +72,6 @@ const Label = ({
     () =>
       new MeshStandardMaterial({
         color: bgColor,
-        transparent: true,
       }),
     [bgColor],
   );

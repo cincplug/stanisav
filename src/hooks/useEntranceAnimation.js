@@ -16,8 +16,8 @@ export const useEntranceAnimation = (
   skipLabelEntrance,
   tension,
   friction,
-  revealOrder = 0,
-  totalVisibleLabels = 1,
+  revealOrder,
+  totalVisibleLabels,
 ) => {
   const maxRevealDelay = Math.max(0, ENTRANCE_DURATION - REVEAL_DURATION_MS);
   const maxOrder = Math.max(1, totalVisibleLabels - 1);

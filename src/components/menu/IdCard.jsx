@@ -75,11 +75,6 @@ function IdCard({
 
   const closeButtonRef = useRef(null);
 
-  // Move focus into IdCard when it opens
-  useEffect(() => {
-    closeButtonRef.current?.focus();
-  }, []);
-
   const localizedLanguageName = getLocalizedLanguageName(languageCode);
 
   if (!languageCode || !language || properties.length === 0) {

@@ -102,8 +102,8 @@ const Mesha = ({
 
       if (lookAroundRef.current) {
         const time = clock.getElapsedTime();
-        const speed = 0.5;
-        const amplitude = Math.PI / 4;
+        const speed = 0.2;
+        const amplitude = Math.PI / 8;
 
         const phase = time * speed;
         const sine = Math.sin(phase);
