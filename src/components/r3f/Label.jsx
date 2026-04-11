@@ -19,7 +19,6 @@ const Label = ({
   revealOrder,
   totalVisibleLabels,
 }) => {
-  const groupRef = useRef();
   const labelRef = useRef();
   const { controls } = useControls();
   const { data, skipLabelEntrance } = useAppState();
@@ -72,22 +71,26 @@ const Label = ({
     () =>
       new MeshStandardMaterial({
         color: bgColor,
+        depthTest: false,
       }),
     [bgColor],
   );
 
   useFrame(({ camera }) => {
-    if (groupRef.current) {
+    if (labelRef.current) {
       const [x, y, z] = positionSpring.position.get();
       const offset = selectionSpring.offset.get();
       const reveal = revealSpring.reveal.get();
 
-      groupRef.current.position.set(
+      labelRef.current.position.set(
         x + radialOffset[0] * offset,
         y + radialOffset[1] * offset,
         z + radialOffset[2] * offset,
       );
-      groupRef.current.scale.setScalar(Math.max(reveal, 0.0001));
+      labelRef.current.scale.setScalar(Math.max(reveal, 0.0001));
+
+      // Some kind of 4th dimension
+      labelRef.current.renderOrder = revealOrder;
     }
     if (labelRef.current && camera) {
       // Copy camera quaternion for smooth billboarding without threshold snapping.
@@ -96,22 +99,21 @@ const Label = ({
   });
 
   return (
-    <group ref={groupRef} onClick={handleClick}>
-      <Text
-        position={[0, 0, 0]}
-        ref={labelRef}
-        fontSize={labelSize}
-        fontWeight="bold"
-        anchorX="center"
-        anchorY="middle"
-        outlineWidth={labelSize / 2}
-        outlineColor={color}
-        color={bgColor}
-        material={textMaterial}
-      >
-        {labelText}
-      </Text>
-    </group>
+    <Text
+      position={[0, 0, 0]}
+      onClick={handleClick}
+      ref={labelRef}
+      fontSize={labelSize}
+      fontWeight="bold"
+      anchorX="center"
+      anchorY="middle"
+      outlineWidth={labelSize / 2}
+      outlineColor={color}
+      color={bgColor}
+      material={textMaterial}
+    >
+      {labelText}
+    </Text>
   );
 };
 
