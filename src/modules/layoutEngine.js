@@ -8,7 +8,31 @@ import { getLanguageLabel } from "../utils/languageDisplayUtils";
 import { getSpeakerGroup } from "../utils/languageGroupingUtils";
 import sceneConfig from "../config/sceneConfig.json";
 
-const { spiralAxis } = sceneConfig;
+const { globeSpiralAxis, entranceSpiralAxis } = sceneConfig;
+
+const spiralAxis = {
+  x: {
+    buildPoint: (cos, u, v) => new Vector3(cos, u, v),
+    poleOf: (p) => p.x,
+    equatorialOf: (p) => [p.y, p.z],
+  },
+  y: {
+    buildPoint: (cos, u, v) => new Vector3(u, cos, v),
+    poleOf: (p) => p.y,
+    equatorialOf: (p) => [p.x, p.z],
+  },
+  z: {
+    buildPoint: (cos, u, v) => new Vector3(u, v, cos),
+    poleOf: (p) => p.z,
+    equatorialOf: (p) => [p.x, p.y],
+  },
+};
+
+const { buildPoint, poleOf, equatorialOf } =
+  spiralAxis[globeSpiralAxis] ?? spiralAxis.y;
+
+const { poleOf: entrancePoleOf, equatorialOf: entranceEquatorialOf } =
+  spiralAxis[entranceSpiralAxis] ?? spiralAxis[globeSpiralAxis];
 
 class LayoutEngine {
   constructor() {
@@ -78,6 +102,7 @@ class LayoutEngine {
         sphereRadius,
         irrationality,
       ),
+      { poleOf: entrancePoleOf, equatorialOf: entranceEquatorialOf },
     );
 
     // Keep the legacy angular distribution, but smooth local traversal with
@@ -207,12 +232,7 @@ class LayoutEngine {
       const cos = radius * Math.cos(inclination);
       const u = sin * Math.cos(azimuth);
       const v = sin * Math.sin(azimuth);
-      const point =
-        spiralAxis === "x"
-          ? new Vector3(cos, u, v)
-          : spiralAxis === "z"
-            ? new Vector3(u, v, cos)
-            : new Vector3(u, cos, v); // y (default)
+      const point = buildPoint(cos, u, v);
       points.push(point);
     }
     return points;
@@ -275,39 +295,28 @@ class LayoutEngine {
     return [...points.slice(bestIndex), ...points.slice(0, bestIndex)];
   }
 
-  sortSpherePointsByAngle(points) {
+  sortSpherePointsByAngle(points, axisConfig = { poleOf, equatorialOf }) {
     const bandCount = Math.round(Math.sqrt(points.length));
 
+    const lat = (p) => {
+      const [e0, e1] = axisConfig.equatorialOf(p);
+      return Math.atan2(Math.sqrt(e0 ** 2 + e1 ** 2), axisConfig.poleOf(p));
+    };
+    const lon = (p) => {
+      const [e0, e1] = axisConfig.equatorialOf(p);
+      return Math.atan2(e1, e0);
+    };
+
     return [...points].sort((a, b) => {
-      const latA =
-        spiralAxis === "x"
-          ? Math.atan2(Math.sqrt(a.y ** 2 + a.z ** 2), a.x)
-          : spiralAxis === "z"
-            ? Math.atan2(Math.sqrt(a.x ** 2 + a.y ** 2), a.z)
-            : Math.atan2(Math.sqrt(a.x ** 2 + a.z ** 2), a.y); // y (default)
-      const latB =
-        spiralAxis === "x"
-          ? Math.atan2(Math.sqrt(b.y ** 2 + b.z ** 2), b.x)
-          : spiralAxis === "z"
-            ? Math.atan2(Math.sqrt(b.x ** 2 + b.y ** 2), b.z)
-            : Math.atan2(Math.sqrt(b.x ** 2 + b.z ** 2), b.y); // y (default)
+      const latA = lat(a);
+      const latB = lat(b);
       const bandA = Math.floor((latA / Math.PI) * bandCount);
       const bandB = Math.floor((latB / Math.PI) * bandCount);
 
       if (bandA !== bandB) return bandA - bandB;
 
-      const lonA =
-        spiralAxis === "x"
-          ? Math.atan2(a.z, a.y)
-          : spiralAxis === "z"
-            ? Math.atan2(a.y, a.x)
-            : Math.atan2(a.z, a.x);
-      const lonB =
-        spiralAxis === "x"
-          ? Math.atan2(b.z, b.y)
-          : spiralAxis === "z"
-            ? Math.atan2(b.y, b.x)
-            : Math.atan2(b.z, b.x);
+      const lonA = lon(a);
+      const lonB = lon(b);
       return bandA % 2 === 0 ? lonA - lonB : lonB - lonA;
     });
   }
