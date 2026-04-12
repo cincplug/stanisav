@@ -92,7 +92,11 @@ const Label = ({
       labelRef.current.scale.setScalar(Math.max(reveal, 0.0001));
 
       // Some kind of 4th dimension
-      labelRef.current.renderOrder = selectedLanguage ? 0 : revealOrder;
+      labelRef.current.renderOrder = selectedLanguage
+        ? 0
+        : revealOrder % 2 === 0
+          ? revealOrder
+          : totalVisibleLabels - revealOrder;
     }
     if (labelRef.current && camera) {
       // Copy camera quaternion for smooth billboarding without threshold snapping.
