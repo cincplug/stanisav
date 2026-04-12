@@ -57,14 +57,6 @@ const Stage = ({
     irrationality,
   } = controls;
 
-  useEffect(() => {
-    const now = new Date();
-    const hour = now.getHours();
-    const { bgColor, bgColorNoon } = controls;
-    const newBg = interpolateColorsByTime({ bgColor, bgColorNoon, hour });
-    updateControl("bgColor", newBg);
-  }, []);
-
   const languageData = data?.languageData || {};
   const { languageCodes, languageLineages, speakerData, typologicalFeatures } =
     useMemo(() => getSortingData(languageData), [languageData]);

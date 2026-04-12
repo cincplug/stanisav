@@ -5,9 +5,7 @@
   flex-wrap: wrap;
   align-items: flex-end;
   border-bottom: var(--border-width) solid var(--color-3);
-  margin: 0 calc(-1 * var(--gap-double)) var(--gap-double);
-  position: sticky;
-  top: 0;
+  margin: var(--gap-double) calc(-1 * var(--gap-double));
 
   button {
     margin-inline-end: var(--border-width);

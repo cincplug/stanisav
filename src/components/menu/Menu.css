@@ -1,7 +1,7 @@
 /* Control panel styles */
 .menu {
   width: var(--panel-width);
-  height: 100vh;
+  height: min-content;
   min-width: var(--panel-width);
   max-width: var(--panel-width);
   position: relative;
@@ -10,9 +10,18 @@
   padding: var(--gap-double);
   color: var(--color-5);
   font-size: var(--font-size-m);
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: visible;
   box-sizing: border-box;
+
+  &.expanded {
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  &.compact {
+    border-block-end: var(--border-width) solid var(--color-3);
+  }
 }
 
 html.rtl .menu {

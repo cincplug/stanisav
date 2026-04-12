@@ -97,6 +97,18 @@
     "isShownInMenu": true,
     "group": "Header"
   },
+  "isMenuVisible": {
+    "type": "checkbox",
+    "defaultValue": true,
+    "isShownInMenu": false,
+    "group": "Header"
+  },
+  "isMenuExpanded": {
+    "type": "checkbox",
+    "defaultValue": false,
+    "isShownInMenu": true,
+    "group": "Header"
+  },
   "labelSize": {
     "type": "range",
     "min": 0.1,
@@ -125,12 +137,6 @@
     "group": "Scene"
   },
   "isMyMesha": {
-    "type": "checkbox",
-    "defaultValue": false,
-    "isShownInMenu": false,
-    "group": "Scene"
-  },
-  "isMenuVisible": {
     "type": "checkbox",
     "defaultValue": false,
     "isShownInMenu": false,

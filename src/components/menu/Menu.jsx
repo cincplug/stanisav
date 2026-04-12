@@ -23,6 +23,7 @@ function Menu({
 }) {
   const { controls, updateControl } = useControls();
   const { t, isRtl } = useI18n();
+  const { isMenuExpanded } = controls;
   const [selectedTab, setSelectedTab] = useState(tabsConfig.defaultTab);
 
   const { searchTerm, setSearchTerm, searchResults, clearSearch } =
@@ -67,35 +68,39 @@ function Menu({
       </button>
 
       {isVisible && (
-        <div className="menu">
+        <div className={`menu ${isMenuExpanded ? "expanded" : "compact"}`}>
           <div className="menu-header">
+            <Playlist />
             <LocaleLinks />
             <ControlItemGroup
               groupName="Header"
               controls={controls}
               onChange={handleControlChange}
             />
-            <Playlist />
           </div>
 
-          <TabNavigation
-            selectedTab={selectedTab}
-            setSelectedTab={handleTabChange}
-          />
-          <TabRenderer
-            selectedTab={selectedTab}
-            controls={controls}
-            onControlChange={handleControlChange}
-            languageData={data?.languages || {}}
-            data={data}
-            filteringUtils={filteringUtils}
-            onFilteringUtilsChange={onFilteringUtilsChange}
-            searchTerm={searchTerm}
-            setSearchTerm={setSearchTerm}
-            searchResults={searchResults}
-            clearSearch={clearSearch}
-            languageColors={languageColors}
-          />
+          {isMenuExpanded && (
+            <>
+              <TabNavigation
+                selectedTab={selectedTab}
+                setSelectedTab={handleTabChange}
+              />
+              <TabRenderer
+                selectedTab={selectedTab}
+                controls={controls}
+                onControlChange={handleControlChange}
+                languageData={data?.languages || {}}
+                data={data}
+                filteringUtils={filteringUtils}
+                onFilteringUtilsChange={onFilteringUtilsChange}
+                searchTerm={searchTerm}
+                setSearchTerm={setSearchTerm}
+                searchResults={searchResults}
+                clearSearch={clearSearch}
+                languageColors={languageColors}
+              />
+            </>
+          )}
         </div>
       )}
     </>
