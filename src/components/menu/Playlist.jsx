@@ -24,8 +24,6 @@ export default function Playlist() {
     goToPrev,
     goToNext,
     goToBegin,
-    currentIndex,
-    playlistLength,
   } = usePlaylist();
 
   const { controls, updateControl } = useControls();
@@ -67,8 +65,6 @@ export default function Playlist() {
 
   const playLabel = isPlaying ? t("playlist.pause") : t("playlist.play");
   const playIcon = isPlaying ? <PauseIcon /> : <PlayIcon />;
-  // Fallback for stop label if not present in translations
-  const stopLabel = "playlist.stop";
 
   const toggleLoop = () => updateControl("isLoop", !controls.isLoop);
 
@@ -98,7 +94,11 @@ export default function Playlist() {
       >
         {playIcon}
       </button>
-      <button onClick={handleStop} aria-label={stopLabel} className="stop-icon">
+      <button
+        onClick={handleStop}
+        aria-label={t("playlist.stop")}
+        className="stop-icon"
+      >
         <StopIcon />
       </button>
       <button onClick={goToNext} aria-label={t("playlist.next")}>
@@ -112,9 +112,6 @@ export default function Playlist() {
       >
         <LoopIcon selected={controls.isLoop} />
       </button>
-      <span className="playlist-progress" aria-live="polite" aria-atomic="true">
-        {currentIndex + 1} / {playlistLength}
-      </span>
     </div>
   );
 }
