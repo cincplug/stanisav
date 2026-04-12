@@ -56,7 +56,7 @@
       }
     ],
     "defaultValue": "alphabetically",
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Header"
   },
   "labelContent": {
@@ -76,13 +76,13 @@
       }
     ],
     "defaultValue": "name",
-    "isUserEditable": false,
+    "isShownInMenu": false,
     "group": "Languages tab"
   },
   "isReverse": {
     "type": "checkbox",
     "defaultValue": false,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Languages tab"
   },
   "labelSize": {
@@ -91,7 +91,7 @@
     "max": 3,
     "step": 0.1,
     "defaultValue": 1.5,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Scene"
   },
   "irrationality": {
@@ -100,7 +100,7 @@
     "max": 200,
     "step": 1,
     "defaultValue": 50,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Scene"
   },
   "sphereRadius": {
@@ -109,68 +109,68 @@
     "max": 50,
     "step": 1,
     "defaultValue": 22,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Scene"
   },
   "isSegmented": {
     "type": "checkbox",
     "defaultValue": false,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Languages tab"
   },
   "isMyMesha": {
     "type": "checkbox",
     "defaultValue": false,
-    "isUserEditable": false,
+    "isShownInMenu": false,
     "group": "Scene"
   },
   "isInfoVisible": {
     "type": "checkbox",
     "defaultValue": true,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Scene"
   },
   "isMenuVisible": {
     "type": "checkbox",
     "defaultValue": false,
-    "isUserEditable": false,
+    "isShownInMenu": false,
     "group": "Scene"
   },
   "isLoop": {
     "type": "checkbox",
     "defaultValue": true,
-    "isUserEditable": false,
+    "isShownInMenu": false,
     "group": "Scene"
   },
   "isLuka": {
     "type": "checkbox",
     "defaultValue": true,
-    "isUserEditable": false,
+    "isShownInMenu": false,
     "group": "Scene"
   },
   "canEditColors": {
     "type": "checkbox",
     "defaultValue": false,
-    "isUserEditable": false,
+    "isShownInMenu": false,
     "group": "Scene"
   },
   "showsVideoPreviews": {
     "type": "checkbox",
     "defaultValue": false,
-    "isUserEditable": false,
+    "isShownInMenu": false,
     "group": "Scene"
   },
   "bgColor": {
     "type": "color",
     "defaultValue": "#141618",
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Colors"
   },
   "bgColorNoon": {
     "group": "Colors",
     "type": "color",
     "defaultValue": "#1a1c1e",
-    "isUserEditable": false
+    "isShownInMenu": false
   },
   "stageLightIntensity": {
     "group": "Stage light",
@@ -179,7 +179,7 @@
     "max": 70,
     "step": 1,
     "defaultValue": 8,
-    "isUserEditable": true
+    "isShownInMenu": true
   },
   "stageLightDecay": {
     "group": "Stage light",
@@ -188,7 +188,7 @@
     "max": 1,
     "step": 0.1,
     "defaultValue": 0.2,
-    "isUserEditable": true
+    "isShownInMenu": true
   },
   "stageLightDistance": {
     "group": "Stage light",
@@ -197,7 +197,7 @@
     "max": 200,
     "step": 1,
     "defaultValue": 174,
-    "isUserEditable": true
+    "isShownInMenu": true
   },
   "meshaLightIntensity": {
     "group": "Mesha light",
@@ -206,7 +206,7 @@
     "max": 90,
     "step": 1,
     "defaultValue": 70,
-    "isUserEditable": true
+    "isShownInMenu": true
   },
   "meshaLightDecay": {
     "group": "Mesha light",
@@ -215,7 +215,7 @@
     "max": 5,
     "step": 0.1,
     "defaultValue": 2.2,
-    "isUserEditable": true
+    "isShownInMenu": true
   },
   "meshaLightDistance": {
     "group": "Mesha light",
@@ -224,7 +224,7 @@
     "max": 99,
     "step": 1,
     "defaultValue": 80,
-    "isUserEditable": true
+    "isShownInMenu": true
   },
   "cameraX": {
     "type": "range",
@@ -232,7 +232,7 @@
     "max": 150,
     "step": 1,
     "defaultValue": 0,
-    "isUserEditable": false,
+    "isShownInMenu": false,
     "group": "Camera"
   },
   "cameraY": {
@@ -241,7 +241,7 @@
     "max": 50,
     "step": 10,
     "defaultValue": 0,
-    "isUserEditable": false,
+    "isShownInMenu": false,
     "group": "Camera"
   },
   "cameraZ": {
@@ -250,7 +250,7 @@
     "max": 150,
     "step": 10,
     "defaultValue": 120,
-    "isUserEditable": false,
+    "isShownInMenu": false,
     "group": "Camera"
   },
   "fov": {
@@ -259,7 +259,7 @@
     "max": 120,
     "step": 1,
     "defaultValue": 30,
-    "isUserEditable": false,
+    "isShownInMenu": false,
     "group": "Camera"
   },
   "switchDuration": {
@@ -268,7 +268,7 @@
     "max": 3000,
     "step": 100,
     "defaultValue": 1200,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Camera"
   },
   "zoomDistance": {
@@ -277,7 +277,7 @@
     "max": 100,
     "step": 1,
     "defaultValue": 37,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Camera"
   },
   "near": {
@@ -286,7 +286,7 @@
     "max": 10,
     "step": 0.1,
     "defaultValue": 0.1,
-    "isUserEditable": false,
+    "isShownInMenu": false,
     "group": "Camera"
   },
   "far": {
@@ -295,7 +295,7 @@
     "max": 10000,
     "step": 100,
     "defaultValue": 2000,
-    "isUserEditable": false,
+    "isShownInMenu": false,
     "group": "Camera"
   },
   "tension": {
@@ -304,7 +304,7 @@
     "max": 400,
     "step": 1,
     "defaultValue": 150,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Motion"
   },
   "friction": {
@@ -313,7 +313,7 @@
     "max": 80,
     "step": 1,
     "defaultValue": 22,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Motion"
   },
   "meshaSize": {
@@ -322,7 +322,7 @@
     "max": 10,
     "step": 0.1,
     "defaultValue": 2,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Mesha"
   },
   "eyeX": {
@@ -331,7 +331,7 @@
     "max": 3,
     "step": 0.1,
     "defaultValue": 0.6,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Mesha"
   },
   "eyeY": {
@@ -340,7 +340,7 @@
     "max": 2,
     "step": 0.1,
     "defaultValue": 1.2,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Mesha"
   },
   "eyeZ": {
@@ -349,7 +349,7 @@
     "max": 3,
     "step": 0.1,
     "defaultValue": 1,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Mesha"
   },
   "eyeSize": {
@@ -358,7 +358,7 @@
     "max": 0.5,
     "step": 0.01,
     "defaultValue": 0.25,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Mesha"
   },
   "eyeProtrusion": {
@@ -367,7 +367,7 @@
     "max": 1,
     "step": 0.01,
     "defaultValue": 0.2,
-    "isUserEditable": false,
+    "isShownInMenu": false,
     "group": "Mesha"
   },
   "noseSize": {
@@ -376,7 +376,7 @@
     "max": 2,
     "step": 0.1,
     "defaultValue": 0.4,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Mesha"
   },
   "teethSize": {
@@ -385,7 +385,7 @@
     "max": 2,
     "step": 0.1,
     "defaultValue": 0.4,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Mesha"
   },
   "moustacheSize": {
@@ -394,7 +394,7 @@
     "max": 2,
     "step": 0.1,
     "defaultValue": 0.6,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Mesha"
   },
   "hueStart": {
@@ -403,7 +403,7 @@
     "max": 360,
     "step": 1,
     "defaultValue": 100,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Colors"
   },
   "hueCircle": {
@@ -412,7 +412,7 @@
     "max": 360,
     "step": 1,
     "defaultValue": 360,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Colors"
   },
   "maxSiblingSpread": {
@@ -421,7 +421,7 @@
     "max": 90,
     "step": 1,
     "defaultValue": 30,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Colors"
   },
   "globalLightnessScale": {
@@ -430,7 +430,7 @@
     "max": 2,
     "step": 0.01,
     "defaultValue": 1,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Colors"
   },
   "globalLightnessOffset": {
@@ -439,7 +439,7 @@
     "max": 0.5,
     "step": 0.01,
     "defaultValue": 0,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Colors"
   },
   "globalChromaScale": {
@@ -448,7 +448,7 @@
     "max": 2,
     "step": 0.01,
     "defaultValue": 1,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Colors"
   },
   "globalChromaOffset": {
@@ -457,7 +457,7 @@
     "max": 0.2,
     "step": 0.01,
     "defaultValue": 0,
-    "isUserEditable": true,
+    "isShownInMenu": true,
     "group": "Colors"
   }
 }

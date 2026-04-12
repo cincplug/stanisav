@@ -13,7 +13,7 @@ const getControlsByGroup = (groupName) =>
     .filter(
       ([_id, config]) =>
         config.group === groupName &&
-        config.isUserEditable &&
+        config.isShownInMenu &&
         config.group !== "Sorting",
     )
     .map(([id, config]) => ({ id, ...localizeControlConfig(id, config) }));

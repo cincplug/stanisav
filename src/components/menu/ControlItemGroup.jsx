@@ -5,7 +5,7 @@ import ControlItem from "./ControlItem";
 function ControlItemGroup({ groupName, controls, onChange }) {
   const groupControls = Object.entries(controlsConfig)
     .filter(
-      ([_id, config]) => config.group === groupName && config.isUserEditable,
+      ([_id, config]) => config.group === groupName && config.isShownInMenu,
     )
     .map(([id, config]) => ({ id, ...localizeControlConfig(id, config) }));
 
