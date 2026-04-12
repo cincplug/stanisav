@@ -24,6 +24,7 @@
 
 .select-arrow {
   margin-left: var(--gap-half);
+  margin-top: 3px;
   font-size: var(--font-size-xs);
   pointer-events: none;
 }
@@ -33,7 +34,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  width: calc(var(--panel-width) / 2);
+  width: calc((var(--panel-width)) / 2 - var(--gap-double));
   border-radius: var(--border-radius);
   background: var(--color-3);
   box-shadow: var(--shadow-strong);
@@ -46,7 +47,7 @@
 }
 
 .select-option {
-  padding: var(--gap-half) var(--gap);
+  padding: var(--gap) var(--gap-double);
   color: var(--color-5);
   background: none;
   border-radius: var(--border-radius);
