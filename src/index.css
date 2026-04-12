@@ -108,8 +108,8 @@ input[type="range"] {
 }
 
 input[type="color"] {
-  border-radius: var(--border-radius);
-  border: 1px solid var(--color-5);
+  border-radius: 0;
+  border: 1px solid var(--color-4);
   padding: 0;
   background: transparent;
 }
@@ -121,10 +121,10 @@ input[type="radio"] {
 }
 
 fieldset {
-  border: var(--border-width) solid var(--color-3);
-  border-radius: var(--border-radius);
-  padding: var(--gap) var(--gap-double);
-  margin-bottom: var(--gap-double);
+  border: none;
+  border-bottom: var(--border-width) solid var(--color-3);
+  padding: 0 0 var(--gap-double);
+  margin-top: var(--gap-double);
 }
 
 legend {

@@ -1,6 +1,6 @@
 {
   "sortBy": {
-    "type": "radio",
+    "type": "select",
     "options": [
       {
         "value": "alphabetically",

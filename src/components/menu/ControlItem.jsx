@@ -1,3 +1,5 @@
+import Select from "./ux/Select";
+
 const ControlItem = ({ control, value, onChange }) => {
   const { id, type, label, min, max, step, options } = control;
 
@@ -47,6 +49,18 @@ const ControlItem = ({ control, value, onChange }) => {
             step={step}
             value={value}
             onChange={(e) => handleChange(e.target.value)}
+          />
+        </div>
+      );
+
+    case "select":
+      return (
+        <div className="control-item select-control">
+          <Select
+            options={options}
+            value={value}
+            onChange={onChange}
+            label={label}
           />
         </div>
       );

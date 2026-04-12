@@ -1,6 +1,5 @@
 /* Language group container */
 .language-group-container {
-  margin-bottom: var(--gap-double);
   margin-inline-start: 0;
 }
 

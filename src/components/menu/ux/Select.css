@@ -34,7 +34,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  width: calc((var(--panel-width)) / 2 - var(--gap-double));
+  width: calc((var(--panel-width) * 2 / 3));
   border-radius: var(--border-radius);
   background: var(--color-3);
   box-shadow: var(--shadow-strong);

@@ -39,6 +39,7 @@ html.rtl .menu-close {
 
 .tabs-inner {
   overflow-y: auto;
+  padding: var(--gap) var(--gap-half);
 }
 
 .radio-group {
