@@ -241,7 +241,7 @@ const Stage = ({
         makeDefault={true}
         enableZoom={false}
         autoRotate={!isSegmented}
-        autoRotateSpeed={selectedLanguage ? -0.5 : -5}
+        autoRotateSpeed={selectedLanguage ? -0.3 : -3}
       />
 
       <StageLight

@@ -20,7 +20,7 @@
   --panel-width: 375px;
   --readable-width: 600px;
   --container-width: 1200px;
-  --gap: 7px;
+  --gap: 8px;
   --gap-double: calc(var(--gap) * 2);
   --gap-triple: calc(var(--gap) * 3);
   --gap-half: calc(var(--gap) / 2);
