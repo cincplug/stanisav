@@ -240,7 +240,7 @@ const Stage = ({
         enableDamping={true}
         makeDefault={true}
         enableZoom={false}
-        autoRotate
+        autoRotate={!isSegmented}
         autoRotateSpeed={selectedLanguage ? -0.5 : -5}
       />
 

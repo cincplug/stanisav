@@ -226,7 +226,7 @@ const Mesha = ({
           />
         )}
       </group>
-      <MeshaLight spread={1.5} />
+      <MeshaLight />
     </a.group>
   );
 };
