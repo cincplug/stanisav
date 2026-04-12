@@ -31,6 +31,7 @@
   --shadow-strong: 0 0 var(--gap-double) var(--color-1);
   --border-radius: 12px;
   --border-width: 3px;
+  --border-width-thin: 1px;
   --clear-button-size: 20px;
   --modal-offset: 4rem;
 }

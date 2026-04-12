@@ -450,7 +450,8 @@
   },
   "menu": {
     "close": "Close menu",
-    "open": "Open menu"
+    "open": "Open menu",
+    "languageSelector": "Language selector"
   },
   "playlist": {
     "controls": "Playlist controls",
