@@ -5,8 +5,6 @@
   min-width: var(--panel-width);
   max-width: var(--panel-width);
   position: relative;
-  display: flex;
-  flex-direction: column;
   background-color: var(--color-2);
   border-inline-start: var(--border-width) solid var(--color-3);
   padding: var(--gap-double);
@@ -35,6 +33,12 @@ html.rtl .menu {
 html.rtl .menu-close {
   right: auto;
   left: var(--gap-double);
+}
+
+.menu-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
 }
 
 .tabs-inner {

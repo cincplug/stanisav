@@ -68,18 +68,20 @@ function Menu({
 
       {isVisible && (
         <div className="menu">
-          <LocaleLinks />
-          <ControlItemGroup
-            groupName="Header"
-            controls={controls}
-            onChange={handleControlChange}
-          />
-          <Playlist />
+          <div className="menu-header">
+            <LocaleLinks />
+            <ControlItemGroup
+              groupName="Header"
+              controls={controls}
+              onChange={handleControlChange}
+            />
+            <Playlist />
+          </div>
+
           <TabNavigation
             selectedTab={selectedTab}
             setSelectedTab={handleTabChange}
           />
-
           <TabRenderer
             selectedTab={selectedTab}
             controls={controls}
