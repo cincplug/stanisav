@@ -60,7 +60,7 @@
     "group": "Header"
   },
   "labelContent": {
-    "type": "radio",
+    "type": "select",
     "options": [
       {
         "value": "name",
@@ -76,14 +76,26 @@
       }
     ],
     "defaultValue": "name",
-    "isShownInMenu": false,
-    "group": "Languages tab"
+    "isShownInMenu": true,
+    "group": "Header"
   },
   "isReverse": {
     "type": "checkbox",
     "defaultValue": false,
     "isShownInMenu": true,
-    "group": "Languages tab"
+    "group": "Header"
+  },
+  "isSegmented": {
+    "type": "checkbox",
+    "defaultValue": false,
+    "isShownInMenu": true,
+    "group": "Header"
+  },
+  "isInfoVisible": {
+    "type": "checkbox",
+    "defaultValue": true,
+    "isShownInMenu": true,
+    "group": "Header"
   },
   "labelSize": {
     "type": "range",
@@ -112,22 +124,10 @@
     "isShownInMenu": true,
     "group": "Scene"
   },
-  "isSegmented": {
-    "type": "checkbox",
-    "defaultValue": false,
-    "isShownInMenu": true,
-    "group": "Languages tab"
-  },
   "isMyMesha": {
     "type": "checkbox",
     "defaultValue": false,
     "isShownInMenu": false,
-    "group": "Scene"
-  },
-  "isInfoVisible": {
-    "type": "checkbox",
-    "defaultValue": true,
-    "isShownInMenu": true,
     "group": "Scene"
   },
   "isMenuVisible": {
