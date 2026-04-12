@@ -28,6 +28,7 @@ const Mesha = ({
   isMyMesha,
   stripesType,
   looksAround,
+  renderOrder,
 }) => {
   const groupRef = useRef();
   const lookAroundRef = useRef();
@@ -90,11 +91,26 @@ const Mesha = ({
     shiftHue(color, 60),
     0,
   );
+
   const tongueMaterial = useShaderMaterial(
     shiftHue(color, 60),
     shiftHue(color, -60),
     stripesType,
   );
+
+  useEffect(() => {
+    if (groupRef.current) {
+      groupRef.current.traverse((object) => {
+        if (object.isMesh) {
+          object.material.transparent = true;
+          object.material.needsUpdate = true;
+          object.renderOrder = object.material.isShaderMaterial
+            ? renderOrder / 2
+            : renderOrder;
+        }
+      });
+    }
+  }, []);
 
   useFrame(({ camera, clock }) => {
     if (looksAround) {

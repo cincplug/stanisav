@@ -279,6 +279,7 @@ const Stage = ({
           isMyMesha={isMyMesha}
           stripesType={stripesType}
           looksAround={true}
+          renderOrder={languageCodes.length}
         />
       </group>
     </Canvas>

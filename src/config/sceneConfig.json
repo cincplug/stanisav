@@ -1,5 +1,5 @@
 {
-  "entranceDuration": 4400,
+  "entranceDuration": 3000,
   "revealDurationMs": 500,
   "startRadiusFactor": 0.333333,
   "globeSpiralAxis": "y",
