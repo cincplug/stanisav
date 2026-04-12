@@ -1,4 +1,4 @@
-import controlsConfig from "../config/controlsConfig.json";
+import controlsConfig from "../config/controls.json";
 
 export const getControlValue = (controlId, groupName, state) => {
   const control = controlsConfig[controlId];

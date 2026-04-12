@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import controlsConfig from "../config/controlsConfig.json";
+import controlsConfig from "../config/controls.json";
 
 // Initialize default values from controlsConfig as a flat object
 const getDefaultValues = () => {
@@ -18,7 +18,7 @@ export const ControlsProvider = ({ children }) => {
   const updateControl = (key, value) => {
     setControls((prev) => ({
       ...prev,
-      [key]: value
+      [key]: value,
     }));
   };
 

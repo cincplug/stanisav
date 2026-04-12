@@ -1,6 +1,6 @@
 import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
-import controlsConfig from "../../config/controlsConfig.json";
+import controlsConfig from "../../config/controls.json";
 import {
   getControlGroupLabel,
   localizeControlConfig,

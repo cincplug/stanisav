@@ -3,7 +3,7 @@ import { useEffect, useRef, useMemo, useCallback } from "react";
 import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
-import controlsConfig from "../../config/controlsConfig.json";
+import controlsConfig from "../../config/controls.json";
 import lineages from "../../config/lineages.json";
 import { localizeControlConfig } from "../../utils/configI18nUtils";
 import { getSortingData, sortLanguages } from "../../utils/sortingUtils";
