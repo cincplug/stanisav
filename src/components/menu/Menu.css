@@ -20,6 +20,9 @@
   }
 
   &.compact {
+    position: absolute;
+    top: 0;
+    right: 0;
     border-block-end: var(--border-width) solid var(--color-3);
   }
 }
@@ -30,6 +33,11 @@ html.rtl .menu {
   right: auto;
   direction: rtl;
   /* Padding stays the same for now, but can be adjusted if needed */
+}
+
+html.rtl .menu.compact {
+  right: auto;
+  left: 0;
 }
 
 /* Mirror close button for RTL */

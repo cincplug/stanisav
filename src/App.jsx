@@ -31,7 +31,7 @@ function App() {
   const { controls, updateControl } = useControls();
   const { selectedLanguage } = useLanguageSelection();
   const { pausePlaylist } = usePlaylist();
-  const { isInfoVisible, isMenuVisible } = controls;
+  const { isInfoVisible, isMenuVisible, isMenuExpanded } = controls;
   const { sampleUrl, sub } = data?.languageData[selectedLanguage] || {};
 
   const languageColors = useLanguageColors(
@@ -49,11 +49,10 @@ function App() {
 
   return (
     <div
-      className={`app-container${isRtl ? " rtl" : ""} ${isLoading ? "loading" : ""} ${isMenuVisible ? "menu-expanded" : "menu-collapsed"}`}
+      className={`app-container${isRtl ? " rtl" : ""} ${isLoading ? "loading" : ""} ${isMenuVisible && isMenuExpanded ? "menu-expanded" : ""}`}
     >
       <div className="stage-area">
         <Stage
-          isMenuVisible={isMenuVisible}
           onDataLoaded={setData}
           onSceneReady={setSceneReady}
           onLoadingChange={setIsLoading}

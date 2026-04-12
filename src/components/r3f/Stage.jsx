@@ -1,8 +1,7 @@
 import SceneReadyGate from "./SceneReadyGate";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { useEffect, useMemo } from "react";
-import { interpolateColorsByTime } from "../../utils/colorUtils";
+import { useMemo } from "react";
 import { useSpring } from "@react-spring/three";
 import { useControls } from "../../contexts/ControlsContext";
 import { useAppState } from "../../contexts/AppStateContext";
@@ -30,7 +29,7 @@ const Stage = ({
   onLoadingChange,
   languageColors,
 }) => {
-  const { controls, updateControl } = useControls();
+  const { controls } = useControls();
   const { skipLabelEntrance } = useAppState();
   const { locale, isLocaleReady } = useI18n();
   const { filteringUtils, selectedLanguage } = useLanguageSelection();
