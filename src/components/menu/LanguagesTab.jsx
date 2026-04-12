@@ -3,15 +3,13 @@ import { useEffect, useRef, useMemo, useCallback } from "react";
 import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
-import controlsConfig from "../../config/controls.json";
 import lineages from "../../config/lineages.json";
-import { localizeControlConfig } from "../../utils/configI18nUtils";
 import { getSortingData, sortLanguages } from "../../utils/sortingUtils";
 import {
   buildLanguageTree,
   groupLanguages,
 } from "../../utils/languageGroupingUtils";
-import ControlItem from "./ControlItem";
+import ControlItemGroup from "./ControlItemGroup";
 import LanguageTree from "./LanguageTree";
 
 function LanguagesTab({ languageData, isSelected, languageColors = {} }) {
@@ -76,13 +74,6 @@ function LanguagesTab({ languageData, isSelected, languageColors = {} }) {
     ],
   );
 
-  const sortingControls = Object.entries(controlsConfig)
-    .filter(
-      ([_id, config]) =>
-        config.group === "Languages tab" && config.isUserEditable,
-    )
-    .map(([id, config]) => ({ id, ...localizeControlConfig(id, config) }));
-
   useEffect(() => {
     if (
       isSelected &&
@@ -105,16 +96,11 @@ function LanguagesTab({ languageData, isSelected, languageColors = {} }) {
 
   return (
     <div className="control-section">
-      <div className="controls-grid sorting-controls">
-        {sortingControls.map((control) => (
-          <ControlItem
-            key={control.id}
-            control={control}
-            value={controls[control.id]}
-            onChange={(value) => updateControl(control.id, value)}
-          />
-        ))}
-      </div>
+      <ControlItemGroup
+        groupName="Languages tab"
+        controls={controls}
+        onChange={updateControl}
+      />
 
       <div className="languages-list">
         {sortBy === "family" ? (

@@ -47,7 +47,7 @@ const ControlsTab = () => {
     new Set(
       Object.values(controlsConfig)
         .map(({ group }) => group)
-        .filter((group) => group !== "Languages tab")
+        .filter((group) => !["Header", "Languages tab"].includes(group))
         .filter((group) =>
           selectedLanguage ? group !== "Stage light" : group !== "Mesha light",
         ),

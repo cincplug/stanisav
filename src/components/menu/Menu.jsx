@@ -4,6 +4,7 @@ import { useSearch } from "../../hooks/useSearch";
 import { useI18n } from "../../contexts/I18nContext";
 import { BurgerIcon, CloseIcon } from "./MenuIcons";
 import tabsConfig from "../../config/tabsConfig.json";
+import ControlItemGroup from "./ControlItemGroup";
 import TabNavigation from "./TabNavigation";
 import TabRenderer from "./TabRenderer";
 import Playlist from "./Playlist";
@@ -68,6 +69,11 @@ function Menu({
       {isVisible && (
         <div className="menu">
           <LocaleLinks />
+          <ControlItemGroup
+            groupName="Header"
+            controls={controls}
+            onChange={handleControlChange}
+          />
           <Playlist />
           <TabNavigation
             selectedTab={selectedTab}

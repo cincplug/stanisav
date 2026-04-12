@@ -31,7 +31,6 @@ export const getControlOptionLabel = (controlId, optionValue) =>
 
 export const localizeControlConfig = (controlId, config) => ({
   ...config,
-  group: getControlGroupLabel(config.group),
   label: getControlLabel(controlId),
   options: Array.isArray(config.options)
     ? config.options.map((option) => ({

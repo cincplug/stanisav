@@ -57,7 +57,7 @@
     ],
     "defaultValue": "alphabetically",
     "isUserEditable": true,
-    "group": "Languages tab"
+    "group": "Header"
   },
   "labelContent": {
     "type": "radio",
