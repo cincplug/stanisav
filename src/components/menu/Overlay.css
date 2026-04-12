@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   color: var(--color-5);
-  font-size: var(--font-size-big);
+  font-size: var(--font-size-l);
 }
 
 .loading-content {

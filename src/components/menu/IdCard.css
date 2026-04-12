@@ -41,7 +41,7 @@ html.rtl .id-card-close-button {
 .id-card-title {
   grid-column: 1;
   margin: 0;
-  font-size: var(--font-size-big);
+  font-size: var(--font-size-l);
   text-align: start;
   color: var(--color-5);
   font-weight: normal;
@@ -152,7 +152,7 @@ html.rtl .id-card-close-button {
   margin-top: 0;
   padding-bottom: var(--gap-double);
   padding-right: var(--gap-triple);
-  font-size: var(--font-size-big);
+  font-size: var(--font-size-l);
   background: var(--color-2);
   border-bottom: 1px solid var(--color-3);
   color: var(--color-highlight);

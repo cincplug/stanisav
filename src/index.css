@@ -1,8 +1,9 @@
 :root {
   /* Typography */
-  --font-size-big: 1.2rem;
-  --font-size-normal: 0.9rem;
-  --font-size-small: 0.8rem;
+  --font-size-l: 1.2rem;
+  --font-size-m: 0.9rem;
+  --font-size-s: 0.8rem;
+  --font-size-xs: 0.6rem;
 
   /* Colors */
   --color-1: #000204;
@@ -81,7 +82,7 @@ button,
   border: none;
   text-decoration: none;
   color: var(--color-5);
-  font-size: var(--font-size-normal);
+  font-size: var(--font-size-m);
 }
 
 a,
@@ -129,7 +130,7 @@ fieldset {
 legend {
   color: var(--color-5);
   margin: 0 0 var(--gap) -2px;
-  font-size: var(--font-size-big);
+  font-size: var(--font-size-l);
 }
 
 /* Shared classes and utils */
@@ -143,7 +144,7 @@ legend {
   color: var(--color-5);
   padding: 2px;
   border-radius: var(--border-radius);
-  font-size: var(--font-size-normal);
+  font-size: var(--font-size-m);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -176,7 +177,7 @@ legend {
   color: var(--color-5);
   padding: 6px 12px;
   border-radius: var(--border-radius);
-  font-size: var(--font-size-normal);
+  font-size: var(--font-size-m);
   font-weight: normal;
   position: relative;
 }

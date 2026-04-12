@@ -9,7 +9,7 @@
   color: var(--color-5);
   border: none;
   border-radius: var(--border-radius);
-  font-size: var(--font-size-normal);
+  font-size: var(--font-size-m);
   display: flex;
   align-items: center;
   gap: var(--gap-half);
@@ -24,7 +24,7 @@
 
 .select-arrow {
   margin-left: var(--gap-half);
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-xs);
   pointer-events: none;
 }
 
@@ -52,7 +52,7 @@
   border-radius: var(--border-radius);
   border: none;
   text-align: end;
-  font-size: var(--font-size-normal);
+  font-size: var(--font-size-m);
   text-decoration: none;
   display: block;
 

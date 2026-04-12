@@ -11,7 +11,7 @@
   border-inline-start: var(--border-width) solid var(--color-3);
   padding: var(--gap-double);
   color: var(--color-5);
-  font-size: var(--font-size-normal);
+  font-size: var(--font-size-m);
   overflow-y: auto;
   overflow-x: hidden;
   box-sizing: border-box;
