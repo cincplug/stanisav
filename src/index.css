@@ -179,7 +179,6 @@ legend {
   border-radius: var(--border-radius);
   font-size: var(--font-size-m);
   font-weight: normal;
-  position: relative;
 }
 
 .text-dark {

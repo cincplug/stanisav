@@ -69,37 +69,39 @@ function Menu({
 
       {isVisible && (
         <div className={`menu ${isMenuExpanded ? "expanded" : "compact"}`}>
-          <div className="menu-header">
-            <Playlist />
-            <LocaleLinks />
-            <ControlItemGroup
-              groupName="Header"
-              controls={controls}
-              onChange={handleControlChange}
-            />
-          </div>
-
-          {isMenuExpanded && (
-            <>
+          <div className="sticky-header">
+            <div className="menu-essentials">
+              <Playlist />
+              <LocaleLinks />
+              <ControlItemGroup
+                groupName="Header"
+                controls={controls}
+                onChange={handleControlChange}
+              />
+            </div>
+            {isMenuExpanded && (
               <TabNavigation
                 selectedTab={selectedTab}
                 setSelectedTab={handleTabChange}
               />
-              <TabRenderer
-                selectedTab={selectedTab}
-                controls={controls}
-                onControlChange={handleControlChange}
-                languageData={data?.languages || {}}
-                data={data}
-                filteringUtils={filteringUtils}
-                onFilteringUtilsChange={onFilteringUtilsChange}
-                searchTerm={searchTerm}
-                setSearchTerm={setSearchTerm}
-                searchResults={searchResults}
-                clearSearch={clearSearch}
-                languageColors={languageColors}
-              />
-            </>
+            )}
+          </div>
+
+          {isMenuExpanded && (
+            <TabRenderer
+              selectedTab={selectedTab}
+              controls={controls}
+              onControlChange={handleControlChange}
+              languageData={data?.languages || {}}
+              data={data}
+              filteringUtils={filteringUtils}
+              onFilteringUtilsChange={onFilteringUtilsChange}
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+              searchResults={searchResults}
+              clearSearch={clearSearch}
+              languageColors={languageColors}
+            />
           )}
         </div>
       )}

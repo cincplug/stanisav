@@ -7,7 +7,7 @@
   position: relative;
   background-color: var(--color-2);
   border-inline-start: var(--border-width) solid var(--color-3);
-  padding: var(--gap-double);
+  padding: 0 var(--gap-double) var(--gap-double);
   color: var(--color-5);
   font-size: var(--font-size-m);
   overflow: visible;
@@ -40,6 +40,13 @@ html.rtl .menu.compact {
   left: 0;
 }
 
+.sticky-header {
+  position: sticky;
+  top: 0;
+  background: var(--color-2);
+  padding-block-start: var(--gap-double);
+}
+
 /* Mirror close button for RTL */
 .menu-close {
   position: absolute;
@@ -52,7 +59,7 @@ html.rtl .menu-close {
   left: var(--gap-double);
 }
 
-.menu-header {
+.menu-essentials {
   display: flex;
   flex-wrap: wrap;
   gap: var(--gap);
@@ -60,7 +67,7 @@ html.rtl .menu-close {
 
 .tabs-inner {
   overflow-y: auto;
-  padding: var(--gap) var(--gap-half);
+  padding: 0 var(--gap-half);
 }
 
 .radio-group {
