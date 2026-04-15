@@ -168,7 +168,7 @@
   },
   "bgColor": {
     "type": "color",
-    "defaultValue": "#141618",
+    "defaultValue": "#0a0c0e",
     "isShownInMenu": true,
     "group": "Colors"
   },

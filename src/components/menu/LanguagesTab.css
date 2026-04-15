@@ -28,7 +28,7 @@
   box-sizing: border-box;
 
   &.selected {
-    background: var(--color-video) !important;
+    background: var(--color-current) !important;
     color: var(--color-5);
   }
 }

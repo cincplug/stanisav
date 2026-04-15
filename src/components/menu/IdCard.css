@@ -155,7 +155,7 @@ html.rtl .id-card-close-button {
   font-size: var(--font-size-l);
   background: var(--color-2);
   border-bottom: 1px solid var(--color-3);
-  color: var(--color-highlight);
+  color: var(--color-focus);
   text-align: center;
   box-sizing: border-box;
   text-wrap: balance;

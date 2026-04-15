@@ -55,7 +55,7 @@
   text-align: end;
   font-size: var(--font-size-m);
   text-decoration: none;
-  display: block;
+  text-align: start;
 
   &:focus-visible,
   &:hover {
@@ -63,7 +63,7 @@
   }
 
   &[aria-current="true"] {
-    background: var(--color-video);
+    background: var(--color-current);
     border: var(--border-width-thin) solid var(--color-2);
   }
 }

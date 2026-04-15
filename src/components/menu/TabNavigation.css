@@ -4,7 +4,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
-  border-bottom: var(--border-width) solid var(--color-3);
+  border-bottom: var(--border);
   margin: var(--gap-double) calc(-1 * var(--gap-double));
 
   button {

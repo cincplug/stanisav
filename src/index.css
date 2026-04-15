@@ -7,13 +7,13 @@
 
   /* Colors */
   --color-1: #000204;
-  --color-2: #141618;
+  --color-2: #222426;
   --color-3: #454749;
   --color-4: #828486;
   --color-5: #e4e6e8;
   --color-6: #ffffff;
-  --color-highlight: #ffd700;
-  --color-video: #0057b7;
+  --color-focus: #ffd700;
+  --color-current: #0057b7;
   --color-error: #ba1b6a;
 
   /* Layout */
@@ -27,12 +27,13 @@
   --gap-reduced: calc(var(--gap) / 3 * 2);
 
   /* Accessories */
-  --outline-default: var(--border-width) solid var(--color-highlight);
+  --outline-default: var(--border-width) solid var(--color-focus);
   --shadow-mild: 0px -1px 1px 0px var(--color-2);
   --shadow-strong: 0 0 var(--gap-double) var(--color-1);
   --border-radius: 12px;
-  --border-width: 3px;
+  --border-width: 2px;
   --border-width-thin: 1px;
+  --border: var(--border-width) solid var(--color-2);
   --clear-button-size: 20px;
   --modal-offset: 4rem;
 }
@@ -64,7 +65,7 @@ body {
 }
 
 a {
-  color: var(--color-highlight);
+  color: var(--color-focus);
 }
 
 button,
@@ -98,7 +99,7 @@ select,
   &:active,
   &.selected,
   &[aria-selected="true"] {
-    background: var(--color-video);
+    background: var(--color-current);
   }
 }
 
@@ -122,7 +123,7 @@ input[type="radio"] {
 
 fieldset {
   border: none;
-  border-bottom: var(--border-width) solid var(--color-3);
+  border-bottom: var(--border);
   padding: 0 0 var(--gap-double);
   margin-top: var(--gap-double);
 }

@@ -30,7 +30,7 @@
 .svgallery-video {
   width: 100%;
   aspect-ratio: 16/9;
-  background: var(--color-video);
+  background: var(--color-current);
   display: flex;
   align-items: center;
   justify-content: center;

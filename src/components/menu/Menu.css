@@ -5,8 +5,8 @@
   min-width: var(--panel-width);
   max-width: var(--panel-width);
   position: relative;
-  background-color: var(--color-2);
-  border-inline-start: var(--border-width) solid var(--color-3);
+  background-color: var(--color-1);
+  border-inline-start: var(--border);
   padding: 0 var(--gap-double) var(--gap-double);
   color: var(--color-5);
   font-size: var(--font-size-m);
@@ -23,7 +23,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    border-block-end: var(--border-width) solid var(--color-3);
+    border-block-end: var(--border);
   }
 }
 
@@ -43,7 +43,7 @@ html.rtl .menu.compact {
 .sticky-header {
   position: sticky;
   top: 0;
-  background: var(--color-2);
+  background: var(--color-1);
   padding-block-start: var(--gap-double);
 }
 

@@ -28,7 +28,7 @@ html.rtl .playlist-controls .next-icon {
 
 .playlist-main {
   border-radius: var(--border-radius);
-  background: var(--color-video);
+  background: var(--color-current);
   border: none;
   box-shadow: var(--shadow-mild);
   color: var(--color-5);
