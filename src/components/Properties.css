@@ -1,0 +1,61 @@
+.properties {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: var(--color-2);
+  color: var(--color-4);
+}
+
+.properties-title {
+  margin: 5rem 0 0;
+  text-align: center;
+}
+
+.properties-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--gap-double);
+  padding: var(--gap-double);
+  box-sizing: border-box;
+  align-items: stretch;
+}
+
+.properties-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--color-1);
+  border: var(--border);
+  border-radius: var(--border-radius);
+  padding: var(--gap-double);
+  gap: var(--gap-double);
+  width: 100%;
+  box-sizing: border-box;
+  height: 100%;
+  text-align: center;
+}
+
+.properties-mesha {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.properties-mesha canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.properties-label {
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  margin: 0;
+}
+
+html.rtl .properties {
+  direction: rtl;
+}

@@ -31,7 +31,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                       path="source-video-gallery"
                       element={<SourceVideoGallery />}
                     />
-                    <Route path="property/:propertyKey" element={<App />} />
                   </Route>
                   <Route
                     path="*"

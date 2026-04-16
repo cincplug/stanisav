@@ -1,7 +1,6 @@
-import { useParams, Navigate } from "react-router-dom";
 import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
-import PropertyShowcase from "./pages/property-showcase/PropertyShowcase.jsx";
+import Properties from "./components/Properties.jsx";
 import IdCard from "./components/menu/IdCard";
 import { CloseIcon } from "./components/menu/MenuIcons";
 import { useAppState } from "./contexts/AppStateContext";
@@ -9,7 +8,6 @@ import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
 import { useControls } from "./contexts/ControlsContext";
 import { usePlaylist } from "./contexts/PlaylistContext";
 import { useLanguageColors } from "./hooks/useLanguageColors";
-import { isPropertyDescribed } from "./utils/linguisticUtils";
 import { useI18n } from "./contexts/I18nContext";
 import "./App.css";
 
@@ -29,7 +27,8 @@ function App() {
   } = useAppState();
 
   const { controls, updateControl } = useControls();
-  const { selectedLanguage } = useLanguageSelection();
+  const { selectedLanguage, selectedProperty, setSelectedProperty } =
+    useLanguageSelection();
   const { pausePlaylist } = usePlaylist();
   const { isInfoVisible, isMenuVisible, isMenuExpanded } = controls;
   const { sampleUrl, sub } = data?.languageData[selectedLanguage] || {};
@@ -39,13 +38,6 @@ function App() {
     data?.languageLineages,
     controls,
   );
-
-  const params = useParams();
-  const showPropertyOverlay = Boolean(params.propertyKey);
-
-  if (showPropertyOverlay && !isPropertyDescribed(params.propertyKey)) {
-    return <Navigate to={`/${params.locale || ""}`} replace />;
-  }
 
   return (
     <div
@@ -74,6 +66,19 @@ function App() {
             headingColor={languageColors[selectedLanguage]}
           />
         )}
+
+        {selectedProperty && (
+          <>
+            <Properties propertyKey={selectedProperty} />
+            <button
+              className={`close-button${isRtl ? " close-button-rtl" : ""}`}
+              aria-label={t("menu.close")}
+              onClick={() => setSelectedProperty(null)}
+            >
+              <CloseIcon />
+            </button>
+          </>
+        )}
       </div>
 
       {sceneReady && (
@@ -92,19 +97,6 @@ function App() {
           onFilteringUtilsChange={setFilteringUtils}
           languageColors={languageColors}
         />
-      )}
-
-      {showPropertyOverlay && (
-        <>
-          <PropertyShowcase propertyKey={params.propertyKey} />
-          <button
-            className={`close-button${isRtl ? " close-button-rtl" : ""}`}
-            aria-label={t("menu.close")}
-            onClick={() => window.history.back()}
-          >
-            <CloseIcon />
-          </button>
-        </>
       )}
     </div>
   );

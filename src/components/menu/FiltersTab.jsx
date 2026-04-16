@@ -14,14 +14,18 @@ import { sortFeatureValues } from "../../utils/sortingUtils";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
 import { useI18n } from "../../contexts/I18nContext";
-import { Link } from "react-router-dom";
 import "./FiltersTab.css";
 
 function FiltersTab({ data, languageColors = {} }) {
   const { viewAllLanguages } = useLanguageSelection();
   const { pausePlaylist } = usePlaylist();
-  const { filteringUtils, updateFilteringUtils, selectedLanguage } =
-    useLanguageSelection();
+  const {
+    filteringUtils,
+    updateFilteringUtils,
+    selectedLanguage,
+    selectedProperty,
+    setSelectedProperty,
+  } = useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
 
   const handleSelectLanguage = (langCode) => {
@@ -36,7 +40,7 @@ function FiltersTab({ data, languageColors = {} }) {
   const [lastChangedFeature, setLastChangedFeature] = useState(null);
   const resultsRefs = useRef({});
   const emptyRefs = useRef({});
-  const { t, locale } = useI18n();
+  const { t } = useI18n();
 
   const handleCheckboxChange = (feature, value, checked) => {
     setLastChangedFeature(feature);
@@ -151,13 +155,17 @@ function FiltersTab({ data, languageColors = {} }) {
                 <legend className="filter-group-title">
                   {label}{" "}
                   {isPropertyDescribed(feature) && (
-                    <Link
+                    <button
                       className="info-link filter-group-info"
-                      to={`/${locale}/property/${feature}`}
+                      onClick={() =>
+                        setSelectedProperty(
+                          selectedProperty === feature ? null : feature,
+                        )
+                      }
                       aria-label={`${label} info`}
                     >
                       ⓘ
-                    </Link>
+                    </button>
                   )}
                 </legend>
 

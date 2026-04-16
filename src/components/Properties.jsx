@@ -1,11 +1,11 @@
 import { useMemo } from "react";
 import { Canvas } from "@react-three/fiber";
-import { useControls } from "../../contexts/ControlsContext";
-import linguisticConfig from "../../config/linguisticConfig.json";
-import Mesha from "../../components/r3f/Mesha";
-import { getFeatureScore } from "../../utils/linguisticUtils";
-import "./PropertyShowcase.css";
-import { useI18n } from "../../contexts/I18nContext";
+import { useControls } from "../contexts/ControlsContext";
+import linguisticConfig from "../config/linguisticConfig.json";
+import Mesha from "./r3f/Mesha";
+import { getFeatureScore } from "../utils/linguisticUtils";
+import "./Properties.css";
+import { useI18n } from "../contexts/I18nContext";
 
 const baseLinguisticProperties = {
   tonality: "non-tonal",
@@ -20,7 +20,7 @@ const baseLinguisticProperties = {
   nounClassCount: 0,
 };
 
-const PropertyShowcase = ({ propertyKey }) => {
+const Properties = ({ propertyKey }) => {
   const { controls } = useControls();
   const { t } = useI18n();
   const { cameraX, cameraY, cameraZ, fov, near, far, bgColor } = controls;
@@ -28,8 +28,7 @@ const PropertyShowcase = ({ propertyKey }) => {
   const property = linguisticConfig[propertyKey];
   const variants = useMemo(() => Object.entries(property.values), [property]);
 
-  // Remove useMemo for meshas, compute directly in render
-  const meshas = variants.map(([variantKey], index) => {
+  const meshas = variants.map(([variantKey]) => {
     const linguisticProperties = {
       ...baseLinguisticProperties,
       [propertyKey]: variantKey,
@@ -50,15 +49,15 @@ const PropertyShowcase = ({ propertyKey }) => {
   });
 
   return (
-    <div className="property-showcase">
-      <h2 className="property-showcase-title">
+    <div className="properties">
+      <h2 className="properties-title">
         {t(`linguistic.${propertyKey}.name`) || property.name}
       </h2>
-      <div className="property-showcase-items">
+      <div className="properties-items">
         {meshas.map((mesha) => (
-          <div className="property-showcase-item" key={mesha.key}>
-            <h3 className="property-showcase-label">{mesha.label}</h3>
-            <div className="property-showcase-mesha">
+          <div className="properties-item" key={mesha.key}>
+            <h3 className="properties-label">{mesha.label}</h3>
+            <div className="properties-mesha">
               <Canvas
                 camera={{
                   position: [cameraX, cameraY, cameraZ],
@@ -80,9 +79,7 @@ const PropertyShowcase = ({ propertyKey }) => {
               </Canvas>
             </div>
 
-            <div className="property-showcase-description">
-              {mesha.description}
-            </div>
+            <div className="properties-description">{mesha.description}</div>
           </div>
         ))}
       </div>
@@ -90,4 +87,4 @@ const PropertyShowcase = ({ propertyKey }) => {
   );
 };
 
-export default PropertyShowcase;
+export default Properties;
