@@ -1,7 +1,6 @@
 .control-section {
   h3 {
     margin: var(--gap-double) 0 var(--gap-half);
-    color: var(--color-5);
   }
 }
 
@@ -9,8 +8,6 @@
   label {
     display: flex;
     margin-bottom: var(--gap-half);
-    font-weight: normal;
-    color: var(--color-5);
   }
 }
 

@@ -3,12 +3,13 @@
 }
 .svgallery-container {
   padding: 2rem;
-  background: var(--color-2);
+  background: var(--color-1);
   min-height: 100vh;
+  color: var(--color-4);
 }
 
 .svgallery-title {
-  color: var(--color-5);
+  color: var(--color-4);
 }
 
 .svgallery-grid {
@@ -18,13 +19,12 @@
 }
 
 .svgallery-card {
-  background: var(--color-3);
+  background: var(--color-1);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-mild);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  color: var(--color-5);
 }
 
 .svgallery-video {
@@ -66,7 +66,6 @@
 
 .svgallery-attributes dt {
   min-width: 120px;
-  color: var(--color-5);
   font-weight: normal;
   &:after {
     content: ":";
@@ -74,7 +73,6 @@
 }
 
 .svgallery-attributes dd {
-  color: var(--color-5);
   margin-inline-start: 1rem;
 }
 

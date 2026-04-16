@@ -87,7 +87,7 @@ function IdCard({
       aria-label={localizedLanguageName}
       style={{
         "--id-card-max-columns": normalizedColumnCount,
-        "--id-card-heading-color": headingColor || "var(--color-5)",
+        "--id-card-heading-color": headingColor || "var(--color-4)",
       }}
     >
       <button

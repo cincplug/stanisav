@@ -4,15 +4,14 @@
 }
 
 .group-header {
-  margin: 0 0 var(--gap-half) 0;
   padding: 0;
-  color: var(--color-5);
+  color: var(--color-4);
   font-size: var(--font-size-l);
 }
 
 .languages-in-group {
   list-style: none;
-  margin: 0 0 var(--gap-half) 0;
+  margin: 0;
   padding: 0;
 }
 
@@ -22,14 +21,11 @@
 }
 
 .language-item-button {
-  background-color: var(--color-3);
   color: var(--color-1);
-  width: auto;
-  box-sizing: border-box;
 
   &.selected {
     background: var(--color-current) !important;
-    color: var(--color-5);
+    color: var(--color-4);
   }
 }
 
@@ -39,22 +35,4 @@
 
 .lineage-children {
   margin-top: var(--gap-half);
-}
-
-.todo-item {
-  background-color: var(--color-todo-item);
-}
-
-.sorting-controls {
-  background-color: var(--color-2);
-  transform: translateY(-3px);
-  gap: var(--gap);
-
-  .control-item {
-    grid-column: span 2;
-  }
-
-  .checkbox-control {
-    grid-column: span 1;
-  }
 }

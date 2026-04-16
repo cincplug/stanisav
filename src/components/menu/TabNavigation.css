@@ -9,23 +9,11 @@
 
   button {
     margin-inline-end: var(--border-width);
-    background-color: var(--color-2);
-    background: var(--color-3);
-    border-bottom: none;
     border-radius: var(--border-radius) var(--border-radius) 0 0;
-    color: var(--color-5);
     padding: var(--gap) var(--gap-double);
-    font-size: var(--font-size-m);
-    width: auto;
-    outline: none;
 
     &:first-child {
       margin-inline-start: var(--gap-double);
-    }
-
-    &:hover,
-    &:focus-visible {
-      outline: var(--outline-default);
     }
   }
 }

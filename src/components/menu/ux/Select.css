@@ -5,17 +5,6 @@
   display: inline-block;
 }
 
-.select-toggle {
-  color: var(--color-5);
-  border: none;
-  border-radius: var(--border-radius);
-  font-size: var(--font-size-m);
-  display: flex;
-  align-items: center;
-  gap: var(--gap-half);
-  box-shadow: var(--shadow-mild);
-}
-
 /* Focus proxy: when the native <select> (the actual tab stop) receives
    keyboard focus, mirror the outline onto the visible custom toggle. */
 .select-native:focus-visible ~ .select-toggle {
@@ -23,7 +12,7 @@
 }
 
 .select-arrow {
-  margin-left: var(--gap-half);
+  margin-left: var(--gap);
   margin-top: 3px;
   font-size: var(--font-size-xs);
   pointer-events: none;
@@ -47,8 +36,10 @@
 }
 
 .select-option {
+  display: block;
+  box-sizing: border-box;
   padding: var(--gap) var(--gap-double);
-  color: var(--color-5);
+  color: var(--color-4);
   background: none;
   border-radius: var(--border-radius);
   border: none;

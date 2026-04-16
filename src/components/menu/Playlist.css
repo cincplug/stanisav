@@ -14,8 +14,6 @@ html.rtl .playlist-controls .next-icon {
 }
 
 .playlist-controls button {
-  background-color: var(--color-3);
-  font-weight: normal;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,20 +24,7 @@ html.rtl .playlist-controls .next-icon {
   cursor: not-allowed;
 }
 
-.playlist-main {
-  border-radius: var(--border-radius);
-  background: var(--color-current);
-  border: none;
-  box-shadow: var(--shadow-mild);
-  color: var(--color-5);
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .playlist-progress {
   min-width: fit-content;
   text-align: center;
-  color: var(--color-5);
 }

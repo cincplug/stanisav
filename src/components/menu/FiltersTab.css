@@ -17,7 +17,6 @@
 
 .filter-group-title {
   margin: 0 0 var(--gap-half);
-  color: var(--color-5);
   font-weight: normal;
   display: inline;
 }
@@ -40,7 +39,6 @@
   margin: var(--gap-double) 0;
   padding: var(--gap) var(--gap-double);
   border-radius: var(--border-radius);
-  color: var(--color-5);
   background: var(--color-error);
   box-shadow: var(--shadow-strong);
 }

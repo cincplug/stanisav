@@ -6,12 +6,10 @@
   --font-size-xs: 0.6rem;
 
   /* Colors */
-  --color-1: #000204;
-  --color-2: #222426;
-  --color-3: #454749;
-  --color-4: #828486;
-  --color-5: #e4e6e8;
-  --color-6: #ffffff;
+  --color-1: #070b0f;
+  --color-2: #272b2f;
+  --color-3: #474b4f;
+  --color-4: #e7ebef;
   --color-focus: #ffd700;
   --color-current: #0057b7;
   --color-error: #ba1b6a;
@@ -31,7 +29,7 @@
   --shadow-mild: 0px -1px 1px 0px var(--color-2);
   --shadow-strong: 0 0 var(--gap-double) var(--color-1);
   --border-radius: 12px;
-  --border-width: 2px;
+  --border-width: 3px;
   --border-width-thin: 1px;
   --border: var(--border-width) solid var(--color-2);
   --clear-button-size: 20px;
@@ -41,7 +39,7 @@
 /* Global scrollbar styles */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-4) var(--color-1);
+  scrollbar-color: var(--color-3) var(--color-1);
 }
 
 /* React-specific styles */
@@ -60,7 +58,7 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: var(--color-2);
+  background-color: var(--color-1);
   font-family: "Roboto", sans-serif;
 }
 
@@ -76,13 +74,14 @@ textarea {
 }
 
 button,
-.button {
+.button,
+.checkbox-button {
   padding: var(--gap) var(--gap-double);
   background-color: var(--color-3);
   border-radius: var(--border-radius);
   border: none;
   text-decoration: none;
-  color: var(--color-5);
+  color: var(--color-4);
   font-size: var(--font-size-m);
 }
 
@@ -110,8 +109,7 @@ input[type="range"] {
 
 input[type="color"] {
   border-radius: 0;
-  border: 1px solid var(--color-4);
-  padding: 0;
+  border: var(--border);
   background: transparent;
 }
 
@@ -129,7 +127,7 @@ fieldset {
 }
 
 legend {
-  color: var(--color-5);
+  color: var(--color-4);
   margin: 0 0 var(--gap) -2px;
   font-size: var(--font-size-l);
 }
@@ -142,8 +140,7 @@ legend {
   z-index: 1;
   background-color: transparent;
   border: none;
-  color: var(--color-5);
-  padding: 2px;
+  padding: 0;
   border-radius: var(--border-radius);
   font-size: var(--font-size-m);
   display: flex;
@@ -173,15 +170,6 @@ legend {
   }
 }
 
-.checkbox-button {
-  background-color: var(--color-3);
-  color: var(--color-5);
-  padding: 6px 12px;
-  border-radius: var(--border-radius);
-  font-size: var(--font-size-m);
-  font-weight: normal;
-}
-
 .text-dark {
   color: var(--color-1);
 }
@@ -199,7 +187,7 @@ legend {
 }
 
 .white {
-  color: var(--color-5);
+  color: var(--color-4);
 }
 
 .screenreader-only {

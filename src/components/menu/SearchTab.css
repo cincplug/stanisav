@@ -27,20 +27,16 @@
   padding: var(--gap);
   padding-right: var(--clear-button-size);
   background-color: transparent;
-  border: var(--border-width) solid var(--color-5);
-  color: var(--color-5);
+  border: var(--border);
+  color: var(--color-4);
   border-radius: var(--border-radius);
   font-size: var(--font-size-m);
 }
 
 .search-select {
   width: 100%;
-  padding: 8px;
   background-color: var(--color-3);
-  border: 1px solid var(--color-3);
-  color: var(--color-5);
-  border-radius: var(--border-radius);
-  box-sizing: border-box;
+  border: var(--border);
 }
 
 /* Clear button positioned inside search input */
@@ -53,7 +49,7 @@
   height: var(--clear-button-size);
   border: none;
   background: none;
-  color: var(--color-5);
+  color: var(--color-4);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,6 +64,6 @@
 .search-threshold-message {
   padding: 16px;
   text-align: center;
-  color: var(--color-5);
+  color: var(--color-4);
   font-style: italic;
 }
