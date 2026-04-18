@@ -34,6 +34,7 @@
   --border: var(--border-width) solid var(--color-2);
   --clear-button-size: 20px;
   --modal-offset: 4rem;
+  --tooltip-tail-size: 8px;
 }
 
 /* Global scrollbar styles */

@@ -1,0 +1,35 @@
+.tooltip-popover {
+  position: absolute;
+  overflow: visible;
+  bottom: calc(anchor(top) + var(--gap) + var(--tooltip-tail-size, 8px));
+  left: anchor(center);
+  translate: -50% 0;
+  top: unset;
+  right: unset;
+  margin: 0;
+
+  border: var(--border-width-thin) solid var(--color-2);
+  border-radius: var(--border-radius);
+  background: var(--color-3);
+  box-shadow: var(--shadow-strong);
+  padding: var(--gap) var(--gap-double);
+  color: var(--color-4);
+  font-size: var(--font-size-m);
+  max-width: var(--panel-width);
+
+  &:not(:popover-open) {
+    display: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: calc(-1 * var(--tooltip-tail-size));
+    left: 50%;
+    translate: -50% 0;
+    width: calc(var(--tooltip-tail-size) * 2);
+    height: var(--tooltip-tail-size);
+    background: var(--color-3);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+  }
+}
