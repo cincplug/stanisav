@@ -1,12 +1,14 @@
+.filter-group-info {
+  anchor-name: var(--tooltip-anchor-name);
+}
+
 .tooltip-popover {
   position: absolute;
+  position-anchor: var(--tooltip-anchor-name);
   overflow: visible;
-  bottom: calc(anchor(top) + var(--gap) + var(--tooltip-tail-size, 8px));
-  left: anchor(center);
-  translate: -50% 0;
+  margin: 0;
   top: unset;
   right: unset;
-  margin: 0;
 
   border: var(--border-width-thin) solid var(--color-2);
   border-radius: var(--border-radius);
@@ -24,12 +26,68 @@
   &::after {
     content: "";
     position: absolute;
-    bottom: calc(-1 * var(--tooltip-tail-size));
-    left: 50%;
-    translate: -50% 0;
-    width: calc(var(--tooltip-tail-size) * 2);
-    height: var(--tooltip-tail-size);
     background: var(--color-3);
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
+  }
+
+  &[data-position="top"],
+  &:not([data-position]) {
+    bottom: calc(anchor(top) + var(--gap) + var(--tooltip-tail-size, 8px));
+    left: anchor(center);
+    translate: -50% 0;
+
+    &::after {
+      bottom: calc(-1 * var(--tooltip-tail-size, 8px));
+      left: 50%;
+      translate: -50% 0;
+      width: calc(var(--tooltip-tail-size, 8px) * 2);
+      height: var(--tooltip-tail-size, 8px);
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+    }
+  }
+
+  &[data-position="bottom"] {
+    top: calc(anchor(bottom) + var(--gap) + var(--tooltip-tail-size, 8px));
+    left: anchor(center);
+    translate: -50% 0;
+
+    &::after {
+      top: calc(-1 * var(--tooltip-tail-size, 8px));
+      left: 50%;
+      translate: -50% 0;
+      width: calc(var(--tooltip-tail-size, 8px) * 2);
+      height: var(--tooltip-tail-size, 8px);
+      clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    }
+  }
+
+  &[data-position="left"] {
+    left: anchor(left);
+    top: anchor(center);
+    translate: calc(-100% - var(--gap) - var(--tooltip-tail-size, 8px)) -50%;
+    right: unset;
+
+    &::after {
+      right: calc(-1 * var(--tooltip-tail-size, 8px));
+      top: 50%;
+      translate: 0 -50%;
+      width: var(--tooltip-tail-size, 8px);
+      height: calc(var(--tooltip-tail-size, 8px) * 2);
+      clip-path: polygon(0 0, 0 100%, 100% 50%);
+    }
+  }
+
+  &[data-position="right"] {
+    left: calc(anchor(right) + var(--gap) + var(--tooltip-tail-size, 8px));
+    top: anchor(center);
+    translate: 0 -50%;
+
+    &::after {
+      left: calc(-1 * var(--tooltip-tail-size, 8px));
+      top: 50%;
+      translate: 0 -50%;
+      width: var(--tooltip-tail-size, 8px);
+      height: calc(var(--tooltip-tail-size, 8px) * 2);
+      clip-path: polygon(100% 0, 100% 100%, 0 50%);
+    }
   }
 }
