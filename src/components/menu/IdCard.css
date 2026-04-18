@@ -134,13 +134,16 @@ html.rtl .id-card-close-button {
   line-height: var(--font-size-l);
 }
 
-.id-card-property-info:focus {
-  outline: 2px solid var(--color-4, #0078d4);
-  outline-offset: 2px;
-}
-
-.id-card-property-row.selected {
-  background: var(--color-current);
+.id-card-property-info {
+  &:hover,
+  &:focus-visible {
+    outline: 2px solid var(--color-4, #0078d4);
+    outline-offset: 2px;
+  }
+  .selected & {
+    background: var(--color-current);
+    color: var(--color-4) !important;
+  }
 }
 
 .id-card-source-video {

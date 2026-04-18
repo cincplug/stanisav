@@ -2,13 +2,13 @@ import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
 import Properties from "./components/Properties.jsx";
 import IdCard from "./components/menu/IdCard";
-import { CloseIcon } from "./components/menu/MenuIcons";
 import { useAppState } from "./contexts/AppStateContext";
 import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
 import { useControls } from "./contexts/ControlsContext";
 import { usePlaylist } from "./contexts/PlaylistContext";
 import { useLanguageColors } from "./hooks/useLanguageColors";
 import { useI18n } from "./contexts/I18nContext";
+import { getLanguagePropertyValue } from "./utils/linguisticUtils.js";
 import "./App.css";
 
 function App() {
@@ -39,6 +39,12 @@ function App() {
     controls,
   );
 
+  const selectedLanguageValue = getLanguagePropertyValue(
+    data?.languageData,
+    selectedLanguage,
+    selectedProperty,
+  );
+
   return (
     <div
       className={`app-container${isRtl ? " rtl" : ""} ${isLoading ? "loading" : ""} ${isMenuVisible && isMenuExpanded ? "menu-expanded" : ""}`}
@@ -67,16 +73,10 @@ function App() {
               languageColor={languageColors[selectedLanguage]}
             />
             {selectedProperty && (
-              <>
-                <Properties propertyKey={selectedProperty} />
-                <button
-                  className={`close-button${isRtl ? " close-button-rtl" : ""}`}
-                  aria-label={t("menu.close")}
-                  onClick={() => setSelectedProperty(null)}
-                >
-                  <CloseIcon />
-                </button>
-              </>
+              <Properties
+                propertyKey={selectedProperty}
+                selectedLanguageValue={selectedLanguageValue}
+              />
             )}
           </>
         )}

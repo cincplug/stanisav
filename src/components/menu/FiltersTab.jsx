@@ -99,7 +99,7 @@ function FiltersTab({ data, languageColors = {} }) {
       const resultsEl = resultsRefs.current[lastChangedFeature];
       if (!resultsEl) return;
       requestAnimationFrame(() => {
-        resultsEl.scrollIntoView({ behavior: "smooth", block: "center" });
+        resultsEl.scrollIntoView({ behavior: "smooth", block: "start" });
         resultsEl.focus();
       });
       return;
@@ -109,7 +109,7 @@ function FiltersTab({ data, languageColors = {} }) {
       const emptyEl = emptyRefs.current[lastChangedFeature];
       if (!emptyEl) return;
       requestAnimationFrame(() => {
-        emptyEl.scrollIntoView({ behavior: "smooth", block: "center" });
+        emptyEl.scrollIntoView({ behavior: "smooth", block: "start" });
         emptyEl.focus();
       });
     }

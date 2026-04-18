@@ -1,15 +1,15 @@
 .properties {
   position: absolute;
   inset: 0;
-  width: 100%;
+  width: var(--panel-width);
   height: 100%;
   overflow: auto;
-  background: var(--color-2);
+  background: var(--color-1);
   color: var(--color-4);
+  border-right: var(--border);
 }
 
 .properties-title {
-  margin: 5rem 0 0;
   text-align: center;
 }
 
@@ -35,6 +35,10 @@
   box-sizing: border-box;
   height: 100%;
   text-align: center;
+
+  &[aria-current] {
+    background: var(--color-current);
+  }
 }
 
 .properties-mesha {

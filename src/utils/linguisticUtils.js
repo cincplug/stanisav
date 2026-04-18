@@ -128,3 +128,14 @@ export const getLineageTrail = (lineageKey) => {
   if (!Array.isArray(ancestors)) return [lineageKey];
   return [...ancestors, lineageKey];
 };
+
+export function getLanguagePropertyValue(
+  languageData,
+  languageCode,
+  propertyKey,
+) {
+  if (!languageData || !languageCode || !propertyKey) return undefined;
+  const lang = languageData[languageCode];
+  if (!lang) return undefined;
+  return lang[propertyKey];
+}
