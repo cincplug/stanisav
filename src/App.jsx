@@ -52,31 +52,32 @@ function App() {
           languageColors={languageColors}
         />
 
-        {selectedLanguage && isInfoVisible && (
-          <IdCard
-            languageCode={selectedLanguage}
-            language={data?.languageData[selectedLanguage]}
-            languageLineages={data?.languageLineages}
-            sampleUrl={sampleUrl}
-            onSourceVideoClick={pausePlaylist}
-            onToggleSubtitle={(nextValue) =>
-              updateControl("isInfoVisible", nextValue)
-            }
-            sub={sub}
-            headingColor={languageColors[selectedLanguage]}
-          />
-        )}
-
-        {selectedProperty && (
+        {selectedLanguage && isInfoVisible && isMenuExpanded && (
           <>
-            <Properties propertyKey={selectedProperty} />
-            <button
-              className={`close-button${isRtl ? " close-button-rtl" : ""}`}
-              aria-label={t("menu.close")}
-              onClick={() => setSelectedProperty(null)}
-            >
-              <CloseIcon />
-            </button>
+            <IdCard
+              languageCode={selectedLanguage}
+              language={data?.languageData[selectedLanguage]}
+              languageLineages={data?.languageLineages}
+              sampleUrl={sampleUrl}
+              onSourceVideoClick={pausePlaylist}
+              onToggleSubtitle={(nextValue) =>
+                updateControl("isInfoVisible", nextValue)
+              }
+              sub={sub}
+              languageColor={languageColors[selectedLanguage]}
+            />
+            {selectedProperty && (
+              <>
+                <Properties propertyKey={selectedProperty} />
+                <button
+                  className={`close-button${isRtl ? " close-button-rtl" : ""}`}
+                  aria-label={t("menu.close")}
+                  onClick={() => setSelectedProperty(null)}
+                >
+                  <CloseIcon />
+                </button>
+              </>
+            )}
           </>
         )}
       </div>

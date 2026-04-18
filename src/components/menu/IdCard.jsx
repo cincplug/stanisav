@@ -23,7 +23,7 @@ function IdCard({
   sampleUrl,
   onSourceVideoClick,
   onToggleSubtitle,
-  headingColor,
+  languageColor,
 }) {
   const { locale, t } = useI18n();
 
@@ -88,7 +88,6 @@ function IdCard({
       aria-label={localizedLanguageName}
       style={{
         "--id-card-max-columns": normalizedColumnCount,
-        "--id-card-heading-color": headingColor || "var(--color-4)",
       }}
     >
       <button
@@ -102,9 +101,9 @@ function IdCard({
 
       <div className="id-card-header">
         <h2 className="id-card-title">
-          {localizedLanguageName} <span className="white">(</span>
+          {localizedLanguageName} <span className="sign">(</span>
           {language.nativeName}
-          <span className="white">)</span>
+          <span className="sign">)</span>
         </h2>
 
         {lineageTrail.length > 0 && (
@@ -112,7 +111,7 @@ function IdCard({
             <div className="id-card-breadcrumb" role="list">
               {lineageTrail.map((lineageItem, index) => (
                 <span key={lineageItem} className="id-card-breadcrumb-item">
-                  {index > 0 && <span className="white">→</span>}
+                  {index > 0 && <span className="sign">→</span>}
                   <span>{getFamilyLabel(lineageItem)}</span>
                 </span>
               ))}
@@ -129,6 +128,7 @@ function IdCard({
               rel="noopener noreferrer"
               onClick={onSourceVideoClick}
               aria-label={`${localizedLanguageName} ${t("idCard.sourceVideo")} (${t("idCard.opensInNewTab")})`}
+              style={{ color: languageColor }}
             >
               {t("idCard.sourceVideo")} <span className="white">↗</span>
             </a>
@@ -137,7 +137,7 @@ function IdCard({
       </div>
 
       <div className="id-card-columns">
-        <div className="id-card-list" role="list">
+        <dl className="id-card-list" role="list">
           {properties.map((property) => {
             const canSelect = isPropertyDescribed(property.key);
             const isSelected = selectedProperty === property.key;
@@ -145,30 +145,30 @@ function IdCard({
               <div
                 key={property.key}
                 className={`id-card-property-row${isSelected ? " selected" : ""}`}
+                role="group"
+                aria-label={property.label}
               >
-                <span className="id-card-property-label">
-                  {property.label}:
-                </span>
-                <span className="id-card-property-value">{property.value}</span>
+                <dt className="id-card-property-label">{property.label}:</dt>
+                <dd className="id-card-property-value">{property.value}</dd>
                 <span className="id-card-property-info-cell">
                   {canSelect && (
                     <button
                       type="button"
                       className="info-link id-card-property-info"
-                      aria-label={`${property.label} info`}
                       tabIndex={0}
+                      style={{ color: languageColor }}
                       onClick={() =>
                         setSelectedProperty(isSelected ? null : property.key)
                       }
                     >
-                      ⓘ
+                      <span aria-hidden="true">ⓘ</span>
                     </button>
                   )}
                 </span>
               </div>
             );
           })}
-        </div>
+        </dl>
       </div>
     </aside>
   );

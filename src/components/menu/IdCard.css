@@ -9,6 +9,11 @@
   border-top: var(--border);
   width: 100%;
   max-height: 33vh;
+  z-index: 2;
+
+  .sign {
+    color: var(--color-3);
+  }
 }
 
 .id-card-header {
@@ -18,8 +23,7 @@
   align-items: start;
   gap: var(--gap);
   margin-bottom: var(--gap);
-  color: var(--id-card-heading-color, var(--color-4));
-  padding: 0 var(--gap-triple) 0 var(--gap-double);
+  padding: 0 var(--gap-triple) 0 var(--gap);
 
   html.rtl & {
     padding: 0 var(--gap-double) 0 var(--gap-triple);
@@ -79,7 +83,7 @@ html.rtl .id-card-close-button {
 .id-card-list {
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(0, 350px));
+  grid-template-columns: repeat(auto-fill, minmax(0, var(--panel-width)));
 }
 
 .id-card-property {
@@ -96,13 +100,13 @@ html.rtl .id-card-close-button {
   text-align: left;
 }
 
-.id-card-property.selected,
-.id-card-property[aria-pressed="true"] {
-  background: var(--color-1);
+.id-card-property-row {
+  display: flex;
+  align-items: center;
+  padding: var(--gap);
 }
 
 .id-card-property-label {
-  margin-right: var(--gap-half);
   .selected & {
     color: var(--color-4);
   }
@@ -110,8 +114,33 @@ html.rtl .id-card-close-button {
 
 .id-card-property-value {
   color: var(--color-4);
-  min-width: 0;
   word-break: break-word;
+  margin-left: var(--gap-double);
+}
+
+.id-card-property-info-cell {
+  width: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.id-card-property-info {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: var(--font-size-l);
+  line-height: var(--font-size-l);
+}
+
+.id-card-property-info:focus {
+  outline: 2px solid var(--color-4, #0078d4);
+  outline-offset: 2px;
+}
+
+.id-card-property-row.selected {
+  background: var(--color-current);
 }
 
 .id-card-source-video {

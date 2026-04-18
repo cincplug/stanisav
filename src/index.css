@@ -8,7 +8,7 @@
   /* Colors */
   --color-1: #070b0f;
   --color-2: #272b2f;
-  --color-3: #474b4f;
+  --color-3: #575b5f;
   --color-4: #e7ebef;
   --color-focus: #ffd700;
   --color-current: #0057b7;
@@ -184,10 +184,6 @@ legend {
 .indent {
   margin-inline-start: var(--gap-double);
   position: relative;
-}
-
-.white {
-  color: var(--color-4);
 }
 
 .screenreader-only {
