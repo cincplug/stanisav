@@ -14,6 +14,8 @@ import { sortFeatureValues } from "../../utils/sortingUtils";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
 import { useI18n } from "../../contexts/I18nContext";
+import Tooltip from "./ux/Tooltip";
+import Properties from "../Properties";
 import "./FiltersTab.css";
 
 function FiltersTab({ data, languageColors = {} }) {
@@ -155,17 +157,13 @@ function FiltersTab({ data, languageColors = {} }) {
                 <legend className="filter-group-title">
                   {label}{" "}
                   {isPropertyDescribed(feature) && (
-                    <button
-                      className="info-link filter-group-info"
-                      onClick={() =>
-                        setSelectedProperty(
-                          selectedProperty === feature ? null : feature,
-                        )
-                      }
-                      aria-label={`${label} info`}
+                    <Tooltip
+                      id={`tooltip-${feature}`}
+                      label={`${label} info`}
+                      position="left"
                     >
-                      ⓘ
-                    </button>
+                      <Properties propertyKey={feature} />
+                    </Tooltip>
                   )}
                 </legend>
 

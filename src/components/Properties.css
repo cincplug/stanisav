@@ -1,8 +1,6 @@
 .properties {
-  position: absolute;
-  inset: 0;
   width: var(--panel-width);
-  height: 100%;
+  height: var(--panel-width);
   overflow: auto;
   background: var(--color-1);
   color: var(--color-4);
