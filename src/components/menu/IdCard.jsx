@@ -158,6 +158,7 @@ function IdCard({
                       id={`idcard-${property.key}`}
                       label={property.label}
                       position="top"
+                      className="info-link"
                     >
                       <Properties
                         propertyKey={property.key}

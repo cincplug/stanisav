@@ -1,4 +1,4 @@
-.filter-group-info {
+.tooltip-trigger {
   anchor-name: var(--tooltip-anchor-name);
 }
 
@@ -12,9 +12,8 @@
 
   border: var(--border-width-thin) solid var(--color-2);
   border-radius: var(--border-radius);
-  background: var(--color-3);
+  background: var(--color-2);
   box-shadow: var(--shadow-strong);
-  padding: var(--gap) var(--gap-double);
   color: var(--color-4);
   font-size: var(--font-size-m);
   max-width: var(--panel-width);
@@ -26,7 +25,7 @@
   &::after {
     content: "";
     position: absolute;
-    background: var(--color-3);
+    background: var(--color-2);
   }
 
   &[data-position="top"],

@@ -161,6 +161,7 @@ function FiltersTab({ data, languageColors = {} }) {
                       id={`tooltip-${feature}`}
                       label={`${label} info`}
                       position="left"
+                      className="info-link"
                     >
                       <Properties propertyKey={feature} />
                     </Tooltip>

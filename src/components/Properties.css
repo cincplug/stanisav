@@ -2,9 +2,7 @@
   width: var(--panel-width);
   height: var(--panel-width);
   overflow: auto;
-  background: var(--color-1);
-  color: var(--color-4);
-  border-right: var(--border);
+  background: var(--color-2);
 }
 
 .properties-title {

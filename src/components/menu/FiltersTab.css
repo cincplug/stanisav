@@ -35,6 +35,7 @@
 .filter-group-info {
   margin-left: var(--gap-half);
   vertical-align: baseline;
+  anchor-name: var(--tooltip-anchor-name);
 }
 
 .results-fieldset {
