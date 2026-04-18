@@ -13,6 +13,8 @@ import {
 } from "../../utils/linguisticUtils";
 import { getFamilyLabel } from "../../utils/configI18nUtils";
 import { CloseIcon } from "./MenuIcons";
+import Tooltip from "./ux/Tooltip";
+import Properties from "../Properties";
 import "./IdCard.css";
 
 function IdCard({
@@ -152,17 +154,16 @@ function IdCard({
                 <dd className="id-card-property-value">{property.value}</dd>
                 <span className="id-card-property-info-cell">
                   {canSelect && (
-                    <button
-                      type="button"
-                      className="info-link id-card-property-info"
-                      tabIndex={0}
-                      style={{ color: languageColor }}
-                      onClick={() =>
-                        setSelectedProperty(isSelected ? null : property.key)
-                      }
+                    <Tooltip
+                      id={`idcard-${property.key}`}
+                      label={property.label}
+                      position="top"
                     >
-                      <span aria-hidden="true">ⓘ</span>
-                    </button>
+                      <Properties
+                        propertyKey={property.key}
+                        selectedLanguageValue={language[property.key]}
+                      />
+                    </Tooltip>
                   )}
                 </span>
               </div>

@@ -5,7 +5,6 @@ import { useControls } from "../contexts/ControlsContext";
 import { useI18n } from "../contexts/I18nContext";
 import { useLanguageSelection } from "../contexts/LanguageSelectionContext";
 import Mesha from "./r3f/Mesha";
-import { CloseIcon } from "./menu/MenuIcons";
 import { getFeatureScore } from "../utils/linguisticUtils";
 import "./Properties.css";
 
@@ -71,13 +70,6 @@ const Properties = ({ propertyKey, selectedLanguageValue }) => {
       <h2 className="properties-title">
         {t(`linguistic.${propertyKey}.name`) || property.name}
       </h2>
-      <button
-        className={`close-button${isRtl ? " close-button-rtl" : ""}`}
-        aria-label={t("menu.close")}
-        onClick={() => setSelectedProperty(null)}
-      >
-        <CloseIcon />
-      </button>
       <div className="properties-items">
         {meshas.map((mesha) => {
           const isCurrent =
