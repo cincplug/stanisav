@@ -9,6 +9,7 @@ import {
   formatNumber,
   formatSpeakers,
   getLineageTrail,
+  isPropertyDescribed,
 } from "../../utils/linguisticUtils";
 import { getFamilyLabel } from "../../utils/configI18nUtils";
 import { CloseIcon } from "./MenuIcons";
@@ -137,22 +138,36 @@ function IdCard({
 
       <div className="id-card-columns">
         <div className="id-card-list" role="list">
-          {properties.map((property) => (
-            <button
-              key={property.key}
-              type="button"
-              className={`id-card-property${property.key === selectedProperty ? " selected" : ""}`}
-              aria-pressed={property.key === selectedProperty}
-              onClick={() =>
-                setSelectedProperty(
-                  selectedProperty === property.key ? null : property.key,
-                )
-              }
-            >
-              <span className="id-card-property-label">{property.label}:</span>
-              <span className="id-card-property-value">{property.value}</span>
-            </button>
-          ))}
+          {properties.map((property) => {
+            const canSelect = isPropertyDescribed(property.key);
+            const isSelected = selectedProperty === property.key;
+            return (
+              <div
+                key={property.key}
+                className={`id-card-property-row${isSelected ? " selected" : ""}`}
+              >
+                <span className="id-card-property-label">
+                  {property.label}:
+                </span>
+                <span className="id-card-property-value">{property.value}</span>
+                <span className="id-card-property-info-cell">
+                  {canSelect && (
+                    <button
+                      type="button"
+                      className="info-link id-card-property-info"
+                      aria-label={`${property.label} info`}
+                      tabIndex={0}
+                      onClick={() =>
+                        setSelectedProperty(isSelected ? null : property.key)
+                      }
+                    >
+                      ⓘ
+                    </button>
+                  )}
+                </span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </aside>
