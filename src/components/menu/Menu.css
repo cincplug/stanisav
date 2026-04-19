@@ -17,6 +17,26 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 640px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
+    z-index: 100;
+  }
+}
+
+.menu-wrapper {
+  position: relative;
+
+  @media (max-width: 640px) {
+    width: 100%;
+  }
 }
 
 .menu.compact {
@@ -24,9 +44,16 @@
   top: 0;
   right: 0;
   border-block-end: var(--border);
+
   @media (max-width: 640px) {
+    position: relative;
     top: auto;
-    bottom: 0;
+    right: auto;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    border-inline-end: none;
+    box-sizing: border-box;
   }
 }
 
@@ -54,6 +81,7 @@ html.rtl .menu.compact {
   overflow-x: hidden;
 }
 
+/* Mirror close button for RTL */
 .menu-close {
   position: absolute;
   top: var(--gap-double);

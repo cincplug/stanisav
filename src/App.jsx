@@ -49,6 +49,19 @@ function App() {
     <div
       className={`app-container${isRtl ? " rtl" : ""} ${isLoading ? "loading" : ""} ${isMenuVisible && isMenuExpanded ? "menu-expanded" : ""}`}
     >
+      <Menu
+        controls={controls}
+        onControlChange={updateControl}
+        data={data}
+        isLoading={isLoading}
+        sceneReady={sceneReady}
+        onCameraFocus={handleCameraFocus}
+        isVisible={isMenuVisible}
+        onToggleCollapse={() => updateControl("isMenuVisible", !isMenuVisible)}
+        filteringUtils={filteringUtils}
+        onFilteringUtilsChange={setFilteringUtils}
+        languageColors={languageColors}
+      />
       <div className="stage-area">
         <Stage
           onDataLoaded={setData}
@@ -81,24 +94,6 @@ function App() {
           </>
         )}
       </div>
-
-      {sceneReady && (
-        <Menu
-          controls={controls}
-          onControlChange={updateControl}
-          data={data}
-          isLoading={isLoading}
-          sceneReady={sceneReady}
-          onCameraFocus={handleCameraFocus}
-          isVisible={isMenuVisible}
-          onToggleCollapse={() =>
-            updateControl("isMenuVisible", !isMenuVisible)
-          }
-          filteringUtils={filteringUtils}
-          onFilteringUtilsChange={setFilteringUtils}
-          languageColors={languageColors}
-        />
-      )}
     </div>
   );
 }

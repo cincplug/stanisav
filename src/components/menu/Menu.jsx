@@ -28,15 +28,6 @@ function Menu({
   const { searchTerm, setSearchTerm, searchResults, clearSearch } =
     useSearch(data);
 
-  if (isLoading) {
-    return null;
-  }
-
-  const handleControlChange = (controlId, value) => {
-    onControlChange(controlId, value);
-    updateControl(controlId, value);
-  };
-
   const threshold = tabsConfig.searchLengthThreshold;
 
   useEffect(() => {
@@ -49,6 +40,11 @@ function Menu({
     }
   }, [searchTerm, selectedTab, setSelectedTab, threshold]);
 
+  const handleControlChange = (controlId, value) => {
+    onControlChange(controlId, value);
+    updateControl(controlId, value);
+  };
+
   const handleTabChange = (tabId) => {
     setSelectedTab(tabId);
     if (tabId !== "search") {
@@ -56,8 +52,12 @@ function Menu({
     }
   };
 
+  if (isLoading) {
+    return null;
+  }
+
   return (
-    <>
+    <div className="menu-wrapper">
       {!isVisible && (
         <button
           id="menu-open"
@@ -120,7 +120,7 @@ function Menu({
           )}
         </div>
       )}
-    </>
+    </div>
   );
 }
 

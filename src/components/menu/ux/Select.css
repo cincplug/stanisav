@@ -3,19 +3,36 @@
 .select-nav {
   position: relative;
   display: inline-block;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.select-toggle {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.select-current {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.select-arrow {
+  flex-shrink: 0;
+  margin-left: var(--gap);
+  margin-top: 3px;
+  font-size: var(--font-size-xs);
+  pointer-events: none;
 }
 
 /* Focus proxy: when the native <select> (the actual tab stop) receives
    keyboard focus, mirror the outline onto the visible custom toggle. */
 .select-native:focus-visible ~ .select-toggle {
   outline: var(--outline-default);
-}
-
-.select-arrow {
-  margin-left: var(--gap);
-  margin-top: 3px;
-  font-size: var(--font-size-xs);
-  pointer-events: none;
 }
 
 .select-list {
