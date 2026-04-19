@@ -23,12 +23,13 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  width: calc((var(--panel-width) * 2 / 3));
+  width: calc((var(--panel-width) / 2));
   border-radius: var(--border-radius);
   background: var(--color-3);
   box-shadow: var(--shadow-strong);
   margin: 0;
-  padding: var(--gap);
+  padding: var(--gap-half);
+  gap: var(--gap-half);
   list-style: none;
   top: calc(100% + var(--gap));
   left: 0;
