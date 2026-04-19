@@ -24,6 +24,10 @@
   top: 0;
   right: 0;
   border-block-end: var(--border);
+  @media (max-width: 640px) {
+    top: auto;
+    bottom: 0;
+  }
 }
 
 html.rtl .menu {
@@ -50,7 +54,6 @@ html.rtl .menu.compact {
   overflow-x: hidden;
 }
 
-/* Mirror close button for RTL */
 .menu-close {
   position: absolute;
   top: var(--gap-double);

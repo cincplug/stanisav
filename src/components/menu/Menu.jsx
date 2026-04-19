@@ -25,7 +25,6 @@ function Menu({
   const { t, isRtl } = useI18n();
   const { isMenuExpanded } = controls;
   const [selectedTab, setSelectedTab] = useState(tabsConfig.defaultTab);
-
   const { searchTerm, setSearchTerm, searchResults, clearSearch } =
     useSearch(data);
 
@@ -39,6 +38,7 @@ function Menu({
   };
 
   const threshold = tabsConfig.searchLengthThreshold;
+
   useEffect(() => {
     if (
       searchTerm &&
@@ -58,19 +58,31 @@ function Menu({
 
   return (
     <>
-      <button
-        id="menu-toggle"
-        onClick={() => onToggleCollapse(!isVisible)}
-        className={`close-button ${isRtl ? "close-button-rtl" : ""}`}
-        aria-label={isVisible ? t("menu.close") : t("menu.open")}
-      >
-        {isVisible ? <CloseIcon /> : <BurgerIcon />}
-      </button>
+      {!isVisible && (
+        <button
+          id="menu-open"
+          onClick={() => onToggleCollapse(true)}
+          className={`close-button ${isRtl ? "close-button-rtl" : ""}`}
+          aria-label={t("menu.open")}
+        >
+          <BurgerIcon />
+        </button>
+      )}
 
       {isVisible && (
         <div className={`menu ${isMenuExpanded ? "expanded" : "compact"}`}>
           <div className="menu-header">
+            <button
+              id="menu-close"
+              onClick={() => onToggleCollapse(false)}
+              className={`close-button ${isRtl ? "close-button-rtl" : ""}`}
+              aria-label={t("menu.close")}
+            >
+              <CloseIcon />
+            </button>
+
             <Playlist />
+
             <div className="menu-essentials">
               <LocaleLinks />
               <ControlItemGroup
@@ -79,6 +91,7 @@ function Menu({
                 onChange={handleControlChange}
               />
             </div>
+
             {isMenuExpanded && (
               <TabNavigation
                 selectedTab={selectedTab}

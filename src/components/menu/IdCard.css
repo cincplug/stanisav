@@ -11,6 +11,10 @@
   max-height: 33vh;
   z-index: 2;
 
+  @media (max-width: 640px) {
+    display: none;
+  }
+
   .sign {
     color: var(--color-3);
   }
