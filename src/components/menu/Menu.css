@@ -63,8 +63,9 @@ html.rtl .menu-close {
 }
 
 .menu-essentials {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: var(--gap);
   gap: var(--gap);
 }
 

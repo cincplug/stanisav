@@ -70,8 +70,8 @@ function Menu({
       {isVisible && (
         <div className={`menu ${isMenuExpanded ? "expanded" : "compact"}`}>
           <div className="menu-header">
+            <Playlist />
             <div className="menu-essentials">
-              <Playlist />
               <LocaleLinks />
               <ControlItemGroup
                 groupName="Header"
