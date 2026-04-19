@@ -85,7 +85,7 @@
       "label": "표시 내용",
       "options": {
         "isoCode": "ISO 코드",
-        "name": "영어 이름",
+        "name": "한국어 이름",
         "nativeName": "현지어 이름"
       }
     },
@@ -162,7 +162,15 @@
     "zoomDistance": {
       "label": "줌 거리"
     },
-    "isSegmented": { "label": "세분화" }
+    "isSegmented": {
+      "label": "세분화"
+    },
+    "isMenuExpanded": {
+      "label": "더 보기"
+    },
+    "irrationality": {
+      "label": "비합리성"
+    }
   },
   "filters": {
     "all": "전체",
@@ -444,7 +452,8 @@
   },
   "menu": {
     "close": "메뉴 닫기",
-    "open": "메뉴 열기"
+    "open": "메뉴 열기",
+    "languageSelector": "앱 언어"
   },
   "playlist": {
     "controls": "재생목록 컨트롤",

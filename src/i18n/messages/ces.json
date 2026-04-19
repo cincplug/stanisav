@@ -75,7 +75,9 @@
     "isLuka": {
       "label": "Luka čte ukázky"
     },
-    "isSegmented": { "label": "Segmentace" },
+    "isSegmented": {
+      "label": "Segmentace"
+    },
     "isMyMesha": {
       "label": "Jsem Meša"
     },
@@ -86,7 +88,7 @@
       "label": "Zobrazení",
       "options": {
         "isoCode": "ISO kódy",
-        "name": "Názvy v angličtině",
+        "name": "Názvy v češtině",
         "nativeName": "Názvy v rodném jazyce"
       }
     },
@@ -162,6 +164,12 @@
     },
     "zoomDistance": {
       "label": "Vzdálenost přiblížení"
+    },
+    "isMenuExpanded": {
+      "label": "Zobrazit více"
+    },
+    "irrationality": {
+      "label": "Iracionalita"
     }
   },
   "filters": {
@@ -444,7 +452,8 @@
   },
   "menu": {
     "close": "Zavřít nabídku",
-    "open": "Otevřít nabídku"
+    "open": "Otevřít nabídku",
+    "languageSelector": "Jazyk aplikace"
   },
   "playlist": {
     "controls": "Ovládání playlistu",

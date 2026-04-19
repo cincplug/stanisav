@@ -85,7 +85,7 @@
       "label": "العرض",
       "options": {
         "isoCode": "رموز ISO",
-        "name": "الأسماء الإنجليزية",
+        "name": "الأسماء بالعربية",
         "nativeName": "الأسماء المحلية"
       }
     },
@@ -162,7 +162,15 @@
     "zoomDistance": {
       "label": "مسافة التكبير"
     },
-    "isSegmented": { "label": "تجزئة" }
+    "isSegmented": {
+      "label": "تجزئة"
+    },
+    "isMenuExpanded": {
+      "label": "عرض المزيد"
+    },
+    "irrationality": {
+      "label": "اللاعقلانية"
+    }
   },
   "filters": {
     "all": "الكل",
@@ -444,7 +452,8 @@
   },
   "menu": {
     "close": "إغلاق القائمة",
-    "open": "فتح القائمة"
+    "open": "فتح القائمة",
+    "languageSelector": "لغة التطبيق"
   },
   "playlist": {
     "controls": "التحكم في قائمة التشغيل",

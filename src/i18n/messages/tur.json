@@ -85,7 +85,7 @@
       "label": "Görüntüle",
       "options": {
         "isoCode": "ISO kodları",
-        "name": "İngilizce adlar",
+        "name": "Türkçe adlar",
         "nativeName": "Yerel adlar"
       }
     },
@@ -162,7 +162,15 @@
     "zoomDistance": {
       "label": "Yakınlaştırma mesafesi"
     },
-    "isSegmented": { "label": "Bölütleme" }
+    "isSegmented": {
+      "label": "Bölütleme"
+    },
+    "isMenuExpanded": {
+      "label": "Daha fazla göster"
+    },
+    "irrationality": {
+      "label": "İrrasyonalite"
+    }
   },
   "filters": {
     "all": "Tümü",
@@ -444,7 +452,8 @@
   },
   "menu": {
     "close": "Menüyü kapat",
-    "open": "Menüyü aç"
+    "open": "Menüyü aç",
+    "languageSelector": "Uygulama dili"
   },
   "playlist": {
     "controls": "Çalma listesi denetimleri",

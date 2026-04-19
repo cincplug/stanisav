@@ -85,7 +85,7 @@
       "label": "காட்சி",
       "options": {
         "isoCode": "ISO குறியீடுகள்",
-        "name": "ஆங்கில பெயர்கள்",
+        "name": "தமிழில் பெயர்கள்",
         "nativeName": "சொந்த பெயர்கள்"
       }
     },
@@ -162,7 +162,15 @@
     "zoomDistance": {
       "label": "மேலோட்ட தூரம்"
     },
-    "isSegmented": { "label": "பிரித்தல்" }
+    "isSegmented": {
+      "label": "பிரித்தல்"
+    },
+    "isMenuExpanded": {
+      "label": "மேலும் காண்பி"
+    },
+    "irrationality": {
+      "label": "இர்ரேஷனாலிட்டி"
+    }
   },
   "filters": {
     "all": "அனைத்தும்",
@@ -444,7 +452,8 @@
   },
   "menu": {
     "close": "பட்டியலை மூடு",
-    "open": "பட்டியலை திற"
+    "open": "பட்டியலை திற",
+    "languageSelector": "அப்பிளிக்கேஷன் மொழி"
   },
   "playlist": {
     "controls": "இசைப்பட்டியல் கட்டுப்பாடுகள்",

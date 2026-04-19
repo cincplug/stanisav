@@ -85,7 +85,7 @@
       "label": "显示内容",
       "options": {
         "isoCode": "ISO 代码",
-        "name": "英文名称",
+        "name": "中文名称",
         "nativeName": "本地名称"
       }
     },
@@ -141,7 +141,9 @@
     "sphereRadius": {
       "label": "球体半径"
     },
-    "isSegmented": { "label": "分割" },
+    "isSegmented": {
+      "label": "分割"
+    },
     "stageLightDecay": {
       "label": "衰减"
     },
@@ -162,6 +164,12 @@
     },
     "zoomDistance": {
       "label": "缩放距离"
+    },
+    "isMenuExpanded": {
+      "label": "显示更多"
+    },
+    "irrationality": {
+      "label": "非理性"
     }
   },
   "filters": {
@@ -444,7 +452,8 @@
   },
   "menu": {
     "close": "关闭菜单",
-    "open": "打开菜单"
+    "open": "打开菜单",
+    "languageSelector": "应用语言"
   },
   "playlist": {
     "controls": "播放列表控制",

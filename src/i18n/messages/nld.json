@@ -162,7 +162,15 @@
     "zoomDistance": {
       "label": "Zoomafstand"
     },
-    "isSegmented": { "label": "Segmentatie" }
+    "isSegmented": {
+      "label": "Segmentatie"
+    },
+    "isMenuExpanded": {
+      "label": "Meer weergeven"
+    },
+    "irrationality": {
+      "label": "Irrationaliteit"
+    }
   },
   "filters": {
     "all": "Alle",
@@ -444,7 +452,8 @@
   },
   "menu": {
     "close": "Menu sluiten",
-    "open": "Menu openen"
+    "open": "Menu openen",
+    "languageSelector": "App-taal"
   },
   "playlist": {
     "controls": "Afspeellijstbediening",

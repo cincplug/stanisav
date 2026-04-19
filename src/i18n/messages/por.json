@@ -85,7 +85,7 @@
       "label": "Exibição",
       "options": {
         "isoCode": "Códigos ISO",
-        "name": "Nomes em inglês",
+        "name": "Nomes em português",
         "nativeName": "Nomes na língua nativa"
       }
     },
@@ -162,7 +162,15 @@
     "zoomDistance": {
       "label": "Distância do zoom"
     },
-    "isSegmented": { "label": "Segmentação" }
+    "isSegmented": {
+      "label": "Segmentação"
+    },
+    "isMenuExpanded": {
+      "label": "Mostrar mais"
+    },
+    "irrationality": {
+      "label": "Irracionalidade"
+    }
   },
   "filters": {
     "all": "Todos",
@@ -444,7 +452,8 @@
   },
   "menu": {
     "close": "Fechar menu",
-    "open": "Abrir menu"
+    "open": "Abrir menu",
+    "languageSelector": "Idioma do aplicativo"
   },
   "playlist": {
     "controls": "Controlos da lista",

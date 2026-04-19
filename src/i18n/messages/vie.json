@@ -85,7 +85,7 @@
       "label": "Hiển thị",
       "options": {
         "isoCode": "Mã ISO",
-        "name": "Tên tiếng Anh",
+        "name": "Tên bằng tiếng Việt",
         "nativeName": "Tên bản ngữ"
       }
     },
@@ -162,7 +162,15 @@
     "zoomDistance": {
       "label": "Khoảng cách thu phóng"
     },
-    "isSegmented": { "label": "Phân đoạn" }
+    "isSegmented": {
+      "label": "Phân đoạn"
+    },
+    "isMenuExpanded": {
+      "label": "Hiển thị thêm"
+    },
+    "irrationality": {
+      "label": "Phi lý"
+    }
   },
   "filters": {
     "all": "Tất cả",
@@ -239,48 +247,126 @@
     "scripts": {
       "name": "Scripts",
       "values": {
-        "Arabic": { "label": "Arabic" },
-        "Armenian": { "label": "Armenian" },
-        "Balinese": { "label": "Balinese" },
-        "Bengali": { "label": "Bengali" },
+        "Arabic": {
+          "label": "Arabic"
+        },
+        "Armenian": {
+          "label": "Armenian"
+        },
+        "Balinese": {
+          "label": "Balinese"
+        },
+        "Bengali": {
+          "label": "Bengali"
+        },
         "Canadian Aboriginal Syllabics": {
           "label": "Canadian Aboriginal Syllabics"
         },
-        "Cherokee": { "label": "Cherokee" },
-        "Cyrillic": { "label": "Cyrillic" },
-        "Devanagari": { "label": "Devanagari" },
-        "Ethiopic": { "label": "Ethiopic" },
-        "Georgian": { "label": "Georgian" },
-        "Greek": { "label": "Greek" },
-        "Gujarati": { "label": "Gujarati" },
-        "Gurmukhi": { "label": "Gurmukhi" },
-        "Han": { "label": "Han" },
-        "Hangul": { "label": "Hangul" },
-        "Hebrew": { "label": "Hebrew" },
-        "Hiragana": { "label": "Hiragana" },
-        "Javanese": { "label": "Javanese" },
-        "Kannada": { "label": "Kannada" },
-        "Katakana": { "label": "Katakana" },
-        "Khmer": { "label": "Khmer" },
-        "Lao": { "label": "Lao" },
-        "Latin": { "label": "Latin" },
-        "Lepcha": { "label": "Lepcha" },
-        "Malayalam": { "label": "Malayalam" },
-        "Meitei Mayek": { "label": "Meitei Mayek" },
-        "Mongolian": { "label": "Mongolian" },
-        "Myanmar": { "label": "Myanmar" },
-        "Newa": { "label": "Newa" },
-        "Odia": { "label": "Odia" },
-        "Ol Chiki": { "label": "Ol Chiki" },
-        "Sinhala": { "label": "Sinhala" },
-        "Sorang Sompeng": { "label": "Sorang Sompeng" },
-        "Tamil": { "label": "Tamil" },
-        "Telugu": { "label": "Telugu" },
-        "Thai": { "label": "Thai" },
-        "Tibetan": { "label": "Tibetan" },
-        "Tirhuta": { "label": "Tirhuta" },
-        "Warang Citi": { "label": "Warang Citi" },
-        "Yi": { "label": "Yi" }
+        "Cherokee": {
+          "label": "Cherokee"
+        },
+        "Cyrillic": {
+          "label": "Cyrillic"
+        },
+        "Devanagari": {
+          "label": "Devanagari"
+        },
+        "Ethiopic": {
+          "label": "Ethiopic"
+        },
+        "Georgian": {
+          "label": "Georgian"
+        },
+        "Greek": {
+          "label": "Greek"
+        },
+        "Gujarati": {
+          "label": "Gujarati"
+        },
+        "Gurmukhi": {
+          "label": "Gurmukhi"
+        },
+        "Han": {
+          "label": "Han"
+        },
+        "Hangul": {
+          "label": "Hangul"
+        },
+        "Hebrew": {
+          "label": "Hebrew"
+        },
+        "Hiragana": {
+          "label": "Hiragana"
+        },
+        "Javanese": {
+          "label": "Javanese"
+        },
+        "Kannada": {
+          "label": "Kannada"
+        },
+        "Katakana": {
+          "label": "Katakana"
+        },
+        "Khmer": {
+          "label": "Khmer"
+        },
+        "Lao": {
+          "label": "Lao"
+        },
+        "Latin": {
+          "label": "Latin"
+        },
+        "Lepcha": {
+          "label": "Lepcha"
+        },
+        "Malayalam": {
+          "label": "Malayalam"
+        },
+        "Meitei Mayek": {
+          "label": "Meitei Mayek"
+        },
+        "Mongolian": {
+          "label": "Mongolian"
+        },
+        "Myanmar": {
+          "label": "Myanmar"
+        },
+        "Newa": {
+          "label": "Newa"
+        },
+        "Odia": {
+          "label": "Odia"
+        },
+        "Ol Chiki": {
+          "label": "Ol Chiki"
+        },
+        "Sinhala": {
+          "label": "Sinhala"
+        },
+        "Sorang Sompeng": {
+          "label": "Sorang Sompeng"
+        },
+        "Tamil": {
+          "label": "Tamil"
+        },
+        "Telugu": {
+          "label": "Telugu"
+        },
+        "Thai": {
+          "label": "Thai"
+        },
+        "Tibetan": {
+          "label": "Tibetan"
+        },
+        "Tirhuta": {
+          "label": "Tirhuta"
+        },
+        "Warang Citi": {
+          "label": "Warang Citi"
+        },
+        "Yi": {
+          "label": "Yi"
+        }
       }
     },
     "tonality": {
@@ -366,7 +452,8 @@
   },
   "menu": {
     "close": "Đóng menu",
-    "open": "Mở menu"
+    "open": "Mở menu",
+    "languageSelector": "Ngôn ngữ ứng dụng"
   },
   "playlist": {
     "controls": "Điều khiển danh sách phát",

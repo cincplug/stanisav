@@ -85,7 +85,7 @@
       "label": "Visualización",
       "options": {
         "isoCode": "Códigos ISO",
-        "name": "Nombres en inglés",
+        "name": "Nombres en español",
         "nativeName": "Nombres en lengua nativa"
       }
     },
@@ -162,7 +162,15 @@
     "zoomDistance": {
       "label": "Distancia de zoom"
     },
-    "isSegmented": { "label": "Segmentación" }
+    "isSegmented": {
+      "label": "Segmentación"
+    },
+    "isMenuExpanded": {
+      "label": "Mostrar más"
+    },
+    "irrationality": {
+      "label": "Irracionalidad"
+    }
   },
   "filters": {
     "all": "Todos",
@@ -444,7 +452,8 @@
   },
   "menu": {
     "close": "Cerrar menú",
-    "open": "Abrir menú"
+    "open": "Abrir menú",
+    "languageSelector": "Idioma de la app"
   },
   "playlist": {
     "controls": "Controles de lista",

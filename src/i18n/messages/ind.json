@@ -85,7 +85,7 @@
       "label": "Tampilan",
       "options": {
         "isoCode": "Kode ISO",
-        "name": "Nama dalam bahasa Inggris",
+        "name": "Nama dalam Bahasa Indonesia",
         "nativeName": "Nama dalam bahasa asli"
       }
     },
@@ -162,7 +162,15 @@
     "zoomDistance": {
       "label": "Jarak zoom"
     },
-    "isSegmented": { "label": "Segmentasi" }
+    "isSegmented": {
+      "label": "Segmentasi"
+    },
+    "isMenuExpanded": {
+      "label": "Tampilkan lebih banyak"
+    },
+    "irrationality": {
+      "label": "Irasionalitas"
+    }
   },
   "filters": {
     "all": "Semua",
@@ -239,46 +247,126 @@
     "scripts": {
       "name": "Aksara",
       "values": {
-        "Arabic": { "label": "Arab" },
-        "Armenian": { "label": "Armenia" },
-        "Balinese": { "label": "Bali" },
-        "Bengali": { "label": "Bengali" },
-        "Canadian Aboriginal Syllabics": { "label": "Suku Aborigin Kanada" },
-        "Cherokee": { "label": "Cherokee" },
-        "Cyrillic": { "label": "Sirilik" },
-        "Devanagari": { "label": "Devanagari" },
-        "Ethiopic": { "label": "Etiopia" },
-        "Georgian": { "label": "Georgia" },
-        "Greek": { "label": "Yunani" },
-        "Gujarati": { "label": "Gujarati" },
-        "Gurmukhi": { "label": "Gurmukhi" },
-        "Han": { "label": "Han" },
-        "Hangul": { "label": "Hangul" },
-        "Hebrew": { "label": "Ibrani" },
-        "Hiragana": { "label": "Hiragana" },
-        "Javanese": { "label": "Jawa" },
-        "Kannada": { "label": "Kannada" },
-        "Katakana": { "label": "Katakana" },
-        "Khmer": { "label": "Khmer" },
-        "Lao": { "label": "Lao" },
-        "Latin": { "label": "Latin" },
-        "Lepcha": { "label": "Lepcha" },
-        "Malayalam": { "label": "Malayalam" },
-        "Meitei Mayek": { "label": "Meitei Mayek" },
-        "Mongolian": { "label": "Mongolia" },
-        "Myanmar": { "label": "Myanmar" },
-        "Newa": { "label": "Newa" },
-        "Odia": { "label": "Odia" },
-        "Ol Chiki": { "label": "Ol Chiki" },
-        "Sinhala": { "label": "Sinhala" },
-        "Sorang Sompeng": { "label": "Sorang Sompeng" },
-        "Tamil": { "label": "Tamil" },
-        "Telugu": { "label": "Telugu" },
-        "Thai": { "label": "Thai" },
-        "Tibetan": { "label": "Tibet" },
-        "Tirhuta": { "label": "Tirhuta" },
-        "Warang Citi": { "label": "Warang Citi" },
-        "Yi": { "label": "Yi" }
+        "Arabic": {
+          "label": "Arab"
+        },
+        "Armenian": {
+          "label": "Armenia"
+        },
+        "Balinese": {
+          "label": "Bali"
+        },
+        "Bengali": {
+          "label": "Bengali"
+        },
+        "Canadian Aboriginal Syllabics": {
+          "label": "Suku Aborigin Kanada"
+        },
+        "Cherokee": {
+          "label": "Cherokee"
+        },
+        "Cyrillic": {
+          "label": "Sirilik"
+        },
+        "Devanagari": {
+          "label": "Devanagari"
+        },
+        "Ethiopic": {
+          "label": "Etiopia"
+        },
+        "Georgian": {
+          "label": "Georgia"
+        },
+        "Greek": {
+          "label": "Yunani"
+        },
+        "Gujarati": {
+          "label": "Gujarati"
+        },
+        "Gurmukhi": {
+          "label": "Gurmukhi"
+        },
+        "Han": {
+          "label": "Han"
+        },
+        "Hangul": {
+          "label": "Hangul"
+        },
+        "Hebrew": {
+          "label": "Ibrani"
+        },
+        "Hiragana": {
+          "label": "Hiragana"
+        },
+        "Javanese": {
+          "label": "Jawa"
+        },
+        "Kannada": {
+          "label": "Kannada"
+        },
+        "Katakana": {
+          "label": "Katakana"
+        },
+        "Khmer": {
+          "label": "Khmer"
+        },
+        "Lao": {
+          "label": "Lao"
+        },
+        "Latin": {
+          "label": "Latin"
+        },
+        "Lepcha": {
+          "label": "Lepcha"
+        },
+        "Malayalam": {
+          "label": "Malayalam"
+        },
+        "Meitei Mayek": {
+          "label": "Meitei Mayek"
+        },
+        "Mongolian": {
+          "label": "Mongolia"
+        },
+        "Myanmar": {
+          "label": "Myanmar"
+        },
+        "Newa": {
+          "label": "Newa"
+        },
+        "Odia": {
+          "label": "Odia"
+        },
+        "Ol Chiki": {
+          "label": "Ol Chiki"
+        },
+        "Sinhala": {
+          "label": "Sinhala"
+        },
+        "Sorang Sompeng": {
+          "label": "Sorang Sompeng"
+        },
+        "Tamil": {
+          "label": "Tamil"
+        },
+        "Telugu": {
+          "label": "Telugu"
+        },
+        "Thai": {
+          "label": "Thai"
+        },
+        "Tibetan": {
+          "label": "Tibet"
+        },
+        "Tirhuta": {
+          "label": "Tirhuta"
+        },
+        "Warang Citi": {
+          "label": "Warang Citi"
+        },
+        "Yi": {
+          "label": "Yi"
+        }
       }
     },
     "tonality": {
@@ -364,7 +452,8 @@
   },
   "menu": {
     "close": "Tutup menu",
-    "open": "Buka menu"
+    "open": "Buka menu",
+    "languageSelector": "Bahasa aplikasi"
   },
   "playlist": {
     "controls": "Kontrol daftar putar",

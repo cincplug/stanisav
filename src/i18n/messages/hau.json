@@ -85,7 +85,7 @@
       "label": "Nuni",
       "options": {
         "isoCode": "Lambobin ISO",
-        "name": "Sunaye na Turanci",
+        "name": "Sunan da Hausa",
         "nativeName": "Sunaye na asali"
       }
     },
@@ -162,7 +162,15 @@
     "zoomDistance": {
       "label": "Nisan zum"
     },
-    "isSegmented": { "label": "Rarrabuwa" }
+    "isSegmented": {
+      "label": "Rarrabuwa"
+    },
+    "isMenuExpanded": {
+      "label": "Nuna ƙari"
+    },
+    "irrationality": {
+      "label": "Rashin hankali"
+    }
   },
   "filters": {
     "all": "Duka",
@@ -444,7 +452,8 @@
   },
   "menu": {
     "close": "Rufe menu",
-    "open": "Buɗe menu"
+    "open": "Buɗe menu",
+    "languageSelector": "Harshe na manhaja"
   },
   "playlist": {
     "controls": "Kula da jerin waƙoƙi",

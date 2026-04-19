@@ -85,7 +85,7 @@
       "label": "Visualizzazione",
       "options": {
         "isoCode": "Codici ISO",
-        "name": "Nomi in inglese",
+        "name": "Nomi in italiano",
         "nativeName": "Nomi nella lingua madre"
       }
     },
@@ -162,7 +162,15 @@
     "zoomDistance": {
       "label": "Distanza zoom"
     },
-    "isSegmented": { "label": "Segmentazione" }
+    "isSegmented": {
+      "label": "Segmentazione"
+    },
+    "isMenuExpanded": {
+      "label": "Mostra di più"
+    },
+    "irrationality": {
+      "label": "Irrazionalità"
+    }
   },
   "filters": {
     "all": "Tutti",
@@ -444,7 +452,8 @@
   },
   "menu": {
     "close": "Chiudi menu",
-    "open": "Apri menu"
+    "open": "Apri menu",
+    "languageSelector": "Lingua dell'app"
   },
   "playlist": {
     "controls": "Controlli playlist",

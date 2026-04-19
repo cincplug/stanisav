@@ -85,7 +85,7 @@
       "label": "Приказ",
       "options": {
         "isoCode": "ISO кодови",
-        "name": "Називи на англиски",
+        "name": "Имиња на македонски",
         "nativeName": "Називи на мајчин јазик"
       }
     },
@@ -162,7 +162,15 @@
     "zoomDistance": {
       "label": "Оддалеченост на зумот"
     },
-    "isSegmented": { "label": "Сегментација" }
+    "isSegmented": {
+      "label": "Сегментација"
+    },
+    "isMenuExpanded": {
+      "label": "Прикажи повеќе"
+    },
+    "irrationality": {
+      "label": "Ирационалност"
+    }
   },
   "filters": {
     "all": "Сите",
@@ -444,7 +452,8 @@
   },
   "menu": {
     "close": "Затвори мени",
-    "open": "Отвори мени"
+    "open": "Отвори мени",
+    "languageSelector": "Јазик на апликацијата"
   },
   "playlist": {
     "controls": "Контроли на плејлистата",

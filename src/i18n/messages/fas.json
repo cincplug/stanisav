@@ -85,7 +85,7 @@
       "label": "نمایش",
       "options": {
         "isoCode": "کدهای ISO",
-        "name": "نام‌های انگلیسی",
+        "name": "نام‌ها به فارسی",
         "nativeName": "نام‌های بومی"
       }
     },
@@ -162,7 +162,15 @@
     "zoomDistance": {
       "label": "فاصله زوم"
     },
-    "isSegmented": { "label": "بخش‌بندی" }
+    "isSegmented": {
+      "label": "بخش‌بندی"
+    },
+    "isMenuExpanded": {
+      "label": "نمایش بیشتر"
+    },
+    "irrationality": {
+      "label": "غیرمنطقی بودن"
+    }
   },
   "filters": {
     "all": "همه",
@@ -444,7 +452,8 @@
   },
   "menu": {
     "close": "بستن منو",
-    "open": "باز کردن منو"
+    "open": "باز کردن منو",
+    "languageSelector": "زبان برنامه"
   },
   "playlist": {
     "controls": "کنترل‌های پلی‌لیست",

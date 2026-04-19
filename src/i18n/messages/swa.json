@@ -85,7 +85,7 @@
       "label": "Onyesha",
       "options": {
         "isoCode": "Misimbo ya ISO",
-        "name": "Majina ya Kiingereza",
+        "name": "Majina kwa Kiswahili",
         "nativeName": "Majina ya asili"
       }
     },
@@ -162,7 +162,15 @@
     "zoomDistance": {
       "label": "Umbali wa kukuza"
     },
-    "isSegmented": { "label": "Mgawanyiko" }
+    "isSegmented": {
+      "label": "Mgawanyiko"
+    },
+    "isMenuExpanded": {
+      "label": "Onyesha zaidi"
+    },
+    "irrationality": {
+      "label": "Ujinga"
+    }
   },
   "filters": {
     "all": "Yote",
@@ -444,7 +452,8 @@
   },
   "menu": {
     "close": "Funga menyu",
-    "open": "Fungua menyu"
+    "open": "Fungua menyu",
+    "languageSelector": "Lugha ya programu"
   },
   "playlist": {
     "controls": "Udhibiti wa orodha ya kucheza",

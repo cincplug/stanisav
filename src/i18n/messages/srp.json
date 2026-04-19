@@ -85,7 +85,7 @@
       "label": "Prikaz",
       "options": {
         "isoCode": "ISO kodovi",
-        "name": "Nazivi na engleskom",
+        "name": "Nazivi na srpskom",
         "nativeName": "Nazivi na maternjem"
       }
     },
@@ -162,7 +162,15 @@
     "zoomDistance": {
       "label": "Daljina zuma"
     },
-    "isSegmented": { "label": "Segmentacija" }
+    "isSegmented": {
+      "label": "Segmentacija"
+    },
+    "isMenuExpanded": {
+      "label": "Prikaži više"
+    },
+    "irrationality": {
+      "label": "Iracionalnost"
+    }
   },
   "filters": {
     "all": "Svi",
@@ -444,7 +452,8 @@
   },
   "menu": {
     "close": "Zatvori meni",
-    "open": "Otvori meni"
+    "open": "Otvori meni",
+    "languageSelector": "Jezik aplikacije"
   },
   "playlist": {
     "controls": "Kontrole plejliste",

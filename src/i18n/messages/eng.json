@@ -88,7 +88,7 @@
       "label": "Display",
       "options": {
         "isoCode": "ISO codes",
-        "name": "English names",
+        "name": "Names in English",
         "nativeName": "Native names"
       }
     },
@@ -453,7 +453,7 @@
   "menu": {
     "close": "Close menu",
     "open": "Open menu",
-    "languageSelector": "Language selector"
+    "languageSelector": "App language"
   },
   "playlist": {
     "controls": "Playlist controls",

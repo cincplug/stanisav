@@ -85,7 +85,7 @@
       "label": "ප්‍රදර්ශනය",
       "options": {
         "isoCode": "ISO කේත",
-        "name": "ඉංග්‍රීසි නාම",
+        "name": "සිංහල නම්",
         "nativeName": "දේශීය නාම"
       }
     },
@@ -164,6 +164,12 @@
     },
     "zoomDistance": {
       "label": "සූම් දුර"
+    },
+    "isMenuExpanded": {
+      "label": "තවත් පෙන්වන්න"
+    },
+    "irrationality": {
+      "label": "අයුතුකම"
     }
   },
   "filters": {
@@ -446,7 +452,8 @@
   },
   "menu": {
     "close": "මෙනුව වසන්න",
-    "open": "මෙනුව විවෘත කරන්න"
+    "open": "මෙනුව විවෘත කරන්න",
+    "languageSelector": "යෙදුමේ භාෂාව"
   },
   "playlist": {
     "controls": "ධාවන ලැයිස්තු පාලන",

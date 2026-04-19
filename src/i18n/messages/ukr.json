@@ -85,7 +85,7 @@
       "label": "Відображення",
       "options": {
         "isoCode": "Коди ISO",
-        "name": "Назви англійською",
+        "name": "Назви українською",
         "nativeName": "Назви рідною мовою"
       }
     },
@@ -162,7 +162,15 @@
     "zoomDistance": {
       "label": "Відстань масштабування"
     },
-    "isSegmented": { "label": "Сегментація" }
+    "isSegmented": {
+      "label": "Сегментація"
+    },
+    "isMenuExpanded": {
+      "label": "Показати більше"
+    },
+    "irrationality": {
+      "label": "Ірраціональність"
+    }
   },
   "filters": {
     "all": "Усі",
@@ -444,7 +452,8 @@
   },
   "menu": {
     "close": "Закрити меню",
-    "open": "Відкрити меню"
+    "open": "Відкрити меню",
+    "languageSelector": "Мова застосунку"
   },
   "playlist": {
     "controls": "Керування списком",

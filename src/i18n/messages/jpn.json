@@ -85,7 +85,7 @@
       "label": "表示内容",
       "options": {
         "isoCode": "ISOコード",
-        "name": "英語名",
+        "name": "日本語の名前",
         "nativeName": "現地語名"
       }
     },
@@ -162,7 +162,15 @@
     "zoomDistance": {
       "label": "ズーム距離"
     },
-    "isSegmented": { "label": "セグメンテーション" }
+    "isSegmented": {
+      "label": "セグメンテーション"
+    },
+    "isMenuExpanded": {
+      "label": "もっと表示"
+    },
+    "irrationality": {
+      "label": "非合理性"
+    }
   },
   "filters": {
     "all": "すべて",
@@ -444,7 +452,8 @@
   },
   "menu": {
     "close": "メニューを閉じる",
-    "open": "メニューを開く"
+    "open": "メニューを開く",
+    "languageSelector": "アプリの言語"
   },
   "playlist": {
     "controls": "プレイリスト操作",

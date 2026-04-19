@@ -85,7 +85,7 @@
       "label": "प्रदर्शन",
       "options": {
         "isoCode": "ISO कोड",
-        "name": "अंग्रेज़ी नाम",
+        "name": "हिंदी में नाम",
         "nativeName": "देशी नाम"
       }
     },
@@ -162,7 +162,15 @@
     "zoomDistance": {
       "label": "ज़ूम दूरी"
     },
-    "isSegmented": { "label": "खंडन" }
+    "isSegmented": {
+      "label": "खंडन"
+    },
+    "isMenuExpanded": {
+      "label": "और दिखाएँ"
+    },
+    "irrationality": {
+      "label": "अतार्किकता"
+    }
   },
   "filters": {
     "all": "सभी",
@@ -444,7 +452,8 @@
   },
   "menu": {
     "close": "मेनू बंद करें",
-    "open": "मेनू खोलें"
+    "open": "मेनू खोलें",
+    "languageSelector": "ऐप की भाषा"
   },
   "playlist": {
     "controls": "प्लेलिस्ट नियंत्रण",
