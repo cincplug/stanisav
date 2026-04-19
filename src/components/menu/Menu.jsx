@@ -69,7 +69,7 @@ function Menu({
 
       {isVisible && (
         <div className={`menu ${isMenuExpanded ? "expanded" : "compact"}`}>
-          <div className="sticky-header">
+          <div className="menu-header">
             <div className="menu-essentials">
               <Playlist />
               <LocaleLinks />
@@ -88,20 +88,22 @@ function Menu({
           </div>
 
           {isMenuExpanded && (
-            <TabRenderer
-              selectedTab={selectedTab}
-              controls={controls}
-              onControlChange={handleControlChange}
-              languageData={data?.languages || {}}
-              data={data}
-              filteringUtils={filteringUtils}
-              onFilteringUtilsChange={onFilteringUtilsChange}
-              searchTerm={searchTerm}
-              setSearchTerm={setSearchTerm}
-              searchResults={searchResults}
-              clearSearch={clearSearch}
-              languageColors={languageColors}
-            />
+            <div className="tabs-scroll-area">
+              <TabRenderer
+                selectedTab={selectedTab}
+                controls={controls}
+                onControlChange={handleControlChange}
+                languageData={data?.languages || {}}
+                data={data}
+                filteringUtils={filteringUtils}
+                onFilteringUtilsChange={onFilteringUtilsChange}
+                searchTerm={searchTerm}
+                setSearchTerm={setSearchTerm}
+                searchResults={searchResults}
+                clearSearch={clearSearch}
+                languageColors={languageColors}
+              />
+            </div>
           )}
         </div>
       )}

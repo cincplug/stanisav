@@ -94,29 +94,6 @@ function FiltersTab({ data, languageColors = {} }) {
   const hasActiveFilters = Object.keys(filteringUtils).length > 0;
   const hasEmptyResult = hasActiveFilters && linguisticResults.length === 0;
 
-  useEffect(() => {
-    if (!lastChangedFeature) return;
-
-    if (linguisticResults.length > 0) {
-      const resultsEl = resultsRefs.current[lastChangedFeature];
-      if (!resultsEl) return;
-      requestAnimationFrame(() => {
-        resultsEl.scrollIntoView({ behavior: "smooth", block: "start" });
-        resultsEl.focus();
-      });
-      return;
-    }
-
-    if (hasEmptyResult) {
-      const emptyEl = emptyRefs.current[lastChangedFeature];
-      if (!emptyEl) return;
-      requestAnimationFrame(() => {
-        emptyEl.scrollIntoView({ behavior: "smooth", block: "start" });
-        emptyEl.focus();
-      });
-    }
-  }, [lastChangedFeature, linguisticResults.length, hasEmptyResult]);
-
   return (
     <div className="control-section">
       <div className="linguistic-filters">
@@ -235,71 +212,37 @@ function FiltersTab({ data, languageColors = {} }) {
                   })}
                 </div>
               </fieldset>
+
               {feature === lastChangedFeature &&
                 linguisticResults.length > 0 && (
-                  <fieldset
-                    className="results-fieldset"
-                    tabIndex={-1}
+                  <div
+                    className="screenreader-only"
+                    role="status"
+                    aria-live="polite"
+                    aria-atomic="true"
                     ref={(el) => {
                       resultsRefs.current[feature] = el;
                     }}
                   >
-                    <legend className="results-legend">
+                    <div>
                       {t("filters.results", {
                         count: linguisticResults.length,
                       })}
-                    </legend>
-                    <p
-                      className="screenreader-only"
-                      aria-live="polite"
-                      aria-atomic="true"
-                    >
-                      {t("filters.results", {
-                        count: linguisticResults.length,
-                      })}
-                    </p>
-                    <ul className="languages-in-group" role="list">
+                    </div>
+                    <ul>
                       {linguisticResults.map((lang) => (
-                        <li key={lang.code}>
-                          <button
-                            className={`language-item-button ${
-                              selectedLanguage === lang.code ? "selected" : ""
-                            }`}
-                            style={{ background: languageColors[lang.code] }}
-                            onClick={() => handleSelectLanguage(lang.code)}
-                            title={`${lang.name} - ${Object.entries(
-                              lang.features,
-                            )
-                              .filter(([k]) => validFeatureKeys.has(k))
-                              .map(([k, v]) => {
-                                const featureName = getFeatureName(k);
-                                const valueLabel =
-                                  typeof v === "number"
-                                    ? v
-                                    : Array.isArray(v)
-                                      ? v
-                                          .map((s) => getFeatureLabel(k, s))
-                                          .join(", ")
-                                      : getFeatureLabel(k, v);
-                                return `${featureName}: ${valueLabel}`;
-                              })
-                              .join(", ")}`}
-                          >
-                            {lang.name}
-                          </button>
-                        </li>
+                        <li key={lang.code}>{lang.name}</li>
                       ))}
                     </ul>
-                  </fieldset>
+                  </div>
                 )}
 
               {feature === lastChangedFeature && hasEmptyResult && (
                 <div
-                  className="filter-empty-message"
+                  className="screenreader-only"
                   role="status"
                   aria-live="polite"
                   aria-atomic="true"
-                  tabIndex={-1}
                   ref={(el) => {
                     emptyRefs.current[feature] = el;
                   }}
