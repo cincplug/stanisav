@@ -22,7 +22,8 @@
     "mp3": "node scripts/mp3.js",
     "audio:analyze": "node scripts/analyze-audio.js",
     "audio:optimize": "node scripts/optimize-audio.js",
-    "addLang": "node scripts/addLang.js"
+    "addLang": "node scripts/addLang.js",
+    "i18n": "node scripts/i18n.js"
   },
   "dependencies": {
     "@react-spring/three": "^10.0.3",
