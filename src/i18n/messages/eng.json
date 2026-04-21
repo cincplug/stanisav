@@ -98,6 +98,9 @@
     "irrationality": {
       "label": "Irrationality"
     },
+    "d4": {
+      "label": "4d"
+    },
     "maxSiblingSpread": {
       "label": "Sibling hue spread"
     },

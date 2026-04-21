@@ -25,7 +25,7 @@ const Label = ({
   const { filteredLanguages, filteringUtils, selectedLanguage } =
     useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
-  const { labelContent, labelSize, bgColor, tension, friction } = controls;
+  const { labelContent, labelSize, bgColor, tension, friction, d4 } = controls;
 
   if (
     Object.keys(filteringUtils).length > 0 &&
@@ -94,8 +94,8 @@ const Label = ({
       // Some kind of 4th dimension
       labelRef.current.renderOrder = selectedLanguage
         ? 0
-        : revealOrder > totalVisibleLabels / 2
-          ? revealOrder
+        : revealOrder >= d4
+          ? 0
           : totalVisibleLabels - revealOrder;
     }
     if (labelRef.current && camera) {

@@ -127,6 +127,15 @@
     "isShownInMenu": true,
     "group": "Scene"
   },
+  "d4": {
+    "type": "range",
+    "min": 0,
+    "max": 231,
+    "step": 1,
+    "defaultValue": 50,
+    "isShownInMenu": true,
+    "group": "Scene"
+  },
   "sphereRadius": {
     "type": "range",
     "min": 1,
