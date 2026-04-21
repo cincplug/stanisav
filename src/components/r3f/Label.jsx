@@ -94,7 +94,7 @@ const Label = ({
       // Some kind of 4th dimension
       labelRef.current.renderOrder = selectedLanguage
         ? 0
-        : revealOrder % 2 === 0
+        : revealOrder > totalVisibleLabels / 2
           ? revealOrder
           : totalVisibleLabels - revealOrder;
     }
