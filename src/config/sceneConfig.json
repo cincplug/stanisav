@@ -1,7 +1,7 @@
 {
   "entranceDuration": 3000,
-  "revealDurationMs": 500,
-  "startRadiusFactor": 0.333333,
+  "revealDurationMs": 1000,
+  "startRadiusFactor": 0.8,
   "globeSpiralAxis": "y",
   "entranceSpiralAxis": "z"
 }
