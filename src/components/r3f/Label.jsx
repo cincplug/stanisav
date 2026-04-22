@@ -68,6 +68,8 @@ const Label = ({
     config: { tension, friction },
   });
 
+  const animatedD4 = useRef(0);
+
   const textMaterial = useMemo(
     () =>
       new MeshStandardMaterial({
@@ -78,7 +80,7 @@ const Label = ({
     [bgColor, selectedLanguage],
   );
 
-  useFrame(({ camera }) => {
+  useFrame(({ camera }, delta) => {
     if (labelRef.current) {
       const [x, y, z] = positionSpring.position.get();
       const offset = selectionSpring.offset.get();
@@ -91,12 +93,15 @@ const Label = ({
       );
       labelRef.current.scale.setScalar(Math.max(reveal, 0.0001));
 
+      animatedD4.current += delta * d4;
+      if (animatedD4.current >= totalVisibleLabels) animatedD4.current = 0;
+
       // Some kind of 4th dimension
       labelRef.current.renderOrder = selectedLanguage
         ? 0
-        : revealOrder >= d4
+        : revealOrder >= animatedD4.current
           ? 0
-          : totalVisibleLabels - revealOrder;
+          : revealOrder;
     }
     if (labelRef.current && camera) {
       // Copy camera quaternion for smooth billboarding without threshold snapping.
