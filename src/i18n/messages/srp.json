@@ -85,8 +85,8 @@
       "label": "Prikaz",
       "options": {
         "isoCode": "ISO kodovi",
-        "name": "Nazivi na srpskom",
-        "nativeName": "Nazivi na maternjem"
+        "name": "Hrvatska imena",
+        "nativeName": "Izvorna imena"
       }
     },
     "labelSize": {
