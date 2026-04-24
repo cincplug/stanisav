@@ -101,7 +101,7 @@ const Label = ({
         ? 0
         : revealOrder >= animatedD4.current
           ? 0
-          : revealOrder;
+          : totalVisibleLabels - revealOrder;
     }
     if (labelRef.current && camera) {
       // Copy camera quaternion for smooth billboarding without threshold snapping.

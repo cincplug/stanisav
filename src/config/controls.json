@@ -435,7 +435,7 @@
     "min": 0,
     "max": 90,
     "step": 1,
-    "defaultValue": 30,
+    "defaultValue": 60,
     "isShownInMenu": true,
     "group": "Colors"
   },
