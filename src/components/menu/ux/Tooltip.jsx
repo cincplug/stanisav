@@ -1,6 +1,13 @@
 import "./Tooltip.css";
 
-const Tooltip = ({ id, children, label, position = "top", className }) => {
+const Tooltip = ({
+  id,
+  children,
+  label,
+  position = "top",
+  className,
+  triggerRef,
+}) => {
   const anchorName = `--anchor-${id}`;
 
   return (
@@ -11,6 +18,7 @@ const Tooltip = ({ id, children, label, position = "top", className }) => {
         popovertarget={id}
         aria-label={label}
         style={{ "--tooltip-anchor-name": anchorName }}
+        ref={triggerRef}
       >
         ⓘ
       </button>

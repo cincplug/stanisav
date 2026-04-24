@@ -80,6 +80,14 @@ function IdCard({
 
   const localizedLanguageName = getLocalizedLanguageName(languageCode);
 
+  const tooltipButtonRefs = useRef({});
+
+  useEffect(() => {
+    if (selectedProperty && tooltipButtonRefs.current[selectedProperty]) {
+      tooltipButtonRefs.current[selectedProperty].click();
+    }
+  }, [selectedProperty]);
+
   if (!languageCode || !language || properties.length === 0) {
     return null;
   }
@@ -159,6 +167,9 @@ function IdCard({
                       label={property.label}
                       position="top"
                       className="info-link"
+                      triggerRef={(el) => {
+                        tooltipButtonRefs.current[property.key] = el;
+                      }}
                     >
                       <Properties
                         propertyKey={property.key}

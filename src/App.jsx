@@ -85,12 +85,6 @@ function App() {
               sub={sub}
               languageColor={languageColors[selectedLanguage]}
             />
-            {selectedProperty && (
-              <Properties
-                propertyKey={selectedProperty}
-                selectedLanguageValue={selectedLanguageValue}
-              />
-            )}
           </>
         )}
       </div>
