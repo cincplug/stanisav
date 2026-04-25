@@ -109,7 +109,7 @@ export default function Select({
   const makeItemKeyDown = (index) => (e) => handleListKeyDown(e, index);
 
   return (
-    <span className="select-nav" onBlur={handleNavBlur}>
+    <div className="select-nav" onBlur={handleNavBlur}>
       <select
         ref={nativeRef}
         value={value}
@@ -162,6 +162,6 @@ export default function Select({
           ))}
         </ul>
       )}
-    </span>
+    </div>
   );
 }

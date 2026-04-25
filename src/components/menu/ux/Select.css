@@ -3,14 +3,13 @@
 .select-nav {
   position: relative;
   display: inline-block;
-  min-width: 0;
-  max-width: 100%;
+  width: 100%;
 }
 
 .select-toggle {
   display: inline-flex;
   align-items: center;
-  max-width: 100%;
+  width: 100%;
   overflow: hidden;
 }
 
