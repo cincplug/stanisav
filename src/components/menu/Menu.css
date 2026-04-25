@@ -98,6 +98,9 @@ html.rtl .menu-close {
   grid-template-columns: 1fr 1fr;
   margin-top: var(--gap);
   gap: var(--gap);
+  & > div {
+    min-width: 0;
+  }
 }
 
 .tabs-inner {
@@ -129,4 +132,17 @@ html.rtl .menu-close {
   position: absolute;
   bottom: var(--gap-double);
   right: var(--gap-double);
+}
+
+.select-toggle {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.select-current {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
