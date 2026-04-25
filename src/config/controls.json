@@ -63,6 +63,23 @@
     "isShownInMenu": true,
     "group": "Header"
   },
+  "globeSpiralAxis": {
+    "type": "select",
+    "options": [
+      {
+        "value": "x"
+      },
+      {
+        "value": "y"
+      },
+      {
+        "value": "z"
+      }
+    ],
+    "defaultValue": "y",
+    "isShownInMenu": true,
+    "group": "Header"
+  },
   "isReverse": {
     "type": "checkbox",
     "defaultValue": false,
@@ -117,23 +134,6 @@
     "max": 5,
     "step": 1,
     "defaultValue": 1,
-    "isShownInMenu": true,
-    "group": "Scene"
-  },
-  "globeSpiralAxis": {
-    "type": "select",
-    "options": [
-      {
-        "value": "x"
-      },
-      {
-        "value": "y"
-      },
-      {
-        "value": "z"
-      }
-    ],
-    "defaultValue": "y",
     "isShownInMenu": true,
     "group": "Scene"
   },

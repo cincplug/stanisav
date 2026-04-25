@@ -55,12 +55,15 @@ const ControlItem = ({ control, value, onChange }) => {
 
     case "select":
       return (
-        <Select
-          options={options}
-          value={value}
-          onChange={onChange}
-          label={label}
-        />
+        <div className="control-item">
+          <label>{label}</label>
+          <Select
+            options={options}
+            value={value}
+            onChange={onChange}
+            label={label}
+          />
+        </div>
       );
 
     case "radio":

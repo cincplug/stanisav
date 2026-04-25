@@ -84,7 +84,10 @@ function Menu({
             <Playlist />
 
             <div className="menu-essentials">
-              <LocaleLinks />
+              <div className="control-item">
+                <label>{t("menu.languageSelector")}</label>
+                <LocaleLinks />
+              </div>
               <ControlItemGroup
                 groupName="Header"
                 controls={controls}
