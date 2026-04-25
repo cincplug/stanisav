@@ -8,7 +8,7 @@ import { getLanguageLabel } from "../utils/languageDisplayUtils";
 import { getSpeakerGroup } from "../utils/languageGroupingUtils";
 import sceneConfig from "../config/sceneConfig.json";
 
-const { globeSpiralAxis, entranceSpiralAxis } = sceneConfig;
+const { entranceSpiralAxis } = sceneConfig;
 
 const spiralAxis = {
   x: {
@@ -27,12 +27,6 @@ const spiralAxis = {
     equatorialOf: (p) => [p.x, p.y],
   },
 };
-
-const { buildPoint, poleOf, equatorialOf } =
-  spiralAxis[globeSpiralAxis] ?? spiralAxis.y;
-
-const { poleOf: entrancePoleOf, equatorialOf: entranceEquatorialOf } =
-  spiralAxis[entranceSpiralAxis] ?? spiralAxis[globeSpiralAxis];
 
 class LayoutEngine {
   constructor() {
@@ -61,7 +55,13 @@ class LayoutEngine {
       isReverse,
       isSegmented,
       irrationality,
+      globeSpiralAxis,
     } = controls;
+
+    const { buildPoint, poleOf, equatorialOf } =
+      spiralAxis[globeSpiralAxis] ?? spiralAxis.y;
+    const { poleOf: entrancePoleOf, equatorialOf: entranceEquatorialOf } =
+      spiralAxis[entranceSpiralAxis] ?? spiralAxis[globeSpiralAxis];
 
     const getClusterKey = (code) => {
       switch (sortBy) {
@@ -101,12 +101,11 @@ class LayoutEngine {
         sortedLanguages.length,
         sphereRadius,
         irrationality,
+        buildPoint,
       ),
       { poleOf: entrancePoleOf, equatorialOf: entranceEquatorialOf },
     );
 
-    // Keep the legacy angular distribution, but smooth local traversal with
-    // proximity ordering so language-to-point mapping stays stable for playback.
     const proximityOrderedBasePoints = this.reorderBySpatialProximity(
       angularBasePoints,
       {
@@ -131,8 +130,6 @@ class LayoutEngine {
       clusters[key].push(code);
     });
 
-    // For family sort, order cluster keys by lineage path so sibling families
-    // end up adjacent in the grid. All other sorts preserve insertion order.
     const clusterKeys =
       sortBy === "family"
         ? Object.keys(clusters).sort((a, b) =>
@@ -201,7 +198,13 @@ class LayoutEngine {
       const members = clusters[key];
       const r = clusterRadii[key];
       const localPoints = this.sortSpherePointsByAngle(
-        this.generateFibonacciSphere(members.length, r, irrationality),
+        this.generateFibonacciSphere(
+          members.length,
+          r,
+          irrationality,
+          buildPoint,
+        ),
+        { poleOf, equatorialOf },
       );
       members.forEach((code, j) => {
         clusteredPositions[code] = localPoints[j].clone().add(offset);
@@ -220,7 +223,7 @@ class LayoutEngine {
     return { positions, sortedLanguages };
   }
 
-  generateFibonacciSphere(numPoints, radius, irrationality) {
+  generateFibonacciSphere(numPoints, radius, irrationality, buildPoint) {
     const points = [];
     const notNecessarilyGoldenRatio = Math.sqrt(irrationality) + 1;
     const angleIncrement = Math.PI * 2 * notNecessarilyGoldenRatio;
@@ -273,10 +276,6 @@ class LayoutEngine {
   rotatePointsToFrontFacingAnchor(points) {
     if (points.length <= 1) return points;
 
-    // Score each candidate cut by front-facingness (z) multiplied by the
-    // gap to its predecessor. This selects a cut that is both camera-facing
-    // and sits at a natural large break in the path, keeping first and last
-    // elements far apart.
     let bestIndex = 0;
     let bestScore = -Infinity;
 
@@ -295,7 +294,7 @@ class LayoutEngine {
     return [...points.slice(bestIndex), ...points.slice(0, bestIndex)];
   }
 
-  sortSpherePointsByAngle(points, axisConfig = { poleOf, equatorialOf }) {
+  sortSpherePointsByAngle(points, axisConfig) {
     const bandCount = Math.round(Math.sqrt(points.length));
 
     const lat = (p) => {

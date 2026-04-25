@@ -147,6 +147,14 @@
         "scripts": "Scripts"
       }
     },
+    "globeSpiralAxis": {
+      "label": "Axis",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
+    },
     "sphereRadius": {
       "label": "Sphere radius"
     },

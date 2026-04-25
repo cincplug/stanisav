@@ -3,56 +3,43 @@
     "type": "select",
     "options": [
       {
-        "value": "alphabetically",
-        "label": "Alphabetical order"
+        "value": "alphabetically"
       },
       {
-        "value": "speakers",
-        "label": "Speakers' number"
+        "value": "speakers"
       },
       {
-        "value": "family",
-        "label": "Language family"
+        "value": "family"
       },
       {
-        "value": "tonality",
-        "label": "Tonality"
+        "value": "tonality"
       },
       {
-        "value": "morphology",
-        "label": "Morphology"
+        "value": "morphology"
       },
       {
-        "value": "wordOrder",
-        "label": "Word order"
+        "value": "wordOrder"
       },
       {
-        "value": "wordOrderFlexibility",
-        "label": "Word order flexibility"
+        "value": "wordOrderFlexibility"
       },
       {
-        "value": "evidentiality",
-        "label": "Evidentiality"
+        "value": "evidentiality"
       },
       {
-        "value": "verbAspect",
-        "label": "Verb aspect"
+        "value": "verbAspect"
       },
       {
-        "value": "phonemeCount",
-        "label": "Phoneme count"
+        "value": "phonemeCount"
       },
       {
-        "value": "caseCount",
-        "label": "Case count"
+        "value": "caseCount"
       },
       {
-        "value": "nounClassCount",
-        "label": "Noun classes"
+        "value": "nounClassCount"
       },
       {
-        "value": "maxClusterSize",
-        "label": "Consonant clusters"
+        "value": "maxClusterSize"
       }
     ],
     "defaultValue": "alphabetically",
@@ -63,16 +50,13 @@
     "type": "select",
     "options": [
       {
-        "value": "name",
-        "label": "English names"
+        "value": "name"
       },
       {
-        "value": "nativeName",
-        "label": "Native names"
+        "value": "nativeName"
       },
       {
-        "value": "isoCode",
-        "label": "ISO codes"
+        "value": "isoCode"
       }
     ],
     "defaultValue": "name",
@@ -136,13 +120,30 @@
     "isShownInMenu": true,
     "group": "Scene"
   },
+  "globeSpiralAxis": {
+    "type": "select",
+    "options": [
+      {
+        "value": "x"
+      },
+      {
+        "value": "y"
+      },
+      {
+        "value": "z"
+      }
+    ],
+    "defaultValue": "y",
+    "isShownInMenu": true,
+    "group": "Scene"
+  },
   "sphereRadius": {
     "type": "range",
     "min": 1,
     "max": 50,
     "step": 1,
     "defaultValue": 22,
-    "isShownInMenu": true,
+    "isShownInMenu": false,
     "group": "Scene"
   },
   "isMyMesha": {

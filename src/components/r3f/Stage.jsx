@@ -54,6 +54,7 @@ const Stage = ({
     stageLightDistance,
     stageLightDecay,
     irrationality,
+    globeSpiralAxis,
   } = controls;
 
   const languageData = data?.languageData || {};
@@ -135,6 +136,7 @@ const Stage = ({
       locale,
       isLocaleReady,
       irrationality,
+      globeSpiralAxis,
     ],
   );
 
