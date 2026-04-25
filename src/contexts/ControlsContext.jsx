@@ -10,6 +10,14 @@ const getDefaultValues = () => {
   return defaults;
 };
 
+const getSelectOptions = (controlId) => {
+  const config = controlsConfig[controlId];
+  if (config && config.type === "select") {
+    return config.options;
+  }
+  return undefined;
+};
+
 const ControlsContext = createContext(null);
 
 export const ControlsProvider = ({ children }) => {

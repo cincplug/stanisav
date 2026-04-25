@@ -33,10 +33,11 @@ export const localizeControlConfig = (controlId, config) => ({
   ...config,
   label: getControlLabel(controlId),
   options: Array.isArray(config.options)
-    ? config.options.map((option) => ({
-        ...option,
-        label: getControlOptionLabel(controlId, option.value),
-      }))
+    ? config.options.map((value) =>
+        typeof value === "string"
+          ? { value, label: getControlOptionLabel(controlId, value) }
+          : { ...value, label: getControlOptionLabel(controlId, value.value) },
+      )
     : config.options,
 });
 

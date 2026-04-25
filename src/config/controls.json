@@ -2,45 +2,19 @@
   "sortBy": {
     "type": "select",
     "options": [
-      {
-        "value": "alphabetically"
-      },
-      {
-        "value": "speakers"
-      },
-      {
-        "value": "family"
-      },
-      {
-        "value": "tonality"
-      },
-      {
-        "value": "morphology"
-      },
-      {
-        "value": "wordOrder"
-      },
-      {
-        "value": "wordOrderFlexibility"
-      },
-      {
-        "value": "evidentiality"
-      },
-      {
-        "value": "verbAspect"
-      },
-      {
-        "value": "phonemeCount"
-      },
-      {
-        "value": "caseCount"
-      },
-      {
-        "value": "nounClassCount"
-      },
-      {
-        "value": "maxClusterSize"
-      }
+      "alphabetically",
+      "speakers",
+      "family",
+      "tonality",
+      "morphology",
+      "wordOrder",
+      "wordOrderFlexibility",
+      "evidentiality",
+      "verbAspect",
+      "phonemeCount",
+      "caseCount",
+      "nounClassCount",
+      "maxClusterSize"
     ],
     "defaultValue": "alphabetically",
     "isShownInMenu": true,
@@ -48,34 +22,14 @@
   },
   "labelContent": {
     "type": "select",
-    "options": [
-      {
-        "value": "name"
-      },
-      {
-        "value": "nativeName"
-      },
-      {
-        "value": "isoCode"
-      }
-    ],
+    "options": ["name", "nativeName", "isoCode"],
     "defaultValue": "name",
     "isShownInMenu": true,
     "group": "Header"
   },
   "globeSpiralAxis": {
     "type": "select",
-    "options": [
-      {
-        "value": "x"
-      },
-      {
-        "value": "y"
-      },
-      {
-        "value": "z"
-      }
-    ],
+    "options": ["x", "y", "z"],
     "defaultValue": "y",
     "isShownInMenu": true,
     "group": "Header"

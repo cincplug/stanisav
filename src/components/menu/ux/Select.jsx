@@ -6,9 +6,8 @@ import "./Select.css";
  * Generic custom-select-on-top-of-native-select dropdown.
  *
  * Props:
- *   options    – [{ value: string, label: string, ...rest }]
- *                `value` is the option identifier passed to onChange.
- *                `label` is the display text. Extra fields are forwarded to renderItem.
+ *   options    – [{ value, label }]
+ *                Always receives array of objects with value and label.
  *   value      – currently selected value
  *   onChange   – (value: string) => void  (called for both native and custom paths)
  *   renderItem – optional ({ option, index, isSelected, onSelect, onKeyDown }) => ReactNode
