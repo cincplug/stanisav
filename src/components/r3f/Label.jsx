@@ -53,7 +53,7 @@ const Label = ({
     [position],
   );
 
-  const { positionSpring, revealSpring } = useEntranceAnimation(
+  const { positionSpring, revealSpring, phase } = useEntranceAnimation(
     position,
     skipLabelEntrance,
     tension,
@@ -81,31 +81,33 @@ const Label = ({
   );
 
   useFrame(({ camera }, delta) => {
-    if (labelRef.current) {
-      const [x, y, z] = positionSpring.position.get();
-      const offset = selectionSpring.offset.get();
+    if (!labelRef.current) return;
+
+    const [x, y, z] = positionSpring.position.get();
+    const offset = selectionSpring.offset.get();
+    labelRef.current.position.set(
+      x + radialOffset[0] * offset,
+      y + radialOffset[1] * offset,
+      z + radialOffset[2] * offset,
+    );
+
+    if (phase === "entrance") {
       const reveal = revealSpring.reveal.get();
-
-      labelRef.current.position.set(
-        x + radialOffset[0] * offset,
-        y + radialOffset[1] * offset,
-        z + radialOffset[2] * offset,
-      );
       labelRef.current.scale.setScalar(Math.max(reveal, 0.0001));
+    }
 
+    labelRef.current.quaternion.copy(camera.quaternion);
+
+    if (!selectedLanguage && d4 > 0) {
       animatedD4.current += delta * d4;
       if (animatedD4.current >= totalVisibleLabels) animatedD4.current = 0;
 
-      // Some kind of 4th dimension
-      labelRef.current.renderOrder = selectedLanguage
-        ? 0
-        : revealOrder >= animatedD4.current
+      labelRef.current.renderOrder =
+        revealOrder >= animatedD4.current
           ? 0
           : totalVisibleLabels - revealOrder;
-    }
-    if (labelRef.current && camera) {
-      // Copy camera quaternion for smooth billboarding without threshold snapping.
-      labelRef.current.quaternion.copy(camera.quaternion);
+    } else {
+      labelRef.current.renderOrder = 0;
     }
   });
 

@@ -68,5 +68,5 @@ export const useEntranceAnimation = (
     immediate: skipLabelEntrance,
   });
 
-  return { positionSpring, revealSpring };
+  return { positionSpring, revealSpring, phase };
 };
