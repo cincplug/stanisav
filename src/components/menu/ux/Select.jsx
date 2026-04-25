@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { ExpandIcon } from "../../menu/MenuIcons";
 import "./Select.css";
 
 /**
@@ -133,7 +134,9 @@ export default function Select({
         onClick={handleToggleClick}
       >
         <span className="select-current">{currentLabel}</span>
-        <span className="select-arrow">▼</span>
+        <span className="select-arrow">
+          <ExpandIcon />
+        </span>
       </button>
       {isOpen && (
         <ul ref={listRef} className="select-list" aria-hidden="true">

@@ -154,3 +154,21 @@ export function LoopIcon({ selected, ...props }) {
     </svg>
   );
 }
+
+export const ExpandIcon = (props) => (
+  <svg
+    width={iconSize}
+    height={iconSize}
+    viewBox={viewBox}
+    fill="none"
+    {...props}
+  >
+    <path
+      d="M4 11L12 18L20 11"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
