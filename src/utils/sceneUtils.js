@@ -78,3 +78,12 @@ export const getClusterBottomCenter = (positions) => {
   const avgZ = pts.reduce((s, p) => s + p.z, 0) / pts.length;
   return new Vector3(sumX / pts.length, minY, avgZ);
 };
+
+export const getClusterTopCenter = (positions) => {
+  const pts = Object.values(positions);
+  if (pts.length === 0) return null;
+  const sumX = pts.reduce((s, p) => s + p.x, 0);
+  const maxY = pts.reduce((max, p) => Math.max(max, p.y), -Infinity);
+  const avgZ = pts.reduce((s, p) => s + p.z, 0) / pts.length;
+  return new Vector3(sumX / pts.length, maxY, avgZ);
+};
