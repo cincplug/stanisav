@@ -78,11 +78,3 @@ export const getClusterBottomCenter = (positions) => {
   const avgZ = pts.reduce((s, p) => s + p.z, 0) / pts.length;
   return new Vector3(sumX / pts.length, minY, avgZ);
 };
-
-export const getStageLightConfig = (params) => {
-  if (params.isSegmented) {
-    params.stageLightDistance *= 1.2;
-  }
-
-  return params;
-};

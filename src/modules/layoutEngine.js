@@ -140,71 +140,80 @@ class LayoutEngine {
     const nodeSpacing = Math.sqrt(
       (4 * Math.PI * sphereRadius ** 2) / sortedLanguages.length,
     );
+    const cellSize = nodeSpacing * 1.1;
 
-    const clusterRadii = {};
+    // --- Cluster dimensions in cell units ---
+    const clusterDims = {};
     clusterKeys.forEach((key) => {
       const n = clusters[key].length;
-      clusterRadii[key] = nodeSpacing * Math.sqrt(n / (4 * Math.PI));
+      const cols = Math.ceil(Math.sqrt(n));
+      const rows = Math.ceil(n / cols);
+      clusterDims[key] = { cols, rows };
     });
 
-    const numCols = Math.min(
+    const clusterPadding = (cellSize * 4) / 3;
+
+    const clusterWidths = {};
+    const clusterHeights = {};
+    clusterKeys.forEach((key) => {
+      const { cols, rows } = clusterDims[key];
+      clusterWidths[key] = cols * cellSize;
+      clusterHeights[key] = rows * cellSize;
+    });
+
+    // --- Pack clusters into a balanced grid of columns ---
+    const numClusterCols = Math.min(
       Math.max(1, Math.round(Math.sqrt(clusterKeys.length))),
       clusterKeys.length,
     );
-
-    const columns = Array.from({ length: numCols }, () => []);
+    const clusterColumns = Array.from({ length: numClusterCols }, () => []);
     clusterKeys.forEach((key, i) => {
-      columns[i % numCols].push(key);
+      clusterColumns[i % numClusterCols].push(key);
     });
 
-    const colWidths = columns.map((col) =>
-      col.length > 0 ? Math.max(...col.map((key) => clusterRadii[key])) : 0,
+    const colWidths = clusterColumns.map((col) =>
+      col.length > 0 ? Math.max(...col.map((key) => clusterWidths[key])) : 0,
     );
-    const colHeights = columns.map((col) =>
+    const colHeights = clusterColumns.map((col) =>
       col.reduce(
         (sum, key, i) =>
-          sum + clusterRadii[key] * 2 + (i > 0 ? nodeSpacing : 0),
+          sum + clusterHeights[key] + (i > 0 ? clusterPadding : 0),
         0,
       ),
     );
 
     const totalWidth = colWidths.reduce(
-      (sum, w, i) => sum + w * 2 + (i > 0 ? nodeSpacing : 0),
+      (sum, w, i) => sum + w + (i > 0 ? clusterPadding : 0),
       0,
     );
     const totalHeight = Math.max(...colHeights);
 
     const clusterOffsets = {};
     let cursorX = -totalWidth / 2;
-    columns.forEach((col, colIndex) => {
+    clusterColumns.forEach((col, colIndex) => {
       const colWidth = colWidths[colIndex];
-      const colCenterX = cursorX + colWidth;
+      const colCenterX = cursorX + colWidth / 2;
 
       let cursorY = totalHeight / 2;
       col.forEach((key, rowIndex) => {
-        const r = clusterRadii[key];
-        if (rowIndex > 0) cursorY -= nodeSpacing;
-        cursorY -= r;
+        const h = clusterHeights[key];
+        if (rowIndex > 0) cursorY -= clusterPadding;
+        cursorY -= h / 2;
         clusterOffsets[key] = new Vector3(colCenterX, cursorY, 0);
-        cursorY -= r;
+        cursorY -= h / 2;
       });
 
-      cursorX += colWidth * 2 + nodeSpacing;
+      cursorX += colWidth + clusterPadding;
     });
 
+    // --- Place labels within each cluster on a rectangular grid ---
     const clusteredPositions = {};
     clusterKeys.forEach((key) => {
       const offset = clusterOffsets[key];
       const members = clusters[key];
-      const r = clusterRadii[key];
-      const localPoints = this.sortSpherePointsByAngle(
-        this.generateFibonacciSphere(
-          members.length,
-          r,
-          irrationality,
-          buildPoint,
-        ),
-        { poleOf, equatorialOf },
+      const localPoints = this.generateRectangularGrid(
+        members.length,
+        cellSize,
       );
       members.forEach((code, j) => {
         clusteredPositions[code] = localPoints[j].clone().add(offset);
@@ -237,6 +246,22 @@ class LayoutEngine {
       const v = sin * Math.sin(azimuth);
       const point = buildPoint(cos, u, v);
       points.push(point);
+    }
+    return points;
+  }
+
+  generateRectangularGrid(numPoints, cellSize) {
+    const cols = Math.ceil(Math.sqrt(numPoints));
+    const rows = Math.ceil(numPoints / cols);
+    const stagger = cellSize / 2;
+    const points = [];
+    for (let i = 0; i < numPoints; i++) {
+      const col = i % cols;
+      const row = Math.floor(i / cols);
+      const x = (col - (cols - 1) / 2) * cellSize;
+      const y =
+        (row - (rows - 1) / 2) * cellSize + (col % 2 === 0 ? 0 : -stagger);
+      points.push(new Vector3(x, y, 0));
     }
     return points;
   }

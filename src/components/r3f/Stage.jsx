@@ -11,7 +11,6 @@ import { useDataManager } from "../../hooks/useDataManager";
 import {
   calculateLanguageFilterStatus,
   calculateRadialOffset,
-  getStageLightConfig,
 } from "../../utils/sceneUtils";
 import { getFeatureScore } from "../../utils/linguisticUtils";
 import { getSortingData, sortLanguages } from "../../utils/sortingUtils";
@@ -184,21 +183,12 @@ const Stage = ({
   const showEmptyMessage = hasSelectedFilters && visibleLanguages.length === 0;
 
   const { stageLightMultiplier } = useSpring({
-    stageLightMultiplier: selectedLanguage ? 0 : 1,
+    stageLightMultiplier: !selectedLanguage || isSegmented ? 1 : 0,
     config: { tension, friction },
   });
 
   const stageLightIntensity = stageLightMultiplier.to(
     (m) => controls.stageLightIntensity * m,
-  );
-
-  const stageLightConfig = useMemo(
-    () =>
-      getStageLightConfig({
-        isSegmented,
-        stageLightDistance,
-      }),
-    [isSegmented, stageLightDistance],
   );
 
   const hasDrawableScene =
@@ -232,7 +222,8 @@ const Stage = ({
       <OrbitControls
         enableDamping={true}
         makeDefault={true}
-        enableZoom={false}
+        enableZoom={isSegmented}
+        enableRotate={!isSegmented}
         autoRotate={!isSegmented}
         autoRotateSpeed={selectedLanguage ? -0.3 : -3}
       />
@@ -240,7 +231,7 @@ const Stage = ({
       <StageLight
         stageLightIntensity={stageLightIntensity}
         stageLightDecay={stageLightDecay}
-        stageLightDistance={stageLightConfig.stageLightDistance}
+        stageLightDistance={stageLightDistance}
         cameraZ={cameraZ}
         skipEntrance={skipLabelEntrance}
       />

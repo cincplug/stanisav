@@ -34,6 +34,7 @@ export const useCameraController = ({
   const focusOnLanguage = useCallback(
     (languageCode) => {
       const node = languageNodes[languageCode];
+      const { isSegmented } = controls;
       if (!node) {
         return;
       }
@@ -46,6 +47,7 @@ export const useCameraController = ({
       const targetCameraPosition = calculateCameraPosition(
         languagePosition,
         zoomDistance,
+        isSegmented,
       );
       animateCamera(
         cameraSystem,
@@ -224,7 +226,15 @@ const animateCamera = (cameraSystem, targetPosition, lookAtTarget, config) => {
   animationRef.current = requestAnimationFrame(animate);
 };
 
-const calculateCameraPosition = (nodePosition, zoomDistance) => {
+const calculateCameraPosition = (nodePosition, zoomDistance, isSegmented) => {
+  if (isSegmented) {
+    return new Vector3(
+      nodePosition.x,
+      nodePosition.y,
+      nodePosition.z + zoomDistance * 2,
+    );
+  }
+
   const directionFromCenter = nodePosition.clone().normalize();
   return nodePosition
     .clone()

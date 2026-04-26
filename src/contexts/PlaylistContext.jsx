@@ -121,7 +121,6 @@ export const PlaylistProvider = ({ children }) => {
 
   const startFromLanguage = useCallback(
     (languageCode) => {
-      updateControl("isSegmented", false);
       const codes = getSortedLanguageCodes();
       if (codes.length === 0) return;
       const index = codes.indexOf(languageCode);

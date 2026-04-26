@@ -25,7 +25,15 @@ const Label = ({
   const { filteredLanguages, filteringUtils, selectedLanguage } =
     useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
-  const { labelContent, labelSize, bgColor, tension, friction, d4 } = controls;
+  const {
+    labelContent,
+    labelSize,
+    bgColor,
+    tension,
+    friction,
+    d4,
+    isSegmented,
+  } = controls;
 
   if (
     Object.keys(filteringUtils).length > 0 &&
@@ -85,11 +93,16 @@ const Label = ({
 
     const [x, y, z] = positionSpring.position.get();
     const offset = selectionSpring.offset.get();
-    labelRef.current.position.set(
-      x + radialOffset[0] * offset,
-      y + radialOffset[1] * offset,
-      z + radialOffset[2] * offset,
-    );
+
+    if (isSegmented) {
+      labelRef.current.position.set(x, y, z + offset);
+    } else {
+      labelRef.current.position.set(
+        x + radialOffset[0] * offset,
+        y + radialOffset[1] * offset,
+        z + radialOffset[2] * offset,
+      );
+    }
 
     if (phase === "entrance") {
       const reveal = revealSpring.reveal.get();
@@ -98,7 +111,9 @@ const Label = ({
 
     labelRef.current.quaternion.copy(camera.quaternion);
 
-    if (!selectedLanguage && d4 > 0) {
+    if (isSelected) {
+      labelRef.current.renderOrder = totalVisibleLabels;
+    } else if (!selectedLanguage && d4 > 0) {
       animatedD4.current += delta * d4;
       if (animatedD4.current >= totalVisibleLabels) animatedD4.current = 0;
 
@@ -113,7 +128,6 @@ const Label = ({
 
   return (
     <Text
-      position={[0, 0, 0]}
       onClick={handleClick}
       ref={labelRef}
       fontSize={labelSize}
