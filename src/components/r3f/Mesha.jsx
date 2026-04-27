@@ -63,7 +63,7 @@ const Mesha = ({
     linguisticProperties;
 
   const noseColorMap = {
-    S: "#ffffff",
+    S: "#e7ebef",
     V: color,
     O: "#222222",
   };

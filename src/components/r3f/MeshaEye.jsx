@@ -28,7 +28,7 @@ const MeshaEye = ({
     <group ref={groupRef} position={position} scale={eyeScale}>
       <mesh linguisticProperty="evidentiality" onClick={onClick}>
         <sphereGeometry args={[eyeSize, 32, 32]} />
-        <meshStandardMaterial color="#ffffff" />
+        <meshStandardMaterial color="#e7ebef" />
         {isSelectedOuter && (
           <MeshaHighlight
             geometry="sphereGeometry"

@@ -5,7 +5,7 @@
   "entranceSpiralAxis": "z",
   "clustersMargin": 1.1,
   "clustersGap": 0.7,
-  "clusterTitleOffset": 1.7,
+  "clusterTitleOffset": 1.2,
   "clusterCellSpacing": 0.12,
   "clusterCellSizeModifier": 1
 }

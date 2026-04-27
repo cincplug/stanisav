@@ -94,7 +94,7 @@ const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
             onClick={onClick}
           >
             <parametricGeometry args={[createToothShape, 16, 8]} />
-            <meshStandardMaterial color="#ffffff" />
+            <meshStandardMaterial color="#e7ebef" />
             {isSelected && (
               <MeshaHighlight
                 geometry="parametricGeometry"

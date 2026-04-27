@@ -23,10 +23,11 @@ const LabelsClusterTitle = ({ positions, title }) => {
   return (
     <Text
       ref={titleRef}
-      fontSize={1.5}
+      fontSize={2}
+      fontWeight="bold"
       anchorX="center"
       anchorY="bottom"
-      color="white"
+      color="#e7ebef"
     >
       {title}
     </Text>
