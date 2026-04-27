@@ -10,6 +10,7 @@ import { useAppState } from "../../contexts/AppStateContext.jsx";
 import { calculateRadialOffset } from "../../utils/sceneUtils.js";
 import { getLanguageLabel } from "../../utils/languageDisplayUtils.js";
 import { useEntranceAnimation } from "../../hooks/useEntranceAnimation.js";
+import sceneConfig from "../../config/sceneConfig.json";
 
 const Label = ({
   languageCode,
@@ -34,6 +35,7 @@ const Label = ({
     d4,
     isSegmented,
   } = controls;
+  const { radialOffsetModifier } = sceneConfig;
 
   if (
     Object.keys(filteringUtils).length > 0 &&
@@ -72,7 +74,7 @@ const Label = ({
 
   // Selection offset spring (radial push when selected)
   const selectionSpring = useSpring({
-    offset: isSelected ? 4 : 0,
+    offset: isSelected ? radialOffsetModifier : 0,
     config: { tension, friction },
   });
 
@@ -95,7 +97,7 @@ const Label = ({
     const offset = selectionSpring.offset.get();
 
     if (isSegmented) {
-      labelRef.current.position.set(x, y, z + offset);
+      labelRef.current.position.set(x, y, z + offset * radialOffsetModifier);
     } else {
       labelRef.current.position.set(
         x + radialOffset[0] * offset,

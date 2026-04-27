@@ -7,5 +7,6 @@
   "clustersGap": 0.7,
   "clusterTitleOffset": 1.2,
   "clusterCellSpacing": 0.12,
-  "clusterCellSizeModifier": 1
+  "clusterCellSizeModifier": 1,
+  "radialOffsetModifier": 4
 }

@@ -17,6 +17,7 @@ import { getSortingData, sortLanguages } from "../../utils/sortingUtils";
 import { groupLanguages } from "../../utils/languageGroupingUtils";
 import { LayoutEngine } from "../../modules/layoutEngine";
 import lineages from "../../config/lineages.json";
+import sceneConfig from "../../config/sceneConfig.json";
 import StageLight from "./StageLight";
 import Labels from "./Labels";
 import Mesha from "./Mesha";
@@ -140,17 +141,22 @@ const Stage = ({
     getFeatureScore("tonality", meshaLinguisticProperties?.tonality) - 1;
 
   const meshaPosition = useMemo(() => {
+    const { radialOffsetModifier } = sceneConfig;
     if (selectedLanguage && formattedPositions[selectedLanguage]) {
       const pos = formattedPositions[selectedLanguage];
       const base = [pos.x, pos.y, pos.z];
       const radial = calculateRadialOffset(base);
       if (isSegmented) {
-        return [base[0], base[1], base[2] + radial[2] * 4];
+        return [
+          base[0],
+          base[1],
+          base[2] + radial[2] + Math.pow(radialOffsetModifier, 2),
+        ];
       }
       return [
-        base[0] + radial[0] * 4,
-        base[1] + radial[1] * 4,
-        base[2] + radial[2] * 4,
+        base[0] + radial[0] * radialOffsetModifier,
+        base[1] + radial[1] * radialOffsetModifier,
+        base[2] + radial[2] * radialOffsetModifier,
       ];
     }
     return [0, sphereRadius, 0];

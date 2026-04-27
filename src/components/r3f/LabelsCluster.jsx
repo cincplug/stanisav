@@ -45,7 +45,7 @@ const LabelsCluster = ({
   return (
     <>
       {rectanglePoints && (
-        <Line points={rectanglePoints} color="#272b2f" lineWidth={3} />
+        <Line points={rectanglePoints} color="#373b3f" lineWidth={3} />
       )}
       <LabelsClusterTitle positions={clusterPositions} title={title} />
     </>
