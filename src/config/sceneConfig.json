@@ -2,5 +2,10 @@
   "entranceDuration": 3000,
   "revealDurationMs": 1000,
   "startRadiusFactor": 0.8,
-  "entranceSpiralAxis": "z"
+  "entranceSpiralAxis": "z",
+  "clustersMargin": 1.1,
+  "clustersGap": 0.7,
+  "clusterTitleOffset": 1.7,
+  "clusterCellSpacing": 0.08,
+  "clusterCellSizeModifier": 1.1
 }

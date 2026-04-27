@@ -2,6 +2,7 @@ import { useEffect, useRef, useMemo, useCallback } from "react";
 import { useThree } from "@react-three/fiber";
 import { Vector3 } from "three";
 import { useLanguageSelection } from "../contexts/LanguageSelectionContext";
+import sceneConfig from "../config/sceneConfig.json";
 
 export const useCameraController = ({
   languageNodes,
@@ -113,7 +114,8 @@ export const useCameraController = ({
 
     const distForWidth = halfW / Math.tan(halfFovH);
     const distForHeight = halfH / Math.tan(halfFovV);
-    const distance = Math.max(distForWidth, distForHeight) * 1.05;
+    const distance =
+      Math.max(distForWidth, distForHeight) * sceneConfig.clustersMargin;
 
     const targetCameraPosition = new Vector3(
       center.x,

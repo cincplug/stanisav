@@ -3,8 +3,7 @@ import { useFrame } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
 import { Vector3 } from "three";
 import { getClusterTopCenter } from "../../utils/sceneUtils";
-
-const TITLE_OFFSET_Y = 1;
+import sceneConfig from "../../config/sceneConfig.json";
 
 const LabelsClusterTitle = ({ positions, title }) => {
   const titleRef = useRef();
@@ -15,7 +14,7 @@ const LabelsClusterTitle = ({ positions, title }) => {
 
     titleRef.current.position.set(
       topCenter.x,
-      topCenter.y + TITLE_OFFSET_Y,
+      topCenter.y + sceneConfig.clusterTitleOffset,
       topCenter.z,
     );
     titleRef.current.lookAt(camera.position);

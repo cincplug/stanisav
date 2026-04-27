@@ -8,7 +8,12 @@ import { getLanguageLabel } from "../utils/languageDisplayUtils";
 import { getSpeakerGroup } from "../utils/languageGroupingUtils";
 import sceneConfig from "../config/sceneConfig.json";
 
-const { entranceSpiralAxis } = sceneConfig;
+const {
+  entranceSpiralAxis,
+  clustersGap,
+  clusterCellSpacing,
+  clusterCellSizeModifier,
+} = sceneConfig;
 
 const spiralAxis = {
   x: {
@@ -140,7 +145,8 @@ class LayoutEngine {
     const nodeSpacing = Math.sqrt(
       (4 * Math.PI * sphereRadius ** 2) / sortedLanguages.length,
     );
-    const cellSize = nodeSpacing * 1.1;
+    const cellSize = nodeSpacing * clusterCellSizeModifier;
+    const clusterPadding = cellSize * clustersGap;
 
     // --- Cluster dimensions in cell units ---
     const clusterDims = {};
@@ -151,13 +157,22 @@ class LayoutEngine {
       clusterDims[key] = { cols, rows };
     });
 
-    const clusterPadding = (cellSize * 4) / 3;
-
+    // --- Cluster bounding boxes using estimated label widths ---
     const clusterWidths = {};
     const clusterHeights = {};
     clusterKeys.forEach((key) => {
       const { cols, rows } = clusterDims[key];
-      clusterWidths[key] = cols * cellSize;
+      const members = clusters[key];
+      let maxRowWidth = 0;
+      for (let row = 0; row < rows; row++) {
+        const rowMembers = members.slice(row * cols, (row + 1) * cols);
+        const rowWidth = rowMembers.reduce((sum, code) => {
+          const text = getLanguageLabel(code, languageData, labelContent);
+          return sum + this.estimateLabelWidth(text, cellSize);
+        }, 0);
+        if (rowWidth > maxRowWidth) maxRowWidth = rowWidth;
+      }
+      clusterWidths[key] = maxRowWidth;
       clusterHeights[key] = rows * cellSize;
     });
 
@@ -206,13 +221,18 @@ class LayoutEngine {
       cursorX += colWidth + clusterPadding;
     });
 
-    // --- Place labels within each cluster on a rectangular grid ---
+    // --- Place labels within each cluster using variable-width grid ---
     const clusteredPositions = {};
     clusterKeys.forEach((key) => {
       const offset = clusterOffsets[key];
       const members = clusters[key];
-      const localPoints = this.generateRectangularGrid(
+      const labelWidths = members.map((code) => {
+        const text = getLanguageLabel(code, languageData, labelContent);
+        return this.estimateLabelWidth(text, cellSize);
+      });
+      const localPoints = this.generateVariableWidthGrid(
         members.length,
+        labelWidths,
         cellSize,
       );
       members.forEach((code, j) => {
@@ -232,6 +252,10 @@ class LayoutEngine {
     return { positions, sortedLanguages };
   }
 
+  estimateLabelWidth(text, cellSize) {
+    return text.length * cellSize * clusterCellSpacing;
+  }
+
   generateFibonacciSphere(numPoints, radius, irrationality, buildPoint) {
     const points = [];
     const notNecessarilyGoldenRatio = Math.sqrt(irrationality) + 1;
@@ -247,6 +271,40 @@ class LayoutEngine {
       const point = buildPoint(cos, u, v);
       points.push(point);
     }
+    return points;
+  }
+
+  generateVariableWidthGrid(numPoints, labelWidths, cellSize) {
+    const cols = Math.ceil(Math.sqrt(numPoints));
+    const rows = Math.ceil(numPoints / cols);
+    const rowHeight = cellSize;
+    const stagger = cellSize / 2;
+    const points = [];
+
+    for (let row = 0; row < rows; row++) {
+      const rowStart = row * cols;
+      const rowEnd = Math.min(rowStart + cols, numPoints);
+      const rowWidths = labelWidths.slice(rowStart, rowEnd);
+
+      // Pack labels left-to-right, then center the whole row
+      let cursor = 0;
+      const rowXPositions = rowWidths.map((w) => {
+        const x = cursor + w / 2;
+        cursor += w;
+        return x;
+      });
+      const rowTotalWidth = cursor;
+      const rowOffsetX = -rowTotalWidth / 2;
+
+      rowWidths.forEach((_, colInRow) => {
+        const x = rowOffsetX + rowXPositions[colInRow];
+        const y =
+          -(row - (rows - 1) / 2) * rowHeight +
+          (colInRow % 2 === 0 ? 0 : -stagger);
+        points.push(new Vector3(x, y, 0));
+      });
+    }
+
     return points;
   }
 
