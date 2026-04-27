@@ -60,56 +60,11 @@ const Stage = ({
   const { languageCodes, languageLineages, speakerData, typologicalFeatures } =
     useMemo(() => getSortingData(languageData), [languageData]);
 
-  const sortedLanguageCodes = useMemo(
-    () =>
-      sortLanguages({
-        allLanguages: [...languageCodes],
-        languageData,
-        languageLineages,
-        speakerData,
-        typologicalFeatures,
-        sortBy,
-        labelContent,
-        isReverse,
-      }),
-    [
-      languageCodes,
-      languageData,
-      languageLineages,
-      speakerData,
-      typologicalFeatures,
-      sortBy,
-      labelContent,
-      isReverse,
-      locale,
-      isLocaleReady,
-    ],
-  );
-
-  const groups = useMemo(
-    () =>
-      groupLanguages({
-        sortedLanguageCodes,
-        sortBy,
-        languageData,
-        languageLineages,
-        labelContent,
-        isReverse,
-      }),
-    [
-      sortedLanguageCodes,
-      sortBy,
-      languageData,
-      languageLineages,
-      labelContent,
-      isReverse,
-      locale,
-      isLocaleReady,
-    ],
-  );
-
   const layoutEngine = useMemo(() => new LayoutEngine(), []);
-  const { positions: formattedPositions } = useMemo(
+  const {
+    positions: formattedPositions,
+    sortedLanguages: sortedLanguageCodes,
+  } = useMemo(
     () =>
       layoutEngine.calculateLayout(
         {
@@ -136,6 +91,28 @@ const Stage = ({
       isLocaleReady,
       irrationality,
       globeSpiralAxis,
+    ],
+  );
+
+  const groups = useMemo(
+    () =>
+      groupLanguages({
+        sortedLanguageCodes,
+        sortBy,
+        languageData,
+        languageLineages,
+        labelContent,
+        isReverse,
+      }),
+    [
+      sortedLanguageCodes,
+      sortBy,
+      languageData,
+      languageLineages,
+      labelContent,
+      isReverse,
+      locale,
+      isLocaleReady,
     ],
   );
 
