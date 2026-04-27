@@ -6,6 +6,6 @@
   "clustersMargin": 1.1,
   "clustersGap": 0.7,
   "clusterTitleOffset": 1.7,
-  "clusterCellSpacing": 0.08,
-  "clusterCellSizeModifier": 1.1
+  "clusterCellSpacing": 0.12,
+  "clusterCellSizeModifier": 1
 }

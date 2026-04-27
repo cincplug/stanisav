@@ -181,9 +181,14 @@ class LayoutEngine {
       Math.max(1, Math.round(Math.sqrt(clusterKeys.length))),
       clusterKeys.length,
     );
+
+    const columnHeights = new Array(numClusterCols).fill(0);
     const clusterColumns = Array.from({ length: numClusterCols }, () => []);
-    clusterKeys.forEach((key, i) => {
-      clusterColumns[i % numClusterCols].push(key);
+
+    clusterKeys.forEach((key) => {
+      const shortestCol = columnHeights.indexOf(Math.min(...columnHeights));
+      clusterColumns[shortestCol].push(key);
+      columnHeights[shortestCol] += clusterHeights[key] + clusterPadding;
     });
 
     const colWidths = clusterColumns.map((col) =>
