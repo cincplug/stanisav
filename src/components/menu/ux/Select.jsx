@@ -96,6 +96,7 @@ export default function Select({
   const handleToggleClick = () => setIsOpen((v) => !v);
 
   const handleNavBlur = (e) => {
+    if (e.relatedTarget === null) return; // Safari: button clicks don't focus
     if (!e.currentTarget.contains(e.relatedTarget)) {
       setIsOpen(false);
     }

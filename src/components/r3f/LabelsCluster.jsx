@@ -34,18 +34,18 @@ const LabelsCluster = ({
     const z = positionsArray[0].z;
 
     rectanglePoints = [
-      new Vector3(minX, minY + 0.1, z),
-      new Vector3(maxX - 0.2, minY, z),
-      new Vector3(maxX, maxY + 0.3, z),
-      new Vector3(minX - 0.2, maxY, z),
-      new Vector3(minX, minY + 0.1, z),
+      new Vector3(minX, minY, z),
+      new Vector3(maxX, minY, z),
+      new Vector3(maxX, maxY, z),
+      new Vector3(minX, maxY, z),
+      new Vector3(minX, minY, z),
     ];
   }
 
   return (
     <>
       {rectanglePoints && (
-        <Line points={rectanglePoints} color="#373b3f" lineWidth={2} />
+        <Line points={rectanglePoints} color="#272b2f" lineWidth={3} />
       )}
       <LabelsClusterTitle positions={clusterPositions} title={title} />
     </>
