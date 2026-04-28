@@ -8,5 +8,6 @@
   "clusterTitleOffset": 1.2,
   "clusterCellSpacing": 0.12,
   "clusterCellSizeModifier": 1,
-  "radialOffsetModifier": 4
+  "radialOffsetModifier": 4,
+  "autoRotateSpeed": -3
 }

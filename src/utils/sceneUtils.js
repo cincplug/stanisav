@@ -1,4 +1,5 @@
 import lineages from "../config/lineages.json";
+import sceneConfig from "../config/sceneConfig.json";
 import { Vector3 } from "three";
 
 const getFamily = (lineageKey) => {
@@ -86,4 +87,11 @@ export const getClusterTopCenter = (positions) => {
   const maxY = pts.reduce((max, p) => Math.max(max, p.y), -Infinity);
   const avgZ = pts.reduce((s, p) => s + p.z, 0) / pts.length;
   return new Vector3(sumX / pts.length, maxY, avgZ);
+};
+
+export const getAutoRotateSpeed = (hasSelectedLanguage, isRtl) => {
+  let speed = sceneConfig.autoRotateSpeed;
+  if (hasSelectedLanguage) speed /= 10;
+  if (isRtl) speed *= -1;
+  return speed;
 };

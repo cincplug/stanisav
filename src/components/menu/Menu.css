@@ -12,6 +12,13 @@
   overflow: visible;
   box-sizing: border-box;
   z-index: 1;
+
+  html.rtl & {
+    border-left: none;
+    left: 0;
+    right: auto;
+    direction: rtl;
+  }
 }
 
 .menu.expanded {
@@ -55,19 +62,11 @@
     border-inline-end: none;
     box-sizing: border-box;
   }
-}
 
-html.rtl .menu {
-  border-left: none;
-  left: 0;
-  right: auto;
-  direction: rtl;
-  /* Padding stays the same for now, but can be adjusted if needed */
-}
-
-html.rtl .menu.compact {
-  right: auto;
-  left: 0;
+  html.rtl & {
+    right: auto;
+    left: 0;
+  }
 }
 
 .menu-header {
@@ -86,11 +85,11 @@ html.rtl .menu.compact {
   position: absolute;
   top: var(--gap-double);
   right: var(--gap-double);
-}
 
-html.rtl .menu-close {
-  right: auto;
-  left: var(--gap-double);
+  html.rtl & {
+    right: auto;
+    left: var(--gap-double);
+  }
 }
 
 .menu-essentials {
@@ -98,9 +97,6 @@ html.rtl .menu-close {
   grid-template-columns: 1fr 1fr;
   margin-top: var(--gap);
   gap: var(--gap);
-  & > div {
-    min-width: 0;
-  }
 }
 
 .tabs-inner {
@@ -117,19 +113,8 @@ html.rtl .menu-close {
   display: flex;
   align-items: center;
   gap: var(--gap);
-}
 
-.radio-option input[type="radio"] {
-  margin: 0;
-}
-
-.radio-option span {
-  text-wrap: balance;
-  user-select: none;
-}
-
-.get-playlist {
-  position: absolute;
-  bottom: var(--gap-double);
-  right: var(--gap-double);
+  input[type="radio"] {
+    margin: 0;
+  }
 }

@@ -11,6 +11,7 @@ import { useDataManager } from "../../hooks/useDataManager";
 import {
   calculateLanguageFilterStatus,
   calculateRadialOffset,
+  getAutoRotateSpeed,
 } from "../../utils/sceneUtils";
 import { getFeatureScore } from "../../utils/linguisticUtils";
 import { getSortingData, sortLanguages } from "../../utils/sortingUtils";
@@ -31,7 +32,7 @@ const Stage = ({
 }) => {
   const { controls } = useControls();
   const { skipLabelEntrance } = useAppState();
-  const { locale, isLocaleReady } = useI18n();
+  const { locale, isLocaleReady, isRtl } = useI18n();
   const { filteringUtils, selectedLanguage } = useLanguageSelection();
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
 
@@ -182,6 +183,8 @@ const Stage = ({
     Object.keys(formattedPositions).length > 0 &&
     (showEmptyMessage || visibleLanguages.length > 0);
 
+  const autoRotateSpeed = getAutoRotateSpeed(!!selectedLanguage, isRtl);
+
   if (!data || !isInitialized || sortedLanguageCodes.length === 0) {
     return null;
   }
@@ -211,7 +214,7 @@ const Stage = ({
         enableZoom={isSegmented}
         enableRotate={!isSegmented}
         autoRotate={!isSegmented}
-        autoRotateSpeed={selectedLanguage ? -0.3 : -3}
+        autoRotateSpeed={autoRotateSpeed}
       />
 
       <StageLight
