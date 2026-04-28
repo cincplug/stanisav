@@ -15,7 +15,7 @@ import LanguageTree from "./LanguageTree";
 function LanguagesTab({ languageData, isSelected, languageColors = {} }) {
   const { selectedLanguage } = useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
-  const { controls, updateControl } = useControls();
+  const { controls } = useControls();
   const buttonRefs = useRef({});
 
   const { sortBy, labelContent, isReverse } = controls;
@@ -96,12 +96,6 @@ function LanguagesTab({ languageData, isSelected, languageColors = {} }) {
 
   return (
     <div className="control-section">
-      <ControlItemGroup
-        groupName="Languages tab"
-        controls={controls}
-        onChange={updateControl}
-      />
-
       <div className="languages-list">
         {sortBy === "family" ? (
           <LanguageTree
