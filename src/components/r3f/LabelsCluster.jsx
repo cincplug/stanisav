@@ -14,15 +14,15 @@ const LabelsCluster = ({
 
   if (!isSegmented) return null;
 
-  const clusterPositions = {};
+  const languagePositions = {};
   languageCodes.forEach((code) => {
     if (formattedPositions[code]) {
-      clusterPositions[code] = formattedPositions[code];
+      languagePositions[code] = formattedPositions[code];
     }
   });
 
   let rectanglePoints = null;
-  const positionsArray = Object.values(clusterPositions);
+  const positionsArray = Object.values(languagePositions);
 
   if (positionsArray.length > 0) {
     const xs = positionsArray.map((p) => p.x);
@@ -47,7 +47,7 @@ const LabelsCluster = ({
       {rectanglePoints && (
         <Line points={rectanglePoints} color="#373b3f" lineWidth={3} />
       )}
-      <LabelsClusterTitle positions={clusterPositions} title={title} />
+      <LabelsClusterTitle languagePositions={languagePositions} title={title} />
     </>
   );
 };

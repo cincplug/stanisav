@@ -1,24 +1,27 @@
-import { useRef } from "react";
+import { useRef, useMemo, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
 import { Vector3 } from "three";
 import { getClusterTopCenter } from "../../utils/sceneUtils";
 import sceneConfig from "../../config/sceneConfig.json";
 
-const LabelsClusterTitle = ({ positions, title }) => {
+const LabelsClusterTitle = ({ languagePositions, title }) => {
   const titleRef = useRef();
 
-  useFrame(({ camera }) => {
-    const topCenter = getClusterTopCenter(positions);
-    if (!topCenter || !titleRef.current) return;
+  const topCenter = useMemo(
+    () => getClusterTopCenter(languagePositions),
+    [languagePositions],
+  );
 
-    titleRef.current.position.set(
-      topCenter.x,
-      topCenter.y + sceneConfig.clusterTitleOffset,
-      topCenter.z,
-    );
-    titleRef.current.lookAt(camera.position);
-  });
+  useEffect(() => {
+    if (titleRef.current && topCenter) {
+      titleRef.current.position.set(
+        topCenter.x,
+        topCenter.y + sceneConfig.clusterTitleOffset,
+        topCenter.z,
+      );
+    }
+  }, [topCenter]);
 
   return (
     <Text
