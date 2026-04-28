@@ -16,7 +16,7 @@ const PlaylistContext = createContext(null);
 
 export const PlaylistProvider = ({ children }) => {
   const { data, sceneReady } = useAppState();
-  const { controls, updateControl } = useControls();
+  const { controls } = useControls();
   const {
     isLoop,
     isMyMesha,

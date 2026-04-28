@@ -71,21 +71,19 @@ function App() {
           languageColors={languageColors}
         />
 
-        {selectedLanguage && isInfoVisible && isMenuExpanded && (
-          <>
-            <IdCard
-              languageCode={selectedLanguage}
-              language={data?.languageData[selectedLanguage]}
-              languageLineages={data?.languageLineages}
-              sampleUrl={sampleUrl}
-              onSourceVideoClick={pausePlaylist}
-              onToggleSubtitle={(nextValue) =>
-                updateControl("isInfoVisible", nextValue)
-              }
-              sub={sub}
-              languageColor={languageColors[selectedLanguage]}
-            />
-          </>
+        {selectedLanguage && isInfoVisible && (
+          <IdCard
+            languageCode={selectedLanguage}
+            language={data?.languageData[selectedLanguage]}
+            languageLineages={data?.languageLineages}
+            sampleUrl={sampleUrl}
+            onSourceVideoClick={pausePlaylist}
+            onToggleSubtitle={(nextValue) =>
+              updateControl("isInfoVisible", nextValue)
+            }
+            sub={sub}
+            languageColor={languageColors[selectedLanguage]}
+          />
         )}
       </div>
     </div>

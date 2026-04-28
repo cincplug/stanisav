@@ -52,17 +52,17 @@
     "isShownInMenu": false,
     "group": "Header"
   },
+  "isInfoVisible": {
+    "type": "checkbox",
+    "defaultValue": true,
+    "isShownInMenu": true,
+    "group": "Header"
+  },
   "isMenuExpanded": {
     "type": "checkbox",
     "defaultValue": false,
     "isShownInMenu": true,
     "group": "Header"
-  },
-  "isInfoVisible": {
-    "type": "checkbox",
-    "defaultValue": true,
-    "isShownInMenu": true,
-    "group": "Scene"
   },
   "labelSize": {
     "type": "range",
