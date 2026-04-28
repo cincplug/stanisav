@@ -60,7 +60,7 @@
       "scene": "Cena",
       "stageLight": "Luz de cena"
     },
-    "isInfoVisible": {
+    "isIdCardVisible": {
       "label": "Mostrar legenda"
     },
     "hueCircle": {

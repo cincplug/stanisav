@@ -60,7 +60,7 @@
       "scene": "صحنه",
       "stageLight": "نور صحنه"
     },
-    "isInfoVisible": {
+    "isIdCardVisible": {
       "label": "نمایش زیرنویس"
     },
     "hueCircle": {

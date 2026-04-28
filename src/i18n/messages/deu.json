@@ -60,7 +60,7 @@
       "scene": "Szene",
       "stageLight": "Bühnenlicht"
     },
-    "isInfoVisible": {
+    "isIdCardVisible": {
       "label": "Untertitel anzeigen"
     },
     "hueCircle": {

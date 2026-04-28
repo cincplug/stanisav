@@ -52,7 +52,7 @@
     "isShownInMenu": false,
     "group": "Header"
   },
-  "isInfoVisible": {
+  "isIdCardVisible": {
     "type": "checkbox",
     "defaultValue": true,
     "isShownInMenu": true,

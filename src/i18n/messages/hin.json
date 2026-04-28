@@ -60,7 +60,7 @@
       "scene": "दृश्य",
       "stageLight": "मंच प्रकाश"
     },
-    "isInfoVisible": {
+    "isIdCardVisible": {
       "label": "उपशीर्षक दिखाएँ"
     },
     "hueCircle": {

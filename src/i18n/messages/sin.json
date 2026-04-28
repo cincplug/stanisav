@@ -60,7 +60,7 @@
       "scene": "දර්ශනය",
       "stageLight": "වේදිකා ආලෝකය"
     },
-    "isInfoVisible": {
+    "isIdCardVisible": {
       "label": "උපශීර්ෂය පෙන්වන්න"
     },
     "hueCircle": {

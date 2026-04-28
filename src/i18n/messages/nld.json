@@ -60,7 +60,7 @@
       "scene": "Scène",
       "stageLight": "Podiumlicht"
     },
-    "isInfoVisible": {
+    "isIdCardVisible": {
       "label": "Ondertiteling tonen"
     },
     "hueCircle": {

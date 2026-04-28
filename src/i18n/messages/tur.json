@@ -60,7 +60,7 @@
       "scene": "Sahne",
       "stageLight": "Sahne ışığı"
     },
-    "isInfoVisible": {
+    "isIdCardVisible": {
       "label": "Altyazı göster"
     },
     "hueCircle": {

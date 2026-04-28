@@ -60,7 +60,7 @@
       "scene": "Сцена",
       "stageLight": "Сценска светлина"
     },
-    "isInfoVisible": {
+    "isIdCardVisible": {
       "label": "Прикажи поднаслов"
     },
     "hueCircle": {

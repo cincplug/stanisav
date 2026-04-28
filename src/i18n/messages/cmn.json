@@ -60,7 +60,7 @@
       "scene": "场景",
       "stageLight": "舞台灯光"
     },
-    "isInfoVisible": {
+    "isIdCardVisible": {
       "label": "显示字幕"
     },
     "hueCircle": {

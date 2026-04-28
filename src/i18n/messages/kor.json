@@ -60,7 +60,7 @@
       "scene": "장면",
       "stageLight": "무대 조명"
     },
-    "isInfoVisible": {
+    "isIdCardVisible": {
       "label": "자막 표시"
     },
     "hueCircle": {

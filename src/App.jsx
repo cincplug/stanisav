@@ -30,7 +30,7 @@ function App() {
   const { selectedLanguage, selectedProperty, setSelectedProperty } =
     useLanguageSelection();
   const { pausePlaylist } = usePlaylist();
-  const { isInfoVisible, isMenuVisible, isMenuExpanded } = controls;
+  const { isIdCardVisible, isMenuVisible, isMenuExpanded } = controls;
   const { sampleUrl, sub } = data?.languageData[selectedLanguage] || {};
 
   const languageColors = useLanguageColors(
@@ -71,7 +71,7 @@ function App() {
           languageColors={languageColors}
         />
 
-        {selectedLanguage && isInfoVisible && (
+        {selectedLanguage && isIdCardVisible && (
           <IdCard
             languageCode={selectedLanguage}
             language={data?.languageData[selectedLanguage]}
@@ -79,7 +79,7 @@ function App() {
             sampleUrl={sampleUrl}
             onSourceVideoClick={pausePlaylist}
             onToggleSubtitle={(nextValue) =>
-              updateControl("isInfoVisible", nextValue)
+              updateControl("isIdCardVisible", nextValue)
             }
             sub={sub}
             languageColor={languageColors[selectedLanguage]}

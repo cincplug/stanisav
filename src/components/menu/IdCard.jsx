@@ -104,7 +104,7 @@ function IdCard({
         ref={closeButtonRef}
         className="close-button id-card-close-button"
         onClick={() => onToggleSubtitle?.(false)}
-        aria-label={t("controls.isInfoVisible.label")}
+        aria-label={t("controls.isIdCardVisible.label")}
       >
         <CloseIcon />
       </button>

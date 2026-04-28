@@ -60,7 +60,7 @@
       "scene": "シーン",
       "stageLight": "ステージライト"
     },
-    "isInfoVisible": {
+    "isIdCardVisible": {
       "label": "字幕を表示"
     },
     "hueCircle": {

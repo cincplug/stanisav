@@ -60,7 +60,7 @@
       "scene": "Cảnh",
       "stageLight": "Ánh sáng sân khấu"
     },
-    "isInfoVisible": {
+    "isIdCardVisible": {
       "label": "Hiển thị phụ đề"
     },
     "hueCircle": {

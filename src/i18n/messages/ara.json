@@ -60,7 +60,7 @@
       "scene": "المشهد",
       "stageLight": "إضاءة المسرح"
     },
-    "isInfoVisible": {
+    "isIdCardVisible": {
       "label": "عرض الترجمة"
     },
     "hueCircle": {

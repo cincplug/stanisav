@@ -60,7 +60,7 @@
       "scene": "Adegan",
       "stageLight": "Cahaya panggung"
     },
-    "isInfoVisible": {
+    "isIdCardVisible": {
       "label": "Tampilkan subjudul"
     },
     "hueCircle": {

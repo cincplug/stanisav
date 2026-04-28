@@ -63,7 +63,7 @@
     "isMenuExpanded": {
       "label": "Show more"
     },
-    "isInfoVisible": {
+    "isIdCardVisible": {
       "label": "Show subtitle"
     },
     "hueCircle": {
