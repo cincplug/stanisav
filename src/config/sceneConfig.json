@@ -9,5 +9,5 @@
   "clusterCellSpacing": 0.12,
   "clusterCellSizeModifier": 1,
   "radialOffsetModifier": 4,
-  "autoRotateSpeed": -3
+  "autoRotateSpeed": 3
 }

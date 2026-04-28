@@ -1,7 +1,8 @@
 import SceneReadyGate from "./SceneReadyGate";
-import { Canvas } from "@react-three/fiber";
+import { useMemo, useRef } from "react";
+import { Vector3, Quaternion } from "three";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { useMemo } from "react";
 import { useSpring } from "@react-spring/three";
 import { useControls } from "../../contexts/ControlsContext";
 import { useAppState } from "../../contexts/AppStateContext";
@@ -23,6 +24,7 @@ import StageLight from "./StageLight";
 import Labels from "./Labels";
 import Mesha from "./Mesha";
 import Camera from "./Camera";
+import CustomOrbitAutoRotate from "./CustomOrbitAutoRotate";
 
 const Stage = ({
   onDataLoaded,
@@ -57,6 +59,8 @@ const Stage = ({
     irrationality,
     globeSpiralAxis,
   } = controls;
+
+  const orbitControlsRef = useRef();
 
   const languageData = data?.languageData || {};
   const { languageCodes, languageLineages, speakerData, typologicalFeatures } =
@@ -183,7 +187,11 @@ const Stage = ({
     Object.keys(formattedPositions).length > 0 &&
     (showEmptyMessage || visibleLanguages.length > 0);
 
-  const autoRotateSpeed = getAutoRotateSpeed(!!selectedLanguage, isRtl);
+  const autoRotateSpeed = getAutoRotateSpeed(
+    !!selectedLanguage,
+    isRtl,
+    globeSpiralAxis,
+  );
 
   if (!data || !isInitialized || sortedLanguageCodes.length === 0) {
     return null;
@@ -209,12 +217,19 @@ const Stage = ({
       <color attach="background" args={[bgColor]} />
 
       <OrbitControls
+        ref={orbitControlsRef}
         enableDamping={true}
         makeDefault={true}
         enableZoom={isSegmented}
         enableRotate={!isSegmented}
-        autoRotate={!isSegmented}
-        autoRotateSpeed={autoRotateSpeed}
+        autoRotate={false}
+      />
+
+      <CustomOrbitAutoRotate
+        orbitControlsRef={orbitControlsRef}
+        axis={globeSpiralAxis}
+        speed={autoRotateSpeed}
+        isEnabled={!isSegmented}
       />
 
       <StageLight

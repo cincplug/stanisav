@@ -54,7 +54,7 @@
   },
   "isIdCardVisible": {
     "type": "checkbox",
-    "defaultValue": true,
+    "defaultValue": false,
     "isShownInMenu": true,
     "group": "Header"
   },
