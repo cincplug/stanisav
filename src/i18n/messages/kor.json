@@ -61,7 +61,7 @@
       "stageLight": "무대 조명"
     },
     "isIdCardVisible": {
-      "label": "자막 표시"
+      "label": "신분증"
     },
     "hueCircle": {
       "label": "색상환"

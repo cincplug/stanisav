@@ -61,7 +61,7 @@
       "stageLight": "Luz de cena"
     },
     "isIdCardVisible": {
-      "label": "Mostrar legenda"
+      "label": "Cartão de Identidade"
     },
     "hueCircle": {
       "label": "Círculo de matizes"

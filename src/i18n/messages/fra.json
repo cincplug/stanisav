@@ -61,7 +61,7 @@
       "stageLight": "Lumière de scène"
     },
     "isIdCardVisible": {
-      "label": "Afficher le sous-titre"
+      "label": "Carte d'identité"
     },
     "hueCircle": {
       "label": "Cercle de teintes"

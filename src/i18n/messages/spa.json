@@ -61,7 +61,7 @@
       "stageLight": "Luz de escena"
     },
     "isIdCardVisible": {
-      "label": "Mostrar subtítulo"
+      "label": "Documento de identidad"
     },
     "hueCircle": {
       "label": "Círculo de matices"

@@ -61,7 +61,7 @@
       "stageLight": "ステージライト"
     },
     "isIdCardVisible": {
-      "label": "字幕を表示"
+      "label": "身分証明書"
     },
     "hueCircle": {
       "label": "色相環"
