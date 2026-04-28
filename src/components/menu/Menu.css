@@ -133,16 +133,3 @@ html.rtl .menu-close {
   bottom: var(--gap-double);
   right: var(--gap-double);
 }
-
-.select-toggle {
-  min-width: 0;
-  max-width: 100%;
-}
-
-.select-current {
-  min-width: 0;
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}

@@ -16,10 +16,7 @@
 }
 
 .select-current {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  min-width: 0;
+  text-align: left;
 }
 
 .select-arrow {
