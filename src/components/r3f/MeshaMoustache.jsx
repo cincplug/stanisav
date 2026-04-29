@@ -76,7 +76,7 @@ const MeshaMoustache = ({
     return tufts.map((tuft, i) => {
       const offsetFromCenter = Math.abs(i - centerIndex);
       const t = centerIndex === 0 ? 0 : offsetFromCenter / centerIndex; // 0 at center, 1 at edge
-      const scale = minScale + (maxScale - minScale) * t;
+      const scale = maxScale + (maxScale - minScale) * t;
       const deg =
         (angleConfig.centerDeg +
           (i - centerIndex) * angleConfig.stepDeg +
@@ -104,7 +104,7 @@ const MeshaMoustache = ({
           const baseY = tufts[i].y;
 
           tuftGroup.position.y = baseY + amplitude / tuftCount;
-          const scale = 0.3 + amplitude;
+          const scale = moustacheSize + amplitude;
           tuftGroup.scale.set(scale, scale, scale);
         }
       });

@@ -60,16 +60,14 @@ const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
 
   useFrame(() => {
     if (teethRefs.current && audioData.isSelected) {
-      const { fundamentalData } = audioData;
+      const { harmonicsData } = audioData;
       const count = teethRefs.current.length;
 
       teethRefs.current.forEach((tooth, i) => {
         if (tooth) {
           const xSymmetry = Math.abs(Math.cos((i / count) * Math.PI * 2));
-          const bandIndex = Math.floor(
-            (xSymmetry * fundamentalData.length) / 6,
-          );
-          const amplitude = fundamentalData[bandIndex];
+          const bandIndex = Math.floor((xSymmetry * harmonicsData.length) / 6);
+          const amplitude = harmonicsData[bandIndex];
           tooth.position.y = -amplitude * 3;
           const scale = amplitude + clusterSize / 5;
           tooth.scale.set(scale, scale * -1, scale / 4);
