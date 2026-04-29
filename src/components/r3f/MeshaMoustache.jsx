@@ -22,6 +22,7 @@ const MeshaMoustache = ({
   z,
   onClick,
   isSelected,
+  audioBand,
 }) => {
   const tuftsRef = useRef([]);
 
@@ -66,7 +67,7 @@ const MeshaMoustache = ({
     return tufts.map((tuft, i) => {
       const offsetFromCenter = Math.abs(i - centerIndex);
       const t = centerIndex === 0 ? 0 : offsetFromCenter / centerIndex; // 0 at center, 1 at edge
-      const scale = maxScale + (maxScale - minScale) * t;
+      const scale = minScale + (maxScale - minScale) * t;
       const deg =
         (angleConfig.centerDeg +
           (i - centerIndex) * angleConfig.stepDeg +
@@ -79,21 +80,21 @@ const MeshaMoustache = ({
 
   useFrame(() => {
     if (tuftsRef.current && audioData.isSelected) {
-      const { harmonicsData } = audioData;
+      const audioBandData = audioData[audioBand];
       const count = tuftsRef.current.length;
-      const bandDivisor = 6;
+      const bandDivisor = tuftCount;
 
       tuftsRef.current.forEach((tuftGroup, i) => {
         if (tuftGroup) {
           const angle = (i / count) * Math.PI * 2;
           const xSymmetry = Math.abs(Math.cos(angle));
           const bandIndex = Math.floor(
-            (xSymmetry * harmonicsData.length) / bandDivisor,
+            (xSymmetry * audioBandData.length) / bandDivisor,
           );
-          const amplitude = harmonicsData[bandIndex];
-          const baseY = tufts[i].y;
+          const amplitude = audioBandData[bandIndex];
+          const baseZ = tufts[i].z;
 
-          tuftGroup.position.y = baseY + amplitude / tuftCount;
+          tuftGroup.position.z = baseZ + moustacheSize + amplitude;
           const scale = moustacheSize + amplitude;
           tuftGroup.scale.set(scale, scale, scale);
         }
