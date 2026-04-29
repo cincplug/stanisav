@@ -29,6 +29,7 @@ const Mesha = ({
   stripesType,
   looksAround,
   renderOrder,
+  autoRotateSpeed,
 }) => {
   const groupRef = useRef();
   const lookAroundRef = useRef();
@@ -36,7 +37,16 @@ const Mesha = ({
   const lookAroundRotationRef = useRef(0);
 
   const { controls } = useControls();
-  const { meshaSize, eyeZ, eyeX, eyeY, noseSize, tension, friction } = controls;
+  const {
+    meshaSize,
+    eyeZ,
+    eyeX,
+    eyeY,
+    noseSize,
+    tension,
+    friction,
+    globeSpiralAxis,
+  } = controls;
   const { selectedProperty, setSelectedProperty } = useLanguageSelection();
 
   useEffect(() => {
@@ -120,7 +130,7 @@ const Mesha = ({
 
       if (lookAroundRef.current) {
         const time = clock.getElapsedTime();
-        const speed = 0.2;
+        const speed = autoRotateSpeed / 3;
         const amplitude = Math.PI / 8;
 
         const phase = time * speed;

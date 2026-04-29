@@ -268,6 +268,7 @@ const Stage = ({
           stripesType={stripesType}
           looksAround={true}
           renderOrder={languageCodes.length}
+          autoRotateSpeed={autoRotateSpeed}
         />
       </group>
     </Canvas>
