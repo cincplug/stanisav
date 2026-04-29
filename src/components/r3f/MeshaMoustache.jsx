@@ -5,7 +5,6 @@ import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeom
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
 import { shiftHue } from "../../utils/colorUtils";
-import { defaultAudioData } from "../../config/meshaDefaultAudioData.js";
 import { createTuftShape } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
@@ -25,19 +24,10 @@ const MeshaMoustache = ({
   isSelected,
 }) => {
   const tuftsRef = useRef([]);
-  const lastAudioDataRef = useRef(defaultAudioData);
 
   const { controls } = useControls();
-  const { audioData: rawAudioData } = useAudioAnimation();
+  const { audioData } = useAudioAnimation();
   const { meshaSize, eyeZ, eyeX, moustacheSize } = controls;
-
-  const audioData = rawAudioData.isSelected
-    ? rawAudioData
-    : lastAudioDataRef.current;
-
-  if (rawAudioData.isSelected) {
-    lastAudioDataRef.current = rawAudioData;
-  }
 
   const tuftSurface = useMemo(
     () => createTuftShape(moustacheSize, tuftCount),

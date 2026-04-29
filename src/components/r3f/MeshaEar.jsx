@@ -3,7 +3,6 @@ import MeshaHighlight from "./MeshaHighlight.jsx";
 import { extend } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
-import { defaultAudioData } from "../../config/meshaDefaultAudioData.js";
 import { createAudioSurface } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });

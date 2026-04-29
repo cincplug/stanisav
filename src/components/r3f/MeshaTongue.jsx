@@ -2,7 +2,6 @@ import { extend } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
-import { defaultAudioData } from "../../config/meshaDefaultAudioData.js";
 import { createAudioSurface } from "../../utils/shapeUtils.js";
 import { useRef, useMemo } from "react";
 import MeshaHighlight from "./MeshaHighlight.jsx";
@@ -10,18 +9,9 @@ import MeshaHighlight from "./MeshaHighlight.jsx";
 extend({ ParametricGeometry });
 
 const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
-  const lastAudioDataRef = useRef(defaultAudioData);
   const { controls } = useControls();
-  const { audioData: rawAudioData } = useAudioAnimation();
+  const { audioData } = useAudioAnimation();
   const { meshaSize } = controls;
-
-  const audioData = rawAudioData.isSelected
-    ? rawAudioData
-    : lastAudioDataRef.current;
-
-  if (rawAudioData.isSelected) {
-    lastAudioDataRef.current = rawAudioData;
-  }
 
   const audioSurface = useMemo(
     () =>
