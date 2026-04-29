@@ -38,13 +38,17 @@ class AudioAnalysisService {
         window.AudioContext || window.webkitAudioContext
       )();
 
-      // Create analyser node
+      // Create analyser node with destructured config
+      const { fftSize, smoothingTimeConstant, minDecibels, maxDecibels } =
+        this.config.frequencyAnalysis;
+
       this.analyser = this.audioContext.createAnalyser();
-      this.analyser.fftSize = this.config.frequencyAnalysis.fftSize;
-      this.analyser.smoothingTimeConstant =
-        this.config.frequencyAnalysis.smoothingTimeConstant;
-      this.analyser.minDecibels = this.config.frequencyAnalysis.minDecibels;
-      this.analyser.maxDecibels = this.config.frequencyAnalysis.maxDecibels;
+      Object.assign(this.analyser, {
+        fftSize,
+        smoothingTimeConstant,
+        minDecibels,
+        maxDecibels,
+      });
 
       // Create data arrays
       const bufferLength = this.analyser.frequencyBinCount;
@@ -103,8 +107,8 @@ class AudioAnalysisService {
 
     // Notify callbacks with empty data
     this.notifyCallbacks({
-      fundamentalData: [...this.fundamentalData],
-      harmonicsData: [...this.harmonicsData],
+      fundamentalData: this.fundamentalData,
+      harmonicsData: this.harmonicsData,
       isSelected: false,
     });
   }
@@ -113,7 +117,7 @@ class AudioAnalysisService {
    * Main analysis loop
    */
   analyzeAudio() {
-    if (!this.isAnalyzing || !this.analyser) {
+    if (!this.isAnalyzing) {
       return;
     }
 
@@ -142,14 +146,9 @@ class AudioAnalysisService {
     const nyquist = sampleRate / 2;
     const binCount = this.dataArray.length;
 
-    // Calculate frequency ranges for human voice components
-    const fundamentalMin = this.config.humanVoiceRange.fundamentalMin;
-    const fundamentalMax = this.config.humanVoiceRange.fundamentalMax;
-    const harmonicsMin = this.config.humanVoiceRange.harmonicsMin;
-    const harmonicsMax = Math.min(
-      this.config.humanVoiceRange.harmonicsMax,
-      nyquist,
-    );
+    // Destructure human voice range config
+    const { fundamentalMin, fundamentalMax, harmonicsMin, harmonicsMax } =
+      this.config.humanVoiceRange;
 
     // Convert frequencies to bin indices
     const fundamentalMinBin = Math.floor((fundamentalMin / nyquist) * binCount);
