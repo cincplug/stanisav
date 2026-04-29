@@ -1,6 +1,6 @@
 import audioVisualizationConfig from "../config/audioVisualizationConfig.json";
 
-export const createAudioSurface = ({ audioData, size, bend, radius }) => {
+export const createAudioSurface = ({ audioBand, size, bend, radius }) => {
   const {
     maxDeformation,
     fundamentalAmplifier,
@@ -25,23 +25,14 @@ export const createAudioSurface = ({ audioData, size, bend, radius }) => {
 
     let y = y_base;
 
-    if (audioData.isSelected) {
-      const { fundamentalData, harmonicsData } = audioData;
+    if (audioBand) {
       const verticalVariation =
-        Math.sin(v * Math.PI * 3) * verticalVariationMultiplier;
+        Math.sin(v * Math.PI) * verticalVariationMultiplier;
 
       const uForBand = u > 0.5 ? 1 - u : u;
       const bandIndex = Math.floor(uForBand * (frequencyBands - 1));
-
-      const fundamentalAmplitude = fundamentalData[bandIndex] || 0;
-      const harmonicsAmplitude = harmonicsData[bandIndex] || 0;
-
-      const balancedFundamental = fundamentalAmplitude * fundamentalAmplifier;
-      const balancedHarmonics = harmonicsAmplitude * harmonicsAmplifier;
-      const totalAmplitude = balancedFundamental + balancedHarmonics;
-
-      y = y_base + totalAmplitude * maxDeformation * size;
-
+      const amplitude = audioBand[bandIndex] || 0;
+      y = y_base + amplitude * maxDeformation * size;
       if (u > 0.5) {
         y *= 1 + verticalVariation;
       }

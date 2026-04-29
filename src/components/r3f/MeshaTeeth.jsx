@@ -42,9 +42,7 @@ const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
             Math.floor(clusterSize / 2)
           : 0;
       const rotationAngle =
-        Math.sign(positionInCluster - clusterCenter) *
-        rotationIntensity *
-        (Math.PI / 8);
+        Math.sign(positionInCluster - clusterCenter) * rotationIntensity;
 
       return {
         x: Math.cos(angle) * meshaSize,
@@ -68,7 +66,7 @@ const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
           const xSymmetry = Math.abs(Math.cos((i / count) * Math.PI * 2));
           const bandIndex = Math.floor((xSymmetry * harmonicsData.length) / 6);
           const amplitude = harmonicsData[bandIndex];
-          tooth.position.y = -amplitude * 3;
+          tooth.position.y = -amplitude * 4;
           const scale = amplitude + clusterSize / 5;
           tooth.scale.set(scale, scale * -1, scale / 4);
         }

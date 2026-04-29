@@ -26,18 +26,18 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
   const audioSurface = useMemo(
     () =>
       createAudioSurface({
-        audioData,
+        audioBand: audioData.harmonicsData,
         size: meshaSize,
         bend: 0,
         radius: meshaSize,
       }),
-    [audioData, meshaSize],
+    [audioData.harmonicsData, meshaSize],
   );
 
   return (
     <mesh
       position={[0, meshaSize, meshaSize]}
-      scale={[meshaSize / 2, -meshaSize / 6, -meshaSize]}
+      scale={[meshaSize / 3, -meshaSize / 6, -meshaSize]}
       rotation={[0, Math.PI, 0]}
       onClick={onClick}
       linguisticProperty="tonality"

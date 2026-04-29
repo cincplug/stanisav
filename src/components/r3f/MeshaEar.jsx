@@ -23,26 +23,17 @@ const MeshaEar = ({
   onClick,
   isSelected,
 }) => {
-  const lastAudioDataRef = useRef(defaultAudioData);
-  const { audioData: rawAudioData } = useAudioAnimation();
-
-  const audioData = rawAudioData.isSelected
-    ? rawAudioData
-    : lastAudioDataRef.current;
-
-  if (rawAudioData.isSelected) {
-    lastAudioDataRef.current = rawAudioData;
-  }
+  const { audioData } = useAudioAnimation();
 
   const audioSurface = useMemo(
     () =>
       createAudioSurface({
-        audioData,
+        audioBand: audioData.fundamentalData,
         size: meshaSize,
         bend,
         radius: meshaSize,
       }),
-    [audioData, meshaSize, bend],
+    [audioData.fundamentalData, meshaSize, bend],
   );
 
   const { x, y, z } = earPosition;
