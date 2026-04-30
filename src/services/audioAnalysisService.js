@@ -129,8 +129,8 @@ class AudioAnalysisService {
 
     // Notify callbacks
     this.notifyCallbacks({
-      fundamentalData: [...this.fundamentalData],
-      harmonicsData: [...this.harmonicsData],
+      fundamentalData: this.fundamentalData,
+      harmonicsData: this.harmonicsData,
       isSelected: true,
     });
 
