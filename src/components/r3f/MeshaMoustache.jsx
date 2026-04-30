@@ -79,7 +79,7 @@ const MeshaMoustache = ({
   }, [tufts, tuftCount, angleConfig]);
 
   useFrame(() => {
-    if (tuftsRef.current && audioData.isSelected) {
+    if (tuftsRef.current) {
       const audioBandData = audioData[audioBand];
       const count = tuftsRef.current.length;
       const bandDivisor = tuftCount;

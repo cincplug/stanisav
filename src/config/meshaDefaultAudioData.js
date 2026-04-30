@@ -1,4 +1,3 @@
-// Default mock audio data for Mesha when no language is selected
 export const defaultAudioData = {
   fundamentalData: [
     0.43, 0.495, 0.48, 0.457, 0.559, 0.599, 0.554, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -9,5 +8,4 @@ export const defaultAudioData = {
     0.231, 0.191, 0.149, 0.119, 0.148, 0.069, 0.143, 0.076, 0.097, 0.15, 0.086,
     0.074, 0.04, 0.015, 0.062, 0.013, 0.035, 0.016, 0.01, 0.011, 0.004,
   ],
-  isSelected: true,
 };

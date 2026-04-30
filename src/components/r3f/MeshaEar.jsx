@@ -1,6 +1,6 @@
-import { useRef, useMemo } from "react";
+import { useRef, useEffect } from "react";
 import MeshaHighlight from "./MeshaHighlight.jsx";
-import { extend } from "@react-three/fiber";
+import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
 import { createAudioSurface } from "../../utils/shapeUtils.js";
@@ -23,52 +23,67 @@ const MeshaEar = ({
   isSelected,
 }) => {
   const { audioData } = useAudioAnimation();
+  const leftMeshRef = useRef();
+  const rightMeshRef = useRef();
 
-  const audioSurface = useMemo(
-    () =>
-      createAudioSurface({
-        audioBand: audioData.fundamentalData,
-        size: meshaSize,
-        bend,
-        radius: meshaSize,
-      }),
-    [audioData.fundamentalData, meshaSize, bend],
-  );
+  useFrame(() => {
+    const audioSurface = createAudioSurface({
+      audioBand: audioData.fundamentalData,
+      size: meshaSize,
+      bend,
+      radius: meshaSize,
+    });
+
+    if (leftMeshRef.current) {
+      leftMeshRef.current.geometry.dispose();
+      leftMeshRef.current.geometry = new ParametricGeometry(
+        audioSurface,
+        leftSegments,
+        leftSegments,
+      );
+    }
+    if (rightMeshRef.current) {
+      rightMeshRef.current.geometry.dispose();
+      rightMeshRef.current.geometry = new ParametricGeometry(
+        audioSurface,
+        rightSegments,
+        rightSegments,
+      );
+    }
+  });
 
   const { x, y, z } = earPosition;
 
   return (
     <>
       <mesh
+        ref={leftMeshRef}
         position={[-x, y, z]}
         scale={[-0.6, 3 / rightSegments, 1]}
         onClick={onClick}
         linguisticProperty="morphology"
       >
-        <parametricGeometry args={[audioSurface, leftSegments, leftSegments]} />
         <shaderMaterial args={[earMaterial]} />
         {isSelected && (
           <MeshaHighlight
             geometry="parametricGeometry"
-            geometryArgs={[audioSurface, leftSegments, leftSegments]}
+            geometryArgs={[() => {}, leftSegments, leftSegments]}
           />
         )}
       </mesh>
 
       <mesh
+        ref={rightMeshRef}
         position={[x, y, z]}
         scale={[0.6, 3 / rightSegments, 1]}
         onClick={onClick}
         linguisticProperty="morphology"
       >
-        <parametricGeometry
-          args={[audioSurface, rightSegments, rightSegments]}
-        />
         <shaderMaterial args={[earMaterial]} />
         {isSelected && (
           <MeshaHighlight
             geometry="parametricGeometry"
-            geometryArgs={[audioSurface, rightSegments, rightSegments]}
+            geometryArgs={[() => {}, rightSegments, rightSegments]}
           />
         )}
       </mesh>

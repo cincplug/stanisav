@@ -50,7 +50,7 @@ const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
   }, [toothCount, clusterSize, meshaSize]);
 
   useFrame(() => {
-    if (teethRefs.current && audioData.isSelected) {
+    if (teethRefs.current) {
       const { harmonicsData } = audioData;
       const count = teethRefs.current.length;
 

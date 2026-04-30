@@ -109,7 +109,6 @@ class AudioAnalysisService {
     this.notifyCallbacks({
       fundamentalData: this.fundamentalData,
       harmonicsData: this.harmonicsData,
-      isSelected: false,
     });
   }
 
@@ -131,7 +130,6 @@ class AudioAnalysisService {
     this.notifyCallbacks({
       fundamentalData: this.fundamentalData,
       harmonicsData: this.harmonicsData,
-      isSelected: true,
     });
 
     // Schedule next frame
