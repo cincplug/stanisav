@@ -1,5 +1,5 @@
 import audioVisualizationConfig from "../config/audioVisualizationConfig.json";
-import { defaultAudioData } from "../config/meshaDefaultAudioData";
+import defaultAudioData from "../config/meshaDefaultAudioData.json";
 
 /**
  * Audio Analysis Service
