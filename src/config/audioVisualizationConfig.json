@@ -7,14 +7,14 @@
   },
   "humanVoiceRange": {
     "fundamentalMin": 85,
-    "fundamentalMax": 255,
-    "harmonicsMin": 256,
+    "fundamentalMax": 800,
+    "harmonicsMin": 700,
     "harmonicsMax": 4000
   },
   "meshDeformation": {
     "maxDeformation": 1.2,
     "deformationSmoothness": 0.1,
-    "amplitudeThreshold": 0.2,
+    "amplitudeThreshold": 0.1,
     "decayRate": 0.7,
     "verticalVariationMultiplier": 0.1,
     "fundamentalAmplifier": 0.8,
