@@ -9,11 +9,11 @@ import { createTuftShape } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
 
-/**
- * MeshaMoustache
- * @param {object} props
- * @param {boolean} props.isSelected - highlight if selectedProperty matches
- */
+const CENTER_DEG = 180;
+const STEP_DEG = 6;
+const MIN_SCALE = 0.7;
+const MAX_SCALE = 1;
+
 const MeshaMoustache = ({
   linguisticProperty,
   tuftCount,
@@ -25,6 +25,7 @@ const MeshaMoustache = ({
   audioBand,
 }) => {
   const tuftsRef = useRef([]);
+  const tuftDataRef = useRef([]);
 
   const { controls } = useControls();
   const { audioData } = useAudioAnimation();
@@ -35,71 +36,54 @@ const MeshaMoustache = ({
     [moustacheSize, tuftCount],
   );
 
-  const angleConfig = useMemo(() => {
-    const centerDeg = 180;
-    const stepDeg = 12; // fixed angle between neighboring tufts
-    return { centerDeg, stepDeg };
-  }, []);
-
-  const tufts = useMemo(() => {
+  const tuftsWithRotation = useMemo(() => {
     if (!tuftCount) return [];
 
     const spacing = (eyeX * 4) / tuftCount;
     const totalWidth = spacing * (tuftCount - 1);
     const baseX = totalWidth / 2;
     const baseZ = meshaSize * eyeZ;
+    const centerIndex = (tuftCount - 1) / 2;
 
-    return Array.from({ length: tuftCount }, (_, i) => ({
-      x: baseX - i * spacing,
-      y,
-      z: baseZ + z,
-      key: `moustache-${i}`,
-    }));
+    const result = Array.from({ length: tuftCount }, (_, i) => {
+      const offsetFromCenter = Math.abs(i - centerIndex);
+      const t = centerIndex === 0 ? 0 : offsetFromCenter / centerIndex;
+      const scale = MIN_SCALE + (MAX_SCALE - MIN_SCALE) * t;
+      const rotationRad =
+        ((CENTER_DEG + (i - centerIndex) * STEP_DEG) * Math.PI) / 180;
+
+      return {
+        key: `moustache-${i}`,
+        x: baseX - i * spacing,
+        y,
+        z: baseZ + z,
+        rotationRad,
+        scale,
+        t,
+      };
+    });
+
+    tuftDataRef.current = result;
+    return result;
   }, [tuftCount, eyeX, eyeZ, meshaSize, y, z]);
 
-  const tuftsWithRotation = useMemo(() => {
-    if (!tufts.length) return [];
-
-    const centerIndex = (tuftCount - 1) / 2;
-    const minScale = 0.5; // scale at center
-    const maxScale = 1; // scale at edges
-
-    return tufts.map((tuft, i) => {
-      const offsetFromCenter = Math.abs(i - centerIndex);
-      const t = centerIndex === 0 ? 0 : offsetFromCenter / centerIndex; // 0 at center, 1 at edge
-      const scale = minScale + (maxScale - minScale) * t;
-      const deg =
-        (angleConfig.centerDeg +
-          (i - centerIndex) * angleConfig.stepDeg +
-          360) %
-        360;
-      const rotationRad = (deg * Math.PI) / 180;
-      return { ...tuft, rotationRad, scale };
-    });
-  }, [tufts, tuftCount, angleConfig]);
-
   useFrame(() => {
-    if (tuftsRef.current) {
-      const audioBandData = audioData[audioBand];
-      const count = tuftsRef.current.length;
-      const bandDivisor = tuftCount;
+    const audioBandData = audioData[audioBand];
 
-      tuftsRef.current.forEach((tuftGroup, i) => {
-        if (tuftGroup) {
-          const angle = (i / count) * Math.PI * 2;
-          const xSymmetry = Math.abs(Math.cos(angle));
-          const bandIndex = Math.floor(
-            (xSymmetry * audioBandData.length) / bandDivisor,
-          );
-          const amplitude = audioBandData[bandIndex];
-          const baseZ = tufts[i].z;
+    tuftsRef.current.forEach((tuftGroup, i) => {
+      if (!tuftGroup) return;
+      const tuft = tuftDataRef.current[i];
+      const bandIndex = Math.floor(
+        (Math.abs(Math.cos((i / tuftCount) * Math.PI * 2)) *
+          audioBandData.length) /
+          tuftCount,
+      );
+      const amplitude = audioBandData[bandIndex];
+      const scale = moustacheSize + amplitude;
 
-          tuftGroup.position.z = baseZ + moustacheSize + amplitude;
-          const scale = moustacheSize + amplitude;
-          tuftGroup.scale.set(scale, scale, scale);
-        }
-      });
-    }
+      tuftGroup.position.z = tuft.z + moustacheSize + amplitude;
+      tuftGroup.scale.set(scale, scale, scale);
+    });
   });
 
   if (!tuftsWithRotation.length) return null;
