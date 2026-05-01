@@ -10,7 +10,6 @@ import { createTuftShape } from "../../utils/shapeUtils.js";
 extend({ ParametricGeometry });
 
 const CENTER_DEG = 180;
-const STEP_DEG = 6;
 const MIN_SCALE = 0.7;
 const MAX_SCALE = 1;
 
@@ -23,6 +22,7 @@ const MeshaMoustache = ({
   onClick,
   isSelected,
   audioBand,
+  stepDeg,
 }) => {
   const tuftsRef = useRef([]);
   const tuftDataRef = useRef([]);
@@ -50,7 +50,7 @@ const MeshaMoustache = ({
       const t = centerIndex === 0 ? 0 : offsetFromCenter / centerIndex;
       const scale = MIN_SCALE + (MAX_SCALE - MIN_SCALE) * t;
       const rotationRad =
-        ((CENTER_DEG + (i - centerIndex) * STEP_DEG) * Math.PI) / 180;
+        ((CENTER_DEG + (i - centerIndex) * stepDeg) * Math.PI) / 180;
 
       return {
         key: `moustache-${i}`,
@@ -83,6 +83,9 @@ const MeshaMoustache = ({
 
       tuftGroup.position.z = tuft.z + moustacheSize + amplitude;
       tuftGroup.scale.set(scale, scale, scale);
+
+      // t is now available here via tuft.t
+      // e.g. const ledIntensity = tuft.t * amplitude;
     });
   });
 

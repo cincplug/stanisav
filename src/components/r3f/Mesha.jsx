@@ -239,6 +239,7 @@ const Mesha = ({
             onClick={handlePropertyClick}
             isSelected={selectedProperty === "caseCount"}
             audioBand="harmonicsData"
+            stepDeg={2}
           />
         )}
         {nounClassCount && (
@@ -251,6 +252,7 @@ const Mesha = ({
             onClick={handlePropertyClick}
             isSelected={selectedProperty === "nounClassCount"}
             audioBand="fundamentalData"
+            stepDeg={12}
           />
         )}
       </group>
