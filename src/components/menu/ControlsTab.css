@@ -9,6 +9,15 @@
     display: flex;
     margin-bottom: var(--gap-half);
   }
+
+  fieldset {
+    margin: 0;
+  }
+
+  legend {
+    font-size: var(--font-size-m);
+    margin: 0;
+  }
 }
 
 /* Control item variants */
