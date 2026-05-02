@@ -39,7 +39,7 @@ const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
 
       return {
         x: Math.cos(angle) * meshaSize,
-        y: -0.5,
+        y: -meshaSize / 2,
         z: Math.sin(angle) * meshaSize + clusterSize / 3,
         positionInCluster,
         clusterNumber,
