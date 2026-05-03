@@ -1,9 +1,10 @@
 import { useRef } from "react";
 import MeshaHighlight from "./MeshaHighlight.jsx";
 import { useControls } from "../../contexts/ControlsContext.jsx";
-import { useAudioData } from "../../hooks/useAudioData.js";
 import { useFrame } from "@react-three/fiber";
+import { usePlaylist } from "../../contexts/PlaylistContext.jsx";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
+import blinkTimings from "../../config/blinkTimings.json";
 
 const MeshaEye = ({
   position,
@@ -11,17 +12,22 @@ const MeshaEye = ({
   eyelidMaterial,
   size,
   depth,
+  isoCode,
   onClick,
   isSelectedOuter,
   isSelectedInner,
 }) => {
   const groupRef = useRef();
   const lidPivotRef = useRef();
-  const blinkStateRef = useRef({ isBlinking: false, startTime: null });
+  const blinkStateRef = useRef({
+    isBlinking: false,
+    startTime: null,
+    lastCheckedIndex: 0,
+  });
 
   const { controls } = useControls();
   const { eyeSize, eyeProtrusion } = controls;
-  const { audioData } = useAudioData();
+  const { audioRef } = usePlaylist();
 
   const irisSize = eyeSize * 0.75;
   const pupilSize = eyeSize * 0.5;
@@ -32,21 +38,38 @@ const MeshaEye = ({
   const irisZ = eyeProtrusion / 2 + depthFactor * eyeProtrusion;
   const pupilZ = eyeProtrusion + depthFactor * eyeProtrusion;
 
-  const { blinkBand, blinkDuration, blinkThreshold } =
-    audioVisualizationConfig.meshDeformation;
+  const { blinkDuration } = audioVisualizationConfig.meshDeformation;
+  const timings = blinkTimings[isoCode] ?? [];
 
   useFrame(({ clock }) => {
     if (!lidPivotRef.current) return;
 
-    const { harmonicsData } = audioData;
-    const amplitude = harmonicsData[blinkBand];
     const state = blinkStateRef.current;
+    const audio = audioRef.current;
 
-    if (amplitude > blinkThreshold * 2 && !state.isBlinking) {
-      state.isBlinking = true;
-      state.startTime = clock.getElapsedTime();
+    // Advance through timings — find if any upcoming timestamp has been passed
+    if (timings.length > 0 && audioRef.current && !audioRef.current.paused) {
+      const currentTime = audioRef.current.currentTime;
+
+      // Reset index when audio restarts (currentTime jumped back)
+      if (state.lastCheckedIndex > 0 && currentTime < timings[0]) {
+        state.lastCheckedIndex = 0;
+      }
+
+      // Walk forward through timings until we find one we haven't passed yet
+      while (
+        state.lastCheckedIndex < timings.length &&
+        currentTime >= timings[state.lastCheckedIndex]
+      ) {
+        if (!state.isBlinking) {
+          state.isBlinking = true;
+          state.startTime = clock.getElapsedTime();
+        }
+        state.lastCheckedIndex++;
+      }
     }
 
+    // Animate the blink
     if (state.isBlinking) {
       const elapsed = clock.getElapsedTime() - state.startTime;
       const progress = elapsed / blinkDuration;
@@ -56,7 +79,7 @@ const MeshaEye = ({
         lidPivotRef.current.rotation.x = 0;
       } else {
         const phase = progress < 0.5 ? progress * 2 : (1 - progress) * 2;
-        lidPivotRef.current.rotation.x = (phase * Math.PI) / 3;
+        lidPivotRef.current.rotation.x = phase * Math.PI;
       }
     }
   });

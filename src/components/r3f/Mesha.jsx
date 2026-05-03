@@ -47,7 +47,8 @@ const Mesha = ({
     friction,
     globeSpiralAxis,
   } = controls;
-  const { selectedProperty, setSelectedProperty } = useLanguageSelection();
+  const { selectedProperty, setSelectedProperty, selectedLanguage } =
+    useLanguageSelection();
 
   useEffect(() => {
     if (isMyMesha) {
@@ -195,6 +196,7 @@ const Mesha = ({
             onClick={handlePropertyClick}
             isSelectedOuter={selectedProperty === "evidentiality"}
             isSelectedInner={selectedProperty === "verbAspect"}
+            isoCode={selectedLanguage}
           />
           <MeshaEye
             position={[eyeX, eyeY, 0]}
@@ -205,6 +207,7 @@ const Mesha = ({
             onClick={handlePropertyClick}
             isSelectedOuter={selectedProperty === "evidentiality"}
             isSelectedInner={selectedProperty === "verbAspect"}
+            isoCode={selectedLanguage}
           />
           <MeshaNose
             position={[0, eyeY - eyeX / 2, 0]}

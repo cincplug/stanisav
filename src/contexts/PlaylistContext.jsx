@@ -363,6 +363,7 @@ export const PlaylistProvider = ({ children }) => {
     goToNext,
     goToBegin,
     getCurrentLanguage,
+    audioRef,
   };
 
   return (
