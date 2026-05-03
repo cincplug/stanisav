@@ -29,6 +29,7 @@
   --shadow-mild: 0px -1px 1px 0px var(--color-2);
   --shadow-strong: 0 0 var(--gap-double) var(--color-1);
   --border-radius: var(--gap);
+  --border-radius-small: var(--gap-half);
   --border-width: 3px;
   --border-width-thin: 1px;
   --border: var(--border-width) solid var(--color-2);
@@ -135,7 +136,7 @@ input[type="radio"] {
 }
 
 input[type="checkbox"] {
-  border-radius: var(--border-radius);
+  border-radius: var(--border-radius-small);
 }
 
 input[type="radio"] {
