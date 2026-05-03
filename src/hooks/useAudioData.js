@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { getAudioAnalysisService } from "../services/audioService.js";
-import defaultAudioData from "../config/meshaDefaultAudioData.json";
+import defaultAudioData from "../config/defaultAudioData.json";
 
-export function useAudioAnimation() {
+export function useAudioData() {
   const [audioData, setAudioData] = useState(defaultAudioData);
 
   useEffect(() => {

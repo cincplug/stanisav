@@ -3,7 +3,7 @@ import MeshaHighlight from "./MeshaHighlight.jsx";
 import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useControls } from "../../contexts/ControlsContext.jsx";
-import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
+import { useAudioData } from "../../hooks/useAudioData.js";
 import { createToothShape } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
@@ -16,7 +16,7 @@ extend({ ParametricGeometry });
 const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
   const teethRefs = useRef([]);
   const { controls } = useControls();
-  const { audioData } = useAudioAnimation();
+  const { audioData } = useAudioData();
   const { meshaSize, teethSize } = controls;
 
   const teeth = useMemo(() => {

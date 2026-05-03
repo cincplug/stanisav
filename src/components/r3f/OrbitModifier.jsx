@@ -3,9 +3,9 @@ import { Vector3, Quaternion } from "three";
 
 /**
  * Custom autorotation for OrbitControls.
- * axis: "y" | "z" | "xy" (hybrid, switches to "x" after 90deg)
+ * axis: "y" | "z"
  */
-export default function CustomOrbitAutoRotate({
+export default function OrbitModifier({
   orbitControlsRef,
   axis,
   speed,
@@ -29,7 +29,7 @@ export default function CustomOrbitAutoRotate({
       controls.update();
     } else {
       // Default: rotate around y axis
-      // Also for x axis distribution because OrbitControls clamps it around 90 degrees
+      // Also used for x axis distribution because OrbitControls clamps it around 90 degrees
       orbitControlsRef.current.setAzimuthalAngle(
         orbitControlsRef.current.getAzimuthalAngle() + speed * delta,
       );

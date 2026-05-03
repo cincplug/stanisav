@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useControls } from "../../contexts/ControlsContext.jsx";
-import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
+import { useAudioData } from "../../hooks/useAudioData.js";
 import { createAudioSurface } from "../../utils/shapeUtils.js";
 import MeshaHighlight from "./MeshaHighlight.jsx";
 
@@ -10,7 +10,7 @@ extend({ ParametricGeometry });
 
 const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
   const { controls } = useControls();
-  const { audioData } = useAudioAnimation();
+  const { audioData } = useAudioData();
   const { meshaSize } = controls;
   const meshRef = useRef();
 

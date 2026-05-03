@@ -3,7 +3,7 @@ import MeshaHighlight from "./MeshaHighlight.jsx";
 import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useControls } from "../../contexts/ControlsContext.jsx";
-import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
+import { useAudioData } from "../../hooks/useAudioData.js";
 import { shiftHue } from "../../utils/colorUtils";
 import { createTuftShape } from "../../utils/shapeUtils.js";
 
@@ -28,7 +28,7 @@ const MeshaMoustache = ({
   const tuftDataRef = useRef([]);
 
   const { controls } = useControls();
-  const { audioData } = useAudioAnimation();
+  const { audioData } = useAudioData();
   const { meshaSize, eyeZ, eyeX, moustacheSize } = controls;
 
   const tuftSurface = useMemo(

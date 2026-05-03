@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import MeshaHighlight from "./MeshaHighlight.jsx";
 import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
-import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
+import { useAudioData } from "../../hooks/useAudioData.js";
 import { createAudioSurface } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
@@ -22,7 +22,7 @@ const MeshaEar = ({
   onClick,
   isSelected,
 }) => {
-  const { audioData } = useAudioAnimation();
+  const { audioData } = useAudioData();
   const leftMeshRef = useRef();
   const rightMeshRef = useRef();
 

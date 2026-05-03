@@ -24,7 +24,7 @@ import StageLight from "./StageLight";
 import Labels from "./Labels";
 import Mesha from "./Mesha";
 import Camera from "./Camera";
-import CustomOrbitAutoRotate from "./CustomOrbitAutoRotate";
+import OrbitModifier from "./OrbitModifier";
 
 const Stage = ({
   onDataLoaded,
@@ -225,7 +225,7 @@ const Stage = ({
         autoRotate={false}
       />
 
-      <CustomOrbitAutoRotate
+      <OrbitModifier
         orbitControlsRef={orbitControlsRef}
         axis={globeSpiralAxis}
         speed={autoRotateSpeed}

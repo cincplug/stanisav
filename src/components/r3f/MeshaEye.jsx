@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import MeshaHighlight from "./MeshaHighlight.jsx";
 import { useControls } from "../../contexts/ControlsContext.jsx";
-import { useAudioAnimation } from "../../hooks/useAudioAnimation.js";
+import { useAudioData } from "../../hooks/useAudioData.js";
 import { useFrame } from "@react-three/fiber";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
 
@@ -22,7 +22,7 @@ const MeshaEye = ({
 
   const { controls } = useControls();
   const { eyeSize, eyeProtrusion } = controls;
-  const { audioData } = useAudioAnimation();
+  const { audioData } = useAudioData();
 
   const irisSize = eyeSize * 0.75;
   const pupilSize = eyeSize * 0.5;
