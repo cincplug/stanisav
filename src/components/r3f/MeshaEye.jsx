@@ -5,12 +5,10 @@ import { useAudioData } from "../../hooks/useAudioData.js";
 import { useFrame } from "@react-three/fiber";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
 
-const BLINK_DURATION = 0.18;
-
 const MeshaEye = ({
   position,
   irisColor,
-  lidColor,
+  eyelidMaterial,
   size,
   depth,
   onClick,
@@ -34,7 +32,7 @@ const MeshaEye = ({
   const irisZ = eyeProtrusion / 2 + depthFactor * eyeProtrusion;
   const pupilZ = eyeProtrusion + depthFactor * eyeProtrusion;
 
-  const { blinkThreshold, blinkBand } =
+  const { blinkBand, blinkDuration, blinkThreshold } =
     audioVisualizationConfig.meshDeformation;
 
   useFrame(({ clock }) => {
@@ -51,7 +49,7 @@ const MeshaEye = ({
 
     if (state.isBlinking) {
       const elapsed = clock.getElapsedTime() - state.startTime;
-      const progress = elapsed / BLINK_DURATION;
+      const progress = elapsed / blinkDuration;
 
       if (progress >= 1) {
         state.isBlinking = false;
@@ -100,13 +98,13 @@ const MeshaEye = ({
       </mesh>
 
       {/* Eyelid */}
-      <group ref={lidPivotRef} position={[0, -eyeSize * 0.7, 0]}>
+      <group ref={lidPivotRef} position={[0, -eyeSize / 2, 0]}>
         <mesh position={[0, eyeSize, 0]} rotation={[Math.PI * 2, 0, 0]}>
           {/* thetaStart=0, thetaLength=PI/2 gives the top hemisphere only */}
           <sphereGeometry
             args={[eyeSize, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2]}
           />
-          <meshStandardMaterial color={lidColor} side={2} />
+          <shaderMaterial args={[eyelidMaterial]} />
         </mesh>
       </group>
     </group>

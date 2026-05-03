@@ -99,7 +99,7 @@ const Mesha = ({
   const skinColor = shiftHue(color, -60);
   const skinColorInvert = shiftHue(color, 60);
 
-  const earMaterial = useShaderMaterial(skinColor, skinColorInvert, 0);
+  const skinMaterial = useShaderMaterial(skinColor, skinColorInvert, 0);
 
   const tongueMaterial = useShaderMaterial(
     skinColorInvert,
@@ -175,7 +175,7 @@ const Mesha = ({
     >
       <group ref={lookAroundRef}>
         <MeshaEar
-          earMaterial={earMaterial}
+          skinMaterial={skinMaterial}
           meshaSize={meshaSize}
           bend={scores.morphology / 3}
           leftSegments={10 - scores.morphology}
@@ -189,7 +189,7 @@ const Mesha = ({
           <MeshaEye
             position={[-eyeX, eyeY, 0]}
             irisColor={color}
-            lidColor={skinColor}
+            eyelidMaterial={skinMaterial}
             size={eyesize}
             depth={eyedepth}
             onClick={handlePropertyClick}
@@ -199,7 +199,7 @@ const Mesha = ({
           <MeshaEye
             position={[eyeX, eyeY, 0]}
             irisColor={color}
-            lidColor={skinColor}
+            eyelidMaterial={skinMaterial}
             size={eyesize}
             depth={eyedepth}
             onClick={handlePropertyClick}

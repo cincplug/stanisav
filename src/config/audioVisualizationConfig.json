@@ -17,6 +17,7 @@
     "amplitudeThreshold": 0.1,
     "blinkThreshold": 0.2,
     "blinkBand": 2,
+    "blinkDuration": 0.1,
     "decayRate": 0.7,
     "verticalVariationMultiplier": 0.1,
     "fundamentalAmplifier": 0.8,

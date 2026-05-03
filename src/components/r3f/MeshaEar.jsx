@@ -13,7 +13,7 @@ extend({ ParametricGeometry });
  * @param {boolean} props.isSelected - highlight if selectedProperty matches
  */
 const MeshaEar = ({
-  earMaterial,
+  skinMaterial,
   earPosition,
   meshaSize,
   bend,
@@ -63,7 +63,7 @@ const MeshaEar = ({
         onClick={onClick}
         linguisticProperty="morphology"
       >
-        <shaderMaterial args={[earMaterial]} />
+        <shaderMaterial args={[skinMaterial]} />
         {isSelected && (
           <MeshaHighlight
             geometry="parametricGeometry"
@@ -79,7 +79,7 @@ const MeshaEar = ({
         onClick={onClick}
         linguisticProperty="morphology"
       >
-        <shaderMaterial args={[earMaterial]} />
+        <shaderMaterial args={[skinMaterial]} />
         {isSelected && (
           <MeshaHighlight
             geometry="parametricGeometry"
