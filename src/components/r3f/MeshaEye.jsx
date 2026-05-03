@@ -9,9 +9,10 @@ const BLINK_DURATION = 0.18;
 
 const MeshaEye = ({
   position,
-  color,
-  sizeSignal,
-  depthSignal,
+  irisColor,
+  lidColor,
+  size,
+  depth,
   onClick,
   isSelectedOuter,
   isSelectedInner,
@@ -27,23 +28,23 @@ const MeshaEye = ({
   const irisSize = eyeSize * 0.75;
   const pupilSize = eyeSize * 0.5;
 
-  const eyeScale = 1 + sizeSignal / 4;
-  const depthFactor = depthSignal / 4;
+  const eyeScale = 1 + size / 4;
+  const depthFactor = depth / 4;
 
   const irisZ = eyeProtrusion / 2 + depthFactor * eyeProtrusion;
   const pupilZ = eyeProtrusion + depthFactor * eyeProtrusion;
 
-  const { amplitudeThreshold } = audioVisualizationConfig.meshDeformation;
+  const { blinkThreshold, blinkBand } =
+    audioVisualizationConfig.meshDeformation;
 
   useFrame(({ clock }) => {
     if (!lidPivotRef.current) return;
 
     const { harmonicsData } = audioData;
-    const bandIndex = Math.floor(harmonicsData.length / 2);
-    const amplitude = harmonicsData[bandIndex];
+    const amplitude = harmonicsData[blinkBand];
     const state = blinkStateRef.current;
 
-    if (amplitude > amplitudeThreshold * 2 && !state.isBlinking) {
+    if (amplitude > blinkThreshold * 2 && !state.isBlinking) {
       state.isBlinking = true;
       state.startTime = clock.getElapsedTime();
     }
@@ -57,7 +58,7 @@ const MeshaEye = ({
         lidPivotRef.current.rotation.x = 0;
       } else {
         const phase = progress < 0.5 ? progress * 2 : (1 - progress) * 2;
-        lidPivotRef.current.rotation.x = phase * Math.PI;
+        lidPivotRef.current.rotation.x = (phase * Math.PI) / 2;
       }
     }
   });
@@ -83,7 +84,7 @@ const MeshaEye = ({
         onClick={onClick}
       >
         <sphereGeometry args={[irisSize, 32, 32]} />
-        <meshStandardMaterial color={color} />
+        <meshStandardMaterial color={irisColor} />
         {isSelectedInner && (
           <MeshaHighlight
             geometry="sphereGeometry"
@@ -99,13 +100,13 @@ const MeshaEye = ({
       </mesh>
 
       {/* Eyelid */}
-      <group ref={lidPivotRef} position={[0, -eyeSize / 2, 0]}>
+      <group ref={lidPivotRef} position={[0, -eyeSize * 0.7, 0]}>
         <mesh position={[0, eyeSize, 0]} rotation={[Math.PI * 2, 0, 0]}>
           {/* thetaStart=0, thetaLength=PI/2 gives the top hemisphere only */}
           <sphereGeometry
             args={[eyeSize, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2]}
           />
-          <meshStandardMaterial color={color} side={2} />
+          <meshStandardMaterial color={lidColor} side={2} />
         </mesh>
       </group>
     </group>

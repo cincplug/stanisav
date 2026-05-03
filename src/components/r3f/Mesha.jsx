@@ -85,8 +85,8 @@ const Mesha = ({
   ];
   const noseMotionIntensity = scores.wordOrderFlexibility;
 
-  const eyeSizeSignal = scores.evidentiality;
-  const eyeDepthSignal = scores.verbAspect;
+  const eyesize = scores.evidentiality;
+  const eyedepth = scores.verbAspect;
 
   const spring = useSpring({
     x: position[0],
@@ -96,15 +96,14 @@ const Mesha = ({
     config: { tension, friction },
   });
 
-  const earMaterial = useShaderMaterial(
-    shiftHue(color, -60),
-    shiftHue(color, 60),
-    0,
-  );
+  const skinColor = shiftHue(color, -60);
+  const skinColorInvert = shiftHue(color, 60);
+
+  const earMaterial = useShaderMaterial(skinColor, skinColorInvert, 0);
 
   const tongueMaterial = useShaderMaterial(
-    shiftHue(color, 60),
-    shiftHue(color, -60),
+    skinColorInvert,
+    skinColor,
     stripesType,
   );
 
@@ -189,18 +188,20 @@ const Mesha = ({
         <group ref={eyesGroupRef} position={[0, 1, mainZ]}>
           <MeshaEye
             position={[-eyeX, eyeY, 0]}
-            color={color}
-            sizeSignal={eyeSizeSignal}
-            depthSignal={eyeDepthSignal}
+            irisColor={color}
+            lidColor={skinColor}
+            size={eyesize}
+            depth={eyedepth}
             onClick={handlePropertyClick}
             isSelectedOuter={selectedProperty === "evidentiality"}
             isSelectedInner={selectedProperty === "verbAspect"}
           />
           <MeshaEye
             position={[eyeX, eyeY, 0]}
-            color={color}
-            sizeSignal={eyeSizeSignal}
-            depthSignal={eyeDepthSignal}
+            irisColor={color}
+            lidColor={skinColor}
+            size={eyesize}
+            depth={eyedepth}
             onClick={handlePropertyClick}
             isSelectedOuter={selectedProperty === "evidentiality"}
             isSelectedInner={selectedProperty === "verbAspect"}
