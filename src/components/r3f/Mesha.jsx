@@ -240,7 +240,7 @@ const Mesha = ({
             onClick={handlePropertyClick}
             isSelected={selectedProperty === "caseCount"}
             audioBand="harmonicsData"
-            stepDeg={2}
+            stepDeg={3}
           />
         )}
         {nounClassCount && (
@@ -249,7 +249,7 @@ const Mesha = ({
             tuftCount={nounClassCount}
             color={color}
             y={meshaSize * 1.4}
-            z={0}
+            z={-1}
             onClick={handlePropertyClick}
             isSelected={selectedProperty === "nounClassCount"}
             audioBand="fundamentalData"

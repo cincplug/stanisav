@@ -9,10 +9,6 @@ import { createTuftShape } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
 
-const CENTER_DEG = 180;
-const MIN_SCALE = 0.7;
-const MAX_SCALE = 1;
-
 const MeshaMoustache = ({
   linguisticProperty,
   tuftCount,
@@ -39,7 +35,7 @@ const MeshaMoustache = ({
   const tuftsWithRotation = useMemo(() => {
     if (!tuftCount) return [];
 
-    const spacing = (eyeX * 4) / tuftCount;
+    const spacing = (eyeX / tuftCount) * 3;
     const totalWidth = spacing * (tuftCount - 1);
     const baseX = totalWidth / 2;
     const baseZ = meshaSize * eyeZ;
@@ -48,9 +44,8 @@ const MeshaMoustache = ({
     const result = Array.from({ length: tuftCount }, (_, i) => {
       const offsetFromCenter = Math.abs(i - centerIndex);
       const t = centerIndex === 0 ? 0 : offsetFromCenter / centerIndex;
-      const scale = MIN_SCALE + (MAX_SCALE - MIN_SCALE) * t;
-      const rotationRad =
-        ((CENTER_DEG + (i - centerIndex) * stepDeg) * Math.PI) / 180;
+      const scale = 0.5 + 0.5 * t;
+      const rotationRad = ((180 + (i - centerIndex) * stepDeg) * Math.PI) / 180;
 
       return {
         key: `moustache-${i}`,
@@ -83,9 +78,6 @@ const MeshaMoustache = ({
 
       tuftGroup.position.z = tuft.z + moustacheSize + amplitude;
       tuftGroup.scale.set(scale, scale, scale);
-
-      // t is now available here via tuft.t
-      // e.g. const ledIntensity = tuft.t * amplitude;
     });
   });
 
