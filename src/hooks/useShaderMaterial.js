@@ -5,7 +5,12 @@ import {
   tonalityVertexShader,
 } from "../shaders/shader";
 
-export const useShaderMaterial = (baseColor, accentColor, stripesType) => {
+export const useShaderMaterial = (
+  baseColor,
+  accentColor,
+  stripesType,
+  side,
+) => {
   const baseColorObj = useMemo(() => new Color(baseColor), [baseColor]);
   const accentColorObj = useMemo(() => new Color(accentColor), [accentColor]);
 
@@ -18,7 +23,7 @@ export const useShaderMaterial = (baseColor, accentColor, stripesType) => {
       },
       vertexShader: tonalityVertexShader,
       fragmentShader: tonalityFragmentShader,
-      side: 2,
+      side,
       transparent: false,
     };
   }, [baseColorObj, accentColorObj, stripesType]);

@@ -175,8 +175,8 @@ const Mesha = ({
     >
       <group ref={lookAroundRef}>
         <MeshaEar
-          skinMaterial={skinMaterial}
-          meshaSize={meshaSize}
+          earMaterial={skinMaterial}
+          size={meshaSize}
           bend={scores.morphology / 3}
           leftSegments={10 - scores.morphology}
           rightSegments={2 + scores.morphology * 2}
