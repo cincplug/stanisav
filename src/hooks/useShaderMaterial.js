@@ -9,7 +9,7 @@ export const useShaderMaterial = (
   baseColor,
   accentColor,
   stripesType,
-  side,
+  side = 2,
 ) => {
   const baseColorObj = useMemo(() => new Color(baseColor), [baseColor]);
   const accentColorObj = useMemo(() => new Color(accentColor), [accentColor]);

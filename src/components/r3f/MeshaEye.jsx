@@ -56,7 +56,7 @@ const MeshaEye = ({
         lidPivotRef.current.rotation.x = 0;
       } else {
         const phase = progress < 0.5 ? progress * 2 : (1 - progress) * 2;
-        lidPivotRef.current.rotation.x = (phase * Math.PI) / 2;
+        lidPivotRef.current.rotation.x = (phase * Math.PI) / 3;
       }
     }
   });
@@ -99,8 +99,12 @@ const MeshaEye = ({
 
       {/* Eyelid */}
       <group ref={lidPivotRef} position={[0, -eyeSize / 2, 0]}>
-        <mesh position={[0, eyeSize, 0]} rotation={[Math.PI * 2, 0, 0]}>
-          {/* thetaStart=0, thetaLength=PI/2 gives the top hemisphere only */}
+        <mesh
+          position={[0, eyeSize, eyeSize * eyeProtrusion * 2]}
+          renderOrder={1}
+          rotation={[Math.PI * 2, 0, 0]}
+          scale={[1, 0.5, 1]}
+        >
           <sphereGeometry
             args={[eyeSize, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2]}
           />
