@@ -12,23 +12,25 @@
 
   fieldset {
     margin: 0;
+    border: none;
+    padding-block: var(--gap);
   }
 
   legend {
     font-size: var(--font-size-m);
     margin: 0;
   }
-}
 
-/* Control item variants */
-.control-item.range-control label {
-  justify-content: space-between;
-}
+  &.checkbox-control label {
+    margin: 0;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--gap-half);
+  }
 
-.control-item.checkbox-control label {
-  justify-content: flex-start;
-  align-items: center;
-  gap: var(--gap-half);
+  &.range-control label {
+    justify-content: space-between;
+  }
 }
 
 .controls-grid {

@@ -28,7 +28,7 @@
     "group": "Header"
   },
   "globeSpiralAxis": {
-    "type": "select",
+    "type": "radio",
     "options": ["x", "y", "z"],
     "defaultValue": "y",
     "isShownInMenu": true,

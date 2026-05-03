@@ -28,10 +28,11 @@
   --outline-default: var(--border-width) solid var(--color-focus);
   --shadow-mild: 0px -1px 1px 0px var(--color-2);
   --shadow-strong: 0 0 var(--gap-double) var(--color-1);
-  --border-radius: 12px;
+  --border-radius: var(--gap);
   --border-width: 3px;
   --border-width-thin: 1px;
   --border: var(--border-width) solid var(--color-2);
+  --border-input: var(--border-width-thin) solid var(--color-4);
   --clear-button-size: 20px;
   --modal-offset: 4rem;
   --tooltip-tail-size: 8px;
@@ -106,11 +107,15 @@ select,
 input[type="range"] {
   width: 100%;
   margin-bottom: 5px;
+  appearance: none;
+  background: var(--color-3);
+  height: var(--gap);
+  border-radius: var(--border-radius);
 }
 
 input[type="color"] {
-  border-radius: 0;
-  border: var(--border);
+  border-radius: var(--border-radius);
+  border: var(--border-input);
   background: transparent;
 }
 
@@ -118,6 +123,23 @@ input[type="checkbox"],
 input[type="radio"] {
   width: var(--gap-triple);
   height: var(--gap-triple);
+  margin-block: 0;
+  appearance: none;
+  background: var(--color-1);
+  border: var(--border-input);
+
+  &:checked {
+    background-color: var(--color-current);
+    border-width: var(--border-width);
+  }
+}
+
+input[type="checkbox"] {
+  border-radius: var(--border-radius);
+}
+
+input[type="radio"] {
+  border-radius: 50%;
 }
 
 fieldset {
