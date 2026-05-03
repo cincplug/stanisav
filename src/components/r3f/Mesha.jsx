@@ -10,8 +10,8 @@ import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.js
 import { useShaderMaterial } from "../../hooks/useShaderMaterial.js";
 import { getFeatureScoreList } from "../../utils/linguisticUtils.js";
 import { shiftHue } from "../../utils/colorUtils";
-import MeshaEye from "./MeshaEye.jsx";
-import MeshaEar from "./MeshaEar.jsx";
+import MeshaEyes from "./MeshaEyes.jsx";
+import MeshaEar from "./MeshaEars.jsx";
 import MeshaTongue from "./MeshaTongue.jsx";
 import MeshaNose from "./MeshaNose.jsx";
 import MeshaTeeth from "./MeshaTeeth.jsx";
@@ -33,20 +33,10 @@ const Mesha = ({
 }) => {
   const groupRef = useRef();
   const lookAroundRef = useRef();
-  const eyesGroupRef = useRef();
   const lookAroundRotationRef = useRef(0);
 
   const { controls } = useControls();
-  const {
-    meshaSize,
-    eyeZ,
-    eyeX,
-    eyeY,
-    noseSize,
-    tension,
-    friction,
-    globeSpiralAxis,
-  } = controls;
+  const { meshaSize, eyeZ, noseSize, eyeX, eyeY, tension, friction } = controls;
   const { selectedProperty, setSelectedProperty, selectedLanguage } =
     useLanguageSelection();
 
@@ -84,10 +74,6 @@ const Mesha = ({
     noseColorMap[wordOrder[1]],
     noseColorMap[wordOrder[2]],
   ];
-  const noseMotionIntensity = scores.wordOrderFlexibility;
-
-  const eyesize = scores.evidentiality;
-  const eyedepth = scores.verbAspect;
 
   const spring = useSpring({
     x: position[0],
@@ -101,7 +87,6 @@ const Mesha = ({
   const skinColorInvert = shiftHue(color, 60);
 
   const skinMaterial = useShaderMaterial(skinColor, skinColorInvert, 0);
-
   const tongueMaterial = useShaderMaterial(
     skinColorInvert,
     skinColor,
@@ -159,7 +144,6 @@ const Mesha = ({
     [scores.morphology],
   );
 
-  // Handler for click: toggle selectedProperty if part is mapped
   const handlePropertyClick = (e) => {
     e.stopPropagation();
     const prop = e.object.linguisticProperty;
@@ -186,40 +170,28 @@ const Mesha = ({
           isSelected={selectedProperty === "morphology"}
         />
 
-        <group ref={eyesGroupRef} position={[0, 1, mainZ]}>
-          <MeshaEye
-            position={[-eyeX, eyeY, 0]}
-            irisColor={color}
-            eyelidMaterial={skinMaterial}
-            size={eyesize}
-            depth={eyedepth}
-            onClick={handlePropertyClick}
-            isSelectedOuter={selectedProperty === "evidentiality"}
-            isSelectedInner={selectedProperty === "verbAspect"}
-            isoCode={selectedLanguage}
-          />
-          <MeshaEye
-            position={[eyeX, eyeY, 0]}
-            irisColor={color}
-            eyelidMaterial={skinMaterial}
-            size={eyesize}
-            depth={eyedepth}
-            onClick={handlePropertyClick}
-            isSelectedOuter={selectedProperty === "evidentiality"}
-            isSelectedInner={selectedProperty === "verbAspect"}
-            isoCode={selectedLanguage}
-          />
-          <MeshaNose
-            position={[0, eyeY - eyeX / 2, 0]}
-            scale={noseSize}
-            segmentColors={noseSegmentColors}
-            motionIntensity={noseMotionIntensity}
-            lookAroundRotationRef={lookAroundRotationRef}
-            onClick={handlePropertyClick}
-            isSelectedOuter={selectedProperty === "wordOrder"}
-            isSelectedInner={selectedProperty === "wordOrderFlexibility"}
-          />
-        </group>
+        <MeshaEyes
+          irisColor={color}
+          eyelidMaterial={skinMaterial}
+          sizeSignal={scores.evidentiality}
+          depthSignal={scores.verbAspect}
+          isoCode={selectedLanguage}
+          mainZ={mainZ}
+          onClick={handlePropertyClick}
+          isSelectedOuter={selectedProperty === "evidentiality"}
+          isSelectedInner={selectedProperty === "verbAspect"}
+        />
+
+        <MeshaNose
+          position={[0, 1 + eyeY - eyeX / 2, mainZ]}
+          scale={noseSize}
+          segmentColors={noseSegmentColors}
+          motionIntensity={scores.wordOrderFlexibility}
+          lookAroundRotationRef={lookAroundRotationRef}
+          onClick={handlePropertyClick}
+          isSelectedOuter={selectedProperty === "wordOrder"}
+          isSelectedInner={selectedProperty === "wordOrderFlexibility"}
+        />
 
         <MeshaTongue
           tongueMaterial={tongueMaterial}
