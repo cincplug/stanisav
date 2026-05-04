@@ -6,6 +6,7 @@ import {
   getAllFeatures,
   getFeatureLabel,
   getFeatureName,
+  getFeatureDescription,
   formatNumber,
   formatSpeakers,
   getLineageTrail,
@@ -138,7 +139,6 @@ function IdCard({
               rel="noopener noreferrer"
               onClick={onSourceVideoClick}
               aria-label={`${localizedLanguageName} ${t("idCard.sourceVideo")} (${t("idCard.opensInNewTab")})`}
-              style={{ color: languageColor }}
             >
               {t("idCard.sourceVideo")} <span className="white">↗</span>
             </a>
@@ -171,11 +171,10 @@ function IdCard({
                         tooltipButtonRefs.current[property.key] = el;
                       }}
                     >
-                      <Properties
-                        propertyKey={property.key}
-                        selectedLanguageValue={language[property.key]}
-                        showsOnlySelectedLanguage={true}
-                      />
+                      {getFeatureDescription(
+                        property.key,
+                        language[property.key],
+                      )}
                     </Tooltip>
                   )}
                 </span>

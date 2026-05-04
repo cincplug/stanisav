@@ -15,8 +15,13 @@
     display: none;
   }
 
-  .sign {
-    color: var(--color-3);
+  .tooltip-popover {
+    padding: var(--gap-double);
+    background-color: var(--color-3);
+
+    &::after {
+      background-color: var(--color-3);
+    }
   }
 }
 
@@ -155,6 +160,7 @@ html.rtl .id-card-close-button {
   position: relative;
   bottom: var(--gap-half);
   right: var(--gap-double);
+  color: var(--color-focus);
 }
 
 .id-card-actions {
@@ -173,8 +179,7 @@ html.rtl .id-card-close-button {
 
 .id-card-title,
 .id-card-breadcrumb,
-.id-card-breadcrumb-separator,
-.id-card-source-video {
+.id-card-breadcrumb-separator {
   color: inherit;
 }
 
