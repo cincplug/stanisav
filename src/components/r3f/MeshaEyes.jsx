@@ -87,7 +87,6 @@ const MeshaEye = ({
       <group ref={lidPivotRef} position={[0, 0, eyeSize]}>
         <mesh
           position={[0, eyeSize / 2, 0]}
-          rotation={[Math.PI * 2, 0, 0]}
           scale={[1, 0.5, 1]}
           renderOrder={1}
         >
