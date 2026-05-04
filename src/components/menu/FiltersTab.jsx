@@ -15,7 +15,7 @@ import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
 import { useI18n } from "../../contexts/I18nContext";
 import Tooltip from "./ux/Tooltip";
-import Properties from "../Properties";
+import Properties from "./Properties";
 import "./FiltersTab.css";
 
 function FiltersTab({ data, languageColors = {} }) {

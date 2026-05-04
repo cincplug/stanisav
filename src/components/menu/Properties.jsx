@@ -1,11 +1,11 @@
 import { useMemo, useRef, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
-import linguisticConfig from "../config/linguisticConfig.json";
-import { useControls } from "../contexts/ControlsContext";
-import { useI18n } from "../contexts/I18nContext";
-import { useLanguageSelection } from "../contexts/LanguageSelectionContext";
-import Mesha from "./r3f/Mesha";
-import { getFeatureScore } from "../utils/linguisticUtils";
+import linguisticConfig from "../../config/linguisticConfig.json";
+import { useControls } from "../../contexts/ControlsContext";
+import { useI18n } from "../../contexts/I18nContext";
+import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
+import Mesha from "../r3f/Mesha";
+import { getFeatureScore } from "../../utils/linguisticUtils";
 import "./Properties.css";
 
 const baseLinguisticProperties = {
@@ -21,7 +21,11 @@ const baseLinguisticProperties = {
   nounClassCount: 0,
 };
 
-const Properties = ({ propertyKey, selectedLanguageValue }) => {
+const Properties = ({
+  propertyKey,
+  selectedLanguageValue,
+  showsOnlySelectedLanguage,
+}) => {
   const { controls } = useControls();
   const { t, isRtl } = useI18n();
   const { setSelectedProperty } = useLanguageSelection();
@@ -104,6 +108,7 @@ const Properties = ({ propertyKey, selectedLanguageValue }) => {
                     isMyMesha={false}
                     looksAround
                     stripesType={mesha.stripesType}
+                    autoRotateSpeed={1}
                   />
                 </Canvas>
               </div>

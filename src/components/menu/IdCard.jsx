@@ -14,7 +14,7 @@ import {
 import { getFamilyLabel } from "../../utils/configI18nUtils";
 import { CloseIcon } from "./MenuIcons";
 import Tooltip from "./ux/Tooltip";
-import Properties from "../Properties";
+import Properties from "./Properties";
 import "./IdCard.css";
 
 function IdCard({
@@ -174,6 +174,7 @@ function IdCard({
                       <Properties
                         propertyKey={property.key}
                         selectedLanguageValue={language[property.key]}
+                        showsOnlySelectedLanguage={true}
                       />
                     </Tooltip>
                   )}

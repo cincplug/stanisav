@@ -1,6 +1,5 @@
 import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
-import Properties from "./components/Properties.jsx";
 import IdCard from "./components/menu/IdCard";
 import { useAppState } from "./contexts/AppStateContext";
 import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
