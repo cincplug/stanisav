@@ -172,9 +172,9 @@ const Mesha = ({
 
         <MeshaEyes
           irisColor={color}
-          eyelidMaterial={skinMaterial}
-          sizeSignal={scores.evidentiality}
-          depthSignal={scores.verbAspect}
+          eyelidColor={skinColor}
+          size={scores.evidentiality}
+          depth={scores.verbAspect}
           isoCode={selectedLanguage}
           mainZ={mainZ}
           onClick={handlePropertyClick}

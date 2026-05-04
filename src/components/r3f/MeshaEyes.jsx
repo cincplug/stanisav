@@ -11,9 +11,9 @@ import blinkTimings from "../../config/blinkTimings.json";
 const MeshaEye = ({
   position,
   irisColor,
-  eyelidMaterial,
-  sizeSignal,
-  depthSignal,
+  eyelidColor,
+  size,
+  depth,
   eyeSize,
   eyeProtrusion,
   blinkStateRef,
@@ -25,8 +25,8 @@ const MeshaEye = ({
 
   const irisSize = eyeSize * 0.75;
   const pupilSize = eyeSize * 0.5;
-  const eyeScale = 1 + sizeSignal / 4;
-  const depthFactor = depthSignal / 4;
+  const eyeScale = 1 + size / 4;
+  const depthFactor = depth / 4;
   const irisZ = eyeProtrusion / 2 + depthFactor * eyeProtrusion;
   const pupilZ = eyeProtrusion + depthFactor * eyeProtrusion;
 
@@ -84,20 +84,17 @@ const MeshaEye = ({
         <meshStandardMaterial color="#222222" />
       </mesh>
 
-      <group
-        ref={lidPivotRef}
-        position={[0, -eyeSize / 3, eyeSize * eyeProtrusion]}
-      >
+      <group ref={lidPivotRef} position={[0, 0, eyeSize]}>
         <mesh
-          position={[0, eyeSize, 0]}
-          renderOrder={1}
+          position={[0, eyeSize / 2, 0]}
           rotation={[Math.PI * 2, 0, 0]}
-          scale={[1, 0.5, 5 * eyeProtrusion]}
+          scale={[1, 0.5, 1]}
+          renderOrder={1}
         >
           <sphereGeometry
             args={[eyeSize, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2]}
           />
-          <shaderMaterial args={[eyelidMaterial]} />
+          <meshStandardMaterial color={eyelidColor} />
         </mesh>
       </group>
     </group>
@@ -108,9 +105,9 @@ const MeshaEye = ({
 
 const MeshaEyes = ({
   irisColor,
-  eyelidMaterial,
-  sizeSignal,
-  depthSignal,
+  eyelidColor,
+  size,
+  depth,
   isoCode,
   mainZ,
   onClick,
@@ -155,9 +152,9 @@ const MeshaEyes = ({
 
   const sharedEyeProps = {
     irisColor,
-    eyelidMaterial,
-    sizeSignal,
-    depthSignal,
+    eyelidColor,
+    size,
+    depth,
     eyeSize,
     eyeProtrusion,
     blinkStateRef,
