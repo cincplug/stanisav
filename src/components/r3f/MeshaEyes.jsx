@@ -86,13 +86,13 @@ const MeshaEye = ({
 
       <group
         ref={lidPivotRef}
-        position={[0, -eyeSize / 2, eyeSize * eyeProtrusion * 2]}
+        position={[0, -eyeSize / 3, eyeSize * eyeProtrusion]}
       >
         <mesh
-          position={[0, eyeSize, eyeSize * eyeProtrusion * 2]}
+          position={[0, eyeSize, 0]}
           renderOrder={1}
           rotation={[Math.PI * 2, 0, 0]}
-          scale={[1, 0.5, 1]}
+          scale={[1, 0.5, 5 * eyeProtrusion]}
         >
           <sphereGeometry
             args={[eyeSize, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2]}

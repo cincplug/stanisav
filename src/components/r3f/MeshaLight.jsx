@@ -21,21 +21,21 @@ const MeshaLight = () => {
   return (
     <group ref={groupRef}>
       <a.pointLight
-        position={[-spread, 0, 3]}
+        position={[-spread, 0, 4]}
         intensity={meshaLightIntensity}
         distance={meshaLightDistance}
         decay={meshaLightDecay}
         color={lightColor}
       />
       <a.pointLight
-        position={[spread, 0, 3]}
+        position={[spread, 0, 4]}
         intensity={meshaLightIntensity}
         distance={meshaLightDistance}
         decay={meshaLightDecay}
         color={lightColor}
       />
       <a.pointLight
-        position={[0, 3, 5]}
+        position={[0, 2, 5]}
         intensity={meshaLightIntensity}
         distance={meshaLightDistance}
         decay={meshaLightDecay}
