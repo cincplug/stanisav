@@ -1,433 +1,398 @@
 {
-  "sortBy": {
-    "type": "select",
-    "options": [
-      "alphabetically",
-      "speakers",
-      "family",
-      "tonality",
-      "morphology",
-      "wordOrder",
-      "wordOrderFlexibility",
-      "evidentiality",
-      "verbAspect",
-      "phonemeCount",
-      "caseCount",
-      "nounClassCount",
-      "maxClusterSize"
-    ],
-    "defaultValue": "alphabetically",
-    "isShownInMenu": true,
-    "group": "Header"
+  "Header": {
+    "sortBy": {
+      "type": "select",
+      "options": [
+        "alphabetically",
+        "speakers",
+        "family",
+        "tonality",
+        "morphology",
+        "wordOrder",
+        "wordOrderFlexibility",
+        "evidentiality",
+        "verbAspect",
+        "phonemeCount",
+        "caseCount",
+        "nounClassCount",
+        "maxClusterSize"
+      ],
+      "defaultValue": "alphabetically",
+      "isShownInMenu": true
+    },
+    "labelContent": {
+      "type": "select",
+      "options": ["name", "nativeName", "isoCode"],
+      "defaultValue": "name",
+      "isShownInMenu": true
+    },
+    "globeSpiralAxis": {
+      "type": "radio",
+      "options": ["x", "y", "z"],
+      "defaultValue": "y",
+      "isShownInMenu": true
+    },
+    "isReverse": {
+      "type": "checkbox",
+      "defaultValue": false,
+      "isShownInMenu": true
+    },
+    "isSegmented": {
+      "type": "checkbox",
+      "defaultValue": false,
+      "isShownInMenu": true
+    },
+    "isMenuVisible": {
+      "type": "checkbox",
+      "defaultValue": true,
+      "isShownInMenu": false
+    },
+    "isIdCardVisible": {
+      "type": "checkbox",
+      "defaultValue": false,
+      "isShownInMenu": true
+    },
+    "isMenuExpanded": {
+      "type": "checkbox",
+      "defaultValue": false,
+      "isShownInMenu": true
+    }
   },
-  "labelContent": {
-    "type": "select",
-    "options": ["name", "nativeName", "isoCode"],
-    "defaultValue": "name",
-    "isShownInMenu": true,
-    "group": "Header"
+  "Scene": {
+    "labelSize": {
+      "type": "range",
+      "min": 0.1,
+      "max": 3,
+      "step": 0.1,
+      "defaultValue": 1.5,
+      "isShownInMenu": true
+    },
+    "irrationality": {
+      "type": "range",
+      "min": 1,
+      "max": 200,
+      "step": 1,
+      "defaultValue": 50,
+      "isShownInMenu": true
+    },
+    "d4": {
+      "type": "range",
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "defaultValue": 1,
+      "isShownInMenu": true
+    },
+    "sphereRadius": {
+      "type": "range",
+      "min": 1,
+      "max": 50,
+      "step": 1,
+      "defaultValue": 22,
+      "isShownInMenu": false
+    },
+    "isMyMesha": {
+      "type": "checkbox",
+      "defaultValue": false,
+      "isShownInMenu": false
+    },
+    "isLoop": {
+      "type": "checkbox",
+      "defaultValue": true,
+      "isShownInMenu": false
+    },
+    "isLuka": {
+      "type": "checkbox",
+      "defaultValue": true,
+      "isShownInMenu": false
+    },
+    "canEditColors": {
+      "type": "checkbox",
+      "defaultValue": false,
+      "isShownInMenu": false
+    },
+    "showsVideoPreviews": {
+      "type": "checkbox",
+      "defaultValue": false,
+      "isShownInMenu": false
+    }
   },
-  "globeSpiralAxis": {
-    "type": "radio",
-    "options": ["x", "y", "z"],
-    "defaultValue": "y",
-    "isShownInMenu": true,
-    "group": "Header"
+  "Colors": {
+    "bgColor": {
+      "type": "color",
+      "defaultValue": "#070b0f",
+      "isShownInMenu": true
+    },
+    "bgColorNoon": {
+      "type": "color",
+      "defaultValue": "#1a1c1e",
+      "isShownInMenu": false
+    },
+    "hueStart": {
+      "type": "range",
+      "min": 0,
+      "max": 360,
+      "step": 1,
+      "defaultValue": 100,
+      "isShownInMenu": true
+    },
+    "hueCircle": {
+      "type": "range",
+      "min": 60,
+      "max": 360,
+      "step": 1,
+      "defaultValue": 360,
+      "isShownInMenu": true
+    },
+    "maxSiblingSpread": {
+      "type": "range",
+      "min": 0,
+      "max": 90,
+      "step": 1,
+      "defaultValue": 60,
+      "isShownInMenu": true
+    },
+    "globalLightnessScale": {
+      "type": "range",
+      "min": 0,
+      "max": 2,
+      "step": 0.01,
+      "defaultValue": 1,
+      "isShownInMenu": true
+    },
+    "globalLightnessOffset": {
+      "type": "range",
+      "min": -0.5,
+      "max": 0.5,
+      "step": 0.01,
+      "defaultValue": 0,
+      "isShownInMenu": true
+    },
+    "globalChromaScale": {
+      "type": "range",
+      "min": 0,
+      "max": 2,
+      "step": 0.01,
+      "defaultValue": 1,
+      "isShownInMenu": true
+    },
+    "globalChromaOffset": {
+      "type": "range",
+      "min": -0.2,
+      "max": 0.2,
+      "step": 0.01,
+      "defaultValue": 0,
+      "isShownInMenu": true
+    }
   },
-  "isReverse": {
-    "type": "checkbox",
-    "defaultValue": false,
-    "isShownInMenu": true,
-    "group": "Header"
+  "Stage light": {
+    "stageLightIntensity": {
+      "type": "range",
+      "min": 0,
+      "max": 70,
+      "step": 1,
+      "defaultValue": 8,
+      "isShownInMenu": true
+    },
+    "stageLightDecay": {
+      "type": "range",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "defaultValue": 0.2,
+      "isShownInMenu": true
+    },
+    "stageLightDistance": {
+      "type": "range",
+      "min": 50,
+      "max": 200,
+      "step": 1,
+      "defaultValue": 174,
+      "isShownInMenu": true
+    }
   },
-  "isSegmented": {
-    "type": "checkbox",
-    "defaultValue": false,
-    "isShownInMenu": true,
-    "group": "Header"
+  "Mesha light": {
+    "meshaLightIntensity": {
+      "type": "range",
+      "min": 0,
+      "max": 90,
+      "step": 1,
+      "defaultValue": 70,
+      "isShownInMenu": true
+    },
+    "meshaLightDecay": {
+      "type": "range",
+      "min": 0,
+      "max": 5,
+      "step": 0.1,
+      "defaultValue": 2.2,
+      "isShownInMenu": true
+    },
+    "meshaLightDistance": {
+      "type": "range",
+      "min": 1,
+      "max": 99,
+      "step": 1,
+      "defaultValue": 80,
+      "isShownInMenu": true
+    }
   },
-  "isMenuVisible": {
-    "type": "checkbox",
-    "defaultValue": true,
-    "isShownInMenu": false,
-    "group": "Header"
+  "Camera": {
+    "cameraX": {
+      "type": "range",
+      "min": -150,
+      "max": 150,
+      "step": 1,
+      "defaultValue": 0,
+      "isShownInMenu": false
+    },
+    "cameraY": {
+      "type": "range",
+      "min": -50,
+      "max": 50,
+      "step": 10,
+      "defaultValue": 0,
+      "isShownInMenu": false
+    },
+    "cameraZ": {
+      "type": "range",
+      "min": 100,
+      "max": 150,
+      "step": 10,
+      "defaultValue": 120,
+      "isShownInMenu": false
+    },
+    "fov": {
+      "type": "range",
+      "min": 10,
+      "max": 120,
+      "step": 1,
+      "defaultValue": 30,
+      "isShownInMenu": false
+    },
+    "switchDuration": {
+      "type": "range",
+      "min": 500,
+      "max": 3000,
+      "step": 100,
+      "defaultValue": 1200,
+      "isShownInMenu": true
+    },
+    "zoomDistance": {
+      "type": "range",
+      "min": 20,
+      "max": 100,
+      "step": 1,
+      "defaultValue": 37,
+      "isShownInMenu": true
+    },
+    "near": {
+      "type": "range",
+      "min": 0.1,
+      "max": 10,
+      "step": 0.1,
+      "defaultValue": 0.1,
+      "isShownInMenu": false
+    },
+    "far": {
+      "type": "range",
+      "min": 1000,
+      "max": 10000,
+      "step": 100,
+      "defaultValue": 2000,
+      "isShownInMenu": false
+    }
   },
-  "isIdCardVisible": {
-    "type": "checkbox",
-    "defaultValue": false,
-    "isShownInMenu": true,
-    "group": "Header"
+  "Motion": {
+    "tension": {
+      "type": "range",
+      "min": 50,
+      "max": 400,
+      "step": 1,
+      "defaultValue": 150,
+      "isShownInMenu": true
+    },
+    "friction": {
+      "type": "range",
+      "min": 1,
+      "max": 80,
+      "step": 1,
+      "defaultValue": 22,
+      "isShownInMenu": true
+    }
   },
-  "isMenuExpanded": {
-    "type": "checkbox",
-    "defaultValue": false,
-    "isShownInMenu": true,
-    "group": "Header"
-  },
-  "labelSize": {
-    "type": "range",
-    "min": 0.1,
-    "max": 3,
-    "step": 0.1,
-    "defaultValue": 1.5,
-    "isShownInMenu": true,
-    "group": "Scene"
-  },
-  "irrationality": {
-    "type": "range",
-    "min": 1,
-    "max": 200,
-    "step": 1,
-    "defaultValue": 50,
-    "isShownInMenu": true,
-    "group": "Scene"
-  },
-  "d4": {
-    "type": "range",
-    "min": 0,
-    "max": 5,
-    "step": 1,
-    "defaultValue": 1,
-    "isShownInMenu": true,
-    "group": "Scene"
-  },
-  "sphereRadius": {
-    "type": "range",
-    "min": 1,
-    "max": 50,
-    "step": 1,
-    "defaultValue": 22,
-    "isShownInMenu": false,
-    "group": "Scene"
-  },
-  "isMyMesha": {
-    "type": "checkbox",
-    "defaultValue": false,
-    "isShownInMenu": false,
-    "group": "Scene"
-  },
-  "isLoop": {
-    "type": "checkbox",
-    "defaultValue": true,
-    "isShownInMenu": false,
-    "group": "Scene"
-  },
-  "isLuka": {
-    "type": "checkbox",
-    "defaultValue": true,
-    "isShownInMenu": false,
-    "group": "Scene"
-  },
-  "canEditColors": {
-    "type": "checkbox",
-    "defaultValue": false,
-    "isShownInMenu": false,
-    "group": "Scene"
-  },
-  "showsVideoPreviews": {
-    "type": "checkbox",
-    "defaultValue": false,
-    "isShownInMenu": false,
-    "group": "Scene"
-  },
-  "bgColor": {
-    "type": "color",
-    "defaultValue": "#070b0f",
-    "isShownInMenu": true,
-    "group": "Colors"
-  },
-  "bgColorNoon": {
-    "group": "Colors",
-    "type": "color",
-    "defaultValue": "#1a1c1e",
-    "isShownInMenu": false
-  },
-  "stageLightIntensity": {
-    "group": "Stage light",
-    "type": "range",
-    "min": 0,
-    "max": 70,
-    "step": 1,
-    "defaultValue": 8,
-    "isShownInMenu": true
-  },
-  "stageLightDecay": {
-    "group": "Stage light",
-    "type": "range",
-    "min": 0,
-    "max": 1,
-    "step": 0.1,
-    "defaultValue": 0.2,
-    "isShownInMenu": true
-  },
-  "stageLightDistance": {
-    "group": "Stage light",
-    "type": "range",
-    "min": 50,
-    "max": 200,
-    "step": 1,
-    "defaultValue": 174,
-    "isShownInMenu": true
-  },
-  "meshaLightIntensity": {
-    "group": "Mesha light",
-    "type": "range",
-    "min": 0,
-    "max": 90,
-    "step": 1,
-    "defaultValue": 70,
-    "isShownInMenu": true
-  },
-  "meshaLightDecay": {
-    "group": "Mesha light",
-    "type": "range",
-    "min": 0,
-    "max": 5,
-    "step": 0.1,
-    "defaultValue": 2.2,
-    "isShownInMenu": true
-  },
-  "meshaLightDistance": {
-    "group": "Mesha light",
-    "type": "range",
-    "min": 1,
-    "max": 99,
-    "step": 1,
-    "defaultValue": 80,
-    "isShownInMenu": true
-  },
-  "cameraX": {
-    "type": "range",
-    "min": -150,
-    "max": 150,
-    "step": 1,
-    "defaultValue": 0,
-    "isShownInMenu": false,
-    "group": "Camera"
-  },
-  "cameraY": {
-    "type": "range",
-    "min": -50,
-    "max": 50,
-    "step": 10,
-    "defaultValue": 0,
-    "isShownInMenu": false,
-    "group": "Camera"
-  },
-  "cameraZ": {
-    "type": "range",
-    "min": 100,
-    "max": 150,
-    "step": 10,
-    "defaultValue": 120,
-    "isShownInMenu": false,
-    "group": "Camera"
-  },
-  "fov": {
-    "type": "range",
-    "min": 10,
-    "max": 120,
-    "step": 1,
-    "defaultValue": 30,
-    "isShownInMenu": false,
-    "group": "Camera"
-  },
-  "switchDuration": {
-    "type": "range",
-    "min": 500,
-    "max": 3000,
-    "step": 100,
-    "defaultValue": 1200,
-    "isShownInMenu": true,
-    "group": "Camera"
-  },
-  "zoomDistance": {
-    "type": "range",
-    "min": 20,
-    "max": 100,
-    "step": 1,
-    "defaultValue": 37,
-    "isShownInMenu": true,
-    "group": "Camera"
-  },
-  "near": {
-    "type": "range",
-    "min": 0.1,
-    "max": 10,
-    "step": 0.1,
-    "defaultValue": 0.1,
-    "isShownInMenu": false,
-    "group": "Camera"
-  },
-  "far": {
-    "type": "range",
-    "min": 1000,
-    "max": 10000,
-    "step": 100,
-    "defaultValue": 2000,
-    "isShownInMenu": false,
-    "group": "Camera"
-  },
-  "tension": {
-    "type": "range",
-    "min": 50,
-    "max": 400,
-    "step": 1,
-    "defaultValue": 150,
-    "isShownInMenu": true,
-    "group": "Motion"
-  },
-  "friction": {
-    "type": "range",
-    "min": 1,
-    "max": 80,
-    "step": 1,
-    "defaultValue": 22,
-    "isShownInMenu": true,
-    "group": "Motion"
-  },
-  "meshaSize": {
-    "type": "range",
-    "min": 1,
-    "max": 10,
-    "step": 0.1,
-    "defaultValue": 2,
-    "isShownInMenu": true,
-    "group": "Mesha"
-  },
-  "eyeX": {
-    "type": "range",
-    "min": 0,
-    "max": 3,
-    "step": 0.1,
-    "defaultValue": 0.6,
-    "isShownInMenu": true,
-    "group": "Mesha"
-  },
-  "eyeY": {
-    "type": "range",
-    "min": -2,
-    "max": 2,
-    "step": 0.1,
-    "defaultValue": 1.2,
-    "isShownInMenu": true,
-    "group": "Mesha"
-  },
-  "eyeZ": {
-    "type": "range",
-    "min": 0.5,
-    "max": 3,
-    "step": 0.1,
-    "defaultValue": 1,
-    "isShownInMenu": true,
-    "group": "Mesha"
-  },
-  "eyeSize": {
-    "type": "range",
-    "min": 0.05,
-    "max": 0.5,
-    "step": 0.01,
-    "defaultValue": 0.25,
-    "isShownInMenu": true,
-    "group": "Mesha"
-  },
-  "eyeProtrusion": {
-    "type": "range",
-    "min": 0,
-    "max": 1,
-    "step": 0.01,
-    "defaultValue": 0.2,
-    "isShownInMenu": false,
-    "group": "Mesha"
-  },
-  "noseSize": {
-    "type": "range",
-    "min": 0.1,
-    "max": 2,
-    "step": 0.1,
-    "defaultValue": 0.4,
-    "isShownInMenu": true,
-    "group": "Mesha"
-  },
-  "teethSize": {
-    "type": "range",
-    "min": 0.1,
-    "max": 2,
-    "step": 0.1,
-    "defaultValue": 0.4,
-    "isShownInMenu": true,
-    "group": "Mesha"
-  },
-  "moustacheSize": {
-    "type": "range",
-    "min": 0.1,
-    "max": 2,
-    "step": 0.1,
-    "defaultValue": 0.4,
-    "isShownInMenu": true,
-    "group": "Mesha"
-  },
-  "hueStart": {
-    "type": "range",
-    "min": 0,
-    "max": 360,
-    "step": 1,
-    "defaultValue": 100,
-    "isShownInMenu": true,
-    "group": "Colors"
-  },
-  "hueCircle": {
-    "type": "range",
-    "min": 60,
-    "max": 360,
-    "step": 1,
-    "defaultValue": 360,
-    "isShownInMenu": true,
-    "group": "Colors"
-  },
-  "maxSiblingSpread": {
-    "type": "range",
-    "min": 0,
-    "max": 90,
-    "step": 1,
-    "defaultValue": 60,
-    "isShownInMenu": true,
-    "group": "Colors"
-  },
-  "globalLightnessScale": {
-    "type": "range",
-    "min": 0,
-    "max": 2,
-    "step": 0.01,
-    "defaultValue": 1,
-    "isShownInMenu": true,
-    "group": "Colors"
-  },
-  "globalLightnessOffset": {
-    "type": "range",
-    "min": -0.5,
-    "max": 0.5,
-    "step": 0.01,
-    "defaultValue": 0,
-    "isShownInMenu": true,
-    "group": "Colors"
-  },
-  "globalChromaScale": {
-    "type": "range",
-    "min": 0,
-    "max": 2,
-    "step": 0.01,
-    "defaultValue": 1,
-    "isShownInMenu": true,
-    "group": "Colors"
-  },
-  "globalChromaOffset": {
-    "type": "range",
-    "min": -0.2,
-    "max": 0.2,
-    "step": 0.01,
-    "defaultValue": 0,
-    "isShownInMenu": true,
-    "group": "Colors"
+  "Mesha": {
+    "meshaSize": {
+      "type": "range",
+      "min": 1,
+      "max": 10,
+      "step": 0.1,
+      "defaultValue": 2,
+      "isShownInMenu": true
+    },
+    "eyeX": {
+      "type": "range",
+      "min": 0,
+      "max": 3,
+      "step": 0.1,
+      "defaultValue": 0.6,
+      "isShownInMenu": true
+    },
+    "eyeY": {
+      "type": "range",
+      "min": -2,
+      "max": 2,
+      "step": 0.1,
+      "defaultValue": 1.2,
+      "isShownInMenu": true
+    },
+    "eyeZ": {
+      "type": "range",
+      "min": 0.5,
+      "max": 3,
+      "step": 0.1,
+      "defaultValue": 1,
+      "isShownInMenu": true
+    },
+    "eyeSize": {
+      "type": "range",
+      "min": 0.05,
+      "max": 0.5,
+      "step": 0.01,
+      "defaultValue": 0.25,
+      "isShownInMenu": true
+    },
+    "eyeProtrusion": {
+      "type": "range",
+      "min": 0,
+      "max": 1,
+      "step": 0.01,
+      "defaultValue": 0.2,
+      "isShownInMenu": false
+    },
+    "noseSize": {
+      "type": "range",
+      "min": 0.1,
+      "max": 2,
+      "step": 0.1,
+      "defaultValue": 0.4,
+      "isShownInMenu": true
+    },
+    "teethSize": {
+      "type": "range",
+      "min": 0.1,
+      "max": 2,
+      "step": 0.1,
+      "defaultValue": 0.4,
+      "isShownInMenu": true
+    },
+    "moustacheSize": {
+      "type": "range",
+      "min": 0.1,
+      "max": 2,
+      "step": 0.1,
+      "defaultValue": 0.4,
+      "isShownInMenu": true
+    }
   }
 }

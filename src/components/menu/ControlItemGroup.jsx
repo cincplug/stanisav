@@ -3,10 +3,8 @@ import { localizeControlConfig } from "../../utils/configI18nUtils";
 import ControlItem from "./ControlItem";
 
 function ControlItemGroup({ groupName, controls, onChange }) {
-  const groupControls = Object.entries(controlsConfig)
-    .filter(
-      ([_id, config]) => config.group === groupName && config.isShownInMenu,
-    )
+  const groupControls = Object.entries(controlsConfig[groupName] ?? {})
+    .filter(([_id, config]) => config.isShownInMenu)
     .map(([id, config]) => ({ id, ...localizeControlConfig(id, config) }));
 
   if (groupControls.length === 0) return null;

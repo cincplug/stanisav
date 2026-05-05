@@ -9,13 +9,8 @@ import ControlItem from "./ControlItem";
 import "./ControlsTab.css";
 
 const getControlsByGroup = (groupName) =>
-  Object.entries(controlsConfig)
-    .filter(
-      ([_id, config]) =>
-        config.group === groupName &&
-        config.isShownInMenu &&
-        config.group !== "Sorting",
-    )
+  Object.entries(controlsConfig[groupName] ?? {})
+    .filter(([_id, config]) => config.isShownInMenu)
     .map(([id, config]) => ({ id, ...localizeControlConfig(id, config) }));
 
 const ControlGroup = ({ groupName, controls, updateControl }) => {
@@ -43,16 +38,11 @@ const ControlsTab = () => {
   const { controls, updateControl } = useControls();
   const { selectedLanguage } = useLanguageSelection();
 
-  const uniqueGroups = Array.from(
-    new Set(
-      Object.values(controlsConfig)
-        .map(({ group }) => group)
-        .filter((group) => !["Header"].includes(group))
-        .filter((group) =>
-          selectedLanguage ? group !== "Stage light" : group !== "Mesha light",
-        ),
-    ),
-  ).filter(Boolean);
+  const uniqueGroups = Object.keys(controlsConfig).filter(
+    (group) =>
+      group !== "Header" &&
+      (selectedLanguage ? group !== "Stage light" : group !== "Mesha light"),
+  );
 
   return (
     <div className="control-section">

@@ -1,21 +1,14 @@
 import { createContext, useContext, useState } from "react";
 import controlsConfig from "../config/controls.json";
 
-// Initialize default values from controlsConfig as a flat object
 const getDefaultValues = () => {
   const defaults = {};
-  Object.entries(controlsConfig).forEach(([controlId, config]) => {
-    defaults[controlId] = config.defaultValue;
+  Object.values(controlsConfig).forEach((group) => {
+    Object.entries(group).forEach(([controlId, config]) => {
+      defaults[controlId] = config.defaultValue;
+    });
   });
   return defaults;
-};
-
-const getSelectOptions = (controlId) => {
-  const config = controlsConfig[controlId];
-  if (config && config.type === "select") {
-    return config.options;
-  }
-  return undefined;
 };
 
 const ControlsContext = createContext(null);
