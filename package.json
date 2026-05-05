@@ -22,7 +22,7 @@
     "mp3": "node scripts/mp3.js",
     "audio:analyze": "node scripts/analyze-audio.js",
     "audio:optimize": "node scripts/optimize-audio.js",
-    "addLang": "node scripts/addLang.js",
+    "add-lang": "node scripts/add-lang.js",
     "i18n": "node scripts/i18n.js",
     "blink": "node scripts/analyze-blinks.js"
   },
