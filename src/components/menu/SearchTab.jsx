@@ -3,7 +3,7 @@ import SearchBox from "./SearchBox";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
 import { useI18n } from "../../contexts/I18nContext";
-import { getFamilyLabel } from "../../utils/configI18nUtils";
+import { getFamilyLabel } from "../../utils/i18nUtils";
 import tabsConfig from "../../config/tabsConfig.json";
 import "./SearchTab.css";
 

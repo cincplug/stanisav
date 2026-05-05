@@ -1,6 +1,6 @@
 import linguisticConfig from "../config/linguisticConfig.json";
 import numericFeatures from "../config/numericFeatures.json";
-import { getFamilyLabel } from "./configI18nUtils";
+import { getFamilyLabel } from "./i18nUtils";
 import { getFeatureLabel } from "./linguisticUtils";
 import { getLanguageLabel } from "./languageDisplayUtils";
 

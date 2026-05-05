@@ -1,5 +1,5 @@
 import { getLanguageLabel } from "../../utils/languageDisplayUtils";
-import { getFamilyLabel } from "../../utils/configI18nUtils";
+import { getFamilyLabel } from "../../utils/i18nUtils";
 
 const LanguageTree = ({
   tree,

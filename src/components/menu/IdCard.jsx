@@ -12,7 +12,7 @@ import {
   getLineageTrail,
   isPropertyDescribed,
 } from "../../utils/linguisticUtils";
-import { getFamilyLabel } from "../../utils/configI18nUtils";
+import { getFamilyLabel } from "../../utils/i18nUtils";
 import { CloseIcon } from "./MenuIcons";
 import Tooltip from "./ux/Tooltip";
 import Properties from "./Properties";

@@ -1,5 +1,5 @@
 import controlsConfig from "../../config/controls.json";
-import { localizeControlConfig } from "../../utils/configI18nUtils";
+import { localizeControlConfig } from "../../utils/i18nUtils";
 import ControlItem from "./ControlItem";
 
 function ControlItemGroup({ groupName, controls, onChange }) {

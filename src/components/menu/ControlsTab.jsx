@@ -4,7 +4,7 @@ import controlsConfig from "../../config/controls.json";
 import {
   getControlGroupLabel,
   localizeControlConfig,
-} from "../../utils/configI18nUtils";
+} from "../../utils/i18nUtils";
 import ControlItem from "./ControlItem";
 import "./ControlsTab.css";
 
