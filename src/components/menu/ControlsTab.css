@@ -28,8 +28,12 @@
     gap: var(--gap-half);
   }
 
-  &.range-control label {
-    justify-content: space-between;
+  &.range-control {
+    display: flex;
+    flex-direction: column;
+    label {
+      justify-content: space-between;
+    }
   }
 }
 

@@ -107,7 +107,7 @@ select,
 
 input[type="range"] {
   width: 100%;
-  margin-bottom: 5px;
+  margin-block: auto;
   appearance: none;
   background: var(--color-3);
   height: var(--gap);
