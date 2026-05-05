@@ -34,23 +34,6 @@
       "defaultValue": 1.5,
       "isShownInMenu": true
     },
-    "irrationality": {
-      "type": "range",
-      "min": 1,
-      "max": 200,
-      "step": 1,
-      "defaultValue": 50,
-      "isShownInMenu": true
-    },
-    "d4": {
-      "type": "range",
-      "min": 0,
-      "max": 5,
-      "step": 1,
-      "defaultValue": 1,
-      "isShownInMenu": true
-    },
-
     "isReverse": {
       "type": "checkbox",
       "defaultValue": false,
@@ -78,6 +61,22 @@
     }
   },
   "Scene": {
+    "irrationality": {
+      "type": "range",
+      "min": 1,
+      "max": 200,
+      "step": 1,
+      "defaultValue": 50,
+      "isShownInMenu": true
+    },
+    "d4": {
+      "type": "range",
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "defaultValue": 1,
+      "isShownInMenu": true
+    },
     "globeSpiralAxis": {
       "type": "radio",
       "options": ["x", "y", "z"],
