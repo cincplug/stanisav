@@ -2,11 +2,9 @@ import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { usePlaylist } from "../../contexts/PlaylistContext.jsx";
-import MeshaHighlight from "./MeshaHighlight.jsx";
+import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
 import blinkTimings from "../../config/blinkTimings.json";
-
-// ─── MeshaEye (single eye, internal) ─────────────────────────────────────────
 
 const MeshaEye = ({
   position,
@@ -20,6 +18,7 @@ const MeshaEye = ({
   onClick,
   isSelectedOuter,
   isSelectedInner,
+  highlightMaterial,
 }) => {
   const lidPivotRef = useRef();
 
@@ -34,13 +33,10 @@ const MeshaEye = ({
 
   useFrame(({ clock }) => {
     if (!lidPivotRef.current) return;
-
     const state = blinkStateRef.current;
-
     if (state.isBlinking) {
       const elapsed = clock.getElapsedTime() - state.startTime;
       const progress = elapsed / blinkDuration;
-
       if (progress >= 1) {
         state.isBlinking = false;
         lidPivotRef.current.rotation.x = 0;
@@ -55,28 +51,18 @@ const MeshaEye = ({
     <group position={position} scale={eyeScale}>
       <mesh linguisticProperty="evidentiality" onClick={onClick}>
         <sphereGeometry args={[eyeSize, 32, 32]} />
-        <meshStandardMaterial color="#e7ebef" />
-        {isSelectedOuter && (
-          <MeshaHighlight
-            geometry="sphereGeometry"
-            geometryArgs={[eyeSize, 32, 32]}
-          />
-        )}
+        {isSelectedOuter
+          ? <shaderMaterial args={[highlightMaterial]} />
+          : <meshStandardMaterial color="#e7ebef" />
+        }
       </mesh>
 
-      <mesh
-        position={[0, 0, irisZ]}
-        linguisticProperty="verbAspect"
-        onClick={onClick}
-      >
+      <mesh position={[0, 0, irisZ]} linguisticProperty="verbAspect" onClick={onClick}>
         <sphereGeometry args={[irisSize, 32, 32]} />
-        <meshStandardMaterial color={irisColor} />
-        {isSelectedInner && (
-          <MeshaHighlight
-            geometry="sphereGeometry"
-            geometryArgs={[irisSize, 32, 32]}
-          />
-        )}
+        {isSelectedInner
+          ? <shaderMaterial args={[highlightMaterial]} />
+          : <meshStandardMaterial color={irisColor} />
+        }
       </mesh>
 
       <mesh position={[0, 0, pupilZ]}>
@@ -85,22 +71,14 @@ const MeshaEye = ({
       </mesh>
 
       <group ref={lidPivotRef} position={[0, 0, eyeSize]}>
-        <mesh
-          position={[0, eyeSize / 2, 0]}
-          scale={[1, 0.5, 1]}
-          renderOrder={1}
-        >
-          <sphereGeometry
-            args={[eyeSize, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2]}
-          />
+        <mesh position={[0, eyeSize / 2, 0]} scale={[1, 0.5, 1]} renderOrder={1}>
+          <sphereGeometry args={[eyeSize, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2]} />
           <meshStandardMaterial color={eyelidColor} />
         </mesh>
       </group>
     </group>
   );
 };
-
-// ─── MeshaEyes (public, owns all eye state and positioning) ──────────────────
 
 const MeshaEyes = ({
   irisColor,
@@ -113,15 +91,12 @@ const MeshaEyes = ({
   isSelectedOuter,
   isSelectedInner,
 }) => {
-  const blinkStateRef = useRef({
-    isBlinking: false,
-    startTime: null,
-    lastCheckedIndex: 0,
-  });
+  const blinkStateRef = useRef({ isBlinking: false, startTime: null, lastCheckedIndex: 0 });
 
   const { controls } = useControls();
   const { eyeSize, eyeProtrusion, eyeX, eyeY } = controls;
   const { audioRef } = usePlaylist();
+  const highlightMaterial = useHighlightMaterial(0, 2);
 
   const timings = blinkTimings[isoCode] ?? [];
 
@@ -131,15 +106,10 @@ const MeshaEyes = ({
 
     if (timings.length > 0 && audio && !audio.paused) {
       const currentTime = audio.currentTime;
-
       if (state.lastCheckedIndex > 0 && currentTime < timings[0]) {
         state.lastCheckedIndex = 0;
       }
-
-      while (
-        state.lastCheckedIndex < timings.length &&
-        currentTime >= timings[state.lastCheckedIndex]
-      ) {
+      while (state.lastCheckedIndex < timings.length && currentTime >= timings[state.lastCheckedIndex]) {
         if (!state.isBlinking) {
           state.isBlinking = true;
           state.startTime = clock.getElapsedTime();
@@ -150,16 +120,8 @@ const MeshaEyes = ({
   });
 
   const sharedEyeProps = {
-    irisColor,
-    eyelidColor,
-    size,
-    depth,
-    eyeSize,
-    eyeProtrusion,
-    blinkStateRef,
-    onClick,
-    isSelectedOuter,
-    isSelectedInner,
+    irisColor, eyelidColor, size, depth, eyeSize, eyeProtrusion,
+    blinkStateRef, onClick, isSelectedOuter, isSelectedInner, highlightMaterial,
   };
 
   return (

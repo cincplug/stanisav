@@ -17,10 +17,10 @@
 
   .tooltip-popover {
     padding: var(--gap-double);
-    background-color: var(--color-3);
 
+    &,
     &::after {
-      background-color: var(--color-3);
+      background-color: var(--color-current);
     }
   }
 }

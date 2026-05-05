@@ -9,5 +9,15 @@
   "clusterCellSpacing": 0.12,
   "clusterCellSizeModifier": 1,
   "radialOffsetModifier": 4,
-  "autoRotateSpeed": 3
+  "autoRotateSpeed": 3,
+  "currentColor": "#50a7ff",
+  "shaderAmbient": 0.7,
+  "shaderLightingMin": 0.7,
+  "shaderLightingMax": 1.8,
+  "shaderLightingDiffuseScale": 0.5,
+  "shaderShadeChecker": 0.9,
+  "shaderShadeStripe": 2,
+  "shaderCheckerFrequency": 5.0,
+  "shaderRingCount": 12,
+  "shaderRingSpeed": 1.2
 }

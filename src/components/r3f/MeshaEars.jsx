@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useAudioData } from "../../hooks/useAudioData.js";
+import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { createAudioSurface } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
@@ -17,10 +18,9 @@ const MeshaEars = ({
   isSelected,
 }) => {
   const { audioData } = useAudioData();
+  const highlightMaterial = useHighlightMaterial(0);
   const leftMeshRef = useRef();
   const rightMeshRef = useRef();
-  const leftHighlightRef = useRef();
-  const rightHighlightRef = useRef();
 
   useFrame(() => {
     const audioSurface = createAudioSurface({
@@ -32,66 +32,24 @@ const MeshaEars = ({
 
     if (leftMeshRef.current) {
       leftMeshRef.current.geometry.dispose();
-      leftMeshRef.current.geometry = new ParametricGeometry(
-        audioSurface,
-        leftSegments,
-        leftSegments,
-      );
+      leftMeshRef.current.geometry = new ParametricGeometry(audioSurface, leftSegments, leftSegments);
     }
     if (rightMeshRef.current) {
       rightMeshRef.current.geometry.dispose();
-      rightMeshRef.current.geometry = new ParametricGeometry(
-        audioSurface,
-        rightSegments,
-        rightSegments,
-      );
-    }
-    if (leftHighlightRef.current && leftMeshRef.current) {
-      leftHighlightRef.current.geometry = leftMeshRef.current.geometry;
-    }
-    if (rightHighlightRef.current && rightMeshRef.current) {
-      rightHighlightRef.current.geometry = rightMeshRef.current.geometry;
+      rightMeshRef.current.geometry = new ParametricGeometry(audioSurface, rightSegments, rightSegments);
     }
   });
 
   const { x, y, z } = earPosition;
+  const activeMaterial = isSelected ? highlightMaterial : earMaterial;
 
   return (
     <>
-      <mesh
-        ref={leftMeshRef}
-        position={[-x, y, z]}
-        scale={[-0.6, 3 / rightSegments, 1]}
-        onClick={onClick}
-        linguisticProperty="morphology"
-      >
-        <shaderMaterial args={[earMaterial]} />
+      <mesh ref={leftMeshRef} position={[-x, y, z]} scale={[-0.6, 3 / rightSegments, 1]} onClick={onClick} linguisticProperty="morphology">
+        <shaderMaterial args={[activeMaterial]} />
       </mesh>
-      <mesh
-        ref={leftHighlightRef}
-        position={[-x, y, z]}
-        scale={[-0.6, 3 / rightSegments, 1]}
-        visible={isSelected}
-      >
-        <meshBasicMaterial color="#ff0" wireframe />
-      </mesh>
-
-      <mesh
-        ref={rightMeshRef}
-        position={[x, y, z]}
-        scale={[0.6, 3 / rightSegments, 1]}
-        onClick={onClick}
-        linguisticProperty="morphology"
-      >
-        <shaderMaterial args={[earMaterial]} />
-      </mesh>
-      <mesh
-        ref={rightHighlightRef}
-        position={[x, y, z]}
-        scale={[0.6, 3 / rightSegments, 1]}
-        visible={isSelected}
-      >
-        <meshBasicMaterial color="#ff0" wireframe />
+      <mesh ref={rightMeshRef} position={[x, y, z]} scale={[0.6, 3 / rightSegments, 1]} onClick={onClick} linguisticProperty="morphology">
+        <shaderMaterial args={[activeMaterial]} />
       </mesh>
     </>
   );

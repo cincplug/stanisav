@@ -1,9 +1,9 @@
 import { useRef, useMemo } from "react";
-import MeshaHighlight from "./MeshaHighlight.jsx";
 import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useAudioData } from "../../hooks/useAudioData.js";
+import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { shiftHue } from "../../utils/colorUtils";
 import { createTuftShape } from "../../utils/shapeUtils.js";
 
@@ -26,6 +26,7 @@ const MeshaMoustache = ({
   const { controls } = useControls();
   const { audioData } = useAudioData();
   const { meshaSize, eyeZ, eyeX, moustacheSize } = controls;
+  const highlightMaterial = useHighlightMaterial(0, 2);
 
   const tuftSurface = useMemo(
     () => createTuftShape(moustacheSize, tuftCount),
@@ -47,15 +48,7 @@ const MeshaMoustache = ({
       const scale = 0.5 + 0.5 * t;
       const rotationRad = ((180 + (i - centerIndex) * stepDeg) * Math.PI) / 180;
 
-      return {
-        key: `moustache-${i}`,
-        x: baseX - i * spacing,
-        y,
-        z: baseZ + z,
-        rotationRad,
-        scale,
-        t,
-      };
+      return { key: `moustache-${i}`, x: baseX - i * spacing, y, z: baseZ + z, rotationRad, scale };
     });
 
     tuftDataRef.current = result;
@@ -69,9 +62,7 @@ const MeshaMoustache = ({
       if (!tuftGroup) return;
       const tuft = tuftDataRef.current[i];
       const bandIndex = Math.floor(
-        (Math.abs(Math.cos((i / tuftCount) * Math.PI * 2)) *
-          audioBandData.length) /
-          tuftCount,
+        (Math.abs(Math.cos((i / tuftCount) * Math.PI * 2)) * audioBandData.length) / tuftCount,
       );
       const amplitude = audioBandData[bandIndex];
       const scale = moustacheSize + amplitude;
@@ -94,19 +85,12 @@ const MeshaMoustache = ({
           position={[tuft.x, tuft.y, tuft.z]}
           onClick={onClick}
         >
-          <mesh
-            rotation={[0, 0, tuft.rotationRad]}
-            scale={tuft.scale}
-            linguisticProperty={linguisticProperty}
-          >
+          <mesh rotation={[0, 0, tuft.rotationRad]} scale={tuft.scale} linguisticProperty={linguisticProperty}>
             <parametricGeometry args={[tuftSurface, 12, 12]} />
-            <meshStandardMaterial color={moustacheColor} side={2} />
-            {isSelected && (
-              <MeshaHighlight
-                geometry="parametricGeometry"
-                geometryArgs={[tuftSurface, 12, 12]}
-              />
-            )}
+            {isSelected
+              ? <shaderMaterial args={[highlightMaterial]} />
+              : <meshStandardMaterial color={moustacheColor} side={2} />
+            }
           </mesh>
         </group>
       ))}

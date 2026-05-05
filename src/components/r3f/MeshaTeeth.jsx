@@ -1,23 +1,19 @@
 import { useRef, useMemo } from "react";
-import MeshaHighlight from "./MeshaHighlight.jsx";
 import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useAudioData } from "../../hooks/useAudioData.js";
+import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { createToothShape } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
 
-/**
- * MeshaTeeth
- * @param {object} props
- * @param {boolean} props.isSelected - highlight if selectedProperty matches
- */
 const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
   const teethRefs = useRef([]);
   const { controls } = useControls();
   const { audioData } = useAudioData();
   const { meshaSize, teethSize } = controls;
+  const highlightMaterial = useHighlightMaterial(0, 2);
 
   const teeth = useMemo(() => {
     if (toothCount === 0) return [];
@@ -27,22 +23,18 @@ const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
     return Array.from({ length: toothCount }, (_, toothIndex) => {
       const angle = startAngle + (toothIndex / toothCount) * arc;
       const positionInCluster = toothIndex % clusterSize;
-      const clusterNumber = Math.floor(toothIndex / clusterSize);
       const clusterCenter = (clusterSize - 1) / 2;
       const rotationIntensity =
         clusterSize > 1
-          ? Math.abs(positionInCluster - clusterCenter) /
-            Math.floor(clusterSize / 2)
+          ? Math.abs(positionInCluster - clusterCenter) / Math.floor(clusterSize / 2)
           : 0;
-      const rotationAngle =
-        Math.sign(positionInCluster - clusterCenter) * rotationIntensity;
+      const rotationAngle = Math.sign(positionInCluster - clusterCenter) * rotationIntensity;
 
       return {
         x: Math.cos(angle) * meshaSize,
         y: -meshaSize / 2,
         z: Math.sin(angle) * meshaSize + clusterSize / 3,
         positionInCluster,
-        clusterNumber,
         rotationAngle,
         key: `tooth-${toothIndex}`,
       };
@@ -72,24 +64,13 @@ const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
   return (
     <group position={[0, meshaSize, meshaSize]} scale={teethSize}>
       {teeth.map((tooth, i) => (
-        <group
-          key={tooth.key}
-          position={[tooth.x, tooth.y, tooth.z - 1]}
-          rotation={[tooth.rotationAngle, 0, 0]}
-        >
-          <mesh
-            ref={(el) => (teethRefs.current[i] = el)}
-            linguisticProperty="phonemeCount"
-            onClick={onClick}
-          >
+        <group key={tooth.key} position={[tooth.x, tooth.y, tooth.z - 1]} rotation={[tooth.rotationAngle, 0, 0]}>
+          <mesh ref={(el) => (teethRefs.current[i] = el)} linguisticProperty="phonemeCount" onClick={onClick}>
             <parametricGeometry args={[createToothShape, 16, 8]} />
-            <meshStandardMaterial color="#e7ebef" />
-            {isSelected && (
-              <MeshaHighlight
-                geometry="parametricGeometry"
-                geometryArgs={[createToothShape, 16, 8]}
-              />
-            )}
+            {isSelected
+              ? <shaderMaterial args={[highlightMaterial]} />
+              : <meshStandardMaterial color="#e7ebef" />
+            }
           </mesh>
         </group>
       ))}

@@ -3,6 +3,7 @@ import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useAudioData } from "../../hooks/useAudioData.js";
+import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { createAudioSurface } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
@@ -12,7 +13,11 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
   const { audioData } = useAudioData();
   const { meshaSize } = controls;
   const meshRef = useRef();
-  const highlightRef = useRef();
+
+  // Pass tongueMaterial's stripesType so highlight keeps the stripes visible.
+  // tongueMaterial.uniforms.uStripesType.value carries the language's stripesType.
+  const stripesType = tongueMaterial?.uniforms?.uStripesType?.value ?? 0;
+  const highlightMaterial = useHighlightMaterial(stripesType);
 
   useFrame(() => {
     const { harmonicsData } = audioData;
@@ -26,39 +31,24 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
 
     if (meshRef.current) {
       meshRef.current.geometry.dispose();
-      meshRef.current.geometry = new ParametricGeometry(
-        audioSurface,
-        segments,
-        segments,
-      );
+      meshRef.current.geometry = new ParametricGeometry(audioSurface, segments, segments);
       meshRef.current.rotation.x = harmonicsData[0] + Math.PI / 12;
-    }
-    if (highlightRef.current && meshRef.current) {
-      highlightRef.current.geometry = meshRef.current.geometry;
-      highlightRef.current.rotation.x = meshRef.current.rotation.x;
     }
   });
 
-  const meshProps = {
-    position: [0, meshaSize, meshaSize],
-    scale: [meshaSize / 3, -meshaSize / 6, -meshaSize],
-    rotation: [0, Math.PI, 0],
-  };
+  const activeMaterial = isSelected ? highlightMaterial : tongueMaterial;
 
   return (
-    <>
-      <mesh
-        ref={meshRef}
-        {...meshProps}
-        onClick={onClick}
-        linguisticProperty="tonality"
-      >
-        <shaderMaterial args={[tongueMaterial]} />
-      </mesh>
-      <mesh ref={highlightRef} {...meshProps} visible={isSelected}>
-        <meshBasicMaterial color="#ff0" wireframe />
-      </mesh>
-    </>
+    <mesh
+      ref={meshRef}
+      position={[0, meshaSize, meshaSize]}
+      scale={[meshaSize / 3, -meshaSize / 6, -meshaSize]}
+      rotation={[0, Math.PI, 0]}
+      onClick={onClick}
+      linguisticProperty="tonality"
+    >
+      <shaderMaterial args={[activeMaterial]} />
+    </mesh>
   );
 };
 
