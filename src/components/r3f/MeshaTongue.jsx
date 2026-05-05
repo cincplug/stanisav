@@ -4,7 +4,6 @@ import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeom
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useAudioData } from "../../hooks/useAudioData.js";
 import { createAudioSurface } from "../../utils/shapeUtils.js";
-import MeshaHighlight from "./MeshaHighlight.jsx";
 
 extend({ ParametricGeometry });
 
@@ -13,6 +12,7 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
   const { audioData } = useAudioData();
   const { meshaSize } = controls;
   const meshRef = useRef();
+  const highlightRef = useRef();
 
   useFrame(() => {
     const { harmonicsData } = audioData;
@@ -31,28 +31,34 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
         segments,
         segments,
       );
-
       meshRef.current.rotation.x = harmonicsData[0] + Math.PI / 12;
+    }
+    if (highlightRef.current && meshRef.current) {
+      highlightRef.current.geometry = meshRef.current.geometry;
+      highlightRef.current.rotation.x = meshRef.current.rotation.x;
     }
   });
 
+  const meshProps = {
+    position: [0, meshaSize, meshaSize],
+    scale: [meshaSize / 3, -meshaSize / 6, -meshaSize],
+    rotation: [0, Math.PI, 0],
+  };
+
   return (
-    <mesh
-      ref={meshRef}
-      position={[0, meshaSize, meshaSize]}
-      scale={[meshaSize / 3, -meshaSize / 6, -meshaSize]}
-      rotation={[0, Math.PI, 0]}
-      onClick={onClick}
-      linguisticProperty="tonality"
-    >
-      <shaderMaterial args={[tongueMaterial]} />
-      {isSelected && (
-        <MeshaHighlight
-          geometry="parametricGeometry"
-          geometryArgs={[() => {}, segments, segments]}
-        />
-      )}
-    </mesh>
+    <>
+      <mesh
+        ref={meshRef}
+        {...meshProps}
+        onClick={onClick}
+        linguisticProperty="tonality"
+      >
+        <shaderMaterial args={[tongueMaterial]} />
+      </mesh>
+      <mesh ref={highlightRef} {...meshProps} visible={isSelected}>
+        <meshBasicMaterial color="#ff0" wireframe />
+      </mesh>
+    </>
   );
 };
 

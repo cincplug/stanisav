@@ -1,41 +1,10 @@
 import { useRef } from "react";
-import MeshaHighlight from "./MeshaHighlight.jsx";
 import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useAudioData } from "../../hooks/useAudioData.js";
 import { createAudioSurface } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
-
-// ─── MeshaEar (single ear, internal) ─────────────────────────────────────────
-
-const MeshaEar = ({
-  meshRef,
-  position,
-  scale,
-  segments,
-  earMaterial,
-  onClick,
-  isSelected,
-}) => (
-  <mesh
-    ref={meshRef}
-    position={position}
-    scale={scale}
-    onClick={onClick}
-    linguisticProperty="morphology"
-  >
-    <shaderMaterial args={[earMaterial]} />
-    {isSelected && (
-      <MeshaHighlight
-        geometry="parametricGeometry"
-        geometryArgs={[() => {}, segments, segments]}
-      />
-    )}
-  </mesh>
-);
-
-// ─── MeshaEars (public, owns audio reactivity and positioning) ────────────────
 
 const MeshaEars = ({
   earMaterial,
@@ -50,6 +19,8 @@ const MeshaEars = ({
   const { audioData } = useAudioData();
   const leftMeshRef = useRef();
   const rightMeshRef = useRef();
+  const leftHighlightRef = useRef();
+  const rightHighlightRef = useRef();
 
   useFrame(() => {
     const audioSurface = createAudioSurface({
@@ -75,30 +46,53 @@ const MeshaEars = ({
         rightSegments,
       );
     }
+    if (leftHighlightRef.current && leftMeshRef.current) {
+      leftHighlightRef.current.geometry = leftMeshRef.current.geometry;
+    }
+    if (rightHighlightRef.current && rightMeshRef.current) {
+      rightHighlightRef.current.geometry = rightMeshRef.current.geometry;
+    }
   });
 
   const { x, y, z } = earPosition;
 
   return (
     <>
-      <MeshaEar
-        meshRef={leftMeshRef}
+      <mesh
+        ref={leftMeshRef}
         position={[-x, y, z]}
         scale={[-0.6, 3 / rightSegments, 1]}
-        segments={leftSegments}
-        earMaterial={earMaterial}
         onClick={onClick}
-        isSelected={isSelected}
-      />
-      <MeshaEar
-        meshRef={rightMeshRef}
+        linguisticProperty="morphology"
+      >
+        <shaderMaterial args={[earMaterial]} />
+      </mesh>
+      <mesh
+        ref={leftHighlightRef}
+        position={[-x, y, z]}
+        scale={[-0.6, 3 / rightSegments, 1]}
+        visible={isSelected}
+      >
+        <meshBasicMaterial color="#ff0" wireframe />
+      </mesh>
+
+      <mesh
+        ref={rightMeshRef}
         position={[x, y, z]}
         scale={[0.6, 3 / rightSegments, 1]}
-        segments={rightSegments}
-        earMaterial={earMaterial}
         onClick={onClick}
-        isSelected={isSelected}
-      />
+        linguisticProperty="morphology"
+      >
+        <shaderMaterial args={[earMaterial]} />
+      </mesh>
+      <mesh
+        ref={rightHighlightRef}
+        position={[x, y, z]}
+        scale={[0.6, 3 / rightSegments, 1]}
+        visible={isSelected}
+      >
+        <meshBasicMaterial color="#ff0" wireframe />
+      </mesh>
     </>
   );
 };
