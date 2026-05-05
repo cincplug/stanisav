@@ -464,7 +464,8 @@
   "menu": {
     "close": "Close menu",
     "open": "Open menu",
-    "languageSelector": "App language"
+    "languageSelector": "App language",
+    "isVisualOnly": "Visual only"
   },
   "playlist": {
     "controls": "Playlist controls",

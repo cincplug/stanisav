@@ -1,18 +1,24 @@
 import Select from "./ux/Select";
+import { useI18n } from "../../contexts/I18nContext";
 
 const ControlItem = ({ control, value, onChange }) => {
-  const { id, type, label, min, max, step, options } = control;
+  const { t } = useI18n();
+  const { id, type, label, min, max, step, options, isVisualOnly } = control;
 
   const handleChange = (newValue) => {
     const processedValue = type === "range" ? parseFloat(newValue) : newValue;
     onChange(processedValue);
   };
 
+  const ariaLabel = isVisualOnly
+    ? `${label} (${t("menu.isVisualOnly")})`
+    : undefined;
+
   switch (type) {
     case "checkbox":
       return (
         <div className="control-item checkbox-control">
-          <label>
+          <label aria-label={ariaLabel}>
             <input
               type="checkbox"
               checked={value}
@@ -26,7 +32,7 @@ const ControlItem = ({ control, value, onChange }) => {
     case "color":
       return (
         <div className="control-item">
-          <label>{label}</label>
+          <label aria-label={ariaLabel}>{label}</label>
           <input
             type="color"
             value={value}
@@ -38,7 +44,7 @@ const ControlItem = ({ control, value, onChange }) => {
     case "range":
       return (
         <div className="control-item range-control">
-          <label>
+          <label aria-label={ariaLabel}>
             <span>{label}</span>
             <span>{value}</span>
           </label>
@@ -56,12 +62,12 @@ const ControlItem = ({ control, value, onChange }) => {
     case "select":
       return (
         <div className="control-item">
-          <label>{label}</label>
+          <label aria-label={ariaLabel}>{label}</label>
           <Select
             options={options}
             value={value}
             onChange={onChange}
-            label={label}
+            label={ariaLabel || label}
           />
         </div>
       );
@@ -70,7 +76,7 @@ const ControlItem = ({ control, value, onChange }) => {
       return (
         <div className="control-item radio-control">
           <fieldset>
-            <legend>{label}</legend>
+            <legend aria-label={ariaLabel}>{label}</legend>
             <div className="radio-group">
               {options.map(({ value: optVal, label: optLabel }) => (
                 <label key={optVal} className="radio-option">
