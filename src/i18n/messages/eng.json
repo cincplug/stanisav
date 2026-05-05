@@ -481,7 +481,7 @@
     "clear": "Clear search",
     "label": "Search",
     "noResults": "No languages found matching \"{term}\"",
-    "results": "Search Results ({count})",
+    "results": "Search results ({count})",
     "threshold": "Type at least {threshold} characters to search...",
     "viewAll": "View all"
   },

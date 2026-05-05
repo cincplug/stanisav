@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { useSearch } from "../../hooks/useSearch";
+import tabsConfig from "../../config/tabsConfig.json";
 import ControlsTab from "./ControlsTab";
 import SearchTab from "./SearchTab";
 import LanguagesTab from "./LanguagesTab";
@@ -5,18 +8,34 @@ import FiltersTab from "./FiltersTab";
 
 function TabRenderer({
   selectedTab,
+  setSelectedTab,
   controls,
   onControlChange,
   languageData,
   data,
   filteringUtils,
   onFilteringUtilsChange,
-  searchTerm,
-  setSearchTerm,
-  searchResults,
-  clearSearch,
   languageColors,
 }) {
+  const { searchTerm, setSearchTerm, searchResults, clearSearch } =
+    useSearch(data);
+
+  useEffect(() => {
+    if (
+      searchTerm &&
+      searchTerm.length >= tabsConfig.searchLengthThreshold &&
+      selectedTab !== "search"
+    ) {
+      setSelectedTab("search");
+    }
+  }, [searchTerm, selectedTab, setSelectedTab]);
+
+  const handleTabChange = (tabId) => {
+    if (tabId !== "search") {
+      clearSearch();
+    }
+  };
+
   const panelProps = (id) => ({
     id: `tabpanel-${id}`,
     role: "tabpanel",
@@ -30,9 +49,7 @@ function TabRenderer({
           <ControlsTab
             controlGroups={{
               state: { controls },
-              handlers: {
-                onControlChange,
-              },
+              handlers: { onControlChange },
             }}
           />
         </div>

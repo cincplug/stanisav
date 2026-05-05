@@ -2,20 +2,21 @@
   "tabs": [
     {
       "id": "languages",
-      "label": "Languages",
       "component": "LanguagesTab"
     },
     {
       "id": "filters",
-      "label": "Filters",
       "component": "FiltersTab"
     },
     {
       "id": "controls",
-      "label": "Controls",
       "component": "ControlsTab"
+    },
+    {
+      "id": "search",
+      "component": "SearchTab"
     }
   ],
   "defaultTab": "languages",
-  "searchLengthThreshold": 2
+  "searchLengthThreshold": 1
 }

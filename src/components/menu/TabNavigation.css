@@ -2,9 +2,10 @@
 
 .tab-navigation {
   display: flex;
-  flex-wrap: wrap;
+  overflow-x: auto;
   align-items: flex-end;
   border-bottom: var(--border);
+  padding-top: var(--gap-half);
   margin: var(--gap-double) calc(-1 * var(--gap-double));
 
   button {

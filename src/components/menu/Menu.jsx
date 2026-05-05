@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useControls } from "../../contexts/ControlsContext";
-import { useSearch } from "../../hooks/useSearch";
 import { useI18n } from "../../contexts/I18nContext";
 import { BurgerIcon, CloseIcon } from "./MenuIcons";
 import tabsConfig from "../../config/tabsConfig.json";
@@ -25,20 +24,6 @@ function Menu({
   const { t, isRtl } = useI18n();
   const { isMenuExpanded } = controls;
   const [selectedTab, setSelectedTab] = useState(tabsConfig.defaultTab);
-  const { searchTerm, setSearchTerm, searchResults, clearSearch } =
-    useSearch(data);
-
-  const threshold = tabsConfig.searchLengthThreshold;
-
-  useEffect(() => {
-    if (
-      searchTerm &&
-      searchTerm.length >= threshold &&
-      selectedTab !== "search"
-    ) {
-      setSelectedTab("search");
-    }
-  }, [searchTerm, selectedTab, setSelectedTab, threshold]);
 
   const handleControlChange = (controlId, value) => {
     onControlChange(controlId, value);
@@ -47,9 +32,6 @@ function Menu({
 
   const handleTabChange = (tabId) => {
     setSelectedTab(tabId);
-    if (tabId !== "search") {
-      clearSearch();
-    }
   };
 
   if (isLoading) {
@@ -107,16 +89,13 @@ function Menu({
             <div className="tabs-scroll-area">
               <TabRenderer
                 selectedTab={selectedTab}
+                setSelectedTab={setSelectedTab}
                 controls={controls}
                 onControlChange={handleControlChange}
                 languageData={data?.languages || {}}
                 data={data}
                 filteringUtils={filteringUtils}
                 onFilteringUtilsChange={onFilteringUtilsChange}
-                searchTerm={searchTerm}
-                setSearchTerm={setSearchTerm}
-                searchResults={searchResults}
-                clearSearch={clearSearch}
                 languageColors={languageColors}
               />
             </div>
