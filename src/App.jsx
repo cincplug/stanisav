@@ -1,4 +1,6 @@
+import { useCallback, useMemo } from "react";
 import Menu from "./components/menu/Menu";
+import MiniMesha from "./components/r3f/MiniMesha.jsx";
 import Stage from "./components/r3f/Stage";
 import IdCard from "./components/menu/IdCard";
 import { useAppState } from "./contexts/AppStateContext";
@@ -7,6 +9,7 @@ import { useControls } from "./contexts/ControlsContext";
 import { usePlaylist } from "./contexts/PlaylistContext";
 import { useLanguageColors } from "./hooks/useLanguageColors";
 import { useI18n } from "./contexts/I18nContext";
+import { useMediaQuery } from "./hooks/useMediaQuery.js";
 import { getLanguagePropertyValue } from "./utils/linguisticUtils.js";
 import "./App.css";
 
@@ -24,6 +27,8 @@ function App() {
     setFilteringUtils,
     handleCameraFocus,
   } = useAppState();
+
+  const isMobile = useMediaQuery();
 
   const { controls, updateControl } = useControls();
   const { selectedLanguage, selectedProperty, setSelectedProperty } =
@@ -44,6 +49,14 @@ function App() {
     selectedProperty,
   );
 
+  const isMeshaMini = useMemo(
+    () => isMobile && selectedLanguage && isMenuVisible && isMenuExpanded,
+    [isMobile, selectedLanguage, isMenuVisible, isMenuExpanded],
+  );
+
+  const selectedLinguisticProperties = data?.languageData[selectedLanguage];
+  const selectedColor = languageColors[selectedLanguage];
+
   return (
     <div
       className={`app-container${isRtl ? " rtl" : ""} ${isLoading ? "loading" : ""} ${isMenuVisible && isMenuExpanded ? "menu-expanded" : ""}`}
@@ -61,16 +74,19 @@ function App() {
         onFilteringUtilsChange={setFilteringUtils}
         languageColors={languageColors}
       />
-      <div className="stage-area">
-        <Stage
-          onDataLoaded={setData}
-          onSceneReady={setSceneReady}
-          onLoadingChange={setIsLoading}
-          onNodesReady={setNodes}
-          languageColors={languageColors}
-        />
 
-        {selectedLanguage && isIdCardVisible && (
+      <div className="stage-area">
+        {!isMeshaMini && (
+          <Stage
+            onDataLoaded={setData}
+            onSceneReady={setSceneReady}
+            onLoadingChange={setIsLoading}
+            onNodesReady={setNodes}
+            languageColors={languageColors}
+          />
+        )}
+
+        {selectedLanguage && isIdCardVisible && !isMobile && (
           <IdCard
             languageCode={selectedLanguage}
             language={data?.languageData[selectedLanguage]}
@@ -85,6 +101,14 @@ function App() {
           />
         )}
       </div>
+
+      {isMeshaMini && (
+        <MiniMesha
+          languageCode={selectedLanguage}
+          linguisticProperties={selectedLinguisticProperties}
+          color={selectedColor}
+        />
+      )}
     </div>
   );
 }

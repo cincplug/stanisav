@@ -31,6 +31,7 @@ const Stage = ({
   onSceneReady,
   onLoadingChange,
   languageColors,
+  isDisplayed,
 }) => {
   const { controls } = useControls();
   const { skipLabelEntrance } = useAppState();

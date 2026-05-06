@@ -35,8 +35,8 @@
   --border: var(--border-width) solid var(--color-2);
   --border-input: var(--border-width-thin) solid var(--color-4);
   --clear-button-size: 20px;
-  --modal-offset: 4rem;
   --tooltip-tail-size: 8px;
+  --mini-mesha-size: 150px;
 }
 
 /* Global scrollbar styles */
@@ -222,4 +222,20 @@ legend {
   border: 0;
   top: 0;
   left: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.mini-mesha {
+  position: absolute;
+  bottom: var(--gap-double);
+  right: var(--gap-double);
+  width: var(--mini-mesha-size);
+  height: var(--mini-mesha-size);
+  background: var(--color-1);
+  border: var(--border-width) solid var(--color-3);
+  border-radius: var(--border-radius);
+  z-index: 1;
 }
