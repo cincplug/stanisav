@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from "react";
+import { useMemo } from "react";
 import Menu from "./components/menu/Menu";
 import MiniMesha from "./components/r3f/MiniMesha.jsx";
 import Stage from "./components/r3f/Stage";
@@ -7,8 +7,8 @@ import { useAppState } from "./contexts/AppStateContext";
 import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
 import { useControls } from "./contexts/ControlsContext";
 import { usePlaylist } from "./contexts/PlaylistContext";
-import { useLanguageColors } from "./hooks/useLanguageColors";
 import { useI18n } from "./contexts/I18nContext";
+import { useLanguageColors } from "./hooks/useLanguageColors";
 import { useMediaQuery } from "./hooks/useMediaQuery.js";
 import { getLanguagePropertyValue } from "./utils/linguisticUtils.js";
 import "./App.css";

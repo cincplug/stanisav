@@ -42,6 +42,7 @@
       "type": "checkbox",
       "defaultValue": false,
       "isVisualOnly": true,
+      "isDesktopOnly": true,
       "isShownInMenu": true
     },
     "isMenuVisible": {
@@ -52,6 +53,7 @@
     "isIdCardVisible": {
       "type": "checkbox",
       "defaultValue": false,
+      "isDesktopOnly": true,
       "isShownInMenu": true
     },
     "isMenuExpanded": {

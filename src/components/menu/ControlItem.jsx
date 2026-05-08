@@ -1,9 +1,23 @@
 import Select from "./ux/Select";
 import { useI18n } from "../../contexts/I18nContext";
+import { useMediaQuery } from "../../hooks/useMediaQuery.js";
 
 const ControlItem = ({ control, value, onChange }) => {
   const { t } = useI18n();
-  const { id, type, label, min, max, step, options, isVisualOnly } = control;
+  const {
+    id,
+    type,
+    label,
+    min,
+    max,
+    step,
+    options,
+    isVisualOnly,
+    isDesktopOnly,
+  } = control;
+
+  const isMobile = useMediaQuery();
+  if (isMobile && isDesktopOnly) return null;
 
   const handleChange = (newValue) => {
     const processedValue = type === "range" ? parseFloat(newValue) : newValue;
