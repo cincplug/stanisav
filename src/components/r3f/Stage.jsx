@@ -1,7 +1,6 @@
 import SceneReadyGate from "./SceneReadyGate";
 import { useMemo, useRef } from "react";
-import { Vector3, Quaternion } from "three";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useSpring } from "@react-spring/three";
 import { useControls } from "../../contexts/ControlsContext";
@@ -15,7 +14,7 @@ import {
   getAutoRotateSpeed,
 } from "../../utils/sceneUtils";
 import { getFeatureScore } from "../../utils/linguisticUtils";
-import { getSortingData, sortLanguages } from "../../utils/sortingUtils";
+import { getSortingData } from "../../utils/sortingUtils";
 import { groupLanguages } from "../../utils/languageGroupingUtils";
 import { LayoutEngine } from "../../modules/layoutEngine";
 import lineages from "../../config/lineages.json";
@@ -31,7 +30,6 @@ const Stage = ({
   onSceneReady,
   onLoadingChange,
   languageColors,
-  isDisplayed,
 }) => {
   const { controls } = useControls();
   const { skipLabelEntrance } = useAppState();
@@ -202,12 +200,7 @@ const Stage = ({
     <Canvas
       style={{ width: "100%", height: "100%" }}
       aria-hidden="true"
-      camera={{
-        position: [cameraX, cameraY, cameraZ],
-        fov,
-        near,
-        far,
-      }}
+      camera={{ position: [cameraX, cameraY, cameraZ], fov, near, far }}
       gl={{ antialias: true, clearColor: bgColor }}
     >
       <SceneReadyGate

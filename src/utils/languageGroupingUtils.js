@@ -70,9 +70,12 @@ export function groupLanguages({
       }
       result[firstChar].languages.push(langCode);
     });
-    return Object.values(result).sort((a, b) =>
-      a.title.localeCompare(b.title, "und", { sensitivity: "base" }),
-    );
+    return Object.values(result).sort((a, b) => {
+      const cmp = a.title.localeCompare(b.title, "und", {
+        sensitivity: "base",
+      });
+      return isReverse ? -cmp : cmp;
+    });
   }
 
   if (sortBy === "family") {

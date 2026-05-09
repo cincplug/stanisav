@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import Menu from "./components/menu/Menu";
 import MiniMesha from "./components/r3f/MiniMesha.jsx";
 import Stage from "./components/r3f/Stage";
@@ -7,14 +6,13 @@ import { useAppState } from "./contexts/AppStateContext";
 import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
 import { useControls } from "./contexts/ControlsContext";
 import { usePlaylist } from "./contexts/PlaylistContext";
-import { useI18n } from "./contexts/I18nContext";
 import { useLanguageColors } from "./hooks/useLanguageColors";
+import { useI18n } from "./contexts/I18nContext";
 import { useMediaQuery } from "./hooks/useMediaQuery.js";
-import { getLanguagePropertyValue } from "./utils/linguisticUtils.js";
 import "./App.css";
 
 function App() {
-  const { t, isRtl } = useI18n();
+  const { isRtl } = useI18n();
   const {
     isLoading,
     data,
@@ -29,10 +27,8 @@ function App() {
   } = useAppState();
 
   const isMobile = useMediaQuery();
-
   const { controls, updateControl } = useControls();
-  const { selectedLanguage, selectedProperty, setSelectedProperty } =
-    useLanguageSelection();
+  const { selectedLanguage } = useLanguageSelection();
   const { pausePlaylist } = usePlaylist();
   const { isIdCardVisible, isMenuVisible, isMenuExpanded } = controls;
   const { sampleUrl, sub } = data?.languageData[selectedLanguage] || {};
@@ -43,18 +39,11 @@ function App() {
     controls,
   );
 
-  const selectedLanguageValue = getLanguagePropertyValue(
-    data?.languageData,
-    selectedLanguage,
-    selectedProperty,
-  );
+  const isMeshaMini =
+    isMobile && !!selectedLanguage && isMenuVisible && isMenuExpanded;
 
-  const isMeshaMini = useMemo(
-    () => isMobile && selectedLanguage && isMenuVisible && isMenuExpanded,
-    [isMobile, selectedLanguage, isMenuVisible, isMenuExpanded],
-  );
-
-  const selectedLinguisticProperties = data?.languageData[selectedLanguage];
+  const selectedLinguisticProperties =
+    data?.typologicalFeatures?.[selectedLanguage];
   const selectedColor = languageColors[selectedLanguage];
 
   return (
