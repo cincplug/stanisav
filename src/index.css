@@ -37,6 +37,7 @@
   --clear-button-size: 20px;
   --tooltip-tail-size: 8px;
   --mini-mesha-size: 150px;
+  --transition: 0.3s ease;
 }
 
 /* Global scrollbar styles */
@@ -181,6 +182,13 @@ legend {
 .close-button svg {
   width: 24px;
   height: 24px;
+}
+
+.icon-only-button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
 }
 
 .checkbox-button-group {

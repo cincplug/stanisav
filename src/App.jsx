@@ -30,7 +30,8 @@ function App() {
   const { controls, updateControl } = useControls();
   const { selectedLanguage } = useLanguageSelection();
   const { pausePlaylist } = usePlaylist();
-  const { isIdCardVisible, isMenuVisible, isMenuExpanded } = controls;
+  const { isIdCardVisible, isMenuVisible, isMenuExpanded, isSegmented } =
+    controls;
   const { sampleUrl, sub } = data?.languageData[selectedLanguage] || {};
 
   const languageColors = useLanguageColors(
@@ -58,7 +59,8 @@ function App() {
         sceneReady={sceneReady}
         onCameraFocus={handleCameraFocus}
         isVisible={isMenuVisible}
-        onToggleCollapse={() => updateControl("isMenuVisible", !isMenuVisible)}
+        onToggleMenu={() => updateControl("isMenuVisible", !isMenuVisible)}
+        onToggleSegmentation={() => updateControl("isSegmented", !isSegmented)}
         filteringUtils={filteringUtils}
         onFilteringUtilsChange={setFilteringUtils}
         languageColors={languageColors}

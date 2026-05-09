@@ -4,7 +4,7 @@ import { getSupportedLocales, toUrlSlug } from "../../i18n/runtime";
 import languages from "../../config/languages.json";
 import Select from "./ux/Select";
 
-export default function LocaleLinks() {
+export default function LocaleLinks({ compact = false }) {
   const { locale, t } = useI18n();
   const currentSlug = toUrlSlug(locale);
 
@@ -34,6 +34,15 @@ export default function LocaleLinks() {
     </Link>
   );
 
+  const renderCompactToggle = () => {
+    const currentOption = options.find((o) => o.value === currentSlug);
+    return (
+      <span className="select-current-iso">
+        {currentOption?.code ?? locale}
+      </span>
+    );
+  };
+
   return (
     // key={locale} resets the open state whenever the locale changes
     <Select
@@ -43,6 +52,7 @@ export default function LocaleLinks() {
       onChange={handleChange}
       label={t("menu.languageSelector")}
       renderItem={renderLocaleItem}
+      renderToggle={compact ? renderCompactToggle : undefined}
     />
   );
 }

@@ -16,7 +16,7 @@ import "./Playlist.css";
 
 export default function Playlist() {
   const { t } = useI18n();
-  const { viewAllLanguages } = useLanguageSelection();
+  const { selectedLanguage, viewAllLanguages } = useLanguageSelection();
   const {
     isPlaying,
     startPlaylist,
@@ -76,7 +76,7 @@ export default function Playlist() {
 
   return (
     <div
-      className="playlist-controls"
+      className={`playlist-controls ${selectedLanguage ? "zoomed" : "not-zoomed"}`}
       role="group"
       aria-label={t("playlist.controls")}
     >

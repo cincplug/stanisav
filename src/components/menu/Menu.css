@@ -73,26 +73,27 @@
   background: var(--color-1);
 }
 
-.tabs-scroll-area {
-  flex: 1 1 auto;
-  min-height: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-/* Mirror close button for RTL */
-.menu-close {
+.menu-essentials {
   position: absolute;
-  top: var(--gap-double);
-  right: var(--gap-double);
+  top: var(--gap);
+  right: var(--gap);
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
 
   html.rtl & {
     right: auto;
     left: var(--gap-double);
   }
+
+  .playlist-button {
+    border-radius: 50%;
+    padding: var(--gap-half);
+    display: flex;
+  }
 }
 
-.menu-essentials {
+.menu-header-controls {
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-top: var(--gap);
@@ -101,6 +102,13 @@
 
 .tabs-inner {
   padding: 0 var(--gap-half);
+}
+
+.tabs-scroll-area {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .radio-group {

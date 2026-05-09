@@ -1,7 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useControls } from "../../contexts/ControlsContext";
 import { useI18n } from "../../contexts/I18nContext";
-import { BurgerIcon, CloseIcon } from "./MenuIcons";
+import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
+import { usePlaylist } from "../../contexts/PlaylistContext";
+import {
+  BurgerIcon,
+  CloseIcon,
+  GlobeIcon,
+  LoopIcon,
+  PauseIcon,
+  PlayIcon,
+  SegmentationIcon,
+  StopIcon,
+} from "./MenuIcons";
 import tabsConfig from "../../config/tabsConfig.json";
 import ControlItemGroup from "./ControlItemGroup";
 import TabNavigation from "./TabNavigation";
@@ -15,14 +26,17 @@ function Menu({
   data,
   isLoading,
   isVisible,
-  onToggleCollapse,
+  onToggleMenu,
+  onToggleSegmentation,
   filteringUtils,
   onFilteringUtilsChange,
   languageColors,
 }) {
   const { controls, updateControl } = useControls();
   const { t, isRtl } = useI18n();
-  const { isMenuExpanded } = controls;
+  const { isPlaying, startPlaylist, pausePlaylist } = usePlaylist();
+  const { selectedLanguage, viewAllLanguages } = useLanguageSelection();
+  const { isMenuExpanded, isSegmented } = controls;
   const [selectedTab, setSelectedTab] = useState(tabsConfig.defaultTab);
 
   const handleControlChange = (controlId, value) => {
@@ -41,14 +55,57 @@ function Menu({
   return (
     <div className="menu-wrapper">
       {!isVisible && (
-        <button
-          id="menu-open"
-          onClick={() => onToggleCollapse(true)}
-          className={`close-button ${isRtl ? "close-button-rtl" : ""}`}
-          aria-label={t("menu.open")}
+        <div
+          className={`menu-essentials ${isRtl ? "menu-essentials-rtl" : ""}`}
         >
-          <BurgerIcon />
-        </button>
+          <LocaleLinks compact />
+          <button
+            onClick={isPlaying ? pausePlaylist : startPlaylist}
+            className="icon-only-button playlist-button playlist-main"
+            aria-label={isPlaying ? t("playlist.pause") : t("playlist.play")}
+            aria-pressed={isPlaying}
+          >
+            {isPlaying ? <PauseIcon /> : <PlayIcon />}
+          </button>
+          {selectedLanguage && (
+            <>
+              <button
+                onClick={() => {
+                  pausePlaylist();
+                  viewAllLanguages();
+                }}
+                className="playlist-button"
+                aria-label={t("playlist.stop")}
+              >
+                <StopIcon />
+              </button>
+              <button
+                onClick={() => updateControl("isLoop", !controls.isLoop)}
+                className={`playlist-button ${controls.isLoop ? "selected" : ""}`}
+                aria-label={t("playlist.toggleLoop")}
+                aria-pressed={controls.isLoop}
+              >
+                <LoopIcon selected={controls.isLoop} />
+              </button>
+            </>
+          )}
+          <button
+            id="segmentation-toggle"
+            onClick={onToggleSegmentation}
+            className="icon-only-button"
+            aria-label={t("controls.isSegmented.label")}
+          >
+            {isSegmented ? <GlobeIcon /> : <SegmentationIcon />}
+          </button>
+          <button
+            id="menu-open"
+            onClick={() => onToggleMenu(true)}
+            className="icon-only-button"
+            aria-label={t("menu.open")}
+          >
+            <BurgerIcon />
+          </button>
+        </div>
       )}
 
       {isVisible && (
@@ -56,7 +113,7 @@ function Menu({
           <div className="menu-header">
             <button
               id="menu-close"
-              onClick={() => onToggleCollapse(false)}
+              onClick={() => onToggleMenu(false)}
               className={`close-button ${isRtl ? "close-button-rtl" : ""}`}
               aria-label={t("menu.close")}
             >
@@ -65,7 +122,7 @@ function Menu({
 
             <Playlist />
 
-            <div className="menu-essentials">
+            <div className="menu-header-controls">
               <div className="control-item">
                 <label>{t("menu.languageSelector")}</label>
                 <LocaleLinks />

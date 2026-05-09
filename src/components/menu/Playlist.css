@@ -11,13 +11,34 @@ html.rtl .playlist-controls .next-icon {
   display: flex;
   gap: var(--gap);
   align-items: center;
+  transition: gap var(--transition);
+
+  &.not-zoomed {
+    gap: 0;
+
+    button:not(.playlist-main) {
+      max-width: 0;
+      padding: 0;
+    }
+  }
 }
 
 .playlist-controls button {
+  max-width: fit-content;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: var(--gap);
+  border-radius: 50%;
+}
+
+.playlist-main {
+  background: var(--color-4) !important;
+
+  svg * {
+    fill: var(--color-1);
+  }
 }
 
 .playlist-controls button:disabled {

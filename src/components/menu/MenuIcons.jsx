@@ -172,3 +172,110 @@ export const ExpandIcon = (props) => (
     />
   </svg>
 );
+
+export const GlobeIcon = (props) => (
+  <svg
+    width={iconSize}
+    height={iconSize}
+    viewBox={viewBox}
+    fill="none"
+    {...props}
+  >
+    {/* Outer circle */}
+    <circle
+      cx="12"
+      cy="12"
+      r="8"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+    />
+
+    {/* Equator */}
+    <line
+      x1="4"
+      y1="12"
+      x2="20"
+      y2="12"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+    />
+
+    {/* Meridians */}
+    <path
+      d="M12 4C9 7 9 17 12 20C15 17 15 7 12 4Z"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      fill="none"
+    />
+    <path
+      d="M12 4C14.5 7 14.5 17 12 20C9.5 17 9.5 7 12 4Z"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      fill="none"
+    />
+  </svg>
+);
+
+export const SegmentationIcon = (props) => (
+  <svg
+    width={iconSize}
+    height={iconSize}
+    viewBox={viewBox}
+    fill="none"
+    {...props}
+  >
+    <rect x="4" y="5" width="7" height="6" stroke={iconColor} />
+    <rect x="13" y="4" width="7" height="10" stroke={iconColor} />
+    <rect x="6" y="14" width="12" height="6" stroke={iconColor} />
+  </svg>
+);
+
+export const DirectionIcon = (props) => (
+  <svg
+    width={iconSize}
+    height={iconSize}
+    viewBox={viewBox}
+    fill="none"
+    {...props}
+  >
+    {/* Up arrow */}
+    <path d="M12 6L8 10H16L12 6Z" fill={iconColor} />
+
+    {/* Down arrow */}
+    <path d="M12 18L16 14H8L12 18Z" fill={iconColor} />
+  </svg>
+);
+
+export const SortIcon = (props) => (
+  <svg
+    width={iconSize}
+    height={iconSize}
+    viewBox={viewBox}
+    fill="none"
+    {...props}
+  >
+    {/* Up arrow on the left */}
+    <line
+      x1="8"
+      y1="17"
+      x2="8"
+      y2="7"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+    />
+    <polygon points="8,4 5,8 11,8" fill={iconColor} />
+
+    {/* Down arrow on the right */}
+    <line
+      x1="16"
+      y1="7"
+      x2="16"
+      y2="17"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+    />
+    <polygon points="16,20 13,16 19,16" fill={iconColor} />
+  </svg>
+);

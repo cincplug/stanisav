@@ -20,7 +20,24 @@
       "defaultValue": "alphabetically",
       "isShownInMenu": true
     },
-
+    "labelContent": {
+      "type": "select",
+      "options": ["name", "nativeName", "isoCode"],
+      "defaultValue": "name",
+      "isShownInMenu": true
+    },
+    "labelSize": {
+      "type": "select",
+      "options": [1, 1.25, 1.5, 1.75, 2],
+      "defaultValue": 1.5,
+      "isVisualOnly": true,
+      "isShownInMenu": true
+    },
+    "isReverse": {
+      "type": "checkbox",
+      "defaultValue": false,
+      "isShownInMenu": true
+    },
     "isSegmented": {
       "type": "checkbox",
       "defaultValue": false,
@@ -30,7 +47,7 @@
     },
     "isMenuVisible": {
       "type": "checkbox",
-      "defaultValue": true,
+      "defaultValue": false,
       "isShownInMenu": false
     },
     "isIdCardVisible": {
@@ -41,8 +58,8 @@
     },
     "isMenuExpanded": {
       "type": "checkbox",
-      "defaultValue": false,
-      "isShownInMenu": true
+      "defaultValue": true,
+      "isShownInMenu": false
     }
   },
   "Scene": {
@@ -60,26 +77,6 @@
       "max": 5,
       "step": 1,
       "defaultValue": 1,
-      "isShownInMenu": true
-    },
-    "labelSize": {
-      "type": "range",
-      "min": 1,
-      "max": 2,
-      "step": 0.25,
-      "defaultValue": 1.5,
-      "isVisualOnly": true,
-      "isShownInMenu": true
-    },
-    "isReverse": {
-      "type": "checkbox",
-      "defaultValue": false,
-      "isShownInMenu": true
-    },
-    "labelContent": {
-      "type": "select",
-      "options": ["name", "nativeName", "isoCode"],
-      "defaultValue": "name",
       "isShownInMenu": true
     },
     "globeSpiralAxis": {

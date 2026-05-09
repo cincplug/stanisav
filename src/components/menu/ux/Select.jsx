@@ -6,21 +6,27 @@ import "./Select.css";
  * Generic custom-select-on-top-of-native-select dropdown.
  *
  * Props:
- *   options    – [{ value, label }]
- *                Always receives array of objects with value and label.
- *   value      – currently selected value
- *   onChange   – (value: string) => void  (called for both native and custom paths)
- *   renderItem – optional ({ option, index, isSelected, onSelect, onKeyDown }) => ReactNode
- *                Must render an element with className="select-option" for keyboard focus.
- *                Defaults to a plain <button>.
- *   label      – accessible name used for both the <nav> landmark and the hidden <select>;
- *                pass a translated string, one key covers both.
+ *   options      – [{ value, label }]
+ *                  Always receives array of objects with value and label.
+ *   value        – currently selected value
+ *   onChange     – (value: string) => void  (called for both native and custom paths)
+ *   renderItem   – optional ({ option, index, isSelected, onSelect, onKeyDown }) => ReactNode
+ *                  Must render an element with className="select-option" for keyboard focus.
+ *                  Defaults to a plain <button>.
+ *   renderToggle – optional ({ currentLabel, isOpen }) => ReactNode
+ *                  Replaces the default toggle button content (label + chevron).
+ *                  The outer <button> with its ref, aria-hidden, tabIndex and onClick
+ *                  is always rendered by Select, so all existing behaviour is preserved.
+ *                  Use this to render an icon, an ISO abbreviation, or any custom opener.
+ *   label        – accessible name used for both the <nav> landmark and the hidden <select>;
+ *                  pass a translated string, one key covers both.
  */
 export default function Select({
   options,
   value,
   onChange,
   renderItem,
+  renderToggle,
   label,
 }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -133,10 +139,16 @@ export default function Select({
         tabIndex={-1}
         onClick={handleToggleClick}
       >
-        <span className="select-current">{currentLabel}</span>
-        <span className="select-arrow">
-          <ExpandIcon />
-        </span>
+        {renderToggle ? (
+          renderToggle({ currentLabel, isOpen })
+        ) : (
+          <>
+            <span className="select-current">{currentLabel}</span>
+            <span className="select-arrow">
+              <ExpandIcon />
+            </span>
+          </>
+        )}
       </button>
       {isOpen && (
         <ul ref={listRef} className="select-list" aria-hidden="true">
