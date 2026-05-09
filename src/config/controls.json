@@ -54,7 +54,7 @@
       "type": "checkbox",
       "defaultValue": false,
       "isDesktopOnly": true,
-      "isShownInMenu": true
+      "isShownInMenu": false
     },
     "isMenuExpanded": {
       "type": "checkbox",

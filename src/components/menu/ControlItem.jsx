@@ -31,7 +31,7 @@ const ControlItem = ({ control, value, onChange }) => {
   switch (type) {
     case "checkbox":
       return (
-        <div className="control-item checkbox-control">
+        <div className={`control-item ${type}-control ${id}`}>
           <label aria-label={ariaLabel}>
             <input
               type="checkbox"
@@ -45,7 +45,7 @@ const ControlItem = ({ control, value, onChange }) => {
 
     case "color":
       return (
-        <div className="control-item">
+        <div className={`control-item ${type}-control ${id}`}>
           <label aria-label={ariaLabel}>{label}</label>
           <input
             type="color"
@@ -57,7 +57,7 @@ const ControlItem = ({ control, value, onChange }) => {
 
     case "range":
       return (
-        <div className="control-item range-control">
+        <div className={`control-item ${type}-control ${id}`}>
           <label aria-label={ariaLabel}>
             <span>{label}</span>
             <span>{value}</span>
@@ -75,7 +75,7 @@ const ControlItem = ({ control, value, onChange }) => {
 
     case "select":
       return (
-        <div className="control-item">
+        <div className={`control-item ${type}-control ${id}`}>
           <label aria-label={ariaLabel}>{label}</label>
           <Select
             options={options}
@@ -88,7 +88,7 @@ const ControlItem = ({ control, value, onChange }) => {
 
     case "radio":
       return (
-        <div className="control-item radio-control">
+        <div className={`control-item ${type}-control ${id}`}>
           <fieldset>
             <legend aria-label={ariaLabel}>{label}</legend>
             <div className="radio-group">

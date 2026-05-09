@@ -19,6 +19,7 @@ import Properties from "./Properties";
 import "./IdCard.css";
 
 function IdCard({
+  isVisible,
   languageCode,
   language,
   languageLineages,
@@ -91,6 +92,17 @@ function IdCard({
 
   if (!languageCode || !language || properties.length === 0) {
     return null;
+  }
+
+  if (!isVisible) {
+    return (
+      <button
+        className="id-card id-card-trigger"
+        onClick={() => onToggleSubtitle?.(true)}
+      >
+        {t("controls.isIdCardVisible.label")}
+      </button>
+    );
   }
 
   return (

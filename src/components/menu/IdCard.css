@@ -179,6 +179,16 @@ html.rtl .id-card-close-button {
   color: inherit;
 }
 
+.id-card-trigger {
+  width: auto;
+  left: auto;
+  right: var(--gap);
+  bottom: var(--gap);
+  border: var(--border);
+  background: var(--color-1);
+  padding: var(--gap);
+}
+
 .subtitle {
   position: relative;
   top: 0;

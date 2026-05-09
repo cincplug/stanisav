@@ -75,8 +75,9 @@ function App() {
           />
         )}
 
-        {selectedLanguage && isIdCardVisible && !isMobile && (
+        {selectedLanguage && !isMobile && (
           <IdCard
+            isVisible={isIdCardVisible}
             languageCode={selectedLanguage}
             language={data?.languageData[selectedLanguage]}
             languageLineages={data?.languageLineages}
