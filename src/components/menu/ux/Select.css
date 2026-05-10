@@ -16,7 +16,7 @@
 
 .select-toggle-compact {
   display: flex;
-  padding: var(--gap-half) var(--gap);
+  padding: var(--gap);
   gap: var(--gap-half);
   align-items: center;
   text-transform: uppercase;
@@ -55,7 +55,7 @@
   gap: var(--gap-half);
   list-style: none;
   top: calc(100% + var(--gap));
-  left: 0;
+  right: 0;
   z-index: 1;
 }
 

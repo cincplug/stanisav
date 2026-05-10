@@ -2,9 +2,16 @@ import controlsConfig from "../../config/controls.json";
 import { localizeControlConfig } from "../../utils/i18nUtils";
 import ControlItem from "./ControlItem";
 
-function ControlItemGroup({ groupName, controls, onChange }) {
+function ControlItemGroup({
+  groupName,
+  controls,
+  onChange,
+  isCompact = false,
+}) {
   const groupControls = Object.entries(controlsConfig[groupName] ?? {})
-    .filter(([_id, config]) => config.isShownInMenu)
+    .filter(([_id, config]) =>
+      isCompact ? !!config.compactMenuIcon : config.isShownInMenu,
+    )
     .map(([id, config]) => ({ id, ...localizeControlConfig(id, config) }));
 
   if (groupControls.length === 0) return null;
@@ -15,6 +22,7 @@ function ControlItemGroup({ groupName, controls, onChange }) {
       control={control}
       value={controls[control.id]}
       onChange={(value) => onChange(control.id, value)}
+      isCompact={isCompact}
     />
   ));
 }

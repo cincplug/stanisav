@@ -1,8 +1,9 @@
 import Select from "./ux/Select";
 import { useI18n } from "../../contexts/I18nContext";
 import { useMediaQuery } from "../../hooks/useMediaQuery.js";
+import * as MenuIcons from "./MenuIcons";
 
-const ControlItem = ({ control, value, onChange }) => {
+const ControlItem = ({ control, value, onChange, isCompact = false }) => {
   const { t } = useI18n();
   const {
     id,
@@ -14,6 +15,7 @@ const ControlItem = ({ control, value, onChange }) => {
     options,
     isVisualOnly,
     isDesktopOnly,
+    compactMenuIcon,
   } = control;
 
   const isMobile = useMediaQuery();
@@ -28,6 +30,41 @@ const ControlItem = ({ control, value, onChange }) => {
     ? `${label} (${t("menu.isVisualOnly")})`
     : undefined;
 
+  // Compact mode: render an icon button or icon-toggled select.
+  // Only reached when compactMenuIcon is present (ControlItemGroup filters for it).
+  if (isCompact) {
+    const Icon = MenuIcons[compactMenuIcon];
+
+    if (type === "checkbox") {
+      return (
+        <button
+          className={`menu-item${value ? " selected" : ""}`}
+          onClick={() => handleChange(!value)}
+          aria-label={ariaLabel || label}
+          aria-pressed={value}
+        >
+          <Icon />
+        </button>
+      );
+    }
+
+    if (type === "select") {
+      return (
+        <Select
+          options={options}
+          value={value}
+          onChange={onChange}
+          label={ariaLabel || label}
+          toggleContent={() => <Icon />}
+          toggleClassName="menu-item"
+        />
+      );
+    }
+
+    return null;
+  }
+
+  // Full menu rendering
   switch (type) {
     case "checkbox":
       return (

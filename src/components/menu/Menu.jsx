@@ -1,18 +1,8 @@
 import { useState } from "react";
 import { useControls } from "../../contexts/ControlsContext";
 import { useI18n } from "../../contexts/I18nContext";
-import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
-import {
-  BurgerIcon,
-  CloseIcon,
-  GlobeIcon,
-  LoopIcon,
-  PauseIcon,
-  PlayIcon,
-  SegmentationIcon,
-  StopIcon,
-} from "./MenuIcons";
+import { BurgerIcon, CloseIcon } from "./MenuIcons";
 import tabsConfig from "../../config/tabsConfig.json";
 import ControlItemGroup from "./ControlItemGroup";
 import TabNavigation from "./TabNavigation";
@@ -34,9 +24,6 @@ function Menu({
 }) {
   const { controls, updateControl } = useControls();
   const { t, isRtl } = useI18n();
-  const { isPlaying, startPlaylist, pausePlaylist } = usePlaylist();
-  const { selectedLanguage, viewAllLanguages } = useLanguageSelection();
-  const { isSegmented } = controls;
   const [selectedTab, setSelectedTab] = useState(tabsConfig.defaultTab);
 
   const handleControlChange = (controlId, value) => {
@@ -55,7 +42,7 @@ function Menu({
   return (
     <div className="menu-wrapper">
       {isExpanded ? (
-        <div className={`menu expanded`}>
+        <div className="menu expanded">
           <div className="menu-header">
             <button
               id="menu-close"
@@ -101,21 +88,19 @@ function Menu({
           </div>
         </div>
       ) : (
-        <div className={`menu compact ${isRtl ? "rtl" : ""}`}>
+        <div className={`menu compact${isRtl ? " rtl" : ""}`}>
           <Playlist />
-          <LocaleLinks compact />
-          <button
-            id="segmentation-toggle"
-            onClick={onToggleSegmentation}
-            className={`menu-item ${isSegmented ? "selected" : ""}`}
-            aria-label={t("controls.isSegmented.label")}
-          >
-            <SegmentationIcon />
-          </button>
+          <ControlItemGroup
+            groupName="Header"
+            controls={controls}
+            onChange={handleControlChange}
+            isCompact
+          />
+          <LocaleLinks isCompact />
           <button
             id="menu-open"
             onClick={() => onToggleMenu(true)}
-            className="menu-item "
+            className="menu-item"
             aria-label={t("menu.open")}
           >
             <BurgerIcon />

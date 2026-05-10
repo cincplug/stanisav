@@ -18,7 +18,8 @@
         "maxClusterSize"
       ],
       "defaultValue": "alphabetically",
-      "isShownInMenu": true
+      "isShownInMenu": true,
+      "compactMenuIcon": "SortIcon"
     },
     "labelContent": {
       "type": "select",
@@ -42,8 +43,8 @@
       "type": "checkbox",
       "defaultValue": false,
       "isVisualOnly": true,
-      "isDesktopOnly": true,
-      "isShownInMenu": true
+      "isShownInMenu": true,
+      "compactMenuIcon": "SegmentationIcon"
     },
     "isMenuExpanded": {
       "type": "checkbox",

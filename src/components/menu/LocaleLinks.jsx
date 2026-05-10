@@ -5,7 +5,7 @@ import languages from "../../config/languages.json";
 import Select from "./ux/Select";
 import { ExpandIcon, GlobeIcon } from "./MenuIcons";
 
-export default function LocaleLinks({ compact = false }) {
+export default function LocaleLinks({ isCompact = false }) {
   const { locale, t } = useI18n();
   const currentSlug = toUrlSlug(locale);
 
@@ -36,12 +36,7 @@ export default function LocaleLinks({ compact = false }) {
   );
 
   const renderCompactToggle = () => {
-    return (
-      <>
-        {currentSlug}
-        <ExpandIcon />
-      </>
-    );
+    return currentSlug;
   };
 
   return (
@@ -53,8 +48,8 @@ export default function LocaleLinks({ compact = false }) {
       onChange={handleChange}
       label={t("menu.languageSelector")}
       renderItem={renderLocaleItem}
-      toggleContent={compact ? renderCompactToggle : undefined}
-      toggleClassName={compact ? "select-toggle-compact" : undefined}
+      toggleContent={isCompact ? renderCompactToggle : undefined}
+      toggleClassName={isCompact ? "select-toggle-compact" : undefined}
     />
   );
 }
