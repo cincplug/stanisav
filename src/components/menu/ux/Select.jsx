@@ -6,27 +6,29 @@ import "./Select.css";
  * Generic custom-select-on-top-of-native-select dropdown.
  *
  * Props:
- *   options      – [{ value, label }]
- *                  Always receives array of objects with value and label.
- *   value        – currently selected value
- *   onChange     – (value: string) => void  (called for both native and custom paths)
- *   renderItem   – optional ({ option, index, isSelected, onSelect, onKeyDown }) => ReactNode
- *                  Must render an element with className="select-option" for keyboard focus.
- *                  Defaults to a plain <button>.
- *   renderToggle – optional ({ currentLabel, isOpen }) => ReactNode
- *                  Replaces the default toggle button content (label + chevron).
- *                  The outer <button> with its ref, aria-hidden, tabIndex and onClick
- *                  is always rendered by Select, so all existing behaviour is preserved.
- *                  Use this to render an icon, an ISO abbreviation, or any custom opener.
- *   label        – accessible name used for both the <nav> landmark and the hidden <select>;
- *                  pass a translated string, one key covers both.
+ *   options         – [{ value, label }]
+ *                     Always receives array of objects with value and label.
+ *   value           – currently selected value
+ *   onChange        – (value: string) => void  (called for both native and custom paths)
+ *   renderItem      – optional ({ option, index, isSelected, onSelect, onKeyDown }) => ReactNode
+ *                     Must render an element with className="select-option" for keyboard focus.
+ *                     Defaults to a plain <button>.
+ *   toggleContent   – optional ({ currentLabel, isOpen }) => ReactNode
+ *                     Replaces the inner content of the toggle button (default: label + chevron).
+ *                     The outer <button> is always rendered by Select to preserve accessibility
+ *                     and keyboard behaviour — this prop only controls what's inside it.
+ *   toggleClassName – optional string appended to the toggle button's className alongside
+ *                     "select-toggle", useful for overriding styles per usage site.
+ *   label           – accessible name used for both the <nav> landmark and the hidden <select>;
+ *                     pass a translated string, one key covers both.
  */
 export default function Select({
   options,
   value,
   onChange,
   renderItem,
-  renderToggle,
+  toggleContent,
+  toggleClassName,
   label,
 }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -134,13 +136,13 @@ export default function Select({
       <button
         ref={buttonRef}
         type="button"
-        className="select-toggle"
+        className={`select-toggle${toggleClassName ? ` ${toggleClassName}` : ""}`}
         aria-hidden="true"
         tabIndex={-1}
         onClick={handleToggleClick}
       >
-        {renderToggle ? (
-          renderToggle({ currentLabel, isOpen })
+        {toggleContent ? (
+          toggleContent({ currentLabel, isOpen })
         ) : (
           <>
             <span className="select-current">{currentLabel}</span>
@@ -150,6 +152,7 @@ export default function Select({
           </>
         )}
       </button>
+
       {isOpen && (
         <ul ref={listRef} className="select-list" aria-hidden="true">
           {options.map((option, index) => (

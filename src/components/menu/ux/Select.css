@@ -3,7 +3,6 @@
 .select-nav {
   position: relative;
   display: inline-block;
-  width: 100%;
 }
 
 .select-toggle {
@@ -13,6 +12,18 @@
   width: 100%;
   overflow: hidden;
   padding-block: var(--gap-half);
+}
+
+.select-toggle-compact {
+  display: flex;
+  padding: var(--gap-half) var(--gap);
+  gap: var(--gap-half);
+  align-items: center;
+  text-transform: uppercase;
+
+  svg {
+    width: var(--icon-size-s);
+  }
 }
 
 .select-current {

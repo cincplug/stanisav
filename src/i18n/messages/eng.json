@@ -60,7 +60,7 @@
       "scene": "Scene",
       "stageLight": "Stage light"
     },
-    "isMenuExpanded": {
+    "showMore": {
       "label": "Show more"
     },
     "isIdCardVisible": {

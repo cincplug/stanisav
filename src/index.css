@@ -23,6 +23,9 @@
   --gap-triple: calc(var(--gap) * 3);
   --gap-half: calc(var(--gap) / 2);
   --gap-reduced: calc(var(--gap) / 3 * 2);
+  --icon-size-l: 32px;
+  --icon-size-m: 24px;
+  --icon-size-s: 16px;
 
   /* Accessories */
   --outline-default: var(--border-width) solid var(--color-focus);
@@ -180,15 +183,14 @@ legend {
 }
 
 .close-button svg {
-  width: 24px;
-  height: 24px;
+  width: var(--icon-size-m);
+  height: var(--icon-size-m);
 }
 
 .icon-only-button {
   background-color: transparent;
   border: none;
   padding: 0;
-  display: flex;
 }
 
 .checkbox-button-group {

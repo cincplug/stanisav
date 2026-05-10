@@ -8,6 +8,7 @@ html.rtl .playlist-controls .next-icon {
   top: var(--gap-double);
   left: var(--gap-double);
   right: auto;
+  padding: var(--gap-half);
   display: flex;
   gap: var(--gap);
   align-items: center;

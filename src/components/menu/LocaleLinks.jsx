@@ -3,6 +3,7 @@ import { useI18n } from "../../contexts/I18nContext";
 import { getSupportedLocales, toUrlSlug } from "../../i18n/runtime";
 import languages from "../../config/languages.json";
 import Select from "./ux/Select";
+import { ExpandIcon, GlobeIcon } from "./MenuIcons";
 
 export default function LocaleLinks({ compact = false }) {
   const { locale, t } = useI18n();
@@ -35,11 +36,11 @@ export default function LocaleLinks({ compact = false }) {
   );
 
   const renderCompactToggle = () => {
-    const currentOption = options.find((o) => o.value === currentSlug);
     return (
-      <span className="select-current-iso">
-        {currentOption?.code ?? locale}
-      </span>
+      <>
+        {currentSlug}
+        <ExpandIcon />
+      </>
     );
   };
 
@@ -52,7 +53,8 @@ export default function LocaleLinks({ compact = false }) {
       onChange={handleChange}
       label={t("menu.languageSelector")}
       renderItem={renderLocaleItem}
-      renderToggle={compact ? renderCompactToggle : undefined}
+      toggleContent={compact ? renderCompactToggle : undefined}
+      toggleClassName={compact ? "select-toggle-compact" : undefined}
     />
   );
 }

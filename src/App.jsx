@@ -30,8 +30,7 @@ function App() {
   const { controls, updateControl } = useControls();
   const { selectedLanguage } = useLanguageSelection();
   const { pausePlaylist } = usePlaylist();
-  const { isIdCardVisible, isMenuVisible, isMenuExpanded, isSegmented } =
-    controls;
+  const { isIdCardVisible, isMenuExpanded, isSegmented } = controls;
   const { sampleUrl, sub } = data?.languageData[selectedLanguage] || {};
 
   const languageColors = useLanguageColors(
@@ -40,8 +39,7 @@ function App() {
     controls,
   );
 
-  const isMeshaMini =
-    isMobile && !!selectedLanguage && isMenuVisible && isMenuExpanded;
+  const isMeshaMini = isMobile && !!selectedLanguage && isMenuExpanded;
 
   const selectedLinguisticProperties =
     data?.typologicalFeatures?.[selectedLanguage];
@@ -49,7 +47,7 @@ function App() {
 
   return (
     <div
-      className={`app-container${isRtl ? " rtl" : ""} ${isLoading ? "loading" : ""} ${isMenuVisible && isMenuExpanded ? "menu-expanded" : ""}`}
+      className={`app-container${isRtl ? " rtl" : ""} ${isLoading ? "loading" : ""} ${isMenuExpanded ? "menu-expanded" : ""}`}
     >
       <Menu
         controls={controls}
@@ -58,8 +56,8 @@ function App() {
         isLoading={isLoading}
         sceneReady={sceneReady}
         onCameraFocus={handleCameraFocus}
-        isVisible={isMenuVisible}
-        onToggleMenu={() => updateControl("isMenuVisible", !isMenuVisible)}
+        isExpanded={isMenuExpanded}
+        onToggleMenu={() => updateControl("isMenuExpanded", !isMenuExpanded)}
         onToggleSegmentation={() => updateControl("isSegmented", !isSegmented)}
         filteringUtils={filteringUtils}
         onFilteringUtilsChange={setFilteringUtils}

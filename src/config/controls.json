@@ -45,7 +45,7 @@
       "isDesktopOnly": true,
       "isShownInMenu": true
     },
-    "isMenuVisible": {
+    "isMenuExpanded": {
       "type": "checkbox",
       "defaultValue": false,
       "isShownInMenu": false
@@ -54,11 +54,6 @@
       "type": "checkbox",
       "defaultValue": false,
       "isDesktopOnly": true,
-      "isShownInMenu": false
-    },
-    "isMenuExpanded": {
-      "type": "checkbox",
-      "defaultValue": true,
       "isShownInMenu": false
     }
   },

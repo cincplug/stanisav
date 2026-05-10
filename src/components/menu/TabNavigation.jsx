@@ -1,6 +1,5 @@
 import tabsConfig from "../../config/tabsConfig.json";
 import { useI18n } from "../../contexts/I18nContext";
-import "./TabNavigation.css";
 
 function TabNavigation({ selectedTab, setSelectedTab }) {
   const { t } = useI18n();

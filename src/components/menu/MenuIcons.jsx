@@ -202,13 +202,7 @@ export const GlobeIcon = (props) => (
 
     {/* Meridians */}
     <path
-      d="M12 4C9 7 9 17 12 20C15 17 15 7 12 4Z"
-      stroke={iconColor}
-      strokeWidth={strokeWidth}
-      fill="none"
-    />
-    <path
-      d="M12 4C14.5 7 14.5 17 12 20C9.5 17 9.5 7 12 4Z"
+      d="M12 4C16 7 16 17 12 20 C8 17 8 7 12 4Z"
       stroke={iconColor}
       strokeWidth={strokeWidth}
       fill="none"
