@@ -1,8 +1,9 @@
 /* Control panel styles */
 .menu {
   width: var(--panel-width);
-  min-width: var(--panel-width);
-  max-width: var(--panel-width);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   position: relative;
   background-color: var(--color-1);
   border-inline-start: var(--border);
@@ -11,7 +12,6 @@
   font-size: var(--font-size-m);
   overflow: visible;
   box-sizing: border-box;
-  z-index: 1;
 
   html.rtl & {
     border-left: none;
@@ -19,12 +19,6 @@
     right: auto;
     direction: rtl;
   }
-}
-
-.menu.expanded {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
 
   @media (max-width: 640px) {
     position: fixed;
@@ -33,44 +27,17 @@
     right: 0;
     bottom: 0;
     height: 100%;
-    width: 100% !important;
-    max-width: 100% !important;
+    width: 100%;
   }
 }
 
 .menu-wrapper {
   position: relative;
+  z-index: 1;
 
   @media (max-width: 640px) {
     width: 100%;
   }
-}
-
-.menu.compact {
-  position: absolute;
-  top: 0;
-  right: 0;
-  border-block-end: var(--border);
-
-  @media (max-width: 640px) {
-    position: relative;
-    top: auto;
-    right: auto;
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    border-inline-end: none;
-    box-sizing: border-box;
-  }
-
-  html.rtl & {
-    right: auto;
-    left: 0;
-  }
-}
-
-.menu-header {
-  background: var(--color-1);
 }
 
 .menu-essentials {
