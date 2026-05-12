@@ -120,7 +120,10 @@ class AudioAnalysisService {
     if (!this.isAnalyzing) return;
 
     const now = performance.now();
-    if (now - this.lastAnalysisTime >= 10) {
+    if (
+      now - this.lastAnalysisTime >=
+      audioVisualizationConfig.meshDeformation.timeRate
+    ) {
       this.analyser.getByteFrequencyData(this.dataArray);
       this.processFrequencyData();
       this.notifyCallbacks({
