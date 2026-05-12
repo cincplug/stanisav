@@ -37,17 +37,34 @@ export const PlaylistProvider = ({ children }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [playlistSession, setPlaylistSession] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  // Track if user explicitly paused (not via isMyMesha)
+
+  // Whether the user explicitly paused — prevents auto-resume on re-renders
   const userPausedRef = useRef(false);
   const playlistRef = useRef([]);
+  // Single reusable Audio element; created once on first user gesture to satisfy
+  // iOS Safari's requirement that audio be unlocked during a gesture handler
   const audioRef = useRef(null);
-  const currentAudioElement = useRef(null);
   const delayTimeoutRef = useRef(null);
+  // isLoop is read inside an async callback (handleAudioEnded) so we mirror it
+  // in a ref to always have the current value without stale closure issues
   const isLoopRef = useRef(isLoop);
 
   useEffect(() => {
     isLoopRef.current = isLoop;
   }, [isLoop]);
+
+  // Must be called synchronously inside a user gesture handler (button click etc.)
+  // iOS Safari will block audio.play() unless the Audio element was created and
+  // triggered during a gesture. Subsequent src swaps on the same element are fine.
+  const unlockAudio = useCallback(() => {
+    if (!audioRef.current) {
+      const audio = new Audio();
+      // Attempt silent play to register the element as gesture-unlocked on iOS.
+      // The promise will reject (no src), that's expected and intentionally ignored.
+      audio.play().catch(() => {});
+      audioRef.current = audio;
+    }
+  }, []);
 
   const getSortedLanguageCodes = useCallback(() => {
     if (!data?.languageData) return [];
@@ -60,7 +77,6 @@ export const PlaylistProvider = ({ children }) => {
     } = getSortingData(data.languageData);
 
     let allLanguages = [...languageCodes];
-    // Filter by selected filters if any
     if (Object.keys(filteringUtils).length > 0 && filteredLanguages.size > 0) {
       allLanguages = allLanguages.filter((code) => filteredLanguages.has(code));
     }
@@ -84,12 +100,10 @@ export const PlaylistProvider = ({ children }) => {
     filteredLanguages,
   ]);
 
-  // Update playlist when sorting/filtering changes
+  // Rebuild playlist when sorting/filtering changes
   useEffect(() => {
     const codes = getSortedLanguageCodes();
     playlistRef.current = codes;
-
-    // Validate current index
     if (currentIndex >= codes.length) {
       setCurrentIndex(0);
     }
@@ -100,14 +114,17 @@ export const PlaylistProvider = ({ children }) => {
       clearTimeout(delayTimeoutRef.current);
       delayTimeoutRef.current = null;
     }
-    if (currentAudioElement.current) {
-      currentAudioElement.current.pause();
-      currentAudioElement.current.currentTime = 0;
-      currentAudioElement.current = null;
+    // Pause the shared audio element if it exists; don't null it out since we
+    // reuse the same element for every track
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
     }
   }, []);
 
   const startPlaylist = useCallback(() => {
+    // Unlock must happen here, synchronously, while we're still in the gesture handler
+    unlockAudio();
     const codes = getSortedLanguageCodes();
     if (codes.length === 0) return;
     playlistRef.current = codes;
@@ -117,10 +134,12 @@ export const PlaylistProvider = ({ children }) => {
     if (currentIndex >= codes.length || currentIndex < 0) {
       setCurrentIndex(0);
     }
-  }, [getSortedLanguageCodes, currentIndex]);
+  }, [getSortedLanguageCodes, currentIndex, unlockAudio]);
 
   const startFromLanguage = useCallback(
     (languageCode) => {
+      // Same: unlock synchronously in the gesture handler
+      unlockAudio();
       const codes = getSortedLanguageCodes();
       if (codes.length === 0) return;
       const index = codes.indexOf(languageCode);
@@ -130,7 +149,7 @@ export const PlaylistProvider = ({ children }) => {
       setIsPlaying(true);
       setPlaylistSession((s) => s + 1);
     },
-    [getSortedLanguageCodes],
+    [getSortedLanguageCodes, unlockAudio],
   );
 
   const pausePlaylist = useCallback(() => {
@@ -142,54 +161,46 @@ export const PlaylistProvider = ({ children }) => {
 
   const goToPrev = useCallback(() => {
     setCurrentIndex((index) => Math.max(0, index - 1));
-    if (isLoop) {
-      setPlaylistSession((s) => s + 1);
-    }
-  }, [isLoop]);
+    setPlaylistSession((s) => s + 1);
+  }, []);
 
   const goToNext = useCallback(() => {
     setCurrentIndex((index) => {
       const codes = playlistRef.current;
       return Math.min(codes.length - 1, index + 1);
     });
-    if (isLoop) {
-      setPlaylistSession((s) => s + 1);
-    }
-  }, [isLoop]);
+    setPlaylistSession((s) => s + 1);
+  }, []);
 
   const goToBegin = useCallback(() => {
     setCurrentIndex(0);
-    if (isLoop) {
-      setPlaylistSession((s) => s + 1);
-    }
-  }, [isLoop]);
+    setPlaylistSession((s) => s + 1);
+  }, []);
 
   const handleAudioEnded = useCallback(() => {
     if (isLoopRef.current) {
       const codes = playlistRef.current;
       setCurrentIndex((index) => {
         const nextIndex = index + 1;
-        if (nextIndex >= codes.length) {
-          return 0;
-        }
-        return nextIndex;
+        // Wrap around to beginning when the last track ends
+        return nextIndex >= codes.length ? 0 : nextIndex;
       });
     } else {
-      // When not looping, treat audio end as user pause to prevent auto-resume
+      // End of playlist, non-looping: treat as explicit pause so nothing auto-resumes
       setIsPlaying(false);
       userPausedRef.current = true;
     }
   }, []);
 
   useEffect(() => {
-    // If switching to MyMesha, always pause playlist and audio
     if (isMyMesha) {
       setIsPlaying(false);
-      userPausedRef.current = false; // reset user pause on mode switch
+      userPausedRef.current = false;
       stopCurrentAudio();
       return;
     }
-    // If switching from MyMesha to playlist mode, only resume if not user-paused
+
+    // Resume after switching back from MyMesha mode, unless the user had paused manually
     if (
       !isMyMesha &&
       selectedLanguage &&
@@ -199,7 +210,7 @@ export const PlaylistProvider = ({ children }) => {
       setIsPlaying(true);
       setPlaylistSession((s) => s + 1);
     }
-    // If user paused, do not auto-resume
+
     if (!isPlaying || !sceneReady) return;
 
     const codes = playlistRef.current;
@@ -234,11 +245,26 @@ export const PlaylistProvider = ({ children }) => {
             return;
           }
 
-          const audio = new Audio(audioUrl);
-          audio.volume = 0.5;
-          audio.preload = "auto";
+          // Reuse the single unlocked Audio element rather than creating a new one.
+          // Creating new Audio() inside a setTimeout loses iOS gesture association.
+          let audio = audioRef.current;
+          if (!audio) {
+            // Fallback: if somehow unlockAudio wasn't called, create it here.
+            // This won't be gesture-unlocked on iOS but is better than crashing.
+            audio = new Audio();
+            audioRef.current = audio;
+          }
 
-          // Wait until the browser can start playback reliably to reduce clipped starts.
+          audio.pause();
+          // Remove any ended listener from the previous track before swapping src
+          audio.removeEventListener("ended", handleAudioEnded);
+          audio.preload = "auto";
+          audio.src = audioUrl;
+          audio.volume = 0.5;
+          // Calling load() after setting src initiates buffering
+          audio.load();
+
+          // Wait until the browser has enough data to start playback without clipping
           await new Promise((resolve, reject) => {
             const READY_THRESHOLD = 2; // HAVE_CURRENT_DATA
             let settled = false;
@@ -259,9 +285,7 @@ export const PlaylistProvider = ({ children }) => {
             };
 
             const handleReady = () => {
-              if (audio.readyState >= READY_THRESHOLD) {
-                settle(resolve);
-              }
+              if (audio.readyState >= READY_THRESHOLD) settle(resolve);
             };
 
             const handleError = () => {
@@ -270,19 +294,20 @@ export const PlaylistProvider = ({ children }) => {
               );
             };
 
-            // Do not block forever on poor networks; proceed once minimum data is available.
+            // Don't block forever on slow networks; proceed if minimum data is available
             const timeoutId = setTimeout(() => {
               if (audio.readyState >= READY_THRESHOLD) {
                 settle(resolve);
-                return;
+              } else {
+                settle(() =>
+                  reject(
+                    new Error(`Audio readiness timeout for language: ${code}`),
+                  ),
+                );
               }
-              settle(() =>
-                reject(
-                  new Error(`Audio readiness timeout for language: ${code}`),
-                ),
-              );
             }, 3500);
 
+            // Resolve immediately if already buffered enough (e.g. cached)
             if (audio.readyState >= READY_THRESHOLD) {
               settle(resolve);
               return;
@@ -292,14 +317,9 @@ export const PlaylistProvider = ({ children }) => {
             audio.addEventListener("canplay", handleReady);
             audio.addEventListener("loadeddata", handleReady);
             audio.addEventListener("error", handleError);
-
-            audio.load();
           });
 
           await setupAudioVisualization(audio);
-
-          currentAudioElement.current = audio;
-          audioRef.current = audio;
 
           audio.addEventListener("ended", handleAudioEnded);
           cleanup = () => {
