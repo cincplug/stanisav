@@ -13,6 +13,7 @@ class AudioAnalysisService {
     this.frequencyData = null;
     this.isAnalyzing = false;
     this.callbacks = new Set();
+    this.lastAnalysisTime = 0;
 
     // Configuration
     this.config = audioVisualizationConfig;
@@ -116,23 +117,19 @@ class AudioAnalysisService {
    * Main analysis loop
    */
   analyzeAudio() {
-    if (!this.isAnalyzing) {
-      return;
+    if (!this.isAnalyzing) return;
+
+    const now = performance.now();
+    if (now - this.lastAnalysisTime >= 10) {
+      this.analyser.getByteFrequencyData(this.dataArray);
+      this.processFrequencyData();
+      this.notifyCallbacks({
+        fundamentalData: this.fundamentalData,
+        harmonicsData: this.harmonicsData,
+      });
+      this.lastAnalysisTime = now;
     }
 
-    // Get frequency data
-    this.analyser.getByteFrequencyData(this.dataArray);
-
-    // Process frequency data
-    this.processFrequencyData();
-
-    // Notify callbacks
-    this.notifyCallbacks({
-      fundamentalData: this.fundamentalData,
-      harmonicsData: this.harmonicsData,
-    });
-
-    // Schedule next frame
     this.animationFrameId = requestAnimationFrame(() => this.analyzeAudio());
   }
 
