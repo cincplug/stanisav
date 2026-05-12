@@ -31,28 +31,31 @@ export default function Playlist() {
   // Add keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e) => {
-      // Ignore if focus is on any interactive element
-      if (e.target.matches("input, textarea, select, button, a")) return;
-
       switch (e.key) {
         case " ":
         case "k":
+          // Only fire if focus isn't on an interactive element
+          if (e.target.matches("input, textarea, select, button, a")) return;
           e.preventDefault();
           isPlaying ? pausePlaylist() : startPlaylist();
           break;
         case "ArrowLeft":
+          if (e.target.closest('[role="tablist"]')) return;
           e.preventDefault();
           goToPrev();
           break;
         case "ArrowRight":
+          if (e.target.closest('[role="tablist"]')) return;
           e.preventDefault();
           goToNext();
           break;
         case "Home":
+          if (e.target.matches("input, textarea, select, button, a")) return;
           e.preventDefault();
           goToBegin();
           break;
         case "l":
+          if (e.target.matches("input, textarea, select, button, a")) return;
           e.preventDefault();
           updateControl("isLoop", !controls.isLoop);
           break;
