@@ -80,9 +80,6 @@ export default function Playlist() {
       role="group"
       aria-label={t("playlist.controls")}
     >
-      <button onClick={goToBegin} aria-label={t("playlist.goToBeginning")}>
-        <BeginIcon className="begin-icon" />
-      </button>
       <button onClick={goToPrev} aria-label={t("playlist.previous")}>
         <PrevIcon className="prev-icon" />
       </button>

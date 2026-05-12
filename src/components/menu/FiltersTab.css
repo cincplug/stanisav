@@ -63,7 +63,7 @@
   margin: var(--gap-double) 0;
   padding: var(--gap) var(--gap-double);
   border-radius: var(--border-radius);
-  background: var(--color-error);
+  background: var(--color-red);
   box-shadow: var(--shadow-strong);
 }
 

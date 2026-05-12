@@ -35,11 +35,7 @@ html.rtl .playlist-controls .next-icon {
 }
 
 .playlist-main {
-  background: var(--color-4) !important;
-
-  svg * {
-    fill: var(--color-1);
-  }
+  background: var(--color-red);
 }
 
 .playlist-controls button:disabled {
