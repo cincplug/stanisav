@@ -1,10 +1,10 @@
 import { useFrame } from "@react-three/fiber";
 import { Vector3, Quaternion } from "three";
 
-/**
- * Custom autorotation for OrbitControls.
- * axis: "y" | "z"
- */
+const Z_AXIS = new Vector3(0, 0, 1);
+const _quat = new Quaternion();
+const _pos = new Vector3();
+
 export default function OrbitModifier({
   orbitControlsRef,
   axis,
@@ -13,27 +13,24 @@ export default function OrbitModifier({
 }) {
   useFrame((_, delta) => {
     if (!isEnabled || !orbitControlsRef.current) return;
+
     if (axis === "z") {
-      // Rotate camera position and up vector around Z axis
       const controls = orbitControlsRef.current;
       const cam = controls.object;
       const target = controls.target;
-      const pos = cam.position.clone().sub(target);
-      const rot = new Quaternion().setFromAxisAngle(
-        new Vector3(0, 0, 1),
-        speed * delta,
-      );
-      pos.applyQuaternion(rot);
-      cam.position.copy(pos.add(target));
-      cam.up.applyQuaternion(rot);
+
+      _pos.copy(cam.position).sub(target);
+      _quat.setFromAxisAngle(Z_AXIS, speed * delta);
+      _pos.applyQuaternion(_quat);
+      cam.position.copy(_pos.add(target));
+      cam.up.applyQuaternion(_quat);
       controls.update();
     } else {
-      // Default: rotate around y axis
-      // Also used for x axis distribution because OrbitControls clamps it around 90 degrees
       orbitControlsRef.current.setAzimuthalAngle(
         orbitControlsRef.current.getAzimuthalAngle() + speed * delta,
       );
     }
   });
+
   return null;
 }

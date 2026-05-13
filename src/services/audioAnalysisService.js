@@ -13,7 +13,7 @@ class AudioAnalysisService {
     this.frequencyData = null;
     this.isAnalyzing = false;
     this.callbacks = new Set();
-    this.lastAnalysisTime = 0;
+    this.deltaAccumulator = 0;
 
     // Configuration
     this.config = audioVisualizationConfig;
@@ -120,17 +120,19 @@ class AudioAnalysisService {
     if (!this.isAnalyzing) return;
 
     const now = performance.now();
-    if (
-      now - this.lastAnalysisTime >=
-      audioVisualizationConfig.meshDeformation.timeRate
-    ) {
+    const delta = now - (this.lastFrameTime ?? now);
+    this.lastFrameTime = now;
+    this.deltaAccumulator += delta;
+
+    const interval = this.config.meshDeformation.timeRate;
+    if (this.deltaAccumulator >= interval) {
+      this.deltaAccumulator -= interval;
       this.analyser.getByteFrequencyData(this.dataArray);
       this.processFrequencyData();
       this.notifyCallbacks({
         fundamentalData: this.fundamentalData,
         harmonicsData: this.harmonicsData,
       });
-      this.lastAnalysisTime = now;
     }
 
     this.animationFrameId = requestAnimationFrame(() => this.analyzeAudio());

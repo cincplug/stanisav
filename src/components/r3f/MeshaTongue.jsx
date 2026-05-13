@@ -5,6 +5,7 @@ import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useAudioData } from "../../hooks/useAudioData.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { createAudioSurface } from "../../utils/shapeUtils.js";
+import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
 
 extend({ ParametricGeometry });
 
@@ -19,7 +20,14 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
   const stripesType = tongueMaterial?.uniforms?.uStripesType?.value ?? 0;
   const highlightMaterial = useHighlightMaterial(stripesType);
 
-  useFrame(() => {
+  const deltaAccRef = useRef(0);
+
+  useFrame((_, delta) => {
+    deltaAccRef.current += delta * 1000;
+    if (deltaAccRef.current < audioVisualizationConfig.meshDeformation.timeRate)
+      return;
+    deltaAccRef.current -= audioVisualizationConfig.meshDeformation.timeRate;
+
     const { harmonicsData } = audioData;
 
     const audioSurface = createAudioSurface({
@@ -31,7 +39,11 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
 
     if (meshRef.current) {
       meshRef.current.geometry.dispose();
-      meshRef.current.geometry = new ParametricGeometry(audioSurface, segments, segments);
+      meshRef.current.geometry = new ParametricGeometry(
+        audioSurface,
+        segments,
+        segments,
+      );
       meshRef.current.rotation.x = harmonicsData[0] + Math.PI / 12;
     }
   });

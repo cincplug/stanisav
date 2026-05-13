@@ -5,6 +5,7 @@ import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useAudioData } from "../../hooks/useAudioData.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { createToothShape } from "../../utils/shapeUtils.js";
+import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
 
 extend({ ParametricGeometry });
 
@@ -26,9 +27,11 @@ const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
       const clusterCenter = (clusterSize - 1) / 2;
       const rotationIntensity =
         clusterSize > 1
-          ? Math.abs(positionInCluster - clusterCenter) / Math.floor(clusterSize / 2)
+          ? Math.abs(positionInCluster - clusterCenter) /
+            Math.floor(clusterSize / 2)
           : 0;
-      const rotationAngle = Math.sign(positionInCluster - clusterCenter) * rotationIntensity;
+      const rotationAngle =
+        Math.sign(positionInCluster - clusterCenter) * rotationIntensity;
 
       return {
         x: Math.cos(angle) * meshaSize,
@@ -41,7 +44,14 @@ const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
     });
   }, [toothCount, clusterSize, meshaSize]);
 
-  useFrame(() => {
+  const deltaAccRef = useRef(0);
+
+  useFrame((_, delta) => {
+    deltaAccRef.current += delta * 1000;
+    if (deltaAccRef.current < audioVisualizationConfig.meshDeformation.timeRate)
+      return;
+    deltaAccRef.current -= audioVisualizationConfig.meshDeformation.timeRate;
+
     if (teethRefs.current) {
       const { harmonicsData } = audioData;
       const count = teethRefs.current.length;
@@ -64,13 +74,22 @@ const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
   return (
     <group position={[0, meshaSize, meshaSize]} scale={teethSize}>
       {teeth.map((tooth, i) => (
-        <group key={tooth.key} position={[tooth.x, tooth.y, tooth.z - 1]} rotation={[tooth.rotationAngle, 0, 0]}>
-          <mesh ref={(el) => (teethRefs.current[i] = el)} linguisticProperty="phonemeCount" onClick={onClick}>
+        <group
+          key={tooth.key}
+          position={[tooth.x, tooth.y, tooth.z - 1]}
+          rotation={[tooth.rotationAngle, 0, 0]}
+        >
+          <mesh
+            ref={(el) => (teethRefs.current[i] = el)}
+            linguisticProperty="phonemeCount"
+            onClick={onClick}
+          >
             <parametricGeometry args={[createToothShape, 16, 8]} />
-            {isSelected
-              ? <shaderMaterial args={[highlightMaterial]} />
-              : <meshStandardMaterial color="#e7ebef" />
-            }
+            {isSelected ? (
+              <shaderMaterial args={[highlightMaterial]} />
+            ) : (
+              <meshStandardMaterial color="#e7ebef" />
+            )}
           </mesh>
         </group>
       ))}
