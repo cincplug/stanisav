@@ -1,5 +1,7 @@
 import { getLanguageLabel } from "../../utils/languageDisplayUtils";
 import { getFamilyLabel } from "../../utils/i18nUtils";
+import MiniMesha from "../r3f/MiniMesha.jsx";
+import { useMediaQuery } from "../../hooks/useMediaQuery.js";
 
 const LanguageTree = ({
   tree,
@@ -13,6 +15,11 @@ const LanguageTree = ({
   depth = 0,
   parentKey = "root",
 }) => {
+  const isMobile = useMediaQuery();
+
+  const selectedLinguisticProperties = languageData?.[selectedLanguage];
+  const selectedColor = languageColors[selectedLanguage];
+
   if (Array.isArray(languages)) {
     return (
       <ul className="languages-in-group" role="list">
@@ -29,6 +36,13 @@ const LanguageTree = ({
                 } ${!languageData[langCode]?.sr ? "todo-item" : ""}`}
                 onClick={() => onSelectLanguage(langCode)}
               >
+                {isMobile && selectedLanguage === langCode && (
+                  <MiniMesha
+                    languageCode={langCode}
+                    linguisticProperties={selectedLinguisticProperties}
+                    color={selectedColor}
+                  />
+                )}
                 {label}
               </button>
             </li>

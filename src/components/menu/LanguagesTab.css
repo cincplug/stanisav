@@ -20,12 +20,20 @@
 }
 
 .language-item-button {
+  position: relative;
   color: var(--color-1);
 
   &.selected {
-    background: var(--color-current) !important;
+    background: var(--color-1) !important;
     color: var(--color-4);
   }
+}
+
+.mini-mesha {
+  width: calc(100vw - 4 * var(--gap-double));
+  box-sizing: border-box;
+  height: var(--mini-mesha-size);
+  z-index: 1;
 }
 
 .lineage-group.nested {

@@ -237,15 +237,3 @@ legend {
 .hidden {
   display: none;
 }
-
-.mini-mesha {
-  position: absolute;
-  bottom: var(--gap-double);
-  right: var(--gap-double);
-  width: var(--mini-mesha-size);
-  height: var(--mini-mesha-size);
-  background: var(--color-1);
-  border: var(--border-width) solid var(--color-3);
-  border-radius: var(--border-radius);
-  z-index: 1;
-}

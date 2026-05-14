@@ -1,5 +1,4 @@
 import Menu from "./components/menu/Menu";
-import MiniMesha from "./components/r3f/MiniMesha.jsx";
 import Stage from "./components/r3f/Stage";
 import IdCard from "./components/menu/IdCard";
 import { useAppState } from "./contexts/AppStateContext";
@@ -40,10 +39,6 @@ function App() {
   );
 
   const isMeshaMini = isMobile && !!selectedLanguage && isMenuExpanded;
-
-  const selectedLinguisticProperties =
-    data?.typologicalFeatures?.[selectedLanguage];
-  const selectedColor = languageColors[selectedLanguage];
 
   return (
     <div
@@ -91,14 +86,6 @@ function App() {
           />
         )}
       </div>
-
-      {isMeshaMini && (
-        <MiniMesha
-          languageCode={selectedLanguage}
-          linguisticProperties={selectedLinguisticProperties}
-          color={selectedColor}
-        />
-      )}
     </div>
   );
 }

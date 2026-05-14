@@ -105,6 +105,8 @@
   padding-top: var(--gap-half);
   background: var(--color-1);
   margin: var(--gap-half);
+  width: 100%;
+  z-index: 1;
 
   button {
     margin-inline-end: var(--border-width);
