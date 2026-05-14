@@ -309,7 +309,7 @@
       "min": 50,
       "max": 400,
       "step": 1,
-      "defaultValue": 150,
+      "defaultValue": 100,
       "isShownInMenu": true
     },
     "friction": {
@@ -317,7 +317,7 @@
       "min": 1,
       "max": 80,
       "step": 1,
-      "defaultValue": 22,
+      "defaultValue": 64,
       "isShownInMenu": true
     }
   },
