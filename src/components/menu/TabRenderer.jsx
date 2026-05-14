@@ -20,16 +20,6 @@ function TabRenderer({
   const { searchTerm, setSearchTerm, searchResults, clearSearch } =
     useSearch(data);
 
-  useEffect(() => {
-    if (
-      searchTerm &&
-      searchTerm.length >= tabsConfig.searchLengthThreshold &&
-      selectedTab !== "search"
-    ) {
-      setSelectedTab("search");
-    }
-  }, [searchTerm, selectedTab, setSelectedTab]);
-
   const handleTabChange = (tabId) => {
     if (tabId !== "search") {
       clearSearch();
