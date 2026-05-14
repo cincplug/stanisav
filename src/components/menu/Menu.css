@@ -19,8 +19,7 @@
     background-color: var(--color-1);
     border-inline-start: var(--border);
     color: var(--color-4);
-    font-size: var(--font-size-m);
-    overflow: visible;
+    overflow: hidden;
     box-sizing: border-box;
 
     @media (max-width: 640px) {
@@ -32,6 +31,18 @@
       height: 100%;
       width: 100%;
     }
+  }
+
+  .menu-sticky-top {
+    flex-shrink: 0;
+    padding-bottom: var(--gap-half);
+  }
+
+  .menu-scroll-area {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 0;
   }
 
   &.compact {
@@ -85,21 +96,20 @@
 }
 
 .tab-navigation {
+  position: sticky;
+  top: 0;
   display: flex;
   overflow-x: auto;
   align-items: flex-end;
   border-bottom: var(--border);
   padding-top: var(--gap-half);
-  margin: var(--gap) calc(-1 * (var(--border-width) + var(--gap)));
+  background: var(--color-1);
+  margin: var(--gap-half);
 
   button {
     margin-inline-end: var(--border-width);
     border-radius: var(--border-radius) var(--border-radius) 0 0;
     padding: var(--gap) var(--gap-double);
-
-    &:first-child {
-      margin-inline-start: var(--gap-double);
-    }
   }
 }
 
@@ -107,12 +117,12 @@
   padding: var(--gap-half);
 }
 
-.tabs-scroll-area {
+/* .tabs-scroll-area {
   flex: 1 1 auto;
   min-height: 0;
   overflow-y: auto;
   overflow-x: hidden;
-}
+} */
 
 .radio-group {
   display: grid;

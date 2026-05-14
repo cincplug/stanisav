@@ -43,7 +43,7 @@ function Menu({
     <div className="menu-wrapper">
       {isExpanded ? (
         <div className="menu expanded">
-          <div className="menu-header">
+          <div className="menu-sticky-top">
             <button
               id="menu-close"
               onClick={() => onToggleMenu(false)}
@@ -52,9 +52,10 @@ function Menu({
             >
               <CloseIcon />
             </button>
-
             <Playlist />
+          </div>
 
+          <div className="menu-scroll-area">
             <div className="menu-header-controls">
               <div className="control-item">
                 <label>{t("menu.languageSelector")}</label>
@@ -71,9 +72,7 @@ function Menu({
               selectedTab={selectedTab}
               setSelectedTab={handleTabChange}
             />
-          </div>
 
-          <div className="tabs-scroll-area">
             <TabRenderer
               selectedTab={selectedTab}
               setSelectedTab={setSelectedTab}
