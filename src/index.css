@@ -18,14 +18,14 @@
   --panel-width: 375px;
   --readable-width: 600px;
   --container-width: 1200px;
-  --gap: 8px;
+  --gap: 0.5rem;
   --gap-double: calc(var(--gap) * 2);
   --gap-triple: calc(var(--gap) * 3);
   --gap-half: calc(var(--gap) / 2);
   --gap-reduced: calc(var(--gap) / 3 * 2);
-  --icon-size-l: 32px;
-  --icon-size-m: 24px;
-  --icon-size-s: 16px;
+  --icon-size-l: 2rem;
+  --icon-size-m: 1.5rem;
+  --icon-size-s: 1rem;
 
   /* Accessories */
   --outline-default: var(--border-width) solid var(--color-focus);
@@ -38,9 +38,9 @@
   --border-width-thin: 1px;
   --border: var(--border-width) solid var(--color-2);
   --border-input: var(--border-width-thin) solid var(--color-4);
-  --clear-button-size: 20px;
-  --tooltip-tail-size: 8px;
-  --mini-mesha-size: 150px;
+  --clear-button-size: var(--icon-size-s);
+  --tooltip-tail-size: 0.5rem;
+  --mini-mesha-size: 10rem;
   --transition: 0.5s ease;
 }
 
@@ -59,6 +59,10 @@
 }
 
 /* Elements */
+html {
+  font-size: calc(16px * var(--label-size-scale, 1));
+}
+
 html,
 body {
   margin: 0;

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
 import IdCard from "./components/menu/IdCard";
@@ -29,7 +30,7 @@ function App() {
   const { controls, updateControl } = useControls();
   const { selectedLanguage } = useLanguageSelection();
   const { pausePlaylist } = usePlaylist();
-  const { isIdCardVisible, isMenuExpanded, isSegmented } = controls;
+  const { isIdCardVisible, isMenuExpanded, isSegmented, labelSize } = controls;
   const { sampleUrl, sub } = data?.languageData[selectedLanguage] || {};
 
   const languageColors = useLanguageColors(
@@ -37,6 +38,13 @@ function App() {
     data?.languageLineages,
     controls,
   );
+
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      "--label-size-scale",
+      controls.labelSize / 1.5,
+    );
+  }, [controls.labelSize]);
 
   const isMeshaMini = isMobile && !!selectedLanguage && isMenuExpanded;
 
