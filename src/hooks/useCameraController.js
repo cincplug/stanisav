@@ -1,5 +1,5 @@
-import { useEffect, useRef, useMemo, useCallback } from "react";
-import { useThree } from "@react-three/fiber";
+import { useEffect, useRef, useCallback } from "react";
+import { useThree, useFrame } from "@react-three/fiber";
 import { Vector3 } from "three";
 import { useLanguageSelection } from "../contexts/LanguageSelectionContext";
 import sceneConfig from "../config/sceneConfig.json";
@@ -12,76 +12,106 @@ export const useCameraController = ({
 }) => {
   const { cameraFocusRequest } = useLanguageSelection();
   const { camera, controls: threeControls } = useThree();
-  const animationRef = useRef(null);
+
+  // Holds the state for the currently running camera animation.
+  // Set to null when no animation is in progress.
+  const animationStateRef = useRef(null);
+
   const lastFocusedRef = useRef(null);
   const initializedViewRef = useRef(false);
 
-  const config = useMemo(
-    () => ({
-      ...controls,
-    }),
-    [controls],
-  );
+  // Drive camera animation inside r3f's render loop instead of a competing
+  // rAF loop. This avoids double-animation and syncs with OrbitModifier.
+  useFrame(() => {
+    const state = animationStateRef.current;
+    if (!state) return;
 
-  const cameraSystem = useMemo(
-    () => ({
-      camera,
-      controls: threeControls,
-      animationRef,
-    }),
-    [camera, threeControls],
+    if (state.startTime === null) {
+      state.startTime = performance.now();
+    }
+
+    const elapsed = performance.now() - state.startTime;
+    const progress = Math.min(elapsed / state.duration, 1);
+    const easeInOut =
+      progress < 0.5
+        ? 2 * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+    camera.position.lerpVectors(state.startPos, state.targetPos, easeInOut);
+
+    if (threeControls?.target) {
+      threeControls.target.lerpVectors(
+        state.startTarget,
+        state.lookAt,
+        easeInOut,
+      );
+      threeControls.update();
+    }
+
+    if (progress >= 1) {
+      camera.position.copy(state.targetPos);
+      if (threeControls?.target) {
+        threeControls.target.copy(state.lookAt);
+        threeControls.update();
+      }
+      animationStateRef.current = null;
+    }
+  });
+
+  // Start a new camera animation toward targetPosition, looking at lookAtTarget.
+  // Captures current camera position/target as the start of the animation.
+  const startCameraAnimation = useCallback(
+    (targetPosition, lookAtTarget) => {
+      animationStateRef.current = {
+        startPos: camera.position.clone(),
+        startTarget: threeControls?.target?.clone() || new Vector3(),
+        targetPos: targetPosition,
+        lookAt: lookAtTarget,
+        startTime: null, // set on the first useFrame tick so elapsed starts at 0
+        duration: controls.switchDuration,
+      };
+    },
+    [camera, threeControls, controls.switchDuration],
   );
 
   const focusOnLanguage = useCallback(
     (languageCode) => {
       const node = languageNodes[languageCode];
-      const { isSegmented } = controls;
-      if (!node) {
-        return;
-      }
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-        animationRef.current = null;
-      }
+      if (!node) return;
+
       const languagePosition = new Vector3(node.x, node.y, node.z);
-      const zoomDistance = config.zoomDistance;
       const targetCameraPosition = calculateCameraPosition(
         languagePosition,
-        zoomDistance,
-        isSegmented,
+        controls.zoomDistance,
+        controls.isSegmented,
       );
-      animateCamera(
-        cameraSystem,
-        targetCameraPosition,
-        languagePosition,
-        config,
-      );
+      startCameraAnimation(targetCameraPosition, languagePosition);
     },
-    [cameraSystem, languageNodes, config],
+    [
+      languageNodes,
+      controls.zoomDistance,
+      controls.isSegmented,
+      startCameraAnimation,
+    ],
   );
 
   const setInitialCameraPosition = useCallback(() => {
-    if (animationRef.current) {
-      cancelAnimationFrame(animationRef.current);
-      animationRef.current = null;
-    }
     const initialCameraPosition = new Vector3(
-      config.cameraX,
-      config.cameraY,
-      config.cameraZ,
+      controls.cameraX,
+      controls.cameraY,
+      controls.cameraZ,
     );
-    const initialTarget = new Vector3(0, 0, 0);
-    animateCamera(cameraSystem, initialCameraPosition, initialTarget, config);
-  }, [cameraSystem, config]);
+    startCameraAnimation(initialCameraPosition, new Vector3(0, 0, 0));
+  }, [
+    controls.cameraX,
+    controls.cameraY,
+    controls.cameraZ,
+    startCameraAnimation,
+  ]);
 
   const fitToNodes = useCallback(() => {
     const positions = Object.values(languageNodes);
     if (positions.length === 0) return;
-
-    if (animationRef.current) {
-      cancelAnimationFrame(animationRef.current);
-      animationRef.current = null;
-    }
 
     let minX = Infinity,
       maxX = -Infinity;
@@ -89,6 +119,7 @@ export const useCameraController = ({
       maxY = -Infinity;
     let minZ = Infinity,
       maxZ = -Infinity;
+
     positions.forEach((p) => {
       if (p.x < minX) minX = p.x;
       if (p.x > maxX) maxX = p.x;
@@ -107,10 +138,9 @@ export const useCameraController = ({
     const halfW = (maxX - minX) / 2;
     const halfH = (maxY - minY) / 2;
 
-    const aspect = camera.aspect;
-    const fovRad = (config.fov * Math.PI) / 180;
+    const fovRad = (controls.fov * Math.PI) / 180;
     const halfFovV = fovRad / 2;
-    const halfFovH = Math.atan(Math.tan(halfFovV) * aspect);
+    const halfFovH = Math.atan(Math.tan(halfFovV) * camera.aspect);
 
     const distForWidth = halfW / Math.tan(halfFovH);
     const distForHeight = halfH / Math.tan(halfFovV);
@@ -122,8 +152,8 @@ export const useCameraController = ({
       center.y,
       center.z + (maxZ - minZ) / 2 + distance,
     );
-    animateCamera(cameraSystem, targetCameraPosition, center, config);
-  }, [cameraSystem, languageNodes, config, camera]);
+    startCameraAnimation(targetCameraPosition, center);
+  }, [languageNodes, controls.fov, camera, startCameraAnimation]);
 
   // On first load use the configured initial position; on subsequent layout
   // changes fit everything in view (unless a language is focused)
@@ -142,9 +172,8 @@ export const useCameraController = ({
   }, [languageNodes]);
 
   useEffect(() => {
-    if (!cameraFocusRequest || !languageNodes) {
-      return;
-    }
+    if (!cameraFocusRequest || !languageNodes) return;
+
     const { type, target } = cameraFocusRequest;
     switch (type) {
       case "language":
@@ -168,64 +197,13 @@ export const useCameraController = ({
   ]);
 
   useEffect(() => {
-    if (!selectedLanguage || !languageNodes) {
-      return;
-    }
-    if (lastFocusedRef.current === selectedLanguage) {
-      return;
-    }
+    if (!selectedLanguage || !languageNodes) return;
+    if (lastFocusedRef.current === selectedLanguage) return;
     lastFocusedRef.current = selectedLanguage;
     focusOnLanguage(selectedLanguage);
   }, [selectedLanguage, languageNodes, focusOnLanguage]);
 
-  useEffect(
-    () => () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-    },
-    [],
-  );
-
   return { setInitialCameraPosition, fitToNodes };
-};
-
-const animateCamera = (cameraSystem, targetPosition, lookAtTarget, config) => {
-  const { camera, controls, animationRef } = cameraSystem;
-
-  const startPosition = camera.position.clone();
-  const startTarget = controls?.target?.clone() || new Vector3();
-  const duration = config.switchDuration;
-  const startTime = Date.now();
-
-  const animate = () => {
-    const elapsed = Date.now() - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    const easeInOut =
-      progress < 0.5
-        ? 2 * progress * progress
-        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-
-    camera.position.lerpVectors(startPosition, targetPosition, easeInOut);
-
-    if (controls && controls.target) {
-      controls.target.lerpVectors(startTarget, lookAtTarget, easeInOut);
-      controls.update();
-    }
-
-    if (progress < 1) {
-      animationRef.current = requestAnimationFrame(animate);
-    } else {
-      camera.position.copy(targetPosition);
-      if (controls && controls.target) {
-        controls.target.copy(lookAtTarget);
-        controls.update();
-      }
-      animationRef.current = null;
-    }
-  };
-
-  animationRef.current = requestAnimationFrame(animate);
 };
 
 const calculateCameraPosition = (nodePosition, zoomDistance, isSegmented) => {
