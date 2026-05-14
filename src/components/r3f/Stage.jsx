@@ -1,5 +1,5 @@
 import SceneReadyGate from "./SceneReadyGate";
-import { useMemo, useRef } from "react";
+import { useMemo, useRef, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useSpring } from "@react-spring/three";
@@ -32,7 +32,12 @@ const Stage = ({
   languageColors,
 }) => {
   const { controls } = useControls();
-  const { skipLabelEntrance } = useAppState();
+  const {
+    skipLabelEntrance,
+    isEntranceComplete,
+    setIsEntranceComplete,
+    sceneReady,
+  } = useAppState();
   const { locale, isLocaleReady, isRtl } = useI18n();
   const { filteringUtils, selectedLanguage } = useLanguageSelection();
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
@@ -137,6 +142,14 @@ const Stage = ({
     ],
   );
 
+  useEffect(() => {
+    if (!sceneReady || isEntranceComplete) return;
+    const timer = setTimeout(() => {
+      setIsEntranceComplete(true);
+    }, sceneConfig.entranceDuration + sceneConfig.revealDurationMs);
+    return () => clearTimeout(timer);
+  }, [sceneReady, isEntranceComplete]);
+
   const meshaLanguageCode = selectedLanguage || sortedLanguageCodes[0];
   const meshaLinguisticProperties =
     data?.typologicalFeatures?.[meshaLanguageCode];
@@ -223,7 +236,7 @@ const Stage = ({
         orbitControlsRef={orbitControlsRef}
         axis={globeSpiralAxis}
         speed={autoRotateSpeed}
-        isEnabled={!isSegmented}
+        isEnabled={!isSegmented && isEntranceComplete}
       />
 
       <StageLight
