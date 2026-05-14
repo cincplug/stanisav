@@ -49,6 +49,7 @@
     "isMenuExpanded": {
       "type": "checkbox",
       "defaultValue": false,
+      "defaultIfLowEnd": true,
       "isShownInMenu": false
     },
     "isIdCardVisible": {

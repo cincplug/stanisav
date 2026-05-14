@@ -1,11 +1,15 @@
 import { createContext, useContext, useState } from "react";
 import controlsConfig from "../config/controls.json";
+import { isLowEnd } from "../utils/deviceUtils";
 
 const getDefaultValues = () => {
   const defaults = {};
   Object.values(controlsConfig).forEach((group) => {
     Object.entries(group).forEach(([controlId, config]) => {
-      defaults[controlId] = config.defaultValue;
+      defaults[controlId] =
+        isLowEnd && "defaultIfLowEnd" in config
+          ? config.defaultIfLowEnd
+          : config.defaultValue;
     });
   });
   return defaults;
