@@ -22,15 +22,22 @@
 .language-item-button {
   position: relative;
   color: var(--color-1);
+  transition: width var(--transition);
+  width: fit-content;
+  box-sizing: border-box;
 
   &.selected {
+    width: 100%;
     background: var(--color-1) !important;
+    border-width: var(--border-width-thick);
+    border-style: solid;
     color: var(--color-4);
+    font-size: var(--font-size-l);
   }
 }
 
 .mini-mesha {
-  width: calc(100vw - 4 * var(--gap-double));
+  width: min-content;
   box-sizing: border-box;
   height: var(--mini-mesha-size);
   z-index: 1;

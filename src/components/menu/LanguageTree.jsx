@@ -30,7 +30,10 @@ const LanguageTree = ({
             <li key={langCode}>
               <button
                 ref={(el) => (buttonRefs.current[langCode] = el)}
-                style={{ background: languageColors[langCode] }}
+                style={{
+                  background: languageColors[langCode],
+                  borderColor: languageColors[langCode],
+                }}
                 className={`language-item-button ${
                   selectedLanguage === langCode ? "selected" : ""
                 } ${!languageData[langCode]?.sr ? "todo-item" : ""}`}
