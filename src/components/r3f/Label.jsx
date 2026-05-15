@@ -121,8 +121,8 @@ const Label = ({
 
       labelRef.current.renderOrder =
         revealOrder >= animatedD4.current
-          ? 0
-          : totalVisibleLabels - revealOrder;
+          ? totalVisibleLabels - revealOrder
+          : 0;
     } else {
       labelRef.current.renderOrder = 0;
     }
