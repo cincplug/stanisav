@@ -33,7 +33,6 @@ const Flowers = () => {
             max={control.max}
             step={control.step}
             value={controls[control.id]}
-            readOnly
           />
         </div>
       ))}

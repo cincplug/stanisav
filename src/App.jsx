@@ -94,7 +94,8 @@ function App() {
             languageColor={languageColors[selectedLanguage]}
           />
         )}
-        {/* <Flowers /> */}
+
+        <Flowers />
       </div>
     </div>
   );
