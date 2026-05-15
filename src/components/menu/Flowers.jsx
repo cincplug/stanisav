@@ -4,7 +4,7 @@ import { useLayoutEffect, useRef } from "react";
 import "./Flowers.css";
 
 const Flowers = () => {
-  const { controls } = useControls();
+  const { controls, updateControl } = useControls();
   const containerRef = useRef(null);
 
   const rangeControls = Object.entries(controlsConfig)
@@ -24,7 +24,7 @@ const Flowers = () => {
   });
 
   return (
-    <div ref={containerRef} className={`flowers`}>
+    <div ref={containerRef} className="flowers">
       {rangeControls.map((control, i) => (
         <div key={control.id} className="flower-stem" style={{ "--i": i + 1 }}>
           <input
@@ -33,6 +33,9 @@ const Flowers = () => {
             max={control.max}
             step={control.step}
             value={controls[control.id]}
+            onChange={(e) =>
+              updateControl(control.id, parseFloat(e.target.value))
+            }
           />
         </div>
       ))}

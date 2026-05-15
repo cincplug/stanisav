@@ -1,14 +1,15 @@
 .flowers {
+  --flower-step: 70deg;
+  --flower-center: 20deg;
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  bottom: var(--gap-double);
+  left: var(--gap-double);
+  width: calc(100% - 2 * var(--gap-double));
   height: 10%;
   color: var(--color-4);
 
   .flower-stem {
     position: absolute;
-    bottom: 0;
     left: calc((var(--i) - 1) / (var(--n) - 1) * 100%);
     transform: translateX(-50%);
 
@@ -17,7 +18,11 @@
       width: 10rem;
       transform-origin: bottom center;
       transform: rotate(
-        calc((var(--i) - (var(--n) + 1) / 2) / ((var(--n) - 1) / 2) * -90deg)
+        calc(
+          (var(--i) - (var(--n) + 1) / 2) / ((var(--n) - 1) / 2) *
+            calc(-1 * var(--flower-step)) -
+            sign((var(--i) - (var(--n) + 1) / 2)) * var(--flower-center)
+        )
       );
     }
   }
