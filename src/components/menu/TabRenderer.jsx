@@ -36,12 +36,7 @@ function TabRenderer({
     <div className="tabs-inner">
       {selectedTab === "controls" && (
         <div {...panelProps("controls")}>
-          <ControlsTab
-            controlGroups={{
-              state: { controls },
-              handlers: { onControlChange },
-            }}
-          />
+          <ControlsTab />
         </div>
       )}
 

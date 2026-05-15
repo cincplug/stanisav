@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
 import IdCard from "./components/menu/IdCard";
+import Flowers from "./components/menu/Flowers";
 import { useAppState } from "./contexts/AppStateContext";
 import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
 import { useControls } from "./contexts/ControlsContext";
@@ -93,6 +94,7 @@ function App() {
             languageColor={languageColors[selectedLanguage]}
           />
         )}
+        {/* <Flowers /> */}
       </div>
     </div>
   );

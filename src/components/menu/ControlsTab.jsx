@@ -1,40 +1,10 @@
 import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import controlsConfig from "../../config/controls.json";
-import {
-  getControlGroupLabel,
-  localizeControlConfig,
-} from "../../utils/i18nUtils";
-import ControlItem from "./ControlItem";
+import ControlItemGroup from "./ControlItemGroup";
 import "./ControlsTab.css";
 
-const getControlsByGroup = (groupName) =>
-  Object.entries(controlsConfig[groupName] ?? {})
-    .filter(([_id, config]) => config.isShownInMenu)
-    .map(([id, config]) => ({ id, ...localizeControlConfig(id, config) }));
-
-const ControlGroup = ({ groupName, controls, updateControl }) => {
-  const groupControls = getControlsByGroup(groupName);
-  if (groupControls.length === 0) return null;
-
-  return (
-    <fieldset className="control-group">
-      <legend>{getControlGroupLabel(groupName)}</legend>
-      <div className="controls-grid">
-        {groupControls.map((control) => (
-          <ControlItem
-            key={control.id}
-            control={control}
-            value={controls[control.id]}
-            onChange={(value) => updateControl(control.id, value)}
-          />
-        ))}
-      </div>
-    </fieldset>
-  );
-};
-
-const ControlsTab = () => {
+const ControlsTab = ({ className }) => {
   const { controls, updateControl } = useControls();
   const { selectedLanguage } = useLanguageSelection();
 
@@ -45,13 +15,14 @@ const ControlsTab = () => {
   );
 
   return (
-    <div className="control-section">
+    <div className={`control-section ${className}`}>
       {uniqueGroups.map((groupName) => (
-        <ControlGroup
+        <ControlItemGroup
           key={groupName}
           groupName={groupName}
           controls={controls}
-          updateControl={updateControl}
+          onChange={updateControl}
+          showFieldset
         />
       ))}
     </div>

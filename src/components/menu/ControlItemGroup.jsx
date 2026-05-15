@@ -1,5 +1,8 @@
 import controlsConfig from "../../config/controls.json";
-import { localizeControlConfig } from "../../utils/i18nUtils";
+import {
+  getControlGroupLabel,
+  localizeControlConfig,
+} from "../../utils/i18nUtils";
 import ControlItem from "./ControlItem";
 
 function ControlItemGroup({
@@ -7,6 +10,7 @@ function ControlItemGroup({
   controls,
   onChange,
   isCompact = false,
+  showFieldset = false,
 }) {
   const groupControls = Object.entries(controlsConfig[groupName] ?? {})
     .filter(([_id, config]) =>
@@ -16,7 +20,7 @@ function ControlItemGroup({
 
   if (groupControls.length === 0) return null;
 
-  return groupControls.map((control) => (
+  const items = groupControls.map((control) => (
     <ControlItem
       key={control.id}
       control={control}
@@ -25,6 +29,17 @@ function ControlItemGroup({
       isCompact={isCompact}
     />
   ));
+
+  if (showFieldset) {
+    return (
+      <fieldset className="control-group">
+        <legend>{getControlGroupLabel(groupName)}</legend>
+        <div className="controls-grid">{items}</div>
+      </fieldset>
+    );
+  }
+
+  return items;
 }
 
 export default ControlItemGroup;

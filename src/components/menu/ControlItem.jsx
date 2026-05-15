@@ -3,7 +3,14 @@ import { useI18n } from "../../contexts/I18nContext";
 import { useMediaQuery } from "../../hooks/useMediaQuery.js";
 import * as MenuIcons from "./MenuIcons";
 
-const ControlItem = ({ control, value, onChange, isCompact = false }) => {
+const ControlItem = ({
+  control,
+  value,
+  onChange,
+  isCompact = false,
+  groupIndex,
+  controlIndex,
+}) => {
   const { t } = useI18n();
   const {
     id,
@@ -100,6 +107,7 @@ const ControlItem = ({ control, value, onChange, isCompact = false }) => {
             <span>{value}</span>
           </label>
           <input
+            style={{ "--i": groupIndex * controlIndex }}
             type="range"
             min={min}
             max={max}

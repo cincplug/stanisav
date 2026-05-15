@@ -9,7 +9,6 @@ import {
   buildLanguageTree,
   groupLanguages,
 } from "../../utils/languageGroupingUtils";
-import ControlItemGroup from "./ControlItemGroup";
 import LanguageTree from "./LanguageTree";
 
 function LanguagesTab({ languageData, isSelected, languageColors = {} }) {
