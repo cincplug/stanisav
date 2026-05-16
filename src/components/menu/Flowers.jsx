@@ -1,6 +1,7 @@
 import { useControls } from "../../contexts/ControlsContext";
 import controlsConfig from "../../config/controls.json";
 import { useLayoutEffect, useRef } from "react";
+import Range from "./ux/Range";
 import "./Flowers.css";
 
 const Flowers = () => {
@@ -19,7 +20,7 @@ const Flowers = () => {
 
   useLayoutEffect(() => {
     if (containerRef.current) {
-      containerRef.current.style.setProperty("--n", rangeControls.length);
+      containerRef.current.style.setProperty("--count", rangeControls.length);
     }
   });
 
@@ -27,8 +28,7 @@ const Flowers = () => {
     <div ref={containerRef} className="flowers">
       {rangeControls.map((control, i) => (
         <div key={control.id} className="flower-stem" style={{ "--i": i + 1 }}>
-          <input
-            type="range"
+          <Range
             min={control.min}
             max={control.max}
             step={control.step}

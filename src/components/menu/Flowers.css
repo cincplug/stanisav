@@ -1,30 +1,39 @@
 .flowers {
-  --flower-step: 70deg;
-  --flower-center: 20deg;
+  --flower-step: 50;
+  --flower-center: 40;
+  --w: 8rem;
+  --h: 10%;
+
   position: absolute;
   bottom: var(--gap-double);
   left: var(--gap-double);
   width: calc(100% - 2 * var(--gap-double));
-  height: 10%;
+  height: var(--h);
   color: var(--color-4);
 
   .flower-stem {
+    --mid: calc((var(--count) + 1) / 2);
+    --half-span: calc((var(--count) - 1) / 2);
+    --norm: calc((var(--i) - var(--mid)) / var(--half-span));
+    --o: calc(
+      var(--norm) * -1 * var(--flower-step) - sign(var(--norm)) *
+        var(--flower-center)
+    );
+    --angle: calc(var(--o) * 1deg);
+    --left: calc((var(--i) - 1) / (var(--count) - 1) * 100%);
+
     position: absolute;
-    left: calc((var(--i) - 1) / (var(--n) - 1) * 100%);
+    left: var(--left);
+    top: var(--w);
     transform: translateX(-50%);
     pointer-events: none;
 
     input {
       display: block;
-      width: 10rem;
+      width: var(--w);
+      margin-top: calc(abs(var(--o)) * -1px / 2 - var(--w) / 2);
       transform-origin: bottom center;
-      transform: rotate(
-        calc(
-          (var(--i) - (var(--n) + 1) / 2) / ((var(--n) - 1) / 2) *
-            calc(-1 * var(--flower-step)) -
-            sign((var(--i) - (var(--n) + 1) / 2)) * var(--flower-center)
-        )
-      );
+      transform: rotate(var(--angle));
       pointer-events: auto;
     }
   }

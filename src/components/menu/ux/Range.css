@@ -1,0 +1,124 @@
+.range-wrapper {
+  --color-range: var(--color-3);
+  --color-thumb: var(--color-4);
+  --color-label: var(--color-4);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-half);
+}
+
+.range-label {
+  font-size: var(--font-size-m);
+  color: var(--color-label);
+}
+
+.range-track-area {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.range-input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: var(--gap);
+  border-radius: var(--border-radius);
+  background: var(--color-range);
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+
+  &::-webkit-slider-runnable-track {
+    height: var(--gap);
+    border-radius: var(--border-radius);
+    background: var(--color-range);
+  }
+  &::-moz-range-track {
+    height: var(--gap);
+    border-radius: var(--border-radius);
+    background: var(--color-range);
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: calc(var(--gap) * 3);
+    height: calc(var(--gap) * 3);
+    border-radius: 50%;
+    background: var(--color-thumb);
+    border: var(--border-width-thin) solid var(--color-range);
+    margin-top: calc((var(--gap) - var(--gap) * 3) / 2);
+    cursor: pointer;
+    transition: transform 0.15s ease;
+  }
+  &::-moz-range-thumb {
+    width: calc(var(--gap) * 3);
+    height: calc(var(--gap) * 3);
+    border-radius: 50%;
+    background: var(--color-thumb);
+    border: var(--border-width-thin) solid var(--color-range);
+    cursor: pointer;
+    transition: transform 0.15s ease;
+  }
+
+  &:hover::-webkit-slider-thumb,
+  &:focus-visible::-webkit-slider-thumb {
+    transform: scale(1.2);
+  }
+  &:hover::-moz-range-thumb,
+  &:focus-visible::-moz-range-thumb {
+    transform: scale(1.2);
+  }
+
+  &.range-input--has-overlay {
+    &::-webkit-slider-thumb {
+      opacity: 0;
+    }
+    &::-moz-range-thumb {
+      opacity: 0;
+    }
+  }
+
+  &:focus-visible {
+    outline: var(--outline-default);
+    outline-offset: 4px;
+  }
+}
+
+.range-overlay {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+
+  > * {
+    position: absolute;
+    left: var(--thumb-percent);
+    transform: translateX(-50%);
+  }
+}
+
+.range-thumb-icon {
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+
+  .range-icon {
+    width: calc(var(--gap) * 3);
+    height: calc(var(--gap) * 3);
+    display: block;
+    color: var(--color-thumb);
+  }
+}
+
+.range-bud {
+  bottom: calc(100% + var(--gap-half));
+
+  .range-icon {
+    width: var(--gap-double);
+    height: var(--gap-double);
+    display: block;
+    color: var(--color-thumb);
+  }
+}
