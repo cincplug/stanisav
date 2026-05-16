@@ -12,6 +12,7 @@
     position: absolute;
     left: calc((var(--i) - 1) / (var(--n) - 1) * 100%);
     transform: translateX(-50%);
+    pointer-events: none;
 
     input {
       display: block;
@@ -24,6 +25,7 @@
             sign((var(--i) - (var(--n) + 1) / 2)) * var(--flower-center)
         )
       );
+      pointer-events: auto;
     }
   }
 }
