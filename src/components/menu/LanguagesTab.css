@@ -28,11 +28,14 @@
 
   &.selected {
     width: 100%;
-    background: var(--color-1) !important;
-    border-width: var(--border-width-thick);
-    border-style: solid;
+    background: var(--color-current) !important;
     color: var(--color-4);
-    font-size: var(--font-size-l);
+    @media (max-width: 640px) {
+      border-style: solid;
+      background: var(--color-1) !important;
+      font-size: var(--font-size-l);
+      border-width: var(--border-width-thick);
+    }
   }
 }
 
