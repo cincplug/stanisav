@@ -9,9 +9,7 @@ const ControlsTab = ({ className }) => {
   const { selectedLanguage } = useLanguageSelection();
 
   const uniqueGroups = Object.keys(controlsConfig).filter(
-    (group) =>
-      group !== "Header" &&
-      (selectedLanguage ? group !== "Stage light" : group !== "Mesha light"),
+    (group) => group !== "Header",
   );
 
   return (
