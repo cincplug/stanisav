@@ -15,6 +15,9 @@
     "canEditColors": {
       "label": "Can edit colors?"
     },
+    "earSize": {
+      "label": "Ear size"
+    },
     "eyeProtrusion": {
       "label": "Eye protrusion"
     },
@@ -178,6 +181,9 @@
     },
     "tension": {
       "label": "Tension"
+    },
+    "tongueSize": {
+      "label": "Tongue size"
     },
     "zoomDistance": {
       "label": "Zoom distance"

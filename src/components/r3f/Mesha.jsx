@@ -36,7 +36,8 @@ const Mesha = ({
   const lookAroundRotationRef = useRef(0);
 
   const { controls } = useControls();
-  const { meshaSize, eyeZ, noseSize, eyeX, eyeY, tension, friction } = controls;
+  const { meshaSize, eyeZ, eyeX, eyeY, noseSize, earSize, tension, friction } =
+    controls;
   const { selectedProperty, setSelectedProperty, selectedLanguage } =
     useLanguageSelection();
 
@@ -133,7 +134,7 @@ const Mesha = ({
   });
 
   const segments = audioVisualizationConfig.meshDeformation.meshSegments;
-  const mainZ = meshaSize * eyeZ;
+  const mainZ = eyeZ;
 
   const earPosition = useMemo(
     () => ({
@@ -161,7 +162,7 @@ const Mesha = ({
       <group ref={lookAroundRef}>
         <MeshaEar
           earMaterial={skinMaterial}
-          size={meshaSize}
+          size={earSize}
           bend={scores.morphology / 3}
           leftSegments={10 - scores.morphology}
           rightSegments={2 + scores.morphology * 2}
@@ -210,7 +211,7 @@ const Mesha = ({
             linguisticProperty="caseCount"
             tuftCount={caseCount}
             color={shiftHue(color, 120)}
-            y={meshaSize * 0.7}
+            y={1.4}
             z={0.5}
             onClick={handlePropertyClick}
             isSelected={selectedProperty === "caseCount"}
@@ -223,7 +224,7 @@ const Mesha = ({
             linguisticProperty="nounClassCount"
             tuftCount={nounClassCount}
             color={color}
-            y={meshaSize * 1.4}
+            y={2.8}
             z={-1}
             onClick={handlePropertyClick}
             isSelected={selectedProperty === "nounClassCount"}

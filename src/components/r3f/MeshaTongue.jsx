@@ -12,7 +12,7 @@ extend({ ParametricGeometry });
 const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
   const { controls } = useControls();
   const { audioData } = useAudioData();
-  const { meshaSize } = controls;
+  const { tongueSize } = controls;
   const meshRef = useRef();
 
   // Pass tongueMaterial's stripesType so highlight keeps the stripes visible.
@@ -30,11 +30,12 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
 
     const { harmonicsData } = audioData;
 
+    // size and radius normalized to 1; overall scale comes from root group in Mesha.jsx
     const audioSurface = createAudioSurface({
       audioBand: harmonicsData,
-      size: meshaSize,
+      size: tongueSize,
       bend: 0,
-      radius: meshaSize,
+      radius: 1,
     });
 
     if (meshRef.current) {
@@ -53,8 +54,8 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
   return (
     <mesh
       ref={meshRef}
-      position={[0, meshaSize, meshaSize]}
-      scale={[meshaSize / 3, -meshaSize / 6, -meshaSize]}
+      position={[0, 2, 1]}
+      scale={[1 / 3, -1 / 6, -1]}
       rotation={[0, Math.PI, 0]}
       onClick={onClick}
       linguisticProperty="tonality"

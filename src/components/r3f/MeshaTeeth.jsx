@@ -13,7 +13,7 @@ const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
   const teethRefs = useRef([]);
   const { controls } = useControls();
   const { audioData } = useAudioData();
-  const { meshaSize, teethSize } = controls;
+  const { teethSize } = controls;
   const highlightMaterial = useHighlightMaterial(0, 2);
 
   const teeth = useMemo(() => {
@@ -34,15 +34,15 @@ const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
         Math.sign(positionInCluster - clusterCenter) * rotationIntensity;
 
       return {
-        x: Math.cos(angle) * meshaSize,
-        y: -meshaSize / 2,
-        z: Math.sin(angle) * meshaSize + clusterSize / 3,
+        x: Math.cos(angle),
+        y: 1,
+        z: Math.sin(angle) + clusterSize / 3,
         positionInCluster,
         rotationAngle,
         key: `tooth-${toothIndex}`,
       };
     });
-  }, [toothCount, clusterSize, meshaSize]);
+  }, [toothCount, clusterSize]);
 
   const deltaAccRef = useRef(0);
 
@@ -72,7 +72,7 @@ const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
   if (!teeth.length) return null;
 
   return (
-    <group position={[0, meshaSize, meshaSize]} scale={teethSize}>
+    <group position={[0, 1, 1]} scale={teethSize}>
       {teeth.map((tooth, i) => (
         <group
           key={tooth.key}

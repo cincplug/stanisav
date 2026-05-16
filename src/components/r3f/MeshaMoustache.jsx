@@ -25,7 +25,7 @@ const MeshaMoustache = ({
 
   const { controls } = useControls();
   const { audioData } = useAudioData();
-  const { meshaSize, eyeZ, eyeX, moustacheSize } = controls;
+  const { eyeZ, eyeX, moustacheSize } = controls;
   const highlightMaterial = useHighlightMaterial(0, 2);
 
   const tuftSurface = useMemo(
@@ -39,7 +39,7 @@ const MeshaMoustache = ({
     const spacing = (eyeX / tuftCount) * 3;
     const totalWidth = spacing * (tuftCount - 1);
     const baseX = totalWidth / 2;
-    const baseZ = meshaSize * eyeZ;
+    const baseZ = eyeZ;
     const centerIndex = (tuftCount - 1) / 2;
 
     const result = Array.from({ length: tuftCount }, (_, i) => {
@@ -53,7 +53,7 @@ const MeshaMoustache = ({
 
     tuftDataRef.current = result;
     return result;
-  }, [tuftCount, eyeX, eyeZ, meshaSize, y, z]);
+  }, [tuftCount, eyeX, eyeZ, y, z]);
 
   useFrame(() => {
     const audioBandData = audioData[audioBand];
