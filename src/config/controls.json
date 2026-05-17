@@ -359,7 +359,7 @@
       "min": -2,
       "max": 2,
       "step": 0.1,
-      "defaultValue": 1.2,
+      "defaultValue": 1.6,
       "isShownInMenu": true
     },
     "eyeZ": {

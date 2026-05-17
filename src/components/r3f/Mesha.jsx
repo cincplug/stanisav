@@ -110,24 +110,15 @@ const Mesha = ({
 
   useFrame(({ camera, clock }) => {
     if (looksAround) {
-      if (groupRef.current) {
-        groupRef.current.lookAt(camera.position);
-      }
-
       if (lookAroundRef.current) {
         const time = clock.getElapsedTime();
-        const speed = autoRotateSpeed / 3;
-        const amplitude = Math.PI / 8;
-
-        const phase = time * speed;
-        const sine = Math.sin(phase);
-        const triangle = (2 / Math.PI) * Math.asin(sine);
-
-        const linearity = 0.5;
-        const wave = sine * (1 - linearity) + triangle * linearity;
-
-        const rotation = wave * amplitude;
+        const speed = autoRotateSpeed;
+        const rotation = time * speed;
         lookAroundRef.current.rotation.y = rotation;
+        if (selectedLanguage) {
+          lookAroundRef.current.rotation.x = Math.cos(rotation);
+          lookAroundRef.current.rotation.z = Math.sin(rotation);
+        }
         lookAroundRotationRef.current = rotation;
       }
     }
@@ -138,7 +129,7 @@ const Mesha = ({
 
   const earPosition = useMemo(
     () => ({
-      x: 1.37 - scores.morphology / 2,
+      x: 1.5 - scores.morphology / 2,
       y: (scores.morphology + 1) / 4,
       z: 1,
     }),
@@ -164,8 +155,7 @@ const Mesha = ({
           earMaterial={skinMaterial}
           size={earSize}
           bend={scores.morphology / 3}
-          leftSegments={10 - scores.morphology}
-          rightSegments={2 + scores.morphology * 2}
+          segments={2 + scores.morphology * 3}
           earPosition={earPosition}
           onClick={handlePropertyClick}
           isSelected={selectedProperty === "morphology"}

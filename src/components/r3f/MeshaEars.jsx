@@ -13,8 +13,7 @@ const MeshaEars = ({
   earPosition,
   size,
   bend,
-  leftSegments,
-  rightSegments,
+  segments,
   onClick,
   isSelected,
 }) => {
@@ -42,16 +41,16 @@ const MeshaEars = ({
       leftMeshRef.current.geometry.dispose();
       leftMeshRef.current.geometry = new ParametricGeometry(
         audioSurface,
-        leftSegments,
-        leftSegments,
+        segments,
+        segments,
       );
     }
     if (rightMeshRef.current) {
       rightMeshRef.current.geometry.dispose();
       rightMeshRef.current.geometry = new ParametricGeometry(
         audioSurface,
-        rightSegments,
-        rightSegments,
+        segments,
+        segments,
       );
     }
   });
@@ -64,7 +63,7 @@ const MeshaEars = ({
       <mesh
         ref={leftMeshRef}
         position={[-x, y, z]}
-        scale={[-0.6, 3 / rightSegments, 1]}
+        scale={[-0.6, 3 / segments, 1]}
         onClick={onClick}
         linguisticProperty="morphology"
       >
@@ -73,7 +72,7 @@ const MeshaEars = ({
       <mesh
         ref={rightMeshRef}
         position={[x, y, z]}
-        scale={[0.6, 3 / rightSegments, 1]}
+        scale={[0.6, 3 / segments, 1]}
         onClick={onClick}
         linguisticProperty="morphology"
       >
