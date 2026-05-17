@@ -7,6 +7,7 @@ import audioVisualizationConfig from "../../config/audioVisualizationConfig.json
 import microphoneService from "../../services/microphoneService.js";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
+import { usePlaylist } from "../../contexts/PlaylistContext.jsx";
 import { useShaderMaterial } from "../../hooks/useShaderMaterial.js";
 import { getFeatureScoreList } from "../../utils/linguisticUtils.js";
 import { shiftHue } from "../../utils/colorUtils";
@@ -108,19 +109,23 @@ const Mesha = ({
     }
   }, []);
 
+  const payAttentionRef = useRef(false);
+
+  useEffect(() => {
+    payAttentionRef.current = true;
+  }, [selectedLanguage]);
+
   useFrame(({ camera, clock }) => {
-    if (looksAround) {
-      if (lookAroundRef.current) {
-        const time = clock.getElapsedTime();
-        const speed = autoRotateSpeed;
-        const rotation = time * speed;
-        lookAroundRef.current.rotation.y = rotation;
-        if (selectedLanguage) {
-          lookAroundRef.current.rotation.x = Math.cos(rotation);
-          lookAroundRef.current.rotation.z = Math.sin(rotation);
-        }
-        lookAroundRotationRef.current = rotation;
+    if (looksAround && lookAroundRef.current && selectedLanguage) {
+      if (payAttentionRef.current) {
+        lookAroundRef.current.rotation.set(0, 0, 0);
+        lookAroundRef.current.lookAt(camera.position);
+        payAttentionRef.current = false;
       }
+
+      const time = clock.getElapsedTime();
+      const rotation = time * autoRotateSpeed;
+      lookAroundRotationRef.current = rotation;
     }
   });
 
@@ -178,7 +183,7 @@ const Mesha = ({
           scale={noseSize}
           segmentColors={noseSegmentColors}
           motionIntensity={scores.wordOrderFlexibility}
-          lookAroundRotationRef={lookAroundRotationRef}
+          rotationRef={lookAroundRotationRef}
           onClick={handlePropertyClick}
           isSelectedOuter={selectedProperty === "wordOrder"}
           isSelectedInner={selectedProperty === "wordOrderFlexibility"}

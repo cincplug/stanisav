@@ -166,7 +166,7 @@ const Stage = ({
       if (isSegmented) {
         return [
           base[0],
-          base[1],
+          base[1] + sphereRadius,
           base[2] + radial[2] + Math.pow(radialOffsetModifier, 2),
         ];
       }

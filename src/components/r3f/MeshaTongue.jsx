@@ -56,7 +56,7 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
       ref={meshRef}
       position={[0, 2, 1]}
       scale={[1 / 3, -1 / 6, -1]}
-      rotation={[0, Math.PI, 0]}
+      rotation={[0, 0, 0]}
       onClick={onClick}
       linguisticProperty="tonality"
     >

@@ -9,7 +9,7 @@ const MeshaNose = ({
   scale,
   segmentColors,
   motionIntensity,
-  lookAroundRotationRef,
+  rotationRef,
   onClick,
   isSelectedOuter,
   isSelectedInner,
@@ -32,7 +32,7 @@ const MeshaNose = ({
 
     if (!segmentARef.current || !segmentBRef.current || !segmentCRef.current)
       return;
-    const rotation = -lookAroundRotationRef.current;
+    const rotation = -rotationRef.current;
     const offset = motionIntensity * rotation * 3;
     segmentARef.current.rotation.y = offset;
     segmentBRef.current.rotation.z = offset;
