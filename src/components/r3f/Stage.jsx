@@ -163,13 +163,15 @@ const Stage = ({
       const pos = formattedPositions[selectedLanguage];
       const base = [pos.x, pos.y, pos.z];
       const radial = calculateRadialOffset(base);
+
       if (isSegmented) {
         return [
           base[0],
-          base[1] + sphereRadius,
+          base[1],
           base[2] + radial[2] + Math.pow(radialOffsetModifier, 2),
         ];
       }
+
       return [
         base[0] + radial[0] * radialOffsetModifier,
         base[1] + radial[1] * radialOffsetModifier,
