@@ -38,8 +38,17 @@ const Mesha = ({
   const lookAroundRotationRef = useRef(0);
 
   const { controls } = useControls();
-  const { meshaSize, eyeZ, eyeX, eyeY, noseSize, earSize, tension, friction } =
-    controls;
+  const {
+    meshaSize,
+    eyeZ,
+    eyeX,
+    eyeY,
+    eyeSize,
+    noseSize,
+    earSize,
+    tension,
+    friction,
+  } = controls;
   const { selectedProperty, setSelectedProperty, selectedLanguage } =
     useLanguageSelection();
 
@@ -110,35 +119,30 @@ const Mesha = ({
     }
   }, []);
 
-  const payAttentionRef = useRef(false);
-
-  useEffect(() => {
-    payAttentionRef.current = true;
-  }, [selectedLanguage]);
-
   const { audioRef } = usePlaylist();
 
-  useThrottledFrame(({ camera, clock }) => {
-    if (looksAround) {
+  const rotationOffsetRef = useRef(0);
+  const lastResetTimeRef = useRef(0);
+
+  useEffect(() => {
+    if (lookAroundRef.current) {
+      rotationOffsetRef.current = lastResetTimeRef.current;
+    }
+  }, [selectedLanguage]);
+
+  useThrottledFrame(({ clock, camera }) => {
+    if (looksAround && lookAroundRef.current) {
       const time = clock.getElapsedTime();
       const speed = selectedLanguage ? autoRotateSpeed : autoRotateSpeed / 3;
-      const amplitude = Math.PI / 8;
+      lastResetTimeRef.current = time;
+      const rotation = (time - rotationOffsetRef.current) * speed;
 
-      const phase = time * speed;
-      const sine = Math.sin(phase);
-      const triangle = (2 / Math.PI) * Math.asin(sine);
-
-      const linearity = 0.5;
-      const wave = sine * (1 - linearity) + triangle * linearity;
-
-      const rotation = wave * amplitude;
       lookAroundRef.current.rotation.y = rotation;
       lookAroundRotationRef.current = rotation;
     }
   });
 
   const segments = audioVisualizationConfig.meshDeformation.meshSegments;
-  const mainZ = eyeZ;
 
   const earPosition = useMemo(
     () => ({
@@ -180,14 +184,14 @@ const Mesha = ({
           size={scores.evidentiality}
           depth={scores.verbAspect}
           isoCode={selectedLanguage}
-          mainZ={mainZ}
+          mainZ={eyeZ}
           onClick={handlePropertyClick}
           isSelectedOuter={selectedProperty === "evidentiality"}
           isSelectedInner={selectedProperty === "verbAspect"}
         />
 
         <MeshaNose
-          position={[0, 1 + eyeY - eyeX / 2, mainZ]}
+          position={[0, eyeY - eyeSize, eyeZ]}
           scale={noseSize}
           segmentColors={noseSegmentColors}
           motionIntensity={scores.wordOrderFlexibility}
@@ -214,8 +218,8 @@ const Mesha = ({
             linguisticProperty="caseCount"
             tuftCount={caseCount}
             color={shiftHue(color, 120)}
-            y={1.4}
-            z={0.5}
+            y={eyeY / 2}
+            z={eyeZ}
             onClick={handlePropertyClick}
             isSelected={selectedProperty === "caseCount"}
             audioBand="harmonicsData"
@@ -227,8 +231,8 @@ const Mesha = ({
             linguisticProperty="nounClassCount"
             tuftCount={nounClassCount}
             color={color}
-            y={2.8}
-            z={-1}
+            y={(eyeY * 4) / 3}
+            z={eyeZ}
             onClick={handlePropertyClick}
             isSelected={selectedProperty === "nounClassCount"}
             audioBand="fundamentalData"

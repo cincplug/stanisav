@@ -40,7 +40,6 @@ const MeshaMoustache = ({
     const spacing = (eyeX / tuftCount) * 3;
     const totalWidth = spacing * (tuftCount - 1);
     const baseX = totalWidth / 2;
-    const baseZ = eyeZ;
     const centerIndex = (tuftCount - 1) / 2;
 
     const result = Array.from({ length: tuftCount }, (_, i) => {
@@ -53,7 +52,7 @@ const MeshaMoustache = ({
         key: `moustache-${i}`,
         x: baseX - i * spacing,
         y,
-        z: baseZ + z,
+        z,
         rotationRad,
         scale,
       };
@@ -63,7 +62,7 @@ const MeshaMoustache = ({
     return result;
   }, [tuftCount, eyeX, eyeZ, y, z]);
 
-  useThrottledFrame(() => {
+  useThrottledFrame(({ camera }) => {
     const audioBandData = audioData[audioBand];
 
     tuftsRef.current.forEach((tuftGroup, i) => {
@@ -77,7 +76,7 @@ const MeshaMoustache = ({
       const amplitude = audioBandData[bandIndex];
       const scale = moustacheSize + amplitude;
 
-      tuftGroup.position.z = tuft.z + moustacheSize + amplitude;
+      tuftGroup.position.z = tuft.z + amplitude;
       tuftGroup.scale.set(scale, scale, scale);
     });
   });

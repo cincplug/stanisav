@@ -7,7 +7,7 @@ import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
 import blinkTimings from "../../config/blinkTimings.json";
 
-const MeshaEye = ({
+const Eye = ({
   position,
   irisColor,
   eyelidColor,
@@ -34,7 +34,6 @@ const MeshaEye = ({
   const { blinkDuration } = audioVisualizationConfig.meshDeformation;
 
   useThrottledFrame(({ camera, clock }) => {
-    groupRef.current.lookAt(camera.position);
     if (!lidPivotRef.current) return;
     const state = blinkStateRef.current;
     if (state.isBlinking) {
@@ -48,6 +47,7 @@ const MeshaEye = ({
         lidPivotRef.current.rotation.x = (phase * Math.PI) / 3;
       }
     }
+    groupRef.current.lookAt(camera.position);
   });
 
   return (
@@ -156,9 +156,9 @@ const MeshaEyes = ({
   };
 
   return (
-    <group position={[0, 1, mainZ]}>
-      <MeshaEye position={[-eyeX, eyeY, 0]} {...sharedEyeProps} />
-      <MeshaEye position={[eyeX, eyeY, 0]} {...sharedEyeProps} />
+    <group position={[0, 0, mainZ]}>
+      <Eye position={[-eyeX, eyeY, 0]} {...sharedEyeProps} />
+      <Eye position={[eyeX, eyeY, 0]} {...sharedEyeProps} />
     </group>
   );
 };
