@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
+import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
 
 const MeshaNose = ({
@@ -24,12 +25,7 @@ const MeshaNose = ({
 
   const deltaAccRef = useRef(0);
 
-  useFrame((_, delta) => {
-    deltaAccRef.current += delta * 1000;
-    if (deltaAccRef.current < audioVisualizationConfig.meshDeformation.timeRate)
-      return;
-    deltaAccRef.current -= audioVisualizationConfig.meshDeformation.timeRate;
-
+  useThrottledFrame((_, delta) => {
     if (!segmentARef.current || !segmentBRef.current || !segmentCRef.current)
       return;
     const rotation = -rotationRef.current;

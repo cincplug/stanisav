@@ -4,6 +4,7 @@ import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeom
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useAudioData } from "../../hooks/useAudioData.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
+import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { shiftHue } from "../../utils/colorUtils";
 import { createTuftShape } from "../../utils/shapeUtils.js";
 
@@ -48,21 +49,30 @@ const MeshaMoustache = ({
       const scale = 0.5 + 0.5 * t;
       const rotationRad = ((180 + (i - centerIndex) * stepDeg) * Math.PI) / 180;
 
-      return { key: `moustache-${i}`, x: baseX - i * spacing, y, z: baseZ + z, rotationRad, scale };
+      return {
+        key: `moustache-${i}`,
+        x: baseX - i * spacing,
+        y,
+        z: baseZ + z,
+        rotationRad,
+        scale,
+      };
     });
 
     tuftDataRef.current = result;
     return result;
   }, [tuftCount, eyeX, eyeZ, y, z]);
 
-  useFrame(() => {
+  useThrottledFrame(() => {
     const audioBandData = audioData[audioBand];
 
     tuftsRef.current.forEach((tuftGroup, i) => {
       if (!tuftGroup) return;
       const tuft = tuftDataRef.current[i];
       const bandIndex = Math.floor(
-        (Math.abs(Math.cos((i / tuftCount) * Math.PI * 2)) * audioBandData.length) / tuftCount,
+        (Math.abs(Math.cos((i / tuftCount) * Math.PI * 2)) *
+          audioBandData.length) /
+          tuftCount,
       );
       const amplitude = audioBandData[bandIndex];
       const scale = moustacheSize + amplitude;
@@ -85,12 +95,17 @@ const MeshaMoustache = ({
           position={[tuft.x, tuft.y, tuft.z]}
           onClick={onClick}
         >
-          <mesh rotation={[0, 0, tuft.rotationRad]} scale={tuft.scale} linguisticProperty={linguisticProperty}>
+          <mesh
+            rotation={[0, 0, tuft.rotationRad]}
+            scale={tuft.scale}
+            linguisticProperty={linguisticProperty}
+          >
             <parametricGeometry args={[tuftSurface, 12, 12]} />
-            {isSelected
-              ? <shaderMaterial args={[highlightMaterial]} />
-              : <meshStandardMaterial color={moustacheColor} side={2} />
-            }
+            {isSelected ? (
+              <shaderMaterial args={[highlightMaterial]} />
+            ) : (
+              <meshStandardMaterial color={moustacheColor} side={2} />
+            )}
           </mesh>
         </group>
       ))}

@@ -1,5 +1,6 @@
 import { useFrame } from "@react-three/fiber";
 import { Vector3, Quaternion } from "three";
+import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 
 const Z_AXIS = new Vector3(0, 0, 1);
 const _quat = new Quaternion();
@@ -11,7 +12,7 @@ export default function OrbitModifier({
   speed,
   isEnabled,
 }) {
-  useFrame((_, delta) => {
+  useThrottledFrame((_, delta) => {
     if (!isEnabled || !orbitControlsRef.current) return;
 
     if (axis === "z") {

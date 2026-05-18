@@ -10,6 +10,7 @@ import { useAppState } from "../../contexts/AppStateContext.jsx";
 import { calculateRadialOffset } from "../../utils/sceneUtils.js";
 import { getLanguageLabel } from "../../utils/languageDisplayUtils.js";
 import { useEntranceAnimation } from "../../hooks/useEntranceAnimation.js";
+import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import sceneConfig from "../../config/sceneConfig.json";
 
 const Label = ({
@@ -90,7 +91,7 @@ const Label = ({
     [bgColor, selectedLanguage],
   );
 
-  useFrame(({ camera }, delta) => {
+  useThrottledFrame(({ camera }, delta) => {
     if (!labelRef.current) return;
 
     const [x, y, z] = positionSpring.position.get();

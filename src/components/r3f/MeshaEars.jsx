@@ -3,6 +3,7 @@ import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useAudioData } from "../../hooks/useAudioData.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
+import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { createAudioSurface } from "../../utils/shapeUtils.js";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
 
@@ -24,12 +25,7 @@ const MeshaEars = ({
 
   const deltaAccRef = useRef(0);
 
-  useFrame((_, delta) => {
-    deltaAccRef.current += delta * 1000;
-    if (deltaAccRef.current < audioVisualizationConfig.meshDeformation.timeRate)
-      return;
-    deltaAccRef.current -= audioVisualizationConfig.meshDeformation.timeRate;
-
+  useThrottledFrame(() => {
     const audioSurface = createAudioSurface({
       audioBand: audioData.fundamentalData,
       size,

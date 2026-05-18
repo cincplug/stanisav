@@ -9,6 +9,7 @@ import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
 import { usePlaylist } from "../../contexts/PlaylistContext.jsx";
 import { useShaderMaterial } from "../../hooks/useShaderMaterial.js";
+import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { getFeatureScoreList } from "../../utils/linguisticUtils.js";
 import { shiftHue } from "../../utils/colorUtils";
 import MeshaEyes from "./MeshaEyes.jsx";
@@ -117,7 +118,7 @@ const Mesha = ({
 
   const { audioRef } = usePlaylist();
 
-  useFrame(({ camera, clock }) => {
+  useThrottledFrame(({ camera, clock }) => {
     if (looksAround) {
       const time = clock.getElapsedTime();
       const speed = selectedLanguage ? autoRotateSpeed : autoRotateSpeed / 3;

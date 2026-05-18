@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { a, useSpring } from "@react-spring/three";
 import { useThree, useFrame } from "@react-three/fiber";
 import sceneConfig from "../../config/sceneConfig.json";
+import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 
 const { entranceDuration } = sceneConfig;
 
@@ -22,7 +23,7 @@ const StageLight = ({
     immediate: skipEntrance,
   });
 
-  useFrame(() => {
+  useThrottledFrame(() => {
     if (lightRef.current) {
       const direction = camera.position.clone().normalize();
       const targetPosition = direction.multiplyScalar(cameraZ);

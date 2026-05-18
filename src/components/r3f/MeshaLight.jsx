@@ -3,6 +3,7 @@ import { a } from "@react-spring/three";
 import { Color } from "three";
 import { useFrame } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
+import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 
 const MeshaLight = () => {
   const groupRef = useRef();
@@ -12,7 +13,7 @@ const MeshaLight = () => {
   const lightColor = new Color("#ffeedd");
   const spread = 1.5;
 
-  useFrame(({ camera }) => {
+  useThrottledFrame(({ camera }) => {
     if (groupRef.current) {
       groupRef.current.lookAt(camera.position);
     }

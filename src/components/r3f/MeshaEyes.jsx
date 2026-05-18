@@ -3,6 +3,7 @@ import { useFrame } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { usePlaylist } from "../../contexts/PlaylistContext.jsx";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
+import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
 import blinkTimings from "../../config/blinkTimings.json";
 
@@ -32,7 +33,7 @@ const MeshaEye = ({
 
   const { blinkDuration } = audioVisualizationConfig.meshDeformation;
 
-  useFrame(({ camera, clock }) => {
+  useThrottledFrame(({ camera, clock }) => {
     groupRef.current.lookAt(camera.position);
     if (!lidPivotRef.current) return;
     const state = blinkStateRef.current;
@@ -118,7 +119,7 @@ const MeshaEyes = ({
 
   const timings = blinkTimings[isoCode] ?? [];
 
-  useFrame(({ clock }) => {
+  useThrottledFrame(({ clock }) => {
     const state = blinkStateRef.current;
     const audio = audioRef.current;
 

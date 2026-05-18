@@ -2,6 +2,7 @@ import { useEffect, useRef, useCallback } from "react";
 import { useThree, useFrame } from "@react-three/fiber";
 import { Vector3 } from "three";
 import { useLanguageSelection } from "../contexts/LanguageSelectionContext";
+import { useThrottledFrame } from "./useThrottledFrame";
 import sceneConfig from "../config/sceneConfig.json";
 
 export const useCameraController = ({
@@ -22,7 +23,7 @@ export const useCameraController = ({
 
   // Drive camera animation inside r3f's render loop instead of a competing
   // rAF loop. This avoids double-animation and syncs with OrbitModifier.
-  useFrame(() => {
+  useThrottledFrame(() => {
     const state = animationStateRef.current;
     if (!state) return;
 

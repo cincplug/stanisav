@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
+import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 
 const SceneReadyGate = ({ hasDrawableScene, onSceneReady }) => {
   const visualReadyRef = useRef(false);
@@ -11,7 +12,7 @@ const SceneReadyGate = ({ hasDrawableScene, onSceneReady }) => {
     }
   }, [hasDrawableScene, onSceneReady]);
 
-  useFrame(() => {
+  useThrottledFrame(() => {
     if (hasDrawableScene && !visualReadyRef.current) {
       visualReadyRef.current = true;
       onSceneReady(true);

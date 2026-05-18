@@ -7,6 +7,7 @@ import {
   highlightFragmentShader,
 } from "../shaders/shader";
 import sceneConfig from "../config/sceneConfig.json";
+import { useThrottledFrame } from "./useThrottledFrame";
 
 const {
   shaderAmbient,
@@ -97,7 +98,7 @@ export const useHighlightMaterial = (stripesType = 0, side = 2) => {
   );
 
   // Update uTime each frame so rings animate
-  useFrame(({ clock }) => {
+  useThrottledFrame(({ clock }) => {
     material.uniforms.uTime.value = clock.getElapsedTime();
   });
 

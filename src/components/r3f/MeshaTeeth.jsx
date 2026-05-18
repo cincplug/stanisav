@@ -4,6 +4,7 @@ import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeom
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useAudioData } from "../../hooks/useAudioData.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
+import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { createToothShape } from "../../utils/shapeUtils.js";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
 
@@ -46,12 +47,7 @@ const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
 
   const deltaAccRef = useRef(0);
 
-  useFrame((_, delta) => {
-    deltaAccRef.current += delta * 1000;
-    if (deltaAccRef.current < audioVisualizationConfig.meshDeformation.timeRate)
-      return;
-    deltaAccRef.current -= audioVisualizationConfig.meshDeformation.timeRate;
-
+  useThrottledFrame((_, delta) => {
     if (teethRefs.current) {
       const { harmonicsData } = audioData;
       const count = teethRefs.current.length;
