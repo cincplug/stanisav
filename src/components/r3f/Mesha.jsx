@@ -115,16 +115,23 @@ const Mesha = ({
     payAttentionRef.current = true;
   }, [selectedLanguage]);
 
-  useFrame(({ camera, clock }) => {
-    if (looksAround && lookAroundRef.current && selectedLanguage) {
-      if (payAttentionRef.current) {
-        lookAroundRef.current.rotation.set(0, 0, 0);
-        lookAroundRef.current.lookAt(camera.position);
-        payAttentionRef.current = false;
-      }
+  const { audioRef } = usePlaylist();
 
+  useFrame(({ camera, clock }) => {
+    if (looksAround) {
       const time = clock.getElapsedTime();
-      const rotation = time * autoRotateSpeed;
+      const speed = selectedLanguage ? autoRotateSpeed : autoRotateSpeed / 3;
+      const amplitude = Math.PI / 8;
+
+      const phase = time * speed;
+      const sine = Math.sin(phase);
+      const triangle = (2 / Math.PI) * Math.asin(sine);
+
+      const linearity = 0.5;
+      const wave = sine * (1 - linearity) + triangle * linearity;
+
+      const rotation = wave * amplitude;
+      lookAroundRef.current.rotation.y = rotation;
       lookAroundRotationRef.current = rotation;
     }
   });

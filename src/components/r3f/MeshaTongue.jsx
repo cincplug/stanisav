@@ -45,7 +45,7 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
         segments,
         segments,
       );
-      meshRef.current.rotation.x = harmonicsData[0] + Math.PI / 12;
+      meshRef.current.rotation.x = harmonicsData[0] / 8;
     }
   });
 
