@@ -168,7 +168,7 @@ const Stage = ({
         return [
           base[0],
           base[1],
-          base[2] + radial[2] + Math.pow(radialOffsetModifier, 2),
+          base[2] + radial[2] + radialOffsetModifier + sphereRadius,
         ];
       }
 
@@ -178,7 +178,7 @@ const Stage = ({
         base[2] + radial[2] * radialOffsetModifier,
       ];
     }
-    return [0, sphereRadius, 0];
+    return [0, sphereRadius / 2, sphereRadius];
   }, [selectedLanguage, formattedPositions]);
 
   const hasSelectedFilters = Object.keys(filteringUtils).length > 0;
