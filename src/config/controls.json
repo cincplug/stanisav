@@ -207,7 +207,7 @@
       "min": 50,
       "max": 200,
       "step": 1,
-      "defaultValue": 164,
+      "defaultValue": 174,
       "isShownInMenu": true
     }
   },

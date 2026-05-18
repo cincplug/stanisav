@@ -182,11 +182,15 @@ export const PlaylistProvider = ({ children }) => {
       const codes = playlistRef.current;
       setCurrentIndex((index) => {
         const nextIndex = index + 1;
-        // Wrap around to beginning when the last track ends
-        return nextIndex >= codes.length ? 0 : nextIndex;
+        if (nextIndex >= codes.length) {
+          // End of playlist: stop playback
+          setIsPlaying(false);
+          userPausedRef.current = true;
+          return index;
+        }
+        return nextIndex;
       });
     } else {
-      // End of playlist, non-looping: treat as explicit pause so nothing auto-resumes
       setIsPlaying(false);
       userPausedRef.current = true;
     }
