@@ -55,11 +55,11 @@
       "camera": "دوربین",
       "colors": "رنگ‌ها",
       "mesha": "Mesha",
-      "meshaLight": "نور Mesha",
       "motion": "حرکت",
       "scene": "صحنه",
       "stageLight": "نور صحنه"
     },
+    "light": { "label": "نور" },
     "isIdCardVisible": {
       "label": "کارت شناسایی"
     },
@@ -95,13 +95,13 @@
     "maxSiblingSpread": {
       "label": "پراکندگی رنگ عناصر هم‌رده"
     },
-    "meshaLightDecay": {
+    "lightDecay": {
       "label": "افت"
     },
-    "meshaLightDistance": {
+    "lightDistance": {
       "label": "فاصله"
     },
-    "meshaLightIntensity": {
+    "lightIntensity": {
       "label": "شدت"
     },
     "meshaSize": {

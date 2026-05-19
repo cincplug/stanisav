@@ -55,11 +55,11 @@
       "camera": "Kyamara",
       "colors": "Launuka",
       "mesha": "Mesha",
-      "meshaLight": "Haske na Mesha",
       "motion": "Motsi",
       "scene": "Yanayi",
       "stageLight": "Haske na mataki"
     },
+    "light": { "label": "Haske" },
     "isIdCardVisible": {
       "label": "Katin shaida"
     },
@@ -95,13 +95,13 @@
     "maxSiblingSpread": {
       "label": "Rarrabawar launi na 'yan'uwa"
     },
-    "meshaLightDecay": {
+    "lightDecay": {
       "label": "Raguwa"
     },
-    "meshaLightDistance": {
+    "lightDistance": {
       "label": "Nisa"
     },
-    "meshaLightIntensity": {
+    "lightIntensity": {
       "label": "Ƙarfi"
     },
     "meshaSize": {

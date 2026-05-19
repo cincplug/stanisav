@@ -55,11 +55,11 @@
       "camera": "カメラ",
       "colors": "色",
       "mesha": "Mesha",
-      "meshaLight": "Meshaライト",
       "motion": "モーション",
       "scene": "シーン",
       "stageLight": "ステージライト"
     },
+    "light": { "label": "ライト" },
     "isIdCardVisible": {
       "label": "身分証明書"
     },
@@ -95,13 +95,13 @@
     "maxSiblingSpread": {
       "label": "兄弟要素の色相分散"
     },
-    "meshaLightDecay": {
+    "lightDecay": {
       "label": "減衰"
     },
-    "meshaLightDistance": {
+    "lightDistance": {
       "label": "距離"
     },
-    "meshaLightIntensity": {
+    "lightIntensity": {
       "label": "強度"
     },
     "meshaSize": {

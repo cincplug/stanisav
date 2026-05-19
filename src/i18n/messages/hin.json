@@ -55,11 +55,11 @@
       "camera": "कैमरा",
       "colors": "रंग",
       "mesha": "Mesha",
-      "meshaLight": "Mesha प्रकाश",
       "motion": "गति",
       "scene": "दृश्य",
       "stageLight": "मंच प्रकाश"
     },
+    "light": { "label": "प्रकाश" },
     "isIdCardVisible": {
       "label": "पहचान पत्र"
     },
@@ -95,13 +95,13 @@
     "maxSiblingSpread": {
       "label": "सहोदर रंग विस्तार"
     },
-    "meshaLightDecay": {
+    "lightDecay": {
       "label": "क्षय"
     },
-    "meshaLightDistance": {
+    "lightDistance": {
       "label": "दूरी"
     },
-    "meshaLightIntensity": {
+    "lightIntensity": {
       "label": "तीव्रता"
     },
     "meshaSize": {

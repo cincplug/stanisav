@@ -77,6 +77,14 @@
       "defaultValue": 1,
       "isShownInMenu": true
     },
+    "light": {
+      "type": "range",
+      "min": 0,
+      "max": 2,
+      "step": 0.1,
+      "defaultValue": 1,
+      "isShownInMenu": true
+    },
     "globeSpiralAxis": {
       "type": "radio",
       "options": ["x", "y", "z"],

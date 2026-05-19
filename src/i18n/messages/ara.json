@@ -55,7 +55,6 @@
       "camera": "الكاميرا",
       "colors": "الألوان",
       "mesha": "Mesha",
-      "meshaLight": "إضاءة Mesha",
       "motion": "الحركة",
       "scene": "المشهد",
       "stageLight": "إضاءة المسرح"
@@ -92,16 +91,17 @@
     "labelSize": {
       "label": "حجم التسمية"
     },
+    "light": { "label": "إضاءة" },
     "maxSiblingSpread": {
       "label": "انتشار صبغة العناصر الشقيقة"
     },
-    "meshaLightDecay": {
+    "lightDecay": {
       "label": "التلاشي"
     },
-    "meshaLightDistance": {
+    "lightDistance": {
       "label": "المسافة"
     },
-    "meshaLightIntensity": {
+    "lightIntensity": {
       "label": "الشدة"
     },
     "meshaSize": {

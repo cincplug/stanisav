@@ -55,11 +55,11 @@
       "camera": "Камера",
       "colors": "Кольори",
       "mesha": "Меша",
-      "meshaLight": "Світло Меші",
       "motion": "Рух",
       "scene": "Сцена",
       "stageLight": "Сценічне світло"
     },
+    "light": { "label": "Світло" },
     "isIdCardVisible": {
       "label": "Посвідчення особи"
     },
@@ -95,13 +95,13 @@
     "maxSiblingSpread": {
       "label": "Розкид відтінків споріднених"
     },
-    "meshaLightDecay": {
+    "lightDecay": {
       "label": "Згасання"
     },
-    "meshaLightDistance": {
+    "lightDistance": {
       "label": "Відстань"
     },
-    "meshaLightIntensity": {
+    "lightIntensity": {
       "label": "Інтенсивність"
     },
     "meshaSize": {

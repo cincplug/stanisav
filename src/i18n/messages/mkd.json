@@ -55,11 +55,11 @@
       "camera": "Камера",
       "colors": "Бои",
       "mesha": "Меша",
-      "meshaLight": "Мешина светлина",
       "motion": "Движење",
       "scene": "Сцена",
       "stageLight": "Сценска светлина"
     },
+    "light": { "label": "Светлина" },
     "isIdCardVisible": {
       "label": "Лична карта"
     },
@@ -95,13 +95,13 @@
     "maxSiblingSpread": {
       "label": "Распон на нијанси на сродни"
     },
-    "meshaLightDecay": {
+    "lightDecay": {
       "label": "Опаѓање"
     },
-    "meshaLightDistance": {
+    "lightDistance": {
       "label": "Оддалеченост"
     },
-    "meshaLightIntensity": {
+    "lightIntensity": {
       "label": "Интензитет"
     },
     "meshaSize": {

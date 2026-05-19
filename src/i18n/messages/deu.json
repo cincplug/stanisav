@@ -55,7 +55,6 @@
       "camera": "Kamera",
       "colors": "Farben",
       "mesha": "Mesha",
-      "meshaLight": "Mesha-Licht",
       "motion": "Bewegung",
       "scene": "Szene",
       "stageLight": "Bühnenlicht"
@@ -92,16 +91,17 @@
     "labelSize": {
       "label": "Beschriftungsgröße"
     },
+    "light": { "label": "Licht" },
     "maxSiblingSpread": {
       "label": "Geschwister-Farbtonstreuung"
     },
-    "meshaLightDecay": {
+    "lightDecay": {
       "label": "Abfall"
     },
-    "meshaLightDistance": {
+    "lightDistance": {
       "label": "Distanz"
     },
-    "meshaLightIntensity": {
+    "lightIntensity": {
       "label": "Intensität"
     },
     "meshaSize": {

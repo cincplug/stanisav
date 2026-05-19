@@ -55,7 +55,6 @@
       "camera": "摄像机",
       "colors": "颜色",
       "mesha": "Mesha",
-      "meshaLight": "Mesha 灯光",
       "motion": "运动",
       "scene": "场景",
       "stageLight": "舞台灯光"
@@ -92,16 +91,17 @@
     "labelSize": {
       "label": "标签大小"
     },
+    "light": { "label": "灯光" },
     "maxSiblingSpread": {
       "label": "同级色相分散度"
     },
-    "meshaLightDecay": {
+    "lightDecay": {
       "label": "衰减"
     },
-    "meshaLightDistance": {
+    "lightDistance": {
       "label": "距离"
     },
-    "meshaLightIntensity": {
+    "lightIntensity": {
       "label": "强度"
     },
     "meshaSize": {

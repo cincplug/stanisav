@@ -55,11 +55,11 @@
       "camera": "කැමරාව",
       "colors": "වර්ණ",
       "mesha": "මේෂා",
-      "meshaLight": "මේෂා ආලෝකය",
       "motion": "චලනය",
       "scene": "දර්ශනය",
       "stageLight": "වේදිකා ආලෝකය"
     },
+    "light": { "label": "ආලෝකය" },
     "isIdCardVisible": {
       "label": "හැඳුනුම්පත"
     },
@@ -95,13 +95,13 @@
     "maxSiblingSpread": {
       "label": "සහෝදර වර්ණ පැතිරීම"
     },
-    "meshaLightDecay": {
+    "lightDecay": {
       "label": "ක්ෂය වීම"
     },
-    "meshaLightDistance": {
+    "lightDistance": {
       "label": "දුර"
     },
-    "meshaLightIntensity": {
+    "lightIntensity": {
       "label": "තීව්‍රතාව"
     },
     "meshaSize": {

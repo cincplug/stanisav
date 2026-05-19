@@ -55,11 +55,11 @@
       "camera": "카메라",
       "colors": "색상",
       "mesha": "Mesha",
-      "meshaLight": "Mesha 조명",
       "motion": "모션",
       "scene": "장면",
       "stageLight": "무대 조명"
     },
+    "light": { "label": "조명" },
     "isIdCardVisible": {
       "label": "신분증"
     },
@@ -95,13 +95,13 @@
     "maxSiblingSpread": {
       "label": "형제 요소 색조 분산"
     },
-    "meshaLightDecay": {
+    "lightDecay": {
       "label": "감쇠"
     },
-    "meshaLightDistance": {
+    "lightDistance": {
       "label": "거리"
     },
-    "meshaLightIntensity": {
+    "lightIntensity": {
       "label": "강도"
     },
     "meshaSize": {

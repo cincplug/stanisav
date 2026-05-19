@@ -55,7 +55,6 @@
       "camera": "Kamera",
       "colors": "Warna",
       "mesha": "Mesha",
-      "meshaLight": "Cahaya Mesha",
       "motion": "Gerakan",
       "scene": "Adegan",
       "stageLight": "Cahaya panggung"
@@ -92,16 +91,17 @@
     "labelSize": {
       "label": "Ukuran label"
     },
+    "light": { "label": "Cahaya" },
     "maxSiblingSpread": {
       "label": "Sebaran rona elemen saudara"
     },
-    "meshaLightDecay": {
+    "lightDecay": {
       "label": "Peluruhan"
     },
-    "meshaLightDistance": {
+    "lightDistance": {
       "label": "Jarak"
     },
-    "meshaLightIntensity": {
+    "lightIntensity": {
       "label": "Intensitas"
     },
     "meshaSize": {

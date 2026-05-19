@@ -55,11 +55,11 @@
       "camera": "Kamera",
       "colors": "Renkler",
       "mesha": "Mesha",
-      "meshaLight": "Mesha ışığı",
       "motion": "Hareket",
       "scene": "Sahne",
       "stageLight": "Sahne ışığı"
     },
+    "light": { "label": "Işığı" },
     "isIdCardVisible": {
       "label": "Kimlik kartı"
     },
@@ -95,13 +95,13 @@
     "maxSiblingSpread": {
       "label": "Kardeş öğe renk tonu yayılımı"
     },
-    "meshaLightDecay": {
+    "lightDecay": {
       "label": "Sönümleme"
     },
-    "meshaLightDistance": {
+    "lightDistance": {
       "label": "Mesafe"
     },
-    "meshaLightIntensity": {
+    "lightIntensity": {
       "label": "Yoğunluk"
     },
     "meshaSize": {

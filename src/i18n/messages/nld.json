@@ -55,11 +55,11 @@
       "camera": "Camera",
       "colors": "Kleuren",
       "mesha": "Mesha",
-      "meshaLight": "Mesha-licht",
       "motion": "Beweging",
       "scene": "Scène",
       "stageLight": "Podiumlicht"
     },
+    "light": { "label": "Licht" },
     "isIdCardVisible": {
       "label": "Identiteitskaart"
     },
@@ -95,13 +95,13 @@
     "maxSiblingSpread": {
       "label": "Spreiding tussen zusterknooppunten"
     },
-    "meshaLightDecay": {
+    "lightDecay": {
       "label": "Verval"
     },
-    "meshaLightDistance": {
+    "lightDistance": {
       "label": "Afstand"
     },
-    "meshaLightIntensity": {
+    "lightIntensity": {
       "label": "Intensiteit"
     },
     "meshaSize": {

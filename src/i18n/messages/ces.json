@@ -55,7 +55,6 @@
       "camera": "Kamera",
       "colors": "Barvy",
       "mesha": "Meša",
-      "meshaLight": "Mešino světlo",
       "motion": "Pohyb",
       "scene": "Scéna",
       "stageLight": "Světlo jeviště"
@@ -95,16 +94,17 @@
     "labelSize": {
       "label": "Velikost popisku"
     },
+    "light": { "label": "Světlo" },
     "maxSiblingSpread": {
       "label": "Rozptyl odstínů příbuzných"
     },
-    "meshaLightDecay": {
+    "lightDecay": {
       "label": "Útlum"
     },
-    "meshaLightDistance": {
+    "lightDistance": {
       "label": "Vzdálenost"
     },
-    "meshaLightIntensity": {
+    "lightIntensity": {
       "label": "Intenzita"
     },
     "meshaSize": {

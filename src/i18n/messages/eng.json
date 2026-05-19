@@ -58,7 +58,6 @@
       "camera": "Camera",
       "colors": "Colors",
       "mesha": "Mesha",
-      "meshaLight": "Mesha light",
       "motion": "Motion",
       "scene": "Scene",
       "stageLight": "Stage light"
@@ -98,6 +97,7 @@
     "labelSize": {
       "label": "Label size"
     },
+    "light": { "label": "light" },
     "irrationality": {
       "label": "Irrationality"
     },
@@ -107,13 +107,13 @@
     "maxSiblingSpread": {
       "label": "Sibling hue spread"
     },
-    "meshaLightDecay": {
+    "lightDecay": {
       "label": "Decay"
     },
-    "meshaLightDistance": {
+    "lightDistance": {
       "label": "Distance"
     },
-    "meshaLightIntensity": {
+    "lightIntensity": {
       "label": "Intensity"
     },
     "meshaSize": {

@@ -55,11 +55,11 @@
       "camera": "Máy ảnh",
       "colors": "Màu sắc",
       "mesha": "Mesha",
-      "meshaLight": "Ánh sáng Mesha",
       "motion": "Chuyển động",
       "scene": "Cảnh",
       "stageLight": "Ánh sáng sân khấu"
     },
+    "light": { "label": "Ánh" },
     "isIdCardVisible": {
       "label": "Chứng minh nhân dân"
     },
@@ -95,13 +95,13 @@
     "maxSiblingSpread": {
       "label": "Độ phân tán màu sắc anh chị em"
     },
-    "meshaLightDecay": {
+    "lightDecay": {
       "label": "Suy giảm"
     },
-    "meshaLightDistance": {
+    "lightDistance": {
       "label": "Khoảng cách"
     },
-    "meshaLightIntensity": {
+    "lightIntensity": {
       "label": "Cường độ"
     },
     "meshaSize": {

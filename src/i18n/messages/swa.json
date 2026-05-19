@@ -55,11 +55,11 @@
       "camera": "Kamera",
       "colors": "Rangi",
       "mesha": "Mesha",
-      "meshaLight": "Mwanga wa Mesha",
       "motion": "Mwendo",
       "scene": "Eneo",
       "stageLight": "Mwanga wa jukwaa"
     },
+    "light": { "label": "Mwanga" },
     "isIdCardVisible": {
       "label": "Kitambulisho"
     },
@@ -95,13 +95,13 @@
     "maxSiblingSpread": {
       "label": "Utawanyiko wa rangi ya ndugu"
     },
-    "meshaLightDecay": {
+    "lightDecay": {
       "label": "Upunguzaji"
     },
-    "meshaLightDistance": {
+    "lightDistance": {
       "label": "Umbali"
     },
-    "meshaLightIntensity": {
+    "lightIntensity": {
       "label": "Nguvu"
     },
     "meshaSize": {

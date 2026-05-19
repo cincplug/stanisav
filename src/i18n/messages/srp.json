@@ -55,11 +55,11 @@
       "camera": "Kamera",
       "colors": "Boje",
       "mesha": "Meša",
-      "meshaLight": "Mešino svetlo",
       "motion": "Kretanje",
       "scene": "Scena",
       "stageLight": "Scensko svetlo"
     },
+    "light": { "label": "Svetlo" },
     "isIdCardVisible": {
       "label": "Lična karta"
     },
@@ -95,13 +95,13 @@
     "maxSiblingSpread": {
       "label": "Raspon nijansi"
     },
-    "meshaLightDecay": {
+    "lightDecay": {
       "label": "Opadanje"
     },
-    "meshaLightDistance": {
+    "lightDistance": {
       "label": "Daljina"
     },
-    "meshaLightIntensity": {
+    "lightIntensity": {
       "label": "Intenzitet"
     },
     "meshaSize": {

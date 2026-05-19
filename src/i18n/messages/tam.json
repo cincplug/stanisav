@@ -55,11 +55,11 @@
       "camera": "கேமரா",
       "colors": "நிறங்கள்",
       "mesha": "Mesha",
-      "meshaLight": "Mesha விளக்கு",
       "motion": "இயக்கம்",
       "scene": "காட்சி",
       "stageLight": "மேடை விளக்கு"
     },
+    "light": { "label": "விளக்கு" },
     "isIdCardVisible": {
       "label": "அடையாள அட்டை"
     },
@@ -95,13 +95,13 @@
     "maxSiblingSpread": {
       "label": "உடன்பிறப்பு வண்ண பரவல்"
     },
-    "meshaLightDecay": {
+    "lightDecay": {
       "label": "சரிவு"
     },
-    "meshaLightDistance": {
+    "lightDistance": {
       "label": "தூரம்"
     },
-    "meshaLightIntensity": {
+    "lightIntensity": {
       "label": "தீவிரம்"
     },
     "meshaSize": {

@@ -55,11 +55,11 @@
       "camera": "Cámara",
       "colors": "Colores",
       "mesha": "Mesha",
-      "meshaLight": "Luz de Mesha",
       "motion": "Movimiento",
       "scene": "Escena",
       "stageLight": "Luz de escena"
     },
+    "light": { "label": "Luz" },
     "isIdCardVisible": {
       "label": "Documento de identidad"
     },
@@ -95,13 +95,13 @@
     "maxSiblingSpread": {
       "label": "Dispersión de matices afines"
     },
-    "meshaLightDecay": {
+    "lightDecay": {
       "label": "Decaimiento"
     },
-    "meshaLightDistance": {
+    "lightDistance": {
       "label": "Distancia"
     },
-    "meshaLightIntensity": {
+    "lightIntensity": {
       "label": "Intensidad"
     },
     "meshaSize": {
