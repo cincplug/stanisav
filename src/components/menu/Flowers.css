@@ -7,7 +7,7 @@
   position: absolute;
   bottom: var(--gap-double);
   left: var(--gap-double);
-  width: calc(100% - 2 * var(--gap-double));
+  right: var(--gap-double);
   height: var(--h);
   color: var(--color-4);
 

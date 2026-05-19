@@ -6,7 +6,7 @@
   position: relative;
 
   &.menu-expanded .stage-area {
-    width: calc(100% - var(--panel-width));
+    width: calc(100vw - var(--panel-width));
   }
 
   &.loading .r3f-canvas {
