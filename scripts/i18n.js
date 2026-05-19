@@ -395,7 +395,7 @@ Keys use dot notation (e.g. "controls.tongueSize.label"). These are short UI lab
 or brief descriptions from a language-learning visualization app. Keep translations concise and natural.
 Do not translate the key names themselves, only the values.
 
-Note: srp locale should be in Latin
+Note: srp locale should be in Latin script
 
 LOCALES
 =======
