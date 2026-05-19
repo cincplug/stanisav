@@ -31,7 +31,7 @@
       "type": "select",
       "options": [1, 1.25, 1.5, 1.75, 2],
       "defaultValue": 1.5,
-      "isVisualOnly": true,
+      "isVisual": true,
       "isShownInMenu": true
     },
     "isReverse": {
@@ -42,7 +42,7 @@
     "isSegmented": {
       "type": "checkbox",
       "defaultValue": false,
-      "isVisualOnly": true,
+      "isVisual": true,
       "isShownInMenu": true,
       "isDesktopOnly": true,
       "compactMenuIcon": "SegmentationIcon"

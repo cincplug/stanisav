@@ -11,7 +11,7 @@
     {
       "id": "controls",
       "component": "ControlsTab",
-      "isVisualOnly": true
+      "isVisual": true
     },
     {
       "id": "search",

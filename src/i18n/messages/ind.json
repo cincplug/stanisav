@@ -56,12 +56,7 @@
       "colors": "Warna",
       "mesha": "Mesha",
       "motion": "Gerakan",
-      "scene": "Adegan",
-      "stageLight": "Cahaya panggung"
-    },
-    "light": { "label": "Cahaya" },
-    "isIdCardVisible": {
-      "label": "KTP"
+      "scene": "Adegan"
     },
     "hueCircle": {
       "label": "Lingkaran rona"
@@ -69,17 +64,23 @@
     "hueStart": {
       "label": "Rona awal"
     },
+    "irrationality": {
+      "label": "Irasionalitas"
+    },
+    "isIdCardVisible": {
+      "label": "KTP"
+    },
     "isLoop": {
       "label": "Ulangi daftar putar"
-    },
-    "isLuka": {
-      "label": "Luka membaca contoh"
     },
     "isMyMesha": {
       "label": "Saya adalah Mesha"
     },
     "isReverse": {
       "label": "Urutan terbalik"
+    },
+    "isSegmented": {
+      "label": "Segmentasi"
     },
     "labelContent": {
       "label": "Tampilan",
@@ -92,17 +93,11 @@
     "labelSize": {
       "label": "Ukuran label"
     },
+    "light": {
+      "label": "Cahaya"
+    },
     "maxSiblingSpread": {
       "label": "Sebaran rona elemen saudara"
-    },
-    "lightDecay": {
-      "label": "Peluruhan"
-    },
-    "lightDistance": {
-      "label": "Jarak"
-    },
-    "lightIntensity": {
-      "label": "Intensitas"
     },
     "meshaSize": {
       "label": "Ukuran Mesha"
@@ -115,6 +110,9 @@
     },
     "noseSize": {
       "label": "Ukuran hidung"
+    },
+    "showMore": {
+      "label": "Tampilkan lebih banyak"
     },
     "showsVideoPreviews": {
       "label": "Pratinjau asli"
@@ -130,25 +128,16 @@
         "morphology": "Morfologi",
         "nounClassCount": "Kelas nomina",
         "phonemeCount": "Jumlah fonem",
+        "scripts": "Aksara",
         "speakers": "Jumlah penutur",
         "tonality": "Tonalitas",
         "verbAspect": "Aspek verba",
         "wordOrder": "Urutan kata",
-        "wordOrderFlexibility": "Fleksibilitas urutan kata",
-        "scripts": "Aksara"
+        "wordOrderFlexibility": "Fleksibilitas urutan kata"
       }
     },
     "sphereRadius": {
       "label": "Jari-jari bola"
-    },
-    "stageLightDecay": {
-      "label": "Peluruhan"
-    },
-    "stageLightDistance": {
-      "label": "Jarak"
-    },
-    "stageLightIntensity": {
-      "label": "Intensitas"
     },
     "switchDuration": {
       "label": "Durasi peralihan"
@@ -161,15 +150,6 @@
     },
     "zoomDistance": {
       "label": "Jarak zoom"
-    },
-    "isSegmented": {
-      "label": "Segmentasi"
-    },
-    "showMore": {
-      "label": "Tampilkan lebih banyak"
-    },
-    "irrationality": {
-      "label": "Irasionalitas"
     }
   },
   "filters": {
@@ -177,6 +157,10 @@
     "allowMultipleChoices": "Izinkan beberapa pilihan",
     "results": "Hasil filter ({count})",
     "title": "Filter berdasarkan"
+  },
+  "idCard": {
+    "opensInNewTab": "membuka di tab baru",
+    "sourceVideo": "Video sumber"
   },
   "linguistic": {
     "caseCount": {
@@ -452,8 +436,12 @@
   },
   "menu": {
     "close": "Tutup menu",
-    "open": "Buka menu",
-    "languageSelector": "Bahasa aplikasi"
+    "languageSelector": "Bahasa aplikasi",
+    "open": "Buka menu"
+  },
+  "overlay": {
+    "emptyFilter": "Tidak ada bahasa untuk kombinasi filter tersebut. Kamu mungkin memilih terlalu banyak filter.",
+    "slogan": "Semakin banyak bahasa yang kamu kuasai, semakin berharga dirimu."
   },
   "playlist": {
     "controls": "Kontrol daftar putar",
@@ -461,9 +449,9 @@
     "next": "Trek berikutnya (panah kanan)",
     "pause": "Jeda",
     "play": "Putar",
-    "stop": "Berhenti",
     "previous": "Trek sebelumnya (panah kiri)",
     "progress": "{current} dari {total}",
+    "stop": "Berhenti",
     "toggleLoop": "Alihkan pengulangan (tombol L)"
   },
   "search": {
@@ -479,13 +467,5 @@
     "filters": "Filter",
     "languages": "Bahasa",
     "search": "Cari"
-  },
-  "overlay": {
-    "slogan": "Semakin banyak bahasa yang kamu kuasai, semakin berharga dirimu.",
-    "emptyFilter": "Tidak ada bahasa untuk kombinasi filter tersebut. Kamu mungkin memilih terlalu banyak filter."
-  },
-  "idCard": {
-    "sourceVideo": "Video sumber",
-    "opensInNewTab": "membuka di tab baru"
   }
 }

@@ -56,12 +56,7 @@
       "colors": "Renkler",
       "mesha": "Mesha",
       "motion": "Hareket",
-      "scene": "Sahne",
-      "stageLight": "Sahne ışığı"
-    },
-    "light": { "label": "Işığı" },
-    "isIdCardVisible": {
-      "label": "Kimlik kartı"
+      "scene": "Sahne"
     },
     "hueCircle": {
       "label": "Renk tonu çemberi"
@@ -69,17 +64,23 @@
     "hueStart": {
       "label": "Renk tonu başlangıcı"
     },
+    "irrationality": {
+      "label": "İrrasyonalite"
+    },
+    "isIdCardVisible": {
+      "label": "Kimlik kartı"
+    },
     "isLoop": {
       "label": "Çalma listesini döngüye al"
-    },
-    "isLuka": {
-      "label": "Luka örnekleri okusun"
     },
     "isMyMesha": {
       "label": "Ben Mesha'yım"
     },
     "isReverse": {
       "label": "Ters sıra"
+    },
+    "isSegmented": {
+      "label": "Bölütleme"
     },
     "labelContent": {
       "label": "Görüntüle",
@@ -92,17 +93,11 @@
     "labelSize": {
       "label": "Etiket boyutu"
     },
+    "light": {
+      "label": "Işığı"
+    },
     "maxSiblingSpread": {
       "label": "Kardeş öğe renk tonu yayılımı"
-    },
-    "lightDecay": {
-      "label": "Sönümleme"
-    },
-    "lightDistance": {
-      "label": "Mesafe"
-    },
-    "lightIntensity": {
-      "label": "Yoğunluk"
     },
     "meshaSize": {
       "label": "Mesha boyutu"
@@ -115,6 +110,9 @@
     },
     "noseSize": {
       "label": "Burun boyutu"
+    },
+    "showMore": {
+      "label": "Daha fazla göster"
     },
     "showsVideoPreviews": {
       "label": "Orijinali önizle"
@@ -130,25 +128,16 @@
         "morphology": "Morfoloji",
         "nounClassCount": "İsim sınıfı",
         "phonemeCount": "Fonem sayısı",
+        "scripts": "Alfabeler",
         "speakers": "Konuşan sayısı",
         "tonality": "Tonlama",
         "verbAspect": "Fiil görünüşü",
         "wordOrder": "Sözcük dizilişi",
-        "wordOrderFlexibility": "Sözcük dizilişi esnekliği",
-        "scripts": "Alfabeler"
+        "wordOrderFlexibility": "Sözcük dizilişi esnekliği"
       }
     },
     "sphereRadius": {
       "label": "Küre yarıçapı"
-    },
-    "stageLightDecay": {
-      "label": "Sönümleme"
-    },
-    "stageLightDistance": {
-      "label": "Mesafe"
-    },
-    "stageLightIntensity": {
-      "label": "Yoğunluk"
     },
     "switchDuration": {
       "label": "Geçiş süresi"
@@ -161,15 +150,6 @@
     },
     "zoomDistance": {
       "label": "Yakınlaştırma mesafesi"
-    },
-    "isSegmented": {
-      "label": "Bölütleme"
-    },
-    "showMore": {
-      "label": "Daha fazla göster"
-    },
-    "irrationality": {
-      "label": "İrrasyonalite"
     }
   },
   "filters": {
@@ -177,6 +157,10 @@
     "allowMultipleChoices": "Çoklu seçime izin ver",
     "results": "Filtre sonuçları ({count})",
     "title": "Filtreleme ölçütü"
+  },
+  "idCard": {
+    "opensInNewTab": "yeni sekmede açılır",
+    "sourceVideo": "Kaynak video"
   },
   "linguistic": {
     "caseCount": {
@@ -452,8 +436,12 @@
   },
   "menu": {
     "close": "Menüyü kapat",
-    "open": "Menüyü aç",
-    "languageSelector": "Uygulama dili"
+    "languageSelector": "Uygulama dili",
+    "open": "Menüyü aç"
+  },
+  "overlay": {
+    "emptyFilter": "Bu filtre kombinasyonu için dil bulunamadı. Muhtemelen çok fazla filtre seçtiniz.",
+    "slogan": "Ne kadar çok dil bilirsen, o kadar çok insana değersin."
   },
   "playlist": {
     "controls": "Çalma listesi denetimleri",
@@ -462,8 +450,8 @@
     "pause": "Duraklat",
     "play": "Oynat",
     "previous": "Önceki parça (Sol ok)",
-    "stop": "Durdur",
     "progress": "{current} / {total}",
+    "stop": "Durdur",
     "toggleLoop": "Döngüyü aç/kapat (L tuşu)"
   },
   "search": {
@@ -479,13 +467,5 @@
     "filters": "Filtreler",
     "languages": "Diller",
     "search": "Ara"
-  },
-  "overlay": {
-    "slogan": "Ne kadar çok dil bilirsen, o kadar çok insana değersin.",
-    "emptyFilter": "Bu filtre kombinasyonu için dil bulunamadı. Muhtemelen çok fazla filtre seçtiniz."
-  },
-  "idCard": {
-    "sourceVideo": "Kaynak video",
-    "opensInNewTab": "yeni sekmede açılır"
   }
 }

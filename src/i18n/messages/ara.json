@@ -56,11 +56,7 @@
       "colors": "الألوان",
       "mesha": "Mesha",
       "motion": "الحركة",
-      "scene": "المشهد",
-      "stageLight": "إضاءة المسرح"
-    },
-    "isIdCardVisible": {
-      "label": "بطاقة الهوية"
+      "scene": "المشهد"
     },
     "hueCircle": {
       "label": "دائرة الألوان"
@@ -68,17 +64,23 @@
     "hueStart": {
       "label": "نقطة بداية الصبغة"
     },
+    "irrationality": {
+      "label": "اللاعقلانية"
+    },
+    "isIdCardVisible": {
+      "label": "بطاقة الهوية"
+    },
     "isLoop": {
       "label": "تكرار قائمة التشغيل"
-    },
-    "isLuka": {
-      "label": "Luka يقرأ الأمثلة"
     },
     "isMyMesha": {
       "label": "أنا Mesha"
     },
     "isReverse": {
       "label": "ترتيب عكسي"
+    },
+    "isSegmented": {
+      "label": "تجزئة"
     },
     "labelContent": {
       "label": "العرض",
@@ -91,18 +93,11 @@
     "labelSize": {
       "label": "حجم التسمية"
     },
-    "light": { "label": "إضاءة" },
+    "light": {
+      "label": "إضاءة"
+    },
     "maxSiblingSpread": {
       "label": "انتشار صبغة العناصر الشقيقة"
-    },
-    "lightDecay": {
-      "label": "التلاشي"
-    },
-    "lightDistance": {
-      "label": "المسافة"
-    },
-    "lightIntensity": {
-      "label": "الشدة"
     },
     "meshaSize": {
       "label": "حجم Mesha"
@@ -115,6 +110,9 @@
     },
     "noseSize": {
       "label": "حجم الأنف"
+    },
+    "showMore": {
+      "label": "عرض المزيد"
     },
     "showsVideoPreviews": {
       "label": "معاينة الأصل"
@@ -130,25 +128,16 @@
         "morphology": "الصرف",
         "nounClassCount": "فئة الأسماء",
         "phonemeCount": "عدد الفونيمات",
+        "scripts": "أنظمة الكتابة",
         "speakers": "عدد المتحدثين",
         "tonality": "النبرية",
         "verbAspect": "جهة الفعل",
         "wordOrder": "ترتيب الكلمات",
-        "wordOrderFlexibility": "مرونة ترتيب الكلمات",
-        "scripts": "أنظمة الكتابة"
+        "wordOrderFlexibility": "مرونة ترتيب الكلمات"
       }
     },
     "sphereRadius": {
       "label": "نصف قطر الكرة"
-    },
-    "stageLightDecay": {
-      "label": "التلاشي"
-    },
-    "stageLightDistance": {
-      "label": "المسافة"
-    },
-    "stageLightIntensity": {
-      "label": "الشدة"
     },
     "switchDuration": {
       "label": "مدة التبديل"
@@ -161,15 +150,6 @@
     },
     "zoomDistance": {
       "label": "مسافة التكبير"
-    },
-    "isSegmented": {
-      "label": "تجزئة"
-    },
-    "showMore": {
-      "label": "عرض المزيد"
-    },
-    "irrationality": {
-      "label": "اللاعقلانية"
     }
   },
   "filters": {
@@ -177,6 +157,10 @@
     "allowMultipleChoices": "السماح بتحديدات متعددة",
     "results": "نتائج التصفية ({count})",
     "title": "تصفية حسب"
+  },
+  "idCard": {
+    "opensInNewTab": "يفتح في تبويب جديد",
+    "sourceVideo": "الفيديو المصدر"
   },
   "linguistic": {
     "caseCount": {
@@ -452,8 +436,12 @@
   },
   "menu": {
     "close": "إغلاق القائمة",
-    "open": "فتح القائمة",
-    "languageSelector": "لغة التطبيق"
+    "languageSelector": "لغة التطبيق",
+    "open": "فتح القائمة"
+  },
+  "overlay": {
+    "emptyFilter": "لا توجد لغات لهذه التوليفة من المرشحات. ربما اخترت عدداً كبيراً جداً من المرشحات.",
+    "slogan": "كلما عرفت لغات أكثر، كلما كنت تساوي أناساً أكثر."
   },
   "playlist": {
     "controls": "التحكم في قائمة التشغيل",
@@ -461,9 +449,9 @@
     "next": "المقطع التالي (السهم الأيمن)",
     "pause": "إيقاف مؤقت",
     "play": "تشغيل",
-    "stop": "إيقاف",
     "previous": "المقطع السابق (السهم الأيسر)",
     "progress": "{current} من {total}",
+    "stop": "إيقاف",
     "toggleLoop": "تبديل التكرار (مفتاح L)"
   },
   "search": {
@@ -479,13 +467,5 @@
     "filters": "التصفية",
     "languages": "اللغات",
     "search": "بحث"
-  },
-  "overlay": {
-    "slogan": "كلما عرفت لغات أكثر، كلما كنت تساوي أناساً أكثر.",
-    "emptyFilter": "لا توجد لغات لهذه التوليفة من المرشحات. ربما اخترت عدداً كبيراً جداً من المرشحات."
-  },
-  "idCard": {
-    "sourceVideo": "الفيديو المصدر",
-    "opensInNewTab": "يفتح في تبويب جديد"
   }
 }

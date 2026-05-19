@@ -56,11 +56,7 @@
       "colors": "Farben",
       "mesha": "Mesha",
       "motion": "Bewegung",
-      "scene": "Szene",
-      "stageLight": "Bühnenlicht"
-    },
-    "isIdCardVisible": {
-      "label": "Personalausweis"
+      "scene": "Szene"
     },
     "hueCircle": {
       "label": "Farbkreis"
@@ -68,17 +64,23 @@
     "hueStart": {
       "label": "Farbton-Start"
     },
+    "irrationality": {
+      "label": "Irrationalität"
+    },
+    "isIdCardVisible": {
+      "label": "Personalausweis"
+    },
     "isLoop": {
       "label": "Playlist wiederholen"
-    },
-    "isLuka": {
-      "label": "Luka liest Beispiele vor"
     },
     "isMyMesha": {
       "label": "Ich bin Mesha"
     },
     "isReverse": {
       "label": "Umgekehrte Reihenfolge"
+    },
+    "isSegmented": {
+      "label": "Segmentierung"
     },
     "labelContent": {
       "label": "Anzeige",
@@ -91,18 +93,11 @@
     "labelSize": {
       "label": "Beschriftungsgröße"
     },
-    "light": { "label": "Licht" },
+    "light": {
+      "label": "Licht"
+    },
     "maxSiblingSpread": {
       "label": "Geschwister-Farbtonstreuung"
-    },
-    "lightDecay": {
-      "label": "Abfall"
-    },
-    "lightDistance": {
-      "label": "Distanz"
-    },
-    "lightIntensity": {
-      "label": "Intensität"
     },
     "meshaSize": {
       "label": "Mesha-Größe"
@@ -115,6 +110,9 @@
     },
     "noseSize": {
       "label": "Nasengröße"
+    },
+    "showMore": {
+      "label": "Mehr anzeigen"
     },
     "showsVideoPreviews": {
       "label": "Original vorschau"
@@ -130,25 +128,16 @@
         "morphology": "Morphologie",
         "nounClassCount": "Nominalklassen",
         "phonemeCount": "Phonemanzahl",
+        "scripts": "Schriften",
         "speakers": "Sprecheranzahl",
         "tonality": "Tonalität",
         "verbAspect": "Verbalaspekt",
         "wordOrder": "Wortstellung",
-        "wordOrderFlexibility": "Wortstellungsflexibilität",
-        "scripts": "Schriften"
+        "wordOrderFlexibility": "Wortstellungsflexibilität"
       }
     },
     "sphereRadius": {
       "label": "Kugelradius"
-    },
-    "stageLightDecay": {
-      "label": "Abfall"
-    },
-    "stageLightDistance": {
-      "label": "Distanz"
-    },
-    "stageLightIntensity": {
-      "label": "Intensität"
     },
     "switchDuration": {
       "label": "Wechseldauer"
@@ -161,15 +150,6 @@
     },
     "zoomDistance": {
       "label": "Zoom-Distanz"
-    },
-    "isSegmented": {
-      "label": "Segmentierung"
-    },
-    "showMore": {
-      "label": "Mehr anzeigen"
-    },
-    "irrationality": {
-      "label": "Irrationalität"
     }
   },
   "filters": {
@@ -177,6 +157,10 @@
     "allowMultipleChoices": "Mehrfachauswahl erlauben",
     "results": "Filterergebnisse ({count})",
     "title": "Filtern nach"
+  },
+  "idCard": {
+    "opensInNewTab": "öffnet in neuem Tab",
+    "sourceVideo": "Quellvideo"
   },
   "linguistic": {
     "caseCount": {
@@ -452,8 +436,12 @@
   },
   "menu": {
     "close": "Menü schließen",
-    "open": "Menü öffnen",
-    "languageSelector": "App-Sprache"
+    "languageSelector": "App-Sprache",
+    "open": "Menü öffnen"
+  },
+  "overlay": {
+    "emptyFilter": "Keine Sprachen für diese Filterkombination. Du hast wahrscheinlich zu viele Filter ausgewählt.",
+    "slogan": "Je mehr Sprachen du kennst, desto mehr Menschen bist du wert."
   },
   "playlist": {
     "controls": "Playlist-Steuerung",
@@ -462,8 +450,8 @@
     "pause": "Pause",
     "play": "Abspielen",
     "previous": "Vorheriger Titel (Pfeil links)",
-    "stop": "Stopp",
     "progress": "{current} von {total}",
+    "stop": "Stopp",
     "toggleLoop": "Wiederholen umschalten (L-Taste)"
   },
   "search": {
@@ -479,13 +467,5 @@
     "filters": "Filter",
     "languages": "Sprachen",
     "search": "Suche"
-  },
-  "overlay": {
-    "slogan": "Je mehr Sprachen du kennst, desto mehr Menschen bist du wert.",
-    "emptyFilter": "Keine Sprachen für diese Filterkombination. Du hast wahrscheinlich zu viele Filter ausgewählt."
-  },
-  "idCard": {
-    "sourceVideo": "Quellvideo",
-    "opensInNewTab": "öffnet in neuem Tab"
   }
 }

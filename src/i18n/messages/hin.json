@@ -56,12 +56,7 @@
       "colors": "रंग",
       "mesha": "Mesha",
       "motion": "गति",
-      "scene": "दृश्य",
-      "stageLight": "मंच प्रकाश"
-    },
-    "light": { "label": "प्रकाश" },
-    "isIdCardVisible": {
-      "label": "पहचान पत्र"
+      "scene": "दृश्य"
     },
     "hueCircle": {
       "label": "रंग चक्र"
@@ -69,17 +64,23 @@
     "hueStart": {
       "label": "रंग आरंभ"
     },
+    "irrationality": {
+      "label": "अतार्किकता"
+    },
+    "isIdCardVisible": {
+      "label": "पहचान पत्र"
+    },
     "isLoop": {
       "label": "प्लेलिस्ट दोहराएँ"
-    },
-    "isLuka": {
-      "label": "Luka नमूने पढ़ता है"
     },
     "isMyMesha": {
       "label": "मैं Mesha हूँ"
     },
     "isReverse": {
       "label": "उल्टा क्रम"
+    },
+    "isSegmented": {
+      "label": "खंडन"
     },
     "labelContent": {
       "label": "प्रदर्शन",
@@ -92,17 +93,11 @@
     "labelSize": {
       "label": "लेबल आकार"
     },
+    "light": {
+      "label": "प्रकाश"
+    },
     "maxSiblingSpread": {
       "label": "सहोदर रंग विस्तार"
-    },
-    "lightDecay": {
-      "label": "क्षय"
-    },
-    "lightDistance": {
-      "label": "दूरी"
-    },
-    "lightIntensity": {
-      "label": "तीव्रता"
     },
     "meshaSize": {
       "label": "Mesha आकार"
@@ -115,6 +110,9 @@
     },
     "noseSize": {
       "label": "नाक का आकार"
+    },
+    "showMore": {
+      "label": "और दिखाएँ"
     },
     "showsVideoPreviews": {
       "label": "मूल का पूर्वावलोकन"
@@ -130,25 +128,16 @@
         "morphology": "रूपविज्ञान",
         "nounClassCount": "संज्ञा वर्ग",
         "phonemeCount": "स्वनिम संख्या",
+        "scripts": "लिपियाँ",
         "speakers": "वक्ता संख्या",
         "tonality": "स्वरात्मकता",
         "verbAspect": "क्रिया पक्ष",
         "wordOrder": "शब्द क्रम",
-        "wordOrderFlexibility": "शब्द क्रम लचीलापन",
-        "scripts": "लिपियाँ"
+        "wordOrderFlexibility": "शब्द क्रम लचीलापन"
       }
     },
     "sphereRadius": {
       "label": "गोले की त्रिज्या"
-    },
-    "stageLightDecay": {
-      "label": "क्षय"
-    },
-    "stageLightDistance": {
-      "label": "दूरी"
-    },
-    "stageLightIntensity": {
-      "label": "तीव्रता"
     },
     "switchDuration": {
       "label": "स्विच अवधि"
@@ -161,15 +150,6 @@
     },
     "zoomDistance": {
       "label": "ज़ूम दूरी"
-    },
-    "isSegmented": {
-      "label": "खंडन"
-    },
-    "showMore": {
-      "label": "और दिखाएँ"
-    },
-    "irrationality": {
-      "label": "अतार्किकता"
     }
   },
   "filters": {
@@ -177,6 +157,10 @@
     "allowMultipleChoices": "एकाधिक चयन की अनुमति दें",
     "results": "फ़िल्टर परिणाम ({count})",
     "title": "इसके अनुसार फ़िल्टर करें"
+  },
+  "idCard": {
+    "opensInNewTab": "नए टैब में खुलता है",
+    "sourceVideo": "स्रोत वीडियो"
   },
   "linguistic": {
     "caseCount": {
@@ -452,8 +436,12 @@
   },
   "menu": {
     "close": "मेनू बंद करें",
-    "open": "मेनू खोलें",
-    "languageSelector": "ऐप की भाषा"
+    "languageSelector": "ऐप की भाषा",
+    "open": "मेनू खोलें"
+  },
+  "overlay": {
+    "emptyFilter": "उस फ़िल्टर संयोजन के लिए कोई भाषा नहीं है। आपने शायद बहुत अधिक फ़िल्टर चुने हैं।",
+    "slogan": "आप जितनी अधिक भाषाएँ जानते हैं, आप उतने अधिक लोगों के मूल्य के होते हैं।"
   },
   "playlist": {
     "controls": "प्लेलिस्ट नियंत्रण",
@@ -461,9 +449,9 @@
     "next": "अगला ट्रैक (दाएं तीर)",
     "pause": "रोकें",
     "play": "चलाएं",
-    "stop": "रुकें",
     "previous": "पिछला ट्रैक (बाएँ तीर)",
     "progress": "{current} / {total}",
+    "stop": "रुकें",
     "toggleLoop": "लूप बदलें (L कुंजी)"
   },
   "search": {
@@ -479,13 +467,5 @@
     "filters": "फ़िल्टर",
     "languages": "भाषाएँ",
     "search": "खोजें"
-  },
-  "overlay": {
-    "slogan": "आप जितनी अधिक भाषाएँ जानते हैं, आप उतने अधिक लोगों के मूल्य के होते हैं।",
-    "emptyFilter": "उस फ़िल्टर संयोजन के लिए कोई भाषा नहीं है। आपने शायद बहुत अधिक फ़िल्टर चुने हैं।"
-  },
-  "idCard": {
-    "sourceVideo": "स्रोत वीडियो",
-    "opensInNewTab": "नए टैब में खुलता है"
   }
 }

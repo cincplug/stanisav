@@ -56,12 +56,7 @@
       "colors": "색상",
       "mesha": "Mesha",
       "motion": "모션",
-      "scene": "장면",
-      "stageLight": "무대 조명"
-    },
-    "light": { "label": "조명" },
-    "isIdCardVisible": {
-      "label": "신분증"
+      "scene": "장면"
     },
     "hueCircle": {
       "label": "색상환"
@@ -69,17 +64,23 @@
     "hueStart": {
       "label": "색조 시작값"
     },
+    "irrationality": {
+      "label": "비합리성"
+    },
+    "isIdCardVisible": {
+      "label": "신분증"
+    },
     "isLoop": {
       "label": "재생목록 반복"
-    },
-    "isLuka": {
-      "label": "Luka가 예문을 읽습니다"
     },
     "isMyMesha": {
       "label": "나는 Mesha입니다"
     },
     "isReverse": {
       "label": "역순 정렬"
+    },
+    "isSegmented": {
+      "label": "세분화"
     },
     "labelContent": {
       "label": "표시 내용",
@@ -92,17 +93,11 @@
     "labelSize": {
       "label": "레이블 크기"
     },
+    "light": {
+      "label": "조명"
+    },
     "maxSiblingSpread": {
       "label": "형제 요소 색조 분산"
-    },
-    "lightDecay": {
-      "label": "감쇠"
-    },
-    "lightDistance": {
-      "label": "거리"
-    },
-    "lightIntensity": {
-      "label": "강도"
     },
     "meshaSize": {
       "label": "Mesha 크기"
@@ -115,6 +110,9 @@
     },
     "noseSize": {
       "label": "코 크기"
+    },
+    "showMore": {
+      "label": "더 보기"
     },
     "showsVideoPreviews": {
       "label": "원본 미리보기"
@@ -130,25 +128,16 @@
         "morphology": "형태론",
         "nounClassCount": "명사 부류",
         "phonemeCount": "음소 수",
+        "scripts": "문자",
         "speakers": "화자 수",
         "tonality": "성조성",
         "verbAspect": "동사상",
         "wordOrder": "어순",
-        "wordOrderFlexibility": "어순 유연성",
-        "scripts": "문자"
+        "wordOrderFlexibility": "어순 유연성"
       }
     },
     "sphereRadius": {
       "label": "구 반지름"
-    },
-    "stageLightDecay": {
-      "label": "감쇠"
-    },
-    "stageLightDistance": {
-      "label": "거리"
-    },
-    "stageLightIntensity": {
-      "label": "강도"
     },
     "switchDuration": {
       "label": "전환 시간"
@@ -161,15 +150,6 @@
     },
     "zoomDistance": {
       "label": "줌 거리"
-    },
-    "isSegmented": {
-      "label": "세분화"
-    },
-    "showMore": {
-      "label": "더 보기"
-    },
-    "irrationality": {
-      "label": "비합리성"
     }
   },
   "filters": {
@@ -177,6 +157,10 @@
     "allowMultipleChoices": "다중 선택 허용",
     "results": "필터 결과 ({count})",
     "title": "필터 기준"
+  },
+  "idCard": {
+    "opensInNewTab": "새 탭에서 열립니다",
+    "sourceVideo": "원본 영상"
   },
   "linguistic": {
     "caseCount": {
@@ -452,8 +436,12 @@
   },
   "menu": {
     "close": "메뉴 닫기",
-    "open": "메뉴 열기",
-    "languageSelector": "앱 언어"
+    "languageSelector": "앱 언어",
+    "open": "메뉴 열기"
+  },
+  "overlay": {
+    "emptyFilter": "해당 필터 조합에 맞는 언어가 없습니다. 필터를 너무 많이 선택하셨을 수 있습니다.",
+    "slogan": "언어를 많이 알수록 더 많은 사람의 가치를 지닙니다."
   },
   "playlist": {
     "controls": "재생목록 컨트롤",
@@ -461,9 +449,9 @@
     "next": "다음 트랙 (오른쪽 화살표)",
     "pause": "일시정지",
     "play": "재생",
-    "stop": "정지",
     "previous": "이전 트랙 (왼쪽 화살표)",
     "progress": "{current} / {total}",
+    "stop": "정지",
     "toggleLoop": "반복 전환 (L 키)"
   },
   "search": {
@@ -479,13 +467,5 @@
     "filters": "필터",
     "languages": "언어",
     "search": "검색"
-  },
-  "overlay": {
-    "slogan": "언어를 많이 알수록 더 많은 사람의 가치를 지닙니다.",
-    "emptyFilter": "해당 필터 조합에 맞는 언어가 없습니다. 필터를 너무 많이 선택하셨을 수 있습니다."
-  },
-  "idCard": {
-    "sourceVideo": "원본 영상",
-    "opensInNewTab": "새 탭에서 열립니다"
   }
 }

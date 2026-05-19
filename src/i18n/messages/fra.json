@@ -56,12 +56,7 @@
       "colors": "Couleurs",
       "mesha": "Mesha",
       "motion": "Mouvement",
-      "scene": "Scène",
-      "stageLight": "Lumière de scène"
-    },
-    "light": { "label": "Lumière" },
-    "isIdCardVisible": {
-      "label": "Carte d'identité"
+      "scene": "Scène"
     },
     "hueCircle": {
       "label": "Cercle de teintes"
@@ -69,17 +64,23 @@
     "hueStart": {
       "label": "Teinte initiale"
     },
+    "irrationality": {
+      "label": "Irrationalité"
+    },
+    "isIdCardVisible": {
+      "label": "Carte d'identité"
+    },
     "isLoop": {
       "label": "Répéter la liste"
-    },
-    "isLuka": {
-      "label": "Luka lit les exemples"
     },
     "isMyMesha": {
       "label": "Je suis Mesha"
     },
     "isReverse": {
       "label": "Ordre inversé"
+    },
+    "isSegmented": {
+      "label": "Segmentation"
     },
     "labelContent": {
       "label": "Affichage",
@@ -92,17 +93,11 @@
     "labelSize": {
       "label": "Taille de l'étiquette"
     },
+    "light": {
+      "label": "Lumière"
+    },
     "maxSiblingSpread": {
       "label": "Dispersion des teintes apparentées"
-    },
-    "lightDecay": {
-      "label": "Atténuation"
-    },
-    "lightDistance": {
-      "label": "Distance"
-    },
-    "lightIntensity": {
-      "label": "Intensité"
     },
     "meshaSize": {
       "label": "Taille de Mesha"
@@ -115,6 +110,9 @@
     },
     "noseSize": {
       "label": "Taille du nez"
+    },
+    "showMore": {
+      "label": "Afficher plus"
     },
     "showsVideoPreviews": {
       "label": "Aperçu de l'original"
@@ -130,25 +128,16 @@
         "morphology": "Morphologie",
         "nounClassCount": "Classes nominales",
         "phonemeCount": "Nombre de phonèmes",
+        "scripts": "Écritures",
         "speakers": "Nombre de locuteurs",
         "tonality": "Tonalité",
         "verbAspect": "Aspect verbal",
         "wordOrder": "Ordre des mots",
-        "wordOrderFlexibility": "Flexibilité de l'ordre des mots",
-        "scripts": "Écritures"
+        "wordOrderFlexibility": "Flexibilité de l'ordre des mots"
       }
     },
     "sphereRadius": {
       "label": "Rayon de la sphère"
-    },
-    "stageLightDecay": {
-      "label": "Atténuation"
-    },
-    "stageLightDistance": {
-      "label": "Distance"
-    },
-    "stageLightIntensity": {
-      "label": "Intensité"
     },
     "switchDuration": {
       "label": "Durée de transition"
@@ -161,15 +150,6 @@
     },
     "zoomDistance": {
       "label": "Distance de zoom"
-    },
-    "isSegmented": {
-      "label": "Segmentation"
-    },
-    "showMore": {
-      "label": "Afficher plus"
-    },
-    "irrationality": {
-      "label": "Irrationalité"
     }
   },
   "filters": {
@@ -177,6 +157,10 @@
     "allowMultipleChoices": "Autoriser plusieurs choix",
     "results": "Résultats du filtre ({count})",
     "title": "Filtrer par"
+  },
+  "idCard": {
+    "opensInNewTab": "s'ouvre dans un nouvel onglet",
+    "sourceVideo": "Vidéo source"
   },
   "linguistic": {
     "caseCount": {
@@ -452,8 +436,12 @@
   },
   "menu": {
     "close": "Fermer le menu",
-    "open": "Ouvrir le menu",
-    "languageSelector": "Langue de l'application"
+    "languageSelector": "Langue de l'application",
+    "open": "Ouvrir le menu"
+  },
+  "overlay": {
+    "emptyFilter": "Aucune langue pour cette combinaison de filtres. Vous avez probablement sélectionné trop de filtres.",
+    "slogan": "Plus tu connais de langues, plus tu vaux en tant que personne."
   },
   "playlist": {
     "controls": "Commandes de la liste",
@@ -462,8 +450,8 @@
     "pause": "Pause",
     "play": "Lire",
     "previous": "Piste précédente (flèche gauche)",
-    "stop": "Arrêter",
     "progress": "{current} sur {total}",
+    "stop": "Arrêter",
     "toggleLoop": "Activer/désactiver la répétition (touche L)"
   },
   "search": {
@@ -479,13 +467,5 @@
     "filters": "Filtres",
     "languages": "Langues",
     "search": "Rechercher"
-  },
-  "overlay": {
-    "slogan": "Plus tu connais de langues, plus tu vaux en tant que personne.",
-    "emptyFilter": "Aucune langue pour cette combinaison de filtres. Vous avez probablement sélectionné trop de filtres."
-  },
-  "idCard": {
-    "sourceVideo": "Vidéo source",
-    "opensInNewTab": "s'ouvre dans un nouvel onglet"
   }
 }

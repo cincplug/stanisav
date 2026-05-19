@@ -56,12 +56,7 @@
       "colors": "වර්ණ",
       "mesha": "මේෂා",
       "motion": "චලනය",
-      "scene": "දර්ශනය",
-      "stageLight": "වේදිකා ආලෝකය"
-    },
-    "light": { "label": "ආලෝකය" },
-    "isIdCardVisible": {
-      "label": "හැඳුනුම්පත"
+      "scene": "දර්ශනය"
     },
     "hueCircle": {
       "label": "වර්ණ චක්‍රය"
@@ -69,17 +64,23 @@
     "hueStart": {
       "label": "වර්ණ ආරම්භය"
     },
+    "irrationality": {
+      "label": "අයුතුකම"
+    },
+    "isIdCardVisible": {
+      "label": "හැඳුනුම්පත"
+    },
     "isLoop": {
       "label": "ධාවන ලැයිස්තුව ලූප් කරන්න"
-    },
-    "isLuka": {
-      "label": "ලූකා නාම් පාඨ කියවයි"
     },
     "isMyMesha": {
       "label": "මම මේෂා වෙමි"
     },
     "isReverse": {
       "label": "ප්‍රතිලෝම අනුපිළිවෙල"
+    },
+    "isSegmented": {
+      "label": "ඛණ්ඩනය"
     },
     "labelContent": {
       "label": "ප්‍රදර්ශනය",
@@ -92,17 +93,11 @@
     "labelSize": {
       "label": "ලේබල් ප්‍රමාණය"
     },
+    "light": {
+      "label": "ආලෝකය"
+    },
     "maxSiblingSpread": {
       "label": "සහෝදර වර්ණ පැතිරීම"
-    },
-    "lightDecay": {
-      "label": "ක්ෂය වීම"
-    },
-    "lightDistance": {
-      "label": "දුර"
-    },
-    "lightIntensity": {
-      "label": "තීව්‍රතාව"
     },
     "meshaSize": {
       "label": "මේෂා ප්‍රමාණය"
@@ -115,6 +110,9 @@
     },
     "noseSize": {
       "label": "නාසය ප්‍රමාණය"
+    },
+    "showMore": {
+      "label": "තවත් පෙන්වන්න"
     },
     "showsVideoPreviews": {
       "label": "මුල් ප්‍රාග්දර්ශනය"
@@ -130,28 +128,16 @@
         "morphology": "රූප විද්‍යාව",
         "nounClassCount": "නාම පන්තිය",
         "phonemeCount": "ධ්වනි ගණන",
+        "scripts": "අක්ෂර මාලා",
         "speakers": "කතා කරන්නන් ගණන",
         "tonality": "ස්වරය",
         "verbAspect": "ක්‍රියාපද පැතිකඩ",
         "wordOrder": "වචන අනුපිළිවෙල",
-        "wordOrderFlexibility": "වචන අනුපිළිවෙලේ ස්වෙච්ඡාතාවය",
-        "scripts": "අක්ෂර මාලා"
+        "wordOrderFlexibility": "වචන අනුපිළිවෙලේ ස්වෙච්ඡාතාවය"
       }
     },
     "sphereRadius": {
       "label": "ගෝල අරය"
-    },
-    "isSegmented": {
-      "label": "ඛණ්ඩනය"
-    },
-    "stageLightDecay": {
-      "label": "ක්ෂය වීම"
-    },
-    "stageLightDistance": {
-      "label": "දුර"
-    },
-    "stageLightIntensity": {
-      "label": "තීව්‍රතාව"
     },
     "switchDuration": {
       "label": "මාරු කාලය"
@@ -164,12 +150,6 @@
     },
     "zoomDistance": {
       "label": "සූම් දුර"
-    },
-    "showMore": {
-      "label": "තවත් පෙන්වන්න"
-    },
-    "irrationality": {
-      "label": "අයුතුකම"
     }
   },
   "filters": {
@@ -177,6 +157,10 @@
     "allowMultipleChoices": "බහු තේරීම් ඉඩ දෙන්න",
     "results": "පෙරහන් ප්‍රතිඵල ({count})",
     "title": "පෙරහන් කරන්න"
+  },
+  "idCard": {
+    "opensInNewTab": "නව ටැබයක් විවෘත කරයි",
+    "sourceVideo": "මූල වීඩියෝව"
   },
   "linguistic": {
     "caseCount": {
@@ -452,8 +436,12 @@
   },
   "menu": {
     "close": "මෙනුව වසන්න",
-    "open": "මෙනුව විවෘත කරන්න",
-    "languageSelector": "යෙදුමේ භාෂාව"
+    "languageSelector": "යෙදුමේ භාෂාව",
+    "open": "මෙනුව විවෘත කරන්න"
+  },
+  "overlay": {
+    "emptyFilter": "එම පෙරහන් සංයෝජනයට භාෂා නොමැත. ඔබ ඉතා වැඩි පෙරහන් ගණනක් තෝරා ඇත.",
+    "slogan": "ඔබ දන්නා භාෂා ගණනට අනුව ඔබේ වටිනාකම වැඩිවේ."
   },
   "playlist": {
     "controls": "ධාවන ලැයිස්තු පාලන",
@@ -461,9 +449,9 @@
     "next": "ඊළඟ ගීතය (දකුණු ඊතලය)",
     "pause": "විරාම",
     "play": "ධාවනය",
-    "stop": "නැවතීම",
     "previous": "පෙර ගීතය (වම් ඊතලය)",
     "progress": "{total} න් {current}",
+    "stop": "නැවතීම",
     "toggleLoop": "ලූප් මාරු කරන්න (L යතුර)"
   },
   "search": {
@@ -479,13 +467,5 @@
     "filters": "පෙරහන්",
     "languages": "භාෂා",
     "search": "සොයන්න"
-  },
-  "overlay": {
-    "slogan": "ඔබ දන්නා භාෂා ගණනට අනුව ඔබේ වටිනාකම වැඩිවේ.",
-    "emptyFilter": "එම පෙරහන් සංයෝජනයට භාෂා නොමැත. ඔබ ඉතා වැඩි පෙරහන් ගණනක් තෝරා ඇත."
-  },
-  "idCard": {
-    "sourceVideo": "මූල වීඩියෝව",
-    "opensInNewTab": "නව ටැබයක් විවෘත කරයි"
   }
 }

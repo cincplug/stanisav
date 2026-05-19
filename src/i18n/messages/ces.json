@@ -56,11 +56,7 @@
       "colors": "Barvy",
       "mesha": "Meša",
       "motion": "Pohyb",
-      "scene": "Scéna",
-      "stageLight": "Světlo jeviště"
-    },
-    "isIdCardVisible": {
-      "label": "Občanka"
+      "scene": "Scéna"
     },
     "hueCircle": {
       "label": "Kruh odstínů"
@@ -68,20 +64,23 @@
     "hueStart": {
       "label": "Počáteční odstín"
     },
+    "irrationality": {
+      "label": "Iracionalita"
+    },
+    "isIdCardVisible": {
+      "label": "Občanka"
+    },
     "isLoop": {
       "label": "Opakovat playlist"
-    },
-    "isLuka": {
-      "label": "Luka čte ukázky"
-    },
-    "isSegmented": {
-      "label": "Segmentace"
     },
     "isMyMesha": {
       "label": "Jsem Meša"
     },
     "isReverse": {
       "label": "Obrácené pořadí"
+    },
+    "isSegmented": {
+      "label": "Segmentace"
     },
     "labelContent": {
       "label": "Zobrazení",
@@ -94,18 +93,11 @@
     "labelSize": {
       "label": "Velikost popisku"
     },
-    "light": { "label": "Světlo" },
+    "light": {
+      "label": "Světlo"
+    },
     "maxSiblingSpread": {
       "label": "Rozptyl odstínů příbuzných"
-    },
-    "lightDecay": {
-      "label": "Útlum"
-    },
-    "lightDistance": {
-      "label": "Vzdálenost"
-    },
-    "lightIntensity": {
-      "label": "Intenzita"
     },
     "meshaSize": {
       "label": "Mešina velikost"
@@ -118,6 +110,9 @@
     },
     "noseSize": {
       "label": "Velikost nosu"
+    },
+    "showMore": {
+      "label": "Zobrazit více"
     },
     "showsVideoPreviews": {
       "label": "Náhled originálu"
@@ -133,25 +128,16 @@
         "morphology": "Morfologie",
         "nounClassCount": "Jmenné třídy",
         "phonemeCount": "Fonémy",
+        "scripts": "Písmo",
         "speakers": "Mluvčí",
         "tonality": "Tonalita",
         "verbAspect": "Slovesný vid",
         "wordOrder": "Slovosled",
-        "wordOrderFlexibility": "Flexibilita slovosledu",
-        "scripts": "Písmo"
+        "wordOrderFlexibility": "Flexibilita slovosledu"
       }
     },
     "sphereRadius": {
       "label": "Poloměr koule"
-    },
-    "stageLightDecay": {
-      "label": "Útlum"
-    },
-    "stageLightDistance": {
-      "label": "Vzdálenost"
-    },
-    "stageLightIntensity": {
-      "label": "Intenzita"
     },
     "switchDuration": {
       "label": "Délka přechodu"
@@ -164,12 +150,6 @@
     },
     "zoomDistance": {
       "label": "Vzdálenost přiblížení"
-    },
-    "showMore": {
-      "label": "Zobrazit více"
-    },
-    "irrationality": {
-      "label": "Iracionalita"
     }
   },
   "filters": {
@@ -177,6 +157,10 @@
     "allowMultipleChoices": "Povolit více voleb",
     "results": "Výsledky filtru ({count})",
     "title": "Filtrovat podle"
+  },
+  "idCard": {
+    "opensInNewTab": "otevře se na nové kartě",
+    "sourceVideo": "Zdrojové video"
   },
   "linguistic": {
     "caseCount": {
@@ -452,8 +436,12 @@
   },
   "menu": {
     "close": "Zavřít nabídku",
-    "open": "Otevřít nabídku",
-    "languageSelector": "Jazyk aplikace"
+    "languageSelector": "Jazyk aplikace",
+    "open": "Otevřít nabídku"
+  },
+  "overlay": {
+    "emptyFilter": "Pro tuto kombinaci filtrů nejsou žádné jazyky. Pravděpodobně jsi vybral(a) příliš mnoho filtrů.",
+    "slogan": "Kolik jazyků umíš, tolikrát jsi člověkem."
   },
   "playlist": {
     "controls": "Ovládání playlistu",
@@ -462,8 +450,8 @@
     "pause": "Pozastavit",
     "play": "Přehrát",
     "previous": "Předchozí skladba (šipka vlevo)",
-    "stop": "Zastavit",
     "progress": "{current} z {total}",
+    "stop": "Zastavit",
     "toggleLoop": "Zapnout/vypnout opakování (klávesa L)"
   },
   "search": {
@@ -479,13 +467,5 @@
     "filters": "Filtry",
     "languages": "Jazyky",
     "search": "Hledání"
-  },
-  "overlay": {
-    "slogan": "Kolik jazyků umíš, tolikrát jsi člověkem.",
-    "emptyFilter": "Pro tuto kombinaci filtrů nejsou žádné jazyky. Pravděpodobně jsi vybral(a) příliš mnoho filtrů."
-  },
-  "idCard": {
-    "sourceVideo": "Zdrojové video",
-    "opensInNewTab": "otevře se na nové kartě"
   }
 }

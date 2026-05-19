@@ -56,12 +56,7 @@
       "colors": "Boje",
       "mesha": "Meša",
       "motion": "Kretanje",
-      "scene": "Scena",
-      "stageLight": "Scensko svetlo"
-    },
-    "light": { "label": "Svetlo" },
-    "isIdCardVisible": {
-      "label": "Lična karta"
+      "scene": "Scena"
     },
     "hueCircle": {
       "label": "Krug nijansi"
@@ -69,17 +64,23 @@
     "hueStart": {
       "label": "Početna nijansa"
     },
+    "irrationality": {
+      "label": "Iracionalnost"
+    },
+    "isIdCardVisible": {
+      "label": "Lična karta"
+    },
     "isLoop": {
       "label": "Petlja plejliste"
-    },
-    "isLuka": {
-      "label": "Luka čita primere"
     },
     "isMyMesha": {
       "label": "Ja sam Meša"
     },
     "isReverse": {
       "label": "Obrnuti redosled"
+    },
+    "isSegmented": {
+      "label": "Segmentacija"
     },
     "labelContent": {
       "label": "Prikaz",
@@ -92,17 +93,11 @@
     "labelSize": {
       "label": "Veličina oznake"
     },
+    "light": {
+      "label": "Svetlo"
+    },
     "maxSiblingSpread": {
       "label": "Raspon nijansi"
-    },
-    "lightDecay": {
-      "label": "Opadanje"
-    },
-    "lightDistance": {
-      "label": "Daljina"
-    },
-    "lightIntensity": {
-      "label": "Intenzitet"
     },
     "meshaSize": {
       "label": "Mešina veličina"
@@ -115,6 +110,9 @@
     },
     "noseSize": {
       "label": "Veličina nosa"
+    },
+    "showMore": {
+      "label": "Prikaži više"
     },
     "showsVideoPreviews": {
       "label": "Pregled originala"
@@ -130,25 +128,16 @@
         "morphology": "Morfologija",
         "nounClassCount": "Imeničke klase",
         "phonemeCount": "Broj fonema",
+        "scripts": "Pisma",
         "speakers": "Broj govornika",
         "tonality": "Tonalnost",
         "verbAspect": "Glagolski vid",
         "wordOrder": "Red reči",
-        "wordOrderFlexibility": "Fleksibilnost reda reči",
-        "scripts": "Pisma"
+        "wordOrderFlexibility": "Fleksibilnost reda reči"
       }
     },
     "sphereRadius": {
       "label": "Poluprečnik sfere"
-    },
-    "stageLightDecay": {
-      "label": "Opadanje"
-    },
-    "stageLightDistance": {
-      "label": "Daljina"
-    },
-    "stageLightIntensity": {
-      "label": "Intenzitet"
     },
     "switchDuration": {
       "label": "Trajanje prelaza"
@@ -161,15 +150,6 @@
     },
     "zoomDistance": {
       "label": "Daljina zuma"
-    },
-    "isSegmented": {
-      "label": "Segmentacija"
-    },
-    "showMore": {
-      "label": "Prikaži više"
-    },
-    "irrationality": {
-      "label": "Iracionalnost"
     }
   },
   "filters": {
@@ -177,6 +157,10 @@
     "allowMultipleChoices": "Višestruki izbor",
     "results": "Rezultati filtera ({count})",
     "title": "Filteri"
+  },
+  "idCard": {
+    "opensInNewTab": "otvara se u novom tabu",
+    "sourceVideo": "Izvorni video"
   },
   "linguistic": {
     "caseCount": {
@@ -452,8 +436,12 @@
   },
   "menu": {
     "close": "Zatvori meni",
-    "open": "Otvori meni",
-    "languageSelector": "Jezik aplikacije"
+    "languageSelector": "Jezik aplikacije",
+    "open": "Otvori meni"
+  },
+  "overlay": {
+    "emptyFilter": "Nema jezika za tu kombinaciju filtera. Verovatno si izabrao/la previše filtera.",
+    "slogan": "Koliko jezika znaš, toliko puta vrediš kao čovek."
   },
   "playlist": {
     "controls": "Kontrole plejliste",
@@ -462,8 +450,8 @@
     "pause": "Čekaj",
     "play": "Sviraj",
     "previous": "Prethodna numera (strelica levo)",
-    "stop": "Ćuti",
     "progress": "{current} od {total}",
+    "stop": "Ćuti",
     "toggleLoop": "Uključi/isključi petlju (taster L)"
   },
   "search": {
@@ -479,13 +467,5 @@
     "filters": "Filteri",
     "languages": "Jezici",
     "search": "Pretraga"
-  },
-  "overlay": {
-    "slogan": "Koliko jezika znaš, toliko puta vrediš kao čovek.",
-    "emptyFilter": "Nema jezika za tu kombinaciju filtera. Verovatno si izabrao/la previše filtera."
-  },
-  "idCard": {
-    "sourceVideo": "Izvorni video",
-    "opensInNewTab": "otvara se u novom tabu"
   }
 }

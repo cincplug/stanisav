@@ -20,7 +20,7 @@ const ControlItem = ({
     max,
     step,
     options,
-    isVisualOnly,
+    isVisual,
     isDesktopOnly,
     compactMenuIcon,
   } = control;
@@ -33,9 +33,7 @@ const ControlItem = ({
     onChange(processedValue);
   };
 
-  const ariaLabel = isVisualOnly
-    ? `${label} (${t("menu.isVisualOnly")})`
-    : undefined;
+  const ariaLabel = isVisual ? `${label} (${t("menu.isVisual")})` : undefined;
 
   // Compact mode: render an icon button or icon-toggled select.
   // Only reached when compactMenuIcon is present (ControlItemGroup filters for it).

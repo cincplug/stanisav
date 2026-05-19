@@ -56,12 +56,7 @@
       "colors": "Launuka",
       "mesha": "Mesha",
       "motion": "Motsi",
-      "scene": "Yanayi",
-      "stageLight": "Haske na mataki"
-    },
-    "light": { "label": "Haske" },
-    "isIdCardVisible": {
-      "label": "Katin shaida"
+      "scene": "Yanayi"
     },
     "hueCircle": {
       "label": "Da'irar launi"
@@ -69,17 +64,23 @@
     "hueStart": {
       "label": "Farkon launi"
     },
+    "irrationality": {
+      "label": "Rashin hankali"
+    },
+    "isIdCardVisible": {
+      "label": "Katin shaida"
+    },
     "isLoop": {
       "label": "Maimaita jerin waƙoƙi"
-    },
-    "isLuka": {
-      "label": "Luka yana karanta misalai"
     },
     "isMyMesha": {
       "label": "Ni ne Mesha"
     },
     "isReverse": {
       "label": "Tsarin baya"
+    },
+    "isSegmented": {
+      "label": "Rarrabuwa"
     },
     "labelContent": {
       "label": "Nuni",
@@ -92,17 +93,11 @@
     "labelSize": {
       "label": "Girman alama"
     },
+    "light": {
+      "label": "Haske"
+    },
     "maxSiblingSpread": {
       "label": "Rarrabawar launi na 'yan'uwa"
-    },
-    "lightDecay": {
-      "label": "Raguwa"
-    },
-    "lightDistance": {
-      "label": "Nisa"
-    },
-    "lightIntensity": {
-      "label": "Ƙarfi"
     },
     "meshaSize": {
       "label": "Girman Mesha"
@@ -115,6 +110,9 @@
     },
     "noseSize": {
       "label": "Girman hanci"
+    },
+    "showMore": {
+      "label": "Nuna ƙari"
     },
     "showsVideoPreviews": {
       "label": "Duba asali"
@@ -130,25 +128,16 @@
         "morphology": "Ilimin sifar kalma",
         "nounClassCount": "Azuzuwan suna",
         "phonemeCount": "Yawan sauti",
+        "scripts": "Tsarin rubutu",
         "speakers": "Yawan masu magana",
         "tonality": "Sautin kari",
         "verbAspect": "Fuska ta fi'ili",
         "wordOrder": "Tsarin kalma",
-        "wordOrderFlexibility": "Sassauci na tsarin kalma",
-        "scripts": "Tsarin rubutu"
+        "wordOrderFlexibility": "Sassauci na tsarin kalma"
       }
     },
     "sphereRadius": {
       "label": "Radius na bulo"
-    },
-    "stageLightDecay": {
-      "label": "Raguwa"
-    },
-    "stageLightDistance": {
-      "label": "Nisa"
-    },
-    "stageLightIntensity": {
-      "label": "Ƙarfi"
     },
     "switchDuration": {
       "label": "Tsawon canzawa"
@@ -161,15 +150,6 @@
     },
     "zoomDistance": {
       "label": "Nisan zum"
-    },
-    "isSegmented": {
-      "label": "Rarrabuwa"
-    },
-    "showMore": {
-      "label": "Nuna ƙari"
-    },
-    "irrationality": {
-      "label": "Rashin hankali"
     }
   },
   "filters": {
@@ -177,6 +157,10 @@
     "allowMultipleChoices": "Bari zaɓe da yawa",
     "results": "Sakamakon tace ({count})",
     "title": "Tace bisa"
+  },
+  "idCard": {
+    "opensInNewTab": "yana buɗewa a sabon tab",
+    "sourceVideo": "Bidiyon tushe"
   },
   "linguistic": {
     "caseCount": {
@@ -452,8 +436,12 @@
   },
   "menu": {
     "close": "Rufe menu",
-    "open": "Buɗe menu",
-    "languageSelector": "Harshe na manhaja"
+    "languageSelector": "Harshe na manhaja",
+    "open": "Buɗe menu"
+  },
+  "overlay": {
+    "emptyFilter": "Babu harsuna don wannan haɗin tace. Wataƙila ka zaɓi tacewa da yawa.",
+    "slogan": "Ƙarin harsuna da ka sani, ƙarin mutane ne ka cancanta."
   },
   "playlist": {
     "controls": "Kula da jerin waƙoƙi",
@@ -461,9 +449,9 @@
     "next": "Waƙa mai zuwa (kibiyar dama)",
     "pause": "Tsaya",
     "play": "Kunna",
-    "stop": "Tsaya",
     "previous": "Waƙar da ta gabata (kibiyar hagu)",
     "progress": "{current} daga {total}",
+    "stop": "Tsaya",
     "toggleLoop": "Canza maimaita (maɓallin L)"
   },
   "search": {
@@ -479,13 +467,5 @@
     "filters": "Tacewa",
     "languages": "Harsuna",
     "search": "Bincika"
-  },
-  "overlay": {
-    "slogan": "Ƙarin harsuna da ka sani, ƙarin mutane ne ka cancanta.",
-    "emptyFilter": "Babu harsuna don wannan haɗin tace. Wataƙila ka zaɓi tacewa da yawa."
-  },
-  "idCard": {
-    "sourceVideo": "Bidiyon tushe",
-    "opensInNewTab": "yana buɗewa a sabon tab"
   }
 }

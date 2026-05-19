@@ -56,12 +56,7 @@
       "colors": "Màu sắc",
       "mesha": "Mesha",
       "motion": "Chuyển động",
-      "scene": "Cảnh",
-      "stageLight": "Ánh sáng sân khấu"
-    },
-    "light": { "label": "Ánh" },
-    "isIdCardVisible": {
-      "label": "Chứng minh nhân dân"
+      "scene": "Cảnh"
     },
     "hueCircle": {
       "label": "Vòng tròn màu sắc"
@@ -69,17 +64,23 @@
     "hueStart": {
       "label": "Màu sắc bắt đầu"
     },
+    "irrationality": {
+      "label": "Phi lý"
+    },
+    "isIdCardVisible": {
+      "label": "Chứng minh nhân dân"
+    },
     "isLoop": {
       "label": "Lặp danh sách phát"
-    },
-    "isLuka": {
-      "label": "Luka đọc các mẫu"
     },
     "isMyMesha": {
       "label": "Tôi là Mesha"
     },
     "isReverse": {
       "label": "Thứ tự ngược"
+    },
+    "isSegmented": {
+      "label": "Phân đoạn"
     },
     "labelContent": {
       "label": "Hiển thị",
@@ -92,17 +93,11 @@
     "labelSize": {
       "label": "Kích thước nhãn"
     },
+    "light": {
+      "label": "Ánh"
+    },
     "maxSiblingSpread": {
       "label": "Độ phân tán màu sắc anh chị em"
-    },
-    "lightDecay": {
-      "label": "Suy giảm"
-    },
-    "lightDistance": {
-      "label": "Khoảng cách"
-    },
-    "lightIntensity": {
-      "label": "Cường độ"
     },
     "meshaSize": {
       "label": "Kích thước Mesha"
@@ -115,6 +110,9 @@
     },
     "noseSize": {
       "label": "Kích thước mũi"
+    },
+    "showMore": {
+      "label": "Hiển thị thêm"
     },
     "showsVideoPreviews": {
       "label": "Xem trước bản gốc"
@@ -130,25 +128,16 @@
         "morphology": "Hình thái học",
         "nounClassCount": "Lớp danh từ",
         "phonemeCount": "Số lượng âm vị",
+        "scripts": "Scripts",
         "speakers": "Số người nói",
         "tonality": "Tính thanh điệu",
         "verbAspect": "Thể động từ",
         "wordOrder": "Trật tự từ",
-        "wordOrderFlexibility": "Độ linh hoạt trật tự từ",
-        "scripts": "Scripts"
+        "wordOrderFlexibility": "Độ linh hoạt trật tự từ"
       }
     },
     "sphereRadius": {
       "label": "Bán kính hình cầu"
-    },
-    "stageLightDecay": {
-      "label": "Suy giảm"
-    },
-    "stageLightDistance": {
-      "label": "Khoảng cách"
-    },
-    "stageLightIntensity": {
-      "label": "Cường độ"
     },
     "switchDuration": {
       "label": "Thời gian chuyển đổi"
@@ -161,15 +150,6 @@
     },
     "zoomDistance": {
       "label": "Khoảng cách thu phóng"
-    },
-    "isSegmented": {
-      "label": "Phân đoạn"
-    },
-    "showMore": {
-      "label": "Hiển thị thêm"
-    },
-    "irrationality": {
-      "label": "Phi lý"
     }
   },
   "filters": {
@@ -177,6 +157,10 @@
     "allowMultipleChoices": "Cho phép chọn nhiều",
     "results": "Kết quả lọc ({count})",
     "title": "Lọc theo"
+  },
+  "idCard": {
+    "opensInNewTab": "mở trong tab mới",
+    "sourceVideo": "Video nguồn"
   },
   "linguistic": {
     "caseCount": {
@@ -452,8 +436,12 @@
   },
   "menu": {
     "close": "Đóng menu",
-    "open": "Mở menu",
-    "languageSelector": "Ngôn ngữ ứng dụng"
+    "languageSelector": "Ngôn ngữ ứng dụng",
+    "open": "Mở menu"
+  },
+  "overlay": {
+    "emptyFilter": "Không có ngôn ngữ nào cho tổ hợp bộ lọc đó. Bạn có thể đã chọn quá nhiều bộ lọc.",
+    "slogan": "Bạn biết càng nhiều ngôn ngữ, bạn càng có giá trị bằng nhiều con người."
   },
   "playlist": {
     "controls": "Điều khiển danh sách phát",
@@ -461,9 +449,9 @@
     "next": "Bài tiếp theo (phím mũi tên phải)",
     "pause": "Tạm dừng",
     "play": "Phát",
-    "stop": "Dừng",
     "previous": "Bài trước (phím mũi tên trái)",
     "progress": "{current} / {total}",
+    "stop": "Dừng",
     "toggleLoop": "Bật/tắt lặp (phím L)"
   },
   "search": {
@@ -479,13 +467,5 @@
     "filters": "Bộ lọc",
     "languages": "Ngôn ngữ",
     "search": "Tìm kiếm"
-  },
-  "overlay": {
-    "slogan": "Bạn biết càng nhiều ngôn ngữ, bạn càng có giá trị bằng nhiều con người.",
-    "emptyFilter": "Không có ngôn ngữ nào cho tổ hợp bộ lọc đó. Bạn có thể đã chọn quá nhiều bộ lọc."
-  },
-  "idCard": {
-    "sourceVideo": "Video nguồn",
-    "opensInNewTab": "mở trong tab mới"
   }
 }

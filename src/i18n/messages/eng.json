@@ -59,8 +59,7 @@
       "colors": "Colors",
       "mesha": "Mesha",
       "motion": "Motion",
-      "scene": "Scene",
-      "stageLight": "Stage light"
+      "scene": "Scene"
     },
     "showMore": {
       "label": "Show more"
@@ -76,9 +75,6 @@
     },
     "isLoop": {
       "label": "Loop playlist"
-    },
-    "isLuka": {
-      "label": "Luka reads samples"
     },
     "isMyMesha": {
       "label": "I am Mesha"
@@ -97,7 +93,9 @@
     "labelSize": {
       "label": "Label size"
     },
-    "light": { "label": "light" },
+    "light": {
+      "label": "light"
+    },
     "irrationality": {
       "label": "Irrationality"
     },
@@ -106,15 +104,6 @@
     },
     "maxSiblingSpread": {
       "label": "Sibling hue spread"
-    },
-    "lightDecay": {
-      "label": "Decay"
-    },
-    "lightDistance": {
-      "label": "Distance"
-    },
-    "lightIntensity": {
-      "label": "Intensity"
     },
     "meshaSize": {
       "label": "Mesha size"
@@ -163,15 +152,6 @@
     },
     "isSegmented": {
       "label": "Segmentation"
-    },
-    "stageLightDecay": {
-      "label": "Decay"
-    },
-    "stageLightDistance": {
-      "label": "Distance"
-    },
-    "stageLightIntensity": {
-      "label": "Intensity"
     },
     "switchDuration": {
       "label": "Switch duration"
@@ -471,7 +451,7 @@
     "close": "Close menu",
     "open": "Open menu",
     "languageSelector": "App language",
-    "isVisualOnly": "Visual only"
+    "isVisual": "Visual"
   },
   "playlist": {
     "controls": "Playlist controls",

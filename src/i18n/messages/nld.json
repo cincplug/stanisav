@@ -56,12 +56,7 @@
       "colors": "Kleuren",
       "mesha": "Mesha",
       "motion": "Beweging",
-      "scene": "Scène",
-      "stageLight": "Podiumlicht"
-    },
-    "light": { "label": "Licht" },
-    "isIdCardVisible": {
-      "label": "Identiteitskaart"
+      "scene": "Scène"
     },
     "hueCircle": {
       "label": "Kleurencirkel"
@@ -69,17 +64,23 @@
     "hueStart": {
       "label": "Kleurstart"
     },
+    "irrationality": {
+      "label": "Irrationaliteit"
+    },
+    "isIdCardVisible": {
+      "label": "Identiteitskaart"
+    },
     "isLoop": {
       "label": "Afspeellijst herhalen"
-    },
-    "isLuka": {
-      "label": "Luka leest voorbeelden"
     },
     "isMyMesha": {
       "label": "Ik ben Mesha"
     },
     "isReverse": {
       "label": "Omgekeerde volgorde"
+    },
+    "isSegmented": {
+      "label": "Segmentatie"
     },
     "labelContent": {
       "label": "Weergave",
@@ -92,17 +93,11 @@
     "labelSize": {
       "label": "Labelgrootte"
     },
+    "light": {
+      "label": "Licht"
+    },
     "maxSiblingSpread": {
       "label": "Spreiding tussen zusterknooppunten"
-    },
-    "lightDecay": {
-      "label": "Verval"
-    },
-    "lightDistance": {
-      "label": "Afstand"
-    },
-    "lightIntensity": {
-      "label": "Intensiteit"
     },
     "meshaSize": {
       "label": "Mesha-grootte"
@@ -115,6 +110,9 @@
     },
     "noseSize": {
       "label": "Neusgrootte"
+    },
+    "showMore": {
+      "label": "Meer weergeven"
     },
     "showsVideoPreviews": {
       "label": "Origineel voorbeeld"
@@ -130,25 +128,16 @@
         "morphology": "Morfologie",
         "nounClassCount": "Naamwoordklassen",
         "phonemeCount": "Aantal fonemen",
+        "scripts": "Schriften",
         "speakers": "Aantal sprekers",
         "tonality": "Tonaliteit",
         "verbAspect": "Werkwoordsaspect",
         "wordOrder": "Woordvolgorde",
-        "wordOrderFlexibility": "Flexibiliteit van woordvolgorde",
-        "scripts": "Schriften"
+        "wordOrderFlexibility": "Flexibiliteit van woordvolgorde"
       }
     },
     "sphereRadius": {
       "label": "Straal van de bol"
-    },
-    "stageLightDecay": {
-      "label": "Verval"
-    },
-    "stageLightDistance": {
-      "label": "Afstand"
-    },
-    "stageLightIntensity": {
-      "label": "Intensiteit"
     },
     "switchDuration": {
       "label": "Wisselduur"
@@ -161,15 +150,6 @@
     },
     "zoomDistance": {
       "label": "Zoomafstand"
-    },
-    "isSegmented": {
-      "label": "Segmentatie"
-    },
-    "showMore": {
-      "label": "Meer weergeven"
-    },
-    "irrationality": {
-      "label": "Irrationaliteit"
     }
   },
   "filters": {
@@ -177,6 +157,10 @@
     "allowMultipleChoices": "Meerdere keuzes toestaan",
     "results": "Filterresultaten ({count})",
     "title": "Filter op"
+  },
+  "idCard": {
+    "opensInNewTab": "opent in een nieuw tabblad",
+    "sourceVideo": "Bronvideo"
   },
   "linguistic": {
     "caseCount": {
@@ -452,8 +436,12 @@
   },
   "menu": {
     "close": "Menu sluiten",
-    "open": "Menu openen",
-    "languageSelector": "App-taal"
+    "languageSelector": "App-taal",
+    "open": "Menu openen"
+  },
+  "overlay": {
+    "emptyFilter": "Geen talen voor die filtercombinatie. Je hebt waarschijnlijk te veel filters geselecteerd.",
+    "slogan": "Hoe meer talen je spreekt, hoe meer je als mens waard bent."
   },
   "playlist": {
     "controls": "Afspeellijstbediening",
@@ -461,9 +449,9 @@
     "next": "Volgende track (rechterpijl)",
     "pause": "Pauze",
     "play": "Afspelen",
-    "stop": "Stop",
     "previous": "Vorige track (linkerpijl)",
     "progress": "{current} van {total}",
+    "stop": "Stop",
     "toggleLoop": "Herhalen aan/uit (L-toets)"
   },
   "search": {
@@ -479,13 +467,5 @@
     "filters": "Filters",
     "languages": "Talen",
     "search": "Zoeken"
-  },
-  "overlay": {
-    "slogan": "Hoe meer talen je spreekt, hoe meer je als mens waard bent.",
-    "emptyFilter": "Geen talen voor die filtercombinatie. Je hebt waarschijnlijk te veel filters geselecteerd."
-  },
-  "idCard": {
-    "sourceVideo": "Bronvideo",
-    "opensInNewTab": "opent in een nieuw tabblad"
   }
 }

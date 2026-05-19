@@ -56,12 +56,7 @@
       "colors": "நிறங்கள்",
       "mesha": "Mesha",
       "motion": "இயக்கம்",
-      "scene": "காட்சி",
-      "stageLight": "மேடை விளக்கு"
-    },
-    "light": { "label": "விளக்கு" },
-    "isIdCardVisible": {
-      "label": "அடையாள அட்டை"
+      "scene": "காட்சி"
     },
     "hueCircle": {
       "label": "வண்ண வட்டம்"
@@ -69,17 +64,23 @@
     "hueStart": {
       "label": "வண்ண தொடக்கம்"
     },
+    "irrationality": {
+      "label": "இர்ரேஷனாலிட்டி"
+    },
+    "isIdCardVisible": {
+      "label": "அடையாள அட்டை"
+    },
     "isLoop": {
       "label": "இசைப்பட்டியல் மீண்டும் இயக்கு"
-    },
-    "isLuka": {
-      "label": "Luka மாதிரிகளை படிக்கிறார்"
     },
     "isMyMesha": {
       "label": "நான் Mesha"
     },
     "isReverse": {
       "label": "தலைகீழ் வரிசை"
+    },
+    "isSegmented": {
+      "label": "பிரித்தல்"
     },
     "labelContent": {
       "label": "காட்சி",
@@ -92,17 +93,11 @@
     "labelSize": {
       "label": "லேபிள் அளவு"
     },
+    "light": {
+      "label": "விளக்கு"
+    },
     "maxSiblingSpread": {
       "label": "உடன்பிறப்பு வண்ண பரவல்"
-    },
-    "lightDecay": {
-      "label": "சரிவு"
-    },
-    "lightDistance": {
-      "label": "தூரம்"
-    },
-    "lightIntensity": {
-      "label": "தீவிரம்"
     },
     "meshaSize": {
       "label": "Mesha அளவு"
@@ -115,6 +110,9 @@
     },
     "noseSize": {
       "label": "மூக்கு அளவு"
+    },
+    "showMore": {
+      "label": "மேலும் காண்பி"
     },
     "showsVideoPreviews": {
       "label": "அசல் முன்னோட்டம்"
@@ -130,25 +128,16 @@
         "morphology": "சொல்லமைப்பியல்",
         "nounClassCount": "பெயர்ச்சொல் வகுப்பு",
         "phonemeCount": "ஒலியன் எண்ணிக்கை",
+        "scripts": "எழுத்து முறைகள்",
         "speakers": "பேசுவோர் எண்ணிக்கை",
         "tonality": "இசைத்தன்மை",
         "verbAspect": "வினைத் தன்மை",
         "wordOrder": "சொல் வரிசை",
-        "wordOrderFlexibility": "சொல் வரிசை நெகிழ்வுத்தன்மை",
-        "scripts": "எழுத்து முறைகள்"
+        "wordOrderFlexibility": "சொல் வரிசை நெகிழ்வுத்தன்மை"
       }
     },
     "sphereRadius": {
       "label": "கோள ஆரம்"
-    },
-    "stageLightDecay": {
-      "label": "சரிவு"
-    },
-    "stageLightDistance": {
-      "label": "தூரம்"
-    },
-    "stageLightIntensity": {
-      "label": "தீவிரம்"
     },
     "switchDuration": {
       "label": "மாற்று கால அளவு"
@@ -161,15 +150,6 @@
     },
     "zoomDistance": {
       "label": "மேலோட்ட தூரம்"
-    },
-    "isSegmented": {
-      "label": "பிரித்தல்"
-    },
-    "showMore": {
-      "label": "மேலும் காண்பி"
-    },
-    "irrationality": {
-      "label": "இர்ரேஷனாலிட்டி"
     }
   },
   "filters": {
@@ -177,6 +157,10 @@
     "allowMultipleChoices": "பல தேர்வுகளை அனுமதி",
     "results": "வடிகட்டல் முடிவுகள் ({count})",
     "title": "வடிகட்டு"
+  },
+  "idCard": {
+    "opensInNewTab": "புதிய தாவலில் திறக்கிறது",
+    "sourceVideo": "மூல வீடியோ"
   },
   "linguistic": {
     "caseCount": {
@@ -452,8 +436,12 @@
   },
   "menu": {
     "close": "பட்டியலை மூடு",
-    "open": "பட்டியலை திற",
-    "languageSelector": "அப்பிளிக்கேஷன் மொழி"
+    "languageSelector": "அப்பிளிக்கேஷன் மொழி",
+    "open": "பட்டியலை திற"
+  },
+  "overlay": {
+    "emptyFilter": "அந்த வடிகட்டல் சேர்க்கைக்கு மொழிகள் எதுவும் இல்லை. நீங்கள் அதிகமான வடிகட்டிகளை தேர்ந்தெடுத்திருக்கலாம்.",
+    "slogan": "நீங்கள் எவ்வளவு அதிக மொழிகள் அறிவீர்களோ, அவ்வளவு அதிக மனிதர்களின் மதிப்பு உங்களுக்கு உண்டு."
   },
   "playlist": {
     "controls": "இசைப்பட்டியல் கட்டுப்பாடுகள்",
@@ -461,9 +449,9 @@
     "next": "அடுத்த பாடல் (வலது அம்பு)",
     "pause": "இடைநிறுத்து",
     "play": "இயக்கு",
-    "stop": "நிறுத்து",
     "previous": "முந்தைய பாடல் (இடது அம்பு)",
     "progress": "{current} / {total}",
+    "stop": "நிறுத்து",
     "toggleLoop": "மீண்டும் இயக்கு மாற்று (L விசை)"
   },
   "search": {
@@ -479,13 +467,5 @@
     "filters": "வடிகட்டிகள்",
     "languages": "மொழிகள்",
     "search": "தேடு"
-  },
-  "overlay": {
-    "slogan": "நீங்கள் எவ்வளவு அதிக மொழிகள் அறிவீர்களோ, அவ்வளவு அதிக மனிதர்களின் மதிப்பு உங்களுக்கு உண்டு.",
-    "emptyFilter": "அந்த வடிகட்டல் சேர்க்கைக்கு மொழிகள் எதுவும் இல்லை. நீங்கள் அதிகமான வடிகட்டிகளை தேர்ந்தெடுத்திருக்கலாம்."
-  },
-  "idCard": {
-    "sourceVideo": "மூல வீடியோ",
-    "opensInNewTab": "புதிய தாவலில் திறக்கிறது"
   }
 }

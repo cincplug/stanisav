@@ -56,12 +56,7 @@
       "colors": "Rangi",
       "mesha": "Mesha",
       "motion": "Mwendo",
-      "scene": "Eneo",
-      "stageLight": "Mwanga wa jukwaa"
-    },
-    "light": { "label": "Mwanga" },
-    "isIdCardVisible": {
-      "label": "Kitambulisho"
+      "scene": "Eneo"
     },
     "hueCircle": {
       "label": "Mzunguko wa rangi"
@@ -69,17 +64,23 @@
     "hueStart": {
       "label": "Mwanzo wa tani ya rangi"
     },
+    "irrationality": {
+      "label": "Ujinga"
+    },
+    "isIdCardVisible": {
+      "label": "Kitambulisho"
+    },
     "isLoop": {
       "label": "Rudia orodha ya kucheza"
-    },
-    "isLuka": {
-      "label": "Luka anasoma mifano"
     },
     "isMyMesha": {
       "label": "Mimi ni Mesha"
     },
     "isReverse": {
       "label": "Mpangilio wa nyuma"
+    },
+    "isSegmented": {
+      "label": "Mgawanyiko"
     },
     "labelContent": {
       "label": "Onyesha",
@@ -92,17 +93,11 @@
     "labelSize": {
       "label": "Ukubwa wa lebo"
     },
+    "light": {
+      "label": "Mwanga"
+    },
     "maxSiblingSpread": {
       "label": "Utawanyiko wa rangi ya ndugu"
-    },
-    "lightDecay": {
-      "label": "Upunguzaji"
-    },
-    "lightDistance": {
-      "label": "Umbali"
-    },
-    "lightIntensity": {
-      "label": "Nguvu"
     },
     "meshaSize": {
       "label": "Ukubwa wa Mesha"
@@ -115,6 +110,9 @@
     },
     "noseSize": {
       "label": "Ukubwa wa pua"
+    },
+    "showMore": {
+      "label": "Onyesha zaidi"
     },
     "showsVideoPreviews": {
       "label": "Hakiki asili"
@@ -130,25 +128,16 @@
         "morphology": "Mofolojia",
         "nounClassCount": "Madarasa ya nomino",
         "phonemeCount": "Idadi ya fonimu",
+        "scripts": "Maandishi",
         "speakers": "Idadi ya wasemaji",
         "tonality": "Utonali",
         "verbAspect": "Kipengele cha kitenzi",
         "wordOrder": "Mpangilio wa maneno",
-        "wordOrderFlexibility": "Kubadilika kwa mpangilio wa maneno",
-        "scripts": "Maandishi"
+        "wordOrderFlexibility": "Kubadilika kwa mpangilio wa maneno"
       }
     },
     "sphereRadius": {
       "label": "Radi ya tufe"
-    },
-    "stageLightDecay": {
-      "label": "Upunguzaji"
-    },
-    "stageLightDistance": {
-      "label": "Umbali"
-    },
-    "stageLightIntensity": {
-      "label": "Nguvu"
     },
     "switchDuration": {
       "label": "Muda wa kubadilisha"
@@ -161,15 +150,6 @@
     },
     "zoomDistance": {
       "label": "Umbali wa kukuza"
-    },
-    "isSegmented": {
-      "label": "Mgawanyiko"
-    },
-    "showMore": {
-      "label": "Onyesha zaidi"
-    },
-    "irrationality": {
-      "label": "Ujinga"
     }
   },
   "filters": {
@@ -177,6 +157,10 @@
     "allowMultipleChoices": "Ruhusu chaguo nyingi",
     "results": "Matokeo ya kichujio ({count})",
     "title": "Chuja kulingana na"
+  },
+  "idCard": {
+    "opensInNewTab": "inafungua katika kichupo kipya",
+    "sourceVideo": "Video chanzo"
   },
   "linguistic": {
     "caseCount": {
@@ -452,8 +436,12 @@
   },
   "menu": {
     "close": "Funga menyu",
-    "open": "Fungua menyu",
-    "languageSelector": "Lugha ya programu"
+    "languageSelector": "Lugha ya programu",
+    "open": "Fungua menyu"
+  },
+  "overlay": {
+    "emptyFilter": "Hakuna lugha kwa mchanganyiko huo wa vichujio. Labda umechagua vichujio vingi mno.",
+    "slogan": "Kadiri unavyojua lugha nyingi, ndivyo unavyokuwa na thamani ya watu wengi zaidi."
   },
   "playlist": {
     "controls": "Udhibiti wa orodha ya kucheza",
@@ -461,9 +449,9 @@
     "next": "Wimbo unaofuata (mshale wa kulia)",
     "pause": "Simamisha",
     "play": "Cheza",
-    "stop": "Simamisha kabisa",
     "previous": "Wimbo uliotangulia (mshale wa kushoto)",
     "progress": "{current} kati ya {total}",
+    "stop": "Simamisha kabisa",
     "toggleLoop": "Badilisha kurudia (kitufe cha L)"
   },
   "search": {
@@ -479,13 +467,5 @@
     "filters": "Vichujio",
     "languages": "Lugha",
     "search": "Tafuta"
-  },
-  "overlay": {
-    "slogan": "Kadiri unavyojua lugha nyingi, ndivyo unavyokuwa na thamani ya watu wengi zaidi.",
-    "emptyFilter": "Hakuna lugha kwa mchanganyiko huo wa vichujio. Labda umechagua vichujio vingi mno."
-  },
-  "idCard": {
-    "sourceVideo": "Video chanzo",
-    "opensInNewTab": "inafungua katika kichupo kipya"
   }
 }

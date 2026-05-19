@@ -56,12 +56,7 @@
       "colors": "رنگ‌ها",
       "mesha": "Mesha",
       "motion": "حرکت",
-      "scene": "صحنه",
-      "stageLight": "نور صحنه"
-    },
-    "light": { "label": "نور" },
-    "isIdCardVisible": {
-      "label": "کارت شناسایی"
+      "scene": "صحنه"
     },
     "hueCircle": {
       "label": "چرخه رنگ"
@@ -69,17 +64,23 @@
     "hueStart": {
       "label": "شروع رنگ"
     },
+    "irrationality": {
+      "label": "غیرمنطقی بودن"
+    },
+    "isIdCardVisible": {
+      "label": "کارت شناسایی"
+    },
     "isLoop": {
       "label": "تکرار پلی‌لیست"
-    },
-    "isLuka": {
-      "label": "Luka نمونه‌ها را می‌خواند"
     },
     "isMyMesha": {
       "label": "من Mesha هستم"
     },
     "isReverse": {
       "label": "ترتیب معکوس"
+    },
+    "isSegmented": {
+      "label": "بخش‌بندی"
     },
     "labelContent": {
       "label": "نمایش",
@@ -92,17 +93,11 @@
     "labelSize": {
       "label": "اندازه برچسب"
     },
+    "light": {
+      "label": "نور"
+    },
     "maxSiblingSpread": {
       "label": "پراکندگی رنگ عناصر هم‌رده"
-    },
-    "lightDecay": {
-      "label": "افت"
-    },
-    "lightDistance": {
-      "label": "فاصله"
-    },
-    "lightIntensity": {
-      "label": "شدت"
     },
     "meshaSize": {
       "label": "اندازه Mesha"
@@ -115,6 +110,9 @@
     },
     "noseSize": {
       "label": "اندازه بینی"
+    },
+    "showMore": {
+      "label": "نمایش بیشتر"
     },
     "showsVideoPreviews": {
       "label": "پیش‌نمایش اصل"
@@ -130,25 +128,16 @@
         "morphology": "ریخت‌شناسی",
         "nounClassCount": "رده‌های اسمی",
         "phonemeCount": "تعداد واج‌ها",
+        "scripts": "خط‌ها",
         "speakers": "تعداد گویشوران",
         "tonality": "لحن‌داری",
         "verbAspect": "وجه فعل",
         "wordOrder": "ترتیب کلمات",
-        "wordOrderFlexibility": "انعطاف‌پذیری ترتیب کلمات",
-        "scripts": "خط‌ها"
+        "wordOrderFlexibility": "انعطاف‌پذیری ترتیب کلمات"
       }
     },
     "sphereRadius": {
       "label": "شعاع کره"
-    },
-    "stageLightDecay": {
-      "label": "افت"
-    },
-    "stageLightDistance": {
-      "label": "فاصله"
-    },
-    "stageLightIntensity": {
-      "label": "شدت"
     },
     "switchDuration": {
       "label": "مدت زمان تغییر"
@@ -161,15 +150,6 @@
     },
     "zoomDistance": {
       "label": "فاصله زوم"
-    },
-    "isSegmented": {
-      "label": "بخش‌بندی"
-    },
-    "showMore": {
-      "label": "نمایش بیشتر"
-    },
-    "irrationality": {
-      "label": "غیرمنطقی بودن"
     }
   },
   "filters": {
@@ -177,6 +157,10 @@
     "allowMultipleChoices": "اجازه انتخاب چندگانه",
     "results": "نتایج فیلتر ({count})",
     "title": "فیلتر بر اساس"
+  },
+  "idCard": {
+    "opensInNewTab": "در تب جدید باز می‌شود",
+    "sourceVideo": "ویدیوی منبع"
   },
   "linguistic": {
     "caseCount": {
@@ -452,8 +436,12 @@
   },
   "menu": {
     "close": "بستن منو",
-    "open": "باز کردن منو",
-    "languageSelector": "زبان برنامه"
+    "languageSelector": "زبان برنامه",
+    "open": "باز کردن منو"
+  },
+  "overlay": {
+    "emptyFilter": "هیچ زبانی برای این ترکیب فیلتر وجود ندارد. احتمالاً فیلترهای زیادی انتخاب کرده‌اید.",
+    "slogan": "هر چه زبان‌های بیشتری بدانی، به اندازه انسان‌های بیشتری ارزش داری."
   },
   "playlist": {
     "controls": "کنترل‌های پلی‌لیست",
@@ -461,9 +449,9 @@
     "next": "آهنگ بعدی (فلش راست)",
     "pause": "مکث",
     "play": "پخش",
-    "stop": "توقف",
     "previous": "آهنگ قبلی (فلش چپ)",
     "progress": "{current} از {total}",
+    "stop": "توقف",
     "toggleLoop": "تغییر حالت تکرار (کلید L)"
   },
   "search": {
@@ -479,13 +467,5 @@
     "filters": "فیلترها",
     "languages": "زبان‌ها",
     "search": "جستجو"
-  },
-  "overlay": {
-    "slogan": "هر چه زبان‌های بیشتری بدانی، به اندازه انسان‌های بیشتری ارزش داری.",
-    "emptyFilter": "هیچ زبانی برای این ترکیب فیلتر وجود ندارد. احتمالاً فیلترهای زیادی انتخاب کرده‌اید."
-  },
-  "idCard": {
-    "sourceVideo": "ویدیوی منبع",
-    "opensInNewTab": "در تب جدید باز می‌شود"
   }
 }

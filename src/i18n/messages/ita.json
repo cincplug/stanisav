@@ -56,12 +56,7 @@
       "colors": "Colori",
       "mesha": "Mesha",
       "motion": "Movimento",
-      "scene": "Scena",
-      "stageLight": "Luce di scena"
-    },
-    "light": { "label": "Luce" },
-    "isIdCardVisible": {
-      "label": "Carta d'identità"
+      "scene": "Scena"
     },
     "hueCircle": {
       "label": "Cerchio tonalità"
@@ -69,17 +64,23 @@
     "hueStart": {
       "label": "Tonalità iniziale"
     },
+    "irrationality": {
+      "label": "Irrazionalità"
+    },
+    "isIdCardVisible": {
+      "label": "Carta d'identità"
+    },
     "isLoop": {
       "label": "Ripeti playlist"
-    },
-    "isLuka": {
-      "label": "Luka legge gli esempi"
     },
     "isMyMesha": {
       "label": "Sono Mesha"
     },
     "isReverse": {
       "label": "Ordine inverso"
+    },
+    "isSegmented": {
+      "label": "Segmentazione"
     },
     "labelContent": {
       "label": "Visualizzazione",
@@ -92,17 +93,11 @@
     "labelSize": {
       "label": "Dimensione etichetta"
     },
+    "light": {
+      "label": "Luce"
+    },
     "maxSiblingSpread": {
       "label": "Dispersione tonalità affini"
-    },
-    "lightDecay": {
-      "label": "Decadimento"
-    },
-    "lightDistance": {
-      "label": "Distanza"
-    },
-    "lightIntensity": {
-      "label": "Intensità"
     },
     "meshaSize": {
       "label": "Dimensione di Mesha"
@@ -115,6 +110,9 @@
     },
     "noseSize": {
       "label": "Dimensione naso"
+    },
+    "showMore": {
+      "label": "Mostra di più"
     },
     "showsVideoPreviews": {
       "label": "Anteprima originale"
@@ -130,25 +128,16 @@
         "morphology": "Morfologia",
         "nounClassCount": "Classi nominali",
         "phonemeCount": "Numero di fonemi",
+        "scripts": "Scritture",
         "speakers": "Numero di parlanti",
         "tonality": "Tonalità",
         "verbAspect": "Aspetto verbale",
         "wordOrder": "Ordine delle parole",
-        "wordOrderFlexibility": "Flessibilità dell'ordine delle parole",
-        "scripts": "Scritture"
+        "wordOrderFlexibility": "Flessibilità dell'ordine delle parole"
       }
     },
     "sphereRadius": {
       "label": "Raggio della sfera"
-    },
-    "stageLightDecay": {
-      "label": "Decadimento"
-    },
-    "stageLightDistance": {
-      "label": "Distanza"
-    },
-    "stageLightIntensity": {
-      "label": "Intensità"
     },
     "switchDuration": {
       "label": "Durata transizione"
@@ -161,15 +150,6 @@
     },
     "zoomDistance": {
       "label": "Distanza zoom"
-    },
-    "isSegmented": {
-      "label": "Segmentazione"
-    },
-    "showMore": {
-      "label": "Mostra di più"
-    },
-    "irrationality": {
-      "label": "Irrazionalità"
     }
   },
   "filters": {
@@ -177,6 +157,10 @@
     "allowMultipleChoices": "Consenti scelte multiple",
     "results": "Risultati filtro ({count})",
     "title": "Filtra per"
+  },
+  "idCard": {
+    "opensInNewTab": "si apre in una nuova scheda",
+    "sourceVideo": "Video sorgente"
   },
   "linguistic": {
     "caseCount": {
@@ -452,8 +436,12 @@
   },
   "menu": {
     "close": "Chiudi menu",
-    "open": "Apri menu",
-    "languageSelector": "Lingua dell'app"
+    "languageSelector": "Lingua dell'app",
+    "open": "Apri menu"
+  },
+  "overlay": {
+    "emptyFilter": "Nessuna lingua per questa combinazione di filtri. Probabilmente hai selezionato troppi filtri.",
+    "slogan": "Quante lingue conosci, tante volte sei persona."
   },
   "playlist": {
     "controls": "Controlli playlist",
@@ -462,8 +450,8 @@
     "pause": "Pausa",
     "play": "Riproduci",
     "previous": "Brano precedente (freccia sinistra)",
-    "stop": "Ferma",
     "progress": "{current} di {total}",
+    "stop": "Ferma",
     "toggleLoop": "Attiva/disattiva ripetizione (tasto L)"
   },
   "search": {
@@ -479,13 +467,5 @@
     "filters": "Filtri",
     "languages": "Lingue",
     "search": "Cerca"
-  },
-  "overlay": {
-    "slogan": "Quante lingue conosci, tante volte sei persona.",
-    "emptyFilter": "Nessuna lingua per questa combinazione di filtri. Probabilmente hai selezionato troppi filtri."
-  },
-  "idCard": {
-    "sourceVideo": "Video sorgente",
-    "opensInNewTab": "si apre in una nuova scheda"
   }
 }

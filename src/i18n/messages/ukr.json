@@ -56,12 +56,7 @@
       "colors": "Кольори",
       "mesha": "Меша",
       "motion": "Рух",
-      "scene": "Сцена",
-      "stageLight": "Сценічне світло"
-    },
-    "light": { "label": "Світло" },
-    "isIdCardVisible": {
-      "label": "Посвідчення особи"
+      "scene": "Сцена"
     },
     "hueCircle": {
       "label": "Коло відтінків"
@@ -69,17 +64,23 @@
     "hueStart": {
       "label": "Початковий відтінок"
     },
+    "irrationality": {
+      "label": "Ірраціональність"
+    },
+    "isIdCardVisible": {
+      "label": "Посвідчення особи"
+    },
     "isLoop": {
       "label": "Повторювати список"
-    },
-    "isLuka": {
-      "label": "Лука читає приклади"
     },
     "isMyMesha": {
       "label": "Я — Меша"
     },
     "isReverse": {
       "label": "Зворотний порядок"
+    },
+    "isSegmented": {
+      "label": "Сегментація"
     },
     "labelContent": {
       "label": "Відображення",
@@ -92,17 +93,11 @@
     "labelSize": {
       "label": "Розмір мітки"
     },
+    "light": {
+      "label": "Світло"
+    },
     "maxSiblingSpread": {
       "label": "Розкид відтінків споріднених"
-    },
-    "lightDecay": {
-      "label": "Згасання"
-    },
-    "lightDistance": {
-      "label": "Відстань"
-    },
-    "lightIntensity": {
-      "label": "Інтенсивність"
     },
     "meshaSize": {
       "label": "Розмір Меші"
@@ -115,6 +110,9 @@
     },
     "noseSize": {
       "label": "Розмір носа"
+    },
+    "showMore": {
+      "label": "Показати більше"
     },
     "showsVideoPreviews": {
       "label": "Попередній перегляд оригіналу"
@@ -130,25 +128,16 @@
         "morphology": "Морфологія",
         "nounClassCount": "Іменникові класи",
         "phonemeCount": "Фонеми",
+        "scripts": "Письмо",
         "speakers": "Носії",
         "tonality": "Тональність",
         "verbAspect": "Вид дієслова",
         "wordOrder": "Порядок слів",
-        "wordOrderFlexibility": "Гнучкість порядку слів",
-        "scripts": "Письмо"
+        "wordOrderFlexibility": "Гнучкість порядку слів"
       }
     },
     "sphereRadius": {
       "label": "Радіус сфери"
-    },
-    "stageLightDecay": {
-      "label": "Згасання"
-    },
-    "stageLightDistance": {
-      "label": "Відстань"
-    },
-    "stageLightIntensity": {
-      "label": "Інтенсивність"
     },
     "switchDuration": {
       "label": "Тривалість переходу"
@@ -161,15 +150,6 @@
     },
     "zoomDistance": {
       "label": "Відстань масштабування"
-    },
-    "isSegmented": {
-      "label": "Сегментація"
-    },
-    "showMore": {
-      "label": "Показати більше"
-    },
-    "irrationality": {
-      "label": "Ірраціональність"
     }
   },
   "filters": {
@@ -177,6 +157,10 @@
     "allowMultipleChoices": "Дозволити множинний вибір",
     "results": "Результати фільтру ({count})",
     "title": "Фільтрувати за"
+  },
+  "idCard": {
+    "opensInNewTab": "відкривається в новій вкладці",
+    "sourceVideo": "Відео-джерело"
   },
   "linguistic": {
     "caseCount": {
@@ -452,8 +436,12 @@
   },
   "menu": {
     "close": "Закрити меню",
-    "open": "Відкрити меню",
-    "languageSelector": "Мова застосунку"
+    "languageSelector": "Мова застосунку",
+    "open": "Відкрити меню"
+  },
+  "overlay": {
+    "emptyFilter": "Немає мов для такої комбінації фільтрів. Ймовірно, вибрано забагато фільтрів.",
+    "slogan": "Скільки мов ти знаєш, стільки разів ти людина."
   },
   "playlist": {
     "controls": "Керування списком",
@@ -462,8 +450,8 @@
     "pause": "Пауза",
     "play": "Відтворити",
     "previous": "Попередній трек (стрілка вліво)",
-    "stop": "Зупинити",
     "progress": "{current} з {total}",
+    "stop": "Зупинити",
     "toggleLoop": "Увімкнути/вимкнути повтор (клавіша L)"
   },
   "search": {
@@ -479,13 +467,5 @@
     "filters": "Фільтри",
     "languages": "Мови",
     "search": "Пошук"
-  },
-  "overlay": {
-    "slogan": "Скільки мов ти знаєш, стільки разів ти людина.",
-    "emptyFilter": "Немає мов для такої комбінації фільтрів. Ймовірно, вибрано забагато фільтрів."
-  },
-  "idCard": {
-    "sourceVideo": "Відео-джерело",
-    "opensInNewTab": "відкривається в новій вкладці"
   }
 }

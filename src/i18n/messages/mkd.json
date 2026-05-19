@@ -56,12 +56,7 @@
       "colors": "Бои",
       "mesha": "Меша",
       "motion": "Движење",
-      "scene": "Сцена",
-      "stageLight": "Сценска светлина"
-    },
-    "light": { "label": "Светлина" },
-    "isIdCardVisible": {
-      "label": "Лична карта"
+      "scene": "Сцена"
     },
     "hueCircle": {
       "label": "Круг на нијанси"
@@ -69,17 +64,23 @@
     "hueStart": {
       "label": "Почетна нијанса"
     },
+    "irrationality": {
+      "label": "Ирационалност"
+    },
+    "isIdCardVisible": {
+      "label": "Лична карта"
+    },
     "isLoop": {
       "label": "Петља на плејлистата"
-    },
-    "isLuka": {
-      "label": "Лука ги чита примерите"
     },
     "isMyMesha": {
       "label": "Јас сум Меша"
     },
     "isReverse": {
       "label": "Обратен редослед"
+    },
+    "isSegmented": {
+      "label": "Сегментација"
     },
     "labelContent": {
       "label": "Приказ",
@@ -92,17 +93,11 @@
     "labelSize": {
       "label": "Големина на ознаката"
     },
+    "light": {
+      "label": "Светлина"
+    },
     "maxSiblingSpread": {
       "label": "Распон на нијанси на сродни"
-    },
-    "lightDecay": {
-      "label": "Опаѓање"
-    },
-    "lightDistance": {
-      "label": "Оддалеченост"
-    },
-    "lightIntensity": {
-      "label": "Интензитет"
     },
     "meshaSize": {
       "label": "Мешина големина"
@@ -115,6 +110,9 @@
     },
     "noseSize": {
       "label": "Големина на носот"
+    },
+    "showMore": {
+      "label": "Прикажи повеќе"
     },
     "showsVideoPreviews": {
       "label": "Преглед на оригинал"
@@ -130,25 +128,16 @@
         "morphology": "Морфологија",
         "nounClassCount": "Именски класи",
         "phonemeCount": "Број на фонеми",
+        "scripts": "Писма",
         "speakers": "Број на говорници",
         "tonality": "Тоналност",
         "verbAspect": "Глаголски вид",
         "wordOrder": "Ред на зборови",
-        "wordOrderFlexibility": "Флексибилност на редот на зборови",
-        "scripts": "Писма"
+        "wordOrderFlexibility": "Флексибилност на редот на зборови"
       }
     },
     "sphereRadius": {
       "label": "Полупречник на сферата"
-    },
-    "stageLightDecay": {
-      "label": "Опаѓање"
-    },
-    "stageLightDistance": {
-      "label": "Оддалеченост"
-    },
-    "stageLightIntensity": {
-      "label": "Интензитет"
     },
     "switchDuration": {
       "label": "Траење на преодот"
@@ -161,15 +150,6 @@
     },
     "zoomDistance": {
       "label": "Оддалеченост на зумот"
-    },
-    "isSegmented": {
-      "label": "Сегментација"
-    },
-    "showMore": {
-      "label": "Прикажи повеќе"
-    },
-    "irrationality": {
-      "label": "Ирационалност"
     }
   },
   "filters": {
@@ -177,6 +157,10 @@
     "allowMultipleChoices": "Дозволи повеќе избори",
     "results": "Резултати на филтерот ({count})",
     "title": "Филтрирај по"
+  },
+  "idCard": {
+    "opensInNewTab": "се отвора во ново јазиче",
+    "sourceVideo": "Изворно видео"
   },
   "linguistic": {
     "caseCount": {
@@ -452,8 +436,12 @@
   },
   "menu": {
     "close": "Затвори мени",
-    "open": "Отвори мени",
-    "languageSelector": "Јазик на апликацијата"
+    "languageSelector": "Јазик на апликацијата",
+    "open": "Отвори мени"
+  },
+  "overlay": {
+    "emptyFilter": "Нема јазици за таа комбинација на филтри. Веројатно избра премногу филтри.",
+    "slogan": "Колку јазици знаеш, толку пати вредиш како човек."
   },
   "playlist": {
     "controls": "Контроли на плејлистата",
@@ -461,9 +449,9 @@
     "next": "Следна нумера (стрелка десно)",
     "pause": "Пауза",
     "play": "Репродуцирај",
-    "stop": "Стоп",
     "previous": "Претходна нумера (стрелка лево)",
     "progress": "{current} од {total}",
+    "stop": "Стоп",
     "toggleLoop": "Вклучи/исклучи петља (тастер L)"
   },
   "search": {
@@ -479,13 +467,5 @@
     "filters": "Филтри",
     "languages": "Јазици",
     "search": "Барај"
-  },
-  "overlay": {
-    "slogan": "Колку јазици знаеш, толку пати вредиш како човек.",
-    "emptyFilter": "Нема јазици за таа комбинација на филтри. Веројатно избра премногу филтри."
-  },
-  "idCard": {
-    "sourceVideo": "Изворно видео",
-    "opensInNewTab": "се отвора во ново јазиче"
   }
 }
