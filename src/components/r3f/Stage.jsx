@@ -2,7 +2,6 @@ import SceneReadyGate from "./SceneReadyGate";
 import { useMemo, useRef, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { useSpring } from "@react-spring/three";
 import { useControls } from "../../contexts/ControlsContext";
 import { useAppState } from "../../contexts/AppStateContext";
 import { useI18n } from "../../contexts/I18nContext";
@@ -58,8 +57,6 @@ const Stage = ({
     labelContent,
     isReverse,
     isSegmented,
-    stageLightDistance,
-    stageLightDecay,
     irrationality,
     globeSpiralAxis,
     zoomDistance,
@@ -180,7 +177,7 @@ const Stage = ({
       ];
     }
 
-    return [0, 0, sphereRadius];
+    return [0, sphereRadius, 0];
   }, [selectedLanguage, formattedPositions]);
 
   const hasSelectedFilters = Object.keys(filteringUtils).length > 0;
@@ -188,15 +185,6 @@ const Stage = ({
     (code) => languageFilterStatus[code]?.isVisible,
   );
   const showEmptyMessage = hasSelectedFilters && visibleLanguages.length === 0;
-
-  const { stageLightMultiplier } = useSpring({
-    stageLightMultiplier: !selectedLanguage || isSegmented ? 1 : 0,
-    config: { tension, friction },
-  });
-
-  const stageLightIntensity = stageLightMultiplier.to(
-    (m) => controls.stageLightIntensity * m,
-  );
 
   const hasDrawableScene =
     Boolean(meshaColor) &&
@@ -244,11 +232,12 @@ const Stage = ({
       />
 
       <StageLight
-        stageLightIntensity={stageLightIntensity}
-        stageLightDecay={stageLightDecay}
-        stageLightDistance={stageLightDistance}
         cameraZ={cameraZ}
         skipEntrance={skipLabelEntrance}
+        tension={tension}
+        friction={friction}
+        isSegmented={isSegmented}
+        selectedLanguage={selectedLanguage}
       />
 
       <Camera

@@ -1,19 +1,20 @@
 import { useRef } from "react";
 import { a, useSpring } from "@react-spring/three";
-import { useThree, useFrame } from "@react-three/fiber";
+import { useThree } from "@react-three/fiber";
 import sceneConfig from "../../config/sceneConfig.json";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 
-const { entranceDuration } = sceneConfig;
+const { entranceDuration, stageLight } = sceneConfig;
 
 const StageLight = ({
-  stageLightIntensity,
-  stageLightDecay,
-  stageLightDistance,
   cameraZ,
   skipEntrance,
+  tension,
+  friction,
+  isSegmented,
+  selectedLanguage,
 }) => {
-  const { camera } = useThree();
+  const { camera, controls: threeControls } = useThree();
   const lightRef = useRef();
 
   const { entranceProgress } = useSpring({
@@ -23,11 +24,35 @@ const StageLight = ({
     immediate: skipEntrance,
   });
 
+  const distanceKey =
+    isSegmented && selectedLanguage
+      ? "segmentedSelected"
+      : isSegmented
+        ? "segmented"
+        : selectedLanguage
+          ? "selected"
+          : "default";
+
+  const { animatedDistance } = useSpring({
+    animatedDistance: stageLight.distance[distanceKey],
+    config: { tension, friction },
+  });
+
   useThrottledFrame(() => {
-    if (lightRef.current) {
+    if (!lightRef.current) return;
+
+    const progress = entranceProgress.get();
+
+    if (isSegmented && threeControls?.target) {
+      const target = threeControls.target;
+      lightRef.current.position.set(
+        target.x * progress,
+        target.y * progress,
+        (target.z + cameraZ) * progress,
+      );
+    } else {
       const direction = camera.position.clone().normalize();
       const targetPosition = direction.multiplyScalar(cameraZ);
-      const progress = entranceProgress.get();
       lightRef.current.position.set(
         targetPosition.x * progress,
         targetPosition.y * progress,
@@ -39,9 +64,9 @@ const StageLight = ({
   return (
     <a.pointLight
       ref={lightRef}
-      intensity={stageLightIntensity}
-      decay={stageLightDecay}
-      distance={stageLightDistance}
+      intensity={stageLight.intensity}
+      decay={stageLight.decay}
+      distance={animatedDistance}
       color="#ffeedd"
     />
   );

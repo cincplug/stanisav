@@ -19,5 +19,23 @@
   "shaderShadeStripe": 2,
   "shaderCheckerFrequency": 5.0,
   "shaderRingCount": 12,
-  "shaderRingSpeed": 1.2
+  "shaderRingSpeed": 1.2,
+  "meshaLight": {
+    "intensity": 73,
+    "decay": 2.2,
+    "distance": 74,
+    "color": "#ffeedd",
+    "spread": 1.5,
+    "z": 4
+  },
+  "stageLight": {
+    "intensity": 20,
+    "decay": 0.4,
+    "distance": {
+      "default": 174,
+      "selected": 100,
+      "segmented": 200,
+      "segmentedSelected": 130
+    }
+  }
 }
