@@ -43,7 +43,7 @@
       "type": "checkbox",
       "defaultValue": false,
       "isVisualOnly": true,
-      "isShownInMenu": false,
+      "isShownInMenu": true,
       "isDesktopOnly": true,
       "compactMenuIcon": "SegmentationIcon"
     },

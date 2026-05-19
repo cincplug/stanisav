@@ -178,7 +178,8 @@ const Stage = ({
         base[2] + radial[2] * radialOffsetModifier,
       ];
     }
-    return [0, sphereRadius / 2, sphereRadius];
+
+    return [0, 0, sphereRadius];
   }, [selectedLanguage, formattedPositions]);
 
   const hasSelectedFilters = Object.keys(filteringUtils).length > 0;
