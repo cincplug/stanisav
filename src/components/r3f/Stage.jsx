@@ -62,6 +62,7 @@ const Stage = ({
     stageLightDecay,
     irrationality,
     globeSpiralAxis,
+    zoomDistance,
   } = controls;
 
   const orbitControlsRef = useRef();
