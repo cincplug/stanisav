@@ -15,6 +15,12 @@
     "canEditColors": {
       "label": "Za a iya gyara launuka?"
     },
+    "d4": {
+      "label": "Wani irin 4D"
+    },
+    "earSize": {
+      "label": "Girman kunne"
+    },
     "eyeProtrusion": {
       "label": "Fita ido"
     },
@@ -50,6 +56,14 @@
     },
     "globalLightnessScale": {
       "label": "Ma'aunin haske"
+    },
+    "globeSpiralAxis": {
+      "label": "Axis",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
     },
     "groups": {
       "camera": "Kyamara",
@@ -147,6 +161,9 @@
     },
     "tension": {
       "label": "Ƙarfin ja"
+    },
+    "tongueSize": {
+      "label": "Girman harshe"
     },
     "zoomDistance": {
       "label": "Nisan zum"
@@ -436,6 +453,7 @@
   },
   "menu": {
     "close": "Rufe menu",
+    "isVisual": "Na gani",
     "languageSelector": "Harshe na manhaja",
     "open": "Buɗe menu"
   },

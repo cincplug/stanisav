@@ -15,6 +15,12 @@
     "canEditColors": {
       "label": "Có thể chỉnh màu không?"
     },
+    "d4": {
+      "label": "Một dạng 4D nào đó"
+    },
+    "earSize": {
+      "label": "Kích thước tai"
+    },
     "eyeProtrusion": {
       "label": "Độ lồi của mắt"
     },
@@ -50,6 +56,14 @@
     },
     "globalLightnessScale": {
       "label": "Tỉ lệ độ sáng"
+    },
+    "globeSpiralAxis": {
+      "label": "Trục",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
     },
     "groups": {
       "camera": "Máy ảnh",
@@ -147,6 +161,9 @@
     },
     "tension": {
       "label": "Độ căng"
+    },
+    "tongueSize": {
+      "label": "Kích thước lưỡi"
     },
     "zoomDistance": {
       "label": "Khoảng cách thu phóng"
@@ -436,6 +453,7 @@
   },
   "menu": {
     "close": "Đóng menu",
+    "isVisual": "Trực quan",
     "languageSelector": "Ngôn ngữ ứng dụng",
     "open": "Mở menu"
   },

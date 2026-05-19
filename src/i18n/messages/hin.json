@@ -15,6 +15,12 @@
     "canEditColors": {
       "label": "रंग संपादित कर सकते हैं?"
     },
+    "d4": {
+      "label": "कुछ प्रकार का 4D"
+    },
+    "earSize": {
+      "label": "कान का आकार"
+    },
     "eyeProtrusion": {
       "label": "आँख का उभार"
     },
@@ -50,6 +56,14 @@
     },
     "globalLightnessScale": {
       "label": "चमक स्केल"
+    },
+    "globeSpiralAxis": {
+      "label": "अक्ष",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
     },
     "groups": {
       "camera": "कैमरा",
@@ -147,6 +161,9 @@
     },
     "tension": {
       "label": "तनाव"
+    },
+    "tongueSize": {
+      "label": "जीभ का आकार"
     },
     "zoomDistance": {
       "label": "ज़ूम दूरी"
@@ -436,6 +453,7 @@
   },
   "menu": {
     "close": "मेनू बंद करें",
+    "isVisual": "दृश्य",
     "languageSelector": "ऐप की भाषा",
     "open": "मेनू खोलें"
   },

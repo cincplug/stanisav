@@ -15,6 +15,12 @@
     "canEditColors": {
       "label": "Уредување на бои?"
     },
+    "d4": {
+      "label": "Некој вид 4D"
+    },
+    "earSize": {
+      "label": "Големина на уши"
+    },
     "eyeProtrusion": {
       "label": "Испакнатост на окото"
     },
@@ -50,6 +56,14 @@
     },
     "globalLightnessScale": {
       "label": "Размер на светлината"
+    },
+    "globeSpiralAxis": {
+      "label": "Оска",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
     },
     "groups": {
       "camera": "Камера",
@@ -147,6 +161,9 @@
     },
     "tension": {
       "label": "Напнатост"
+    },
+    "tongueSize": {
+      "label": "Големина на јазик"
     },
     "zoomDistance": {
       "label": "Оддалеченост на зумот"
@@ -436,6 +453,7 @@
   },
   "menu": {
     "close": "Затвори мени",
+    "isVisual": "Визуелно",
     "languageSelector": "Јазик на апликацијата",
     "open": "Отвори мени"
   },

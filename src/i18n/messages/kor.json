@@ -15,6 +15,12 @@
     "canEditColors": {
       "label": "색상 편집 가능?"
     },
+    "d4": {
+      "label": "일종의 4D"
+    },
+    "earSize": {
+      "label": "귀 크기"
+    },
     "eyeProtrusion": {
       "label": "눈 돌출도"
     },
@@ -50,6 +56,14 @@
     },
     "globalLightnessScale": {
       "label": "명도 스케일"
+    },
+    "globeSpiralAxis": {
+      "label": "축",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
     },
     "groups": {
       "camera": "카메라",
@@ -147,6 +161,9 @@
     },
     "tension": {
       "label": "장력"
+    },
+    "tongueSize": {
+      "label": "혀 크기"
     },
     "zoomDistance": {
       "label": "줌 거리"
@@ -436,6 +453,7 @@
   },
   "menu": {
     "close": "메뉴 닫기",
+    "isVisual": "비주얼",
     "languageSelector": "앱 언어",
     "open": "메뉴 열기"
   },

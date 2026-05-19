@@ -15,6 +15,12 @@
     "canEditColors": {
       "label": "Warna dapat diedit?"
     },
+    "d4": {
+      "label": "Semacam 4D"
+    },
+    "earSize": {
+      "label": "Ukuran telinga"
+    },
     "eyeProtrusion": {
       "label": "Tonjolan mata"
     },
@@ -50,6 +56,14 @@
     },
     "globalLightnessScale": {
       "label": "Skala kecerahan"
+    },
+    "globeSpiralAxis": {
+      "label": "Sumbu",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
     },
     "groups": {
       "camera": "Kamera",
@@ -147,6 +161,9 @@
     },
     "tension": {
       "label": "Tegangan"
+    },
+    "tongueSize": {
+      "label": "Ukuran lidah"
     },
     "zoomDistance": {
       "label": "Jarak zoom"
@@ -436,6 +453,7 @@
   },
   "menu": {
     "close": "Tutup menu",
+    "isVisual": "Visual",
     "languageSelector": "Bahasa aplikasi",
     "open": "Buka menu"
   },

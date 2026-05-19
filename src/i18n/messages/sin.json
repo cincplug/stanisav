@@ -15,6 +15,12 @@
     "canEditColors": {
       "label": "වර්ණ සංස්කරණය කළ හැකිද?"
     },
+    "d4": {
+      "label": "යම් ආකාරයක 4D"
+    },
+    "earSize": {
+      "label": "කන් ප්‍රමාණය"
+    },
     "eyeProtrusion": {
       "label": "ඇස් උදා වීම"
     },
@@ -50,6 +56,14 @@
     },
     "globalLightnessScale": {
       "label": "දීප්තිය පරිමාණය"
+    },
+    "globeSpiralAxis": {
+      "label": "අක්ෂය",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
     },
     "groups": {
       "camera": "කැමරාව",
@@ -147,6 +161,9 @@
     },
     "tension": {
       "label": "තතුව"
+    },
+    "tongueSize": {
+      "label": "දිව ප්‍රමාණය"
     },
     "zoomDistance": {
       "label": "සූම් දුර"
@@ -436,6 +453,7 @@
   },
   "menu": {
     "close": "මෙනුව වසන්න",
+    "isVisual": "දෘශ්‍ය",
     "languageSelector": "යෙදුමේ භාෂාව",
     "open": "මෙනුව විවෘත කරන්න"
   },

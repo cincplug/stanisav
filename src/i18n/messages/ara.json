@@ -15,6 +15,12 @@
     "canEditColors": {
       "label": "هل يمكن تعديل الألوان؟"
     },
+    "d4": {
+      "label": "نوع من الأبعاد الأربعة"
+    },
+    "earSize": {
+      "label": "حجم الأذن"
+    },
     "eyeProtrusion": {
       "label": "بروز العين"
     },
@@ -50,6 +56,14 @@
     },
     "globalLightnessScale": {
       "label": "مقياس السطوع"
+    },
+    "globeSpiralAxis": {
+      "label": "المحور",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
     },
     "groups": {
       "camera": "الكاميرا",
@@ -147,6 +161,9 @@
     },
     "tension": {
       "label": "الشد"
+    },
+    "tongueSize": {
+      "label": "حجم اللسان"
     },
     "zoomDistance": {
       "label": "مسافة التكبير"
@@ -436,6 +453,7 @@
   },
   "menu": {
     "close": "إغلاق القائمة",
+    "isVisual": "مرئي",
     "languageSelector": "لغة التطبيق",
     "open": "فتح القائمة"
   },

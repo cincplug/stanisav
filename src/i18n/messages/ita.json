@@ -15,6 +15,12 @@
     "canEditColors": {
       "label": "Modifica colori?"
     },
+    "d4": {
+      "label": "Una specie di 4D"
+    },
+    "earSize": {
+      "label": "Dimensione orecchie"
+    },
     "eyeProtrusion": {
       "label": "Sporgenza occhio"
     },
@@ -50,6 +56,14 @@
     },
     "globalLightnessScale": {
       "label": "Scala luminosità"
+    },
+    "globeSpiralAxis": {
+      "label": "Asse",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
     },
     "groups": {
       "camera": "Telecamera",
@@ -147,6 +161,9 @@
     },
     "tension": {
       "label": "Tensione"
+    },
+    "tongueSize": {
+      "label": "Dimensione lingua"
     },
     "zoomDistance": {
       "label": "Distanza zoom"
@@ -436,6 +453,7 @@
   },
   "menu": {
     "close": "Chiudi menu",
+    "isVisual": "Visivo",
     "languageSelector": "Lingua dell'app",
     "open": "Apri menu"
   },

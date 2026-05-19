@@ -15,6 +15,12 @@
     "canEditColors": {
       "label": "Upravovat barvy?"
     },
+    "d4": {
+      "label": "Nějaký druh 4D"
+    },
+    "earSize": {
+      "label": "Velikost uší"
+    },
     "eyeProtrusion": {
       "label": "Vyčnívání oka"
     },
@@ -50,6 +56,14 @@
     },
     "globalLightnessScale": {
       "label": "Měřítko světlosti"
+    },
+    "globeSpiralAxis": {
+      "label": "Osa",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
     },
     "groups": {
       "camera": "Kamera",
@@ -147,6 +161,9 @@
     },
     "tension": {
       "label": "Napětí"
+    },
+    "tongueSize": {
+      "label": "Velikost jazyka"
     },
     "zoomDistance": {
       "label": "Vzdálenost přiblížení"
@@ -436,6 +453,7 @@
   },
   "menu": {
     "close": "Zavřít nabídku",
+    "isVisual": "Vizuální",
     "languageSelector": "Jazyk aplikace",
     "open": "Otevřít nabídku"
   },

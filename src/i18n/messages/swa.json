@@ -15,6 +15,12 @@
     "canEditColors": {
       "label": "Unaweza kuhariri rangi?"
     },
+    "d4": {
+      "label": "Aina fulani ya 4D"
+    },
+    "earSize": {
+      "label": "Ukubwa wa masikio"
+    },
     "eyeProtrusion": {
       "label": "Uchomaji wa jicho"
     },
@@ -50,6 +56,14 @@
     },
     "globalLightnessScale": {
       "label": "Kipimo cha mwangaza"
+    },
+    "globeSpiralAxis": {
+      "label": "Mhimili",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
     },
     "groups": {
       "camera": "Kamera",
@@ -147,6 +161,9 @@
     },
     "tension": {
       "label": "Mvutano"
+    },
+    "tongueSize": {
+      "label": "Ukubwa wa ulimi"
     },
     "zoomDistance": {
       "label": "Umbali wa kukuza"
@@ -436,6 +453,7 @@
   },
   "menu": {
     "close": "Funga menyu",
+    "isVisual": "Ya kuona",
     "languageSelector": "Lugha ya programu",
     "open": "Fungua menyu"
   },

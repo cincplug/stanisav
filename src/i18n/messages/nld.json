@@ -15,6 +15,12 @@
     "canEditColors": {
       "label": "Kleuren bewerken toestaan?"
     },
+    "d4": {
+      "label": "Een soort 4D"
+    },
+    "earSize": {
+      "label": "Oorgrootte"
+    },
     "eyeProtrusion": {
       "label": "Ooguitsteking"
     },
@@ -50,6 +56,14 @@
     },
     "globalLightnessScale": {
       "label": "Helderheidsschaal"
+    },
+    "globeSpiralAxis": {
+      "label": "As",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
     },
     "groups": {
       "camera": "Camera",
@@ -147,6 +161,9 @@
     },
     "tension": {
       "label": "Spanning"
+    },
+    "tongueSize": {
+      "label": "Tonggrootte"
     },
     "zoomDistance": {
       "label": "Zoomafstand"
@@ -436,6 +453,7 @@
   },
   "menu": {
     "close": "Menu sluiten",
+    "isVisual": "Visueel",
     "languageSelector": "App-taal",
     "open": "Menu openen"
   },

@@ -15,6 +15,12 @@
     "canEditColors": {
       "label": "Izmena boja?"
     },
+    "d4": {
+      "label": "Nekakav 4D"
+    },
+    "earSize": {
+      "label": "Veličina ušiju"
+    },
     "eyeProtrusion": {
       "label": "Isturanje oka"
     },
@@ -50,6 +56,14 @@
     },
     "globalLightnessScale": {
       "label": "Razmera svetline"
+    },
+    "globeSpiralAxis": {
+      "label": "Osa",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
     },
     "groups": {
       "camera": "Kamera",
@@ -147,6 +161,9 @@
     },
     "tension": {
       "label": "Napon"
+    },
+    "tongueSize": {
+      "label": "Dužina jezika"
     },
     "zoomDistance": {
       "label": "Daljina zuma"
@@ -436,6 +453,7 @@
   },
   "menu": {
     "close": "Zatvori meni",
+    "isVisual": "Визуелно",
     "languageSelector": "Jezik aplikacije",
     "open": "Otvori meni"
   },

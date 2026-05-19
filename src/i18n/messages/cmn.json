@@ -15,6 +15,12 @@
     "canEditColors": {
       "label": "可编辑颜色？"
     },
+    "d4": {
+      "label": "某种4D"
+    },
+    "earSize": {
+      "label": "耳朵大小"
+    },
     "eyeProtrusion": {
       "label": "眼球突出度"
     },
@@ -50,6 +56,14 @@
     },
     "globalLightnessScale": {
       "label": "亮度缩放"
+    },
+    "globeSpiralAxis": {
+      "label": "轴",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
     },
     "groups": {
       "camera": "摄像机",
@@ -147,6 +161,9 @@
     },
     "tension": {
       "label": "张力"
+    },
+    "tongueSize": {
+      "label": "舌头大小"
     },
     "zoomDistance": {
       "label": "缩放距离"
@@ -436,6 +453,7 @@
   },
   "menu": {
     "close": "关闭菜单",
+    "isVisual": "视觉",
     "languageSelector": "应用语言",
     "open": "打开菜单"
   },

@@ -15,6 +15,12 @@
     "canEditColors": {
       "label": "色を編集できますか？"
     },
+    "d4": {
+      "label": "ある種の4D"
+    },
+    "earSize": {
+      "label": "耳のサイズ"
+    },
     "eyeProtrusion": {
       "label": "眼球の突出度"
     },
@@ -50,6 +56,14 @@
     },
     "globalLightnessScale": {
       "label": "明度スケール"
+    },
+    "globeSpiralAxis": {
+      "label": "軸",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
     },
     "groups": {
       "camera": "カメラ",
@@ -147,6 +161,9 @@
     },
     "tension": {
       "label": "テンション"
+    },
+    "tongueSize": {
+      "label": "舌のサイズ"
     },
     "zoomDistance": {
       "label": "ズーム距離"
@@ -436,6 +453,7 @@
   },
   "menu": {
     "close": "メニューを閉じる",
+    "isVisual": "ビジュアル",
     "languageSelector": "アプリの言語",
     "open": "メニューを開く"
   },

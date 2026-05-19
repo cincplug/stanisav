@@ -15,6 +15,12 @@
     "canEditColors": {
       "label": "Редагувати кольори?"
     },
+    "d4": {
+      "label": "Якийсь вид 4D"
+    },
+    "earSize": {
+      "label": "Розмір вух"
+    },
     "eyeProtrusion": {
       "label": "Виступ ока"
     },
@@ -50,6 +56,14 @@
     },
     "globalLightnessScale": {
       "label": "Масштаб яскравості"
+    },
+    "globeSpiralAxis": {
+      "label": "Вісь",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
     },
     "groups": {
       "camera": "Камера",
@@ -147,6 +161,9 @@
     },
     "tension": {
       "label": "Натяг"
+    },
+    "tongueSize": {
+      "label": "Розмір язика"
     },
     "zoomDistance": {
       "label": "Відстань масштабування"
@@ -436,6 +453,7 @@
   },
   "menu": {
     "close": "Закрити меню",
+    "isVisual": "Візуальний",
     "languageSelector": "Мова застосунку",
     "open": "Відкрити меню"
   },

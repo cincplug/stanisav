@@ -15,6 +15,12 @@
     "canEditColors": {
       "label": "நிறங்களை திருத்த முடியுமா?"
     },
+    "d4": {
+      "label": "ஒருவித 4D"
+    },
+    "earSize": {
+      "label": "காது அளவு"
+    },
     "eyeProtrusion": {
       "label": "கண் உறைப்பு"
     },
@@ -50,6 +56,14 @@
     },
     "globalLightnessScale": {
       "label": "பொலிவு அளவீடு"
+    },
+    "globeSpiralAxis": {
+      "label": "அச்சு",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
     },
     "groups": {
       "camera": "கேமரா",
@@ -147,6 +161,9 @@
     },
     "tension": {
       "label": "இழுவிசை"
+    },
+    "tongueSize": {
+      "label": "நாக்கின் அளவு"
     },
     "zoomDistance": {
       "label": "மேலோட்ட தூரம்"
@@ -436,6 +453,7 @@
   },
   "menu": {
     "close": "பட்டியலை மூடு",
+    "isVisual": "காட்சி",
     "languageSelector": "அப்பிளிக்கேஷன் மொழி",
     "open": "பட்டியலை திற"
   },

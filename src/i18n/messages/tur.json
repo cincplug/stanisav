@@ -15,6 +15,12 @@
     "canEditColors": {
       "label": "Renkler düzenlenebilir mi?"
     },
+    "d4": {
+      "label": "Bir tür 4D"
+    },
+    "earSize": {
+      "label": "Kulak boyutu"
+    },
     "eyeProtrusion": {
       "label": "Göz çıkıntısı"
     },
@@ -50,6 +56,14 @@
     },
     "globalLightnessScale": {
       "label": "Parlaklık ölçeği"
+    },
+    "globeSpiralAxis": {
+      "label": "Eksen",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
     },
     "groups": {
       "camera": "Kamera",
@@ -147,6 +161,9 @@
     },
     "tension": {
       "label": "Gerilim"
+    },
+    "tongueSize": {
+      "label": "Dil boyutu"
     },
     "zoomDistance": {
       "label": "Yakınlaştırma mesafesi"
@@ -436,6 +453,7 @@
   },
   "menu": {
     "close": "Menüyü kapat",
+    "isVisual": "Görsel",
     "languageSelector": "Uygulama dili",
     "open": "Menüyü aç"
   },

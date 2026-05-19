@@ -15,6 +15,12 @@
     "canEditColors": {
       "label": "آیا می‌توان رنگ‌ها را ویرایش کرد؟"
     },
+    "d4": {
+      "label": "نوعی ۴ بعدی"
+    },
+    "earSize": {
+      "label": "اندازه گوش"
+    },
     "eyeProtrusion": {
       "label": "برجستگی چشم"
     },
@@ -50,6 +56,14 @@
     },
     "globalLightnessScale": {
       "label": "مقیاس روشنایی"
+    },
+    "globeSpiralAxis": {
+      "label": "محور",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
     },
     "groups": {
       "camera": "دوربین",
@@ -147,6 +161,9 @@
     },
     "tension": {
       "label": "کشش"
+    },
+    "tongueSize": {
+      "label": "اندازه زبان"
     },
     "zoomDistance": {
       "label": "فاصله زوم"
@@ -436,6 +453,7 @@
   },
   "menu": {
     "close": "بستن منو",
+    "isVisual": "بصری",
     "languageSelector": "زبان برنامه",
     "open": "باز کردن منو"
   },
