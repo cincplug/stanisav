@@ -1,3 +1,5 @@
+import { useRef } from "react";
+import Popover from "./Popover";
 import "./Range.css";
 
 /**
@@ -28,12 +30,14 @@ const Range = ({
   name,
   thumbIcon,
   budIcon,
+  tooltip,
   className,
   label,
   style,
   ...rest
 }) => {
   const showOverlay = thumbIcon || budIcon;
+  const popoverRef = useRef(null);
 
   const thumbPercent =
     min !== undefined && max !== undefined
@@ -61,6 +65,12 @@ const Range = ({
           value={value}
           onChange={onChange}
           className={`range-input${showOverlay ? " range-input--has-overlay" : ""}`}
+          onMouseEnter={
+            tooltip ? () => popoverRef.current?.showPopover() : undefined
+          }
+          onMouseLeave={
+            tooltip ? () => popoverRef.current?.hidePopover() : undefined
+          }
           {...rest}
         />
         {showOverlay && (
@@ -82,6 +92,11 @@ const Range = ({
           </div>
         )}
       </div>
+      {tooltip && (
+        <Popover id={`range-tooltip-${id}`} popoverRef={popoverRef} followMouse>
+          {tooltip}
+        </Popover>
+      )}
     </div>
   );
 };

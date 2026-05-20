@@ -1,5 +1,6 @@
 import { useControls } from "../../contexts/ControlsContext";
 import controlsConfig from "../../config/controls.json";
+import { localizeControlConfig } from "../../utils/i18nUtils";
 import { useLayoutEffect, useRef } from "react";
 import Range from "./ux/Range";
 import "./Flowers.css";
@@ -15,7 +16,7 @@ const Flowers = () => {
         .filter(
           ([_, config]) => config.isShownInMenu && config.type === "range",
         )
-        .map(([id, config]) => ({ id, ...config })),
+        .map(([id, config]) => ({ id, ...localizeControlConfig(id, config) })),
     );
 
   useLayoutEffect(() => {
@@ -33,6 +34,7 @@ const Flowers = () => {
             max={control.max}
             step={control.step}
             value={controls[control.id]}
+            tooltip={control.label}
             onChange={(e) =>
               updateControl(control.id, parseFloat(e.target.value))
             }
