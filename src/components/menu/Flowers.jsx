@@ -5,12 +5,18 @@ import { useLayoutEffect, useRef } from "react";
 import Range from "./ux/Range";
 import "./Flowers.css";
 
-const Flowers = () => {
+const Flowers = ({ selectedLanguage }) => {
   const { controls, updateControl } = useControls();
   const containerRef = useRef(null);
 
+  const groupsWhenZoomed = ["Mesha", "Camera", "Motion"];
+
   const rangeControls = Object.entries(controlsConfig)
-    .filter(([group]) => group !== "Header")
+    .filter(([group]) =>
+      selectedLanguage
+        ? groupsWhenZoomed.includes(group)
+        : !groupsWhenZoomed.includes(group),
+    )
     .flatMap(([_, group]) =>
       Object.entries(group)
         .filter(

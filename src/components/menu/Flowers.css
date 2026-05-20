@@ -6,8 +6,8 @@
 
   position: absolute;
   bottom: var(--gap-double);
-  left: var(--gap-double);
-  right: var(--gap-double);
+  left: 20%;
+  right: 20%;
   height: var(--h);
   color: var(--color-4);
 

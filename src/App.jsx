@@ -95,7 +95,7 @@ function App() {
           />
         )}
 
-        <Flowers />
+        <Flowers selectedLanguage={selectedLanguage} />
       </div>
     </div>
   );
