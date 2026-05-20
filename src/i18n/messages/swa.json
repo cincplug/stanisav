@@ -12,9 +12,6 @@
     "cameraZ": {
       "label": "Kamera Z"
     },
-    "canEditColors": {
-      "label": "Unaweza kuhariri rangi?"
-    },
     "d4": {
       "label": "Aina fulani ya 4D"
     },
@@ -45,18 +42,6 @@
     "friction": {
       "label": "Msuguano"
     },
-    "globalChromaOffset": {
-      "label": "Mwelekeo wa kroma"
-    },
-    "globalChromaScale": {
-      "label": "Kipimo cha kroma"
-    },
-    "globalLightnessOffset": {
-      "label": "Mwelekeo wa mwangaza"
-    },
-    "globalLightnessScale": {
-      "label": "Kipimo cha mwangaza"
-    },
     "globeSpiralAxis": {
       "label": "Mhimili",
       "options": {
@@ -72,10 +57,7 @@
       "motion": "Mwendo",
       "scene": "Eneo"
     },
-    "hueCircle": {
-      "label": "Mzunguko wa rangi"
-    },
-    "hueStart": {
+    "hue": {
       "label": "Mwanzo wa tani ya rangi"
     },
     "irrationality": {
@@ -110,8 +92,8 @@
     "light": {
       "label": "Mwanga"
     },
-    "maxSiblingSpread": {
-      "label": "Utawanyiko wa rangi ya ndugu"
+    "lightness": {
+      "label": "Kipimo cha mwangaza"
     },
     "meshaSize": {
       "label": "Ukubwa wa Mesha"
@@ -125,11 +107,11 @@
     "noseSize": {
       "label": "Ukubwa wa pua"
     },
+    "saturation": {
+      "label": "Kipimo cha kroma"
+    },
     "showMore": {
       "label": "Onyesha zaidi"
-    },
-    "showsVideoPreviews": {
-      "label": "Hakiki asili"
     },
     "sortBy": {
       "label": "Panga lugha kulingana na",

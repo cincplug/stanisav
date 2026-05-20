@@ -12,9 +12,6 @@
     "cameraZ": {
       "label": "Камера Z"
     },
-    "canEditColors": {
-      "label": "Редагувати кольори?"
-    },
     "d4": {
       "label": "Якийсь вид 4D"
     },
@@ -45,18 +42,6 @@
     "friction": {
       "label": "Тертя"
     },
-    "globalChromaOffset": {
-      "label": "Зміщення хроми"
-    },
-    "globalChromaScale": {
-      "label": "Масштаб хроми"
-    },
-    "globalLightnessOffset": {
-      "label": "Зміщення яскравості"
-    },
-    "globalLightnessScale": {
-      "label": "Масштаб яскравості"
-    },
     "globeSpiralAxis": {
       "label": "Вісь",
       "options": {
@@ -72,10 +57,7 @@
       "motion": "Рух",
       "scene": "Сцена"
     },
-    "hueCircle": {
-      "label": "Коло відтінків"
-    },
-    "hueStart": {
+    "hue": {
       "label": "Початковий відтінок"
     },
     "irrationality": {
@@ -110,8 +92,8 @@
     "light": {
       "label": "Світло"
     },
-    "maxSiblingSpread": {
-      "label": "Розкид відтінків споріднених"
+    "lightness": {
+      "label": "Масштаб яскравості"
     },
     "meshaSize": {
       "label": "Розмір Меші"
@@ -125,11 +107,11 @@
     "noseSize": {
       "label": "Розмір носа"
     },
+    "saturation": {
+      "label": "Масштаб хроми"
+    },
     "showMore": {
       "label": "Показати більше"
-    },
-    "showsVideoPreviews": {
-      "label": "Попередній перегляд оригіналу"
     },
     "sortBy": {
       "label": "Сортування",

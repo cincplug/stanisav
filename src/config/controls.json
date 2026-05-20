@@ -43,7 +43,6 @@
       "type": "checkbox",
       "defaultValue": false,
       "isVisual": true,
-      "isShownInMenu": true,
       "isDesktopOnly": true,
       "compactMenuIcon": "SegmentationIcon"
     },
@@ -70,11 +69,9 @@
       "isShownInMenu": true
     },
     "d4": {
-      "type": "range",
-      "min": 0,
-      "max": 50,
-      "step": 1,
-      "defaultValue": 1,
+      "type": "checkbox",
+      "isVisual": true,
+      "defaultValue": true,
       "isShownInMenu": true
     },
     "light": {
@@ -113,16 +110,6 @@
       "type": "checkbox",
       "defaultValue": true,
       "isShownInMenu": false
-    },
-    "canEditColors": {
-      "type": "checkbox",
-      "defaultValue": false,
-      "isShownInMenu": false
-    },
-    "showsVideoPreviews": {
-      "type": "checkbox",
-      "defaultValue": false,
-      "isShownInMenu": false
     }
   },
   "Colors": {
@@ -131,12 +118,7 @@
       "defaultValue": "#070b0f",
       "isShownInMenu": true
     },
-    "bgColorNoon": {
-      "type": "color",
-      "defaultValue": "#1a1c1e",
-      "isShownInMenu": false
-    },
-    "hueStart": {
+    "hue": {
       "type": "range",
       "min": 0,
       "max": 360,
@@ -144,52 +126,20 @@
       "defaultValue": 100,
       "isShownInMenu": true
     },
-    "hueCircle": {
-      "type": "range",
-      "min": 60,
-      "max": 360,
-      "step": 1,
-      "defaultValue": 360,
-      "isShownInMenu": true
-    },
-    "maxSiblingSpread": {
-      "type": "range",
-      "min": 0,
-      "max": 90,
-      "step": 1,
-      "defaultValue": 60,
-      "isShownInMenu": true
-    },
-    "globalLightnessScale": {
+    "lightness": {
       "type": "range",
       "min": 0,
       "max": 2,
       "step": 0.01,
-      "defaultValue": 1,
+      "defaultValue": 0.8,
       "isShownInMenu": true
     },
-    "globalLightnessOffset": {
+    "saturation": {
       "type": "range",
-      "min": -0.5,
+      "min": 0,
       "max": 0.5,
       "step": 0.01,
-      "defaultValue": 0,
-      "isShownInMenu": true
-    },
-    "globalChromaScale": {
-      "type": "range",
-      "min": 0,
-      "max": 2,
-      "step": 0.01,
-      "defaultValue": 1,
-      "isShownInMenu": true
-    },
-    "globalChromaOffset": {
-      "type": "range",
-      "min": -0.2,
-      "max": 0.2,
-      "step": 0.01,
-      "defaultValue": 0,
+      "defaultValue": 0.2,
       "isShownInMenu": true
     }
   },

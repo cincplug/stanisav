@@ -12,9 +12,6 @@
     "cameraZ": {
       "label": "கேமரா Z"
     },
-    "canEditColors": {
-      "label": "நிறங்களை திருத்த முடியுமா?"
-    },
     "d4": {
       "label": "ஒருவித 4D"
     },
@@ -45,18 +42,6 @@
     "friction": {
       "label": "உராய்வு"
     },
-    "globalChromaOffset": {
-      "label": "குரோமா ஆஃப்செட்"
-    },
-    "globalChromaScale": {
-      "label": "குரோமா அளவீடு"
-    },
-    "globalLightnessOffset": {
-      "label": "பொலிவு ஆஃப்செட்"
-    },
-    "globalLightnessScale": {
-      "label": "பொலிவு அளவீடு"
-    },
     "globeSpiralAxis": {
       "label": "அச்சு",
       "options": {
@@ -72,10 +57,7 @@
       "motion": "இயக்கம்",
       "scene": "காட்சி"
     },
-    "hueCircle": {
-      "label": "வண்ண வட்டம்"
-    },
-    "hueStart": {
+    "hue": {
       "label": "வண்ண தொடக்கம்"
     },
     "irrationality": {
@@ -110,8 +92,8 @@
     "light": {
       "label": "விளக்கு"
     },
-    "maxSiblingSpread": {
-      "label": "உடன்பிறப்பு வண்ண பரவல்"
+    "lightness": {
+      "label": "பொலிவு அளவீடு"
     },
     "meshaSize": {
       "label": "Mesha அளவு"
@@ -125,11 +107,11 @@
     "noseSize": {
       "label": "மூக்கு அளவு"
     },
+    "saturation": {
+      "label": "குரோமா அளவீடு"
+    },
     "showMore": {
       "label": "மேலும் காண்பி"
-    },
-    "showsVideoPreviews": {
-      "label": "அசல் முன்னோட்டம்"
     },
     "sortBy": {
       "label": "மொழிகளை வரிசைப்படுத்து",

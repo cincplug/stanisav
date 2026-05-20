@@ -12,9 +12,6 @@
     "cameraZ": {
       "label": "摄像机 Z"
     },
-    "canEditColors": {
-      "label": "可编辑颜色？"
-    },
     "d4": {
       "label": "某种4D"
     },
@@ -45,18 +42,6 @@
     "friction": {
       "label": "摩擦力"
     },
-    "globalChromaOffset": {
-      "label": "色度偏移"
-    },
-    "globalChromaScale": {
-      "label": "色度缩放"
-    },
-    "globalLightnessOffset": {
-      "label": "亮度偏移"
-    },
-    "globalLightnessScale": {
-      "label": "亮度缩放"
-    },
     "globeSpiralAxis": {
       "label": "轴",
       "options": {
@@ -72,10 +57,7 @@
       "motion": "运动",
       "scene": "场景"
     },
-    "hueCircle": {
-      "label": "色相环"
-    },
-    "hueStart": {
+    "hue": {
       "label": "起始色相"
     },
     "irrationality": {
@@ -110,8 +92,8 @@
     "light": {
       "label": "灯光"
     },
-    "maxSiblingSpread": {
-      "label": "同级色相分散度"
+    "lightness": {
+      "label": "亮度缩放"
     },
     "meshaSize": {
       "label": "Mesha 大小"
@@ -125,11 +107,11 @@
     "noseSize": {
       "label": "鼻子大小"
     },
+    "saturation": {
+      "label": "色度缩放"
+    },
     "showMore": {
       "label": "显示更多"
-    },
-    "showsVideoPreviews": {
-      "label": "预览原始视频"
     },
     "sortBy": {
       "label": "语言排序方式",

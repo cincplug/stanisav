@@ -12,9 +12,6 @@
     "cameraZ": {
       "label": "Máy ảnh Z"
     },
-    "canEditColors": {
-      "label": "Có thể chỉnh màu không?"
-    },
     "d4": {
       "label": "Một dạng 4D nào đó"
     },
@@ -45,18 +42,6 @@
     "friction": {
       "label": "Ma sát"
     },
-    "globalChromaOffset": {
-      "label": "Độ lệch chroma"
-    },
-    "globalChromaScale": {
-      "label": "Tỉ lệ chroma"
-    },
-    "globalLightnessOffset": {
-      "label": "Độ lệch độ sáng"
-    },
-    "globalLightnessScale": {
-      "label": "Tỉ lệ độ sáng"
-    },
     "globeSpiralAxis": {
       "label": "Trục",
       "options": {
@@ -72,10 +57,7 @@
       "motion": "Chuyển động",
       "scene": "Cảnh"
     },
-    "hueCircle": {
-      "label": "Vòng tròn màu sắc"
-    },
-    "hueStart": {
+    "hue": {
       "label": "Màu sắc bắt đầu"
     },
     "irrationality": {
@@ -110,8 +92,8 @@
     "light": {
       "label": "Ánh"
     },
-    "maxSiblingSpread": {
-      "label": "Độ phân tán màu sắc anh chị em"
+    "lightness": {
+      "label": "Tỉ lệ độ sáng"
     },
     "meshaSize": {
       "label": "Kích thước Mesha"
@@ -125,11 +107,11 @@
     "noseSize": {
       "label": "Kích thước mũi"
     },
+    "saturation": {
+      "label": "Tỉ lệ chroma"
+    },
     "showMore": {
       "label": "Hiển thị thêm"
-    },
-    "showsVideoPreviews": {
-      "label": "Xem trước bản gốc"
     },
     "sortBy": {
       "label": "Sắp xếp ngôn ngữ theo",

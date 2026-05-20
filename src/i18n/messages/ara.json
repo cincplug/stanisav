@@ -12,9 +12,6 @@
     "cameraZ": {
       "label": "الكاميرا Z"
     },
-    "canEditColors": {
-      "label": "هل يمكن تعديل الألوان؟"
-    },
     "d4": {
       "label": "نوع من الأبعاد الأربعة"
     },
@@ -45,18 +42,6 @@
     "friction": {
       "label": "الاحتكاك"
     },
-    "globalChromaOffset": {
-      "label": "إزاحة الكروما"
-    },
-    "globalChromaScale": {
-      "label": "مقياس الكروما"
-    },
-    "globalLightnessOffset": {
-      "label": "إزاحة السطوع"
-    },
-    "globalLightnessScale": {
-      "label": "مقياس السطوع"
-    },
     "globeSpiralAxis": {
       "label": "المحور",
       "options": {
@@ -72,10 +57,7 @@
       "motion": "الحركة",
       "scene": "المشهد"
     },
-    "hueCircle": {
-      "label": "دائرة الألوان"
-    },
-    "hueStart": {
+    "hue": {
       "label": "نقطة بداية الصبغة"
     },
     "irrationality": {
@@ -110,8 +92,8 @@
     "light": {
       "label": "إضاءة"
     },
-    "maxSiblingSpread": {
-      "label": "انتشار صبغة العناصر الشقيقة"
+    "lightness": {
+      "label": "مقياس السطوع"
     },
     "meshaSize": {
       "label": "حجم Mesha"
@@ -125,11 +107,11 @@
     "noseSize": {
       "label": "حجم الأنف"
     },
+    "saturation": {
+      "label": "مقياس الكروما"
+    },
     "showMore": {
       "label": "عرض المزيد"
-    },
-    "showsVideoPreviews": {
-      "label": "معاينة الأصل"
     },
     "sortBy": {
       "label": "ترتيب اللغات حسب",

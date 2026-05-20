@@ -12,9 +12,6 @@
     "cameraZ": {
       "label": "Kamera Z"
     },
-    "canEditColors": {
-      "label": "Renkler düzenlenebilir mi?"
-    },
     "d4": {
       "label": "Bir tür 4D"
     },
@@ -45,18 +42,6 @@
     "friction": {
       "label": "Sürtünme"
     },
-    "globalChromaOffset": {
-      "label": "Kroma kayması"
-    },
-    "globalChromaScale": {
-      "label": "Kroma ölçeği"
-    },
-    "globalLightnessOffset": {
-      "label": "Parlaklık kayması"
-    },
-    "globalLightnessScale": {
-      "label": "Parlaklık ölçeği"
-    },
     "globeSpiralAxis": {
       "label": "Eksen",
       "options": {
@@ -72,10 +57,7 @@
       "motion": "Hareket",
       "scene": "Sahne"
     },
-    "hueCircle": {
-      "label": "Renk tonu çemberi"
-    },
-    "hueStart": {
+    "hue": {
       "label": "Renk tonu başlangıcı"
     },
     "irrationality": {
@@ -110,8 +92,8 @@
     "light": {
       "label": "Işığı"
     },
-    "maxSiblingSpread": {
-      "label": "Kardeş öğe renk tonu yayılımı"
+    "lightness": {
+      "label": "Parlaklık ölçeği"
     },
     "meshaSize": {
       "label": "Mesha boyutu"
@@ -125,11 +107,11 @@
     "noseSize": {
       "label": "Burun boyutu"
     },
+    "saturation": {
+      "label": "Kroma ölçeği"
+    },
     "showMore": {
       "label": "Daha fazla göster"
-    },
-    "showsVideoPreviews": {
-      "label": "Orijinali önizle"
     },
     "sortBy": {
       "label": "Dilleri sıralama ölçütü",

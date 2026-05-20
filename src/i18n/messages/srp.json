@@ -12,9 +12,6 @@
     "cameraZ": {
       "label": "Kamera Z"
     },
-    "canEditColors": {
-      "label": "Izmena boja?"
-    },
     "d4": {
       "label": "Nekakav 4D"
     },
@@ -45,18 +42,6 @@
     "friction": {
       "label": "Trenje"
     },
-    "globalChromaOffset": {
-      "label": "Pomak hrome"
-    },
-    "globalChromaScale": {
-      "label": "Razmera hrome"
-    },
-    "globalLightnessOffset": {
-      "label": "Pomak svetline"
-    },
-    "globalLightnessScale": {
-      "label": "Razmera svetline"
-    },
     "globeSpiralAxis": {
       "label": "Osa",
       "options": {
@@ -72,10 +57,7 @@
       "motion": "Kretanje",
       "scene": "Scena"
     },
-    "hueCircle": {
-      "label": "Krug nijansi"
-    },
-    "hueStart": {
+    "hue": {
       "label": "Početna nijansa"
     },
     "irrationality": {
@@ -110,8 +92,8 @@
     "light": {
       "label": "Svetlo"
     },
-    "maxSiblingSpread": {
-      "label": "Raspon nijansi"
+    "lightness": {
+      "label": "Razmera svetline"
     },
     "meshaSize": {
       "label": "Mešina veličina"
@@ -125,11 +107,11 @@
     "noseSize": {
       "label": "Veličina nosa"
     },
+    "saturation": {
+      "label": "Razmera hrome"
+    },
     "showMore": {
       "label": "Prikaži više"
-    },
-    "showsVideoPreviews": {
-      "label": "Pregled originala"
     },
     "sortBy": {
       "label": "Sortiranje",

@@ -12,9 +12,6 @@
     "cameraZ": {
       "label": "Camera Z"
     },
-    "canEditColors": {
-      "label": "Kleuren bewerken toestaan?"
-    },
     "d4": {
       "label": "Een soort 4D"
     },
@@ -45,18 +42,6 @@
     "friction": {
       "label": "Wrijving"
     },
-    "globalChromaOffset": {
-      "label": "Chroma-offset"
-    },
-    "globalChromaScale": {
-      "label": "Chromaschaal"
-    },
-    "globalLightnessOffset": {
-      "label": "Helderheidsoffset"
-    },
-    "globalLightnessScale": {
-      "label": "Helderheidsschaal"
-    },
     "globeSpiralAxis": {
       "label": "As",
       "options": {
@@ -72,10 +57,7 @@
       "motion": "Beweging",
       "scene": "Scène"
     },
-    "hueCircle": {
-      "label": "Kleurencirkel"
-    },
-    "hueStart": {
+    "hue": {
       "label": "Kleurstart"
     },
     "irrationality": {
@@ -110,8 +92,8 @@
     "light": {
       "label": "Licht"
     },
-    "maxSiblingSpread": {
-      "label": "Spreiding tussen zusterknooppunten"
+    "lightness": {
+      "label": "Helderheidsschaal"
     },
     "meshaSize": {
       "label": "Mesha-grootte"
@@ -125,11 +107,11 @@
     "noseSize": {
       "label": "Neusgrootte"
     },
+    "saturation": {
+      "label": "Chromaschaal"
+    },
     "showMore": {
       "label": "Meer weergeven"
-    },
-    "showsVideoPreviews": {
-      "label": "Origineel voorbeeld"
     },
     "sortBy": {
       "label": "Talen sorteren op",

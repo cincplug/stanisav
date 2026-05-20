@@ -42,13 +42,13 @@
     "globalChromaOffset": {
       "label": "Offset kroma"
     },
-    "globalChromaScale": {
+    "saturation": {
       "label": "Skala kroma"
     },
     "globalLightnessOffset": {
       "label": "Offset kecerahan"
     },
-    "globalLightnessScale": {
+    "lightness": {
       "label": "Skala kecerahan"
     },
     "groups": {
@@ -65,14 +65,11 @@
     "hueCircle": {
       "label": "Lingkaran rona"
     },
-    "hueStart": {
+    "hue": {
       "label": "Rona awal"
     },
     "isLoop": {
       "label": "Ulangi daftar putar"
-    },
-    "isLuka": {
-      "label": "Luka membaca contoh"
     },
     "isMyMesha": {
       "label": "Saya adalah Mesha"

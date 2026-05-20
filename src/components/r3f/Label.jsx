@@ -116,8 +116,8 @@ const Label = ({
 
     if (isSelected) {
       labelRef.current.renderOrder = totalVisibleLabels;
-    } else if (!selectedLanguage && d4 > 0) {
-      animatedD4.current += delta * d4;
+    } else if (!selectedLanguage && d4) {
+      animatedD4.current += delta;
       if (animatedD4.current >= totalVisibleLabels) animatedD4.current = 0;
 
       labelRef.current.renderOrder =

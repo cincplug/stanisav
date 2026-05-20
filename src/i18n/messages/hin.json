@@ -12,9 +12,6 @@
     "cameraZ": {
       "label": "कैमरा Z"
     },
-    "canEditColors": {
-      "label": "रंग संपादित कर सकते हैं?"
-    },
     "d4": {
       "label": "कुछ प्रकार का 4D"
     },
@@ -45,18 +42,6 @@
     "friction": {
       "label": "घर्षण"
     },
-    "globalChromaOffset": {
-      "label": "क्रोमा ऑफ़सेट"
-    },
-    "globalChromaScale": {
-      "label": "क्रोमा स्केल"
-    },
-    "globalLightnessOffset": {
-      "label": "चमक ऑफ़सेट"
-    },
-    "globalLightnessScale": {
-      "label": "चमक स्केल"
-    },
     "globeSpiralAxis": {
       "label": "अक्ष",
       "options": {
@@ -72,10 +57,7 @@
       "motion": "गति",
       "scene": "दृश्य"
     },
-    "hueCircle": {
-      "label": "रंग चक्र"
-    },
-    "hueStart": {
+    "hue": {
       "label": "रंग आरंभ"
     },
     "irrationality": {
@@ -110,8 +92,8 @@
     "light": {
       "label": "प्रकाश"
     },
-    "maxSiblingSpread": {
-      "label": "सहोदर रंग विस्तार"
+    "lightness": {
+      "label": "चमक स्केल"
     },
     "meshaSize": {
       "label": "Mesha आकार"
@@ -125,11 +107,11 @@
     "noseSize": {
       "label": "नाक का आकार"
     },
+    "saturation": {
+      "label": "क्रोमा स्केल"
+    },
     "showMore": {
       "label": "और दिखाएँ"
-    },
-    "showsVideoPreviews": {
-      "label": "मूल का पूर्वावलोकन"
     },
     "sortBy": {
       "label": "भाषाएँ क्रमबद्ध करें",

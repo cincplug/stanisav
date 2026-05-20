@@ -37,5 +37,7 @@
       "segmented": 200,
       "segmentedSelected": 130
     }
-  }
+  },
+  "hueCircle": 360,
+  "maxSiblingSpread": 60
 }

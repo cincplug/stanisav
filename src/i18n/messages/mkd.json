@@ -12,9 +12,6 @@
     "cameraZ": {
       "label": "Камера Z"
     },
-    "canEditColors": {
-      "label": "Уредување на бои?"
-    },
     "d4": {
       "label": "Некој вид 4D"
     },
@@ -45,18 +42,6 @@
     "friction": {
       "label": "Триење"
     },
-    "globalChromaOffset": {
-      "label": "Помак на хромата"
-    },
-    "globalChromaScale": {
-      "label": "Размер на хромата"
-    },
-    "globalLightnessOffset": {
-      "label": "Помак на светлината"
-    },
-    "globalLightnessScale": {
-      "label": "Размер на светлината"
-    },
     "globeSpiralAxis": {
       "label": "Оска",
       "options": {
@@ -72,10 +57,7 @@
       "motion": "Движење",
       "scene": "Сцена"
     },
-    "hueCircle": {
-      "label": "Круг на нијанси"
-    },
-    "hueStart": {
+    "hue": {
       "label": "Почетна нијанса"
     },
     "irrationality": {
@@ -110,8 +92,8 @@
     "light": {
       "label": "Светлина"
     },
-    "maxSiblingSpread": {
-      "label": "Распон на нијанси на сродни"
+    "lightness": {
+      "label": "Размер на светлината"
     },
     "meshaSize": {
       "label": "Мешина големина"
@@ -125,11 +107,11 @@
     "noseSize": {
       "label": "Големина на носот"
     },
+    "saturation": {
+      "label": "Размер на хромата"
+    },
     "showMore": {
       "label": "Прикажи повеќе"
-    },
-    "showsVideoPreviews": {
-      "label": "Преглед на оригинал"
     },
     "sortBy": {
       "label": "Сортирање",

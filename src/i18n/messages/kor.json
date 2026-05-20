@@ -12,9 +12,6 @@
     "cameraZ": {
       "label": "카메라 Z"
     },
-    "canEditColors": {
-      "label": "색상 편집 가능?"
-    },
     "d4": {
       "label": "일종의 4D"
     },
@@ -45,18 +42,6 @@
     "friction": {
       "label": "마찰"
     },
-    "globalChromaOffset": {
-      "label": "채도 오프셋"
-    },
-    "globalChromaScale": {
-      "label": "채도 스케일"
-    },
-    "globalLightnessOffset": {
-      "label": "명도 오프셋"
-    },
-    "globalLightnessScale": {
-      "label": "명도 스케일"
-    },
     "globeSpiralAxis": {
       "label": "축",
       "options": {
@@ -72,10 +57,7 @@
       "motion": "모션",
       "scene": "장면"
     },
-    "hueCircle": {
-      "label": "색상환"
-    },
-    "hueStart": {
+    "hue": {
       "label": "색조 시작값"
     },
     "irrationality": {
@@ -110,8 +92,8 @@
     "light": {
       "label": "조명"
     },
-    "maxSiblingSpread": {
-      "label": "형제 요소 색조 분산"
+    "lightness": {
+      "label": "명도 스케일"
     },
     "meshaSize": {
       "label": "Mesha 크기"
@@ -125,11 +107,11 @@
     "noseSize": {
       "label": "코 크기"
     },
+    "saturation": {
+      "label": "채도 스케일"
+    },
     "showMore": {
       "label": "더 보기"
-    },
-    "showsVideoPreviews": {
-      "label": "원본 미리보기"
     },
     "sortBy": {
       "label": "언어 정렬 기준",

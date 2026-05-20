@@ -12,9 +12,6 @@
     "cameraZ": {
       "label": "Kamera Z"
     },
-    "canEditColors": {
-      "label": "Warna dapat diedit?"
-    },
     "d4": {
       "label": "Semacam 4D"
     },
@@ -45,18 +42,6 @@
     "friction": {
       "label": "Gesekan"
     },
-    "globalChromaOffset": {
-      "label": "Offset kroma"
-    },
-    "globalChromaScale": {
-      "label": "Skala kroma"
-    },
-    "globalLightnessOffset": {
-      "label": "Offset kecerahan"
-    },
-    "globalLightnessScale": {
-      "label": "Skala kecerahan"
-    },
     "globeSpiralAxis": {
       "label": "Sumbu",
       "options": {
@@ -72,10 +57,7 @@
       "motion": "Gerakan",
       "scene": "Adegan"
     },
-    "hueCircle": {
-      "label": "Lingkaran rona"
-    },
-    "hueStart": {
+    "hue": {
       "label": "Rona awal"
     },
     "irrationality": {
@@ -110,8 +92,8 @@
     "light": {
       "label": "Cahaya"
     },
-    "maxSiblingSpread": {
-      "label": "Sebaran rona elemen saudara"
+    "lightness": {
+      "label": "Skala kecerahan"
     },
     "meshaSize": {
       "label": "Ukuran Mesha"
@@ -125,11 +107,11 @@
     "noseSize": {
       "label": "Ukuran hidung"
     },
+    "saturation": {
+      "label": "Skala kroma"
+    },
     "showMore": {
       "label": "Tampilkan lebih banyak"
-    },
-    "showsVideoPreviews": {
-      "label": "Pratinjau asli"
     },
     "sortBy": {
       "label": "Urutkan bahasa berdasarkan",

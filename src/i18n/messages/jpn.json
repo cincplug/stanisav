@@ -12,9 +12,6 @@
     "cameraZ": {
       "label": "カメラ Z"
     },
-    "canEditColors": {
-      "label": "色を編集できますか？"
-    },
     "d4": {
       "label": "ある種の4D"
     },
@@ -45,18 +42,6 @@
     "friction": {
       "label": "摩擦"
     },
-    "globalChromaOffset": {
-      "label": "彩度オフセット"
-    },
-    "globalChromaScale": {
-      "label": "彩度スケール"
-    },
-    "globalLightnessOffset": {
-      "label": "明度オフセット"
-    },
-    "globalLightnessScale": {
-      "label": "明度スケール"
-    },
     "globeSpiralAxis": {
       "label": "軸",
       "options": {
@@ -72,10 +57,7 @@
       "motion": "モーション",
       "scene": "シーン"
     },
-    "hueCircle": {
-      "label": "色相環"
-    },
-    "hueStart": {
+    "hue": {
       "label": "色相の開始値"
     },
     "irrationality": {
@@ -110,8 +92,8 @@
     "light": {
       "label": "ライト"
     },
-    "maxSiblingSpread": {
-      "label": "兄弟要素の色相分散"
+    "lightness": {
+      "label": "明度スケール"
     },
     "meshaSize": {
       "label": "Meshaのサイズ"
@@ -125,11 +107,11 @@
     "noseSize": {
       "label": "鼻のサイズ"
     },
+    "saturation": {
+      "label": "彩度スケール"
+    },
     "showMore": {
       "label": "もっと表示"
-    },
-    "showsVideoPreviews": {
-      "label": "オリジナルをプレビュー"
     },
     "sortBy": {
       "label": "言語の並び順",

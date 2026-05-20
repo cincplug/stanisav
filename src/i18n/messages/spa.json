@@ -12,9 +12,6 @@
     "cameraZ": {
       "label": "Cámara Z"
     },
-    "canEditColors": {
-      "label": "¿Editar colores?"
-    },
     "d4": {
       "label": "Algún tipo de 4D"
     },
@@ -45,18 +42,6 @@
     "friction": {
       "label": "Fricción"
     },
-    "globalChromaOffset": {
-      "label": "Desplazamiento de croma"
-    },
-    "globalChromaScale": {
-      "label": "Escala de croma"
-    },
-    "globalLightnessOffset": {
-      "label": "Desplazamiento de luminosidad"
-    },
-    "globalLightnessScale": {
-      "label": "Escala de luminosidad"
-    },
     "globeSpiralAxis": {
       "label": "Eje",
       "options": {
@@ -72,10 +57,7 @@
       "motion": "Movimiento",
       "scene": "Escena"
     },
-    "hueCircle": {
-      "label": "Círculo de matices"
-    },
-    "hueStart": {
+    "hue": {
       "label": "Matiz inicial"
     },
     "irrationality": {
@@ -110,8 +92,8 @@
     "light": {
       "label": "Luz"
     },
-    "maxSiblingSpread": {
-      "label": "Dispersión de matices afines"
+    "lightness": {
+      "label": "Escala de luminosidad"
     },
     "meshaSize": {
       "label": "Tamaño de Mesha"
@@ -125,11 +107,11 @@
     "noseSize": {
       "label": "Tamaño de la nariz"
     },
+    "saturation": {
+      "label": "Escala de croma"
+    },
     "showMore": {
       "label": "Mostrar más"
-    },
-    "showsVideoPreviews": {
-      "label": "Vista previa del original"
     },
     "sortBy": {
       "label": "Ordenar idiomas por",

@@ -12,9 +12,6 @@
     "cameraZ": {
       "label": "Kamera Z"
     },
-    "canEditColors": {
-      "label": "Upravovat barvy?"
-    },
     "d4": {
       "label": "Nějaký druh 4D"
     },
@@ -45,18 +42,6 @@
     "friction": {
       "label": "Tření"
     },
-    "globalChromaOffset": {
-      "label": "Posun chromy"
-    },
-    "globalChromaScale": {
-      "label": "Měřítko chromy"
-    },
-    "globalLightnessOffset": {
-      "label": "Posun světlosti"
-    },
-    "globalLightnessScale": {
-      "label": "Měřítko světlosti"
-    },
     "globeSpiralAxis": {
       "label": "Osa",
       "options": {
@@ -72,10 +57,7 @@
       "motion": "Pohyb",
       "scene": "Scéna"
     },
-    "hueCircle": {
-      "label": "Kruh odstínů"
-    },
-    "hueStart": {
+    "hue": {
       "label": "Počáteční odstín"
     },
     "irrationality": {
@@ -110,8 +92,8 @@
     "light": {
       "label": "Světlo"
     },
-    "maxSiblingSpread": {
-      "label": "Rozptyl odstínů příbuzných"
+    "lightness": {
+      "label": "Měřítko světlosti"
     },
     "meshaSize": {
       "label": "Mešina velikost"
@@ -125,11 +107,11 @@
     "noseSize": {
       "label": "Velikost nosu"
     },
+    "saturation": {
+      "label": "Měřítko chromy"
+    },
     "showMore": {
       "label": "Zobrazit více"
-    },
-    "showsVideoPreviews": {
-      "label": "Náhled originálu"
     },
     "sortBy": {
       "label": "Řazení",

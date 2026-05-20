@@ -12,9 +12,6 @@
     "cameraZ": {
       "label": "Camera Z"
     },
-    "canEditColors": {
-      "label": "Can edit colors?"
-    },
     "earSize": {
       "label": "Ear size"
     },
@@ -42,17 +39,11 @@
     "friction": {
       "label": "Friction"
     },
-    "globalChromaOffset": {
-      "label": "Chroma offset"
+    "saturation": {
+      "label": "Saturation"
     },
-    "globalChromaScale": {
-      "label": "Chroma scale"
-    },
-    "globalLightnessOffset": {
-      "label": "Lightness offset"
-    },
-    "globalLightnessScale": {
-      "label": "Lightness scale"
+    "lightness": {
+      "label": "Lightness"
     },
     "groups": {
       "camera": "Camera",
@@ -67,11 +58,8 @@
     "isIdCardVisible": {
       "label": "ID card"
     },
-    "hueCircle": {
-      "label": "Hue circle"
-    },
-    "hueStart": {
-      "label": "Hue start"
+    "hue": {
+      "label": "Hue"
     },
     "isLoop": {
       "label": "Loop playlist"
@@ -102,9 +90,6 @@
     "d4": {
       "label": "Some kind of 4d"
     },
-    "maxSiblingSpread": {
-      "label": "Sibling hue spread"
-    },
     "meshaSize": {
       "label": "Mesha size"
     },
@@ -116,9 +101,6 @@
     },
     "noseSize": {
       "label": "Nose size"
-    },
-    "showsVideoPreviews": {
-      "label": "Preview original"
     },
     "sortBy": {
       "label": "Sort languages by",

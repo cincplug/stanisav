@@ -12,9 +12,6 @@
     "cameraZ": {
       "label": "Kyamara Z"
     },
-    "canEditColors": {
-      "label": "Za a iya gyara launuka?"
-    },
     "d4": {
       "label": "Wani irin 4D"
     },
@@ -45,18 +42,6 @@
     "friction": {
       "label": "Gogayya"
     },
-    "globalChromaOffset": {
-      "label": "Matsayin kroma"
-    },
-    "globalChromaScale": {
-      "label": "Ma'aunin kroma"
-    },
-    "globalLightnessOffset": {
-      "label": "Matsayin haske"
-    },
-    "globalLightnessScale": {
-      "label": "Ma'aunin haske"
-    },
     "globeSpiralAxis": {
       "label": "Axis",
       "options": {
@@ -72,10 +57,7 @@
       "motion": "Motsi",
       "scene": "Yanayi"
     },
-    "hueCircle": {
-      "label": "Da'irar launi"
-    },
-    "hueStart": {
+    "hue": {
       "label": "Farkon launi"
     },
     "irrationality": {
@@ -110,8 +92,8 @@
     "light": {
       "label": "Haske"
     },
-    "maxSiblingSpread": {
-      "label": "Rarrabawar launi na 'yan'uwa"
+    "lightness": {
+      "label": "Ma'aunin haske"
     },
     "meshaSize": {
       "label": "Girman Mesha"
@@ -125,11 +107,11 @@
     "noseSize": {
       "label": "Girman hanci"
     },
+    "saturation": {
+      "label": "Ma'aunin kroma"
+    },
     "showMore": {
       "label": "Nuna ƙari"
-    },
-    "showsVideoPreviews": {
-      "label": "Duba asali"
     },
     "sortBy": {
       "label": "Tsara harsuna bisa",

@@ -12,9 +12,6 @@
     "cameraZ": {
       "label": "دوربین Z"
     },
-    "canEditColors": {
-      "label": "آیا می‌توان رنگ‌ها را ویرایش کرد؟"
-    },
     "d4": {
       "label": "نوعی ۴ بعدی"
     },
@@ -45,18 +42,6 @@
     "friction": {
       "label": "اصطکاک"
     },
-    "globalChromaOffset": {
-      "label": "افست کروما"
-    },
-    "globalChromaScale": {
-      "label": "مقیاس کروما"
-    },
-    "globalLightnessOffset": {
-      "label": "افست روشنایی"
-    },
-    "globalLightnessScale": {
-      "label": "مقیاس روشنایی"
-    },
     "globeSpiralAxis": {
       "label": "محور",
       "options": {
@@ -72,10 +57,7 @@
       "motion": "حرکت",
       "scene": "صحنه"
     },
-    "hueCircle": {
-      "label": "چرخه رنگ"
-    },
-    "hueStart": {
+    "hue": {
       "label": "شروع رنگ"
     },
     "irrationality": {
@@ -110,8 +92,8 @@
     "light": {
       "label": "نور"
     },
-    "maxSiblingSpread": {
-      "label": "پراکندگی رنگ عناصر هم‌رده"
+    "lightness": {
+      "label": "مقیاس روشنایی"
     },
     "meshaSize": {
       "label": "اندازه Mesha"
@@ -125,11 +107,11 @@
     "noseSize": {
       "label": "اندازه بینی"
     },
+    "saturation": {
+      "label": "مقیاس کروما"
+    },
     "showMore": {
       "label": "نمایش بیشتر"
-    },
-    "showsVideoPreviews": {
-      "label": "پیش‌نمایش اصل"
     },
     "sortBy": {
       "label": "مرتب‌سازی زبان‌ها بر اساس",

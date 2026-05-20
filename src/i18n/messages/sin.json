@@ -12,9 +12,6 @@
     "cameraZ": {
       "label": "කැමරා Z"
     },
-    "canEditColors": {
-      "label": "වර්ණ සංස්කරණය කළ හැකිද?"
-    },
     "d4": {
       "label": "යම් ආකාරයක 4D"
     },
@@ -45,18 +42,6 @@
     "friction": {
       "label": "ඝර්ෂණය"
     },
-    "globalChromaOffset": {
-      "label": "ක්‍රෝමා ඕෆ්සෙට්"
-    },
-    "globalChromaScale": {
-      "label": "ක්‍රෝමා පරිමාණය"
-    },
-    "globalLightnessOffset": {
-      "label": "දීප්තිය ඕෆ්සෙට්"
-    },
-    "globalLightnessScale": {
-      "label": "දීප්තිය පරිමාණය"
-    },
     "globeSpiralAxis": {
       "label": "අක්ෂය",
       "options": {
@@ -72,10 +57,7 @@
       "motion": "චලනය",
       "scene": "දර්ශනය"
     },
-    "hueCircle": {
-      "label": "වර්ණ චක්‍රය"
-    },
-    "hueStart": {
+    "hue": {
       "label": "වර්ණ ආරම්භය"
     },
     "irrationality": {
@@ -110,8 +92,8 @@
     "light": {
       "label": "ආලෝකය"
     },
-    "maxSiblingSpread": {
-      "label": "සහෝදර වර්ණ පැතිරීම"
+    "lightness": {
+      "label": "දීප්තිය පරිමාණය"
     },
     "meshaSize": {
       "label": "මේෂා ප්‍රමාණය"
@@ -125,11 +107,11 @@
     "noseSize": {
       "label": "නාසය ප්‍රමාණය"
     },
+    "saturation": {
+      "label": "ක්‍රෝමා පරිමාණය"
+    },
     "showMore": {
       "label": "තවත් පෙන්වන්න"
-    },
-    "showsVideoPreviews": {
-      "label": "මුල් ප්‍රාග්දර්ශනය"
     },
     "sortBy": {
       "label": "වර්ග කිරීම",
