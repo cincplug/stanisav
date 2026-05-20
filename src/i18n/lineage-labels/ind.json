@@ -1,351 +1,81 @@
 {
-  "controls": {
-    "bgColor": {
-      "label": "Latar belakang"
-    },
-    "cameraX": {
-      "label": "Kamera X"
-    },
-    "cameraY": {
-      "label": "Kamera Y"
-    },
-    "cameraZ": {
-      "label": "Kamera Z"
-    },
-    "canEditColors": {
-      "label": "Warna dapat diedit?"
-    },
-    "eyeProtrusion": {
-      "label": "Tonjolan mata"
-    },
-    "eyeSize": {
-      "label": "Ukuran mata"
-    },
-    "eyeX": {
-      "label": "Mata X"
-    },
-    "eyeY": {
-      "label": "Mata Y"
-    },
-    "eyeZ": {
-      "label": "Mata Z"
-    },
-    "far": {
-      "label": "Bidang potong jauh"
-    },
-    "fov": {
-      "label": "Sudut pandang"
-    },
-    "friction": {
-      "label": "Gesekan"
-    },
-    "globalChromaOffset": {
-      "label": "Offset kroma"
-    },
-    "saturation": {
-      "label": "Skala kroma"
-    },
-    "globalLightnessOffset": {
-      "label": "Offset kecerahan"
-    },
-    "lightness": {
-      "label": "Skala kecerahan"
-    },
-    "groups": {
-      "camera": "Kamera",
-      "colors": "Warna",
-      "mesha": "Mesha",
-      "motion": "Gerakan",
-      "scene": "Adegan",
-      "stageLight": "Cahaya panggung"
-    },
-    "isIdCardVisible": {
-      "label": "Tampilkan subjudul"
-    },
-    "hueCircle": {
-      "label": "Lingkaran rona"
-    },
-    "hue": {
-      "label": "Rona awal"
-    },
-    "isLoop": {
-      "label": "Ulangi daftar putar"
-    },
-    "isMyMesha": {
-      "label": "Saya adalah Mesha"
-    },
-    "isReverse": {
-      "label": "Urutan terbalik"
-    },
-    "labelContent": {
-      "label": "Tampilan",
-      "options": {
-        "isoCode": "Kode ISO",
-        "name": "Nama dalam bahasa Inggris",
-        "nativeName": "Nama dalam bahasa asli"
-      }
-    },
-    "labelSize": {
-      "label": "Ukuran label"
-    },
-    "light": { "label": "Cahaya" },
-    "maxSiblingSpread": {
-      "label": "Sebaran rona elemen saudara"
-    },
-    "lightDecay": {
-      "label": "Peluruhan"
-    },
-    "lightDistance": {
-      "label": "Jarak"
-    },
-    "lightIntensity": {
-      "label": "Intensitas"
-    },
-    "meshaSize": {
-      "label": "Ukuran Mesha"
-    },
-    "moustacheSize": {
-      "label": "Ukuran kumis"
-    },
-    "near": {
-      "label": "Bidang potong dekat"
-    },
-    "noseSize": {
-      "label": "Ukuran hidung"
-    },
-    "showsVideoPreviews": {
-      "label": "Pratinjau asli"
-    },
-    "sortBy": {
-      "label": "Urutkan bahasa berdasarkan",
-      "options": {
-        "alphabetically": "Urutan alfabet",
-        "caseCount": "Jumlah kasus",
-        "evidentiality": "Evidensialitas",
-        "family": "Rumpun bahasa",
-        "maxClusterSize": "Kluster konsonan",
-        "morphology": "Morfologi",
-        "nounClassCount": "Kelas nomina",
-        "phonemeCount": "Jumlah fonem",
-        "speakers": "Jumlah penutur",
-        "tonality": "Tonalitas",
-        "verbAspect": "Aspek verba",
-        "wordOrder": "Urutan kata",
-        "wordOrderFlexibility": "Fleksibilitas urutan kata"
-      }
-    },
-    "sphereRadius": {
-      "label": "Jari-jari bola"
-    },
-    "stageLightDecay": {
-      "label": "Peluruhan"
-    },
-    "stageLightDistance": {
-      "label": "Jarak"
-    },
-    "stageLightIntensity": {
-      "label": "Intensitas"
-    },
-    "switchDuration": {
-      "label": "Durasi peralihan"
-    },
-    "teethSize": {
-      "label": "Ukuran gigi"
-    },
-    "tension": {
-      "label": "Tegangan"
-    },
-    "zoomDistance": {
-      "label": "Jarak zoom"
-    }
-  },
-  "filters": {
-    "all": "Semua",
-    "allowMultipleChoices": "Izinkan beberapa pilihan",
-    "results": "Hasil filter ({count})",
-    "title": "Filter berdasarkan"
-  },
-  "linguistic": {
-    "caseCount": {
-      "name": "Jumlah kasus"
-    },
-    "evidentiality": {
-      "name": "Evidensialitas",
-      "values": {
-        "complex": {
-          "description": "Empat atau lebih perbedaan evidensial, atau evidensialitas yang menyatu dengan kala/aspek.",
-          "label": "Kompleks"
-        },
-        "moderate": {
-          "description": "Perbedaan tiga arah (misalnya langsung, laporan, inferensial).",
-          "label": "Sedang"
-        },
-        "none": {
-          "description": "Tidak ada penanda gramatikal untuk sumber informasi.",
-          "label": "Tidak ada"
-        },
-        "optional": {
-          "description": "Penanda mirip evidensial ada tetapi tidak wajib.",
-          "label": "Opsional"
-        },
-        "simple": {
-          "description": "Perbedaan dua arah (biasanya langsung vs. tidak langsung/laporan).",
-          "label": "Sederhana"
-        }
-      }
-    },
-    "family": {
-      "name": "Rumpun bahasa"
-    },
-    "maxClusterSize": {
-      "name": "Jumlah maksimal konsonan dalam kluster"
-    },
-    "morphology": {
-      "name": "Morfologi",
-      "values": {
-        "agglutinative": {
-          "description": "Kata dibentuk dengan menumpuk imbuhan satu per satu, di mana setiap imbuhan membawa tepat satu makna. Bagian-bagiannya tetap dapat dikenali dengan jelas, seperti balok-balok yang disatukan.",
-          "label": "Aglutinasi"
-        },
-        "fusional": {
-          "description": "Kata mengubah bentuknya melalui akhiran dan prefiks yang sekaligus menggabungkan beberapa makna gramatikal. Satu akhiran bisa mengungkapkan gender, jumlah, dan kasus secara bersamaan, sehingga sulit untuk memisahkan bagian-bagiannya.",
-          "label": "Fleksi"
-        },
-        "introflexive": {
-          "description": "Tata bahasa dibangun dari dalam kata: akar konsonan membawa makna inti, sementara pola vokal berbeda yang disisipkan ke dalamnya membentuk kata-kata baru. Misalnya, akar bahasa Arab k-t-b berkaitan dengan tulisan, dan kataba, kitāb, serta kātib semuanya berasal darinya.",
-          "label": "Introfleksi"
-        },
-        "isolating": {
-          "description": "Kata biasanya terdiri dari satu morfem dan tidak mengubah bentuknya. Tata bahasa dinyatakan melalui urutan kata dan kata fungsi terpisah, bukan melalui akhiran atau prefiks.",
-          "label": "Isolasi"
-        },
-        "polysynthetic": {
-          "description": "Satu kata dapat mengungkapkan apa yang akan dikatakan bahasa lain dalam kalimat penuh, dengan menyatukan verba, subjek, objek, dan unsur-unsur lainnya. Umum ditemukan dalam bahasa-bahasa asli Amerika dan Arktik.",
-          "label": "Polisintesis"
-        }
-      }
-    },
-    "nounClassCount": {
-      "name": "Kelas nomina / gender"
-    },
-    "phonemeCount": {
-      "name": "Jumlah fonem"
-    },
-    "tonality": {
-      "name": "Tonalitas",
-      "values": {
-        "complex-tonal": {
-          "description": "Pola nada sangat mempengaruhi makna kata.",
-          "label": "Tonal kompleks"
-        },
-        "non-tonal": {
-          "description": "Perubahan nada tidak mempengaruhi makna kata.",
-          "label": "Non-tonal"
-        },
-        "pitch-accent": {
-          "description": "Menggunakan aksen nada, di mana suku kata tertentu ditekankan dengan perubahan nada.",
-          "label": "Aksen nada"
-        },
-        "simple-tonal": {
-          "description": "Perubahan nada sedikit mempengaruhi makna kata.",
-          "label": "Tonal sederhana"
-        }
-      }
-    },
-    "verbAspect": {
-      "name": "Aspek verba",
-      "values": {
-        "binary": {
-          "description": "Perbedaan sistematis dua arah (perfektif/imperfektif).",
-          "label": "Biner"
-        },
-        "complex": {
-          "description": "Beberapa kategori aspek dengan penandaan morfologis yang kaya.",
-          "label": "Kompleks"
-        },
-        "minimal": {
-          "description": "Tidak ada atau sangat sedikit penandaan aspek gramatikal.",
-          "label": "Minimal"
-        },
-        "simple": {
-          "description": "Perbedaan aspek dasar (misalnya progresif, perfek).",
-          "label": "Sederhana"
-        }
-      }
-    },
-    "wordOrder": {
-      "name": "Urutan kata",
-      "values": {
-        "SOV": {
-          "description": "Subjek-Objek-Verba",
-          "label": "SOV"
-        },
-        "SVO": {
-          "description": "Subjek-Verba-Objek",
-          "label": "SVO"
-        },
-        "VOS": {
-          "description": "Verba-Objek-Subjek",
-          "label": "VOS"
-        },
-        "VSO": {
-          "description": "Verba-Subjek-Objek",
-          "label": "VSO"
-        }
-      }
-    },
-    "wordOrderFlexibility": {
-      "name": "Fleksibilitas urutan kata",
-      "values": {
-        "flexible": {
-          "description": "Berbagai susunan kata diizinkan untuk tujuan stilistika.",
-          "label": "Fleksibel"
-        },
-        "rigid": {
-          "description": "Kata-kata memiliki posisi gramatikal yang tetap.",
-          "label": "Kaku"
-        },
-        "semi-flexible": {
-          "description": "Sejumlah variasi urutan kata diizinkan untuk penekanan.",
-          "label": "Semi-fleksibel"
-        }
-      }
-    }
-  },
-  "menu": {
-    "close": "Tutup menu",
-    "open": "Buka menu"
-  },
-  "playlist": {
-    "controls": "Kontrol daftar putar",
-    "goToBeginning": "Ke awal (tombol Home)",
-    "next": "Trek berikutnya (panah kanan)",
-    "pause": "Jeda",
-    "play": "Putar",
-    "previous": "Trek sebelumnya (panah kiri)",
-    "progress": "{current} dari {total}",
-    "toggleLoop": "Alihkan pengulangan (tombol L)"
-  },
-  "search": {
-    "clear": "Hapus pencarian",
-    "label": "Cari",
-    "noResults": "Tidak ada bahasa yang cocok dengan \"{term}\"",
-    "results": "Hasil pencarian ({count})",
-    "threshold": "Ketik setidaknya {threshold} karakter untuk mencari…",
-    "viewAll": "Lihat semua"
-  },
-  "tabs": {
-    "controls": "Pengaturan",
-    "filters": "Filter",
-    "languages": "Bahasa",
-    "search": "Cari"
-  },
-  "overlay": {
-    "slogan": "Semakin banyak bahasa yang kamu kuasai, semakin berharga dirimu.",
-    "emptyFilter": "Tidak ada bahasa untuk kombinasi filter tersebut. Kamu mungkin memilih terlalu banyak filter."
-  },
-  "idCard": {
-    "sourceVideo": "Video sumber",
-    "opensInNewTab": "membuka di tab baru"
-  }
+  "Afro-Asiatic": "Afro-Asiatik",
+  "Albanian": "Albania",
+  "Algonquian": "Algonquian",
+  "Armenian": "Armenia",
+  "Athabaskan": "Athabaskan",
+  "Atlantic": "Atlantik",
+  "Austroasiatic": "Austroasia",
+  "Austronesian": "Austronesia",
+  "Aymaran": "Aymara",
+  "Baltic": "Baltik",
+  "Balto-Slavic": "Balto-Slavia",
+  "Bantu": "Bantu",
+  "Basque": "Basque",
+  "Berber": "Berber",
+  "Caucasian": "Kaukasia",
+  "Celtic": "Kelt",
+  "Central Dravidian": "Dravida Tengah",
+  "Chadic": "Chadik",
+  "Creole": "Kreol",
+  "Cushitic": "Kushitik",
+  "Dravidian": "Dravida",
+  "East Slavic": "Slavia Timur",
+  "English Creole": "Kreol Inggris",
+  "Eskimo-Aleut": "Eskimo-Aleut",
+  "Finnic": "Finnik",
+  "French Creole": "Kreol Prancis",
+  "Germanic": "Jermanik",
+  "Hellenic": "Helenik",
+  "Hmong-Mien": "Hmong-Mien",
+  "Indo-Aryan": "Indo-Arya",
+  "Indo-European": "Indo-Eropa",
+  "Iranian": "Iran",
+  "Iroquoian": "Iroquois",
+  "Japonic": "Jepang",
+  "Karen": "Karen",
+  "Karluk Turkic": "Turki Karluk",
+  "Kartvelian": "Kartvelia",
+  "Khoisan": "Khoisan",
+  "Kipchak Turkic": "Turki Kipchak",
+  "Koreanic": "Korea",
+  "Kra-Dai": "Kra-Dai",
+  "Kwa": "Kwa",
+  "Malayo-Polynesian": "Melayu-Polinesia",
+  "Mande": "Mande",
+  "Mayan": "Maya",
+  "Mon-Khmer": "Mon-Khmer",
+  "Mongolic": "Mongolia",
+  "Munda": "Munda",
+  "Na-Dene": "Na-Dene",
+  "Niger-Congo": "Niger-Kongo",
+  "Nilo-Saharan": "Nilo-Sahara",
+  "Nilotic": "Nilotik",
+  "North Germanic": "Jermanik Utara",
+  "Nubian": "Nubia",
+  "Oghuz Turkic": "Turki Oghuz",
+  "Other Tibeto-Burman": "Tibeto-Burma Lainnya",
+  "Pacific": "Pasifik",
+  "Philippine": "Filipina",
+  "Portuguese Creole": "Kreol Portugis",
+  "Quechuan": "Quechua",
+  "Romance": "Roman",
+  "Sardinian": "Sardinia",
+  "Semitic": "Semit",
+  "Siberian Turkic": "Turki Siberia",
+  "Sinitic": "Sinitik",
+  "Sino-Tibetan": "Sino-Tibet",
+  "Slavic": "Slavia",
+  "South Dravidian": "Dravida Selatan",
+  "South Slavic": "Slavia Selatan",
+  "Spanish Creole": "Kreol Spanyol",
+  "Tibetan": "Tibet",
+  "Tibeto-Burman": "Tibeto-Burma",
+  "Tupian": "Tupi",
+  "Turkic": "Turki",
+  "Ugric": "Ugrik",
+  "Uralic": "Ural",
+  "Uto-Aztecan": "Uto-Aztek",
+  "West Germanic": "Jermanik Barat",
+  "West Slavic": "Slavia Barat"
 }
