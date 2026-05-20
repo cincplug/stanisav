@@ -33,12 +33,6 @@
     "eyeZ": {
       "label": "Oko Z"
     },
-    "far": {
-      "label": "Daleka płaszczyzna"
-    },
-    "fov": {
-      "label": "Pole widzenia"
-    },
     "friction": {
       "label": "Tarcie"
     },
@@ -58,16 +52,16 @@
       "scene": "Scena"
     },
     "hue": {
-      "label": "Początkowy odcień"
+      "label": "Odcień"
     },
     "irrationality": {
       "label": "Irracjonalność"
     },
+    "isAutoplay": {
+      "label": "Autoodtwarzanie"
+    },
     "isIdCardVisible": {
       "label": "Dowód osobisty"
-    },
-    "isLoop": {
-      "label": "Zapętl playlistę"
     },
     "isMyMesha": {
       "label": "Jestem Meszą"
@@ -93,7 +87,7 @@
       "label": "Światło"
     },
     "lightness": {
-      "label": "Skala jasności"
+      "label": "Jasność"
     },
     "meshaSize": {
       "label": "Rozmiar Meszy"
@@ -101,14 +95,11 @@
     "moustacheSize": {
       "label": "Rozmiar wąsów"
     },
-    "near": {
-      "label": "Bliska płaszczyzna"
-    },
     "noseSize": {
       "label": "Rozmiar nosa"
     },
     "saturation": {
-      "label": "Skala chromy"
+      "label": "Nasycenie"
     },
     "showMore": {
       "label": "Pokaż więcej"

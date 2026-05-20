@@ -18,7 +18,7 @@ export const PlaylistProvider = ({ children }) => {
   const { data, sceneReady } = useAppState();
   const { controls } = useControls();
   const {
-    isLoop,
+    isAutoplay,
     isMyMesha,
     isLuka,
     switchDuration,
@@ -45,13 +45,13 @@ export const PlaylistProvider = ({ children }) => {
   // iOS Safari's requirement that audio be unlocked during a gesture handler
   const audioRef = useRef(null);
   const delayTimeoutRef = useRef(null);
-  // isLoop is read inside an async callback (handleAudioEnded) so we mirror it
+  // isAutoplay is read inside an async callback (handleAudioEnded) so we mirror it
   // in a ref to always have the current value without stale closure issues
-  const isLoopRef = useRef(isLoop);
+  const isAutoplayRef = useRef(isAutoplay);
 
   useEffect(() => {
-    isLoopRef.current = isLoop;
-  }, [isLoop]);
+    isAutoplayRef.current = isAutoplay;
+  }, [isAutoplay]);
 
   // Must be called synchronously inside a user gesture handler (button click etc.)
   // iOS Safari will block audio.play() unless the Audio element was created and
@@ -178,7 +178,7 @@ export const PlaylistProvider = ({ children }) => {
   }, []);
 
   const handleAudioEnded = useCallback(() => {
-    if (isLoopRef.current) {
+    if (isAutoplayRef.current) {
       const codes = playlistRef.current;
       setCurrentIndex((index) => {
         const nextIndex = index + 1;

@@ -89,6 +89,8 @@
   margin-top: var(--gap);
   gap: var(--gap);
   padding: var(--gap-half);
+  position: relative;
+  z-index: 2;
 
   .select-nav {
     width: 100%;

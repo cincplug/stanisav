@@ -33,12 +33,6 @@
     "eyeZ": {
       "label": "العين Z"
     },
-    "far": {
-      "label": "مستوى القطع البعيد"
-    },
-    "fov": {
-      "label": "زاوية الرؤية"
-    },
     "friction": {
       "label": "الاحتكاك"
     },
@@ -58,16 +52,16 @@
       "scene": "المشهد"
     },
     "hue": {
-      "label": "نقطة بداية الصبغة"
+      "label": "درجة اللون"
     },
     "irrationality": {
       "label": "اللاعقلانية"
     },
+    "isAutoplay": {
+      "label": "تشغيل تلقائي"
+    },
     "isIdCardVisible": {
       "label": "بطاقة الهوية"
-    },
-    "isLoop": {
-      "label": "تكرار قائمة التشغيل"
     },
     "isMyMesha": {
       "label": "أنا Mesha"
@@ -93,7 +87,7 @@
       "label": "إضاءة"
     },
     "lightness": {
-      "label": "مقياس السطوع"
+      "label": "السطوع"
     },
     "meshaSize": {
       "label": "حجم Mesha"
@@ -101,14 +95,11 @@
     "moustacheSize": {
       "label": "حجم الشارب"
     },
-    "near": {
-      "label": "مستوى القطع القريب"
-    },
     "noseSize": {
       "label": "حجم الأنف"
     },
     "saturation": {
-      "label": "مقياس الكروما"
+      "label": "التشبع"
     },
     "showMore": {
       "label": "عرض المزيد"

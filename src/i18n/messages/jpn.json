@@ -33,12 +33,6 @@
     "eyeZ": {
       "label": "目 Z"
     },
-    "far": {
-      "label": "遠クリッピング面"
-    },
-    "fov": {
-      "label": "視野角"
-    },
     "friction": {
       "label": "摩擦"
     },
@@ -58,16 +52,16 @@
       "scene": "シーン"
     },
     "hue": {
-      "label": "色相の開始値"
+      "label": "色相"
     },
     "irrationality": {
       "label": "非合理性"
     },
+    "isAutoplay": {
+      "label": "自動再生"
+    },
     "isIdCardVisible": {
       "label": "身分証明書"
-    },
-    "isLoop": {
-      "label": "プレイリストをループ"
     },
     "isMyMesha": {
       "label": "私はMesha"
@@ -93,7 +87,7 @@
       "label": "ライト"
     },
     "lightness": {
-      "label": "明度スケール"
+      "label": "明度"
     },
     "meshaSize": {
       "label": "Meshaのサイズ"
@@ -101,14 +95,11 @@
     "moustacheSize": {
       "label": "口ひげのサイズ"
     },
-    "near": {
-      "label": "近クリッピング面"
-    },
     "noseSize": {
       "label": "鼻のサイズ"
     },
     "saturation": {
-      "label": "彩度スケール"
+      "label": "彩度"
     },
     "showMore": {
       "label": "もっと表示"

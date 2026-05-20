@@ -57,19 +57,19 @@ export default function Playlist() {
         case "l":
           if (e.target.matches("input, textarea, select, button, a")) return;
           e.preventDefault();
-          updateControl("isLoop", !controls.isLoop);
+          updateControl("isAutoplay", !controls.isAutoplay);
           break;
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isPlaying, controls.isLoop]);
+  }, [isPlaying, controls.isAutoplay]);
 
   const playLabel = isPlaying ? t("playlist.pause") : t("playlist.play");
   const playIcon = isPlaying ? <PauseIcon /> : <PlayIcon />;
 
-  const toggleLoop = () => updateControl("isLoop", !controls.isLoop);
+  const toggleLoop = () => updateControl("isAutoplay", !controls.isAutoplay);
 
   // Stop button handler: same as viewAll in FiltersTab
   const handleStop = () => {
@@ -107,10 +107,10 @@ export default function Playlist() {
       <button
         onClick={toggleLoop}
         aria-label={t("playlist.toggleLoop")}
-        aria-pressed={controls.isLoop}
-        className={controls.isLoop ? "selected" : ""}
+        aria-pressed={controls.isAutoplay}
+        className={controls.isAutoplay ? "selected" : ""}
       >
-        <LoopIcon selected={controls.isLoop} />
+        <LoopIcon selected={controls.isAutoplay} />
       </button>
     </div>
   );

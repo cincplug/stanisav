@@ -33,12 +33,6 @@
     "eyeZ": {
       "label": "眼睛 Z"
     },
-    "far": {
-      "label": "远裁剪面"
-    },
-    "fov": {
-      "label": "视野角度"
-    },
     "friction": {
       "label": "摩擦力"
     },
@@ -58,16 +52,16 @@
       "scene": "场景"
     },
     "hue": {
-      "label": "起始色相"
+      "label": "色相"
     },
     "irrationality": {
       "label": "非理性"
     },
+    "isAutoplay": {
+      "label": "自动播放"
+    },
     "isIdCardVisible": {
       "label": "身份证"
-    },
-    "isLoop": {
-      "label": "循环播放列表"
     },
     "isMyMesha": {
       "label": "我是 Mesha"
@@ -93,7 +87,7 @@
       "label": "灯光"
     },
     "lightness": {
-      "label": "亮度缩放"
+      "label": "亮度"
     },
     "meshaSize": {
       "label": "Mesha 大小"
@@ -101,14 +95,11 @@
     "moustacheSize": {
       "label": "胡须大小"
     },
-    "near": {
-      "label": "近裁剪面"
-    },
     "noseSize": {
       "label": "鼻子大小"
     },
     "saturation": {
-      "label": "色度缩放"
+      "label": "饱和度"
     },
     "showMore": {
       "label": "显示更多"

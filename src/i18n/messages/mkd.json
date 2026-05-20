@@ -33,12 +33,6 @@
     "eyeZ": {
       "label": "Око Z"
     },
-    "far": {
-      "label": "Далечна рамнина"
-    },
-    "fov": {
-      "label": "Видно поле"
-    },
     "friction": {
       "label": "Триење"
     },
@@ -58,16 +52,16 @@
       "scene": "Сцена"
     },
     "hue": {
-      "label": "Почетна нијанса"
+      "label": "Нијанса"
     },
     "irrationality": {
       "label": "Ирационалност"
     },
+    "isAutoplay": {
+      "label": "Автоматска репродукција"
+    },
     "isIdCardVisible": {
       "label": "Лична карта"
-    },
-    "isLoop": {
-      "label": "Петља на плејлистата"
     },
     "isMyMesha": {
       "label": "Јас сум Меша"
@@ -93,7 +87,7 @@
       "label": "Светлина"
     },
     "lightness": {
-      "label": "Размер на светлината"
+      "label": "Светлина"
     },
     "meshaSize": {
       "label": "Мешина големина"
@@ -101,14 +95,11 @@
     "moustacheSize": {
       "label": "Големина на мустаќите"
     },
-    "near": {
-      "label": "Блиска рамнина"
-    },
     "noseSize": {
       "label": "Големина на носот"
     },
     "saturation": {
-      "label": "Размер на хромата"
+      "label": "Заситеност"
     },
     "showMore": {
       "label": "Прикажи повеќе"

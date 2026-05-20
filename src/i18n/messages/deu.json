@@ -33,12 +33,6 @@
     "eyeZ": {
       "label": "Auge Z"
     },
-    "far": {
-      "label": "Fernebene"
-    },
-    "fov": {
-      "label": "Sichtfeld"
-    },
     "friction": {
       "label": "Reibung"
     },
@@ -58,16 +52,16 @@
       "scene": "Szene"
     },
     "hue": {
-      "label": "Farbton-Start"
+      "label": "Farbton"
     },
     "irrationality": {
       "label": "Irrationalität"
     },
+    "isAutoplay": {
+      "label": "Automatische Wiedergabe"
+    },
     "isIdCardVisible": {
       "label": "Personalausweis"
-    },
-    "isLoop": {
-      "label": "Playlist wiederholen"
     },
     "isMyMesha": {
       "label": "Ich bin Mesha"
@@ -93,7 +87,7 @@
       "label": "Licht"
     },
     "lightness": {
-      "label": "Helligkeitsskalierung"
+      "label": "Helligkeit"
     },
     "meshaSize": {
       "label": "Mesha-Größe"
@@ -101,14 +95,11 @@
     "moustacheSize": {
       "label": "Schnurrbart-Größe"
     },
-    "near": {
-      "label": "Nahebene"
-    },
     "noseSize": {
       "label": "Nasengröße"
     },
     "saturation": {
-      "label": "Chroma-Skalierung"
+      "label": "Sättigung"
     },
     "showMore": {
       "label": "Mehr anzeigen"

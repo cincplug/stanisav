@@ -33,12 +33,6 @@
     "eyeZ": {
       "label": "आँख Z"
     },
-    "far": {
-      "label": "दूर क्लिपिंग तल"
-    },
-    "fov": {
-      "label": "दृष्टि क्षेत्र"
-    },
     "friction": {
       "label": "घर्षण"
     },
@@ -58,16 +52,16 @@
       "scene": "दृश्य"
     },
     "hue": {
-      "label": "रंग आरंभ"
+      "label": "रंगत"
     },
     "irrationality": {
       "label": "अतार्किकता"
     },
+    "isAutoplay": {
+      "label": "स्वतः चलाएँ"
+    },
     "isIdCardVisible": {
       "label": "पहचान पत्र"
-    },
-    "isLoop": {
-      "label": "प्लेलिस्ट दोहराएँ"
     },
     "isMyMesha": {
       "label": "मैं Mesha हूँ"
@@ -93,7 +87,7 @@
       "label": "प्रकाश"
     },
     "lightness": {
-      "label": "चमक स्केल"
+      "label": "चमक"
     },
     "meshaSize": {
       "label": "Mesha आकार"
@@ -101,14 +95,11 @@
     "moustacheSize": {
       "label": "मूँछ का आकार"
     },
-    "near": {
-      "label": "निकट क्लिपिंग तल"
-    },
     "noseSize": {
       "label": "नाक का आकार"
     },
     "saturation": {
-      "label": "क्रोमा स्केल"
+      "label": "संतृप्ति"
     },
     "showMore": {
       "label": "और दिखाएँ"

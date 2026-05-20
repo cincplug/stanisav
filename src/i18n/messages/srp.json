@@ -19,10 +19,10 @@
       "label": "Veličina ušiju"
     },
     "eyeProtrusion": {
-      "label": "Isturanje oka"
+      "label": "Iskolačenost očiju"
     },
     "eyeSize": {
-      "label": "Veličina oka"
+      "label": "Veličina očiju"
     },
     "eyeX": {
       "label": "Oko X"
@@ -32,12 +32,6 @@
     },
     "eyeZ": {
       "label": "Oko Z"
-    },
-    "far": {
-      "label": "Daleka ravan"
-    },
-    "fov": {
-      "label": "Vidno polje"
     },
     "friction": {
       "label": "Trenje"
@@ -58,16 +52,16 @@
       "scene": "Scena"
     },
     "hue": {
-      "label": "Početna nijansa"
+      "label": "Nijansa"
     },
     "irrationality": {
       "label": "Iracionalnost"
     },
+    "isAutoplay": {
+      "label": "Automatska reprodukcija"
+    },
     "isIdCardVisible": {
       "label": "Lična karta"
-    },
-    "isLoop": {
-      "label": "Petlja plejliste"
     },
     "isMyMesha": {
       "label": "Ja sam Meša"
@@ -93,7 +87,7 @@
       "label": "Svetlo"
     },
     "lightness": {
-      "label": "Razmera svetline"
+      "label": "Svetlina"
     },
     "meshaSize": {
       "label": "Mešina veličina"
@@ -101,14 +95,11 @@
     "moustacheSize": {
       "label": "Veličina brkova"
     },
-    "near": {
-      "label": "Bliska ravan"
-    },
     "noseSize": {
       "label": "Veličina nosa"
     },
     "saturation": {
-      "label": "Razmera hrome"
+      "label": "Zasićenost"
     },
     "showMore": {
       "label": "Prikaži više"

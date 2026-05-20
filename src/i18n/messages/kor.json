@@ -33,12 +33,6 @@
     "eyeZ": {
       "label": "눈 Z"
     },
-    "far": {
-      "label": "원거리 클리핑 면"
-    },
-    "fov": {
-      "label": "시야각"
-    },
     "friction": {
       "label": "마찰"
     },
@@ -58,16 +52,16 @@
       "scene": "장면"
     },
     "hue": {
-      "label": "색조 시작값"
+      "label": "색조"
     },
     "irrationality": {
       "label": "비합리성"
     },
+    "isAutoplay": {
+      "label": "자동 재생"
+    },
     "isIdCardVisible": {
       "label": "신분증"
-    },
-    "isLoop": {
-      "label": "재생목록 반복"
     },
     "isMyMesha": {
       "label": "나는 Mesha입니다"
@@ -93,7 +87,7 @@
       "label": "조명"
     },
     "lightness": {
-      "label": "명도 스케일"
+      "label": "명도"
     },
     "meshaSize": {
       "label": "Mesha 크기"
@@ -101,14 +95,11 @@
     "moustacheSize": {
       "label": "콧수염 크기"
     },
-    "near": {
-      "label": "근거리 클리핑 면"
-    },
     "noseSize": {
       "label": "코 크기"
     },
     "saturation": {
-      "label": "채도 스케일"
+      "label": "채도"
     },
     "showMore": {
       "label": "더 보기"

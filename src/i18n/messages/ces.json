@@ -33,12 +33,6 @@
     "eyeZ": {
       "label": "Oko Z"
     },
-    "far": {
-      "label": "Vzdálená rovina"
-    },
-    "fov": {
-      "label": "Zorné pole"
-    },
     "friction": {
       "label": "Tření"
     },
@@ -58,16 +52,16 @@
       "scene": "Scéna"
     },
     "hue": {
-      "label": "Počáteční odstín"
+      "label": "Odstín"
     },
     "irrationality": {
       "label": "Iracionalita"
     },
+    "isAutoplay": {
+      "label": "Automatické přehrávání"
+    },
     "isIdCardVisible": {
       "label": "Občanka"
-    },
-    "isLoop": {
-      "label": "Opakovat playlist"
     },
     "isMyMesha": {
       "label": "Jsem Meša"
@@ -93,7 +87,7 @@
       "label": "Světlo"
     },
     "lightness": {
-      "label": "Měřítko světlosti"
+      "label": "Světlost"
     },
     "meshaSize": {
       "label": "Mešina velikost"
@@ -101,14 +95,11 @@
     "moustacheSize": {
       "label": "Velikost kníru"
     },
-    "near": {
-      "label": "Blízká rovina"
-    },
     "noseSize": {
       "label": "Velikost nosu"
     },
     "saturation": {
-      "label": "Měřítko chromy"
+      "label": "Sytost"
     },
     "showMore": {
       "label": "Zobrazit více"

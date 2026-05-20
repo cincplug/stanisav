@@ -33,12 +33,6 @@
     "eyeZ": {
       "label": "Oog Z"
     },
-    "far": {
-      "label": "Ver vlak"
-    },
-    "fov": {
-      "label": "Gezichtsveld"
-    },
     "friction": {
       "label": "Wrijving"
     },
@@ -58,16 +52,16 @@
       "scene": "Scène"
     },
     "hue": {
-      "label": "Kleurstart"
+      "label": "Tint"
     },
     "irrationality": {
       "label": "Irrationaliteit"
     },
+    "isAutoplay": {
+      "label": "Automatisch afspelen"
+    },
     "isIdCardVisible": {
       "label": "Identiteitskaart"
-    },
-    "isLoop": {
-      "label": "Afspeellijst herhalen"
     },
     "isMyMesha": {
       "label": "Ik ben Mesha"
@@ -93,7 +87,7 @@
       "label": "Licht"
     },
     "lightness": {
-      "label": "Helderheidsschaal"
+      "label": "Lichtheid"
     },
     "meshaSize": {
       "label": "Mesha-grootte"
@@ -101,14 +95,11 @@
     "moustacheSize": {
       "label": "Snorgrootte"
     },
-    "near": {
-      "label": "Nabij vlak"
-    },
     "noseSize": {
       "label": "Neusgrootte"
     },
     "saturation": {
-      "label": "Chromaschaal"
+      "label": "Verzadiging"
     },
     "showMore": {
       "label": "Meer weergeven"

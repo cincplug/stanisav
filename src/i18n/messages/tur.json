@@ -33,12 +33,6 @@
     "eyeZ": {
       "label": "Göz Z"
     },
-    "far": {
-      "label": "Uzak kırpma düzlemi"
-    },
-    "fov": {
-      "label": "Görüş açısı"
-    },
     "friction": {
       "label": "Sürtünme"
     },
@@ -58,16 +52,16 @@
       "scene": "Sahne"
     },
     "hue": {
-      "label": "Renk tonu başlangıcı"
+      "label": "Ton"
     },
     "irrationality": {
       "label": "İrrasyonalite"
     },
+    "isAutoplay": {
+      "label": "Otomatik oynatma"
+    },
     "isIdCardVisible": {
       "label": "Kimlik kartı"
-    },
-    "isLoop": {
-      "label": "Çalma listesini döngüye al"
     },
     "isMyMesha": {
       "label": "Ben Mesha'yım"
@@ -93,7 +87,7 @@
       "label": "Işığı"
     },
     "lightness": {
-      "label": "Parlaklık ölçeği"
+      "label": "Parlaklık"
     },
     "meshaSize": {
       "label": "Mesha boyutu"
@@ -101,14 +95,11 @@
     "moustacheSize": {
       "label": "Bıyık boyutu"
     },
-    "near": {
-      "label": "Yakın kırpma düzlemi"
-    },
     "noseSize": {
       "label": "Burun boyutu"
     },
     "saturation": {
-      "label": "Kroma ölçeği"
+      "label": "Doygunluk"
     },
     "showMore": {
       "label": "Daha fazla göster"

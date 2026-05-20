@@ -33,12 +33,6 @@
     "eyeZ": {
       "label": "Око Z"
     },
-    "far": {
-      "label": "Далека площина"
-    },
-    "fov": {
-      "label": "Поле зору"
-    },
     "friction": {
       "label": "Тертя"
     },
@@ -58,16 +52,16 @@
       "scene": "Сцена"
     },
     "hue": {
-      "label": "Початковий відтінок"
+      "label": "Відтінок"
     },
     "irrationality": {
       "label": "Ірраціональність"
     },
+    "isAutoplay": {
+      "label": "Автовідтворення"
+    },
     "isIdCardVisible": {
       "label": "Посвідчення особи"
-    },
-    "isLoop": {
-      "label": "Повторювати список"
     },
     "isMyMesha": {
       "label": "Я — Меша"
@@ -93,7 +87,7 @@
       "label": "Світло"
     },
     "lightness": {
-      "label": "Масштаб яскравості"
+      "label": "Світлість"
     },
     "meshaSize": {
       "label": "Розмір Меші"
@@ -101,14 +95,11 @@
     "moustacheSize": {
       "label": "Розмір вусів"
     },
-    "near": {
-      "label": "Близька площина"
-    },
     "noseSize": {
       "label": "Розмір носа"
     },
     "saturation": {
-      "label": "Масштаб хроми"
+      "label": "Насиченість"
     },
     "showMore": {
       "label": "Показати більше"

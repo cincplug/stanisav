@@ -33,12 +33,6 @@
     "eyeZ": {
       "label": "Occhio Z"
     },
-    "far": {
-      "label": "Piano lontano"
-    },
-    "fov": {
-      "label": "Campo visivo"
-    },
     "friction": {
       "label": "Attrito"
     },
@@ -58,16 +52,16 @@
       "scene": "Scena"
     },
     "hue": {
-      "label": "Tonalità iniziale"
+      "label": "Tonalità"
     },
     "irrationality": {
       "label": "Irrazionalità"
     },
+    "isAutoplay": {
+      "label": "Riproduzione automatica"
+    },
     "isIdCardVisible": {
       "label": "Carta d'identità"
-    },
-    "isLoop": {
-      "label": "Ripeti playlist"
     },
     "isMyMesha": {
       "label": "Sono Mesha"
@@ -93,7 +87,7 @@
       "label": "Luce"
     },
     "lightness": {
-      "label": "Scala luminosità"
+      "label": "Luminosità"
     },
     "meshaSize": {
       "label": "Dimensione di Mesha"
@@ -101,14 +95,11 @@
     "moustacheSize": {
       "label": "Dimensione baffi"
     },
-    "near": {
-      "label": "Piano vicino"
-    },
     "noseSize": {
       "label": "Dimensione naso"
     },
     "saturation": {
-      "label": "Scala croma"
+      "label": "Saturazione"
     },
     "showMore": {
       "label": "Mostra di più"

@@ -33,12 +33,6 @@
     "eyeZ": {
       "label": "Ido Z"
     },
-    "far": {
-      "label": "Fagen yanke na nesa"
-    },
-    "fov": {
-      "label": "Filin gani"
-    },
     "friction": {
       "label": "Gogayya"
     },
@@ -58,16 +52,16 @@
       "scene": "Yanayi"
     },
     "hue": {
-      "label": "Farkon launi"
+      "label": "Inuwar Launi"
     },
     "irrationality": {
       "label": "Rashin hankali"
     },
+    "isAutoplay": {
+      "label": "Kunna Kai Tsaye"
+    },
     "isIdCardVisible": {
       "label": "Katin shaida"
-    },
-    "isLoop": {
-      "label": "Maimaita jerin waƙoƙi"
     },
     "isMyMesha": {
       "label": "Ni ne Mesha"
@@ -93,7 +87,7 @@
       "label": "Haske"
     },
     "lightness": {
-      "label": "Ma'aunin haske"
+      "label": "Haske"
     },
     "meshaSize": {
       "label": "Girman Mesha"
@@ -101,14 +95,11 @@
     "moustacheSize": {
       "label": "Girman gashin baki"
     },
-    "near": {
-      "label": "Fagen yanke na kusa"
-    },
     "noseSize": {
       "label": "Girman hanci"
     },
     "saturation": {
-      "label": "Ma'aunin kroma"
+      "label": "Cikar Launi"
     },
     "showMore": {
       "label": "Nuna ƙari"

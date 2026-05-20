@@ -33,12 +33,6 @@
     "eyeZ": {
       "label": "چشم Z"
     },
-    "far": {
-      "label": "صفحه برش دور"
-    },
-    "fov": {
-      "label": "میدان دید"
-    },
     "friction": {
       "label": "اصطکاک"
     },
@@ -58,16 +52,16 @@
       "scene": "صحنه"
     },
     "hue": {
-      "label": "شروع رنگ"
+      "label": "فام"
     },
     "irrationality": {
       "label": "غیرمنطقی بودن"
     },
+    "isAutoplay": {
+      "label": "پخش خودکار"
+    },
     "isIdCardVisible": {
       "label": "کارت شناسایی"
-    },
-    "isLoop": {
-      "label": "تکرار پلی‌لیست"
     },
     "isMyMesha": {
       "label": "من Mesha هستم"
@@ -93,7 +87,7 @@
       "label": "نور"
     },
     "lightness": {
-      "label": "مقیاس روشنایی"
+      "label": "روشنایی"
     },
     "meshaSize": {
       "label": "اندازه Mesha"
@@ -101,14 +95,11 @@
     "moustacheSize": {
       "label": "اندازه سبیل"
     },
-    "near": {
-      "label": "صفحه برش نزدیک"
-    },
     "noseSize": {
       "label": "اندازه بینی"
     },
     "saturation": {
-      "label": "مقیاس کروما"
+      "label": "اشباع"
     },
     "showMore": {
       "label": "نمایش بیشتر"

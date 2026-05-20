@@ -33,12 +33,6 @@
     "eyeZ": {
       "label": "Mắt Z"
     },
-    "far": {
-      "label": "Mặt phẳng cắt xa"
-    },
-    "fov": {
-      "label": "Góc nhìn"
-    },
     "friction": {
       "label": "Ma sát"
     },
@@ -58,16 +52,16 @@
       "scene": "Cảnh"
     },
     "hue": {
-      "label": "Màu sắc bắt đầu"
+      "label": "Sắc độ"
     },
     "irrationality": {
       "label": "Phi lý"
     },
+    "isAutoplay": {
+      "label": "Tự động phát"
+    },
     "isIdCardVisible": {
       "label": "Chứng minh nhân dân"
-    },
-    "isLoop": {
-      "label": "Lặp danh sách phát"
     },
     "isMyMesha": {
       "label": "Tôi là Mesha"
@@ -93,7 +87,7 @@
       "label": "Ánh"
     },
     "lightness": {
-      "label": "Tỉ lệ độ sáng"
+      "label": "Độ sáng"
     },
     "meshaSize": {
       "label": "Kích thước Mesha"
@@ -101,14 +95,11 @@
     "moustacheSize": {
       "label": "Kích thước ria mép"
     },
-    "near": {
-      "label": "Mặt phẳng cắt gần"
-    },
     "noseSize": {
       "label": "Kích thước mũi"
     },
     "saturation": {
-      "label": "Tỉ lệ chroma"
+      "label": "Độ bão hòa"
     },
     "showMore": {
       "label": "Hiển thị thêm"

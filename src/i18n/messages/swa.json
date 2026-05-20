@@ -33,12 +33,6 @@
     "eyeZ": {
       "label": "Jicho Z"
     },
-    "far": {
-      "label": "Ndege ya kukatia ya mbali"
-    },
-    "fov": {
-      "label": "Uwanja wa mtazamo"
-    },
     "friction": {
       "label": "Msuguano"
     },
@@ -58,16 +52,16 @@
       "scene": "Eneo"
     },
     "hue": {
-      "label": "Mwanzo wa tani ya rangi"
+      "label": "Toni"
     },
     "irrationality": {
       "label": "Ujinga"
     },
+    "isAutoplay": {
+      "label": "Cheza kiotomatiki"
+    },
     "isIdCardVisible": {
       "label": "Kitambulisho"
-    },
-    "isLoop": {
-      "label": "Rudia orodha ya kucheza"
     },
     "isMyMesha": {
       "label": "Mimi ni Mesha"
@@ -93,7 +87,7 @@
       "label": "Mwanga"
     },
     "lightness": {
-      "label": "Kipimo cha mwangaza"
+      "label": "Mwangaza"
     },
     "meshaSize": {
       "label": "Ukubwa wa Mesha"
@@ -101,14 +95,11 @@
     "moustacheSize": {
       "label": "Ukubwa wa masharubu"
     },
-    "near": {
-      "label": "Ndege ya kukatia ya karibu"
-    },
     "noseSize": {
       "label": "Ukubwa wa pua"
     },
     "saturation": {
-      "label": "Kipimo cha kroma"
+      "label": "Ukolezi"
     },
     "showMore": {
       "label": "Onyesha zaidi"

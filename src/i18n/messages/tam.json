@@ -33,12 +33,6 @@
     "eyeZ": {
       "label": "கண் Z"
     },
-    "far": {
-      "label": "தொலை க்ளிப்பிங் தளம்"
-    },
-    "fov": {
-      "label": "பார்வை கோணம்"
-    },
     "friction": {
       "label": "உராய்வு"
     },
@@ -58,16 +52,16 @@
       "scene": "காட்சி"
     },
     "hue": {
-      "label": "வண்ண தொடக்கம்"
+      "label": "நிறச்சாயல்"
     },
     "irrationality": {
       "label": "இர்ரேஷனாலிட்டி"
     },
+    "isAutoplay": {
+      "label": "தானியங்கி இயக்கம்"
+    },
     "isIdCardVisible": {
       "label": "அடையாள அட்டை"
-    },
-    "isLoop": {
-      "label": "இசைப்பட்டியல் மீண்டும் இயக்கு"
     },
     "isMyMesha": {
       "label": "நான் Mesha"
@@ -93,7 +87,7 @@
       "label": "விளக்கு"
     },
     "lightness": {
-      "label": "பொலிவு அளவீடு"
+      "label": "ஒளிர்வு"
     },
     "meshaSize": {
       "label": "Mesha அளவு"
@@ -101,14 +95,11 @@
     "moustacheSize": {
       "label": "மீசை அளவு"
     },
-    "near": {
-      "label": "அருகில் க்ளிப்பிங் தளம்"
-    },
     "noseSize": {
       "label": "மூக்கு அளவு"
     },
     "saturation": {
-      "label": "குரோமா அளவீடு"
+      "label": "நிறச்செறிவு"
     },
     "showMore": {
       "label": "மேலும் காண்பி"

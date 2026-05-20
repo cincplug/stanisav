@@ -30,12 +30,6 @@
     "eyeZ": {
       "label": "Eye Z"
     },
-    "far": {
-      "label": "Far plane"
-    },
-    "fov": {
-      "label": "Field of view"
-    },
     "friction": {
       "label": "Friction"
     },
@@ -61,8 +55,8 @@
     "hue": {
       "label": "Hue"
     },
-    "isLoop": {
-      "label": "Loop playlist"
+    "isAutoplay": {
+      "label": "Autoplay"
     },
     "isMyMesha": {
       "label": "I am Mesha"
@@ -95,9 +89,6 @@
     },
     "moustacheSize": {
       "label": "Moustache size"
-    },
-    "near": {
-      "label": "Near plane"
     },
     "noseSize": {
       "label": "Nose size"

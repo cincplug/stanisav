@@ -33,12 +33,6 @@
     "eyeZ": {
       "label": "Mata Z"
     },
-    "far": {
-      "label": "Bidang potong jauh"
-    },
-    "fov": {
-      "label": "Sudut pandang"
-    },
     "friction": {
       "label": "Gesekan"
     },
@@ -58,16 +52,16 @@
       "scene": "Adegan"
     },
     "hue": {
-      "label": "Rona awal"
+      "label": "Rona"
     },
     "irrationality": {
       "label": "Irasionalitas"
     },
+    "isAutoplay": {
+      "label": "Putar otomatis"
+    },
     "isIdCardVisible": {
       "label": "KTP"
-    },
-    "isLoop": {
-      "label": "Ulangi daftar putar"
     },
     "isMyMesha": {
       "label": "Saya adalah Mesha"
@@ -93,7 +87,7 @@
       "label": "Cahaya"
     },
     "lightness": {
-      "label": "Skala kecerahan"
+      "label": "Kecerahan"
     },
     "meshaSize": {
       "label": "Ukuran Mesha"
@@ -101,14 +95,11 @@
     "moustacheSize": {
       "label": "Ukuran kumis"
     },
-    "near": {
-      "label": "Bidang potong dekat"
-    },
     "noseSize": {
       "label": "Ukuran hidung"
     },
     "saturation": {
-      "label": "Skala kroma"
+      "label": "Saturasi"
     },
     "showMore": {
       "label": "Tampilkan lebih banyak"
