@@ -1,6 +1,6 @@
 .flowers {
-  --flower-step: 50;
-  --flower-center: 40;
+  --flower-step: 45;
+  --flower-center: -60;
   --w: 8rem;
   --h: 10%;
 

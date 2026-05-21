@@ -12,11 +12,7 @@ const Flowers = ({ selectedLanguage }) => {
   const groupsWhenZoomed = ["Mesha", "Camera", "Motion"];
 
   const rangeControls = Object.entries(controlsConfig)
-    .filter(([group]) =>
-      selectedLanguage
-        ? groupsWhenZoomed.includes(group)
-        : !groupsWhenZoomed.includes(group),
-    )
+
     .flatMap(([_, group]) =>
       Object.entries(group)
         .filter(
