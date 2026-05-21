@@ -10,7 +10,6 @@ import { useDataManager } from "../../hooks/useDataManager";
 import {
   calculateLanguageFilterStatus,
   calculateRadialOffset,
-  getAutoRotateSpeed,
 } from "../../utils/sceneUtils";
 import { getFeatureScore } from "../../utils/linguisticUtils";
 import { getSortingData } from "../../utils/sortingUtils";
@@ -63,6 +62,14 @@ const Stage = ({
   } = controls;
 
   const orbitControlsRef = useRef();
+
+  const {
+    rotateSpeed,
+    rotateSpeedZoomedModifier,
+    radialOffsetModifier,
+    entranceDuration,
+    revealDurationMs,
+  } = sceneConfig;
 
   const languageData = data?.languageData || {};
   const { languageCodes, languageLineages, speakerData, typologicalFeatures } =
@@ -144,7 +151,7 @@ const Stage = ({
     if (!sceneReady || isEntranceComplete) return;
     const timer = setTimeout(() => {
       setIsEntranceComplete(true);
-    }, sceneConfig.entranceDuration + sceneConfig.revealDurationMs);
+    }, entranceDuration + revealDurationMs);
     return () => clearTimeout(timer);
   }, [sceneReady, isEntranceComplete]);
 
@@ -156,7 +163,6 @@ const Stage = ({
     getFeatureScore("tonality", meshaLinguisticProperties?.tonality) - 1;
 
   const meshaPosition = useMemo(() => {
-    const { radialOffsetModifier } = sceneConfig;
     if (selectedLanguage && formattedPositions[selectedLanguage]) {
       const pos = formattedPositions[selectedLanguage];
       const base = [pos.x, pos.y, pos.z];
@@ -191,12 +197,6 @@ const Stage = ({
     Object.keys(formattedPositions).length > 0 &&
     (showEmptyMessage || visibleLanguages.length > 0);
 
-  const autoRotateSpeed = getAutoRotateSpeed(
-    !!selectedLanguage,
-    isRtl,
-    globeSpiralAxis,
-  );
-
   if (!data || !isInitialized || sortedLanguageCodes.length === 0) {
     return null;
   }
@@ -227,7 +227,11 @@ const Stage = ({
       <OrbitModifier
         orbitControlsRef={orbitControlsRef}
         axis={globeSpiralAxis}
-        speed={autoRotateSpeed}
+        speed={
+          !!selectedLanguage
+            ? rotateSpeed / rotateSpeedZoomedModifier
+            : rotateSpeed * rotateSpeedZoomedModifier
+        }
         isEnabled={!isSegmented && isEntranceComplete}
       />
 
@@ -268,7 +272,7 @@ const Stage = ({
           stripesType={stripesType}
           looksAround={true}
           renderOrder={languageCodes.length}
-          autoRotateSpeed={autoRotateSpeed}
+          rotateSpeed={rotateSpeed}
         />
       </group>
     </Canvas>

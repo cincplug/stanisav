@@ -21,7 +21,7 @@ export default function OrbitModifier({
       const target = controls.target;
 
       _pos.copy(cam.position).sub(target);
-      _quat.setFromAxisAngle(Z_AXIS, speed * delta);
+      _quat.setFromAxisAngle(Z_AXIS, (speed / 10) * delta);
       _pos.applyQuaternion(_quat);
       cam.position.copy(_pos.add(target));
       cam.up.applyQuaternion(_quat);

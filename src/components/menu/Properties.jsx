@@ -108,7 +108,7 @@ const Properties = ({
                     isMyMesha={false}
                     looksAround
                     stripesType={mesha.stripesType}
-                    autoRotateSpeed={1}
+                    rotateSpeed={1}
                   />
                 </Canvas>
               </div>

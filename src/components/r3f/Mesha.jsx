@@ -30,7 +30,7 @@ const Mesha = ({
   stripesType,
   looksAround,
   renderOrder,
-  autoRotateSpeed,
+  rotateSpeed,
 }) => {
   const groupRef = useRef();
   const lookAroundRef = useRef();
@@ -121,7 +121,7 @@ const Mesha = ({
   useThrottledFrame(({ clock, camera }) => {
     if (looksAround && lookAroundRef.current) {
       const time = clock.getElapsedTime();
-      const speed = selectedLanguage ? autoRotateSpeed : autoRotateSpeed / 3;
+      const speed = rotateSpeed / 3;
       const rotation = time * speed;
 
       lookAroundRef.current.rotation.y = rotation;

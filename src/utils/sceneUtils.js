@@ -88,16 +88,3 @@ export const getClusterTopCenter = (positions) => {
   const avgZ = pts.reduce((s, p) => s + p.z, 0) / pts.length;
   return new Vector3(sumX / pts.length, maxY, avgZ);
 };
-
-export const getAutoRotateSpeed = (
-  hasSelectedLanguage,
-  isRtl,
-  globeSpiralAxis,
-) => {
-  const { autoRotateSpeed } = sceneConfig;
-  let speed = autoRotateSpeed;
-  if (hasSelectedLanguage) speed /= 10;
-  if (isRtl) speed *= -1;
-  if (globeSpiralAxis === "z") speed /= Math.PI * 2;
-  return speed;
-};

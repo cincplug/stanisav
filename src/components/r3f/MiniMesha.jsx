@@ -23,7 +23,7 @@ const MiniMesha = ({ languageCode, linguisticProperties, color }) => {
           isMyMesha={false}
           looksAround
           stripesType={stripesType}
-          autoRotateSpeed={1}
+          rotateSpeed={1}
           renderOrder={1}
         />
       </Canvas>
