@@ -36,7 +36,7 @@
     "friction": {
       "label": "Msuguano"
     },
-    "globeSpiralAxis": {
+    "axis": {
       "label": "Mhimili",
       "options": {
         "x": "X",

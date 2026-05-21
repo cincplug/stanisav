@@ -47,6 +47,7 @@ const Mesha = ({
     earSize,
     tension,
     friction,
+    axis,
   } = controls;
   const { selectedProperty, setSelectedProperty, selectedLanguage } =
     useLanguageSelection();
@@ -61,8 +62,6 @@ const Mesha = ({
       microphoneService.stopCapture();
     };
   }, [isMyMesha]);
-
-  if (!color || !position) return null;
 
   const scores = getFeatureScoreList(linguisticProperties, [
     "wordOrderFlexibility",
@@ -121,10 +120,10 @@ const Mesha = ({
   useThrottledFrame(({ clock, camera }) => {
     if (looksAround && lookAroundRef.current) {
       const time = clock.getElapsedTime();
-      const speed = rotateSpeed / 3;
+      const speed = rotateSpeed;
       const rotation = time * speed;
 
-      lookAroundRef.current.rotation.y = rotation;
+      lookAroundRef.current.rotation[axis] = rotation;
       lookAroundRotationRef.current = rotation;
     }
   });

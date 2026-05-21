@@ -36,7 +36,7 @@
     "friction": {
       "label": "Sürtünme"
     },
-    "globeSpiralAxis": {
+    "axis": {
       "label": "Eksen",
       "options": {
         "x": "X",

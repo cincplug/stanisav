@@ -60,13 +60,13 @@ class LayoutEngine {
       isReverse,
       isSegmented,
       irrationality,
-      globeSpiralAxis,
+      axis,
     } = controls;
 
     const { buildPoint, poleOf, equatorialOf } =
-      spiralAxis[globeSpiralAxis] ?? spiralAxis.y;
+      spiralAxis[axis] ?? spiralAxis.y;
     const { poleOf: entrancePoleOf, equatorialOf: entranceEquatorialOf } =
-      spiralAxis[entranceSpiralAxis] ?? spiralAxis[globeSpiralAxis];
+      spiralAxis[entranceSpiralAxis] ?? spiralAxis[axis];
 
     const getClusterKey = (code) => {
       switch (sortBy) {

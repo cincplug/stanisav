@@ -91,7 +91,7 @@
       "defaultValue": 1,
       "isShownInMenu": true
     },
-    "globeSpiralAxis": {
+    "axis": {
       "type": "radio",
       "options": ["x", "y", "z"],
       "defaultValue": "y",

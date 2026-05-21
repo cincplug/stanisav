@@ -36,7 +36,7 @@
     "friction": {
       "label": "Wrijving"
     },
-    "globeSpiralAxis": {
+    "axis": {
       "label": "As",
       "options": {
         "x": "X",

@@ -36,7 +36,7 @@
     "friction": {
       "label": "اصطکاک"
     },
-    "globeSpiralAxis": {
+    "axis": {
       "label": "محور",
       "options": {
         "x": "X",

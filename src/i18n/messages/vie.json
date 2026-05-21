@@ -36,7 +36,7 @@
     "friction": {
       "label": "Ma sát"
     },
-    "globeSpiralAxis": {
+    "axis": {
       "label": "Trục",
       "options": {
         "x": "X",

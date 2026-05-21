@@ -36,7 +36,7 @@
     "friction": {
       "label": "Attrito"
     },
-    "globeSpiralAxis": {
+    "axis": {
       "label": "Asse",
       "options": {
         "x": "X",

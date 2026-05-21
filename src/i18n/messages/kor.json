@@ -36,7 +36,7 @@
     "friction": {
       "label": "마찰"
     },
-    "globeSpiralAxis": {
+    "axis": {
       "label": "축",
       "options": {
         "x": "X",

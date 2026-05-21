@@ -36,7 +36,7 @@
     "friction": {
       "label": "Fricción"
     },
-    "globeSpiralAxis": {
+    "axis": {
       "label": "Eje",
       "options": {
         "x": "X",

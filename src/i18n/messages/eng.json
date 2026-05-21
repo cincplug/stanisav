@@ -115,7 +115,7 @@
         "scripts": "Scripts"
       }
     },
-    "globeSpiralAxis": {
+    "axis": {
       "label": "Axis",
       "options": {
         "x": "X",

@@ -36,7 +36,7 @@
     "friction": {
       "label": "Тертя"
     },
-    "globeSpiralAxis": {
+    "axis": {
       "label": "Вісь",
       "options": {
         "x": "X",

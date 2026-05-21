@@ -57,7 +57,7 @@ const Stage = ({
     isReverse,
     isSegmented,
     irrationality,
-    globeSpiralAxis,
+    axis,
     zoomDistance,
     rotateSpeed,
   } = controls;
@@ -105,7 +105,7 @@ const Stage = ({
       locale,
       isLocaleReady,
       irrationality,
-      globeSpiralAxis,
+      axis,
     ],
   );
 
@@ -226,7 +226,7 @@ const Stage = ({
 
       <OrbitModifier
         orbitControlsRef={orbitControlsRef}
-        axis={globeSpiralAxis}
+        axis={axis}
         speed={
           !!selectedLanguage
             ? rotateSpeed / rotateSpeedZoomedModifier
@@ -272,7 +272,11 @@ const Stage = ({
           stripesType={stripesType}
           looksAround={true}
           renderOrder={languageCodes.length}
-          rotateSpeed={rotateSpeed}
+          rotateSpeed={
+            !!selectedLanguage
+              ? rotateSpeed / rotateSpeedZoomedModifier
+              : rotateSpeed
+          }
         />
       </group>
     </Canvas>

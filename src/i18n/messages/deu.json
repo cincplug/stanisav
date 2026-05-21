@@ -36,7 +36,7 @@
     "friction": {
       "label": "Reibung"
     },
-    "globeSpiralAxis": {
+    "axis": {
       "label": "Achse",
       "options": {
         "x": "X",
