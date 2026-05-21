@@ -78,6 +78,9 @@
     "light": {
       "label": "Light"
     },
+    "rotateSpeed": {
+      "label": "Rotation speed"
+    },
     "irrationality": {
       "label": "Irrationality"
     },

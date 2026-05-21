@@ -59,12 +59,12 @@ const Stage = ({
     irrationality,
     globeSpiralAxis,
     zoomDistance,
+    rotateSpeed,
   } = controls;
 
   const orbitControlsRef = useRef();
 
   const {
-    rotateSpeed,
     rotateSpeedZoomedModifier,
     radialOffsetModifier,
     entranceDuration,

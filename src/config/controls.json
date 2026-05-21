@@ -83,6 +83,14 @@
       "defaultValue": 1,
       "isShownInMenu": true
     },
+    "rotateSpeed": {
+      "type": "range",
+      "min": 0.1,
+      "max": 4,
+      "step": 0.1,
+      "defaultValue": 1,
+      "isShownInMenu": true
+    },
     "globeSpiralAxis": {
       "type": "radio",
       "options": ["x", "y", "z"],
