@@ -1,5 +1,5 @@
 import { useRef, useMemo, useEffect } from "react";
-import { extend, useFrame } from "@react-three/fiber";
+import { extend } from "@react-three/fiber";
 import { a, useSpring } from "@react-spring/three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
@@ -7,7 +7,6 @@ import audioVisualizationConfig from "../../config/audioVisualizationConfig.json
 import microphoneService from "../../services/microphoneService.js";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
-import { usePlaylist } from "../../contexts/PlaylistContext.jsx";
 import { useShaderMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { getFeatureScoreList } from "../../utils/linguisticUtils.js";
@@ -119,23 +118,11 @@ const Mesha = ({
     }
   }, []);
 
-  const { audioRef } = usePlaylist();
-
-  const rotationOffsetRef = useRef(0);
-  const lastResetTimeRef = useRef(0);
-
-  useEffect(() => {
-    if (lookAroundRef.current) {
-      rotationOffsetRef.current = lastResetTimeRef.current;
-    }
-  }, [selectedLanguage]);
-
   useThrottledFrame(({ clock, camera }) => {
     if (looksAround && lookAroundRef.current) {
       const time = clock.getElapsedTime();
       const speed = selectedLanguage ? autoRotateSpeed : autoRotateSpeed / 3;
-      lastResetTimeRef.current = time;
-      const rotation = (time - rotationOffsetRef.current) * speed;
+      const rotation = time * speed;
 
       lookAroundRef.current.rotation.y = rotation;
       lookAroundRotationRef.current = rotation;
