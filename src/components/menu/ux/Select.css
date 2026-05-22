@@ -1,87 +1,45 @@
-/* Generic custom-select dropdown */
-
-.select-nav {
-  position: relative;
-  display: inline-block;
-}
-
-.select-toggle {
-  display: inline-flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  overflow: hidden;
-  padding-block: var(--gap-half);
-}
-
-.select-toggle-compact {
-  display: flex;
-  padding: var(--gap);
-  gap: var(--gap-half);
-  align-items: center;
-  text-transform: uppercase;
-
-  svg {
-    width: var(--icon-size-s);
-  }
-}
-
-.select-current {
-  text-align: left;
-}
-
-.select-arrow {
-  width: var(--gap-double);
-  height: auto;
-}
-
-/* Focus proxy: when the native <select> (the actual tab stop) receives
-   keyboard focus, mirror the outline onto the visible custom toggle. */
-.select-native:focus-visible ~ .select-toggle {
-  outline: var(--outline-default);
-}
-
-.select-list {
-  position: absolute;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+.select-native {
+  background-color: var(--color-3);
+  border: none;
   border-radius: var(--border-radius);
-  background: var(--color-3);
-  box-shadow: var(--shadow-strong);
-  margin: 0;
-  padding: var(--gap-half);
-  gap: var(--gap-half);
-  list-style: none;
-  top: calc(100% + var(--gap));
-  right: 0;
-  z-index: 2;
+  color: var(--color-4);
+  font-family: inherit;
+  font-size: var(--font-size-m);
+  padding-block: var(--gap);
+  padding-inline-start: var(--gap-double);
+  cursor: pointer;
+  height: var(--icon-size-l);
+
+  &:hover,
+  &:focus-visible {
+    outline: var(--outline-default);
+    outline-offset: 1px;
+  }
+
+  .menu.expanded & {
+    width: 100%;
+  }
 
   .menu.compact & {
-    width: calc((var(--panel-width) / 2));
-  }
-}
+    appearance: none;
+    width: var(--icon-size-l);
+    height: var(--icon-size-l);
+    padding: 0;
+    padding-inline-start: var(--gap);
+    text-align: center;
+    font-size: var(--font-size-s);
+    overflow: hidden;
+    position: relative;
 
-.select-option {
-  display: block;
-  box-sizing: border-box;
-  padding: var(--gap) var(--gap-double);
-  color: var(--color-4);
-  background: none;
-  border-radius: var(--border-radius);
-  border: none;
-  text-align: end;
-  font-size: var(--font-size-m);
-  text-decoration: none;
-  text-align: start;
-
-  &:focus-visible,
-  &:hover {
-    outline: var(--outline-default);
-  }
-
-  &[aria-current="true"] {
-    background: var(--color-current);
-    border: var(--border-width-thin) solid var(--color-2);
+    &:after {
+      display: block;
+      content: "er";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: inherit;
+    }
   }
 }

@@ -35,7 +35,6 @@ function TabNavigation({ selectedTab, setSelectedTab }) {
             aria-label={`${t(`tabs.${tab.id}`)} ${tab.isVisual ? t("menu.isVisual") : ""}`}
             aria-selected={isSelected}
             aria-controls={`tabpanel-${tab.id}`}
-            tabIndex={isSelected ? 0 : -1}
             onClick={() => setSelectedTab(tab.id)}
             onKeyDown={(e) => handleKeyDown(e, index)}
             className={`tab-button ${isSelected ? "selected" : ""}`}

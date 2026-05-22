@@ -13,27 +13,11 @@ export default function LocaleLinks({ isCompact = false }) {
     .sort()
     .map((code) => ({
       value: toUrlSlug(code),
-      label: languages[code]?.nativeName || code,
+      label: isCompact ? code : languages[code]?.nativeName,
       code,
     }));
 
   const handleChange = (slug) => window.location.assign(`/${slug}`);
-
-  const renderLocaleItem = ({ option, isSelected, onSelect, onKeyDown }) => (
-    <Link
-      to={`/${option.value}`}
-      className="select-option"
-      onClick={(e) => {
-        e.preventDefault();
-        onSelect(option.value);
-        window.location.assign(`/${option.value}`);
-      }}
-      aria-current={isSelected ? "true" : undefined}
-      onKeyDown={onKeyDown}
-    >
-      {option.label}
-    </Link>
-  );
 
   const renderCompactToggle = () => {
     return currentSlug;
@@ -47,9 +31,6 @@ export default function LocaleLinks({ isCompact = false }) {
       value={currentSlug}
       onChange={handleChange}
       label={t("menu.languageSelector")}
-      renderItem={renderLocaleItem}
-      toggleContent={isCompact ? renderCompactToggle : undefined}
-      toggleClassName={isCompact ? "select-toggle-compact" : undefined}
     />
   );
 }

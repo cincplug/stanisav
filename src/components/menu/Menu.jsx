@@ -89,12 +89,6 @@ function Menu({
       ) : (
         <div className={`menu compact${isRtl ? " rtl" : ""}`}>
           <Playlist />
-          <ControlItemGroup
-            groupName="Header"
-            controls={controls}
-            onChange={handleControlChange}
-            isCompact
-          />
           <LocaleLinks isCompact />
           <button
             id="menu-open"
