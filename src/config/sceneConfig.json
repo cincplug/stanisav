@@ -1,6 +1,6 @@
 {
-  "entranceDuration": 3000,
-  "revealDurationMs": 1000,
+  "entranceDuration": 30000,
+  "revealDurationMs": 500,
   "startRadiusFactor": 0.8,
   "entranceSpiralAxis": "z",
   "clustersMargin": 1.1,

@@ -232,7 +232,7 @@ const Stage = ({
             ? rotateSpeed / rotateSpeedZoomedModifier
             : rotateSpeed * rotateSpeedZoomedModifier
         }
-        isEnabled={!isSegmented && isEntranceComplete}
+        isEnabled={!isSegmented}
       />
 
       <StageLight
