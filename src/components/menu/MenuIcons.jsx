@@ -273,3 +273,513 @@ export const SortIcon = (props) => (
     <polygon points="16,20 13,16 19,16" fill={iconColor} />
   </svg>
 );
+
+export const IrrationalityIcon = (props) => (
+  <svg
+    width={iconSize}
+    height={iconSize}
+    viewBox={viewBox}
+    fill="none"
+    {...props}
+  >
+    <path
+      d="M2 12 Q6 4 10 12 Q14 20 18 12 Q20 8 22 12"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      fill="none"
+    />
+  </svg>
+);
+
+export const LightIcon = (props) => (
+  <svg
+    width={iconSize}
+    height={iconSize}
+    viewBox={viewBox}
+    fill="none"
+    {...props}
+  >
+    {/* Center circle */}
+    <circle
+      cx="12"
+      cy="12"
+      r="4"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+    />
+    {/* 8 rays */}
+    <line
+      x1="12"
+      y1="2"
+      x2="12"
+      y2="5"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+    />
+    <line
+      x1="12"
+      y1="19"
+      x2="12"
+      y2="22"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+    />
+    <line
+      x1="2"
+      y1="12"
+      x2="5"
+      y2="12"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+    />
+    <line
+      x1="19"
+      y1="12"
+      x2="22"
+      y2="12"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+    />
+    <line
+      x1="4.9"
+      y1="4.9"
+      x2="7.1"
+      y2="7.1"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+    />
+    <line
+      x1="16.9"
+      y1="16.9"
+      x2="19.1"
+      y2="19.1"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+    />
+    <line
+      x1="19.1"
+      y1="4.9"
+      x2="16.9"
+      y2="7.1"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+    />
+    <line
+      x1="7.1"
+      y1="16.9"
+      x2="4.9"
+      y2="19.1"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+    />
+  </svg>
+);
+
+export const RotateSpeedIcon = (props) => (
+  <svg
+    width={iconSize}
+    height={iconSize}
+    viewBox={viewBox}
+    fill="none"
+    {...props}
+  >
+    {/* Single arc ~300°: starts bottom-left, sweeps clockwise to top-right */}
+    <path
+      d="M6 19 A9 9 0 1 1 19 7"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      fill="none"
+    />
+    {/* Arrowhead tangent to arc end, pointing up-right */}
+    <polygon points="21,6 16,8 20,11" fill={iconColor} />
+  </svg>
+);
+
+export const HueIcon = (props) => (
+  <svg
+    width={iconSize}
+    height={iconSize}
+    viewBox={viewBox}
+    fill="none"
+    {...props}
+  >
+    <g transform="translate(12,12)">
+      <path d="M0,0 L0,-9 A9,9,0,0,1,4.5,-7.8Z" fill="#FF0000" />
+      <path d="M0,0 L4.5,-7.8 A9,9,0,0,1,7.8,-4.5Z" fill="#FF6600" />
+      <path d="M0,0 L7.8,-4.5 A9,9,0,0,1,9,0Z" fill="#FFCC00" />
+      <path d="M0,0 L9,0 A9,9,0,0,1,7.8,4.5Z" fill="#AADD00" />
+      <path d="M0,0 L7.8,4.5 A9,9,0,0,1,4.5,7.8Z" fill="#00CC00" />
+      <path d="M0,0 L4.5,7.8 A9,9,0,0,1,0,9Z" fill="#00CCAA" />
+      <path d="M0,0 L0,9 A9,9,0,0,1,-4.5,7.8Z" fill="#0099FF" />
+      <path d="M0,0 L-4.5,7.8 A9,9,0,0,1,-7.8,4.5Z" fill="#0055FF" />
+      <path d="M0,0 L-7.8,4.5 A9,9,0,0,1,-9,0Z" fill="#6600FF" />
+      <path d="M0,0 L-9,0 A9,9,0,0,1,-7.8,-4.5Z" fill="#AA00FF" />
+      <path d="M0,0 L-7.8,-4.5 A9,9,0,0,1,-4.5,-7.8Z" fill="#FF00AA" />
+      <path d="M0,0 L-4.5,-7.8 A9,9,0,0,1,0,-9Z" fill="#FF0055" />
+      {/* Center cutout to make a donut */}
+      <circle cx="0" cy="0" r="3.5" fill="black" />
+    </g>
+  </svg>
+);
+
+export const LightnessIcon = (props) => (
+  <svg
+    width={iconSize}
+    height={iconSize}
+    viewBox={viewBox}
+    fill="none"
+    {...props}
+  >
+    {/* White (light) left half */}
+    <path d="M12 3 A9 9 0 0 0 12 21 Z" fill={iconColor} />
+    {/* Full circle outline */}
+    <circle
+      cx="12"
+      cy="12"
+      r="9"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+    />
+    {/* Dividing line */}
+    <line
+      x1="12"
+      y1="3"
+      x2="12"
+      y2="21"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+    />
+  </svg>
+);
+
+export const SaturationIcon = (props) => (
+  <svg
+    width={iconSize}
+    height={iconSize}
+    viewBox={viewBox}
+    fill="none"
+    {...props}
+  >
+    {/* 5 vertical bars of increasing height, baseline-aligned at y=20 */}
+    <rect x="2" y="17" width="2.5" height="3" fill={iconColor} opacity="0.25" />
+    <rect x="6" y="14" width="2.5" height="6" fill={iconColor} opacity="0.45" />
+    <rect
+      x="10"
+      y="10"
+      width="2.5"
+      height="10"
+      fill={iconColor}
+      opacity="0.65"
+    />
+    <rect
+      x="14"
+      y="6"
+      width="2.5"
+      height="14"
+      fill={iconColor}
+      opacity="0.82"
+    />
+    <rect x="18" y="3" width="2.5" height="17" fill={iconColor} />
+  </svg>
+);
+
+export const SwitchDurationIcon = (props) => (
+  <svg
+    width={iconSize}
+    height={iconSize}
+    viewBox={viewBox}
+    fill="none"
+    {...props}
+  >
+    {/* Left frame */}
+    <rect
+      x="1"
+      y="5"
+      width="8"
+      height="14"
+      rx="1"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+    />
+    <rect
+      x="3"
+      y="7"
+      width="4"
+      height="3"
+      rx="0.5"
+      stroke={iconColor}
+      strokeWidth={1}
+      opacity="0.5"
+    />
+    <line
+      x1="3"
+      y1="12"
+      x2="7"
+      y2="12"
+      stroke={iconColor}
+      strokeWidth={1}
+      strokeLinecap="round"
+      opacity="0.5"
+    />
+    <line
+      x1="3"
+      y1="14"
+      x2="6"
+      y2="14"
+      stroke={iconColor}
+      strokeWidth={1}
+      strokeLinecap="round"
+      opacity="0.5"
+    />
+    {/* Right frame */}
+    <rect
+      x="15"
+      y="5"
+      width="8"
+      height="14"
+      rx="1"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+    />
+    <rect
+      x="17"
+      y="7"
+      width="4"
+      height="3"
+      rx="0.5"
+      stroke={iconColor}
+      strokeWidth={1}
+      opacity="0.5"
+    />
+    <line
+      x1="17"
+      y1="12"
+      x2="21"
+      y2="12"
+      stroke={iconColor}
+      strokeWidth={1}
+      strokeLinecap="round"
+      opacity="0.5"
+    />
+    <line
+      x1="17"
+      y1="14"
+      x2="20"
+      y2="14"
+      stroke={iconColor}
+      strokeWidth={1}
+      strokeLinecap="round"
+      opacity="0.5"
+    />
+    {/* Arrow between frames */}
+    <line
+      x1="10"
+      y1="12"
+      x2="13.5"
+      y2="12"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+    />
+    <polygon points="15,12 12,10.5 12,13.5" fill={iconColor} />
+  </svg>
+);
+
+export const ZoomDistanceIcon = (props) => (
+  <svg
+    width={iconSize}
+    height={iconSize}
+    viewBox={viewBox}
+    fill="none"
+    {...props}
+  >
+    {/* Outer circle */}
+    <circle
+      cx="12"
+      cy="12"
+      r="9"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+    />
+    {/* Inner circle */}
+    <circle
+      cx="12"
+      cy="12"
+      r="3.5"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+    />
+    {/* 4 corner arrows pointing inward toward center */}
+    <line
+      x1="5.5"
+      y1="5.5"
+      x2="9"
+      y2="9"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+    />
+    <polygon points="9,9 7,6.5 11.5,7" fill={iconColor} />
+    <line
+      x1="18.5"
+      y1="5.5"
+      x2="15"
+      y2="9"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+    />
+    <polygon points="15,9 12.5,7 17,6.5" fill={iconColor} />
+    <line
+      x1="5.5"
+      y1="18.5"
+      x2="9"
+      y2="15"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+    />
+    <polygon points="9,15 7,17.5 11.5,17" fill={iconColor} />
+    <line
+      x1="18.5"
+      y1="18.5"
+      x2="15"
+      y2="15"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+    />
+    <polygon points="15,15 12.5,17 17,17.5" fill={iconColor} />
+  </svg>
+);
+
+export const TensionIcon = (props) => (
+  <svg
+    width={iconSize}
+    height={iconSize}
+    viewBox={viewBox}
+    fill="none"
+    {...props}
+  >
+    {/* Left anchor line */}
+    <line
+      x1="1"
+      y1="12"
+      x2="3.5"
+      y2="12"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+    />
+    {/* Zigzag spring */}
+    <polyline
+      points="3.5,12 5.5,7 8,17 10.5,7 13,17 15.5,7 18,17 20,12"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    {/* Right anchor line */}
+    <line
+      x1="20"
+      y1="12"
+      x2="23"
+      y2="12"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+    />
+  </svg>
+);
+
+export const FrictionIcon = (props) => (
+  <svg
+    width={iconSize}
+    height={iconSize}
+    viewBox={viewBox}
+    fill="none"
+    {...props}
+  >
+    {/* Two horizontal parallel lines */}
+    <line
+      x1="2"
+      y1="9"
+      x2="22"
+      y2="9"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+    />
+    <line
+      x1="2"
+      y1="15"
+      x2="22"
+      y2="15"
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+    />
+    {/* Diagonal hatching between the lines */}
+    <line
+      x1="5"
+      y1="9"
+      x2="2"
+      y2="15"
+      stroke={iconColor}
+      strokeWidth={1}
+      strokeLinecap="round"
+      opacity="0.55"
+    />
+    <line
+      x1="9"
+      y1="9"
+      x2="6"
+      y2="15"
+      stroke={iconColor}
+      strokeWidth={1}
+      strokeLinecap="round"
+      opacity="0.55"
+    />
+    <line
+      x1="13"
+      y1="9"
+      x2="10"
+      y2="15"
+      stroke={iconColor}
+      strokeWidth={1}
+      strokeLinecap="round"
+      opacity="0.55"
+    />
+    <line
+      x1="17"
+      y1="9"
+      x2="14"
+      y2="15"
+      stroke={iconColor}
+      strokeWidth={1}
+      strokeLinecap="round"
+      opacity="0.55"
+    />
+    <line
+      x1="21"
+      y1="9"
+      x2="18"
+      y2="15"
+      stroke={iconColor}
+      strokeWidth={1}
+      strokeLinecap="round"
+      opacity="0.55"
+    />
+  </svg>
+);

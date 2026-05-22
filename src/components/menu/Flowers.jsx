@@ -3,7 +3,32 @@ import controlsConfig from "../../config/controls.json";
 import { localizeControlConfig } from "../../utils/i18nUtils";
 import { useLayoutEffect, useRef } from "react";
 import Range from "./ux/Range";
+import {
+  IrrationalityIcon,
+  LightIcon,
+  RotateSpeedIcon,
+  HueIcon,
+  LightnessIcon,
+  SaturationIcon,
+  SwitchDurationIcon,
+  ZoomDistanceIcon,
+  TensionIcon,
+  FrictionIcon,
+} from "./MenuIcons";
 import "./Flowers.css";
+
+const thumbIconMap = {
+  irrationality: IrrationalityIcon,
+  light: LightIcon,
+  rotateSpeed: RotateSpeedIcon,
+  hue: HueIcon,
+  lightness: LightnessIcon,
+  saturation: SaturationIcon,
+  switchDuration: SwitchDurationIcon,
+  zoomDistance: ZoomDistanceIcon,
+  tension: TensionIcon,
+  friction: FrictionIcon,
+};
 
 const Flowers = ({ selectedLanguage }) => {
   const { controls, updateControl } = useControls();
@@ -40,6 +65,7 @@ const Flowers = ({ selectedLanguage }) => {
             onChange={(e) =>
               updateControl(control.id, parseFloat(e.target.value))
             }
+            thumbIcon={thumbIconMap[control.id]}
           />
         </div>
       ))}

@@ -1,13 +1,14 @@
 .flowers {
-  --flower-step: 45;
+  --flower-step: 30;
   --flower-center: -60;
+  --flower-spread: 0.05;
   --w: 8rem;
   --h: 10%;
 
   position: absolute;
   bottom: var(--gap-double);
-  left: 20%;
-  right: 20%;
+  left: var(--h);
+  right: var(--h);
   height: var(--h);
   color: var(--color-4);
 
@@ -20,7 +21,16 @@
         var(--flower-center)
     );
     --angle: calc(var(--o) * 1deg);
-    --left: calc((var(--i) - 1) / (var(--count) - 1) * 100%);
+    --abs-norm: abs(var(--norm));
+    --norm-sq: calc(var(--abs-norm) * var(--abs-norm));
+    --linear: calc((var(--i) - 1) / (var(--count) - 1));
+    --left: calc(
+      (
+          var(--linear) + var(--norm-sq) * (var(--linear) - 0.5) *
+            var(--flower-spread)
+        ) *
+        100%
+    );
 
     position: absolute;
     left: var(--left);
@@ -28,8 +38,7 @@
     transform: translateX(-50%);
     pointer-events: none;
 
-    input {
-      display: block;
+    .range-wrapper {
       width: var(--w);
       margin-top: calc(abs(var(--o)) * -1px / 2 - var(--w) / 2);
       transform-origin: bottom center;
