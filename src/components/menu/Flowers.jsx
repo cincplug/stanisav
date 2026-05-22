@@ -29,6 +29,7 @@ const thumbIconMap = {
   tension: TensionIcon,
   friction: FrictionIcon,
   earSize: "/icons/earSize.jpg",
+  eyeSize: "/icons/eyeSize.jpg",
   eyeX: "/icons/eyeX.jpg",
   eyeY: "/icons/eyeY.jpg",
   eyeZ: "/icons/eyeZ.jpg",
