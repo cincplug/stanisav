@@ -28,6 +28,15 @@ const thumbIconMap = {
   zoomDistance: ZoomDistanceIcon,
   tension: TensionIcon,
   friction: FrictionIcon,
+  earSize: "/icons/earSize.jpg",
+  eyeX: "/icons/eyeX.jpg",
+  eyeY: "/icons/eyeY.jpg",
+  eyeZ: "/icons/eyeZ.jpg",
+  meshaSize: "/icons/meshaSize.jpg",
+  moustacheSize: "/icons/moustacheSize.jpg",
+  noseSize: "/icons/noseSize.jpg",
+  teethSize: "/icons/teethSize.jpg",
+  tongueSize: "/icons/tongueSize.jpg",
 };
 
 const Flowers = ({ selectedLanguage }) => {
