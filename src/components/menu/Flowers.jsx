@@ -36,7 +36,7 @@ const Flowers = ({ selectedLanguage }) => {
             max={control.max}
             step={control.step}
             value={controls[control.id]}
-            tooltip={control.label}
+            tooltip={`${control.label}: ${controls[control.id]}`}
             onChange={(e) =>
               updateControl(control.id, parseFloat(e.target.value))
             }
