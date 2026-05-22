@@ -17,6 +17,18 @@
   position: relative;
   display: flex;
   align-items: center;
+
+  &:hover {
+    .range-thumb-icon .range-icon {
+      border-color: var(--color-focus);
+    }
+  }
+
+  .range-input:focus-visible + .range-overlay {
+    .range-thumb-icon .range-icon {
+      border-color: var(--color-focus);
+    }
+  }
 }
 
 .range-input {
@@ -35,6 +47,7 @@
     border-radius: var(--border-radius);
     background: var(--color-range);
   }
+
   &::-moz-range-track {
     height: var(--gap);
     border-radius: var(--border-radius);
@@ -51,8 +64,11 @@
     border: var(--border-width-thin) solid var(--color-range);
     margin-top: calc((var(--gap) - var(--gap) * 3) / 2);
     cursor: pointer;
-    transition: transform 0.15s ease;
+    transition:
+      transform 0.15s ease,
+      opacity 0.15s ease;
   }
+
   &::-moz-range-thumb {
     width: calc(var(--gap) * 3);
     height: calc(var(--gap) * 3);
@@ -60,13 +76,16 @@
     background: var(--color-thumb);
     border: var(--border-width-thin) solid var(--color-range);
     cursor: pointer;
-    transition: transform 0.15s ease;
+    transition:
+      transform 0.15s ease,
+      opacity 0.15s ease;
   }
 
   &:hover::-webkit-slider-thumb,
   &:focus-visible::-webkit-slider-thumb {
     transform: scale(1.2);
   }
+
   &:hover::-moz-range-thumb,
   &:focus-visible::-moz-range-thumb {
     transform: scale(1.2);
@@ -76,6 +95,7 @@
     &::-webkit-slider-thumb {
       opacity: 0;
     }
+
     &::-moz-range-thumb {
       opacity: 0;
     }
@@ -115,11 +135,8 @@
     background: var(--color-1);
     border-radius: 50%;
     border: var(--border-width) solid var(--color-3);
-    pointer-events: auto;
-
-    &:hover {
-      border-color: var(--color-focus);
-    }
+    pointer-events: none;
+    transition: border-color 0.15s ease;
   }
 }
 
@@ -131,5 +148,6 @@
     height: var(--gap-double);
     display: block;
     color: var(--color-thumb);
+    pointer-events: none;
   }
 }
