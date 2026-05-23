@@ -35,26 +35,16 @@ export const useEntranceAnimation = (
     entranceTargetRef.current = [...finalPosition];
   }
 
-  const shouldSkip = isMotionReduced || (isEntranceComplete && !revealDelay);
+  const [hasEnteredLocally, setHasEnteredLocally] = useState(false);
 
-  const [hasEnteredLocally, setHasEnteredLocally] = useState(shouldSkip);
-
-  const toPosition = hasEnteredLocally
-    ? finalPosition
-    : entranceTargetRef.current;
-
-  const positionConfig = () => {
-    if (hasEnteredLocally) return { tension, friction };
-    if (isEntranceComplete) return { duration: wrapUpDuration };
-    return { duration: positionDuration };
-  };
+  const toPosition = finalPosition;
 
   const positionSpring = useSpring({
     from: { position: entranceStartRef.current },
     to: { position: toPosition },
     delay: hasEnteredLocally || isEntranceComplete ? 0 : revealDelay,
-    config: positionConfig(),
-    immediate: shouldSkip && !hasEnteredLocally,
+    config: { tension, friction },
+    immediate: !hasEnteredLocally,
     onRest: ({ finished }) => {
       if (finished && !hasEnteredLocally) {
         setHasEnteredLocally(true);
@@ -66,11 +56,9 @@ export const useEntranceAnimation = (
     from: { reveal: 0 },
     to: { reveal: 1 },
     delay: isEntranceComplete ? 0 : revealDelay,
-    config: { duration: isEntranceComplete ? wrapUpDuration : revealDuration },
+    config: { duration: revealDuration },
     immediate: isMotionReduced,
   });
 
-  const isEntered = hasEnteredLocally || isEntranceComplete;
-
-  return { positionSpring, revealSpring, isEntered };
+  return { positionSpring, revealSpring };
 };

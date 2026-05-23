@@ -65,7 +65,7 @@ const Label = ({
     [position],
   );
 
-  const { positionSpring, revealSpring, isEntered } = useEntranceAnimation(
+  const { positionSpring, revealSpring } = useEntranceAnimation(
     position,
     isEntranceComplete,
     isMotionReduced,
@@ -109,12 +109,8 @@ const Label = ({
       );
     }
 
-    if (!isEntered) {
-      const reveal = revealSpring.reveal.get();
-      labelRef.current.scale.setScalar(Math.max(reveal, 0.0001));
-    } else {
-      labelRef.current.scale.setScalar(1);
-    }
+    const reveal = revealSpring.reveal.get();
+    labelRef.current.scale.setScalar(reveal);
 
     labelRef.current.quaternion.copy(camera.quaternion);
 

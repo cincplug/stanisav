@@ -237,6 +237,7 @@ const Stage = ({
       <StageLight
         cameraZ={cameraZ}
         isMotionReduced={isMotionReduced}
+        isEntranceComplete={isEntranceComplete}
         tension={tension}
         friction={friction}
         isSegmented={isSegmented}

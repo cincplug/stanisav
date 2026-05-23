@@ -5,11 +5,12 @@ import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 import { useControls } from "../../contexts/ControlsContext";
 import sceneConfig from "../../config/sceneConfig.json";
 
-const { entranceDuration, stageLight } = sceneConfig;
+const { entranceDuration, wrapUpDuration, stageLight } = sceneConfig;
 
 const StageLight = ({
   cameraZ,
   isMotionReduced,
+  isEntranceComplete,
   tension,
   friction,
   isSegmented,
@@ -23,7 +24,9 @@ const StageLight = ({
   const { entranceProgress } = useSpring({
     from: { entranceProgress: 1 / 2 },
     to: { entranceProgress: 1 },
-    config: { duration: entranceDuration },
+    config: {
+      duration: isEntranceComplete ? wrapUpDuration : entranceDuration,
+    },
     immediate: isMotionReduced,
   });
 

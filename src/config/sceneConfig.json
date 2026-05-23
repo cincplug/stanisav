@@ -1,6 +1,6 @@
 {
   "entranceDuration": 30000,
-  "wrapUpDuration": 1000,
+  "wrapUpDuration": 2000,
   "revealDuration": 500,
   "startRadiusFactor": 0.8,
   "entranceSpiralAxis": "z",
