@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useCallback } from "react";
 
 const AppStateContext = createContext(null);
 
@@ -9,34 +9,27 @@ export const AppStateProvider = ({ children }) => {
   const [, setNodes] = useState(null);
   const [cameraFocusRequest, setCameraFocusRequest] = useState(null);
   const [filteringUtils, setFilteringUtils] = useState({});
-  const [skipsEntrance, setSkipsEntrance] = useState(false);
   const [isEntranceComplete, setIsEntranceComplete] = useState(false);
 
-  // Only manages camera focus request state
   const handleCameraFocus = (type, target) => {
     setCameraFocusRequest({ type, target, timestamp: Date.now() });
   };
 
   const value = {
-    // State
     isLoading,
     data,
     sceneReady,
     cameraFocusRequest,
     filteringUtils,
-    skipsEntrance,
     isEntranceComplete,
 
-    // Setters
     setData,
     setSceneReady,
     setIsLoading,
     setNodes,
     setFilteringUtils,
-    setSkipsEntrance,
     setIsEntranceComplete,
 
-    // Handlers
     handleCameraFocus,
   };
 

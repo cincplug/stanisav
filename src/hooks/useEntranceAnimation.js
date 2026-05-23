@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useSpring } from "@react-spring/three";
 import sceneConfig from "../config/sceneConfig.json";
 
-const { entranceDuration, revealDurationMs, startRadiusFactor } = sceneConfig;
+const { entranceDuration, revealDuration, startRadiusFactor, wrapUpDuration } =
+  sceneConfig;
 
 const toInnerStartPosition = ([x, y, z]) => [
   x * startRadiusFactor,
@@ -12,13 +13,14 @@ const toInnerStartPosition = ([x, y, z]) => [
 
 export const useEntranceAnimation = (
   finalPosition,
-  skipsEntrance,
+  isEntranceComplete,
+  isMotionReduced,
   tension,
   friction,
   revealOrder,
   totalVisibleLabels,
 ) => {
-  const maxRevealDelay = Math.max(0, entranceDuration - revealDurationMs);
+  const maxRevealDelay = Math.max(0, entranceDuration - revealDuration);
   const maxOrder = Math.max(1, totalVisibleLabels - 1);
   const revealDelay = Math.round((revealOrder / maxOrder) * maxRevealDelay);
   const positionDuration = Math.max(0, entranceDuration - revealDelay);
@@ -33,29 +35,29 @@ export const useEntranceAnimation = (
     entranceTargetRef.current = [...finalPosition];
   }
 
-  const [phase, setPhase] = useState("entrance");
+  const shouldSkip = isMotionReduced || (isEntranceComplete && !revealDelay);
 
-  const toPosition =
-    phase === "entrance" ? entranceTargetRef.current : finalPosition;
+  const [hasEnteredLocally, setHasEnteredLocally] = useState(shouldSkip);
 
-  useEffect(() => {
-    if (skipsEntrance && phase === "entrance") {
-      setPhase("live");
-    }
-  }, [skipsEntrance, phase]);
+  const toPosition = hasEnteredLocally
+    ? finalPosition
+    : entranceTargetRef.current;
+
+  const positionConfig = () => {
+    if (hasEnteredLocally) return { tension, friction };
+    if (isEntranceComplete) return { duration: wrapUpDuration };
+    return { duration: positionDuration };
+  };
 
   const positionSpring = useSpring({
     from: { position: entranceStartRef.current },
     to: { position: toPosition },
-    delay: phase === "entrance" ? revealDelay : 0,
-    config:
-      phase === "entrance"
-        ? { duration: positionDuration }
-        : { tension, friction },
-    immediate: skipsEntrance && phase === "entrance",
+    delay: hasEnteredLocally || isEntranceComplete ? 0 : revealDelay,
+    config: positionConfig(),
+    immediate: shouldSkip && !hasEnteredLocally,
     onRest: ({ finished }) => {
-      if (finished && phase === "entrance") {
-        setPhase("live");
+      if (finished && !hasEnteredLocally) {
+        setHasEnteredLocally(true);
       }
     },
   });
@@ -63,10 +65,12 @@ export const useEntranceAnimation = (
   const revealSpring = useSpring({
     from: { reveal: 0 },
     to: { reveal: 1 },
-    delay: revealDelay,
-    config: { duration: revealDurationMs },
-    immediate: skipsEntrance,
+    delay: isEntranceComplete ? 0 : revealDelay,
+    config: { duration: isEntranceComplete ? wrapUpDuration : revealDuration },
+    immediate: isMotionReduced,
   });
 
-  return { positionSpring, revealSpring, phase };
+  const isEntered = hasEnteredLocally || isEntranceComplete;
+
+  return { positionSpring, revealSpring, isEntered };
 };

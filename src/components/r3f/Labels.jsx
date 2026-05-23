@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import LabelsCluster from "./LabelsCluster";
 import Label from "./Label";
 
@@ -8,6 +9,8 @@ const Labels = ({
   languageColors,
   languageData,
   selectedLanguage,
+  isEntranceComplete,
+  setIsEntranceComplete,
 }) => {
   const visibleLabelCodes = Object.keys(formattedPositions).filter(
     (langCode) => {
@@ -19,9 +22,19 @@ const Labels = ({
 
   const totalVisibleLabels = visibleLabelCodes.length;
 
+  const prevVisibleCountRef = useRef(totalVisibleLabels);
+  useEffect(() => {
+    if (
+      !isEntranceComplete &&
+      prevVisibleCountRef.current !== totalVisibleLabels
+    ) {
+      setIsEntranceComplete(true);
+    }
+    prevVisibleCountRef.current = totalVisibleLabels;
+  }, [totalVisibleLabels, isEntranceComplete]);
+
   return (
     <>
-      {/* Flat list with stable keys so position springs persist across layout changes */}
       {visibleLabelCodes.map((langCode, index) => {
         const position = formattedPositions[langCode];
         const revealOrder = totalVisibleLabels - 1 - index;
@@ -40,7 +53,6 @@ const Labels = ({
         );
       })}
 
-      {/* One cluster title per group */}
       {groups.map((group) => (
         <LabelsCluster
           key={group.title ?? "all"}

@@ -9,7 +9,7 @@ const { entranceDuration, stageLight } = sceneConfig;
 
 const StageLight = ({
   cameraZ,
-  skipsEntrance,
+  isMotionReduced,
   tension,
   friction,
   isSegmented,
@@ -24,7 +24,7 @@ const StageLight = ({
     from: { entranceProgress: 1 / 2 },
     to: { entranceProgress: 1 },
     config: { duration: entranceDuration },
-    immediate: skipsEntrance,
+    immediate: isMotionReduced,
   });
 
   const distanceKey =

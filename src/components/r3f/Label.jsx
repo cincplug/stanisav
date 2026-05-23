@@ -23,7 +23,7 @@ const Label = ({
 }) => {
   const labelRef = useRef();
   const { controls } = useControls();
-  const { data, skipsEntrance } = useAppState();
+  const { data, isEntranceComplete } = useAppState();
   const { filteredLanguages, filteringUtils, selectedLanguage } =
     useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
@@ -35,6 +35,7 @@ const Label = ({
     friction,
     d4,
     isSegmented,
+    isMotionReduced,
   } = controls;
   const { radialOffsetModifier } = sceneConfig;
 
@@ -64,9 +65,10 @@ const Label = ({
     [position],
   );
 
-  const { positionSpring, revealSpring, phase } = useEntranceAnimation(
+  const { positionSpring, revealSpring, isEntered } = useEntranceAnimation(
     position,
-    skipsEntrance,
+    isEntranceComplete,
+    isMotionReduced,
     tension,
     friction,
     revealOrder,
@@ -107,9 +109,11 @@ const Label = ({
       );
     }
 
-    if (phase === "entrance") {
+    if (!isEntered) {
       const reveal = revealSpring.reveal.get();
       labelRef.current.scale.setScalar(Math.max(reveal, 0.0001));
+    } else {
+      labelRef.current.scale.setScalar(1);
     }
 
     labelRef.current.quaternion.copy(camera.quaternion);

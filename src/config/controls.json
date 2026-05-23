@@ -222,6 +222,11 @@
       "step": 1,
       "defaultValue": 64,
       "isShownInMenu": true
+    },
+    "isMotionReduced": {
+      "type": "checkbox",
+      "defaultValue": false,
+      "isShownInMenu": false
     }
   },
   "Mesha": {

@@ -30,16 +30,11 @@ const Stage = ({
   languageColors,
 }) => {
   const { controls } = useControls();
-  const {
-    skipsEntrance,
-    isEntranceComplete,
-    setIsEntranceComplete,
-    sceneReady,
-  } = useAppState();
+  const { isEntranceComplete, setIsEntranceComplete, sceneReady } =
+    useAppState();
   const { locale, isLocaleReady, isRtl } = useI18n();
   const { filteringUtils, selectedLanguage } = useLanguageSelection();
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
-
   const {
     cameraX,
     cameraY,
@@ -60,6 +55,7 @@ const Stage = ({
     axis,
     zoomDistance,
     rotateSpeed,
+    isMotionReduced,
   } = controls;
 
   const orbitControlsRef = useRef();
@@ -68,7 +64,7 @@ const Stage = ({
     rotateSpeedZoomedModifier,
     radialOffsetModifier,
     entranceDuration,
-    revealDurationMs,
+    revealDuration,
   } = sceneConfig;
 
   const languageData = data?.languageData || {};
@@ -149,11 +145,14 @@ const Stage = ({
 
   useEffect(() => {
     if (!sceneReady || isEntranceComplete) return;
-    const timer = setTimeout(() => {
+    if (selectedLanguage) {
       setIsEntranceComplete(true);
-    }, entranceDuration + revealDurationMs);
+      return;
+    }
+    const delay = isMotionReduced ? 0 : entranceDuration + revealDuration;
+    const timer = setTimeout(() => setIsEntranceComplete(true), delay);
     return () => clearTimeout(timer);
-  }, [sceneReady, isEntranceComplete]);
+  }, [sceneReady, isEntranceComplete, selectedLanguage]);
 
   const meshaLanguageCode = selectedLanguage || sortedLanguageCodes[0];
   const meshaLinguisticProperties =
@@ -237,7 +236,7 @@ const Stage = ({
 
       <StageLight
         cameraZ={cameraZ}
-        skipsEntrance={skipsEntrance}
+        isMotionReduced={isMotionReduced}
         tension={tension}
         friction={friction}
         isSegmented={isSegmented}
@@ -260,6 +259,8 @@ const Stage = ({
             languageColors={languageColors}
             languageData={languageData}
             selectedLanguage={selectedLanguage}
+            isEntranceComplete={isEntranceComplete}
+            setIsEntranceComplete={setIsEntranceComplete}
           />
         )}
 
