@@ -2,8 +2,7 @@ import { useRef, useState } from "react";
 import { useSpring } from "@react-spring/three";
 import sceneConfig from "../config/sceneConfig.json";
 
-const { entranceDuration, revealDuration, startRadiusFactor, wrapUpDuration } =
-  sceneConfig;
+const { entranceDuration, revealDuration, startRadiusFactor } = sceneConfig;
 
 const toInnerStartPosition = ([x, y, z]) => [
   x * startRadiusFactor,
@@ -15,8 +14,7 @@ export const useEntranceAnimation = (
   finalPosition,
   isEntranceComplete,
   isMotionReduced,
-  tension,
-  friction,
+  isSegmented,
   revealOrder,
   totalVisibleLabels,
 ) => {
@@ -35,27 +33,16 @@ export const useEntranceAnimation = (
     entranceTargetRef.current = [...finalPosition];
   }
 
-  const [hasEnteredLocally, setHasEnteredLocally] = useState(false);
-
-  const toPosition = finalPosition;
-
   const positionSpring = useSpring({
     from: { position: entranceStartRef.current },
-    to: { position: toPosition },
-    delay: hasEnteredLocally || isEntranceComplete ? 0 : revealDelay,
-    config: { tension, friction },
-    immediate: !hasEnteredLocally,
-    onRest: ({ finished }) => {
-      if (finished && !hasEnteredLocally) {
-        setHasEnteredLocally(true);
-      }
-    },
+    to: { position: finalPosition },
+    immediate: isMotionReduced,
   });
 
   const revealSpring = useSpring({
     from: { reveal: 0 },
     to: { reveal: 1 },
-    delay: isEntranceComplete ? 0 : revealDelay,
+    delay: isEntranceComplete || isSegmented ? revealDuration : revealDelay,
     config: { duration: revealDuration },
     immediate: isMotionReduced,
   });

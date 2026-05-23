@@ -5,7 +5,7 @@ import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 import { useControls } from "../../contexts/ControlsContext";
 import sceneConfig from "../../config/sceneConfig.json";
 
-const { entranceDuration, wrapUpDuration, stageLight } = sceneConfig;
+const { entranceDuration, stageLight } = sceneConfig;
 
 const StageLight = ({
   cameraZ,
@@ -25,7 +25,7 @@ const StageLight = ({
     from: { entranceProgress: 1 / 2 },
     to: { entranceProgress: 1 },
     config: {
-      duration: isEntranceComplete ? wrapUpDuration : entranceDuration,
+      duration: isEntranceComplete ? 0 : entranceDuration,
     },
     immediate: isMotionReduced,
   });

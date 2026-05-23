@@ -27,16 +27,8 @@ const Label = ({
   const { filteredLanguages, filteringUtils, selectedLanguage } =
     useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
-  const {
-    labelContent,
-    labelSize,
-    bgColor,
-    tension,
-    friction,
-    d4,
-    isSegmented,
-    isMotionReduced,
-  } = controls;
+  const { labelContent, labelSize, bgColor, d4, isSegmented, isMotionReduced } =
+    controls;
   const { radialOffsetModifier } = sceneConfig;
 
   if (
@@ -69,8 +61,7 @@ const Label = ({
     position,
     isEntranceComplete,
     isMotionReduced,
-    tension,
-    friction,
+    isSegmented,
     revealOrder,
     totalVisibleLabels,
   );
@@ -78,7 +69,6 @@ const Label = ({
   // Selection offset spring (radial push when selected)
   const selectionSpring = useSpring({
     offset: isSelected ? radialOffsetModifier : 0,
-    config: { tension, friction },
   });
 
   const animatedD4 = useRef(0);
