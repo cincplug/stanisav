@@ -31,7 +31,7 @@ const Stage = ({
 }) => {
   const { controls } = useControls();
   const {
-    skipLabelEntrance,
+    skipsEntrance,
     isEntranceComplete,
     setIsEntranceComplete,
     sceneReady,
@@ -237,7 +237,7 @@ const Stage = ({
 
       <StageLight
         cameraZ={cameraZ}
-        skipEntrance={skipLabelEntrance}
+        skipsEntrance={skipsEntrance}
         tension={tension}
         friction={friction}
         isSegmented={isSegmented}

@@ -23,7 +23,7 @@ const Label = ({
 }) => {
   const labelRef = useRef();
   const { controls } = useControls();
-  const { data, skipLabelEntrance } = useAppState();
+  const { data, skipsEntrance } = useAppState();
   const { filteredLanguages, filteringUtils, selectedLanguage } =
     useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
@@ -66,7 +66,7 @@ const Label = ({
 
   const { positionSpring, revealSpring, phase } = useEntranceAnimation(
     position,
-    skipLabelEntrance,
+    skipsEntrance,
     tension,
     friction,
     revealOrder,

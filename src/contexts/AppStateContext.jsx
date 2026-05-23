@@ -9,7 +9,7 @@ export const AppStateProvider = ({ children }) => {
   const [, setNodes] = useState(null);
   const [cameraFocusRequest, setCameraFocusRequest] = useState(null);
   const [filteringUtils, setFilteringUtils] = useState({});
-  const [skipLabelEntrance, setSkipLabelEntrance] = useState(false);
+  const [skipsEntrance, setSkipsEntrance] = useState(false);
   const [isEntranceComplete, setIsEntranceComplete] = useState(false);
 
   // Only manages camera focus request state
@@ -24,7 +24,7 @@ export const AppStateProvider = ({ children }) => {
     sceneReady,
     cameraFocusRequest,
     filteringUtils,
-    skipLabelEntrance,
+    skipsEntrance,
     isEntranceComplete,
 
     // Setters
@@ -33,7 +33,7 @@ export const AppStateProvider = ({ children }) => {
     setIsLoading,
     setNodes,
     setFilteringUtils,
-    setSkipLabelEntrance,
+    setSkipsEntrance,
     setIsEntranceComplete,
 
     // Handlers

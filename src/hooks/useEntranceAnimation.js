@@ -12,7 +12,7 @@ const toInnerStartPosition = ([x, y, z]) => [
 
 export const useEntranceAnimation = (
   finalPosition,
-  skipLabelEntrance,
+  skipsEntrance,
   tension,
   friction,
   revealOrder,
@@ -39,10 +39,10 @@ export const useEntranceAnimation = (
     phase === "entrance" ? entranceTargetRef.current : finalPosition;
 
   useEffect(() => {
-    if (skipLabelEntrance && phase === "entrance") {
+    if (skipsEntrance && phase === "entrance") {
       setPhase("live");
     }
-  }, [skipLabelEntrance, phase]);
+  }, [skipsEntrance, phase]);
 
   const positionSpring = useSpring({
     from: { position: entranceStartRef.current },
@@ -52,7 +52,7 @@ export const useEntranceAnimation = (
       phase === "entrance"
         ? { duration: positionDuration }
         : { tension, friction },
-    immediate: skipLabelEntrance && phase === "entrance",
+    immediate: skipsEntrance && phase === "entrance",
     onRest: ({ finished }) => {
       if (finished && phase === "entrance") {
         setPhase("live");
@@ -65,7 +65,7 @@ export const useEntranceAnimation = (
     to: { reveal: 1 },
     delay: revealDelay,
     config: { duration: revealDurationMs },
-    immediate: skipLabelEntrance,
+    immediate: skipsEntrance,
   });
 
   return { positionSpring, revealSpring, phase };
