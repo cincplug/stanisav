@@ -1,5 +1,13 @@
 {
   "controls": {
+    "axis": {
+      "label": "अक्ष",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
+    },
     "bgColor": {
       "label": "पृष्ठभूमि"
     },
@@ -35,14 +43,6 @@
     },
     "friction": {
       "label": "घर्षण"
-    },
-    "axis": {
-      "label": "अक्ष",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
     },
     "groups": {
       "camera": "कैमरा",
@@ -122,9 +122,6 @@
         "wordOrder": "शब्द क्रम",
         "wordOrderFlexibility": "शब्द क्रम लचीलापन"
       }
-    },
-    "sphereRadius": {
-      "label": "गोले की त्रिज्या"
     },
     "switchDuration": {
       "label": "स्विच अवधि"

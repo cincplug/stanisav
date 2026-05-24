@@ -19,7 +19,6 @@ import MeshaNose from "./MeshaNose.jsx";
 import MeshaTeeth from "./MeshaTeeth.jsx";
 import MeshaMoustache from "./MeshaMoustache.jsx";
 import MeshaLight from "./MeshaLight.jsx";
-import { mx_bilerp_0 } from "three/src/nodes/materialx/lib/mx_noise.js";
 
 extend({ ParametricGeometry });
 extend({ TextGeometry });
@@ -52,7 +51,6 @@ const Mesha = ({
     tension,
     friction,
     axis,
-    sphereRadius,
   } = controls;
   const { selectedProperty, setSelectedProperty, selectedLanguage } =
     useLanguageSelection();
@@ -90,7 +88,7 @@ const Mesha = ({
     noseColorMap[wordOrder[2]],
   ];
 
-  const { entranceDuration } = sceneConfig;
+  const { entranceDuration, sphereRadius } = sceneConfig;
   const entranceStartRef = useRef(null);
   if (entranceStartRef.current === null) {
     entranceStartRef.current = [0, -sphereRadius, 0];

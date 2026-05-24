@@ -1,5 +1,13 @@
 {
   "controls": {
+    "axis": {
+      "label": "Osa",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
+    },
     "bgColor": {
       "label": "Pozadí"
     },
@@ -35,14 +43,6 @@
     },
     "friction": {
       "label": "Tření"
-    },
-    "axis": {
-      "label": "Osa",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
     },
     "groups": {
       "camera": "Kamera",
@@ -122,9 +122,6 @@
         "wordOrder": "Slovosled",
         "wordOrderFlexibility": "Flexibilita slovosledu"
       }
-    },
-    "sphereRadius": {
-      "label": "Poloměr koule"
     },
     "switchDuration": {
       "label": "Délka přechodu"

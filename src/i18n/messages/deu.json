@@ -1,5 +1,13 @@
 {
   "controls": {
+    "axis": {
+      "label": "Achse",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
+    },
     "bgColor": {
       "label": "Hintergrund"
     },
@@ -35,14 +43,6 @@
     },
     "friction": {
       "label": "Reibung"
-    },
-    "axis": {
-      "label": "Achse",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
     },
     "groups": {
       "camera": "Kamera",
@@ -122,9 +122,6 @@
         "wordOrder": "Wortstellung",
         "wordOrderFlexibility": "Wortstellungsflexibilität"
       }
-    },
-    "sphereRadius": {
-      "label": "Kugelradius"
     },
     "switchDuration": {
       "label": "Wechseldauer"

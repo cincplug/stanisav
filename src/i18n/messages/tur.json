@@ -1,5 +1,13 @@
 {
   "controls": {
+    "axis": {
+      "label": "Eksen",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
+    },
     "bgColor": {
       "label": "Arka plan"
     },
@@ -35,14 +43,6 @@
     },
     "friction": {
       "label": "Sürtünme"
-    },
-    "axis": {
-      "label": "Eksen",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
     },
     "groups": {
       "camera": "Kamera",
@@ -122,9 +122,6 @@
         "wordOrder": "Sözcük dizilişi",
         "wordOrderFlexibility": "Sözcük dizilişi esnekliği"
       }
-    },
-    "sphereRadius": {
-      "label": "Küre yarıçapı"
     },
     "switchDuration": {
       "label": "Geçiş süresi"

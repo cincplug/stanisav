@@ -1,5 +1,13 @@
 {
   "controls": {
+    "axis": {
+      "label": "අක්ෂය",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
+    },
     "bgColor": {
       "label": "පසුබිම"
     },
@@ -35,14 +43,6 @@
     },
     "friction": {
       "label": "ඝර්ෂණය"
-    },
-    "axis": {
-      "label": "අක්ෂය",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
     },
     "groups": {
       "camera": "කැමරාව",
@@ -122,9 +122,6 @@
         "wordOrder": "වචන අනුපිළිවෙල",
         "wordOrderFlexibility": "වචන අනුපිළිවෙලේ ස්වෙච්ඡාතාවය"
       }
-    },
-    "sphereRadius": {
-      "label": "ගෝල අරය"
     },
     "switchDuration": {
       "label": "මාරු කාලය"

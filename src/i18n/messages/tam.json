@@ -1,5 +1,13 @@
 {
   "controls": {
+    "axis": {
+      "label": "அச்சு",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
+    },
     "bgColor": {
       "label": "பின்னணி"
     },
@@ -35,14 +43,6 @@
     },
     "friction": {
       "label": "உராய்வு"
-    },
-    "axis": {
-      "label": "அச்சு",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
     },
     "groups": {
       "camera": "கேமரா",
@@ -122,9 +122,6 @@
         "wordOrder": "சொல் வரிசை",
         "wordOrderFlexibility": "சொல் வரிசை நெகிழ்வுத்தன்மை"
       }
-    },
-    "sphereRadius": {
-      "label": "கோள ஆரம்"
     },
     "switchDuration": {
       "label": "மாற்று கால அளவு"

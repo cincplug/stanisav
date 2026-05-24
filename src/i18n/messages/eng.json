@@ -123,9 +123,6 @@
         "z": "Z"
       }
     },
-    "sphereRadius": {
-      "label": "Sphere radius"
-    },
     "isSegmented": {
       "label": "Segmentation"
     },

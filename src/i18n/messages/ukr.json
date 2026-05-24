@@ -1,5 +1,13 @@
 {
   "controls": {
+    "axis": {
+      "label": "Вісь",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
+    },
     "bgColor": {
       "label": "Фон"
     },
@@ -35,14 +43,6 @@
     },
     "friction": {
       "label": "Тертя"
-    },
-    "axis": {
-      "label": "Вісь",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
     },
     "groups": {
       "camera": "Камера",
@@ -122,9 +122,6 @@
         "wordOrder": "Порядок слів",
         "wordOrderFlexibility": "Гнучкість порядку слів"
       }
-    },
-    "sphereRadius": {
-      "label": "Радіус сфери"
     },
     "switchDuration": {
       "label": "Тривалість переходу"

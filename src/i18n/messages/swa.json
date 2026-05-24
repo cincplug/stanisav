@@ -1,5 +1,13 @@
 {
   "controls": {
+    "axis": {
+      "label": "Mhimili",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
+    },
     "bgColor": {
       "label": "Mandharinyuma"
     },
@@ -35,14 +43,6 @@
     },
     "friction": {
       "label": "Msuguano"
-    },
-    "axis": {
-      "label": "Mhimili",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
     },
     "groups": {
       "camera": "Kamera",
@@ -122,9 +122,6 @@
         "wordOrder": "Mpangilio wa maneno",
         "wordOrderFlexibility": "Kubadilika kwa mpangilio wa maneno"
       }
-    },
-    "sphereRadius": {
-      "label": "Radi ya tufe"
     },
     "switchDuration": {
       "label": "Muda wa kubadilisha"

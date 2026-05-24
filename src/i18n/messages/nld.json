@@ -1,5 +1,13 @@
 {
   "controls": {
+    "axis": {
+      "label": "As",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
+    },
     "bgColor": {
       "label": "Achtergrond"
     },
@@ -35,14 +43,6 @@
     },
     "friction": {
       "label": "Wrijving"
-    },
-    "axis": {
-      "label": "As",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
     },
     "groups": {
       "camera": "Camera",
@@ -122,9 +122,6 @@
         "wordOrder": "Woordvolgorde",
         "wordOrderFlexibility": "Flexibiliteit van woordvolgorde"
       }
-    },
-    "sphereRadius": {
-      "label": "Straal van de bol"
     },
     "switchDuration": {
       "label": "Wisselduur"

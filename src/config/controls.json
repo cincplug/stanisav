@@ -97,14 +97,6 @@
       "defaultValue": "y",
       "isShownInMenu": true
     },
-    "sphereRadius": {
-      "type": "range",
-      "min": 1,
-      "max": 50,
-      "step": 1,
-      "defaultValue": 22,
-      "isShownInMenu": false
-    },
     "isMyMesha": {
       "type": "checkbox",
       "defaultValue": false,

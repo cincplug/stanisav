@@ -21,6 +21,7 @@
   "shaderCheckerFrequency": 5.0,
   "shaderRingCount": 12,
   "shaderRingSpeed": 1.2,
+  "sphereRadius": 22,
   "meshaLight": {
     "intensity": 73,
     "decay": 2.2,

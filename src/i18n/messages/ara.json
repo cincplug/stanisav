@@ -1,5 +1,13 @@
 {
   "controls": {
+    "axis": {
+      "label": "المحور",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
+    },
     "bgColor": {
       "label": "الخلفية"
     },
@@ -35,14 +43,6 @@
     },
     "friction": {
       "label": "الاحتكاك"
-    },
-    "axis": {
-      "label": "المحور",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
     },
     "groups": {
       "camera": "الكاميرا",
@@ -122,9 +122,6 @@
         "wordOrder": "ترتيب الكلمات",
         "wordOrderFlexibility": "مرونة ترتيب الكلمات"
       }
-    },
-    "sphereRadius": {
-      "label": "نصف قطر الكرة"
     },
     "switchDuration": {
       "label": "مدة التبديل"

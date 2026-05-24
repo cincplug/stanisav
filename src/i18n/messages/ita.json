@@ -1,5 +1,13 @@
 {
   "controls": {
+    "axis": {
+      "label": "Asse",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
+    },
     "bgColor": {
       "label": "Sfondo"
     },
@@ -35,14 +43,6 @@
     },
     "friction": {
       "label": "Attrito"
-    },
-    "axis": {
-      "label": "Asse",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
     },
     "groups": {
       "camera": "Telecamera",
@@ -122,9 +122,6 @@
         "wordOrder": "Ordine delle parole",
         "wordOrderFlexibility": "Flessibilità dell'ordine delle parole"
       }
-    },
-    "sphereRadius": {
-      "label": "Raggio della sfera"
     },
     "switchDuration": {
       "label": "Durata transizione"

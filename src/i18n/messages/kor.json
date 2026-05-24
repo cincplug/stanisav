@@ -1,5 +1,13 @@
 {
   "controls": {
+    "axis": {
+      "label": "축",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
+    },
     "bgColor": {
       "label": "배경"
     },
@@ -35,14 +43,6 @@
     },
     "friction": {
       "label": "마찰"
-    },
-    "axis": {
-      "label": "축",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
     },
     "groups": {
       "camera": "카메라",
@@ -122,9 +122,6 @@
         "wordOrder": "어순",
         "wordOrderFlexibility": "어순 유연성"
       }
-    },
-    "sphereRadius": {
-      "label": "구 반지름"
     },
     "switchDuration": {
       "label": "전환 시간"

@@ -1,5 +1,13 @@
 {
   "controls": {
+    "axis": {
+      "label": "محور",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
+    },
     "bgColor": {
       "label": "پس‌زمینه"
     },
@@ -35,14 +43,6 @@
     },
     "friction": {
       "label": "اصطکاک"
-    },
-    "axis": {
-      "label": "محور",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
     },
     "groups": {
       "camera": "دوربین",
@@ -122,9 +122,6 @@
         "wordOrder": "ترتیب کلمات",
         "wordOrderFlexibility": "انعطاف‌پذیری ترتیب کلمات"
       }
-    },
-    "sphereRadius": {
-      "label": "شعاع کره"
     },
     "switchDuration": {
       "label": "مدت زمان تغییر"

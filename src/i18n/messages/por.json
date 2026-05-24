@@ -1,5 +1,13 @@
 {
   "controls": {
+    "axis": {
+      "label": "Eixo",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
+    },
     "bgColor": {
       "label": "Fundo"
     },
@@ -35,14 +43,6 @@
     },
     "friction": {
       "label": "Atrito"
-    },
-    "axis": {
-      "label": "Eixo",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
     },
     "groups": {
       "camera": "Câmera",
@@ -122,9 +122,6 @@
         "wordOrder": "Ordem das palavras",
         "wordOrderFlexibility": "Flexibilidade da ordem das palavras"
       }
-    },
-    "sphereRadius": {
-      "label": "Raio da esfera"
     },
     "switchDuration": {
       "label": "Duração da transição"

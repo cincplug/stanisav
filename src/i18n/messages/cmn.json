@@ -1,5 +1,13 @@
 {
   "controls": {
+    "axis": {
+      "label": "轴",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
+    },
     "bgColor": {
       "label": "背景"
     },
@@ -35,14 +43,6 @@
     },
     "friction": {
       "label": "摩擦力"
-    },
-    "axis": {
-      "label": "轴",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
     },
     "groups": {
       "camera": "摄像机",
@@ -122,9 +122,6 @@
         "wordOrder": "语序",
         "wordOrderFlexibility": "语序灵活性"
       }
-    },
-    "sphereRadius": {
-      "label": "球体半径"
     },
     "switchDuration": {
       "label": "切换时长"

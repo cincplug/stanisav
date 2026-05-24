@@ -1,5 +1,13 @@
 {
   "controls": {
+    "axis": {
+      "label": "Trục",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
+    },
     "bgColor": {
       "label": "Nền"
     },
@@ -35,14 +43,6 @@
     },
     "friction": {
       "label": "Ma sát"
-    },
-    "axis": {
-      "label": "Trục",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
     },
     "groups": {
       "camera": "Máy ảnh",
@@ -122,9 +122,6 @@
         "wordOrder": "Trật tự từ",
         "wordOrderFlexibility": "Độ linh hoạt trật tự từ"
       }
-    },
-    "sphereRadius": {
-      "label": "Bán kính hình cầu"
     },
     "switchDuration": {
       "label": "Thời gian chuyển đổi"

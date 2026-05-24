@@ -1,5 +1,13 @@
 {
   "controls": {
+    "axis": {
+      "label": "Оска",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
+    },
     "bgColor": {
       "label": "Позадина"
     },
@@ -35,14 +43,6 @@
     },
     "friction": {
       "label": "Триење"
-    },
-    "axis": {
-      "label": "Оска",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
     },
     "groups": {
       "camera": "Камера",
@@ -122,9 +122,6 @@
         "wordOrder": "Ред на зборови",
         "wordOrderFlexibility": "Флексибилност на редот на зборови"
       }
-    },
-    "sphereRadius": {
-      "label": "Полупречник на сферата"
     },
     "switchDuration": {
       "label": "Траење на преодот"

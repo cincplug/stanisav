@@ -46,7 +46,6 @@ const Stage = ({
     isMyMesha,
     tension,
     friction,
-    sphereRadius,
     sortBy,
     labelContent,
     isReverse,
@@ -61,6 +60,7 @@ const Stage = ({
   const orbitControlsRef = useRef();
 
   const {
+    sphereRadius,
     rotateSpeedZoomedModifier,
     radialOffsetModifier,
     entranceDuration,

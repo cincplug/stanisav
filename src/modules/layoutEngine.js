@@ -13,6 +13,7 @@ const {
   clustersGap,
   clusterCellSpacing,
   clusterCellSizeModifier,
+  sphereRadius,
 } = sceneConfig;
 
 const spiralAxis = {
@@ -55,7 +56,6 @@ class LayoutEngine {
       data;
     const {
       sortBy,
-      sphereRadius,
       labelContent,
       isReverse,
       isSegmented,

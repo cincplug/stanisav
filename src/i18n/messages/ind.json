@@ -1,5 +1,13 @@
 {
   "controls": {
+    "axis": {
+      "label": "Sumbu",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
+    },
     "bgColor": {
       "label": "Latar belakang"
     },
@@ -35,14 +43,6 @@
     },
     "friction": {
       "label": "Gesekan"
-    },
-    "axis": {
-      "label": "Sumbu",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
     },
     "groups": {
       "camera": "Kamera",
@@ -122,9 +122,6 @@
         "wordOrder": "Urutan kata",
         "wordOrderFlexibility": "Fleksibilitas urutan kata"
       }
-    },
-    "sphereRadius": {
-      "label": "Jari-jari bola"
     },
     "switchDuration": {
       "label": "Durasi peralihan"

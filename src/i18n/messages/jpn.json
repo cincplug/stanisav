@@ -1,5 +1,13 @@
 {
   "controls": {
+    "axis": {
+      "label": "軸",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
+    },
     "bgColor": {
       "label": "背景"
     },
@@ -35,14 +43,6 @@
     },
     "friction": {
       "label": "摩擦"
-    },
-    "axis": {
-      "label": "軸",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
     },
     "groups": {
       "camera": "カメラ",
@@ -122,9 +122,6 @@
         "wordOrder": "語順",
         "wordOrderFlexibility": "語順の柔軟性"
       }
-    },
-    "sphereRadius": {
-      "label": "球の半径"
     },
     "switchDuration": {
       "label": "切替時間"

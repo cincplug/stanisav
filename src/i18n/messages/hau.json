@@ -1,5 +1,13 @@
 {
   "controls": {
+    "axis": {
+      "label": "Axis",
+      "options": {
+        "x": "X",
+        "y": "Y",
+        "z": "Z"
+      }
+    },
     "bgColor": {
       "label": "Launin bango"
     },
@@ -35,14 +43,6 @@
     },
     "friction": {
       "label": "Gogayya"
-    },
-    "axis": {
-      "label": "Axis",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
     },
     "groups": {
       "camera": "Kyamara",
@@ -122,9 +122,6 @@
         "wordOrder": "Tsarin kalma",
         "wordOrderFlexibility": "Sassauci na tsarin kalma"
       }
-    },
-    "sphereRadius": {
-      "label": "Radius na bulo"
     },
     "switchDuration": {
       "label": "Tsawon canzawa"
