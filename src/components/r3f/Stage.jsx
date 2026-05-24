@@ -279,6 +279,8 @@ const Stage = ({
               ? rotateSpeed / rotateSpeedZoomedModifier
               : rotateSpeed
           }
+          isEntranceComplete={isEntranceComplete}
+          isMotionReduced={isMotionReduced}
         />
       </group>
     </Canvas>

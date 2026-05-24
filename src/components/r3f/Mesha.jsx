@@ -4,6 +4,7 @@ import { a, useSpring } from "@react-spring/three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
+import sceneConfig from "../../config/sceneConfig.json";
 import microphoneService from "../../services/microphoneService.js";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
@@ -18,6 +19,7 @@ import MeshaNose from "./MeshaNose.jsx";
 import MeshaTeeth from "./MeshaTeeth.jsx";
 import MeshaMoustache from "./MeshaMoustache.jsx";
 import MeshaLight from "./MeshaLight.jsx";
+import { mx_bilerp_0 } from "three/src/nodes/materialx/lib/mx_noise.js";
 
 extend({ ParametricGeometry });
 extend({ TextGeometry });
@@ -31,6 +33,8 @@ const Mesha = ({
   looksAround,
   renderOrder,
   rotateSpeed,
+  isMotionReduced,
+  isEntranceComplete,
 }) => {
   const groupRef = useRef();
   const lookAroundRef = useRef();
@@ -48,6 +52,7 @@ const Mesha = ({
     tension,
     friction,
     axis,
+    sphereRadius,
   } = controls;
   const { selectedProperty, setSelectedProperty, selectedLanguage } =
     useLanguageSelection();
@@ -85,12 +90,27 @@ const Mesha = ({
     noseColorMap[wordOrder[2]],
   ];
 
+  const { entranceDuration } = sceneConfig;
+  const entranceStartRef = useRef(null);
+  if (entranceStartRef.current === null) {
+    entranceStartRef.current = [0, -sphereRadius, 0];
+  }
+
   const spring = useSpring({
+    from: {
+      x: entranceStartRef.current[0],
+      y: entranceStartRef.current[1],
+      z: entranceStartRef.current[2],
+      scale: meshaSize,
+    },
     x: position[0],
     y: position[1],
     z: position[2],
     scale: meshaSize,
-    config: { tension, friction },
+    config: isEntranceComplete
+      ? { tension, friction }
+      : { duration: entranceDuration },
+    immediate: isMotionReduced,
   });
 
   const skinColor = shiftHue(color, -60);
