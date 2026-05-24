@@ -8,6 +8,8 @@ import { ControlsProvider } from "./contexts/ControlsContext";
 import { PlaylistProvider } from "./contexts/PlaylistContext";
 import { LanguageSelectionProvider } from "./contexts/LanguageSelectionContext";
 import { I18nProvider } from "./contexts/I18nContext";
+import { EntranceProvider } from "./contexts/EntranceContext";
+
 import LocaleLayout from "./components/routing/LocaleLayout.jsx";
 import { defaultUrlSlug } from "./i18n/runtime";
 import "./index.css";
@@ -17,29 +19,31 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <I18nProvider>
       <AppStateProvider>
         <ControlsProvider>
-          <LanguageSelectionProvider>
-            <PlaylistProvider>
-              <BrowserRouter>
-                <Routes>
-                  <Route
-                    path="/"
-                    element={<Navigate to={`/${defaultUrlSlug}`} replace />}
-                  />
-                  <Route path=":locale" element={<LocaleLayout />}>
-                    <Route index element={<App />} />
+          <EntranceProvider>
+            <LanguageSelectionProvider>
+              <PlaylistProvider>
+                <BrowserRouter>
+                  <Routes>
                     <Route
-                      path="source-video-gallery"
-                      element={<SourceVideoGallery />}
+                      path="/"
+                      element={<Navigate to={`/${defaultUrlSlug}`} replace />}
                     />
-                  </Route>
-                  <Route
-                    path="*"
-                    element={<Navigate to={`/${defaultUrlSlug}`} replace />}
-                  />
-                </Routes>
-              </BrowserRouter>
-            </PlaylistProvider>
-          </LanguageSelectionProvider>
+                    <Route path=":locale" element={<LocaleLayout />}>
+                      <Route index element={<App />} />
+                      <Route
+                        path="source-video-gallery"
+                        element={<SourceVideoGallery />}
+                      />
+                    </Route>
+                    <Route
+                      path="*"
+                      element={<Navigate to={`/${defaultUrlSlug}`} replace />}
+                    />
+                  </Routes>
+                </BrowserRouter>
+              </PlaylistProvider>
+            </LanguageSelectionProvider>
+          </EntranceProvider>
         </ControlsProvider>
       </AppStateProvider>
     </I18nProvider>

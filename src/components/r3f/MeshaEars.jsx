@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
+import { useEntrance } from "../../contexts/EntranceContext";
 import { useAudioData } from "../../hooks/useAudioData.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
@@ -53,6 +54,9 @@ const MeshaEars = ({
 
   const { x, y, z } = earPosition;
   const activeMaterial = isSelected ? highlightMaterial : earMaterial;
+
+  const { revealedParts } = useEntrance();
+  if (!revealedParts.has("ears")) return null;
 
   return (
     <>

@@ -8,6 +8,7 @@ import sceneConfig from "../../config/sceneConfig.json";
 import microphoneService from "../../services/microphoneService.js";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
+import { useEntrance } from "../../contexts/EntranceContext.jsx";
 import { useShaderMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { getFeatureScoreList } from "../../utils/linguisticUtils.js";
@@ -33,7 +34,6 @@ const Mesha = ({
   renderOrder,
   rotateSpeed,
   isMotionReduced,
-  isEntranceComplete,
 }) => {
   const groupRef = useRef();
   const lookAroundRef = useRef();
@@ -54,6 +54,8 @@ const Mesha = ({
   } = controls;
   const { selectedProperty, setSelectedProperty, selectedLanguage } =
     useLanguageSelection();
+
+  const { isMeshaSequenceDone } = useEntrance();
 
   useEffect(() => {
     if (isMyMesha) {
@@ -89,26 +91,15 @@ const Mesha = ({
   ];
 
   const { entranceDuration, sphereRadius } = sceneConfig;
-  const entranceStartRef = useRef(null);
-  if (entranceStartRef.current === null) {
-    entranceStartRef.current = [0, -sphereRadius, 0];
-  }
+  const targetPosition = isMeshaSequenceDone ? position : [0, 0, 0];
 
   const spring = useSpring({
-    from: {
-      x: entranceStartRef.current[0],
-      y: entranceStartRef.current[1],
-      z: entranceStartRef.current[2],
-      scale: meshaSize,
-    },
-    x: position[0],
-    y: position[1],
-    z: position[2],
+    x: targetPosition[0],
+    y: targetPosition[1],
+    z: targetPosition[2],
     scale: meshaSize,
-    config: isEntranceComplete
-      ? { tension, friction }
-      : { duration: entranceDuration },
-    immediate: isMotionReduced,
+    config: { tension, friction },
+    immediate: isMotionReduced || !isMeshaSequenceDone,
   });
 
   const skinColor = shiftHue(color, -60);

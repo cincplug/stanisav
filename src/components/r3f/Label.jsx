@@ -7,9 +7,9 @@ import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
 import { usePlaylist } from "../../contexts/PlaylistContext.jsx";
 import { useAppState } from "../../contexts/AppStateContext.jsx";
+import { useEntrance } from "../../contexts/EntranceContext.jsx";
 import { calculateRadialOffset } from "../../utils/sceneUtils.js";
 import { getLanguageLabel } from "../../utils/languageDisplayUtils.js";
-import { useEntranceAnimation } from "../../hooks/useEntranceAnimation.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import sceneConfig from "../../config/sceneConfig.json";
 
@@ -57,14 +57,39 @@ const Label = ({
     [position],
   );
 
-  const { positionSpring, revealSpring } = useEntranceAnimation(
+  const { getLabelSpringProps } = useEntrance();
+  const {
+    startPosition,
+    finalPosition: springFinalPosition,
+    delay,
+    positionConfig,
+    revealConfig,
+  } = getLabelSpringProps(
     position,
-    isEntranceComplete,
-    isMotionReduced,
     isSegmented,
     revealOrder,
     totalVisibleLabels,
   );
+
+  const entranceStartRef = useRef(null);
+  if (entranceStartRef.current === null) {
+    entranceStartRef.current = startPosition;
+  }
+
+  const positionSpring = useSpring({
+    from: { position: entranceStartRef.current },
+    to: { position: springFinalPosition },
+    config: positionConfig,
+    immediate: isMotionReduced,
+  });
+
+  const revealSpring = useSpring({
+    from: { reveal: 0 },
+    to: { reveal: 1 },
+    delay,
+    config: revealConfig,
+    immediate: isMotionReduced,
+  });
 
   // Selection offset spring (radial push when selected)
   const selectionSpring = useSpring({

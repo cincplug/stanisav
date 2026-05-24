@@ -4,6 +4,7 @@ import { useControls } from "../../contexts/ControlsContext.jsx";
 import { usePlaylist } from "../../contexts/PlaylistContext.jsx";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
+import { useEntrance } from "../../contexts/EntranceContext.jsx";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
 import blinkTimings from "../../config/blinkTimings.json";
 
@@ -33,12 +34,24 @@ const Eye = ({
 
   const { blinkDuration } = audioVisualizationConfig.meshDeformation;
 
+  const { revealedParts } = useEntrance();
+  const isEntranceBlinkPhase = !revealedParts.has("nose");
+
   useThrottledFrame(({ camera, clock }) => {
     if (!lidPivotRef.current) return;
     const state = blinkStateRef.current;
     if (state.isBlinking) {
       const elapsed = clock.getElapsedTime() - state.startTime;
       const progress = elapsed / blinkDuration;
+
+      if (isEntranceBlinkPhase) {
+        if (!state.isBlinking) {
+          state.isBlinking = true;
+          state.startTime = clock.getElapsedTime();
+        }
+        return;
+      }
+
       if (progress >= 1) {
         state.isBlinking = false;
         lidPivotRef.current.rotation.x = 0;

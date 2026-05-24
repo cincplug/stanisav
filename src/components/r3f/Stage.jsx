@@ -6,6 +6,7 @@ import { useControls } from "../../contexts/ControlsContext";
 import { useAppState } from "../../contexts/AppStateContext";
 import { useI18n } from "../../contexts/I18nContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
+import { useEntrance } from "../../contexts/EntranceContext";
 import { useDataManager } from "../../hooks/useDataManager";
 import {
   calculateLanguageFilterStatus,
@@ -34,6 +35,7 @@ const Stage = ({
     useAppState();
   const { locale, isLocaleReady, isRtl } = useI18n();
   const { filteringUtils, selectedLanguage } = useLanguageSelection();
+  const { isMeshaSequenceDone, skipSequence } = useEntrance();
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
   const {
     cameraX,
@@ -144,15 +146,11 @@ const Stage = ({
   );
 
   useEffect(() => {
-    if (!sceneReady || isEntranceComplete) return;
-    if (selectedLanguage) {
+    if (selectedLanguage && !isEntranceComplete) {
+      skipSequence();
       setIsEntranceComplete(true);
-      return;
     }
-    const delay = isMotionReduced ? 0 : entranceDuration + revealDuration;
-    const timer = setTimeout(() => setIsEntranceComplete(true), delay);
-    return () => clearTimeout(timer);
-  }, [sceneReady, isEntranceComplete, selectedLanguage]);
+  }, [selectedLanguage]);
 
   const meshaLanguageCode = selectedLanguage || sortedLanguageCodes[0];
   const meshaLinguisticProperties =
@@ -252,7 +250,7 @@ const Stage = ({
       />
 
       <group>
-        {!showEmptyMessage && (
+        {!showEmptyMessage && isMeshaSequenceDone && (
           <Labels
             groups={groups}
             formattedPositions={formattedPositions}
@@ -279,7 +277,6 @@ const Stage = ({
               ? rotateSpeed / rotateSpeedZoomedModifier
               : rotateSpeed
           }
-          isEntranceComplete={isEntranceComplete}
           isMotionReduced={isMotionReduced}
         />
       </group>

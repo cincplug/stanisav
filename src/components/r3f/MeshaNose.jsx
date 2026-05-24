@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
+import { useEntrance } from "../../contexts/EntranceContext";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
@@ -36,6 +37,9 @@ const MeshaNose = ({
   });
 
   const segments = 12;
+
+  const { revealedParts } = useEntrance();
+  if (!revealedParts.has("nose")) return null;
 
   return (
     <group ref={groupRef} position={position} scale={scale}>

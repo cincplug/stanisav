@@ -2,6 +2,7 @@ import { useRef, useMemo } from "react";
 import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useControls } from "../../contexts/ControlsContext.jsx";
+import { useEntrance } from "../../contexts/EntranceContext";
 import { useAudioData } from "../../hooks/useAudioData.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
@@ -66,6 +67,9 @@ const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
   });
 
   if (!teeth.length) return null;
+
+  const { revealedParts } = useEntrance();
+  if (!revealedParts.has("teeth")) return null;
 
   return (
     <group position={[0, 1, 1]} scale={teethSize}>
