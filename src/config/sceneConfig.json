@@ -12,6 +12,7 @@
   "rotateSpeed": 1,
   "rotateSpeedZoomedModifier": 3,
   "currentColor": "#50a7ff",
+  "labelTextColor": "#070b0f",
   "shaderAmbient": 0.7,
   "shaderLightingMin": 0.7,
   "shaderLightingMax": 1.8,

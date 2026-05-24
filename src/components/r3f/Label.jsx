@@ -27,9 +27,9 @@ const Label = ({
   const { filteredLanguages, filteringUtils, selectedLanguage } =
     useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
-  const { labelContent, labelSize, bgColor, d4, isSegmented, isMotionReduced } =
+  const { labelContent, labelSize, d4, isSegmented, isMotionReduced } =
     controls;
-  const { radialOffsetModifier } = sceneConfig;
+  const { radialOffsetModifier, labelTextColor } = sceneConfig;
 
   if (
     Object.keys(filteringUtils).length > 0 &&
@@ -76,11 +76,11 @@ const Label = ({
   const textMaterial = useMemo(
     () =>
       new MeshStandardMaterial({
-        color: bgColor,
+        color: labelTextColor,
         depthTest: !!selectedLanguage,
         depthWrite: !!selectedLanguage,
       }),
-    [bgColor, selectedLanguage],
+    [selectedLanguage],
   );
 
   useThrottledFrame(({ camera }, delta) => {
@@ -127,7 +127,7 @@ const Label = ({
       anchorY="middle"
       outlineWidth={labelSize / 2}
       outlineColor={color}
-      color={bgColor}
+      color={labelTextColor}
       material={textMaterial}
     >
       {labelText}
