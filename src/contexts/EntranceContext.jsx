@@ -6,7 +6,7 @@ import sceneConfig from "../config/sceneConfig.json";
 
 const {
   meshaRevealSequence,
-  postMeshaDelayMs,
+  postMeshaDelay,
   entranceDuration,
   revealDuration,
   startRadiusFactor,
@@ -47,7 +47,7 @@ export const EntranceProvider = ({ children }) => {
         setRevealedParts((prev) => new Set([...prev, part]));
         await wait(holdMs);
       }
-      await wait(postMeshaDelayMs);
+      await wait(postMeshaDelay);
       if (!cancelled) setIsMeshaSequenceDone(true);
     };
 

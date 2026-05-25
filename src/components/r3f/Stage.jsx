@@ -1,4 +1,3 @@
-import SceneReadyGate from "./SceneReadyGate";
 import { useMemo, useRef, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
@@ -23,6 +22,7 @@ import Labels from "./Labels";
 import Mesha from "./Mesha";
 import Camera from "./Camera";
 import OrbitModifier from "./OrbitModifier";
+import SceneReadyGate from "./SceneReadyGate";
 
 const Stage = ({ onDataLoaded, onLoadingChange, languageColors }) => {
   const { controls } = useControls();

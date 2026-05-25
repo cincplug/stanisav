@@ -2,13 +2,13 @@
   "entranceDuration": 20000,
   "revealDuration": 500,
   "meshaRevealSequence": [
-    { "part": "eyes", "holdMs": 2000 },
-    { "part": "nose", "holdMs": 1000 },
-    { "part": "ears", "holdMs": 800 },
-    { "part": "tongue", "holdMs": 500 },
-    { "part": "teeth", "holdMs": 0 }
+    { "part": "eyes", "holdMs": 800 },
+    { "part": "nose", "holdMs": 600 },
+    { "part": "ears", "holdMs": 500 },
+    { "part": "tongue", "holdMs": 300 },
+    { "part": "teeth", "holdMs": 200 }
   ],
-  "postMeshaDelayMs": 0,
+  "postMeshaDelay": 500,
   "startRadiusFactor": 0.8,
   "entranceSpiralAxis": "z",
   "clustersMargin": 1.1,
