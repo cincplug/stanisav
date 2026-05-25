@@ -24,7 +24,7 @@ const EntranceContext = createContext(null);
 
 export const EntranceProvider = ({ children }) => {
   const { controls } = useControls();
-  const { isMotionReduced } = controls;
+  const { isMotionReduced, tension, friction } = controls;
   const { isSceneReady } = useAppState();
 
   const allParts = meshaRevealSequence.map((s) => s.part);
@@ -91,7 +91,9 @@ export const EntranceProvider = ({ children }) => {
       startPosition: toInnerStartPosition(finalPosition),
       finalPosition,
       delay,
-      positionConfig: { duration: entranceDuration },
+      positionConfig: isEntranceComplete
+        ? { tension, friction }
+        : { duration: entranceDuration },
       revealConfig: { duration: revealDuration },
     };
   };
