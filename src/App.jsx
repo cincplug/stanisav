@@ -17,10 +17,10 @@ function App() {
   const {
     isLoading,
     data,
-    sceneReady,
+    isSceneReady,
     filteringUtils,
     setData,
-    setSceneReady,
+    setIsSceneReady,
     setIsLoading,
     setNodes,
     setFilteringUtils,
@@ -58,7 +58,7 @@ function App() {
         onControlChange={updateControl}
         data={data}
         isLoading={isLoading}
-        sceneReady={sceneReady}
+        isSceneReady={isSceneReady}
         onCameraFocus={handleCameraFocus}
         isExpanded={isMenuExpanded}
         onToggleMenu={() => updateControl("isMenuExpanded", !isMenuExpanded)}
@@ -72,7 +72,6 @@ function App() {
         {!isMeshaMini && (
           <Stage
             onDataLoaded={setData}
-            onSceneReady={setSceneReady}
             onLoadingChange={setIsLoading}
             onNodesReady={setNodes}
             languageColors={languageColors}

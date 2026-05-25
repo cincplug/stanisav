@@ -5,11 +5,10 @@ const AppStateContext = createContext(null);
 export const AppStateProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
-  const [sceneReady, setSceneReady] = useState(false);
+  const [isSceneReady, setIsSceneReady] = useState(false);
   const [, setNodes] = useState(null);
   const [cameraFocusRequest, setCameraFocusRequest] = useState(null);
   const [filteringUtils, setFilteringUtils] = useState({});
-  const [isEntranceComplete, setIsEntranceComplete] = useState(false);
 
   const handleCameraFocus = (type, target) => {
     setCameraFocusRequest({ type, target, timestamp: Date.now() });
@@ -18,18 +17,14 @@ export const AppStateProvider = ({ children }) => {
   const value = {
     isLoading,
     data,
-    sceneReady,
+    isSceneReady,
     cameraFocusRequest,
     filteringUtils,
-    isEntranceComplete,
-
     setData,
-    setSceneReady,
+    setIsSceneReady,
     setIsLoading,
     setNodes,
     setFilteringUtils,
-    setIsEntranceComplete,
-
     handleCameraFocus,
   };
 

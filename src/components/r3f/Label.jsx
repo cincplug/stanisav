@@ -23,7 +23,7 @@ const Label = ({
 }) => {
   const labelRef = useRef();
   const { controls } = useControls();
-  const { data, isEntranceComplete } = useAppState();
+  const { data } = useAppState();
   const { filteredLanguages, filteringUtils, selectedLanguage } =
     useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
@@ -57,7 +57,8 @@ const Label = ({
     [position],
   );
 
-  const { getLabelSpringProps } = useEntrance();
+  const { getLabelSpringProps, isEntranceComplete, setIsEntranceComplete } =
+    useEntrance();
   const {
     startPosition,
     finalPosition: springFinalPosition,

@@ -15,7 +15,7 @@ import { getSortingData } from "../utils/sortingUtils";
 const PlaylistContext = createContext(null);
 
 export const PlaylistProvider = ({ children }) => {
-  const { data, sceneReady } = useAppState();
+  const { data, isSceneReady } = useAppState();
   const { controls } = useControls();
   const {
     isAutoplay,
@@ -215,7 +215,7 @@ export const PlaylistProvider = ({ children }) => {
       setPlaylistSession((s) => s + 1);
     }
 
-    if (!isPlaying || !sceneReady) return;
+    if (!isPlaying || !isSceneReady) return;
 
     const codes = playlistRef.current;
     if (codes.length === 0 || currentIndex >= codes.length) {
@@ -351,7 +351,7 @@ export const PlaylistProvider = ({ children }) => {
     isPlaying,
     currentIndex,
     playlistSession,
-    sceneReady,
+    isSceneReady,
     isMyMesha,
     isLuka,
     switchDuration,

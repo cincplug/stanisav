@@ -25,8 +25,7 @@ const EntranceContext = createContext(null);
 export const EntranceProvider = ({ children }) => {
   const { controls } = useControls();
   const { isMotionReduced } = controls;
-  const { isEntranceComplete, setIsEntranceComplete, sceneReady } =
-    useAppState();
+  const { isSceneReady } = useAppState();
 
   const allParts = meshaRevealSequence.map((s) => s.part);
 
@@ -35,6 +34,7 @@ export const EntranceProvider = ({ children }) => {
   );
   const [isMeshaSequenceDone, setIsMeshaSequenceDone] =
     useState(isMotionReduced);
+  const [isEntranceComplete, setIsEntranceComplete] = useState(false);
 
   // Mesha part sequence
   useEffect(() => {
@@ -59,7 +59,7 @@ export const EntranceProvider = ({ children }) => {
 
   // Labels entrance — fires once Mesha sequence is done and scene is ready
   useEffect(() => {
-    if (!sceneReady || isEntranceComplete) return;
+    if (!isSceneReady || isEntranceComplete) return;
     if (!isMeshaSequenceDone) return;
     const delay = isMotionReduced ? 0 : revealDuration;
     const timer = setTimeout(
@@ -67,7 +67,7 @@ export const EntranceProvider = ({ children }) => {
       isMotionReduced ? 0 : entranceDuration,
     );
     return () => clearTimeout(timer);
-  }, [sceneReady, isEntranceComplete, isMeshaSequenceDone, isMotionReduced]);
+  }, [isSceneReady, isEntranceComplete, isMeshaSequenceDone, isMotionReduced]);
 
   const skipSequence = () => {
     setRevealedParts(new Set(allParts));
@@ -101,8 +101,10 @@ export const EntranceProvider = ({ children }) => {
       value={{
         revealedParts,
         isMeshaSequenceDone,
+        isEntranceComplete,
         getLabelSpringProps,
         skipSequence,
+        setIsEntranceComplete,
       }}
     >
       {children}

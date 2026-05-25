@@ -24,18 +24,17 @@ import Mesha from "./Mesha";
 import Camera from "./Camera";
 import OrbitModifier from "./OrbitModifier";
 
-const Stage = ({
-  onDataLoaded,
-  onSceneReady,
-  onLoadingChange,
-  languageColors,
-}) => {
+const Stage = ({ onDataLoaded, onLoadingChange, languageColors }) => {
   const { controls } = useControls();
-  const { isEntranceComplete, setIsEntranceComplete, sceneReady } =
-    useAppState();
+  const { isSceneReady } = useAppState();
   const { locale, isLocaleReady, isRtl } = useI18n();
   const { filteringUtils, selectedLanguage } = useLanguageSelection();
-  const { isMeshaSequenceDone, skipSequence } = useEntrance();
+  const {
+    isMeshaSequenceDone,
+    skipSequence,
+    isEntranceComplete,
+    setIsEntranceComplete,
+  } = useEntrance();
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
   const {
     cameraX,
@@ -146,11 +145,11 @@ const Stage = ({
   );
 
   useEffect(() => {
-    if (selectedLanguage && !isEntranceComplete) {
+    if ((selectedLanguage || isSegmented) && !isEntranceComplete) {
       skipSequence();
       setIsEntranceComplete(true);
     }
-  }, [selectedLanguage]);
+  }, [selectedLanguage, isSegmented]);
 
   const meshaLanguageCode = selectedLanguage || sortedLanguageCodes[0];
   const meshaLinguisticProperties =
@@ -187,12 +186,13 @@ const Stage = ({
   const visibleLanguages = sortedLanguageCodes.filter(
     (code) => languageFilterStatus[code]?.isVisible,
   );
-  const showEmptyMessage = hasSelectedFilters && visibleLanguages.length === 0;
+  const shouldShowEmptyMessage =
+    hasSelectedFilters && visibleLanguages.length === 0;
 
   const hasDrawableScene =
     Boolean(meshaColor) &&
     Object.keys(formattedPositions).length > 0 &&
-    (showEmptyMessage || visibleLanguages.length > 0);
+    (shouldShowEmptyMessage || visibleLanguages.length > 0);
 
   if (!data || !isInitialized || sortedLanguageCodes.length === 0) {
     return null;
@@ -205,10 +205,7 @@ const Stage = ({
       camera={{ position: [cameraX, cameraY, cameraZ], fov, near, far }}
       gl={{ antialias: true, clearColor: bgColor }}
     >
-      <SceneReadyGate
-        hasDrawableScene={hasDrawableScene}
-        onSceneReady={onSceneReady}
-      />
+      <SceneReadyGate hasDrawableScene={hasDrawableScene} />
 
       <color attach="background" args={[bgColor]} />
 
@@ -250,7 +247,7 @@ const Stage = ({
       />
 
       <group>
-        {!showEmptyMessage && isMeshaSequenceDone && (
+        {!shouldShowEmptyMessage && isMeshaSequenceDone && (
           <Labels
             groups={groups}
             formattedPositions={formattedPositions}
@@ -270,9 +267,7 @@ const Stage = ({
           position={meshaPosition}
           isMyMesha={isMyMesha}
           stripesType={stripesType}
-          looksAround={
-            isMeshaSequenceDone && !!selectedLanguage && rotateSpeed > 0
-          }
+          looksAround={true}
           renderOrder={languageCodes.length}
           rotateSpeed={
             !!selectedLanguage
