@@ -44,7 +44,7 @@
     "decay": 2.2,
     "distance": 74,
     "color": "#ffeedd",
-    "spread": 1.5,
+    "spread": 1.2,
     "z": 4
   },
   "stageLight": {

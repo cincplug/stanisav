@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { a } from "@react-spring/three";
 import { Color } from "three";
-import { useFrame } from "@react-three/fiber";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import sceneConfig from "../../config/sceneConfig.json";
 

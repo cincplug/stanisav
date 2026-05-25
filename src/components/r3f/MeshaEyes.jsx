@@ -40,14 +40,15 @@ const Eye = ({
   useThrottledFrame(({ camera, clock }) => {
     if (!lidPivotRef.current) return;
     const state = blinkStateRef.current;
+    const time = clock.getElapsedTime();
     if (state.isBlinking) {
-      const elapsed = clock.getElapsedTime() - state.startTime;
+      const elapsed = time - state.startTime;
       const progress = elapsed / blinkDuration;
 
       if (isEntranceBlinkPhase) {
         if (!state.isBlinking) {
           state.isBlinking = true;
-          state.startTime = clock.getElapsedTime();
+          state.startTime = time;
         }
         return;
       }
@@ -58,9 +59,11 @@ const Eye = ({
       } else {
         const phase = progress < 0.5 ? progress * 2 : (1 - progress) * 2;
         lidPivotRef.current.rotation.x = (phase * Math.PI) / 3;
+        groupRef.current.lookAt(camera.position);
       }
+    } else if (Math.ceil(time) % 2 === 0) {
+      groupRef.current.lookAt(camera.position);
     }
-    groupRef.current.lookAt(camera.position);
   });
 
   return (
@@ -70,7 +73,7 @@ const Eye = ({
         {isSelectedOuter ? (
           <shaderMaterial args={[highlightMaterial]} />
         ) : (
-          <meshStandardMaterial color="#e7ebef" />
+          <meshBasicMaterial color="#e7ebef" />
         )}
       </mesh>
 
@@ -83,13 +86,13 @@ const Eye = ({
         {isSelectedInner ? (
           <shaderMaterial args={[highlightMaterial]} />
         ) : (
-          <meshStandardMaterial color={irisColor} />
+          <meshBasicMaterial color={irisColor} />
         )}
       </mesh>
 
       <mesh position={[0, 0, pupilZ]}>
         <sphereGeometry args={[pupilSize, 32, 32]} />
-        <meshStandardMaterial color="#222222" />
+        <meshStandardMaterial color="#222222" metalness={0.7} roughness={0.4} />
       </mesh>
 
       <group ref={lidPivotRef} position={[0, 0, eyeSize]}>
