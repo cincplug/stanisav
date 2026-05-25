@@ -17,8 +17,16 @@
   "clusterCellSpacing": 0.12,
   "clusterCellSizeModifier": 1,
   "radialOffsetModifier": 4,
-  "rotateSpeed": 1,
-  "rotateSpeedZoomedModifier": 3,
+  "rotateSpeedFactor": {
+    "scene": {
+      "initial": 3,
+      "zoomed": 0.1
+    },
+    "mesha": {
+      "initial": 0,
+      "zoomed": 0.5
+    }
+  },
   "currentColor": "#50a7ff",
   "labelTextColor": "#070b0f",
   "shaderAmbient": 0.7,

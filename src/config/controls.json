@@ -85,8 +85,8 @@
     },
     "rotateSpeed": {
       "type": "range",
-      "min": 0.1,
-      "max": 4,
+      "min": 0,
+      "max": 2,
       "step": 0.1,
       "defaultValue": 1,
       "isShownInMenu": true

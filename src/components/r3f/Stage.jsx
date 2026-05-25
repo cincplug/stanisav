@@ -63,7 +63,7 @@ const Stage = ({
 
   const {
     sphereRadius,
-    rotateSpeedZoomedModifier,
+    rotateSpeedFactor,
     radialOffsetModifier,
     entranceDuration,
     revealDuration,
@@ -226,8 +226,8 @@ const Stage = ({
         axis={axis}
         speed={
           !!selectedLanguage
-            ? rotateSpeed / rotateSpeedZoomedModifier
-            : rotateSpeed * rotateSpeedZoomedModifier
+            ? rotateSpeed * rotateSpeedFactor.scene.zoomed
+            : rotateSpeed * rotateSpeedFactor.scene.initial
         }
         isEnabled={!isSegmented}
       />
@@ -270,12 +270,14 @@ const Stage = ({
           position={meshaPosition}
           isMyMesha={isMyMesha}
           stripesType={stripesType}
-          looksAround={true}
+          looksAround={
+            isMeshaSequenceDone && !!selectedLanguage && rotateSpeed > 0
+          }
           renderOrder={languageCodes.length}
           rotateSpeed={
             !!selectedLanguage
-              ? rotateSpeed / rotateSpeedZoomedModifier
-              : rotateSpeed
+              ? rotateSpeed * rotateSpeedFactor.mesha.zoomed
+              : rotateSpeed * rotateSpeedFactor.mesha.initial
           }
           isMotionReduced={isMotionReduced}
         />
