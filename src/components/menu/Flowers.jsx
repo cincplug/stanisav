@@ -3,42 +3,8 @@ import controlsConfig from "../../config/controls.json";
 import { localizeControlConfig } from "../../utils/i18nUtils";
 import { useLayoutEffect, useRef } from "react";
 import Range from "./ux/Range";
-import {
-  IrrationalityIcon,
-  LightIcon,
-  RotateSpeedIcon,
-  HueIcon,
-  LightnessIcon,
-  SaturationIcon,
-  SwitchDurationIcon,
-  ZoomDistanceIcon,
-  TensionIcon,
-  FrictionIcon,
-} from "./MenuIcons";
+import { thumbIconMap } from "./thumbIconMap";
 import "./Flowers.css";
-
-const thumbIconMap = {
-  irrationality: IrrationalityIcon,
-  light: LightIcon,
-  rotateSpeed: RotateSpeedIcon,
-  hue: HueIcon,
-  lightness: LightnessIcon,
-  saturation: SaturationIcon,
-  switchDuration: SwitchDurationIcon,
-  zoomDistance: ZoomDistanceIcon,
-  tension: TensionIcon,
-  friction: FrictionIcon,
-  earSize: "/icons/earSize.jpg",
-  eyeSize: "/icons/eyeSize.jpg",
-  eyeX: "/icons/eyeX.jpg",
-  eyeY: "/icons/eyeY.jpg",
-  eyeZ: "/icons/eyeZ.jpg",
-  meshaSize: "/icons/meshaSize.jpg",
-  moustacheSize: "/icons/moustacheSize.jpg",
-  noseSize: "/icons/noseSize.jpg",
-  teethSize: "/icons/teethSize.jpg",
-  tongueSize: "/icons/tongueSize.jpg",
-};
 
 const Flowers = ({ selectedLanguage }) => {
   const { controls, updateControl } = useControls();
@@ -64,21 +30,22 @@ const Flowers = ({ selectedLanguage }) => {
 
   return (
     <div ref={containerRef} className="flowers">
-      {rangeControls.map((control, i) => (
-        <div key={control.id} className="flower-stem" style={{ "--i": i + 1 }}>
-          <Range
-            min={control.min}
-            max={control.max}
-            step={control.step}
-            value={controls[control.id]}
-            tooltip={`${control.label}: ${controls[control.id]}`}
-            onChange={(e) =>
-              updateControl(control.id, parseFloat(e.target.value))
-            }
-            thumbIcon={thumbIconMap[control.id]}
-          />
-        </div>
-      ))}
+      {rangeControls.map((control, i) => {
+        const { id, type, label, min, max, step } = control;
+        return (
+          <div key={id} className="flower-stem" style={{ "--i": i + 1 }}>
+            <Range
+              min={min}
+              max={max}
+              step={step}
+              value={controls[id]}
+              tooltip={`${label}: ${controls[id]}`}
+              onChange={(e) => updateControl(id, parseFloat(e.target.value))}
+              thumbIcon={thumbIconMap[id]}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 };

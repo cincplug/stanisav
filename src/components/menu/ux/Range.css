@@ -2,6 +2,7 @@
   --color-range: var(--color-3);
   --color-thumb: var(--color-4);
   --color-label: var(--color-4);
+  --thumb-size: 1.2rem;
 
   display: flex;
   flex-direction: column;
@@ -64,9 +65,6 @@
     border: var(--border-width-thin) solid var(--color-range);
     margin-top: calc((var(--gap) - var(--gap) * 3) / 2);
     cursor: pointer;
-    transition:
-      transform 0.15s ease,
-      opacity 0.15s ease;
   }
 
   &::-moz-range-thumb {
@@ -128,26 +126,13 @@
   z-index: 1;
 
   .range-icon {
-    width: calc(var(--gap) * 3);
-    height: calc(var(--gap) * 3);
+    width: var(--thumb-size);
+    height: var(--thumb-size);
     display: block;
     color: var(--color-thumb);
     background: var(--color-1);
     border-radius: 50%;
-    border: var(--border-width) solid var(--color-3);
-    pointer-events: none;
-    transition: border-color 0.15s ease;
-  }
-}
-
-.range-bud {
-  bottom: calc(100% + var(--gap-half));
-
-  .range-icon {
-    width: var(--gap-double);
-    height: var(--gap-double);
-    display: block;
-    color: var(--color-thumb);
+    border: var(--border-width-thin) solid var(--color-4);
     pointer-events: none;
   }
 }

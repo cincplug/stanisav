@@ -33,6 +33,7 @@
     flex-direction: column;
     label {
       justify-content: space-between;
+      margin-bottom: var(--gap);
     }
   }
 }

@@ -2,6 +2,8 @@ import Select from "./ux/Select";
 import { useI18n } from "../../contexts/I18nContext";
 import { useMediaQuery } from "../../hooks/useMediaQuery.js";
 import * as MenuIcons from "./MenuIcons";
+import Range from "./ux/Range.jsx";
+import { thumbIconMap } from "./thumbIconMap.js";
 
 const ControlItem = ({
   control,
@@ -104,14 +106,14 @@ const ControlItem = ({
             <span>{label}</span>
             <span>{value}</span>
           </label>
-          <input
+          <Range
             style={{ "--i": groupIndex * controlIndex }}
-            type="range"
             min={min}
             max={max}
             step={step}
             value={value}
             onChange={(e) => handleChange(e.target.value)}
+            thumbIcon={thumbIconMap[id]}
           />
         </div>
       );
