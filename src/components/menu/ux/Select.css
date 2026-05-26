@@ -5,8 +5,6 @@
   color: var(--color-4);
   font-family: inherit;
   font-size: var(--font-size-m);
-  padding-block: var(--gap);
-  padding-inline-start: var(--gap-double);
   cursor: pointer;
   height: var(--icon-size-l);
 
@@ -21,20 +19,8 @@
   }
 
   .menu.compact & {
-    /* appearance: none; */
     width: 3rem;
     text-align: center;
     position: relative;
-
-    &:after {
-      display: block;
-      content: "er";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: inherit;
-    }
   }
 }

@@ -92,13 +92,12 @@ const Mesha = ({
   ];
 
   const { entranceDuration, sphereRadius } = sceneConfig;
-  const targetPosition = isMeshaSequenceDone ? position : [0, 0, 0];
+  const targetPosition = isMeshaSequenceDone ? position : [0, 0, sphereRadius];
 
   const spring = useSpring({
     x: targetPosition[0],
     y: targetPosition[1],
     z: targetPosition[2],
-    scale: meshaSize,
     config: {
       duration: isEntranceComplete ? switchDuration : entranceDuration,
     },
@@ -163,9 +162,8 @@ const Mesha = ({
       position-x={spring.x}
       position-y={spring.y}
       position-z={spring.z}
-      scale={spring.scale}
     >
-      <group ref={lookAroundRef}>
+      <group ref={lookAroundRef} scale={meshaSize}>
         <MeshaEar
           earMaterial={skinMaterial}
           size={earSize}
