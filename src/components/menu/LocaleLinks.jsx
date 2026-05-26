@@ -13,7 +13,7 @@ export default function LocaleLinks({ isCompact = false }) {
     .sort()
     .map((code) => ({
       value: toUrlSlug(code),
-      label: isCompact ? code : languages[code]?.nativeName,
+      label: isCompact ? toUrlSlug(code) : languages[code]?.nativeName,
       code,
     }));
 

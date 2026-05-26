@@ -21,14 +21,9 @@
   }
 
   .menu.compact & {
-    appearance: none;
-    width: var(--icon-size-l);
-    height: var(--icon-size-l);
-    padding: 0;
-    padding-inline-start: var(--gap);
+    /* appearance: none; */
+    width: 3rem;
     text-align: center;
-    font-size: var(--font-size-s);
-    overflow: hidden;
     position: relative;
 
     &:after {
