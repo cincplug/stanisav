@@ -23,6 +23,7 @@ import { useI18n } from "../../contexts/I18nContext";
 import Tooltip from "./ux/Tooltip";
 import Properties from "./Properties";
 import LanguageTree from "./LanguageTree";
+import { ZoomDistanceIcon } from "./MenuIcons";
 import "./FiltersTab.css";
 
 function FiltersTab({ data, languageColors = {} }) {
@@ -37,9 +38,9 @@ function FiltersTab({ data, languageColors = {} }) {
 
   const features = getAllFeatures();
   const [allowMultipleChoices, setAllowMultipleChoices] = useState(false);
-  const resultsRef = useRef(null);
-  const resultsStatusRef = useRef(null);
+  const [lastChangedFeature, setLastChangedFeature] = useState(null);
   const buttonRefs = useRef({});
+  const fieldsetRefs = useRef({});
   const { t } = useI18n();
 
   const handleCheckboxChange = (feature, value, checked) => {
@@ -67,10 +68,11 @@ function FiltersTab({ data, languageColors = {} }) {
       }
     }
 
+    setLastChangedFeature(Object.keys(newFilters).length > 0 ? feature : null);
     updateFilteringUtils(newFilters, data);
   };
 
-  const linguisticResults = useMemo(() => {
+  const filterResults = useMemo(() => {
     if (Object.keys(filteringUtils).length === 0) {
       return [];
     }
@@ -78,14 +80,16 @@ function FiltersTab({ data, languageColors = {} }) {
   }, [data, filteringUtils]);
 
   const hasActiveFilters = Object.keys(filteringUtils).length > 0;
-  const hasEmptyResult = hasActiveFilters && linguisticResults.length === 0;
+  const hasEmptyResult = hasActiveFilters && filterResults.length === 0;
 
-  // Scroll to results section whenever the filter results change and filters are active.
-  // Uses scrollTo instead of scrollIntoView to manually subtract the sticky header height.
+  // Scroll to the fieldset of the last-changed feature so both the filter
+  // section and its results below come into view together.
   useEffect(() => {
-    if (!hasActiveFilters || !resultsRef.current) return;
+    if (!hasActiveFilters || !lastChangedFeature) return;
 
-    const el = resultsRef.current;
+    const el = fieldsetRefs.current[lastChangedFeature];
+    if (!el) return;
+
     const scrollParent = el.closest(".menu-scroll-area");
     if (!scrollParent) return;
 
@@ -104,7 +108,7 @@ function FiltersTab({ data, languageColors = {} }) {
       top: currentScroll + (elTop - parentTop) - stickyOffset,
       behavior: "smooth",
     });
-  }, [linguisticResults, hasActiveFilters]);
+  }, [filterResults, hasActiveFilters, lastChangedFeature]);
 
   const handleViewAll = () => {
     pausePlaylist();
@@ -118,8 +122,6 @@ function FiltersTab({ data, languageColors = {} }) {
     [startFromLanguage],
   );
 
-  // Build a human-readable summary of active filters for display above results,
-  // e.g. "Tonalità: Tonale complessa · Morfologia: Isolante, Agglutinante"
   const activeFilterSummary = useMemo(() => {
     return Object.entries(filteringUtils)
       .map(([feature, values]) => {
@@ -133,32 +135,61 @@ function FiltersTab({ data, languageColors = {} }) {
       .join(" · ");
   }, [filteringUtils, features]);
 
-  // Flat list of language codes from results for LanguageTree
   const resultLanguageCodes = useMemo(
-    () => linguisticResults.map((lang) => lang.code),
-    [linguisticResults],
+    () => filterResults.map((lang) => lang.code),
+    [filterResults],
   );
+
+  const renderResults = () => (
+    <section className="filter-results">
+      {hasEmptyResult ? (
+        // role="status" announces the empty state when it appears,
+        // and remains readable by navigation since it's not aria-hidden.
+        <p
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+          className="filter-results-empty"
+        >
+          {t("overlay.emptyFilter")}
+        </p>
+      ) : (
+        <>
+          {allowMultipleChoices && (
+            <p className="filter-results-summary">{activeFilterSummary}</p>
+          )}
+          {/* role="status" on the heading announces the result count
+              automatically when results change, without hiding it from AT. */}
+          <h4
+            className="filter-results-title"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            {t("filters.results", { count: filterResults.length })}
+          </h4>
+          <div className="languages-list">
+            <LanguageTree
+              languages={resultLanguageCodes}
+              languageData={data}
+              labelContent="name"
+              selectedLanguage={selectedLanguage}
+              buttonRefs={buttonRefs}
+              onSelectLanguage={onSelectLanguage}
+              languageColors={languageColors}
+            />
+          </div>
+        </>
+      )}
+    </section>
+  );
+
+  const resultAnchorFeature =
+    lastChangedFeature ?? Object.keys(filteringUtils)[0] ?? null;
 
   return (
     <div className="control-section">
       <div className="linguistic-filters">
-        <div className="filters-tab-header">
-          <button onClick={handleViewAll} className="view-all-button">
-            {t("search.viewAll")}
-          </button>
-          <div className="control-item checkbox-control">
-            <label>
-              <input
-                type="checkbox"
-                checked={allowMultipleChoices}
-                onChange={(e) => setAllowMultipleChoices(e.target.checked)}
-              />
-              <span>{t("filters.allowMultipleChoices")}</span>
-            </label>
-          </div>
-        </div>
-        <h2>{t("filters.title")}</h2>
-
         {features.map(({ key: feature, label, isNumeric }) => {
           const rawValues = isNumeric
             ? data?.numericFeatureValues?.[feature] || []
@@ -169,125 +200,107 @@ function FiltersTab({ data, languageColors = {} }) {
           const isAllSelected = !(feature in filteringUtils);
 
           return (
-            <fieldset key={feature} className="filter-group">
-              <legend className="filter-group-title">
-                {label}{" "}
-                {isPropertyDescribed(feature) && (
-                  <Tooltip
-                    id={`tooltip-${feature}`}
-                    label={`${label} info`}
-                    position="left"
-                    className="info-link"
-                  >
-                    <Properties propertyKey={feature} />
-                  </Tooltip>
-                )}
-              </legend>
-
-              <div
-                className="checkbox-button-group"
-                role="group"
-                aria-label={label}
+            <React.Fragment key={feature}>
+              <fieldset
+                className="filter-group"
+                ref={(el) => {
+                  fieldsetRefs.current[feature] = el;
+                }}
               >
-                <input
-                  className="screenreader-only"
-                  type="checkbox"
-                  id={`${feature}-all`}
-                  checked={isAllSelected}
-                  onChange={(e) =>
-                    handleCheckboxChange(feature, "all", e.target.checked)
-                  }
-                />
-                <label
-                  htmlFor={`${feature}-all`}
-                  className={`checkbox-button ${isAllSelected ? "selected" : ""}`}
+                <legend className="filter-group-title">
+                  {label}{" "}
+                  {isPropertyDescribed(feature) && (
+                    <Tooltip
+                      id={`tooltip-${feature}`}
+                      label={`${label} info`}
+                      position="left"
+                      className="info-link"
+                    >
+                      <Properties propertyKey={feature} />
+                    </Tooltip>
+                  )}
+                </legend>
+
+                <div
+                  className="checkbox-button-group"
+                  role="group"
+                  aria-label={label}
                 >
-                  {t("filters.all")}
-                </label>
-                {values.map((value) => {
-                  const displayLabel = isNumeric
-                    ? value
-                    : getFeatureLabel(feature, value);
-                  const valueKey = isNumeric ? value : value;
-                  const isChecked = isNumeric
-                    ? currentValues.map(Number).includes(Number(value))
-                    : currentValues.includes(value);
+                  <input
+                    className="screenreader-only"
+                    type="checkbox"
+                    id={`${feature}-all`}
+                    checked={isAllSelected}
+                    onChange={(e) =>
+                      handleCheckboxChange(feature, "all", e.target.checked)
+                    }
+                  />
+                  <label
+                    htmlFor={`${feature}-all`}
+                    className={`checkbox-button ${isAllSelected ? "selected" : ""}`}
+                  >
+                    {t("filters.all")}
+                  </label>
+                  {values.map((value) => {
+                    const displayLabel = isNumeric
+                      ? value
+                      : getFeatureLabel(feature, value);
+                    const valueKey = isNumeric ? value : value;
+                    const isChecked = isNumeric
+                      ? currentValues.map(Number).includes(Number(value))
+                      : currentValues.includes(value);
 
-                  const description = getFeatureDescription(feature, value);
+                    const description = getFeatureDescription(feature, value);
 
-                  return (
-                    <React.Fragment key={valueKey}>
-                      <input
-                        className="screenreader-only"
-                        type="checkbox"
-                        id={`${feature}-${valueKey}`}
-                        checked={isChecked}
-                        onChange={(e) =>
-                          handleCheckboxChange(
-                            feature,
-                            valueKey,
-                            e.target.checked,
-                          )
-                        }
-                      />
-                      <label
-                        htmlFor={`${feature}-${valueKey}`}
-                        className={`checkbox-button ${isChecked ? "selected" : ""}`}
-                        title={description || undefined}
-                      >
-                        {displayLabel}
-                      </label>
-                    </React.Fragment>
-                  );
-                })}
-              </div>
-            </fieldset>
+                    return (
+                      <React.Fragment key={valueKey}>
+                        <input
+                          className="screenreader-only"
+                          type="checkbox"
+                          id={`${feature}-${valueKey}`}
+                          checked={isChecked}
+                          onChange={(e) =>
+                            handleCheckboxChange(
+                              feature,
+                              valueKey,
+                              e.target.checked,
+                            )
+                          }
+                        />
+                        <label
+                          htmlFor={`${feature}-${valueKey}`}
+                          className={`checkbox-button ${isChecked ? "selected" : ""}`}
+                          title={description || undefined}
+                        >
+                          {displayLabel}
+                        </label>
+                      </React.Fragment>
+                    );
+                  })}
+                </div>
+                {hasActiveFilters &&
+                  feature === resultAnchorFeature &&
+                  renderResults()}
+              </fieldset>
+            </React.Fragment>
           );
         })}
-
-        {/* Results section — visible for all users, not just screen readers */}
-        {hasActiveFilters && (
-          <section ref={resultsRef} className="filter-results">
-            {/* Screen reader live announcement */}
-            <div
-              ref={resultsStatusRef}
-              role="status"
-              aria-live="polite"
-              aria-atomic="true"
-              className="screenreader-only"
-            >
-              {hasEmptyResult
-                ? `${activeFilterSummary} — ${t("overlay.emptyFilter")}`
-                : `${activeFilterSummary} — ${t("filters.results", { count: linguisticResults.length })}`}
-            </div>
-
-            {hasEmptyResult ? (
-              <p className="filter-results-empty" aria-hidden="true">
-                {t("overlay.emptyFilter")}
-              </p>
-            ) : (
-              <>
-                <p className="filter-results-summary" aria-hidden="true">
-                  {activeFilterSummary}
-                </p>
-                <h3 className="filter-results-heading" aria-hidden="true">
-                  {t("filters.results", { count: linguisticResults.length })}
-                </h3>
-                <div className="languages-list">
-                  <LanguageTree
-                    languages={resultLanguageCodes}
-                    languageData={data}
-                    labelContent="name"
-                    selectedLanguage={selectedLanguage}
-                    buttonRefs={buttonRefs}
-                    onSelectLanguage={onSelectLanguage}
-                    languageColors={languageColors}
-                  />
-                </div>
-              </>
-            )}
-          </section>
-        )}
+      </div>
+      <div className="filters-tab-footer">
+        <button onClick={handleViewAll} className="view-all-button has-icon">
+          <ZoomDistanceIcon className="icon" />
+          {t("search.viewAll")}
+        </button>
+        <div className="control-item checkbox-control">
+          <label>
+            <input
+              type="checkbox"
+              checked={allowMultipleChoices}
+              onChange={(e) => setAllowMultipleChoices(e.target.checked)}
+            />
+            <span>{t("filters.allowMultipleChoices")}</span>
+          </label>
+        </div>
       </div>
     </div>
   );

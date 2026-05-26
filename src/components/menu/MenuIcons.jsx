@@ -1,3 +1,8 @@
+const iconColor = "#fff";
+const iconSize = 24;
+const viewBox = `0 0 ${iconSize} ${iconSize}`;
+const strokeWidth = 1.5;
+
 export const StopIcon = (props) => (
   <svg
     width={iconSize}
@@ -17,10 +22,6 @@ export const StopIcon = (props) => (
     />
   </svg>
 );
-const iconColor = "#fff";
-const iconSize = 24;
-const viewBox = `0 0 ${iconSize} ${iconSize}`;
-const strokeWidth = 1.5;
 
 export const BurgerIcon = (props) => (
   <svg
