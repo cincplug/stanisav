@@ -5,7 +5,7 @@
   width: var(--panel-width);
   border-radius: var(--border-radius-balloon);
   transform: translateX(-50%)
-    translateY(calc(-100% - var(--tooltip-tail-size) * 2));
+    translateY(calc(-100% - var(--tooltip-tail-size) * 2 - var(--gap-double)));
   pointer-events: none;
   animation:
     balloon-hold var(--balloon-duration, 3s) ease forwards,

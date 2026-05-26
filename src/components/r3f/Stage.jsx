@@ -26,7 +26,7 @@ import SceneReadyGate from "./SceneReadyGate";
 
 const Stage = ({ onDataLoaded, onLoadingChange, languageColors }) => {
   const { controls } = useControls();
-  const { isSceneReady, setBalloonText } = useAppState();
+  const { isSceneReady } = useAppState();
   const { locale, isLocaleReady, isRtl } = useI18n();
   const { filteringUtils, selectedLanguage } = useLanguageSelection();
   const {
@@ -145,19 +145,16 @@ const Stage = ({ onDataLoaded, onLoadingChange, languageColors }) => {
     ],
   );
 
-  const meshaLanguageCode = selectedLanguage || sortedLanguageCodes[0];
-  const meshaLinguisticProperties =
-    data?.typologicalFeatures?.[meshaLanguageCode];
-
   useEffect(() => {
     if ((selectedLanguage || isSegmented) && !isEntranceComplete) {
       skipSequence();
       setIsEntranceComplete(true);
     }
-    if (selectedLanguage) {
-      setBalloonText(meshaLinguisticProperties?.sub);
-    }
   }, [selectedLanguage, isSegmented]);
+
+  const meshaLanguageCode = selectedLanguage || sortedLanguageCodes[0];
+  const meshaLinguisticProperties =
+    data?.typologicalFeatures?.[meshaLanguageCode];
   const meshaColor = languageColors[meshaLanguageCode];
   const stripesType =
     getFeatureScore("tonality", meshaLinguisticProperties?.tonality) - 1;
