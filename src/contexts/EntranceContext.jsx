@@ -25,7 +25,7 @@ const EntranceContext = createContext(null);
 export const EntranceProvider = ({ children }) => {
   const { controls } = useControls();
   const { isMotionReduced, tension, friction } = controls;
-  const { isSceneReady } = useAppState();
+  const { isSceneReady, setBalloonText } = useAppState();
 
   const allParts = meshaRevealSequence.map((s) => s.part);
 
@@ -44,11 +44,15 @@ export const EntranceProvider = ({ children }) => {
     const run = async () => {
       for (const { part, holdMs } of meshaRevealSequence) {
         if (cancelled) return;
+        if (part === "nose") {
+          setBalloonText("Hi, I'm Mesha");
+        }
         setRevealedParts((prev) => new Set([...prev, part]));
         await wait(holdMs);
       }
       await wait(postMeshaDelay);
       if (!cancelled) setIsMeshaSequenceDone(true);
+      setBalloonText("This is my herd of languages");
     };
 
     run();
@@ -57,7 +61,6 @@ export const EntranceProvider = ({ children }) => {
     };
   }, [isMotionReduced]);
 
-  // Labels entrance — fires once Mesha sequence is done and scene is ready
   useEffect(() => {
     if (!isSceneReady || !isMeshaSequenceDone || isEntranceComplete) return;
     const timer = setTimeout(

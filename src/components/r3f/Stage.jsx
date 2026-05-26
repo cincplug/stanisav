@@ -56,6 +56,7 @@ const Stage = ({ onDataLoaded, onLoadingChange, languageColors }) => {
     zoomDistance,
     rotateSpeed,
     isMotionReduced,
+    meshaSize,
   } = controls;
 
   const orbitControlsRef = useRef();

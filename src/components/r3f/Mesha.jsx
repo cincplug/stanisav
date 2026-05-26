@@ -20,6 +20,7 @@ import MeshaNose from "./MeshaNose.jsx";
 import MeshaTeeth from "./MeshaTeeth.jsx";
 import MeshaMoustache from "./MeshaMoustache.jsx";
 import MeshaLight from "./MeshaLight.jsx";
+import SpeechBalloon from "./SpeechBalloon";
 
 extend({ ParametricGeometry });
 extend({ TextGeometry });
@@ -129,7 +130,7 @@ const Mesha = ({
   }, []);
 
   useThrottledFrame(({ clock, camera }) => {
-    if (looksAround && lookAroundRef.current) {
+    if (looksAround && lookAroundRef.current && isMeshaSequenceDone) {
       const time = clock.getElapsedTime();
       const speed = rotateSpeed;
       const rotation = time * speed;
@@ -236,6 +237,7 @@ const Mesha = ({
           />
         )}
       </group>
+      <SpeechBalloon anchorPosition={[0, eyeY * 2, 0]} />
       <MeshaLight />
     </a.group>
   );

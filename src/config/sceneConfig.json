@@ -2,7 +2,7 @@
   "entranceDuration": 20000,
   "revealDuration": 500,
   "meshaRevealSequence": [
-    { "part": "eyes", "holdMs": 800 },
+    { "part": "eyes", "holdMs": 2000 },
     { "part": "nose", "holdMs": 600 },
     { "part": "ears", "holdMs": 500 },
     { "part": "tongue", "holdMs": 300 },
@@ -58,5 +58,8 @@
     }
   },
   "hueCircle": 360,
-  "maxSiblingSpread": 60
+  "maxSiblingSpread": 60,
+  "balloonDurationBase": 1500,
+  "balloonDurationPerCharacter": 240,
+  "balloonDurationDismiss": 400
 }

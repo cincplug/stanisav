@@ -9,6 +9,7 @@ export const AppStateProvider = ({ children }) => {
   const [, setNodes] = useState(null);
   const [cameraFocusRequest, setCameraFocusRequest] = useState(null);
   const [filteringUtils, setFilteringUtils] = useState({});
+  const [balloonText, setBalloonText] = useState("");
 
   const handleCameraFocus = (type, target) => {
     setCameraFocusRequest({ type, target, timestamp: Date.now() });
@@ -20,11 +21,13 @@ export const AppStateProvider = ({ children }) => {
     isSceneReady,
     cameraFocusRequest,
     filteringUtils,
+    balloonText,
     setData,
     setIsSceneReady,
     setIsLoading,
     setNodes,
     setFilteringUtils,
+    setBalloonText,
     handleCameraFocus,
   };
 

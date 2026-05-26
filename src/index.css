@@ -33,6 +33,7 @@
   --shadow-strong: 0 0 var(--gap-double) var(--color-1);
   --border-radius: var(--gap);
   --border-radius-small: var(--gap-half);
+  --border-radius-balloon: 2rem;
   --border-width-thick: 6px;
   --border-width: 3px;
   --border-width-thin: 1px;
@@ -254,4 +255,12 @@ legend {
 
 .hidden {
   display: none;
+}
+
+.popover-bubble {
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-strong);
+  font-size: var(--font-size-m);
+  padding: var(--gap-double);
+  white-space: normal;
 }

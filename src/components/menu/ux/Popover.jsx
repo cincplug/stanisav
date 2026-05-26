@@ -52,7 +52,7 @@ const Popover = ({
       id={id}
       ref={setRef}
       popover="auto"
-      className={`tooltip-popover${className ? ` ${className}` : ""}`}
+      className={`tooltip-popover popover-bubble ${className ? ` ${className}` : ""}`}
       data-position={position}
     >
       {children}
