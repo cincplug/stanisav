@@ -59,9 +59,7 @@ export const EntranceProvider = ({ children }) => {
 
   // Labels entrance — fires once Mesha sequence is done and scene is ready
   useEffect(() => {
-    if (!isSceneReady || isEntranceComplete) return;
-    if (!isMeshaSequenceDone) return;
-    const delay = isMotionReduced ? 0 : revealDuration;
+    if (!isSceneReady || !isMeshaSequenceDone || isEntranceComplete) return;
     const timer = setTimeout(
       () => setIsEntranceComplete(true),
       isMotionReduced ? 0 : entranceDuration,

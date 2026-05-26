@@ -51,11 +51,12 @@ const Mesha = ({
     tension,
     friction,
     axis,
+    switchDuration,
   } = controls;
   const { selectedProperty, setSelectedProperty, selectedLanguage } =
     useLanguageSelection();
 
-  const { isMeshaSequenceDone } = useEntrance();
+  const { isMeshaSequenceDone, isEntranceComplete } = useEntrance();
 
   useEffect(() => {
     if (isMyMesha) {
@@ -98,7 +99,9 @@ const Mesha = ({
     y: targetPosition[1],
     z: targetPosition[2],
     scale: meshaSize,
-    config: { tension, friction },
+    config: {
+      duration: isEntranceComplete ? switchDuration : entranceDuration,
+    },
     immediate: isMotionReduced || !isMeshaSequenceDone,
   });
 
