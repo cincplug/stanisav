@@ -19,8 +19,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <I18nProvider>
       <AppStateProvider>
         <ControlsProvider>
-          <EntranceProvider>
-            <LanguageSelectionProvider>
+          <LanguageSelectionProvider>
+            <EntranceProvider>
               <PlaylistProvider>
                 <BrowserRouter>
                   <Routes>
@@ -42,8 +42,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                   </Routes>
                 </BrowserRouter>
               </PlaylistProvider>
-            </LanguageSelectionProvider>
-          </EntranceProvider>
+            </EntranceProvider>
+          </LanguageSelectionProvider>
         </ControlsProvider>
       </AppStateProvider>
     </I18nProvider>

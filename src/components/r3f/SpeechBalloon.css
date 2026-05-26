@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: var(--panel-width);
+  border-radius: var(--border-radius-balloon);
   transform: translateX(-50%)
     translateY(calc(-100% - var(--tooltip-tail-size) * 2));
   pointer-events: none;

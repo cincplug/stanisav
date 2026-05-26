@@ -236,8 +236,8 @@ const Mesha = ({
             stepDeg={12}
           />
         )}
+        <SpeechBalloon anchorPosition={[0, eyeY, eyeZ]} />
       </group>
-      <SpeechBalloon anchorPosition={[0, eyeY * 2, 0]} />
       <MeshaLight />
     </a.group>
   );

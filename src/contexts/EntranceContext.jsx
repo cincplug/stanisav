@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { useSpring } from "@react-spring/three";
 import { useAppState } from "./AppStateContext";
 import { useControls } from "./ControlsContext";
+import { useLanguageSelection } from "./LanguageSelectionContext";
 import sceneConfig from "../config/sceneConfig.json";
 
 const {
@@ -26,6 +27,7 @@ export const EntranceProvider = ({ children }) => {
   const { controls } = useControls();
   const { isMotionReduced, tension, friction } = controls;
   const { isSceneReady, setBalloonText } = useAppState();
+  const { selectedLanguage } = useLanguageSelection();
 
   const allParts = meshaRevealSequence.map((s) => s.part);
 
@@ -36,7 +38,6 @@ export const EntranceProvider = ({ children }) => {
     useState(isMotionReduced);
   const [isEntranceComplete, setIsEntranceComplete] = useState(false);
 
-  // Mesha part sequence
   useEffect(() => {
     if (isMotionReduced) return;
     let cancelled = false;
@@ -52,7 +53,9 @@ export const EntranceProvider = ({ children }) => {
       }
       await wait(postMeshaDelay);
       if (!cancelled) setIsMeshaSequenceDone(true);
-      setBalloonText("This is my herd of languages");
+      if (!selectedLanguage) {
+        setBalloonText("This is my herd of languages");
+      }
     };
 
     run();

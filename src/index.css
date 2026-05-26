@@ -258,7 +258,6 @@ legend {
 }
 
 .popover-bubble {
-  border-radius: var(--border-radius);
   box-shadow: var(--shadow-strong);
   font-size: var(--font-size-m);
   padding: var(--gap-double);
