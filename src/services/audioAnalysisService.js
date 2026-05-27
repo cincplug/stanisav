@@ -148,7 +148,7 @@ class AudioAnalysisService {
 
     // Destructure human voice range config
     const { fundamentalMin, fundamentalMax, harmonicsMin, harmonicsMax } =
-      this.config.humanVoiceRange;
+      this.config.voiceRange;
 
     // Convert frequencies to bin indices
     const fundamentalMinBin = Math.floor((fundamentalMin / nyquist) * binCount);

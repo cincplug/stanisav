@@ -115,7 +115,7 @@ export function sortLanguages({
       case "evidentiality":
       case "verbAspect":
       case "nounClassCount":
-      case "maxClusterSize":
+      case "maxConsonantClusterSize":
         return allLanguages.sort((a, b) => {
           const featureA = typologicalFeatures[a][sortBy];
           const featureB = typologicalFeatures[b][sortBy];

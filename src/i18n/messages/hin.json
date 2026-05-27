@@ -111,7 +111,7 @@
         "caseCount": "कारक संख्या",
         "evidentiality": "साक्ष्यता",
         "family": "भाषा परिवार",
-        "maxClusterSize": "व्यंजन गुच्छ",
+        "maxConsonantClusterSize": "व्यंजन गुच्छ",
         "morphology": "रूपविज्ञान",
         "nounClassCount": "संज्ञा वर्ग",
         "phonemeCount": "स्वनिम संख्या",
@@ -181,7 +181,7 @@
     "family": {
       "name": "भाषा परिवार"
     },
-    "maxClusterSize": {
+    "maxConsonantClusterSize": {
       "name": "गुच्छ में अधिकतम व्यंजन"
     },
     "morphology": {

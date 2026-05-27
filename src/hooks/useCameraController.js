@@ -3,16 +3,19 @@ import { useThree, useFrame } from "@react-three/fiber";
 import { Vector3 } from "three";
 import { useLanguageSelection } from "../contexts/LanguageSelectionContext";
 import { useThrottledFrame } from "./useThrottledFrame";
+import { useControls } from "../contexts/ControlsContext";
 import { config } from "../config/../modules/configStore";
 
 export const useCameraController = ({
   languageNodes,
   data,
-  controls,
   selectedLanguage,
 }) => {
   const { cameraFocusRequest } = useLanguageSelection();
   const { camera, controls: threeControls } = useThree();
+  const { controls } = useControls();
+  const { zoomDistance, switchDuration, isSegmented } = controls;
+  const { cameraX, cameraY, cameraZ, fov, near, far } = config.camera;
 
   // Holds the state for the currently running camera animation.
   // Set to null when no animation is in progress.
@@ -69,10 +72,10 @@ export const useCameraController = ({
         targetPos: targetPosition,
         lookAt: lookAtTarget,
         startTime: null, // set on the first useFrame tick so elapsed starts at 0
-        duration: controls.switchDuration,
+        duration: switchDuration,
       };
     },
-    [camera, threeControls, controls.switchDuration],
+    [camera, threeControls, switchDuration],
   );
 
   const focusOnLanguage = useCallback(
@@ -83,32 +86,18 @@ export const useCameraController = ({
       const languagePosition = new Vector3(node.x, node.y, node.z);
       const targetCameraPosition = calculateCameraPosition(
         languagePosition,
-        controls.zoomDistance,
-        controls.isSegmented,
+        zoomDistance,
+        isSegmented,
       );
       startCameraAnimation(targetCameraPosition, languagePosition);
     },
-    [
-      languageNodes,
-      controls.zoomDistance,
-      controls.isSegmented,
-      startCameraAnimation,
-    ],
+    [languageNodes, zoomDistance, isSegmented, startCameraAnimation],
   );
 
   const setInitialCameraPosition = useCallback(() => {
-    const initialCameraPosition = new Vector3(
-      controls.cameraX,
-      controls.cameraY,
-      controls.cameraZ,
-    );
+    const initialCameraPosition = new Vector3(cameraX, cameraY, cameraZ);
     startCameraAnimation(initialCameraPosition, new Vector3(0, 0, 0));
-  }, [
-    controls.cameraX,
-    controls.cameraY,
-    controls.cameraZ,
-    startCameraAnimation,
-  ]);
+  }, [cameraX, cameraY, cameraZ, startCameraAnimation]);
 
   const fitToNodes = useCallback(() => {
     const positions = Object.values(languageNodes);
@@ -139,14 +128,14 @@ export const useCameraController = ({
     const halfW = (maxX - minX) / 2;
     const halfH = (maxY - minY) / 2;
 
-    const fovRad = (controls.fov * Math.PI) / 180;
+    const fovRad = (fov * Math.PI) / 180;
     const halfFovV = fovRad / 2;
     const halfFovH = Math.atan(Math.tan(halfFovV) * camera.aspect);
 
     const distForWidth = halfW / Math.tan(halfFovH);
     const distForHeight = halfH / Math.tan(halfFovV);
     const distance =
-      Math.max(distForWidth, distForHeight) * config.clustersMargin;
+      Math.max(distForWidth, distForHeight) * config.segmentation.margin;
 
     const targetCameraPosition = new Vector3(
       center.x,
@@ -154,7 +143,7 @@ export const useCameraController = ({
       center.z + (maxZ - minZ) / 2 + distance,
     );
     startCameraAnimation(targetCameraPosition, center);
-  }, [languageNodes, controls.fov, camera, startCameraAnimation]);
+  }, [languageNodes, fov, camera, startCameraAnimation]);
 
   // On first load use the configured initial position; on subsequent layout
   // changes fit everything in view (unless a language is focused)

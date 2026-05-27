@@ -9,18 +9,18 @@ import {
 import { config } from "../config/../modules/configStore";
 import { useThrottledFrame } from "./useThrottledFrame";
 
+const { currentColor } = config.colors;
 const {
   shaderAmbient,
   shaderLightingMin,
   shaderLightingMax,
-  shaderLightingDiffuseScale,
+  shaderLightingDiffuse,
   shaderShadeChecker,
   shaderShadeStripe,
   shaderCheckerFrequency,
   shaderRingCount,
   shaderRingSpeed,
-  currentColor,
-} = config;
+} = config.shader;
 
 // ─── Tonality / skin material ─────────────────────────────────────────────────
 
@@ -43,7 +43,7 @@ export const useShaderMaterial = (
         uAmbient: { value: shaderAmbient },
         uLightingMin: { value: shaderLightingMin },
         uLightingMax: { value: shaderLightingMax },
-        uLightingDiffuseScale: { value: shaderLightingDiffuseScale },
+        uLightingDiffuseScale: { value: shaderLightingDiffuse },
         uShadeChecker: { value: shaderShadeChecker },
         uShadeStripe: { value: shaderShadeStripe },
         uCheckerFrequency: { value: shaderCheckerFrequency },
@@ -84,7 +84,7 @@ export const useHighlightMaterial = (stripesType = 0, side = 2) => {
         uAmbient: { value: shaderAmbient },
         uLightingMin: { value: shaderLightingMin },
         uLightingMax: { value: shaderLightingMax },
-        uLightingDiffuseScale: { value: shaderLightingDiffuseScale },
+        uLightingDiffuseScale: { value: shaderLightingDiffuse },
         uShadeStripe: { value: shaderShadeStripe },
         uRingCount: { value: shaderRingCount },
         uRingSpeed: { value: shaderRingSpeed },

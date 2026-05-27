@@ -111,7 +111,7 @@
         "caseCount": "Yawan shari'o'i",
         "evidentiality": "Shaida ta nahawu",
         "family": "Dangin harshe",
-        "maxClusterSize": "Tarin baƙaƙe",
+        "maxConsonantClusterSize": "Tarin baƙaƙe",
         "morphology": "Ilimin sifar kalma",
         "nounClassCount": "Azuzuwan suna",
         "phonemeCount": "Yawan sauti",
@@ -181,7 +181,7 @@
     "family": {
       "name": "Dangin harshe"
     },
-    "maxClusterSize": {
+    "maxConsonantClusterSize": {
       "name": "Mafi yawan baƙaƙe a cikin tari"
     },
     "morphology": {

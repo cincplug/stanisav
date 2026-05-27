@@ -111,7 +111,7 @@
         "caseCount": "Przypadki",
         "evidentiality": "Ewidentność",
         "family": "Rodzina językowa",
-        "maxClusterSize": "Grupy spółgłoskowe",
+        "maxConsonantClusterSize": "Grupy spółgłoskowe",
         "morphology": "Morfologia",
         "nounClassCount": "Klasy rzeczownikowe",
         "phonemeCount": "Fonemy",
@@ -181,7 +181,7 @@
     "family": {
       "name": "Rodzina językowa"
     },
-    "maxClusterSize": {
+    "maxConsonantClusterSize": {
       "name": "Maks. spółgłoski w grupie"
     },
     "morphology": {

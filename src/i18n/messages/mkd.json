@@ -111,7 +111,7 @@
         "caseCount": "Број на падежи",
         "evidentiality": "Евиденцијалност",
         "family": "Јазично семејство",
-        "maxClusterSize": "Согласнички групи",
+        "maxConsonantClusterSize": "Согласнички групи",
         "morphology": "Морфологија",
         "nounClassCount": "Именски класи",
         "phonemeCount": "Број на фонеми",
@@ -181,7 +181,7 @@
     "family": {
       "name": "Јазично семејство"
     },
-    "maxClusterSize": {
+    "maxConsonantClusterSize": {
       "name": "Макс. согласници во група"
     },
     "morphology": {

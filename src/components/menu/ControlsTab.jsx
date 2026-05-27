@@ -6,8 +6,8 @@ import ControlItemGroup from "./ControlItemGroup";
 import Range from "./ux/Range.jsx";
 import "./ControlsTab.css";
 
-const ADVANCED_RANGE_OFFSET_FACTOR = 2;
-const ADVANCED_RANGE_STEP = 0.1;
+const advancedRangeFactor = 5;
+const advancedRangeStep = 0.1;
 
 const ControlsTab = ({ className }) => {
   const {
@@ -49,8 +49,6 @@ const ControlsTab = ({ className }) => {
               <legend>{groupName}</legend>
               <div className="controls-grid">
                 {entries.map(([dotKey, label, staticDefault]) => {
-                  const offset =
-                    Math.abs(staticDefault) * ADVANCED_RANGE_OFFSET_FACTOR || 1;
                   const currentValue = advancedControls[dotKey];
                   return (
                     <div key={dotKey} className="control-item range-control">
@@ -59,9 +57,9 @@ const ControlsTab = ({ className }) => {
                         <span>{currentValue}</span>
                       </label>
                       <Range
-                        min={staticDefault - offset}
-                        max={staticDefault + offset}
-                        step={ADVANCED_RANGE_STEP}
+                        min={staticDefault / advancedRangeFactor}
+                        max={staticDefault * advancedRangeFactor}
+                        step={advancedRangeStep}
                         value={currentValue}
                         onChange={(e) =>
                           updateAdvancedControl(

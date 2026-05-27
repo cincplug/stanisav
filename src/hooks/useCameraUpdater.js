@@ -1,15 +1,18 @@
 import { useEffect } from "react";
 import { useThree } from "@react-three/fiber";
+import { config } from "../../config/../modules/configStore";
+import { useControls } from "../contexts/ControlsContext";
 
-export const useCameraUpdater = ({ controls }) => {
+export const useCameraUpdater = () => {
   const { camera } = useThree();
+  const { cameraX, cameraY, cameraZ, fov, near, far } = config.camera;
 
   useEffect(() => {
     if (camera) {
-      camera.fov = controls.fov;
-      camera.near = controls.near;
-      camera.far = controls.far;
+      camera.fov = fov;
+      camera.near = near;
+      camera.far = far;
       camera.updateProjectionMatrix();
     }
-  }, [camera, controls.fov, controls.near, controls.far]);
+  }, [camera, fov, near, far]);
 };

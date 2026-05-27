@@ -6,6 +6,7 @@ import { useI18n } from "../../contexts/I18nContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import Mesha from "../r3f/Mesha";
 import { getFeatureScore } from "../../utils/linguisticUtils";
+import { config } from "../../config/../modules/configStore";
 import "./Properties.css";
 
 const baseLinguisticProperties = {
@@ -17,7 +18,7 @@ const baseLinguisticProperties = {
   evidentiality: "none",
   caseCount: 0,
   phonemeCount: 30,
-  maxClusterSize: 2,
+  maxConsonantClusterSize: 2,
   nounClassCount: 0,
 };
 
@@ -29,7 +30,8 @@ const Properties = ({
   const { controls } = useControls();
   const { t, isRtl } = useI18n();
   const { setSelectedProperty } = useLanguageSelection();
-  const { cameraX, cameraY, cameraZ, fov, near, far, bgColor } = controls;
+  const { cameraX, cameraY, cameraZ, fov, near, far } = config.camera;
+  const { bgColor } = controls;
 
   const property = linguisticConfig[propertyKey];
   const variants = useMemo(() => Object.entries(property.values), [property]);

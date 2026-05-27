@@ -111,7 +111,7 @@
         "caseCount": "Durum sayısı",
         "evidentiality": "Belirtililik",
         "family": "Dil ailesi",
-        "maxClusterSize": "Ünsüz kümesi",
+        "maxConsonantClusterSize": "Ünsüz kümesi",
         "morphology": "Morfoloji",
         "nounClassCount": "İsim sınıfı",
         "phonemeCount": "Fonem sayısı",
@@ -181,7 +181,7 @@
     "family": {
       "name": "Dil ailesi"
     },
-    "maxClusterSize": {
+    "maxConsonantClusterSize": {
       "name": "Bir kümedeki maksimum ünsüz sayısı"
     },
     "morphology": {

@@ -2,10 +2,12 @@ import { Canvas } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import Mesha from "../r3f/Mesha.jsx";
 import { getFeatureScore } from "../../utils/linguisticUtils.js";
+import { config } from "../../config/../modules/configStore";
 
 const MiniMesha = ({ languageCode, linguisticProperties, color }) => {
   const { controls } = useControls();
-  const { cameraX, cameraY, cameraZ, fov, near, far, bgColor } = controls;
+  const { cameraX, cameraY, cameraZ, fov, near, far } = config.camera;
+  const { bgColor } = controls;
 
   const stripesType =
     getFeatureScore("tonality", linguisticProperties?.tonality) - 1;

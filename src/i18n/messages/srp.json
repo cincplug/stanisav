@@ -111,7 +111,7 @@
         "caseCount": "Broj padeža",
         "evidentiality": "Evidencijalnost",
         "family": "Jezička porodica",
-        "maxClusterSize": "Suglasnički skupovi",
+        "maxConsonantClusterSize": "Suglasnički skupovi",
         "morphology": "Morfologija",
         "nounClassCount": "Imeničke klase",
         "phonemeCount": "Broj fonema",
@@ -181,7 +181,7 @@
     "family": {
       "name": "Jezička porodica"
     },
-    "maxClusterSize": {
+    "maxConsonantClusterSize": {
       "name": "Maks. suglasnici u skupu"
     },
     "morphology": {

@@ -111,7 +111,7 @@
         "caseCount": "تعداد حالت‌های دستوری",
         "evidentiality": "شواهدنمایی",
         "family": "خانواده زبانی",
-        "maxClusterSize": "خوشه‌های همخوان",
+        "maxConsonantClusterSize": "خوشه‌های همخوان",
         "morphology": "ریخت‌شناسی",
         "nounClassCount": "رده‌های اسمی",
         "phonemeCount": "تعداد واج‌ها",
@@ -181,7 +181,7 @@
     "family": {
       "name": "خانواده زبانی"
     },
-    "maxClusterSize": {
+    "maxConsonantClusterSize": {
       "name": "حداکثر همخوان‌ها در یک خوشه"
     },
     "morphology": {

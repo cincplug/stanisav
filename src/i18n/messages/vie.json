@@ -111,7 +111,7 @@
         "caseCount": "Số lượng cách",
         "evidentiality": "Tính chứng cứ",
         "family": "Ngữ hệ",
-        "maxClusterSize": "Cụm phụ âm",
+        "maxConsonantClusterSize": "Cụm phụ âm",
         "morphology": "Hình thái học",
         "nounClassCount": "Lớp danh từ",
         "phonemeCount": "Số lượng âm vị",
@@ -181,7 +181,7 @@
     "family": {
       "name": "Ngữ hệ"
     },
-    "maxClusterSize": {
+    "maxConsonantClusterSize": {
       "name": "Số phụ âm tối đa trong một cụm"
     },
     "morphology": {

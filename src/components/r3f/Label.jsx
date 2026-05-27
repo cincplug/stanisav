@@ -29,7 +29,8 @@ const Label = ({
   const { startFromLanguage } = usePlaylist();
   const { labelContent, labelSize, d4, isSegmented, isMotionReduced } =
     controls;
-  const { radialOffsetModifier, labelTextColor } = config;
+  const { radialOffsetModifier } = config.layout;
+  const { labelTextColor } = config.colors;
 
   if (
     Object.keys(filteringUtils).length > 0 &&

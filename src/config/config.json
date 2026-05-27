@@ -1,22 +1,29 @@
 {
-  "entranceDuration": 20000,
-  "revealDuration": 500,
-  "meshaRevealSequence": [
-    { "part": "eyes", "holdMs": 2000 },
-    { "part": "nose", "holdMs": 600 },
-    { "part": "ears", "holdMs": 500 },
-    { "part": "tongue", "holdMs": 300 },
-    { "part": "teeth", "holdMs": 200 }
-  ],
-  "postMeshaDelay": 500,
-  "startRadiusFactor": 0.8,
-  "entranceSpiralAxis": "z",
-  "clustersMargin": 1.1,
-  "clustersGap": 0.7,
-  "clusterTitleOffset": 1.2,
-  "clusterCellSpacing": 0.12,
-  "clusterCellSizeModifier": 1,
-  "radialOffsetModifier": 4,
+  "entrance": {
+    "entranceDuration": 20000,
+    "labelRevealDuration": 500,
+    "meshaRevealSequence": [
+      { "part": "eyes", "holdMs": 2000 },
+      { "part": "nose", "holdMs": 600 },
+      { "part": "ears", "holdMs": 500 },
+      { "part": "tongue", "holdMs": 300 },
+      { "part": "teeth", "holdMs": 200 }
+    ],
+    "labelsRevealDelay": 500,
+    "startRadiusFactor": 0.8,
+    "entranceSpiralAxis": "z"
+  },
+  "segmentation": {
+    "margin": 1.1,
+    "gap": 0.7,
+    "titleOffset": 1.2,
+    "cellSpacing": 0.12,
+    "cellSizeModifier": 1
+  },
+  "layout": {
+    "radialOffsetModifier": 4,
+    "sphereRadius": 22
+  },
   "rotateSpeedFactor": {
     "scene": {
       "initial": 3,
@@ -27,18 +34,17 @@
       "zoomed": 0.5
     }
   },
-  "currentColor": "#50a7ff",
-  "labelTextColor": "#070b0f",
-  "shaderAmbient": 0.7,
-  "shaderLightingMin": 0.7,
-  "shaderLightingMax": 1.2,
-  "shaderLightingDiffuseScale": 0.5,
-  "shaderShadeChecker": 0.95,
-  "shaderShadeStripe": 2,
-  "shaderCheckerFrequency": 2.0,
-  "shaderRingCount": 12,
-  "shaderRingSpeed": 1.2,
-  "sphereRadius": 22,
+  "shader": {
+    "shaderAmbient": 0.7,
+    "shaderLightingMin": 0.7,
+    "shaderLightingMax": 1.2,
+    "shaderLightingDiffuse": 0.5,
+    "shaderShadeChecker": 0.95,
+    "shaderShadeStripe": 2,
+    "shaderCheckerFrequency": 2.0,
+    "shaderRingCount": 12,
+    "shaderRingSpeed": 1.2
+  },
   "meshaLight": {
     "intensity": 73,
     "decay": 2.2,
@@ -57,18 +63,32 @@
       "segmentedSelected": 130
     }
   },
-  "hueCircle": 360,
-  "maxSiblingSpread": 60,
-  "balloonDurationBase": 1500,
-  "balloonDurationPerCharacter": 240,
-  "balloonDurationDismiss": 400,
+  "camera": {
+    "cameraX": 0,
+    "cameraY": 0,
+    "cameraZ": 120,
+    "fov": 30,
+    "near": 0.1,
+    "far": 2000
+  },
+  "colors": {
+    "hueCircle": 360,
+    "maxSiblingSpread": 60,
+    "currentColor": "#50a7ff",
+    "labelTextColor": "#070b0f"
+  },
+  "speechBalloon": {
+    "durationBase": 1500,
+    "durationPerCharacter": 240,
+    "durationDismiss": 400
+  },
   "frequencyAnalysis": {
     "fftSize": 2048,
     "smoothingTimeConstant": 0.8,
     "minDecibels": -90,
     "maxDecibels": -10
   },
-  "humanVoiceRange": {
+  "voiceRange": {
     "fundamentalMin": 85,
     "fundamentalMax": 800,
     "harmonicsMin": 700,

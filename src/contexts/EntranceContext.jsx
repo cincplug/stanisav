@@ -6,11 +6,11 @@ import { config } from "../config/../modules/configStore";
 
 const {
   meshaRevealSequence,
-  postMeshaDelay,
+  labelsRevealDelay,
   entranceDuration,
-  revealDuration,
+  labelRevealDuration,
   startRadiusFactor,
-} = config;
+} = config.entrance;
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -50,7 +50,7 @@ export const EntranceProvider = ({ children }) => {
         setRevealedParts((prev) => new Set([...prev, part]));
         await wait(holdMs);
       }
-      await wait(postMeshaDelay);
+      await wait(labelsRevealDelay);
       if (!cancelled) setIsMeshaSequenceDone(true);
       setBalloonText("This is my herd of languages");
     };
@@ -83,10 +83,10 @@ export const EntranceProvider = ({ children }) => {
   ) => {
     const staggerDelay = Math.round(
       (revealOrder / Math.max(1, totalVisibleLabels - 1)) *
-        Math.max(0, entranceDuration - revealDuration),
+        Math.max(0, entranceDuration - labelRevealDuration),
     );
     const delay =
-      isEntranceComplete || isSegmented ? revealDuration : staggerDelay;
+      isEntranceComplete || isSegmented ? labelRevealDuration : staggerDelay;
 
     return {
       startPosition: toInnerStartPosition(finalPosition),
@@ -95,7 +95,7 @@ export const EntranceProvider = ({ children }) => {
       positionConfig: isEntranceComplete
         ? { tension, friction }
         : { duration: entranceDuration },
-      revealConfig: { duration: revealDuration },
+      revealConfig: { duration: labelRevealDuration },
     };
   };
 

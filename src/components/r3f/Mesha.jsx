@@ -76,8 +76,13 @@ const Mesha = ({
     "verbAspect",
   ]);
 
-  const { phonemeCount, caseCount, wordOrder, nounClassCount, maxClusterSize } =
-    linguisticProperties;
+  const {
+    phonemeCount,
+    caseCount,
+    wordOrder,
+    nounClassCount,
+    maxConsonantClusterSize,
+  } = linguisticProperties;
 
   const noseColorMap = {
     S: "#e7ebef",
@@ -191,7 +196,7 @@ const Mesha = ({
         />
         <MeshaTeeth
           toothCount={phonemeCount}
-          clusterSize={maxClusterSize}
+          consonantClusterSize={maxConsonantClusterSize}
           onClick={handlePropertyClick}
           isSelected={selectedProperty === "phonemeCount"}
         />

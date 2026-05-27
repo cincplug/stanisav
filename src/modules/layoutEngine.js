@@ -8,13 +8,9 @@ import { getLanguageLabel } from "../utils/languageDisplayUtils";
 import { getSpeakerGroup } from "../utils/languageGroupingUtils";
 import { config } from "../config/../modules/configStore";
 
-const {
-  entranceSpiralAxis,
-  clustersGap,
-  clusterCellSpacing,
-  clusterCellSizeModifier,
-  sphereRadius,
-} = config;
+const { sphereRadius } = config.layout;
+const { entranceSpiralAxis } = config.entrance;
+const { gap, cellSpacing, cellSizeModifier } = config.segmentation;
 
 const spiralAxis = {
   x: {
@@ -145,8 +141,8 @@ class LayoutEngine {
     const nodeSpacing = Math.sqrt(
       (4 * Math.PI * sphereRadius ** 2) / sortedLanguages.length,
     );
-    const cellSize = nodeSpacing * clusterCellSizeModifier;
-    const clusterPadding = cellSize * clustersGap;
+    const cellSize = nodeSpacing * cellSizeModifier;
+    const clusterPadding = cellSize * gap;
 
     // --- Cluster dimensions in cell units ---
     const clusterDims = {};
@@ -258,7 +254,7 @@ class LayoutEngine {
   }
 
   estimateLabelWidth(text, cellSize) {
-    return text.length * cellSize * clusterCellSpacing;
+    return text.length * cellSize * cellSpacing;
   }
 
   generateFibonacciSphere(numPoints, radius, irrationality, buildPoint) {

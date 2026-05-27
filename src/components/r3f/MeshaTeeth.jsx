@@ -14,7 +14,12 @@ import { config } from "../../config/../modules/configStore";
 
 extend({ ParametricGeometry });
 
-const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
+const MeshaTeeth = ({
+  toothCount,
+  consonantClusterSize,
+  onClick,
+  isSelected,
+}) => {
   const teethRefs = useRef([]);
   const { controls } = useControls();
   const { audioData } = useAudioData();
@@ -28,12 +33,12 @@ const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
 
     return Array.from({ length: toothCount }, (_, toothIndex) => {
       const angle = startAngle + (toothIndex / toothCount) * arc;
-      const positionInCluster = toothIndex % clusterSize;
-      const clusterCenter = (clusterSize - 1) / 2;
+      const positionInCluster = toothIndex % consonantClusterSize;
+      const clusterCenter = (consonantClusterSize - 1) / 2;
       const rotationIntensity =
-        clusterSize > 1
+        consonantClusterSize > 1
           ? Math.abs(positionInCluster - clusterCenter) /
-            Math.floor(clusterSize / 2)
+            Math.floor(consonantClusterSize / 2)
           : 0;
       const rotationAngle =
         Math.sign(positionInCluster - clusterCenter) * rotationIntensity;
@@ -41,13 +46,13 @@ const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
       return {
         x: Math.cos(angle),
         y: 1,
-        z: Math.sin(angle) + clusterSize / 3,
+        z: Math.sin(angle) + consonantClusterSize / 3,
         positionInCluster,
         rotationAngle,
         key: `tooth-${toothIndex}`,
       };
     });
-  }, [toothCount, clusterSize]);
+  }, [toothCount, consonantClusterSize]);
 
   const deltaAccRef = useRef(0);
 
@@ -62,7 +67,7 @@ const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
           const bandIndex = Math.floor((xSymmetry * harmonicsData.length) / 6);
           const amplitude = harmonicsData[bandIndex];
           tooth.position.y = -amplitude * 4;
-          const scale = amplitude + clusterSize / 5;
+          const scale = amplitude + consonantClusterSize / 5;
           tooth.scale.set(scale, scale * -1, scale / 4);
         }
       });

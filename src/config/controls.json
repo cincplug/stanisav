@@ -15,7 +15,7 @@
         "phonemeCount",
         "caseCount",
         "nounClassCount",
-        "maxClusterSize"
+        "maxConsonantClusterSize"
       ],
       "defaultValue": "alphabetically",
       "isShownInMenu": true,
@@ -145,30 +145,6 @@
     }
   },
   "Camera": {
-    "cameraX": {
-      "type": "range",
-      "min": -150,
-      "max": 150,
-      "step": 1,
-      "defaultValue": 0,
-      "isShownInMenu": false
-    },
-    "cameraY": {
-      "type": "range",
-      "min": -50,
-      "max": 50,
-      "step": 10,
-      "defaultValue": 0,
-      "isShownInMenu": false
-    },
-    "cameraZ": {
-      "type": "range",
-      "min": 100,
-      "max": 150,
-      "step": 10,
-      "defaultValue": 120,
-      "isShownInMenu": false
-    },
     "switchDuration": {
       "type": "range",
       "min": 500,
@@ -184,18 +160,6 @@
       "step": 1,
       "defaultValue": 37,
       "isShownInMenu": true
-    },
-    "fov": {
-      "defaultValue": 30,
-      "isShownInMenu": false
-    },
-    "near": {
-      "defaultValue": 0.1,
-      "isShownInMenu": false
-    },
-    "far": {
-      "defaultValue": 2000,
-      "isShownInMenu": false
     }
   },
   "Motion": {

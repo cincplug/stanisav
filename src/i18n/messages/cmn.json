@@ -111,7 +111,7 @@
         "caseCount": "格的数量",
         "evidentiality": "证据性",
         "family": "语系",
-        "maxClusterSize": "辅音群",
+        "maxConsonantClusterSize": "辅音群",
         "morphology": "形态类型",
         "nounClassCount": "名词类别",
         "phonemeCount": "音素数量",
@@ -181,7 +181,7 @@
     "family": {
       "name": "语系"
     },
-    "maxClusterSize": {
+    "maxConsonantClusterSize": {
       "name": "辅音群最大辅音数"
     },
     "morphology": {

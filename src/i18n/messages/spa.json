@@ -111,7 +111,7 @@
         "caseCount": "Número de casos",
         "evidentiality": "Evidencialidad",
         "family": "Familia lingüística",
-        "maxClusterSize": "Grupos consonánticos",
+        "maxConsonantClusterSize": "Grupos consonánticos",
         "morphology": "Morfología",
         "nounClassCount": "Clases nominales",
         "phonemeCount": "Número de fonemas",
@@ -181,7 +181,7 @@
     "family": {
       "name": "Familia lingüística"
     },
-    "maxClusterSize": {
+    "maxConsonantClusterSize": {
       "name": "Máx. consonantes en un grupo"
     },
     "morphology": {

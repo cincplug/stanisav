@@ -23,7 +23,7 @@ export const calculateLanguageColors = (
     globalChromaOffset,
   } = colorConfig;
 
-  const { hueCircle, maxSiblingSpread } = config;
+  const { hueCircle, maxSiblingSpread } = config.colors;
 
   const result = {};
   const buckets = {};

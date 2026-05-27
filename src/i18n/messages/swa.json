@@ -111,7 +111,7 @@
         "caseCount": "Idadi ya hali",
         "evidentiality": "Ushahidi wa kisarufi",
         "family": "Familia ya lugha",
-        "maxClusterSize": "Vishwirishwiri vya konsonanti",
+        "maxConsonantClusterSize": "Vishwirishwiri vya konsonanti",
         "morphology": "Mofolojia",
         "nounClassCount": "Madarasa ya nomino",
         "phonemeCount": "Idadi ya fonimu",
@@ -181,7 +181,7 @@
     "family": {
       "name": "Familia ya lugha"
     },
-    "maxClusterSize": {
+    "maxConsonantClusterSize": {
       "name": "Idadi ya juu ya konsonanti katika kishwirishwiri"
     },
     "morphology": {

@@ -111,7 +111,7 @@
         "caseCount": "විභක්ති ගණන",
         "evidentiality": "ප්‍රමාණිකතාව",
         "family": "භාෂා කුලය",
-        "maxClusterSize": "ව්‍යාංජන සමූහය",
+        "maxConsonantClusterSize": "ව්‍යාංජන සමූහය",
         "morphology": "රූප විද්‍යාව",
         "nounClassCount": "නාම පන්තිය",
         "phonemeCount": "ධ්වනි ගණන",
@@ -181,7 +181,7 @@
     "family": {
       "name": "භාෂා කුලය"
     },
-    "maxClusterSize": {
+    "maxConsonantClusterSize": {
       "name": "ඉහළම ව්‍යාංජන සමූහය"
     },
     "morphology": {

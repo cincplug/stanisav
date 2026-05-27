@@ -111,7 +111,7 @@
         "caseCount": "Jumlah kasus",
         "evidentiality": "Evidensialitas",
         "family": "Rumpun bahasa",
-        "maxClusterSize": "Kluster konsonan",
+        "maxConsonantClusterSize": "Kluster konsonan",
         "morphology": "Morfologi",
         "nounClassCount": "Kelas nomina",
         "phonemeCount": "Jumlah fonem",
@@ -181,7 +181,7 @@
     "family": {
       "name": "Rumpun bahasa"
     },
-    "maxClusterSize": {
+    "maxConsonantClusterSize": {
       "name": "Jumlah maksimal konsonan dalam kluster"
     },
     "morphology": {

@@ -158,7 +158,7 @@
     "name": "Phoneme count",
     "template": "It has {count} phonemes (distinct sounds)."
   },
-  "maxClusterSize": {
+  "maxConsonantClusterSize": {
     "name": "Max consonants in a cluster",
     "template": "It can have maximally {count} consonants together in one cluster."
   },

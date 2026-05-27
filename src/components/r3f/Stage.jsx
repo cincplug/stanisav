@@ -36,13 +36,8 @@ const Stage = ({ onDataLoaded, onLoadingChange, languageColors }) => {
     setIsEntranceComplete,
   } = useEntrance();
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
+  const { cameraX, cameraY, cameraZ, fov, near, far } = config.camera;
   const {
-    cameraX,
-    cameraY,
-    cameraZ,
-    fov,
-    near,
-    far,
     bgColor,
     isMyMesha,
     tension,
@@ -61,13 +56,9 @@ const Stage = ({ onDataLoaded, onLoadingChange, languageColors }) => {
 
   const orbitControlsRef = useRef();
 
-  const {
-    sphereRadius,
-    rotateSpeedFactor,
-    radialOffsetModifier,
-    entranceDuration,
-    revealDuration,
-  } = config;
+  const { rotateSpeedFactor } = config;
+  const { radialOffsetModifier, sphereRadius } = config.layout;
+  const { entranceDuration, labelRevealDuration } = config.entrance;
 
   const languageData = data?.languageData || {};
   const { languageCodes, languageLineages, speakerData, typologicalFeatures } =

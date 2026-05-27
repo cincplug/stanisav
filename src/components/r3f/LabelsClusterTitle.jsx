@@ -17,7 +17,7 @@ const LabelsClusterTitle = ({ languagePositions, title }) => {
     if (titleRef.current && topCenter) {
       titleRef.current.position.set(
         topCenter.x,
-        topCenter.y + config.clusterTitleOffset,
+        topCenter.y + config.titleOffset,
         topCenter.z,
       );
     }
