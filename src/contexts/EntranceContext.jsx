@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { useSpring } from "@react-spring/three";
 import { useAppState } from "./AppStateContext";
 import { useControls } from "./ControlsContext";
-import config from "../config/config.json";
+import { config } from "../config/../modules/configStore";
 
 const {
   meshaRevealSequence,

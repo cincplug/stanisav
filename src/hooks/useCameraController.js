@@ -3,7 +3,7 @@ import { useThree, useFrame } from "@react-three/fiber";
 import { Vector3 } from "three";
 import { useLanguageSelection } from "../contexts/LanguageSelectionContext";
 import { useThrottledFrame } from "./useThrottledFrame";
-import config from "../config/config.json";
+import { config } from "../config/../modules/configStore";
 
 export const useCameraController = ({
   languageNodes,

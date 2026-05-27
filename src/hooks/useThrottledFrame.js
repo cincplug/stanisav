@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import config from "../config/config.json";
+import { config } from "../config/../modules/configStore";
 
 const { timeRate } = config.meshDeformation;
 

@@ -3,7 +3,7 @@ import { extend } from "@react-three/fiber";
 import { a, useSpring } from "@react-spring/three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
-import config from "../../config/config.json";
+import { config } from "../../config/../modules/configStore";
 import microphoneService from "../../services/microphoneService.js";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";

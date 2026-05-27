@@ -4,7 +4,7 @@ import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useEntrance } from "../../contexts/EntranceContext";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
-import config from "../../config/config.json";
+import { config } from "../../config/../modules/configStore";
 
 const MeshaNose = ({
   position,

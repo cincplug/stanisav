@@ -3,7 +3,7 @@ import { a, useSpring } from "@react-spring/three";
 import { useThree } from "@react-three/fiber";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 import { useControls } from "../../contexts/ControlsContext";
-import config from "../../config/config.json";
+import { config } from "../../config/../modules/configStore";
 
 const { entranceDuration, stageLight } = config;
 

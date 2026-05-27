@@ -43,3 +43,9 @@
   grid-template-columns: 1fr 1fr;
   gap: var(--gap-double);
 }
+
+.advanced-controls {
+  .controls-grid {
+    grid-template-columns: 1fr;
+  }
+}

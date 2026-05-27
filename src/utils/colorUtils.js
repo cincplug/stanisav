@@ -1,6 +1,6 @@
 import { converter, formatHex } from "culori";
 import lineages from "../config/lineages.json";
-import config from "../config/config.json";
+import { config } from "../config/../modules/configStore";
 
 const toOklch = converter("oklch");
 const oklchToHex = ({ l, c, h }) => formatHex({ mode: "oklch", l, c, h });

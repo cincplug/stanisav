@@ -1,11 +1,23 @@
 import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
+import { advancedConfigGroups } from "../../modules/configStore";
 import controlsConfig from "../../config/controls.json";
 import ControlItemGroup from "./ControlItemGroup";
+import Range from "./ux/Range.jsx";
 import "./ControlsTab.css";
 
+const ADVANCED_RANGE_OFFSET_FACTOR = 2;
+const ADVANCED_RANGE_STEP = 0.1;
+
 const ControlsTab = ({ className }) => {
-  const { controls, updateControl } = useControls();
+  const {
+    controls,
+    updateControl,
+    advancedControls,
+    updateAdvancedControl,
+    isAdvancedOpen,
+    toggleAdvanced,
+  } = useControls();
   const { selectedLanguage } = useLanguageSelection();
 
   const uniqueGroups = Object.keys(controlsConfig).filter(
@@ -23,6 +35,48 @@ const ControlsTab = ({ className }) => {
           showFieldset
         />
       ))}
+
+      <fieldset className="control-group advanced-controls">
+        <legend>
+          <button className="advanced-controls-toggle" onClick={toggleAdvanced}>
+            {isAdvancedOpen ? "Hide advanced" : "Show advanced"}
+          </button>
+        </legend>
+
+        {isAdvancedOpen &&
+          Object.entries(advancedConfigGroups).map(([groupName, entries]) => (
+            <fieldset key={groupName} className="control-group">
+              <legend>{groupName}</legend>
+              <div className="controls-grid">
+                {entries.map(([dotKey, label, staticDefault]) => {
+                  const offset =
+                    Math.abs(staticDefault) * ADVANCED_RANGE_OFFSET_FACTOR || 1;
+                  const currentValue = advancedControls[dotKey];
+                  return (
+                    <div key={dotKey} className="control-item range-control">
+                      <label>
+                        <span>{label}</span>
+                        <span>{currentValue}</span>
+                      </label>
+                      <Range
+                        min={staticDefault - offset}
+                        max={staticDefault + offset}
+                        step={ADVANCED_RANGE_STEP}
+                        value={currentValue}
+                        onChange={(e) =>
+                          updateAdvancedControl(
+                            dotKey,
+                            parseFloat(e.target.value),
+                          )
+                        }
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </fieldset>
+          ))}
+      </fieldset>
     </div>
   );
 };

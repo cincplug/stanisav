@@ -1,6 +1,10 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import controlsConfig from "../config/controls.json";
 import { isLowEnd } from "../utils/deviceUtils";
+import {
+  applyAdvancedOverrides,
+  advancedConfigEntries,
+} from "../modules/configStore";
 
 const getDefaultValues = () => {
   const defaults = {};
@@ -15,20 +19,46 @@ const getDefaultValues = () => {
   return defaults;
 };
 
+// Builds the initial advanced controls state from all numeric config entries.
+// Each value starts at the static default.
+const getDefaultAdvancedValues = () =>
+  Object.fromEntries(advancedConfigEntries.map(([key, value]) => [key, value]));
+
 const ControlsContext = createContext(null);
 
 export const ControlsProvider = ({ children }) => {
   const [controls, setControls] = useState(getDefaultValues);
+  const [isAdvancedOpen, setIsAdvancedOpen] = useState(true);
+  const [advancedControls, setAdvancedControls] = useState(
+    getDefaultAdvancedValues,
+  );
+
+  // Whenever any advanced value changes, sync it into the shared config object.
+  useEffect(() => {
+    applyAdvancedOverrides(advancedControls);
+  }, [advancedControls]);
 
   const updateControl = (key, value) => {
-    setControls((prev) => ({
-      ...prev,
-      [key]: value,
-    }));
+    setControls((prev) => ({ ...prev, [key]: value }));
   };
 
+  const updateAdvancedControl = (dotKey, value) => {
+    setAdvancedControls((prev) => ({ ...prev, [dotKey]: value }));
+  };
+
+  const toggleAdvanced = () => setIsAdvancedOpen((prev) => !prev);
+
   return (
-    <ControlsContext.Provider value={{ controls, updateControl }}>
+    <ControlsContext.Provider
+      value={{
+        controls,
+        updateControl,
+        advancedControls,
+        updateAdvancedControl,
+        isAdvancedOpen,
+        toggleAdvanced,
+      }}
+    >
       {children}
     </ControlsContext.Provider>
   );
