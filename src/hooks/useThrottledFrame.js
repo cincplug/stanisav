@@ -1,8 +1,8 @@
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import audioVisualizationConfig from "../config/audioVisualizationConfig.json";
+import config from "../config/config.json";
 
-const { timeRate } = audioVisualizationConfig.meshDeformation;
+const { timeRate } = config.meshDeformation;
 
 export const useThrottledFrame = (callback) => {
   const accRef = useRef(0);

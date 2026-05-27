@@ -10,7 +10,7 @@ import {
 } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { createToothShape } from "../../utils/shapeUtils.js";
-import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
+import config from "../../config/config.json";
 
 extend({ ParametricGeometry });
 

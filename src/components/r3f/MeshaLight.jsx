@@ -2,12 +2,11 @@ import { useRef } from "react";
 import { a } from "@react-spring/three";
 import { Color } from "three";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
-import sceneConfig from "../../config/sceneConfig.json";
+import config from "../../config/config.json";
 
 const MeshaLight = () => {
   const groupRef = useRef();
-  const { intensity, decay, distance, color, spread, z } =
-    sceneConfig.meshaLight;
+  const { intensity, decay, distance, color, spread, z } = config.meshaLight;
   const lightColor = new Color(color);
 
   useThrottledFrame(({ camera }) => {

@@ -1,6 +1,6 @@
 import { converter, formatHex } from "culori";
 import lineages from "../config/lineages.json";
-import sceneConfig from "../config/sceneConfig.json";
+import config from "../config/config.json";
 
 const toOklch = converter("oklch");
 const oklchToHex = ({ l, c, h }) => formatHex({ mode: "oklch", l, c, h });
@@ -23,7 +23,7 @@ export const calculateLanguageColors = (
     globalChromaOffset,
   } = colorConfig;
 
-  const { hueCircle, maxSiblingSpread } = sceneConfig;
+  const { hueCircle, maxSiblingSpread } = config;
 
   const result = {};
   const buckets = {};

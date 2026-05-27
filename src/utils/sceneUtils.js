@@ -1,5 +1,5 @@
 import lineages from "../config/lineages.json";
-import sceneConfig from "../config/sceneConfig.json";
+import config from "../config/config.json";
 import { Vector3 } from "three";
 
 const getFamily = (lineageKey) => {

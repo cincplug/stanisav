@@ -3,7 +3,7 @@ import { useFrame } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
 import { Vector3 } from "three";
 import { getClusterTopCenter } from "../../utils/sceneUtils";
-import sceneConfig from "../../config/sceneConfig.json";
+import config from "../../config/config.json";
 
 const LabelsClusterTitle = ({ languagePositions, title }) => {
   const titleRef = useRef();
@@ -17,7 +17,7 @@ const LabelsClusterTitle = ({ languagePositions, title }) => {
     if (titleRef.current && topCenter) {
       titleRef.current.position.set(
         topCenter.x,
-        topCenter.y + sceneConfig.clusterTitleOffset,
+        topCenter.y + config.clusterTitleOffset,
         topCenter.z,
       );
     }

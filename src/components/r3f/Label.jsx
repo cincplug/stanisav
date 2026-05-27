@@ -11,7 +11,7 @@ import { useEntrance } from "../../contexts/EntranceContext.jsx";
 import { calculateRadialOffset } from "../../utils/sceneUtils.js";
 import { getLanguageLabel } from "../../utils/languageDisplayUtils.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
-import sceneConfig from "../../config/sceneConfig.json";
+import config from "../../config/config.json";
 
 const Label = ({
   languageCode,
@@ -29,7 +29,7 @@ const Label = ({
   const { startFromLanguage } = usePlaylist();
   const { labelContent, labelSize, d4, isSegmented, isMotionReduced } =
     controls;
-  const { radialOffsetModifier, labelTextColor } = sceneConfig;
+  const { radialOffsetModifier, labelTextColor } = config;
 
   if (
     Object.keys(filteringUtils).length > 0 &&

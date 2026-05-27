@@ -3,8 +3,7 @@ import { extend } from "@react-three/fiber";
 import { a, useSpring } from "@react-spring/three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
-import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
-import sceneConfig from "../../config/sceneConfig.json";
+import config from "../../config/config.json";
 import microphoneService from "../../services/microphoneService.js";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
@@ -92,7 +91,7 @@ const Mesha = ({
     noseColorMap[wordOrder[2]],
   ];
 
-  const { entranceDuration, sphereRadius } = sceneConfig;
+  const { entranceDuration, sphereRadius } = config;
   const targetPosition = isMeshaSequenceDone ? position : [0, 0, sphereRadius];
 
   const spring = useSpring({
@@ -126,7 +125,7 @@ const Mesha = ({
     }
   });
 
-  const segments = audioVisualizationConfig.meshDeformation.meshSegments;
+  const segments = config.meshDeformation.meshSegments;
 
   const earPosition = useMemo(
     () => ({

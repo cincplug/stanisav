@@ -6,7 +6,7 @@ import {
 } from "../utils/sortingUtils";
 import { getLanguageLabel } from "../utils/languageDisplayUtils";
 import { getSpeakerGroup } from "../utils/languageGroupingUtils";
-import sceneConfig from "../config/sceneConfig.json";
+import config from "../config/config.json";
 
 const {
   entranceSpiralAxis,
@@ -14,7 +14,7 @@ const {
   clusterCellSpacing,
   clusterCellSizeModifier,
   sphereRadius,
-} = sceneConfig;
+} = config;
 
 const spiralAxis = {
   x: {

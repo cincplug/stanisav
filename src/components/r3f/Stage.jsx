@@ -16,7 +16,7 @@ import { getSortingData } from "../../utils/sortingUtils";
 import { groupLanguages } from "../../utils/languageGroupingUtils";
 import { LayoutEngine } from "../../modules/layoutEngine";
 import lineages from "../../config/lineages.json";
-import sceneConfig from "../../config/sceneConfig.json";
+import config from "../../config/config.json";
 import StageLight from "./StageLight";
 import Labels from "./Labels";
 import Mesha from "./Mesha";
@@ -67,7 +67,7 @@ const Stage = ({ onDataLoaded, onLoadingChange, languageColors }) => {
     radialOffsetModifier,
     entranceDuration,
     revealDuration,
-  } = sceneConfig;
+  } = config;
 
   const languageData = data?.languageData || {};
   const { languageCodes, languageLineages, speakerData, typologicalFeatures } =

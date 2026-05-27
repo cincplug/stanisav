@@ -1,4 +1,4 @@
-import audioVisualizationConfig from "../config/audioVisualizationConfig.json";
+import config from "../config/config.json";
 import defaultAudioData from "../config/defaultAudioData.json";
 
 /**
@@ -16,7 +16,7 @@ class AudioAnalysisService {
     this.deltaAccumulator = 0;
 
     // Configuration
-    this.config = audioVisualizationConfig;
+    this.config = config;
 
     // Frequency analysis data - separate for better voice representation
     this.fundamentalData = defaultAudioData.fundamentalData;

@@ -8,7 +8,7 @@ import {
 } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { useEntrance } from "../../contexts/EntranceContext.jsx";
-import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
+import config from "../../config/config.json";
 import blinkTimings from "../../config/blinkTimings.json";
 
 const Eye = ({
@@ -35,7 +35,7 @@ const Eye = ({
   const irisZ = eyeProtrusion / 2 + depthFactor * eyeProtrusion;
   const pupilZ = eyeProtrusion + depthFactor * eyeProtrusion;
 
-  const { blinkDuration } = audioVisualizationConfig.meshDeformation;
+  const { blinkDuration } = config.meshDeformation;
 
   const { revealedParts } = useEntrance();
   const isEntranceBlinkPhase = !revealedParts.has("nose");

@@ -3,9 +3,9 @@ import { a, useSpring } from "@react-spring/three";
 import { useThree } from "@react-three/fiber";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 import { useControls } from "../../contexts/ControlsContext";
-import sceneConfig from "../../config/sceneConfig.json";
+import config from "../../config/config.json";
 
-const { entranceDuration, stageLight } = sceneConfig;
+const { entranceDuration, stageLight } = config;
 
 const StageLight = ({
   cameraZ,

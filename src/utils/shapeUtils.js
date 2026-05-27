@@ -1,4 +1,4 @@
-import audioVisualizationConfig from "../config/audioVisualizationConfig.json";
+import config from "../config/config.json";
 
 export const createAudioSurface = ({ audioBand, size, bend, radius }) => {
   const {
@@ -6,7 +6,7 @@ export const createAudioSurface = ({ audioBand, size, bend, radius }) => {
     fundamentalAmplifier,
     harmonicsAmplifier,
     verticalVariationMultiplier,
-  } = audioVisualizationConfig.meshDeformation;
+  } = config.meshDeformation;
 
   const frequencyBands = 32;
 

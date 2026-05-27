@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { useSpring } from "@react-spring/three";
 import { useAppState } from "./AppStateContext";
 import { useControls } from "./ControlsContext";
-import sceneConfig from "../config/sceneConfig.json";
+import config from "../config/config.json";
 
 const {
   meshaRevealSequence,
@@ -10,7 +10,7 @@ const {
   entranceDuration,
   revealDuration,
   startRadiusFactor,
-} = sceneConfig;
+} = config;
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 

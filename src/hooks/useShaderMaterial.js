@@ -6,7 +6,7 @@ import {
   tonalityFragmentShader,
   highlightFragmentShader,
 } from "../shaders/shader";
-import sceneConfig from "../config/sceneConfig.json";
+import config from "../config/config.json";
 import { useThrottledFrame } from "./useThrottledFrame";
 
 const {
@@ -20,7 +20,7 @@ const {
   shaderRingCount,
   shaderRingSpeed,
   currentColor,
-} = sceneConfig;
+} = config;
 
 // ─── Tonality / skin material ─────────────────────────────────────────────────
 

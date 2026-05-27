@@ -3,7 +3,7 @@ import { useThree, useFrame } from "@react-three/fiber";
 import { Vector3 } from "three";
 import { useLanguageSelection } from "../contexts/LanguageSelectionContext";
 import { useThrottledFrame } from "./useThrottledFrame";
-import sceneConfig from "../config/sceneConfig.json";
+import config from "../config/config.json";
 
 export const useCameraController = ({
   languageNodes,
@@ -146,7 +146,7 @@ export const useCameraController = ({
     const distForWidth = halfW / Math.tan(halfFovH);
     const distForHeight = halfH / Math.tan(halfFovV);
     const distance =
-      Math.max(distForWidth, distForHeight) * sceneConfig.clustersMargin;
+      Math.max(distForWidth, distForHeight) * config.clustersMargin;
 
     const targetCameraPosition = new Vector3(
       center.x,
