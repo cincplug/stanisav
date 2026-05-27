@@ -30,7 +30,7 @@ const MeshaNose = ({
     if (!segmentARef.current || !segmentBRef.current || !segmentCRef.current)
       return;
     const rotation = -rotationRef.current;
-    const offset = motionIntensity * rotation * 3;
+    const offset = motionIntensity * rotation;
     segmentARef.current.rotation.y = offset;
     segmentBRef.current.rotation.z = offset;
     segmentCRef.current.rotation.x = offset;
