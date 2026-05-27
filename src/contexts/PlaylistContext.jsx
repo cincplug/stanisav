@@ -26,12 +26,8 @@ export const PlaylistProvider = ({ children }) => {
     labelContent,
     isReverse,
   } = controls;
-  const {
-    selectLanguage,
-    filteredLanguages,
-    filteringUtils,
-    selectedLanguage,
-  } = useLanguageSelection();
+  const { selectLanguage, filteredLanguages, filters, selectedLanguage } =
+    useLanguageSelection();
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -77,7 +73,7 @@ export const PlaylistProvider = ({ children }) => {
     } = getSortingData(data.languageData);
 
     let allLanguages = [...languageCodes];
-    if (Object.keys(filteringUtils).length > 0 && filteredLanguages.size > 0) {
+    if (Object.keys(filters).length > 0 && filteredLanguages.size > 0) {
       allLanguages = allLanguages.filter((code) => filteredLanguages.has(code));
     }
 
@@ -91,14 +87,7 @@ export const PlaylistProvider = ({ children }) => {
       labelContent,
       isReverse,
     });
-  }, [
-    data,
-    sortBy,
-    labelContent,
-    isReverse,
-    filteringUtils,
-    filteredLanguages,
-  ]);
+  }, [data, sortBy, labelContent, isReverse, filters, filteredLanguages]);
 
   // Rebuild playlist when sorting/filtering changes
   useEffect(() => {

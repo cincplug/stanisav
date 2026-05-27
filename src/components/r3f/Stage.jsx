@@ -28,7 +28,7 @@ const Stage = ({ onDataLoaded, onLoadingChange, languageColors }) => {
   const { controls } = useControls();
   const { isSceneReady } = useAppState();
   const { locale, isLocaleReady, isRtl } = useI18n();
-  const { filteringUtils, selectedLanguage } = useLanguageSelection();
+  const { filters, selectedLanguage } = useLanguageSelection();
   const {
     isMeshaSequenceDone,
     skipSequence,
@@ -125,13 +125,13 @@ const Stage = ({ onDataLoaded, onLoadingChange, languageColors }) => {
       calculateLanguageFilterStatus(
         sortedLanguageCodes,
         data?.typologicalFeatures,
-        filteringUtils,
+        filters,
         data?.languageLineages,
       ),
     [
       sortedLanguageCodes,
       data?.typologicalFeatures,
-      filteringUtils,
+      filters,
       data?.languageLineages,
     ],
   );
@@ -174,7 +174,7 @@ const Stage = ({ onDataLoaded, onLoadingChange, languageColors }) => {
     return [0, sphereRadius, 0];
   }, [selectedLanguage, formattedPositions]);
 
-  const hasSelectedFilters = Object.keys(filteringUtils).length > 0;
+  const hasSelectedFilters = Object.keys(filters).length > 0;
   const visibleLanguages = sortedLanguageCodes.filter(
     (code) => languageFilterStatus[code]?.isVisible,
   );

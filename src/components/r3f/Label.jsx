@@ -24,7 +24,7 @@ const Label = ({
   const labelRef = useRef();
   const { controls } = useControls();
   const { data } = useAppState();
-  const { filteredLanguages, filteringUtils, selectedLanguage } =
+  const { filteredLanguages, filters, selectedLanguage } =
     useLanguageSelection();
   const { startFromLanguage } = usePlaylist();
   const { labelContent, labelSize, d4, isSegmented, isMotionReduced } =
@@ -32,10 +32,7 @@ const Label = ({
   const { radialOffsetModifier } = config.layout;
   const { labelTextColor } = config.colors;
 
-  if (
-    Object.keys(filteringUtils).length > 0 &&
-    !filteredLanguages.has(languageCode)
-  ) {
+  if (Object.keys(filters).length > 0 && !filteredLanguages.has(languageCode)) {
     return null;
   }
 

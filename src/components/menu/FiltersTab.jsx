@@ -29,12 +29,8 @@ import "./FiltersTab.css";
 function FiltersTab({ data, languageColors = {} }) {
   const { viewAllLanguages, selectedLanguage } = useLanguageSelection();
   const { pausePlaylist, startFromLanguage } = usePlaylist();
-  const {
-    filteringUtils,
-    updateFilteringUtils,
-    selectedProperty,
-    setSelectedProperty,
-  } = useLanguageSelection();
+  const { filters, updateFilters, selectedProperty, setSelectedProperty } =
+    useLanguageSelection();
 
   const features = getAllFeatures();
   const [allowMultipleChoices, setAllowMultipleChoices] = useState(false);
@@ -44,7 +40,7 @@ function FiltersTab({ data, languageColors = {} }) {
   const { t } = useI18n();
 
   const handleCheckboxChange = (feature, value, checked) => {
-    let newFilters = { ...filteringUtils };
+    let newFilters = { ...filters };
     const currentValues = newFilters[feature] || [];
 
     if (value === "all") {
@@ -69,17 +65,17 @@ function FiltersTab({ data, languageColors = {} }) {
     }
 
     setLastChangedFeature(Object.keys(newFilters).length > 0 ? feature : null);
-    updateFilteringUtils(newFilters, data);
+    updateFilters(newFilters, data);
   };
 
   const filterResults = useMemo(() => {
-    if (Object.keys(filteringUtils).length === 0) {
+    if (Object.keys(filters).length === 0) {
       return [];
     }
-    return filterLanguagesByFeatures(data, filteringUtils);
-  }, [data, filteringUtils]);
+    return filterLanguagesByFeatures(data, filters);
+  }, [data, filters]);
 
-  const hasActiveFilters = Object.keys(filteringUtils).length > 0;
+  const hasActiveFilters = Object.keys(filters).length > 0;
   const hasEmptyResult = hasActiveFilters && filterResults.length === 0;
 
   // Scroll to the fieldset of the last-changed feature so both the filter
@@ -123,7 +119,7 @@ function FiltersTab({ data, languageColors = {} }) {
   );
 
   const activeFilterSummary = useMemo(() => {
-    return Object.entries(filteringUtils)
+    return Object.entries(filters)
       .map(([feature, values]) => {
         const featureMeta = features.find((f) => f.key === feature);
         const featureLabel = featureMeta?.label ?? feature;
@@ -133,7 +129,7 @@ function FiltersTab({ data, languageColors = {} }) {
         return `${featureLabel}: ${valueLabels.join(", ")}`;
       })
       .join(" · ");
-  }, [filteringUtils, features]);
+  }, [filters, features]);
 
   const resultLanguageCodes = useMemo(
     () => filterResults.map((lang) => lang.code),
@@ -185,19 +181,19 @@ function FiltersTab({ data, languageColors = {} }) {
   );
 
   const resultAnchorFeature =
-    lastChangedFeature ?? Object.keys(filteringUtils)[0] ?? null;
+    lastChangedFeature ?? Object.keys(filters)[0] ?? null;
 
   return (
     <div className="control-section">
-      <div className="linguistic-filters">
+      <div className="filters">
         {features.map(({ key: feature, label, isNumeric }) => {
           const rawValues = isNumeric
             ? data?.numericFeatureValues?.[feature] || []
             : getFeatureValues(data, feature);
 
           const values = sortFeatureValues(feature, rawValues);
-          const currentValues = filteringUtils[feature] || [];
-          const isAllSelected = !(feature in filteringUtils);
+          const currentValues = filters[feature] || [];
+          const isAllSelected = !(feature in filters);
 
           return (
             <React.Fragment key={feature}>

@@ -13,8 +13,8 @@ function TabRenderer({
   onControlChange,
   languageData,
   data,
-  filteringUtils,
-  onFilteringUtilsChange,
+  filters,
+  onFiltersChange,
   languageColors,
 }) {
   const { searchTerm, setSearchTerm, searchResults, clearSearch } =
@@ -54,8 +54,8 @@ function TabRenderer({
         <div {...panelProps("filters")}>
           <FiltersTab
             data={data}
-            filteringUtils={filteringUtils}
-            onFilteringUtilsChange={onFilteringUtilsChange}
+            filters={filters}
+            onFiltersChange={onFiltersChange}
             languageColors={languageColors}
           />
         </div>

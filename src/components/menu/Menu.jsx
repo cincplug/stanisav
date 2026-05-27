@@ -18,8 +18,8 @@ function Menu({
   isExpanded,
   onToggleMenu,
   onToggleSegmentation,
-  filteringUtils,
-  onFilteringUtilsChange,
+  filters,
+  onFiltersChange,
   languageColors,
 }) {
   const { controls, updateControl } = useControls();
@@ -80,8 +80,8 @@ function Menu({
               onControlChange={handleControlChange}
               languageData={data?.languages || {}}
               data={data}
-              filteringUtils={filteringUtils}
-              onFilteringUtilsChange={onFilteringUtilsChange}
+              filters={filters}
+              onFiltersChange={onFiltersChange}
               languageColors={languageColors}
             />
           </div>

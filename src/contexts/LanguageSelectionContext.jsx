@@ -7,7 +7,7 @@ const LanguageSelectionContext = createContext();
 export const LanguageSelectionProvider = ({ children }) => {
   const [selectedLanguage, setSelectedLanguage] = useState(null);
   const [selectedProperty, setSelectedProperty] = useState(null);
-  const [filteringUtils, setFilteringUtils] = useState({});
+  const [filters, setFilters] = useState({});
   const [filteredLanguages, setFilteredLanguages] = useState(new Set());
   const [cameraFocusRequest, setCameraFocusRequest] = useState(null);
   const { controls } = useControls();
@@ -21,8 +21,8 @@ export const LanguageSelectionProvider = ({ children }) => {
     setSelectedLanguage(null);
   }, []);
 
-  const updateFilteringUtils = useCallback((filters, data) => {
-    setFilteringUtils(filters);
+  const updateFilters = useCallback((filters, data) => {
+    setFilters(filters);
     if (Object.keys(filters).length === 0) {
       setFilteredLanguages(new Set());
       return;
@@ -34,7 +34,7 @@ export const LanguageSelectionProvider = ({ children }) => {
   const viewAllLanguages = useCallback(() => {
     setSelectedLanguage(null);
     setCameraFocusRequest({ type: "fitAll" });
-    setFilteringUtils({});
+    setFilters({});
     setFilteredLanguages(new Set());
   }, []);
 
@@ -47,13 +47,13 @@ export const LanguageSelectionProvider = ({ children }) => {
     selectedLanguage,
     selectedProperty,
     setSelectedProperty,
-    filteringUtils,
+    filters,
     filteredLanguages,
     selectLanguage,
     viewAllLanguages,
     resetCameraView,
     clearSelection,
-    updateFilteringUtils,
+    updateFilters,
     cameraFocusRequest,
   };
 

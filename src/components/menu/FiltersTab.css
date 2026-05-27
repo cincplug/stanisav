@@ -1,21 +1,10 @@
-/* Ensure FiltersTab and wrappers fill scroll area and don't break scroll context */
-.control-section,
-.linguistic-filters {
+.filters {
   height: 100%;
   min-height: 0;
   overflow: visible;
   box-sizing: border-box;
 }
 
-/* Ensure FiltersTab fills scroll area and doesn't break scroll context */
-.control-section,
-.linguistic-filters {
-  height: 100%;
-  min-height: 0;
-  overflow: visible;
-  box-sizing: border-box;
-}
-/* FiltersTab header row */
 .filters-tab-footer {
   display: flex;
   align-items: center;

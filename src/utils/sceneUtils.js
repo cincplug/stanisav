@@ -13,10 +13,10 @@ const getFamily = (lineageKey) => {
 export const calculateLanguageFilterStatus = (
   languages,
   typologicalFeatures,
-  filteringUtils,
+  filters,
   languageLineages,
 ) => {
-  if (Object.keys(filteringUtils).length === 0) {
+  if (Object.keys(filters).length === 0) {
     return languages.reduce((acc, langCode) => {
       acc[langCode] = { isVisible: true };
       return acc;
@@ -24,7 +24,7 @@ export const calculateLanguageFilterStatus = (
   }
 
   return languages.reduce((acc, langCode) => {
-    const matchesFilters = Object.entries(filteringUtils).every(
+    const matchesFilters = Object.entries(filters).every(
       ([feature, values]) => {
         if (!values || !Array.isArray(values) || values.length === 0) {
           return true;

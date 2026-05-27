@@ -18,12 +18,12 @@ function App() {
     isLoading,
     data,
     isSceneReady,
-    filteringUtils,
+    filters,
     setData,
     setIsSceneReady,
     setIsLoading,
     setNodes,
-    setFilteringUtils,
+    setFilters,
     handleCameraFocus,
   } = useAppState();
 
@@ -63,8 +63,8 @@ function App() {
         isExpanded={isMenuExpanded}
         onToggleMenu={() => updateControl("isMenuExpanded", !isMenuExpanded)}
         onToggleSegmentation={() => updateControl("isSegmented", !isSegmented)}
-        filteringUtils={filteringUtils}
-        onFilteringUtilsChange={setFilteringUtils}
+        filters={filters}
+        onFiltersChange={setFilters}
         languageColors={languageColors}
       />
 
