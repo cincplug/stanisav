@@ -4,7 +4,10 @@ import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeom
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useEntrance } from "../../contexts/EntranceContext";
 import { useAudioData } from "../../hooks/useAudioData.js";
-import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
+import {
+  useHighlightMaterial,
+  useShaderMaterial,
+} from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { createToothShape } from "../../utils/shapeUtils.js";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
@@ -66,6 +69,8 @@ const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
     }
   });
 
+  const teethMaterial = useShaderMaterial("#e7ebef");
+
   if (!teeth.length) return null;
 
   const { revealedParts } = useEntrance();
@@ -88,7 +93,7 @@ const MeshaTeeth = ({ toothCount, clusterSize, onClick, isSelected }) => {
             {isSelected ? (
               <shaderMaterial args={[highlightMaterial]} />
             ) : (
-              <meshStandardMaterial color="#e7ebef" />
+              <shaderMaterial args={[teethMaterial]} />
             )}
           </mesh>
         </group>

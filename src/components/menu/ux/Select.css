@@ -7,6 +7,8 @@
   font-size: var(--font-size-m);
   cursor: pointer;
   height: var(--icon-size-l);
+  box-sizing: border-box;
+  padding-inline: var(--gap);
 
   &:hover,
   &:focus-visible {

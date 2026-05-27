@@ -115,20 +115,6 @@ const Mesha = ({
     stripesType,
   );
 
-  useEffect(() => {
-    if (groupRef.current) {
-      groupRef.current.traverse((object) => {
-        if (object.isMesh) {
-          object.material.transparent = true;
-          object.material.needsUpdate = true;
-          object.renderOrder = object.material.isShaderMaterial
-            ? renderOrder / 2
-            : renderOrder;
-        }
-      });
-    }
-  }, []);
-
   useThrottledFrame(({ clock, camera }) => {
     if (looksAround && lookAroundRef.current && isMeshaSequenceDone) {
       const time = clock.getElapsedTime();

@@ -2,7 +2,10 @@ import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { usePlaylist } from "../../contexts/PlaylistContext.jsx";
-import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
+import {
+  useHighlightMaterial,
+  useShaderMaterial,
+} from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { useEntrance } from "../../contexts/EntranceContext.jsx";
 import audioVisualizationConfig from "../../config/audioVisualizationConfig.json";
@@ -66,8 +69,10 @@ const Eye = ({
     }
   });
 
+  const eyelidMaterial = useShaderMaterial(eyelidColor);
+
   return (
-    <group position={position} scale={eyeScale} ref={groupRef}>
+    <group position={position} scale={eyeScale} ref={groupRef} renderOrder={2}>
       <mesh linguisticProperty="evidentiality" onClick={onClick}>
         <sphereGeometry args={[eyeSize, 32, 32]} />
         {isSelectedOuter ? (
@@ -86,25 +91,36 @@ const Eye = ({
         {isSelectedInner ? (
           <shaderMaterial args={[highlightMaterial]} />
         ) : (
-          <meshBasicMaterial color={irisColor} />
+          <meshBasicMaterial
+            color={irisColor}
+            depthTest={false}
+            transparent={true}
+          />
         )}
       </mesh>
 
       <mesh position={[0, 0, pupilZ]}>
         <sphereGeometry args={[pupilSize, 32, 32]} />
-        <meshStandardMaterial color="#222222" metalness={0.7} roughness={0.4} />
+        <meshStandardMaterial
+          color="#222222"
+          metalness={0.7}
+          roughness={0.4}
+          depthTest={false}
+          transparent={true}
+        />
       </mesh>
 
-      <group ref={lidPivotRef} position={[0, 0, eyeSize]}>
-        <mesh
-          position={[0, eyeSize / 2, 0]}
-          scale={[1, 0.5, 1]}
-          renderOrder={1}
-        >
+      <group ref={lidPivotRef} position={[0, 0, eyeSize]} renderOrder={3}>
+        <mesh position={[0, eyeSize / 2, 0]} scale={[1, 0.5, 1]}>
           <sphereGeometry
             args={[eyeSize, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2]}
           />
-          <meshStandardMaterial color={eyelidColor} />
+          <shaderMaterial
+            args={[eyelidMaterial]}
+            depthTest={false}
+            transparent={true}
+            side={0}
+          />
         </mesh>
       </group>
     </group>

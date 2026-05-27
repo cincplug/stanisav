@@ -36,7 +36,7 @@ const MeshaNose = ({
     segmentCRef.current.rotation.x = offset;
   });
 
-  const segments = 12;
+  const segments = 32;
 
   const { revealedParts } = useEntrance();
   if (!revealedParts.has("nose")) return null;
@@ -55,7 +55,7 @@ const MeshaNose = ({
         {isSelectedOuter ? (
           <shaderMaterial args={[highlightMaterial]} />
         ) : (
-          <meshStandardMaterial color={segmentColors[0]} side={2} />
+          <meshBasicMaterial color={segmentColors[0]} side={2} />
         )}
       </mesh>
 
@@ -71,7 +71,7 @@ const MeshaNose = ({
         {isSelectedInner ? (
           <shaderMaterial args={[highlightMaterial]} />
         ) : (
-          <meshStandardMaterial color={segmentColors[1]} side={2} />
+          <meshBasicMaterial color={segmentColors[1]} side={2} />
         )}
       </mesh>
 
@@ -82,7 +82,12 @@ const MeshaNose = ({
         {isSelectedInner ? (
           <shaderMaterial args={[highlightMaterial]} />
         ) : (
-          <meshStandardMaterial color={segmentColors[2]} side={2} />
+          <meshStandardMaterial
+            color={segmentColors[2]}
+            side={2}
+            metalness={0.7}
+            roughness={0.4}
+          />
         )}
       </mesh>
     </group>

@@ -3,7 +3,10 @@ import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useAudioData } from "../../hooks/useAudioData.js";
-import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
+import {
+  useHighlightMaterial,
+  useShaderMaterial,
+} from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { shiftHue } from "../../utils/colorUtils";
 import { createTuftShape } from "../../utils/shapeUtils.js";
@@ -76,7 +79,6 @@ const MeshaMoustache = ({
       const amplitude = audioBandData[bandIndex];
       const scale = moustacheSize + amplitude;
 
-      tuftGroup.position.z = tuft.z + amplitude;
       tuftGroup.scale.set(scale, scale, scale);
     });
   });
@@ -84,6 +86,8 @@ const MeshaMoustache = ({
   if (!tuftsWithRotation.length) return null;
 
   const moustacheColor = shiftHue(color, 90);
+
+  const moustacheMaterial = useShaderMaterial(moustacheColor);
 
   return (
     <>
@@ -103,7 +107,7 @@ const MeshaMoustache = ({
             {isSelected ? (
               <shaderMaterial args={[highlightMaterial]} />
             ) : (
-              <meshStandardMaterial color={moustacheColor} side={2} />
+              <shaderMaterial args={[moustacheMaterial]} />
             )}
           </mesh>
         </group>
