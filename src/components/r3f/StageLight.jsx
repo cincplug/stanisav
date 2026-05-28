@@ -5,7 +5,8 @@ import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 import { useControls } from "../../contexts/ControlsContext";
 import { config } from "../../config/../modules/configStore";
 
-const { entranceDuration, stageLight } = config;
+const { stageLight } = config;
+const { entranceDuration } = config.entrance;
 
 const StageLight = ({
   cameraZ,

@@ -96,7 +96,8 @@ const Mesha = ({
     noseColorMap[wordOrder[2]],
   ];
 
-  const { entranceDuration, sphereRadius } = config;
+  const { entranceDuration } = config.entrance;
+  const { sphereRadius } = config.layout;
   const targetPosition = isMeshaSequenceDone ? position : [0, 0, sphereRadius];
 
   const spring = useSpring({
