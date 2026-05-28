@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { advancedConfigGroups } from "../../modules/configStore";
@@ -19,6 +20,16 @@ const ControlsTab = ({ className }) => {
     toggleAdvanced,
   } = useControls();
   const { selectedLanguage } = useLanguageSelection();
+  const advancedRef = useRef();
+
+  useEffect(() => {
+    if (isAdvancedOpen) {
+      advancedRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, [isAdvancedOpen]);
 
   const uniqueGroups = Object.keys(controlsConfig).filter(
     (group) => group !== "Header",
@@ -36,7 +47,7 @@ const ControlsTab = ({ className }) => {
         />
       ))}
 
-      <fieldset className="control-group advanced-controls">
+      <fieldset className="control-group advanced-controls" ref={advancedRef}>
         <legend>
           <button className="advanced-controls-toggle" onClick={toggleAdvanced}>
             {isAdvancedOpen ? "Hide advanced" : "Show advanced"}

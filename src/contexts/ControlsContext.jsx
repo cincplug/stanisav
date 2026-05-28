@@ -28,7 +28,7 @@ const ControlsContext = createContext(null);
 
 export const ControlsProvider = ({ children }) => {
   const [controls, setControls] = useState(getDefaultValues);
-  const [isAdvancedOpen, setIsAdvancedOpen] = useState(true);
+  const [isAdvancedOpen, setIsAdvancedOpen] = useState(false);
   const [advancedControls, setAdvancedControls] = useState(
     getDefaultAdvancedValues,
   );
