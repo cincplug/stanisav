@@ -1,3 +1,4 @@
+import { ExpandIcon } from "../MenuIcons";
 import "./Select.css";
 
 /**
@@ -12,17 +13,20 @@ import "./Select.css";
  */
 export default function Select({ options, value, onChange, label, className }) {
   return (
-    <select
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      aria-label={label}
-      className={`select-native${className ? ` ${className}` : ""}`}
-    >
-      {options.map(({ value: val, label }) => (
-        <option key={val} value={val}>
-          {label}
-        </option>
-      ))}
-    </select>
+    <div className="select-wrapper">
+      <select
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        aria-label={label}
+        className={`select-native${className ? ` ${className}` : ""}`}
+      >
+        {options.map(({ value: val, label }) => (
+          <option key={val} value={val}>
+            {label}
+          </option>
+        ))}
+      </select>
+      <ExpandIcon className="expand-icon" />
+    </div>
   );
 }

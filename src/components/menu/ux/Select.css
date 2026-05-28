@@ -1,4 +1,16 @@
+.select-wrapper {
+  position: relative;
+
+  .expand-icon {
+    position: absolute;
+    right: var(--gap-half);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
 .select-native {
+  appearance: none;
   background-color: var(--color-3);
   border: none;
   border-radius: var(--border-radius);
@@ -8,7 +20,7 @@
   cursor: pointer;
   height: var(--icon-size-l);
   box-sizing: border-box;
-  padding-inline: var(--gap);
+  padding: 0 var(--icon-size-l) 0 var(--gap);
 
   &:hover,
   &:focus-visible {
@@ -18,11 +30,5 @@
 
   .menu.expanded & {
     width: 100%;
-  }
-
-  .menu.compact & {
-    width: 3rem;
-    text-align: center;
-    position: relative;
   }
 }

@@ -165,7 +165,7 @@ export const ExpandIcon = (props) => (
     {...props}
   >
     <path
-      d="M4 11L12 18L20 11"
+      d="M5 10L12 16L19 10"
       stroke={iconColor}
       strokeWidth={strokeWidth}
       strokeLinecap="round"
