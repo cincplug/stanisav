@@ -3,8 +3,9 @@ import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { advancedConfigGroups } from "../../modules/configStore";
 import controlsConfig from "../../config/controls.json";
+import { formatCamelCase } from "../../utils/stringUtils";
 import ControlItemGroup from "./ControlItemGroup";
-import Range from "./ux/Range.jsx";
+import Range from "./ux/Range";
 import "./ControlsTab.css";
 
 const advancedRangeFactor = 5;
@@ -57,14 +58,14 @@ const ControlsTab = ({ className }) => {
         {isAdvancedOpen &&
           Object.entries(advancedConfigGroups).map(([groupName, entries]) => (
             <fieldset key={groupName} className="control-group">
-              <legend>{groupName}</legend>
+              <legend>{formatCamelCase(groupName)}</legend>
               <div className="controls-grid">
                 {entries.map(([dotKey, label, staticDefault]) => {
                   const currentValue = advancedControls[dotKey];
                   return (
                     <div key={dotKey} className="control-item range-control">
                       <label>
-                        <span>{label}</span>
+                        <span>{formatCamelCase(label)}</span>
                         <span>{currentValue}</span>
                       </label>
                       <Range
