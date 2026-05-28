@@ -1,5 +1,5 @@
 import lineages from "../config/lineages.json";
-import { config } from "../config/../modules/configStore";
+import { config } from "../modules/configStore";
 import { Vector3 } from "three";
 
 const getFamily = (lineageKey) => {

@@ -6,7 +6,7 @@ import {
   tonalityFragmentShader,
   highlightFragmentShader,
 } from "../shaders/shader";
-import { config } from "../config/../modules/configStore";
+import { config } from "../modules/configStore";
 import { useThrottledFrame } from "./useThrottledFrame";
 
 const { currentColor } = config.colors;

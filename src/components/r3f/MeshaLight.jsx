@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { a } from "@react-spring/three";
 import { Color } from "three";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
-import { config } from "../../config/../modules/configStore";
+import { config } from "../../modules/configStore";
 
 const MeshaLight = () => {
   const groupRef = useRef();

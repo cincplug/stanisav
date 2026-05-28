@@ -1,4 +1,4 @@
-import { config } from "../config/../modules/configStore";
+import { config } from "../modules/configStore";
 
 export const createAudioSurface = ({ audioBand, size, bend, radius }) => {
   const {

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useThree } from "@react-three/fiber";
-import { config } from "../../config/../modules/configStore";
+import { config } from "../../modules/configStore";
 import { useControls } from "../contexts/ControlsContext";
 
 export const useCameraUpdater = () => {

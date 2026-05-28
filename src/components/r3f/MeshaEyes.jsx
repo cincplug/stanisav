@@ -8,7 +8,7 @@ import {
 } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { useEntrance } from "../../contexts/EntranceContext.jsx";
-import { config } from "../../config/../modules/configStore";
+import { config } from "../../modules/configStore";
 import blinkTimings from "../../config/blinkTimings.json";
 
 const Eye = ({

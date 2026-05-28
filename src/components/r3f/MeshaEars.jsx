@@ -6,7 +6,7 @@ import { useAudioData } from "../../hooks/useAudioData.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { createAudioSurface } from "../../utils/shapeUtils.js";
-import { config } from "../../config/../modules/configStore";
+import { config } from "../../modules/configStore";
 
 extend({ ParametricGeometry });
 

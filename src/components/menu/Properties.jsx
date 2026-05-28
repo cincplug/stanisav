@@ -6,7 +6,7 @@ import { useI18n } from "../../contexts/I18nContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import Mesha from "../r3f/Mesha";
 import { getFeatureScore } from "../../utils/linguisticUtils";
-import { config } from "../../config/../modules/configStore";
+import { config } from "../../modules/configStore";
 import "./Properties.css";
 
 const baseLinguisticProperties = {

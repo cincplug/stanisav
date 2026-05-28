@@ -3,7 +3,7 @@ import { useFrame } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
 import { Vector3 } from "three";
 import { getClusterTopCenter } from "../../utils/sceneUtils";
-import { config } from "../../config/../modules/configStore";
+import { config } from "../../modules/configStore";
 
 const LabelsClusterTitle = ({ languagePositions, title }) => {
   const titleRef = useRef();

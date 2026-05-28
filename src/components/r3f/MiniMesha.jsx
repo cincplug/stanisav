@@ -2,7 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import Mesha from "../r3f/Mesha.jsx";
 import { getFeatureScore } from "../../utils/linguisticUtils.js";
-import { config } from "../../config/../modules/configStore";
+import { config } from "../../modules/configStore";
 
 const MiniMesha = ({ languageCode, linguisticProperties, color }) => {
   const { controls } = useControls();

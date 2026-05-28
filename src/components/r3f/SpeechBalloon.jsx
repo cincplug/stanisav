@@ -1,6 +1,6 @@
 import { Html } from "@react-three/drei";
 import { useAppState } from "../../contexts/AppStateContext";
-import { config } from "../../config/../modules/configStore";
+import { config } from "../../modules/configStore";
 import "./SpeechBalloon.css";
 
 const SpeechBalloon = ({ anchorPosition = [0, 4, 0] }) => {

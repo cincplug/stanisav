@@ -16,7 +16,7 @@ import { getSortingData } from "../../utils/sortingUtils";
 import { groupLanguages } from "../../utils/languageGroupingUtils";
 import { LayoutEngine } from "../../modules/layoutEngine";
 import lineages from "../../config/lineages.json";
-import { config } from "../../config/../modules/configStore";
+import { config } from "../../modules/configStore";
 import StageLight from "./StageLight";
 import Labels from "./Labels";
 import Mesha from "./Mesha";

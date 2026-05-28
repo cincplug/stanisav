@@ -4,7 +4,7 @@ import { Vector3 } from "three";
 import { useLanguageSelection } from "../contexts/LanguageSelectionContext";
 import { useThrottledFrame } from "./useThrottledFrame";
 import { useControls } from "../contexts/ControlsContext";
-import { config } from "../config/../modules/configStore";
+import { config } from "../modules/configStore";
 
 export const useCameraController = ({
   languageNodes,

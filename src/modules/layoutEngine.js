@@ -6,7 +6,7 @@ import {
 } from "../utils/sortingUtils";
 import { getLanguageLabel } from "../utils/languageDisplayUtils";
 import { getSpeakerGroup } from "../utils/languageGroupingUtils";
-import { config } from "../config/../modules/configStore";
+import { config } from "../modules/configStore";
 
 const { sphereRadius } = config.layout;
 const { entranceSpiralAxis } = config.entrance;

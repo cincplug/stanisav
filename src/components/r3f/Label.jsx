@@ -11,7 +11,7 @@ import { useEntrance } from "../../contexts/EntranceContext.jsx";
 import { calculateRadialOffset } from "../../utils/sceneUtils.js";
 import { getLanguageLabel } from "../../utils/languageDisplayUtils.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
-import { config } from "../../config/../modules/configStore";
+import { config } from "../../modules/configStore";
 
 const Label = ({
   languageCode,
