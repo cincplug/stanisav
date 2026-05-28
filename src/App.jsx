@@ -94,7 +94,7 @@ function App() {
           />
         )}
 
-        <Flowers selectedLanguage={selectedLanguage} />
+        {!isMobile && <Flowers selectedLanguage={selectedLanguage} />}
       </div>
     </div>
   );
