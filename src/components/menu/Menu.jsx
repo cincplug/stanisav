@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useControls } from "../../contexts/ControlsContext";
 import { useI18n } from "../../contexts/I18nContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { BurgerIcon, CloseIcon } from "./MenuIcons";
 import tabsConfig from "../../config/tabsConfig.json";
 import ControlItemGroup from "./ControlItemGroup";
@@ -25,6 +26,7 @@ function Menu({
   const { controls, updateControl } = useControls();
   const { t, isRtl } = useI18n();
   const [selectedTab, setSelectedTab] = useState(tabsConfig.defaultTab);
+  const isMobile = useMediaQuery("(max-width: 640px)");
 
   const handleControlChange = (controlId, value) => {
     onControlChange(controlId, value);
@@ -38,6 +40,20 @@ function Menu({
   if (isLoading) {
     return null;
   }
+
+  const renderHeaderControls = () => (
+    <div className="menu-header-controls">
+      <div className="control-item">
+        <label>{t("menu.languageSelector")}</label>
+        <LocaleLinks />
+      </div>
+      <ControlItemGroup
+        groupName="Header"
+        controls={controls}
+        onChange={handleControlChange}
+      />
+    </div>
+  );
 
   return (
     <div className="menu-wrapper">
@@ -53,26 +69,17 @@ function Menu({
               <CloseIcon />
             </button>
             <Playlist />
+            {/* On desktop, header controls sit here so sticky works without a fixed height */}
+            {!isMobile && renderHeaderControls()}
           </div>
 
           <div className="menu-scroll-area">
-            <div className="menu-header-controls">
-              <div className="control-item">
-                <label>{t("menu.languageSelector")}</label>
-                <LocaleLinks />
-              </div>
-              <ControlItemGroup
-                groupName="Header"
-                controls={controls}
-                onChange={handleControlChange}
-              />
-            </div>
-
+            {/* On mobile, header controls scroll away with the content */}
+            {isMobile && renderHeaderControls()}
             <TabNavigation
               selectedTab={selectedTab}
               setSelectedTab={handleTabChange}
             />
-
             <TabRenderer
               selectedTab={selectedTab}
               setSelectedTab={setSelectedTab}

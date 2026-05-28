@@ -89,12 +89,6 @@
   margin-top: var(--gap);
   gap: var(--gap);
   padding: var(--gap-half);
-  position: relative;
-  z-index: 2;
-
-  .select-nav {
-    width: 100%;
-  }
 }
 
 .tab-navigation {
@@ -106,7 +100,7 @@
   border-bottom: var(--border);
   padding-top: var(--gap-half);
   background: var(--color-1);
-  margin: var(--gap-half);
+  margin: var(--gap-half) var(--gap-half) 0;
   z-index: 2;
 
   button {
