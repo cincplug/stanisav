@@ -78,7 +78,7 @@ const Eye = ({
           <shaderMaterial args={[highlightMaterial]} />
         ) : (
           <meshBasicMaterial
-            color="#e7ebef"
+            color={config.colors.white}
             depthTest={false}
             transparent={true}
           />
@@ -105,7 +105,7 @@ const Eye = ({
       <mesh position={[0, 0, pupilZ]}>
         <sphereGeometry args={[pupilSize, 32, 32]} />
         <meshStandardMaterial
-          color="#222222"
+          color={config.colors.labelTextColor}
           metalness={0.7}
           roughness={0.4}
           depthTest={false}

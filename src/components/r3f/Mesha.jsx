@@ -81,10 +81,12 @@ const Mesha = ({
     wordOrderFlexibility,
   } = linguisticProperties;
 
+  const { white, labelTextColor } = config.colors;
+
   const noseColorMap = {
-    S: "#e7ebef",
+    S: white,
     V: color,
-    O: "#222222",
+    O: labelTextColor,
   };
 
   const noseSegmentColors = [
@@ -95,6 +97,7 @@ const Mesha = ({
 
   const { entranceDuration } = config.entrance;
   const { sphereRadius } = config.layout;
+
   const targetPosition = isMeshaSequenceDone ? position : [0, 0, sphereRadius];
 
   const spring = useSpring({

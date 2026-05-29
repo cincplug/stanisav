@@ -149,7 +149,6 @@ const Label = ({
       anchorY="middle"
       outlineWidth={labelSize / 2}
       outlineColor={color}
-      color={labelTextColor}
       material={textMaterial}
     >
       {labelText}

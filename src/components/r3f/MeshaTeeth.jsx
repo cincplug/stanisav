@@ -9,6 +9,7 @@ import {
   useShaderMaterial,
 } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
+import { config } from "../../modules/configStore";
 import { createToothShape } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
@@ -53,7 +54,6 @@ const MeshaTeeth = ({
     });
   }, [toothCount, consonantClusterSize]);
 
-
   useThrottledFrame(() => {
     if (teethRefs.current) {
       const { harmonicsData } = audioData;
@@ -72,7 +72,7 @@ const MeshaTeeth = ({
     }
   });
 
-  const teethMaterial = useShaderMaterial("#e7ebef");
+  const teethMaterial = useShaderMaterial(config.colors.white);
 
   if (!teeth.length) return null;
 

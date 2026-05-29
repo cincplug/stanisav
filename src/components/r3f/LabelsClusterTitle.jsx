@@ -28,7 +28,7 @@ const LabelsClusterTitle = ({ languagePositions, title }) => {
       fontWeight="bold"
       anchorX="center"
       anchorY="bottom"
-      color="#e7ebef"
+      color={config.colors.white}
     >
       {title}
     </Text>

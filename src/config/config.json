@@ -75,7 +75,8 @@
     "hueCircle": 360,
     "maxSiblingSpread": 60,
     "currentColor": "#50a7ff",
-    "labelTextColor": "#070b0f"
+    "labelTextColor": "#070b0f",
+    "white": "#e7ebef"
   },
   "speechBalloon": {
     "durationBase": 1500,
