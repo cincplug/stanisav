@@ -78,6 +78,7 @@ const Mesha = ({
     wordOrder,
     nounClassCount,
     maxConsonantClusterSize,
+    wordOrderFlexibility,
   } = linguisticProperties;
 
   const noseColorMap = {
@@ -118,10 +119,16 @@ const Mesha = ({
 
   useThrottledFrame(({ clock, camera }) => {
     if (looksAround && lookAroundRef.current && isMeshaSequenceDone) {
+      if (wordOrderFlexibility === "rigid") {
+        groupRef.current.lookAt(camera.position);
+        return;
+      }
+      if (wordOrderFlexibility === "semi-flexible") {
+        groupRef.current.lookAt(camera.position);
+      }
       const time = clock.getElapsedTime();
       const speed = rotateSpeed;
       const rotation = time * speed;
-      groupRef.current.lookAt(camera.position);
       lookAroundRef.current.rotation[axis] = rotation;
       lookAroundRotationRef.current = rotation;
     }
