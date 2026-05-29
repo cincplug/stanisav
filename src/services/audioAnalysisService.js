@@ -1,5 +1,5 @@
-import { config } from "../modules/configStore";
 import defaultAudioData from "../config/defaultAudioData.json";
+import { config } from "../modules/configStore";
 
 /**
  * Audio Analysis Service
@@ -40,16 +40,7 @@ class AudioAnalysisService {
       )();
 
       // Create analyser node with destructured config
-      const { fftSize, smoothingTimeConstant, minDecibels, maxDecibels } =
-        this.config.frequencyAnalysis;
-
       this.analyser = this.audioContext.createAnalyser();
-      Object.assign(this.analyser, {
-        fftSize,
-        smoothingTimeConstant,
-        minDecibels,
-        maxDecibels,
-      });
 
       // Create data arrays
       const bufferLength = this.analyser.frequencyBinCount;

@@ -7,8 +7,35 @@ import ControlItemGroup from "./ControlItemGroup";
 import "./ControlsTab.css";
 import Range from "./ux/Range";
 
-const advancedRangeFactor = 5;
-const advancedRangeStep = 0.1;
+// Derives step from the number of decimal places, scaled to the magnitude.
+// E.g. 0.01 → 0.01, 1.5 → 0.1, 20000 → 1000, 12 → 1
+const deriveStep = (value) => {
+  const abs = Math.abs(value);
+  if (abs === 0) return 0.01;
+
+  const magnitude = Math.pow(10, Math.floor(Math.log10(abs)));
+  const str = String(value);
+  const decimalIndex = str.indexOf(".");
+  const decimalPlaces = decimalIndex === -1 ? 0 : str.length - decimalIndex - 1;
+
+  if (decimalPlaces >= 2) return magnitude * 0.001;
+  if (decimalPlaces === 1) return magnitude * 0.01;
+  return magnitude * 0.1;
+};
+
+// Range spans one order of magnitude below and above the default.
+// Min never crosses zero for positive defaults.
+const deriveMin = (value) => {
+  if (value < 0) return value * 10;
+  if (value === 0) return -1;
+  return value / 10;
+};
+
+const deriveMax = (value) => {
+  if (value === 0) return 1;
+  if (value < 0) return value / 10;
+  return value * 10;
+};
 
 const ControlsTab = ({ className }) => {
   const {
@@ -61,6 +88,9 @@ const ControlsTab = ({ className }) => {
               <div className="controls-grid">
                 {entries.map(([dotKey, label, staticDefault]) => {
                   const currentValue = advancedControls[dotKey];
+                  const step = deriveStep(staticDefault);
+                  const min = deriveMin(staticDefault);
+                  const max = deriveMax(staticDefault);
                   return (
                     <div key={dotKey} className="control-item range-control">
                       <label>
@@ -68,9 +98,9 @@ const ControlsTab = ({ className }) => {
                         <span>{currentValue}</span>
                       </label>
                       <Range
-                        min={staticDefault / advancedRangeFactor}
-                        max={staticDefault * advancedRangeFactor}
-                        step={advancedRangeStep}
+                        min={min}
+                        max={max}
+                        step={step}
                         value={currentValue}
                         onChange={(e) =>
                           updateAdvancedControl(

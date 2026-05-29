@@ -21,7 +21,7 @@
     "cellSizeModifier": 1
   },
   "layout": {
-    "radialOffsetModifier": 4,
+    "radialOffsetModifier": 5,
     "sphereRadius": 22
   },
   "rotateSpeedFactor": {
@@ -82,12 +82,6 @@
     "durationPerCharacter": 240,
     "durationDismiss": 400
   },
-  "frequencyAnalysis": {
-    "fftSize": 2048,
-    "smoothingTimeConstant": 0.8,
-    "minDecibels": -90,
-    "maxDecibels": -10
-  },
   "voiceRange": {
     "fundamentalMin": 85,
     "fundamentalMax": 800,
@@ -98,8 +92,6 @@
     "maxDeformation": 1.2,
     "deformationSmoothness": 0.1,
     "amplitudeThreshold": 0.1,
-    "blinkThreshold": 0.2,
-    "blinkBand": 2,
     "blinkDuration": 0.2,
     "decayRate": 0.7,
     "verticalVariationMultiplier": 0.1,
