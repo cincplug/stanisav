@@ -1,15 +1,14 @@
 import { useRef } from "react";
-import { useFrame } from "@react-three/fiber";
+import blinkTimings from "../../config/blinkTimings.json";
 import { useControls } from "../../contexts/ControlsContext.jsx";
+import { useEntrance } from "../../contexts/EntranceContext.jsx";
 import { usePlaylist } from "../../contexts/PlaylistContext.jsx";
 import {
   useHighlightMaterial,
   useShaderMaterial,
 } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
-import { useEntrance } from "../../contexts/EntranceContext.jsx";
 import { config } from "../../modules/configStore";
-import blinkTimings from "../../config/blinkTimings.json";
 
 const Eye = ({
   position,

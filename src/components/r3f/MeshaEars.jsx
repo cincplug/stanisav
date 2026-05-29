@@ -1,12 +1,11 @@
+import { extend } from "@react-three/fiber";
 import { useRef } from "react";
-import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useEntrance } from "../../contexts/EntranceContext";
 import { useAudioData } from "../../hooks/useAudioData.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { createAudioSurface } from "../../utils/shapeUtils.js";
-import { config } from "../../modules/configStore";
 
 extend({ ParametricGeometry });
 
@@ -23,8 +22,6 @@ const MeshaEars = ({
   const highlightMaterial = useHighlightMaterial(0);
   const leftMeshRef = useRef();
   const rightMeshRef = useRef();
-
-  const deltaAccRef = useRef(0);
 
   useThrottledFrame(() => {
     const audioSurface = createAudioSurface({

@@ -1,7 +1,6 @@
-import { getFeatureScore, isNumericFeature } from "./linguisticUtils";
-import { getLanguageLabel } from "./linguisticUtils";
-import { getLocalizedLanguageName } from "../i18n/runtime";
 import lineages from "../config/lineages.json";
+import { getLocalizedLanguageName } from "../i18n/runtime";
+import { getFeatureScore, getLanguageLabel, isNumericFeature } from "./linguisticUtils";
 
 const collator = new Intl.Collator("und", {
   sensitivity: "base",
@@ -78,8 +77,8 @@ export function sortLanguages({
           const labelA = getLanguageLabel(a, languageData, labelContent);
           const labelB = getLanguageLabel(b, languageData, labelContent);
 
-          invariant(labelA != null, `Missing '${labelContent}' for '${a}'`);
-          invariant(labelB != null, `Missing '${labelContent}' for '${b}'`);
+          invariant(labelA !== null, `Missing '${labelContent}' for '${a}'`);
+          invariant(labelB !== null, `Missing '${labelContent}' for '${b}'`);
 
           return collator.compare(String(labelA), String(labelB));
         });

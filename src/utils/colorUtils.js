@@ -13,15 +13,13 @@ export const shiftHue = (color, shift) => {
 export const calculateLanguageColors = (
   languageData,
   languageLineages,
-  colorConfig,
+  controls,
 ) => {
   const {
     hue,
     lightness,
-    globalLightnessOffset,
     saturation,
-    globalChromaOffset,
-  } = colorConfig;
+  } = controls;
 
   const { hueCircle, maxSiblingSpread } = config.colors;
 

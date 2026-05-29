@@ -103,8 +103,6 @@
     "blinkDuration": 0.2,
     "decayRate": 0.7,
     "verticalVariationMultiplier": 0.1,
-    "fundamentalAmplifier": 0.8,
-    "harmonicsAmplifier": 1.4,
     "meshSegments": 12,
     "timeRate": 20
   }

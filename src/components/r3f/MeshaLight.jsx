@@ -1,5 +1,5 @@
-import { useRef } from "react";
 import { a } from "@react-spring/three";
+import { useRef } from "react";
 import { Color } from "three";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { config } from "../../modules/configStore";

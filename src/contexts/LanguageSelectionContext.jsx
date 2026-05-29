@@ -1,6 +1,5 @@
-import { createContext, useContext, useState, useCallback } from "react";
+import { createContext, useCallback, useContext, useState } from "react";
 import { filterLanguagesByFeatures } from "../utils/filteringUtils";
-import { useControls } from "./ControlsContext";
 
 const LanguageSelectionContext = createContext();
 
@@ -10,7 +9,6 @@ export const LanguageSelectionProvider = ({ children }) => {
   const [filters, setFilters] = useState({});
   const [filteredLanguages, setFilteredLanguages] = useState(new Set());
   const [cameraFocusRequest, setCameraFocusRequest] = useState(null);
-  const { controls } = useControls();
 
   const selectLanguage = useCallback((languageCode) => {
     setSelectedLanguage(languageCode);

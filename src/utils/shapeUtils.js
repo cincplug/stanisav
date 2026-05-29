@@ -3,8 +3,6 @@ import { config } from "../modules/configStore";
 export const createAudioSurface = ({ audioBand, size, bend, radius }) => {
   const {
     maxDeformation,
-    fundamentalAmplifier,
-    harmonicsAmplifier,
     verticalVariationMultiplier,
   } = config.meshDeformation;
 
@@ -15,15 +13,15 @@ export const createAudioSurface = ({ audioBand, size, bend, radius }) => {
 
     const angle = (v - 0.5) * Math.PI * 1.5;
 
-    const x_flat = (v - 0.5) * size;
-    const x_circle = Math.cos(angle) * radius;
-    const x = x_flat + (x_circle - x_flat) * bend;
+    const xFlat = (v - 0.5) * size;
+    const xCircle = Math.cos(angle) * radius;
+    const x = xFlat + (xCircle - xFlat) * bend;
 
-    const y_base_flat = 2;
-    const y_base_circle = Math.sin(angle) * radius;
-    const y_base = y_base_flat + (y_base_circle - y_base_flat) * bend;
+    const yBaseFlat = 2;
+    const yBaseCircle = Math.sin(angle) * radius;
+    const yBase = yBaseFlat + (yBaseCircle - yBaseFlat) * bend;
 
-    let y = y_base;
+    let y = yBase;
 
     if (audioBand) {
       const verticalVariation =
@@ -32,7 +30,7 @@ export const createAudioSurface = ({ audioBand, size, bend, radius }) => {
       const uForBand = u > 0.5 ? 1 - u : u;
       const bandIndex = Math.floor(uForBand * (frequencyBands - 1));
       const amplitude = audioBand[bandIndex] || 0;
-      y = y_base + amplitude * maxDeformation * size;
+      y = yBase + amplitude * maxDeformation * size;
       if (u > 0.5) {
         y *= 1 + verticalVariation;
       }

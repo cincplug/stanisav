@@ -1,5 +1,5 @@
+import { extend } from "@react-three/fiber";
 import { useRef } from "react";
-import { extend, useFrame } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useEntrance } from "../../contexts/EntranceContext";
@@ -7,7 +7,6 @@ import { useAudioData } from "../../hooks/useAudioData.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { createAudioSurface } from "../../utils/shapeUtils.js";
-import { config } from "../../modules/configStore";
 
 extend({ ParametricGeometry });
 
@@ -22,9 +21,8 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
   const stripesType = tongueMaterial?.uniforms?.uStripesType?.value ?? 0;
   const highlightMaterial = useHighlightMaterial(stripesType);
 
-  const deltaAccRef = useRef(0);
 
-  useThrottledFrame((_, delta) => {
+  useThrottledFrame(() => {
     const { harmonicsData } = audioData;
 
     // size and radius normalized to 1; overall scale comes from root group in Mesha.jsx

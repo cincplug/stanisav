@@ -1,11 +1,11 @@
-import "./LanguagesTab.css";
-import { useEffect, useRef, useMemo, useCallback } from "react";
+import { useCallback, useEffect, useMemo, useRef } from "react";
+import lineages from "../../config/lineages.json";
 import { useControls } from "../../contexts/ControlsContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
-import lineages from "../../config/lineages.json";
-import { getSortingData, sortLanguages } from "../../utils/sortingUtils";
 import { buildLanguageTree, groupLanguages } from "../../utils/groupingUtils";
+import { getSortingData, sortLanguages } from "../../utils/sortingUtils";
+import "./LanguagesTab.css";
 import LanguageTree from "./LanguageTree";
 
 function LanguagesTab({ languageData, isSelected, languageColors = {} }) {

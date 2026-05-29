@@ -1,22 +1,21 @@
-import { useMemo, useRef, useEffect } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { useI18n } from "../../contexts/I18nContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { getLocalizedLanguageName } from "../../i18n/runtime";
+import { getFamilyLabel } from "../../utils/i18nUtils";
 import {
-  getAllFeatures,
-  getFeatureLabel,
-  getFeatureName,
-  getFeatureDescription,
   formatNumber,
   formatSpeakers,
+  getAllFeatures,
+  getFeatureDescription,
+  getFeatureLabel,
+  getFeatureName,
   getLineageTrail,
   isPropertyDescribed,
 } from "../../utils/linguisticUtils";
-import { getFamilyLabel } from "../../utils/i18nUtils";
+import "./IdCard.css";
 import { CloseIcon } from "./MenuIcons";
 import Tooltip from "./ux/Tooltip";
-import Properties from "./Properties";
-import "./IdCard.css";
 
 function IdCard({
   isVisible,
@@ -27,7 +26,6 @@ function IdCard({
   sampleUrl,
   onSourceVideoClick,
   onToggleSubtitle,
-  languageColor,
 }) {
   const { locale, t } = useI18n();
 
@@ -36,7 +34,7 @@ function IdCard({
     return getLineageTrail(lineageKey);
   }, [languageCode, languageLineages]);
 
-  const { selectedProperty, setSelectedProperty } = useLanguageSelection();
+  const { selectedProperty } = useLanguageSelection();
 
   const properties = useMemo(() => {
     if (!languageCode || !language) return [];

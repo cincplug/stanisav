@@ -1,6 +1,6 @@
-import { useRef, useEffect } from "react";
-import LabelsCluster from "./LabelsCluster";
+import { useEffect, useRef } from "react";
 import Label from "./Label";
+import LabelsCluster from "./LabelsCluster";
 
 const Labels = ({
   groups,

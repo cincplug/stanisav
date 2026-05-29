@@ -1,10 +1,8 @@
 import { useRef } from "react";
-import { useFrame } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useEntrance } from "../../contexts/EntranceContext";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
-import { config } from "../../modules/configStore";
 
 const MeshaNose = ({
   position,
@@ -24,9 +22,8 @@ const MeshaNose = ({
   const { pupilSize } = controls;
   const highlightMaterial = useHighlightMaterial(0, 2);
 
-  const deltaAccRef = useRef(0);
 
-  useThrottledFrame((_, delta) => {
+  useThrottledFrame(() => {
     if (!segmentARef.current || !segmentBRef.current || !segmentCRef.current)
       return;
     const rotation = -rotationRef.current;

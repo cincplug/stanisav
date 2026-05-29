@@ -31,7 +31,6 @@ const Mesha = ({
   isMyMesha,
   stripesType,
   looksAround,
-  renderOrder,
   rotateSpeed,
   isMotionReduced,
 }) => {
@@ -43,13 +42,10 @@ const Mesha = ({
   const {
     meshaSize,
     eyeZ,
-    eyeX,
     eyeY,
     eyeSize,
     noseSize,
     earSize,
-    tension,
-    friction,
     axis,
     switchDuration,
   } = controls;
@@ -120,7 +116,7 @@ const Mesha = ({
     stripesType,
   );
 
-  useThrottledFrame(({ clock, camera }) => {
+  useThrottledFrame(({ clock }) => {
     if (looksAround && lookAroundRef.current && isMeshaSequenceDone) {
       const time = clock.getElapsedTime();
       const speed = rotateSpeed;

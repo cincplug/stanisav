@@ -1,14 +1,14 @@
 import {
+  FrictionIcon,
+  HueIcon,
   IrrationalityIcon,
   LightIcon,
-  RotateSpeedIcon,
-  HueIcon,
   LightnessIcon,
+  RotateSpeedIcon,
   SaturationIcon,
   SwitchDurationIcon,
-  ZoomDistanceIcon,
   TensionIcon,
-  FrictionIcon,
+  ZoomDistanceIcon,
 } from "./MenuIcons";
 
 export const thumbIconMap = {

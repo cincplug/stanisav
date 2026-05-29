@@ -1,7 +1,6 @@
-import { useRef, useEffect } from "react";
-import { useFrame } from "@react-three/fiber";
-import { useThrottledFrame } from "../../hooks/useThrottledFrame";
+import { useEffect, useRef } from "react";
 import { useAppState } from "../../contexts/AppStateContext";
+import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 
 const SceneReadyGate = ({ hasDrawableScene }) => {
   const visualReadyRef = useRef(false);

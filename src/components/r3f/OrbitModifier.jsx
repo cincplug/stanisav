@@ -1,5 +1,4 @@
-import { useFrame } from "@react-three/fiber";
-import { Vector3, Quaternion } from "three";
+import { Quaternion, Vector3 } from "three";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 
 const Z_AXIS = new Vector3(0, 0, 1);

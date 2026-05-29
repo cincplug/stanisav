@@ -1,12 +1,11 @@
-import { useMemo, useRef, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
+import { useEffect, useMemo, useRef } from "react";
 import linguisticConfig from "../../config/linguisticConfig.json";
 import { useControls } from "../../contexts/ControlsContext";
 import { useI18n } from "../../contexts/I18nContext";
-import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
-import Mesha from "../r3f/Mesha";
-import { getFeatureScore } from "../../utils/linguisticUtils";
 import { config } from "../../modules/configStore";
+import { getFeatureScore } from "../../utils/linguisticUtils";
+import Mesha from "../r3f/Mesha";
 import "./Properties.css";
 
 const baseLinguisticProperties = {
@@ -25,11 +24,9 @@ const baseLinguisticProperties = {
 const Properties = ({
   propertyKey,
   selectedLanguageValue,
-  showsOnlySelectedLanguage,
 }) => {
   const { controls } = useControls();
-  const { t, isRtl } = useI18n();
-  const { setSelectedProperty } = useLanguageSelection();
+  const { t } = useI18n();
   const { cameraX, cameraY, cameraZ, fov, near, far } = config.camera;
   const { bgColor } = controls;
 

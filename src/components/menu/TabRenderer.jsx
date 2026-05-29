@@ -1,16 +1,11 @@
-import { useEffect } from "react";
 import { useSearch } from "../../hooks/useSearch";
-import tabsConfig from "../../config/tabsConfig.json";
 import ControlsTab from "./ControlsTab";
-import SearchTab from "./SearchTab";
-import LanguagesTab from "./LanguagesTab";
 import FiltersTab from "./FiltersTab";
+import LanguagesTab from "./LanguagesTab";
+import SearchTab from "./SearchTab";
 
 function TabRenderer({
   selectedTab,
-  setSelectedTab,
-  controls,
-  onControlChange,
   languageData,
   data,
   filters,
@@ -19,12 +14,6 @@ function TabRenderer({
 }) {
   const { searchTerm, setSearchTerm, searchResults, clearSearch } =
     useSearch(data);
-
-  const handleTabChange = (tabId) => {
-    if (tabId !== "search") {
-      clearSearch();
-    }
-  };
 
   const panelProps = (id) => ({
     id: `tabpanel-${id}`,

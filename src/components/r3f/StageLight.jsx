@@ -1,8 +1,8 @@
-import { useRef } from "react";
 import { a, useSpring } from "@react-spring/three";
 import { useThree } from "@react-three/fiber";
-import { useThrottledFrame } from "../../hooks/useThrottledFrame";
+import { useRef } from "react";
 import { useControls } from "../../contexts/ControlsContext";
+import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 import { config } from "../../modules/configStore";
 
 const { stageLight } = config;

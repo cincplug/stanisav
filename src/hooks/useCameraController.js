@@ -1,10 +1,10 @@
-import { useEffect, useRef, useCallback } from "react";
 import { useThree } from "@react-three/fiber";
+import { useCallback, useEffect, useRef } from "react";
 import { Vector3 } from "three";
-import { useLanguageSelection } from "../contexts/LanguageSelectionContext";
-import { useThrottledFrame } from "./useThrottledFrame";
 import { useControls } from "../contexts/ControlsContext";
+import { useLanguageSelection } from "../contexts/LanguageSelectionContext";
 import { config } from "../modules/configStore";
+import { useThrottledFrame } from "./useThrottledFrame";
 
 export const useCameraController = ({ languageNodes, selectedLanguage }) => {
   const { cameraFocusRequest } = useLanguageSelection();

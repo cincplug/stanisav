@@ -1,5 +1,5 @@
-import "./Overlay.css";
 import { useI18n } from "../../contexts/I18nContext";
+import "./Overlay.css";
 
 const Overlay = ({ variant = "loading" }) => {
   const { t } = useI18n();

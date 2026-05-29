@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useMemo, useState } from "react";
 import tabsConfig from "../config/tabsConfig.json";
 import { getLocalizedLanguageName } from "../i18n/runtime";
 

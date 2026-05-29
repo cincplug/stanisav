@@ -1,6 +1,6 @@
 import js from "@eslint/js";
-import globals from "globals";
 import react from "eslint-plugin-react";
+import globals from "globals";
 
 export default [
   js.configs.recommended,
@@ -57,7 +57,7 @@ export default [
 
       complexity: ["warn", 20],
       "max-depth": ["warn", 5],
-      "max-lines-per-function": ["warn", 300],
+      "max-lines-per-function": ["warn", 400],
       "max-params": ["warn", 10],
     },
   },
@@ -75,7 +75,7 @@ export default [
       "no-unused-vars": [
         "warn",
         {
-          varsIgnorePattern: "^React$|^[A-Z]",
+          varsIgnorePattern: "^React$|^[A-Z]|^a$",
           argsIgnorePattern: "^_",
         },
       ],

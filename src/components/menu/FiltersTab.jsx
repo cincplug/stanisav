@@ -1,35 +1,34 @@
 import React, {
+  useCallback,
+  useEffect,
   useMemo,
   useRef,
-  useCallback,
   useState,
-  useEffect,
 } from "react";
+import { useI18n } from "../../contexts/I18nContext";
+import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
+import { usePlaylist } from "../../contexts/PlaylistContext";
 import {
-  getFeatureValues,
   filterLanguagesByFeatures,
+  getFeatureValues,
 } from "../../utils/filteringUtils";
 import {
   getAllFeatures,
-  getFeatureName,
-  getFeatureLabel,
   getFeatureDescription,
-  isPropertyDescribed,
+  getFeatureLabel,
+  isPropertyDescribed
 } from "../../utils/linguisticUtils";
 import { sortFeatureValues } from "../../utils/sortingUtils";
-import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
-import { usePlaylist } from "../../contexts/PlaylistContext";
-import { useI18n } from "../../contexts/I18nContext";
-import Tooltip from "./ux/Tooltip";
-import Properties from "./Properties";
+import "./FiltersTab.css";
 import LanguageTree from "./LanguageTree";
 import { ZoomDistanceIcon } from "./MenuIcons";
-import "./FiltersTab.css";
+import Properties from "./Properties";
+import Tooltip from "./ux/Tooltip";
 
 function FiltersTab({ data, languageColors = {} }) {
   const { viewAllLanguages, selectedLanguage } = useLanguageSelection();
   const { pausePlaylist, startFromLanguage } = usePlaylist();
-  const { filters, updateFilters, selectedProperty, setSelectedProperty } =
+  const { filters, updateFilters } =
     useLanguageSelection();
 
   const features = getAllFeatures();

@@ -1,7 +1,7 @@
-const iconColor = "#fff";
+const iconColor = "var(--color-4)";
 const iconSize = 24;
 const viewBox = `0 0 ${iconSize} ${iconSize}`;
-const strokeWidth = 1.5;
+const strokeWidth = "var(--border-width-thin)";
 
 export const StopIcon = (props) => (
   <svg

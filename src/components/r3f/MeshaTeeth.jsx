@@ -1,5 +1,5 @@
-import { useRef, useMemo } from "react";
-import { extend, useFrame } from "@react-three/fiber";
+import { extend } from "@react-three/fiber";
+import { useMemo, useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useEntrance } from "../../contexts/EntranceContext";
@@ -10,7 +10,6 @@ import {
 } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { createToothShape } from "../../utils/shapeUtils.js";
-import { config } from "../../modules/configStore";
 
 extend({ ParametricGeometry });
 
@@ -54,9 +53,8 @@ const MeshaTeeth = ({
     });
   }, [toothCount, consonantClusterSize]);
 
-  const deltaAccRef = useRef(0);
 
-  useThrottledFrame((_, delta) => {
+  useThrottledFrame(() => {
     if (teethRefs.current) {
       const { harmonicsData } = audioData;
       const count = teethRefs.current.length;

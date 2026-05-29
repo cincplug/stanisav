@@ -1,12 +1,11 @@
-import { useMemo, useRef } from "react";
+import { useMemo } from "react";
 import { Color } from "three";
-import { useFrame } from "@react-three/fiber";
+import { config } from "../modules/configStore";
 import {
+  highlightFragmentShader,
   meshVertexShader,
   tonalityFragmentShader,
-  highlightFragmentShader,
 } from "../shaders/shader";
-import { config } from "../modules/configStore";
 import { useThrottledFrame } from "./useThrottledFrame";
 
 const { currentColor } = config.colors;

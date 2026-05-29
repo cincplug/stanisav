@@ -1,5 +1,4 @@
-import { createContext, useContext, useEffect, useRef, useState } from "react";
-import { useSpring } from "@react-spring/three";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useAppState } from "./AppStateContext";
 import { useControls } from "./ControlsContext";
 import { config } from "../modules/configStore";

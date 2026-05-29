@@ -1,21 +1,12 @@
+import { useI18n } from "../../contexts/I18nContext";
 import { CloseIcon } from "./MenuIcons";
 import "./SearchTab.css";
-import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
-import { usePlaylist } from "../../contexts/PlaylistContext";
-import { useI18n } from "../../contexts/I18nContext";
 
 function SearchBox({ searchTerm, setSearchTerm, clearSearch }) {
-  const { viewAllLanguages } = useLanguageSelection();
-  const { pausePlaylist } = usePlaylist();
   const { t } = useI18n();
 
   const handleClear = () => {
     clearSearch();
-  };
-
-  const handleViewAll = () => {
-    pausePlaylist();
-    viewAllLanguages();
   };
 
   return (

@@ -36,7 +36,7 @@ function App() {
   const languageColors = useLanguageColors(
     data?.languageData,
     data?.languageLineages,
-    controls,
+    controls
   );
 
   useEffect(() => {

@@ -1,5 +1,5 @@
-import { useRef, useMemo } from "react";
-import { extend, useFrame } from "@react-three/fiber";
+import { extend } from "@react-three/fiber";
+import { useMemo, useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useAudioData } from "../../hooks/useAudioData.js";
@@ -65,12 +65,11 @@ const MeshaMoustache = ({
     return result;
   }, [tuftCount, eyeX, eyeZ, y, z]);
 
-  useThrottledFrame(({ camera }) => {
+  useThrottledFrame(() => {
     const audioBandData = audioData[audioBand];
 
     tuftsRef.current.forEach((tuftGroup, i) => {
       if (!tuftGroup) return;
-      const tuft = tuftDataRef.current[i];
       const bandIndex = Math.floor(
         (Math.abs(Math.cos((i / tuftCount) * Math.PI * 2)) *
           audioBandData.length) /

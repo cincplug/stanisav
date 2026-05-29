@@ -1,16 +1,15 @@
 import { useState } from "react";
+import tabsConfig from "../../config/tabsConfig.json";
 import { useControls } from "../../contexts/ControlsContext";
 import { useI18n } from "../../contexts/I18nContext";
-import { usePlaylist } from "../../contexts/PlaylistContext";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
-import { BurgerIcon, CloseIcon } from "./MenuIcons";
-import tabsConfig from "../../config/tabsConfig.json";
 import ControlItemGroup from "./ControlItemGroup";
-import TabNavigation from "./TabNavigation";
-import TabRenderer from "./TabRenderer";
-import Playlist from "./Playlist";
 import LocaleLinks from "./LocaleLinks";
 import "./Menu.css";
+import { BurgerIcon, CloseIcon } from "./MenuIcons";
+import Playlist from "./Playlist";
+import TabNavigation from "./TabNavigation";
+import TabRenderer from "./TabRenderer";
 
 function Menu({
   onControlChange,
@@ -18,7 +17,6 @@ function Menu({
   isLoading,
   isExpanded,
   onToggleMenu,
-  onToggleSegmentation,
   filters,
   onFiltersChange,
   languageColors,

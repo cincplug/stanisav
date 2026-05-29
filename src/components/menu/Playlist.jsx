@@ -1,17 +1,16 @@
 import { useEffect } from "react";
-import { usePlaylist } from "../../contexts/PlaylistContext";
 import { useControls } from "../../contexts/ControlsContext";
-import {
-  PlayIcon,
-  PauseIcon,
-  BeginIcon,
-  PrevIcon,
-  NextIcon,
-  LoopIcon,
-  StopIcon,
-} from "./MenuIcons";
 import { useI18n } from "../../contexts/I18nContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
+import { usePlaylist } from "../../contexts/PlaylistContext";
+import {
+  LoopIcon,
+  NextIcon,
+  PauseIcon,
+  PlayIcon,
+  PrevIcon,
+  StopIcon
+} from "./MenuIcons";
 import "./Playlist.css";
 
 export default function Playlist() {

@@ -1,9 +1,9 @@
-import Select from "./ux/Select";
 import { useI18n } from "../../contexts/I18nContext";
 import { useMediaQuery } from "../../hooks/useMediaQuery.js";
 import * as MenuIcons from "./MenuIcons";
-import Range from "./ux/Range.jsx";
 import { thumbIconMap } from "./thumbIconMap.js";
+import Range from "./ux/Range.jsx";
+import Select from "./ux/Select";
 
 const ControlItem = ({
   control,

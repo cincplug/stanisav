@@ -1,12 +1,12 @@
 import { Vector3 } from "three";
+import { config } from "../modules/configStore";
+import { getSpeakerGroup } from "../utils/groupingUtils";
+import { getLanguageLabel } from "../utils/linguisticUtils";
 import {
-  sortLanguages,
   comparePath,
   getLineagePathForKey,
+  sortLanguages,
 } from "../utils/sortingUtils";
-import { getLanguageLabel } from "../utils/linguisticUtils";
-import { getSpeakerGroup } from "../utils/groupingUtils";
-import { config } from "../modules/configStore";
 
 const { sphereRadius } = config.layout;
 const { entranceSpiralAxis } = config.entrance;
@@ -59,7 +59,7 @@ class LayoutEngine {
       axis,
     } = controls;
 
-    const { buildPoint, poleOf, equatorialOf } =
+    const { buildPoint } =
       spiralAxis[axis] ?? spiralAxis.y;
     const { poleOf: entrancePoleOf, equatorialOf: entranceEquatorialOf } =
       spiralAxis[entranceSpiralAxis] ?? spiralAxis[axis];
