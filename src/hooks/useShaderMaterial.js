@@ -8,19 +8,6 @@ import {
 } from "../shaders/shader";
 import { useThrottledFrame } from "./useThrottledFrame";
 
-const { currentColor } = config.colors;
-const {
-  shaderAmbient,
-  shaderLightingMin,
-  shaderLightingMax,
-  shaderLightingDiffuse,
-  shaderShadeChecker,
-  shaderShadeStripe,
-  shaderCheckerFrequency,
-  shaderRingCount,
-  shaderRingSpeed,
-} = config.shader;
-
 // ─── Tonality / skin material ─────────────────────────────────────────────────
 
 export const useShaderMaterial = (
@@ -39,13 +26,13 @@ export const useShaderMaterial = (
         uAccentColor: { value: accentColorObj },
         uStripesType: { value: stripesType },
         uAccentOpacity: { value: 1.0 },
-        uAmbient: { value: shaderAmbient },
-        uLightingMin: { value: shaderLightingMin },
-        uLightingMax: { value: shaderLightingMax },
-        uLightingDiffuseScale: { value: shaderLightingDiffuse },
-        uShadeChecker: { value: shaderShadeChecker },
-        uShadeStripe: { value: shaderShadeStripe },
-        uCheckerFrequency: { value: shaderCheckerFrequency },
+        uAmbient: { value: config.shader.shaderAmbient },
+        uLightingMin: { value: config.shader.shaderLightingMin },
+        uLightingMax: { value: config.shader.shaderLightingMax },
+        uLightingDiffuseScale: { value: config.shader.shaderLightingDiffuse },
+        uShadeChecker: { value: config.shader.shaderShadeChecker },
+        uShadeStripe: { value: config.shader.shaderShadeStripe },
+        uCheckerFrequency: { value: config.shader.shaderCheckerFrequency },
       },
       vertexShader: meshVertexShader,
       fragmentShader: tonalityFragmentShader,
@@ -55,20 +42,28 @@ export const useShaderMaterial = (
     [baseColorObj, accentColorObj, stripesType],
   );
 
+  // Sync shader uniforms from config each frame so advanced control edits reflect live
+  useThrottledFrame(() => {
+    material.uniforms.uAmbient.value = config.shader.shaderAmbient;
+    material.uniforms.uLightingMin.value = config.shader.shaderLightingMin;
+    material.uniforms.uLightingMax.value = config.shader.shaderLightingMax;
+    material.uniforms.uLightingDiffuseScale.value = config.shader.shaderLightingDiffuse;
+    material.uniforms.uShadeChecker.value = config.shader.shaderShadeChecker;
+    material.uniforms.uShadeStripe.value = config.shader.shaderShadeStripe;
+    material.uniforms.uCheckerFrequency.value = config.shader.shaderCheckerFrequency;
+  });
+
   return material;
 };
 
 // ─── Highlight material ───────────────────────────────────────────────────────
-// Concentric expanding rings in currentColor. Pass stripesType so tongue/ears
-// keep their tonality stripes visible on top of the highlight pattern.
 
 export const useHighlightMaterial = (stripesType = 0, side = 2) => {
-  const ringColor = useMemo(() => new Color(currentColor), []);
-  // Mild shade: darken by shaderShadeChecker factor (reuse same scale as checker)
+  const ringColor = useMemo(() => new Color(config.colors.currentColor), []);
   const ringColorShade = useMemo(
     () =>
-      new Color(currentColor).multiplyScalar(
-        (shaderShadeChecker + shaderShadeStripe) / 2,
+      new Color(config.colors.currentColor).multiplyScalar(
+        (config.shader.shaderShadeChecker + config.shader.shaderShadeStripe) / 2,
       ),
     [],
   );
@@ -80,13 +75,13 @@ export const useHighlightMaterial = (stripesType = 0, side = 2) => {
         uRingColorShade: { value: ringColorShade },
         uStripesType: { value: stripesType },
         uTime: { value: 0 },
-        uAmbient: { value: shaderAmbient },
-        uLightingMin: { value: shaderLightingMin },
-        uLightingMax: { value: shaderLightingMax },
-        uLightingDiffuseScale: { value: shaderLightingDiffuse },
-        uShadeStripe: { value: shaderShadeStripe },
-        uRingCount: { value: shaderRingCount },
-        uRingSpeed: { value: shaderRingSpeed },
+        uAmbient: { value: config.shader.shaderAmbient },
+        uLightingMin: { value: config.shader.shaderLightingMin },
+        uLightingMax: { value: config.shader.shaderLightingMax },
+        uLightingDiffuseScale: { value: config.shader.shaderLightingDiffuse },
+        uShadeStripe: { value: config.shader.shaderShadeStripe },
+        uRingCount: { value: config.shader.shaderRingCount },
+        uRingSpeed: { value: config.shader.shaderRingSpeed },
       },
       vertexShader: meshVertexShader,
       fragmentShader: highlightFragmentShader,
@@ -96,9 +91,16 @@ export const useHighlightMaterial = (stripesType = 0, side = 2) => {
     [stripesType],
   );
 
-  // Update uTime each frame so rings animate
+  // Sync uTime for ring animation and shader uniforms from config for live advanced edits
   useThrottledFrame(({ clock }) => {
     material.uniforms.uTime.value = clock.getElapsedTime();
+    material.uniforms.uAmbient.value = config.shader.shaderAmbient;
+    material.uniforms.uLightingMin.value = config.shader.shaderLightingMin;
+    material.uniforms.uLightingMax.value = config.shader.shaderLightingMax;
+    material.uniforms.uLightingDiffuseScale.value = config.shader.shaderLightingDiffuse;
+    material.uniforms.uShadeStripe.value = config.shader.shaderShadeStripe;
+    material.uniforms.uRingCount.value = config.shader.shaderRingCount;
+    material.uniforms.uRingSpeed.value = config.shader.shaderRingSpeed;
   });
 
   return material;
