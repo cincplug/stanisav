@@ -1,24 +1,24 @@
-import { useRef, useMemo, useEffect } from "react";
-import { extend } from "@react-three/fiber";
 import { a, useSpring } from "@react-spring/three";
+import { extend } from "@react-three/fiber";
+import { useEffect, useMemo, useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
-import { config } from "../../modules/configStore";
-import microphoneService from "../../services/microphoneService.js";
 import { useControls } from "../../contexts/ControlsContext.jsx";
-import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
 import { useEntrance } from "../../contexts/EntranceContext.jsx";
+import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
 import { useShaderMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
-import { getFeatureScoreList } from "../../utils/linguisticUtils.js";
+import { config } from "../../modules/configStore";
+import microphoneService from "../../services/microphoneService.js";
 import { shiftHue } from "../../utils/colorUtils";
-import MeshaEyes from "./MeshaEyes.jsx";
+import { getFeatureScoreList } from "../../utils/linguisticUtils.js";
 import MeshaEar from "./MeshaEars.jsx";
-import MeshaTongue from "./MeshaTongue.jsx";
+import MeshaEyes from "./MeshaEyes.jsx";
+import MeshaLight from "./MeshaLight.jsx";
+import MeshaMoustache from "./MeshaMoustache.jsx";
 import MeshaNose from "./MeshaNose.jsx";
 import MeshaTeeth from "./MeshaTeeth.jsx";
-import MeshaMoustache from "./MeshaMoustache.jsx";
-import MeshaLight from "./MeshaLight.jsx";
+import MeshaTongue from "./MeshaTongue.jsx";
 import SpeechBalloon from "./SpeechBalloon";
 
 extend({ ParametricGeometry });
@@ -116,12 +116,12 @@ const Mesha = ({
     stripesType,
   );
 
-  useThrottledFrame(({ clock }) => {
+  useThrottledFrame(({ clock, camera }) => {
     if (looksAround && lookAroundRef.current && isMeshaSequenceDone) {
       const time = clock.getElapsedTime();
       const speed = rotateSpeed;
       const rotation = time * speed;
-
+      groupRef.current.lookAt(camera.position);
       lookAroundRef.current.rotation[axis] = rotation;
       lookAroundRotationRef.current = rotation;
     }

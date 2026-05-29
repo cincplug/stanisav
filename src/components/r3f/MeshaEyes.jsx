@@ -77,7 +77,11 @@ const Eye = ({
         {isSelectedOuter ? (
           <shaderMaterial args={[highlightMaterial]} />
         ) : (
-          <meshBasicMaterial color="#e7ebef" />
+          <meshBasicMaterial
+            color="#e7ebef"
+            depthTest={false}
+            transparent={true}
+          />
         )}
       </mesh>
 
@@ -109,7 +113,7 @@ const Eye = ({
         />
       </mesh>
 
-      <group ref={lidPivotRef} position={[0, 0, eyeSize]} renderOrder={3}>
+      <group ref={lidPivotRef} position={[0, 0, eyeSize]} renderOrder={2}>
         <mesh position={[0, eyeSize / 2, 0]} scale={[1, 0.5, 1]}>
           <sphereGeometry
             args={[eyeSize, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2]}

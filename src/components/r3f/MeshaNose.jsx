@@ -22,7 +22,6 @@ const MeshaNose = ({
   const { pupilSize } = controls;
   const highlightMaterial = useHighlightMaterial(0, 2);
 
-
   useThrottledFrame(() => {
     if (!segmentARef.current || !segmentBRef.current || !segmentCRef.current)
       return;
@@ -39,7 +38,7 @@ const MeshaNose = ({
   if (!revealedParts.has("nose")) return null;
 
   return (
-    <group ref={groupRef} position={position} scale={scale}>
+    <group ref={groupRef} position={position} scale={scale} renderOrder={2}>
       <mesh
         ref={segmentARef}
         scale={1}
@@ -52,7 +51,12 @@ const MeshaNose = ({
         {isSelectedOuter ? (
           <shaderMaterial args={[highlightMaterial]} />
         ) : (
-          <meshBasicMaterial color={segmentColors[0]} side={2} />
+          <meshBasicMaterial
+            color={segmentColors[0]}
+            side={2}
+            depthTest={false}
+            transparent={true}
+          />
         )}
       </mesh>
 
@@ -68,7 +72,12 @@ const MeshaNose = ({
         {isSelectedInner ? (
           <shaderMaterial args={[highlightMaterial]} />
         ) : (
-          <meshBasicMaterial color={segmentColors[1]} side={2} />
+          <meshBasicMaterial
+            color={segmentColors[1]}
+            side={2}
+            depthTest={false}
+            transparent={true}
+          />
         )}
       </mesh>
 
@@ -79,11 +88,13 @@ const MeshaNose = ({
         {isSelectedInner ? (
           <shaderMaterial args={[highlightMaterial]} />
         ) : (
-          <meshStandardMaterial
+          <meshBasicMaterial
             color={segmentColors[2]}
             side={2}
             metalness={0.7}
             roughness={0.4}
+            depthTest={false}
+            transparent={true}
           />
         )}
       </mesh>
