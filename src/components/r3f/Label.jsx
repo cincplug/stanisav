@@ -1,17 +1,16 @@
-import { useCallback, useMemo, useRef } from "react";
 import { useSpring } from "@react-spring/three";
-import { useFrame } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
+import { useCallback, useMemo, useRef } from "react";
 import { MeshStandardMaterial } from "three";
+import { useAppState } from "../../contexts/AppStateContext.jsx";
 import { useControls } from "../../contexts/ControlsContext.jsx";
+import { useEntrance } from "../../contexts/EntranceContext.jsx";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
 import { usePlaylist } from "../../contexts/PlaylistContext.jsx";
-import { useAppState } from "../../contexts/AppStateContext.jsx";
-import { useEntrance } from "../../contexts/EntranceContext.jsx";
-import { calculateRadialOffset } from "../../utils/sceneUtils.js";
-import { getLanguageLabel } from "../../utils/linguisticUtils.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { config } from "../../modules/configStore";
+import { getLanguageLabel } from "../../utils/linguisticUtils.js";
+import { calculateRadialOffset } from "../../utils/sceneUtils.js";
 
 const Label = ({
   languageCode,
@@ -55,8 +54,7 @@ const Label = ({
     [position],
   );
 
-  const { getLabelSpringProps, isEntranceComplete, setIsEntranceComplete } =
-    useEntrance();
+  const { getLabelSpringProps } = useEntrance();
   const {
     startPosition,
     finalPosition: springFinalPosition,

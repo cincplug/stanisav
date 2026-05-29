@@ -2,7 +2,6 @@ import { useMemo, useRef, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useControls } from "../../contexts/ControlsContext";
-import { useAppState } from "../../contexts/AppStateContext";
 import { useI18n } from "../../contexts/I18nContext";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { useEntrance } from "../../contexts/EntranceContext";
@@ -26,8 +25,7 @@ import SceneReadyGate from "./SceneReadyGate";
 
 const Stage = ({ onDataLoaded, onLoadingChange, languageColors }) => {
   const { controls } = useControls();
-  const { isSceneReady } = useAppState();
-  const { locale, isLocaleReady, isRtl } = useI18n();
+  const { locale, isLocaleReady } = useI18n();
   const { filters, selectedLanguage } = useLanguageSelection();
   const {
     isMeshaSequenceDone,
@@ -48,17 +46,14 @@ const Stage = ({ onDataLoaded, onLoadingChange, languageColors }) => {
     isSegmented,
     irrationality,
     axis,
-    zoomDistance,
     rotateSpeed,
     isMotionReduced,
-    meshaSize,
   } = controls;
 
   const orbitControlsRef = useRef();
 
   const { rotateSpeedFactor } = config;
   const { radialOffsetModifier, sphereRadius } = config.layout;
-  const { entranceDuration, labelRevealDuration } = config.entrance;
 
   const languageData = data?.languageData || {};
   const { languageCodes, languageLineages, speakerData, typologicalFeatures } =
@@ -214,7 +209,7 @@ const Stage = ({ onDataLoaded, onLoadingChange, languageColors }) => {
         orbitControlsRef={orbitControlsRef}
         axis={axis}
         speed={
-          !!selectedLanguage
+          selectedLanguage
             ? rotateSpeed * rotateSpeedFactor.scene.zoomed
             : rotateSpeed * rotateSpeedFactor.scene.initial
         }
@@ -260,7 +255,7 @@ const Stage = ({ onDataLoaded, onLoadingChange, languageColors }) => {
           looksAround={true}
           renderOrder={languageCodes.length}
           rotateSpeed={
-            !!selectedLanguage
+            selectedLanguage
               ? rotateSpeed * rotateSpeedFactor.mesha.zoomed
               : rotateSpeed * rotateSpeedFactor.mesha.initial
           }

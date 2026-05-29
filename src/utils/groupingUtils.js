@@ -123,7 +123,7 @@ export function groupLanguages({
     }
   });
 
-  let groups = Object.values(result);
+  const groups = Object.values(result);
 
   if (linguisticConfig[sortBy]?.values) {
     groups.sort((a, b) => {

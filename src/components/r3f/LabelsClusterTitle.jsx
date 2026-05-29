@@ -1,9 +1,7 @@
-import { useRef, useMemo, useEffect } from "react";
-import { useFrame } from "@react-three/fiber";
 import { Text } from "@react-three/drei";
-import { Vector3 } from "three";
-import { getClusterTopCenter } from "../../utils/sceneUtils";
+import { useEffect, useMemo, useRef } from "react";
 import { config } from "../../modules/configStore";
+import { getClusterTopCenter } from "../../utils/sceneUtils";
 
 const LabelsClusterTitle = ({ languagePositions, title }) => {
   const titleRef = useRef();

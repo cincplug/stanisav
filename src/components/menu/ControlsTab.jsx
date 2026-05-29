@@ -1,12 +1,11 @@
-import { useRef, useEffect } from "react";
-import { useControls } from "../../contexts/ControlsContext";
-import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
-import { advancedConfigGroups } from "../../modules/configStore";
+import { useEffect, useRef } from "react";
 import controlsConfig from "../../config/controls.json";
+import { useControls } from "../../contexts/ControlsContext";
+import { advancedConfigGroups } from "../../modules/configStore";
 import { formatCamelCase } from "../../utils/stringUtils";
 import ControlItemGroup from "./ControlItemGroup";
-import Range from "./ux/Range";
 import "./ControlsTab.css";
+import Range from "./ux/Range";
 
 const advancedRangeFactor = 5;
 const advancedRangeStep = 0.1;
@@ -20,7 +19,7 @@ const ControlsTab = ({ className }) => {
     isAdvancedOpen,
     toggleAdvanced,
   } = useControls();
-  const { selectedLanguage } = useLanguageSelection();
+
   const advancedRef = useRef();
 
   useEffect(() => {

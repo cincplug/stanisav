@@ -1,7 +1,6 @@
-import linguisticConfig from "../config/linguisticConfig.json";
 import lineages from "../config/lineages.json";
-import { translate } from "../i18n/runtime";
-import { getLocalizedLanguageName } from "../i18n/runtime";
+import linguisticConfig from "../config/linguisticConfig.json";
+import { getLocalizedLanguageName, translate } from "../i18n/runtime";
 import { getFamilyLabel } from "./i18nUtils";
 
 /**

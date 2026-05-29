@@ -1,16 +1,16 @@
-import { useControls } from "../../contexts/ControlsContext";
-import controlsConfig from "../../config/controls.json";
-import { localizeControlConfig } from "../../utils/i18nUtils";
 import { useLayoutEffect, useRef } from "react";
-import Range from "./ux/Range";
-import { thumbIconMap } from "./thumbIconMap";
+import controlsConfig from "../../config/controls.json";
+import { useControls } from "../../contexts/ControlsContext";
+import { localizeControlConfig } from "../../utils/i18nUtils";
 import "./Flowers.css";
+import { thumbIconMap } from "./thumbIconMap";
+import Range from "./ux/Range";
 
 const Flowers = ({ selectedLanguage }) => {
+  if (selectedLanguage) return null;
+
   const { controls, updateControl } = useControls();
   const containerRef = useRef(null);
-
-  const groupsWhenZoomed = ["Mesha", "Camera", "Motion"];
 
   const rangeControls = Object.entries(controlsConfig)
 
@@ -31,7 +31,7 @@ const Flowers = ({ selectedLanguage }) => {
   return (
     <div ref={containerRef} className="flowers">
       {rangeControls.map((control, i) => {
-        const { id, type, label, min, max, step } = control;
+        const { id, label, min, max, step } = control;
         return (
           <div key={id} className="flower-stem" style={{ "--i": i + 1 }}>
             <Range

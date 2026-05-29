@@ -1,16 +1,16 @@
 import { useEffect } from "react";
+import "./App.css";
+import Flowers from "./components/menu/Flowers";
+import IdCard from "./components/menu/IdCard";
 import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
-import IdCard from "./components/menu/IdCard";
-import Flowers from "./components/menu/Flowers";
 import { useAppState } from "./contexts/AppStateContext";
-import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
 import { useControls } from "./contexts/ControlsContext";
+import { useI18n } from "./contexts/I18nContext";
+import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
 import { usePlaylist } from "./contexts/PlaylistContext";
 import { useLanguageColors } from "./hooks/useLanguageColors";
-import { useI18n } from "./contexts/I18nContext";
 import { useMediaQuery } from "./hooks/useMediaQuery.js";
-import "./App.css";
 
 function App() {
   const { isRtl } = useI18n();
@@ -20,7 +20,6 @@ function App() {
     isSceneReady,
     filters,
     setData,
-    setIsSceneReady,
     setIsLoading,
     setNodes,
     setFilters,
@@ -31,7 +30,7 @@ function App() {
   const { controls, updateControl } = useControls();
   const { selectedLanguage } = useLanguageSelection();
   const { pausePlaylist } = usePlaylist();
-  const { isIdCardVisible, isMenuExpanded, isSegmented, labelSize } = controls;
+  const { isIdCardVisible, isMenuExpanded, isSegmented } = controls;
   const { sampleUrl, sub } = data?.languageData[selectedLanguage] || {};
 
   const languageColors = useLanguageColors(

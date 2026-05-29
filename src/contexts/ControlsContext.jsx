@@ -1,10 +1,10 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import controlsConfig from "../config/controls.json";
-import { isLowEnd } from "../utils/deviceUtils";
 import {
-  applyAdvancedOverrides,
   advancedConfigEntries,
+  applyAdvancedOverrides,
 } from "../modules/configStore";
+import { isLowEnd } from "../utils/deviceUtils";
 
 const getDefaultValues = () => {
   const defaults = {};
