@@ -1,5 +1,5 @@
 import { getFeatureScore, isNumericFeature } from "./linguisticUtils";
-import { getLanguageLabel } from "./languageDisplayUtils";
+import { getLanguageLabel } from "./linguisticUtils";
 import { getLocalizedLanguageName } from "../i18n/runtime";
 import lineages from "../config/lineages.json";
 

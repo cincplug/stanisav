@@ -4,8 +4,8 @@ import {
   comparePath,
   getLineagePathForKey,
 } from "../utils/sortingUtils";
-import { getLanguageLabel } from "../utils/languageDisplayUtils";
-import { getSpeakerGroup } from "../utils/languageGroupingUtils";
+import { getLanguageLabel } from "../utils/linguisticUtils";
+import { getSpeakerGroup } from "../utils/groupingUtils";
 import { config } from "../modules/configStore";
 
 const { sphereRadius } = config.layout;

@@ -5,10 +5,7 @@ import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { usePlaylist } from "../../contexts/PlaylistContext";
 import lineages from "../../config/lineages.json";
 import { getSortingData, sortLanguages } from "../../utils/sortingUtils";
-import {
-  buildLanguageTree,
-  groupLanguages,
-} from "../../utils/languageGroupingUtils";
+import { buildLanguageTree, groupLanguages } from "../../utils/groupingUtils";
 import LanguageTree from "./LanguageTree";
 
 function LanguagesTab({ languageData, isSelected, languageColors = {} }) {

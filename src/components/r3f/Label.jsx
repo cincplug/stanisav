@@ -9,7 +9,7 @@ import { usePlaylist } from "../../contexts/PlaylistContext.jsx";
 import { useAppState } from "../../contexts/AppStateContext.jsx";
 import { useEntrance } from "../../contexts/EntranceContext.jsx";
 import { calculateRadialOffset } from "../../utils/sceneUtils.js";
-import { getLanguageLabel } from "../../utils/languageDisplayUtils.js";
+import { getLanguageLabel } from "../../utils/linguisticUtils.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { config } from "../../modules/configStore";
 

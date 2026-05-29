@@ -13,7 +13,7 @@ import {
 } from "../../utils/sceneUtils";
 import { getFeatureScore } from "../../utils/linguisticUtils";
 import { getSortingData } from "../../utils/sortingUtils";
-import { groupLanguages } from "../../utils/languageGroupingUtils";
+import { groupLanguages } from "../../utils/groupingUtils";
 import { LayoutEngine } from "../../modules/layoutEngine";
 import lineages from "../../config/lineages.json";
 import { config } from "../../modules/configStore";

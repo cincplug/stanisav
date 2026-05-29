@@ -1,26 +1,26 @@
 import linguisticConfig from "../config/linguisticConfig.json";
 import lineages from "../config/lineages.json";
 import { translate } from "../i18n/runtime";
+import { getLocalizedLanguageName } from "../i18n/runtime";
 import { getFamilyLabel } from "./i18nUtils";
 
 /**
  * Linguistic Configuration Utility
- * Functions for accessing linguistic feature metadata
+ * Functions for accessing linguistic feature metadata, language display, and lineage traversal
  */
 
-// Get all available linguistic features from config
+// --- Feature metadata ---
+
 export const getLinguisticFeatures = () => {
   return Object.entries(linguisticConfig)
-    .filter(([_, config]) => config.values) // Only features with values object
+    .filter(([_, config]) => config.values)
     .map(([key]) => ({
       key,
       label: translate(`linguistic.${key}.name`),
     }));
 };
 
-// Get feature label from config
 export const getFeatureLabel = (feature, value) => {
-  // Special handling for family - just return the name as-is
   if (feature === "family") {
     return getFamilyLabel(value);
   }
@@ -32,7 +32,6 @@ export const getFeatureLabel = (feature, value) => {
   return translate(`linguistic.${feature}.values.${value}.label`);
 };
 
-// Get feature description from config
 export const getFeatureDescription = (feature, value) => {
   const featureConfig = linguisticConfig[feature];
   if (!featureConfig?.values?.[value]?.description) {
@@ -41,7 +40,6 @@ export const getFeatureDescription = (feature, value) => {
   return translate(`linguistic.${feature}.values.${value}.description`);
 };
 
-// Get feature score from config
 export const getFeatureScore = (feature, value) => {
   const featureConfig = linguisticConfig[feature];
   if (!featureConfig?.values?.[value]) {
@@ -50,7 +48,6 @@ export const getFeatureScore = (feature, value) => {
   return featureConfig.values[value].score;
 };
 
-// Get multiple feature scores from linguistic properties
 export const getFeatureScoreList = (linguisticProperties, features) => {
   return features.reduce((scores, feature) => {
     scores[feature] = getFeatureScore(feature, linguisticProperties?.[feature]);
@@ -58,7 +55,6 @@ export const getFeatureScoreList = (linguisticProperties, features) => {
   }, {});
 };
 
-// Get feature name from config
 export const getFeatureName = (feature) => {
   const featureConfig = linguisticConfig[feature];
   if (!featureConfig) {
@@ -67,7 +63,6 @@ export const getFeatureName = (feature) => {
   return translate(`linguistic.${feature}.name`);
 };
 
-// Get all values for a feature from config
 export const getFeatureValuesFromConfig = (feature) => {
   const featureConfig = linguisticConfig[feature];
   if (!featureConfig?.values) {
@@ -76,7 +71,6 @@ export const getFeatureValuesFromConfig = (feature) => {
   return Object.keys(featureConfig.values);
 };
 
-// Get all numeric features from config (those with template property)
 export const getNumericFeatures = () => {
   return Object.entries(linguisticConfig)
     .filter(([_, config]) => config.template)
@@ -86,13 +80,11 @@ export const getNumericFeatures = () => {
     }));
 };
 
-// Check if a feature is numeric (has template instead of values)
+// Single source of truth for numeric feature detection
 export const isNumericFeature = (feature) => {
-  const featureConfig = linguisticConfig[feature];
-  return featureConfig?.template !== undefined;
+  return linguisticConfig[feature]?.template !== undefined;
 };
 
-// Get all features (both categorical and numeric)
 export const getAllFeatures = () => {
   return Object.entries(linguisticConfig)
     .filter(([_, config]) => config.values || config.template || config.name)
@@ -115,6 +107,8 @@ export const isPropertyDescribed = (propertyKey) => {
   return Object.values(values).some((v) => !!v.description);
 };
 
+// --- Formatting ---
+
 export const formatNumber = (value) => new Intl.NumberFormat().format(value);
 
 export const formatSpeakers = (speakersInMillions) => {
@@ -122,6 +116,9 @@ export const formatSpeakers = (speakersInMillions) => {
   return formatNumber(Math.round(speakersInMillions * 1000000));
 };
 
+// --- Lineage ---
+
+// Returns the full ancestor chain ending with the key itself: [...ancestors, lineageKey]
 export const getLineageTrail = (lineageKey) => {
   if (!lineageKey) return [];
   const ancestors = lineages[lineageKey];
@@ -129,13 +126,35 @@ export const getLineageTrail = (lineageKey) => {
   return [...ancestors, lineageKey];
 };
 
-export function getLanguagePropertyValue(
+// --- Language data access ---
+
+export const getLanguagePropertyValue = (
   languageData,
   languageCode,
   propertyKey,
-) {
+) => {
   if (!languageData || !languageCode || !propertyKey) return undefined;
   const lang = languageData[languageCode];
   if (!lang) return undefined;
   return lang[propertyKey];
-}
+};
+
+// --- Language display (merged from linguisticUtils) ---
+
+export const getLanguageLabel = (languageCode, languageData, labelContent) => {
+  switch (labelContent) {
+    case "name":
+      return getLocalizedLanguageName(languageCode);
+    case "nativeName": {
+      const nativeName = languageData?.[languageCode]?.nativeName;
+      if (!nativeName) {
+        throw new Error(`Missing nativeName for '${languageCode}'`);
+      }
+      return nativeName;
+    }
+    case "isoCode":
+      return languageCode;
+    default:
+      throw new Error(`Unsupported labelContent '${labelContent}'`);
+  }
+};

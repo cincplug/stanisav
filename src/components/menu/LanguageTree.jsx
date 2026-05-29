@@ -1,4 +1,4 @@
-import { getLanguageLabel } from "../../utils/languageDisplayUtils";
+import { getLanguageLabel } from "../../utils/linguisticUtils";
 import { getFamilyLabel } from "../../utils/i18nUtils";
 import MiniMesha from "../r3f/MiniMesha.jsx";
 import { useMediaQuery } from "../../hooks/useMediaQuery.js";

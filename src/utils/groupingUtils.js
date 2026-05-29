@@ -1,19 +1,21 @@
 import linguisticConfig from "../config/linguisticConfig.json";
-import numericFeatures from "../config/numericFeatures.json";
 import { getFamilyLabel } from "./i18nUtils";
-import { getFeatureLabel } from "./linguisticUtils";
-import { getLanguageLabel } from "./languageDisplayUtils";
+import {
+  getFeatureLabel,
+  getLanguageLabel,
+  getLineageTrail,
+  isNumericFeature,
+} from "./linguisticUtils";
 
-export function buildLanguageTree(languageCodes, languageData, lineagesConfig) {
+export function buildLanguageTree(languageCodes, languageData) {
   const tree = {};
 
   languageCodes.forEach((langCode) => {
     const lineageKey = languageData?.[langCode]?.lineageKey;
     if (!lineageKey) return;
 
-    const lineagePath = lineagesConfig?.[lineageKey]
-      ? [...lineagesConfig[lineageKey], lineageKey]
-      : [lineageKey];
+    // getLineageTrail returns [...ancestors, lineageKey]
+    const lineagePath = getLineageTrail(lineageKey);
 
     let node = tree;
     lineagePath.forEach((level, index) => {
@@ -84,15 +86,13 @@ export function groupLanguages({
       const lineageKey = languageLineages[langCode];
       if (!lineageKey) throw new Error(`Missing lineageKey for '${langCode}'`);
 
-      let categoryKey = lineageKey;
-
-      if (!result[categoryKey]) {
-        result[categoryKey] = {
-          title: getFamilyLabel(categoryKey),
+      if (!result[lineageKey]) {
+        result[lineageKey] = {
+          title: getFamilyLabel(lineageKey),
           languages: [],
         };
       }
-      result[categoryKey].languages.push(langCode);
+      result[lineageKey].languages.push(langCode);
     });
     return Object.values(result);
   }
@@ -110,7 +110,7 @@ export function groupLanguages({
         }
         result[key].languages.push(langCode);
       });
-    } else if (numericFeatures.includes(sortBy)) {
+    } else if (isNumericFeature(sortBy)) {
       const categoryKey = languageData[langCode][sortBy];
       if (!result[categoryKey]) {
         result[categoryKey] = {
@@ -131,7 +131,7 @@ export function groupLanguages({
       const scoreB = linguisticConfig[sortBy].values[b._key]?.score ?? 0;
       return isReverse ? scoreB - scoreA : scoreA - scoreB;
     });
-  } else if (numericFeatures.includes(sortBy)) {
+  } else if (isNumericFeature(sortBy)) {
     groups.sort((a, b) => {
       const numA = Number(a._key);
       const numB = Number(b._key);
