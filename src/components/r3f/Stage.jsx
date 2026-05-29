@@ -233,8 +233,6 @@ const Stage = ({ onDataLoaded, onLoadingChange, languageColors }) => {
 
       <Camera
         languageNodes={formattedPositions}
-        data={data}
-        controls={controls}
         selectedLanguage={selectedLanguage}
       />
 

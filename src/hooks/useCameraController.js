@@ -1,31 +1,31 @@
 import { useEffect, useRef, useCallback } from "react";
-import { useThree, useFrame } from "@react-three/fiber";
+import { useThree } from "@react-three/fiber";
 import { Vector3 } from "three";
 import { useLanguageSelection } from "../contexts/LanguageSelectionContext";
 import { useThrottledFrame } from "./useThrottledFrame";
 import { useControls } from "../contexts/ControlsContext";
 import { config } from "../modules/configStore";
 
-export const useCameraController = ({
-  languageNodes,
-  data,
-  selectedLanguage,
-}) => {
+export const useCameraController = ({ languageNodes, selectedLanguage }) => {
   const { cameraFocusRequest } = useLanguageSelection();
   const { camera, controls: threeControls } = useThree();
   const { controls } = useControls();
   const { zoomDistance, switchDuration, isSegmented } = controls;
   const { cameraX, cameraY, cameraZ, fov, near, far } = config.camera;
 
-  // Holds the state for the currently running camera animation.
-  // Set to null when no animation is in progress.
-  const animationStateRef = useRef(null);
+  // Apply static projection config once on mount.
+  useEffect(() => {
+    if (!camera) return;
+    camera.fov = fov;
+    camera.near = near;
+    camera.far = far;
+    camera.updateProjectionMatrix();
+  }, [camera]);
 
+  const animationStateRef = useRef(null);
   const lastFocusedRef = useRef(null);
   const initializedViewRef = useRef(false);
 
-  // Drive camera animation inside r3f's render loop instead of a competing
-  // rAF loop. This avoids double-animation and syncs with OrbitModifier.
   useThrottledFrame(() => {
     const state = animationStateRef.current;
     if (!state) return;
@@ -71,7 +71,7 @@ export const useCameraController = ({
         startTarget: threeControls?.target?.clone() || new Vector3(),
         targetPos: targetPosition,
         lookAt: lookAtTarget,
-        startTime: null, // set on the first useFrame tick so elapsed starts at 0
+        startTime: null,
         duration: switchDuration,
       };
     },
@@ -145,8 +145,8 @@ export const useCameraController = ({
     startCameraAnimation(targetCameraPosition, center);
   }, [languageNodes, fov, camera, startCameraAnimation]);
 
-  // On first load use the configured initial position; on subsequent layout
-  // changes fit everything in view (unless a language is focused)
+  // On first load, use the configured initial position.
+  // On subsequent layout changes, fit everything in view unless a language is focused.
   useEffect(() => {
     if (!languageNodes || Object.keys(languageNodes).length === 0) return;
 
@@ -159,7 +159,7 @@ export const useCameraController = ({
     if (!selectedLanguage) {
       fitToNodes();
     }
-  }, [languageNodes]);
+  }, [languageNodes, selectedLanguage, fitToNodes, setInitialCameraPosition]);
 
   useEffect(() => {
     if (!cameraFocusRequest || !languageNodes) return;
@@ -179,11 +179,9 @@ export const useCameraController = ({
   }, [
     cameraFocusRequest,
     languageNodes,
-    data,
     focusOnLanguage,
     setInitialCameraPosition,
     fitToNodes,
-    selectedLanguage,
   ]);
 
   useEffect(() => {
@@ -192,8 +190,6 @@ export const useCameraController = ({
     lastFocusedRef.current = selectedLanguage;
     focusOnLanguage(selectedLanguage);
   }, [selectedLanguage, languageNodes, focusOnLanguage]);
-
-  return { setInitialCameraPosition, fitToNodes };
 };
 
 const calculateCameraPosition = (nodePosition, zoomDistance, isSegmented) => {
