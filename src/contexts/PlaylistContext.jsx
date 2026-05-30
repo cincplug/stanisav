@@ -25,8 +25,13 @@ export const PlaylistProvider = ({ children }) => {
     labelContent,
     isReverse,
   } = controls;
-  const { selectLanguage, filteredLanguages, filters, selectedLanguage } =
-    useLanguageSelection();
+  const {
+    selectLanguage,
+    filteredLanguages,
+    filters,
+    selectedLanguage,
+    viewAllLanguages,
+  } = useLanguageSelection();
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -174,6 +179,7 @@ export const PlaylistProvider = ({ children }) => {
           // End of playlist: stop playback
           setIsPlaying(false);
           userPausedRef.current = true;
+          viewAllLanguages();
           return index;
         }
         return nextIndex;
