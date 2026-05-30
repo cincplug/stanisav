@@ -1,6 +1,6 @@
 {
   "entrance": {
-    "entranceDuration": 20000,
+    "entranceDuration": 5000,
     "labelRevealDuration": 500,
     "meshaRevealSequence": [
       { "part": "eyes", "holdMs": 2000 },
@@ -14,7 +14,7 @@
     "entranceSpiralAxis": "z"
   },
   "segmentation": {
-    "margin": 1.1,
+    "margin": 1.2,
     "gap": 0.7,
     "titleOffset": 1.2,
     "cellSpacing": 0.12,
@@ -80,7 +80,7 @@
   },
   "speechBalloon": {
     "durationBase": 1500,
-    "durationPerCharacter": 240,
+    "durationPerCharacter": 30,
     "durationDismiss": 400
   },
   "voiceRange": {

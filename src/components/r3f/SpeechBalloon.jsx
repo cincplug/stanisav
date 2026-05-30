@@ -14,7 +14,12 @@ const SpeechBalloon = ({ anchorPosition = [0, 4, 0] }) => {
   const durationMs = durationBase + balloonText.length * durationPerCharacter;
 
   return (
-    <Html position={anchorPosition} occlude={false} zIndexRange={[0, 0]}>
+    <Html
+      key={balloonText}
+      position={anchorPosition}
+      occlude={false}
+      zIndexRange={[0, 0]}
+    >
       <div
         className="speech-balloon"
         style={{

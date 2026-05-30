@@ -33,6 +33,7 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
     skipSequence,
     isEntranceComplete,
     setIsEntranceComplete,
+    mentionedLanguage,
   } = useEntrance();
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
   const { cameraX, cameraY, cameraZ, fov, near, far } = config.camera;
@@ -139,7 +140,8 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
     }
   }, [selectedLanguage, isSegmented]);
 
-  const meshaLanguageCode = selectedLanguage || sortedLanguageCodes[0];
+  const meshaLanguageCode =
+    selectedLanguage || mentionedLanguage || sortedLanguageCodes[0];
 
   const meshaPosition = useMemo(() => {
     if (selectedLanguage && formattedPositions[selectedLanguage]) {

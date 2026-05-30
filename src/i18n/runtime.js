@@ -2,11 +2,13 @@
 const messageLoaders = import.meta.glob("./messages/*.json");
 const languageNameLoaders = import.meta.glob("./language-names/*.json");
 const lineageLabelLoaders = import.meta.glob("./lineage-labels/*.json");
+const entranceStepLoaders = import.meta.glob("./entrance/*.json");
 
 // Eagerly load the default locale so the app renders immediately
-import defaultMessages from "./messages/eng.json";
+import defaultEntranceSteps from "./entrance/eng.json";
 import defaultLanguageNames from "./language-names/eng.json";
 import defaultLineageLabels from "./lineage-labels/eng.json";
+import defaultMessages from "./messages/eng.json";
 
 // Extract supported locale codes from the file system (Vite resolves at build time)
 const extractCode = (path) => path.match(/\/(\w+)\.json$/)[1];
@@ -18,19 +20,28 @@ export const getSupportedLocales = () =>
 const messagesByLocale = { eng: defaultMessages };
 const languageNamesByLocale = { eng: defaultLanguageNames };
 const lineageLabelsByLocale = { eng: defaultLineageLabels };
+const entranceStepsByLocale = { eng: defaultEntranceSteps };
 
 const loadLocaleData = async (locale) => {
   if (messagesByLocale[locale]) return;
 
-  const [messages, languageNames, lineageLabels] = await Promise.all([
-    messageLoaders[`./messages/${locale}.json`](),
-    languageNameLoaders[`./language-names/${locale}.json`](),
-    lineageLabelLoaders[`./lineage-labels/${locale}.json`](),
-  ]);
+  const entranceLoader = entranceStepLoaders[`./entrance/${locale}.json`];
+
+  const [messages, languageNames, lineageLabels, entranceSteps] =
+    await Promise.all([
+      messageLoaders[`./messages/${locale}.json`](),
+      languageNameLoaders[`./language-names/${locale}.json`](),
+      lineageLabelLoaders[`./lineage-labels/${locale}.json`](),
+      // Fall back to eng if no entrance file exists for this locale
+      entranceLoader
+        ? entranceLoader()
+        : Promise.resolve({ default: defaultEntranceSteps }),
+    ]);
 
   messagesByLocale[locale] = messages.default;
   languageNamesByLocale[locale] = languageNames.default;
   lineageLabelsByLocale[locale] = lineageLabels.default;
+  entranceStepsByLocale[locale] = entranceSteps.default;
 };
 
 export const defaultLocale = "eng";
@@ -88,6 +99,8 @@ const interpolate = (message, params = {}) =>
 const translations = () => messagesByLocale[currentLocale];
 const localizedLanguageNames = () => languageNamesByLocale[currentLocale];
 const localizedLineageLabels = () => lineageLabelsByLocale[currentLocale];
+const localizedEntranceSteps = () =>
+  entranceStepsByLocale[currentLocale] ?? entranceStepsByLocale[defaultLocale];
 
 const getMessageByPath = (messages, key) =>
   key.split(".").reduce((current, segment) => {
@@ -165,3 +178,5 @@ export const getLocalizedLineageLabel = (lineageName) => {
 
   return label;
 };
+
+export const getEntranceSteps = () => localizedEntranceSteps();
