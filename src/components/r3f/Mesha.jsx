@@ -188,8 +188,6 @@ const Mesha = ({
           position={[0, eyeY - eyeSize, eyeZ]}
           scale={noseSize}
           segmentColors={noseSegmentColors}
-          motionIntensity={scores.wordOrderFlexibility}
-          rotationRef={lookAroundRotationRef}
           onClick={handlePropertyClick}
           isSelectedOuter={selectedProperty === "wordOrder"}
           isSelectedInner={selectedProperty === "wordOrderFlexibility"}

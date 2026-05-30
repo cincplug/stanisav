@@ -8,8 +8,6 @@ const MeshaNose = ({
   position,
   scale,
   segmentColors,
-  motionIntensity,
-  rotationRef,
   onClick,
   isSelectedOuter,
   isSelectedInner,
@@ -22,17 +20,11 @@ const MeshaNose = ({
   const { pupilSize } = controls;
   const highlightMaterial = useHighlightMaterial(0, 2);
 
-  useThrottledFrame(() => {
-    if (!segmentARef.current || !segmentBRef.current || !segmentCRef.current)
-      return;
-    const rotation = -rotationRef.current;
-    const offset = motionIntensity * rotation;
-    segmentARef.current.rotation.y = offset;
-    segmentBRef.current.rotation.z = offset;
-    segmentCRef.current.rotation.x = offset;
+  useThrottledFrame(({ camera }) => {
+    groupRef.current.lookAt(camera.position);
   });
 
-  const segments = 32;
+  const segments = 64;
 
   const { revealedParts } = useEntrance();
   if (!revealedParts.has("nose")) return null;
@@ -46,12 +38,13 @@ const MeshaNose = ({
         onClick={onClick}
       >
         <sphereGeometry
-          args={[pupilSize, segments, segments, -Math.PI / 2, Math.PI]}
+          args={[pupilSize, segments, segments, -Math.PI, Math.PI]}
         />
         {isSelectedOuter ? (
           <shaderMaterial args={[highlightMaterial]} />
         ) : (
           <meshBasicMaterial
+            wireframe={true}
             color={segmentColors[0]}
             side={2}
             depthTest={false}
@@ -73,6 +66,7 @@ const MeshaNose = ({
           <shaderMaterial args={[highlightMaterial]} />
         ) : (
           <meshBasicMaterial
+            wireframe={true}
             color={segmentColors[1]}
             side={2}
             depthTest={false}
@@ -83,16 +77,15 @@ const MeshaNose = ({
 
       <mesh ref={segmentCRef} scale={0.6} linguisticProperty="noseInner">
         <sphereGeometry
-          args={[pupilSize, segments, segments, Math.PI, Math.PI, 0, Math.PI]}
+          args={[pupilSize, segments, segments, 0, Math.PI * 2, 0, Math.PI]}
         />
         {isSelectedInner ? (
           <shaderMaterial args={[highlightMaterial]} />
         ) : (
           <meshBasicMaterial
+            wireframe={true}
             color={segmentColors[2]}
             side={2}
-            metalness={0.7}
-            roughness={0.4}
             depthTest={false}
             transparent={true}
           />
