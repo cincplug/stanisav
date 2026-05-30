@@ -1,34 +1,10 @@
-import { Canvas } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
 import linguisticConfig from "../../config/linguisticConfig.json";
-import { useControls } from "../../contexts/ControlsContext";
 import { useI18n } from "../../contexts/I18nContext";
-import { config } from "../../modules/configStore";
-import { getFeatureScore } from "../../utils/linguisticUtils";
-import Mesha from "../r3f/Mesha";
 import "./Properties.css";
 
-const baseLinguisticProperties = {
-  tonality: "non-tonal",
-  morphology: "isolating",
-  wordOrderFlexibility: "semi-flexible",
-  wordOrder: "SVO",
-  verbAspect: "simple",
-  evidentiality: "none",
-  caseCount: 0,
-  phonemeCount: 30,
-  maxConsonantClusterSize: 2,
-  nounClassCount: 0,
-};
-
-const Properties = ({
-  propertyKey,
-  selectedLanguageValue,
-}) => {
-  const { controls } = useControls();
+const Properties = ({ propertyKey, selectedLanguageValue }) => {
   const { t } = useI18n();
-  const { cameraX, cameraY, cameraZ, fov, near, far } = config.camera;
-  const { bgColor } = controls;
 
   const property = linguisticConfig[propertyKey];
   const variants = useMemo(() => Object.entries(property.values), [property]);
@@ -37,10 +13,6 @@ const Properties = ({
   const itemRefs = useRef({});
 
   const meshas = variants.map(([variantKey]) => {
-    const linguisticProperties = {
-      ...baseLinguisticProperties,
-      [propertyKey]: variantKey,
-    };
     const label = t(`linguistic.${propertyKey}.values.${variantKey}.label`);
     const description = t(
       `linguistic.${propertyKey}.values.${variantKey}.description`,
@@ -49,10 +21,6 @@ const Properties = ({
       key: `${propertyKey}-${variantKey}`,
       label,
       description,
-      color: "#ecb",
-      linguisticProperties,
-      stripesType:
-        getFeatureScore("tonality", linguisticProperties?.tonality) - 1,
       variantKey,
     };
   });
@@ -73,7 +41,7 @@ const Properties = ({
       <h2 className="properties-title">
         {t(`linguistic.${propertyKey}.name`) || property.name}
       </h2>
-      <div className="properties-items">
+      <dl className="properties-items">
         {meshas.map((mesha) => {
           const isCurrent =
             selectedLanguageValue !== undefined &&
@@ -88,35 +56,12 @@ const Properties = ({
               }}
               tabIndex={isCurrent ? -1 : undefined}
             >
-              <h3 className="properties-label">{mesha.label}</h3>
-              <div className="properties-mesha">
-                <Canvas
-                  camera={{
-                    position: [cameraX, cameraY, cameraZ],
-                    fov,
-                    near,
-                    far,
-                  }}
-                  gl={{ antialias: true, clearColor: bgColor }}
-                >
-                  <color attach="background" args={[bgColor]} />
-                  <Mesha
-                    linguisticProperties={mesha.linguisticProperties}
-                    color={mesha.color}
-                    position={[0, -5, 100]}
-                    isMyMesha={false}
-                    looksAround
-                    stripesType={mesha.stripesType}
-                    rotateSpeed={1}
-                  />
-                </Canvas>
-              </div>
-
-              <div className="properties-description">{mesha.description}</div>
+              <dt className="properties-label">{mesha.label}</dt>
+              <dd className="properties-description">{mesha.description}</dd>
             </div>
           );
         })}
-      </div>
+      </dl>
     </div>
   );
 };

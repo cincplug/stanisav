@@ -1,16 +1,12 @@
 import { Canvas } from "@react-three/fiber";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { config } from "../../modules/configStore";
-import { getFeatureScore } from "../../utils/linguisticUtils.js";
 import Mesha from "../r3f/Mesha.jsx";
 
-const MiniMesha = ({ linguisticProperties, color }) => {
+const MiniMesha = ({ languageCode }) => {
   const { controls } = useControls();
   const { cameraX, cameraY, cameraZ, fov, near, far } = config.camera;
   const { bgColor } = controls;
-
-  const stripesType =
-    getFeatureScore("tonality", linguisticProperties?.tonality) - 1;
 
   return (
     <div className="mini-mesha">
@@ -19,12 +15,10 @@ const MiniMesha = ({ linguisticProperties, color }) => {
         gl={{ antialias: true, clearColor: bgColor, alpha: true }}
       >
         <Mesha
-          linguisticProperties={linguisticProperties}
-          color={color}
+          languageCode={languageCode}
           position={[0, -3, 100]}
           isMyMesha={false}
           looksAround
-          stripesType={stripesType}
           rotateSpeed={1}
           renderOrder={1}
         />

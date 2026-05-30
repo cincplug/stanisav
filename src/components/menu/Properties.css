@@ -7,13 +7,13 @@
 
 .properties-title {
   text-align: center;
+  margin-top: 0;
 }
 
 .properties-items {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--gap-double);
-  padding: var(--gap-double);
   box-sizing: border-box;
   align-items: stretch;
 }
@@ -21,32 +21,18 @@
 .properties-item {
   display: flex;
   flex-direction: column;
-  align-items: center;
   background: var(--color-1);
   border: var(--border);
   border-radius: var(--border-radius);
-  padding: var(--gap-double);
-  gap: var(--gap-double);
+  padding: var(--gap);
+  gap: var(--gap);
   width: 100%;
   box-sizing: border-box;
   height: 100%;
-  text-align: center;
 
   &[aria-current] {
     background: var(--color-current);
   }
-}
-
-.properties-mesha {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.properties-mesha canvas {
-  width: 100%;
-  height: 100%;
-  display: block;
 }
 
 .properties-label {
@@ -54,6 +40,7 @@
   pointer-events: none;
   user-select: none;
   margin: 0;
+  text-align: left;
 }
 
 html.rtl .properties {

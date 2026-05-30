@@ -21,6 +21,7 @@ const MeshaNose = ({
   const highlightMaterial = useHighlightMaterial(0, 2);
 
   useThrottledFrame(({ camera }) => {
+    if (!groupRef.current) return;
     groupRef.current.lookAt(camera.position);
   });
 

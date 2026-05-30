@@ -1,32 +1,33 @@
-import { useMemo, useRef, useEffect } from "react";
-import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import { useEffect, useMemo, useRef } from "react";
+import lineages from "../../config/lineages.json";
 import { useControls } from "../../contexts/ControlsContext";
-import { useI18n } from "../../contexts/I18nContext";
-import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { useEntrance } from "../../contexts/EntranceContext";
+import { useI18n } from "../../contexts/I18nContext";
+import { useLanguageColors } from "../../contexts/LanguageColorsContext";
+import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
 import { useDataManager } from "../../hooks/useDataManager";
+import { config } from "../../modules/configStore";
+import { LayoutEngine } from "../../modules/layoutEngine";
+import { groupLanguages } from "../../utils/groupingUtils";
 import {
   calculateLanguageFilterStatus,
   calculateRadialOffset,
 } from "../../utils/sceneUtils";
-import { getFeatureScore } from "../../utils/linguisticUtils";
 import { getSortingData } from "../../utils/sortingUtils";
-import { groupLanguages } from "../../utils/groupingUtils";
-import { LayoutEngine } from "../../modules/layoutEngine";
-import lineages from "../../config/lineages.json";
-import { config } from "../../modules/configStore";
-import StageLight from "./StageLight";
+import Camera from "./Camera";
 import Labels from "./Labels";
 import Mesha from "./Mesha";
-import Camera from "./Camera";
 import OrbitModifier from "./OrbitModifier";
 import SceneReadyGate from "./SceneReadyGate";
+import StageLight from "./StageLight";
 
-const Stage = ({ onDataLoaded, onLoadingChange, languageColors }) => {
+const Stage = ({ onDataLoaded, onLoadingChange }) => {
   const { controls } = useControls();
   const { locale, isLocaleReady } = useI18n();
   const { filters, selectedLanguage } = useLanguageSelection();
+  const { languageColors } = useLanguageColors();
   const {
     isMeshaSequenceDone,
     skipSequence,
@@ -139,11 +140,6 @@ const Stage = ({ onDataLoaded, onLoadingChange, languageColors }) => {
   }, [selectedLanguage, isSegmented]);
 
   const meshaLanguageCode = selectedLanguage || sortedLanguageCodes[0];
-  const meshaLinguisticProperties =
-    data?.typologicalFeatures?.[meshaLanguageCode];
-  const meshaColor = languageColors[meshaLanguageCode];
-  const stripesType =
-    getFeatureScore("tonality", meshaLinguisticProperties?.tonality) - 1;
 
   const meshaPosition = useMemo(() => {
     if (selectedLanguage && formattedPositions[selectedLanguage]) {
@@ -176,6 +172,7 @@ const Stage = ({ onDataLoaded, onLoadingChange, languageColors }) => {
   const shouldShowEmptyMessage =
     hasSelectedFilters && visibleLanguages.length === 0;
 
+  const meshaColor = languageColors[meshaLanguageCode];
   const hasDrawableScene =
     Boolean(meshaColor) &&
     Object.keys(formattedPositions).length > 0 &&
@@ -247,11 +244,8 @@ const Stage = ({ onDataLoaded, onLoadingChange, languageColors }) => {
 
         <Mesha
           languageCode={meshaLanguageCode}
-          linguisticProperties={meshaLinguisticProperties}
-          color={meshaColor}
           position={meshaPosition}
           isMyMesha={isMyMesha}
-          stripesType={stripesType}
           looksAround={true}
           renderOrder={languageCodes.length}
           rotateSpeed={

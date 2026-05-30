@@ -3,15 +3,20 @@ import { extend } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
+import { useAppState } from "../../contexts/AppStateContext.jsx";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useEntrance } from "../../contexts/EntranceContext.jsx";
+import { useLanguageColors } from "../../contexts/LanguageColorsContext.jsx";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
 import { useShaderMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { config } from "../../modules/configStore";
 import microphoneService from "../../services/microphoneService.js";
 import { shiftHue } from "../../utils/colorUtils";
-import { getFeatureScoreList } from "../../utils/linguisticUtils.js";
+import {
+  getFeatureScore,
+  getFeatureScoreList,
+} from "../../utils/linguisticUtils.js";
 import MeshaEar from "./MeshaEars.jsx";
 import MeshaEyes from "./MeshaEyes.jsx";
 import MeshaLight from "./MeshaLight.jsx";
@@ -25,11 +30,9 @@ extend({ ParametricGeometry });
 extend({ TextGeometry });
 
 const Mesha = ({
-  linguisticProperties,
-  color,
+  languageCode,
   position,
   isMyMesha,
-  stripesType,
   looksAround,
   rotateSpeed,
   isMotionReduced,
@@ -38,6 +41,8 @@ const Mesha = ({
   const lookAroundRef = useRef();
   const lookAroundRotationRef = useRef(0);
 
+  const { data } = useAppState();
+  const { languageColors } = useLanguageColors();
   const { controls } = useControls();
   const {
     meshaSize,
@@ -53,6 +58,11 @@ const Mesha = ({
     useLanguageSelection();
 
   const { isMeshaSequenceDone, isEntranceComplete } = useEntrance();
+
+  const linguisticProperties = data?.typologicalFeatures?.[languageCode];
+  const color = languageColors[languageCode];
+  const stripesType =
+    getFeatureScore("tonality", linguisticProperties?.tonality) - 1;
 
   useEffect(() => {
     if (isMyMesha) {

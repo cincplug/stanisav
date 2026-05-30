@@ -7,9 +7,9 @@ import Stage from "./components/r3f/Stage";
 import { useAppState } from "./contexts/AppStateContext";
 import { useControls } from "./contexts/ControlsContext";
 import { useI18n } from "./contexts/I18nContext";
+import { useLanguageColors } from "./contexts/LanguageColorsContext.jsx";
 import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
 import { usePlaylist } from "./contexts/PlaylistContext";
-import { useLanguageColors } from "./hooks/useLanguageColors";
 import { useMediaQuery } from "./hooks/useMediaQuery.js";
 
 function App() {
@@ -33,11 +33,7 @@ function App() {
   const { isIdCardVisible, isMenuExpanded, isSegmented } = controls;
   const { sampleUrl, sub } = data?.languageData[selectedLanguage] || {};
 
-  const languageColors = useLanguageColors(
-    data?.languageData,
-    data?.languageLineages,
-    controls
-  );
+  const { languageColors } = useLanguageColors();
 
   useEffect(() => {
     document.documentElement.style.setProperty(
@@ -73,7 +69,6 @@ function App() {
             onDataLoaded={setData}
             onLoadingChange={setIsLoading}
             onNodesReady={setNodes}
-            languageColors={languageColors}
           />
         )}
 

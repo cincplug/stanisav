@@ -17,9 +17,6 @@ const LanguageTree = ({
 }) => {
   const isMobile = useMediaQuery();
 
-  const selectedLinguisticProperties = languageData?.[selectedLanguage];
-  const selectedColor = languageColors[selectedLanguage];
-
   if (Array.isArray(languages)) {
     return (
       <ul className="languages-in-group" role="list">
@@ -40,11 +37,7 @@ const LanguageTree = ({
                 onClick={() => onSelectLanguage(langCode)}
               >
                 {isMobile && selectedLanguage === langCode && (
-                  <MiniMesha
-                    languageCode={langCode}
-                    linguisticProperties={selectedLinguisticProperties}
-                    color={selectedColor}
-                  />
+                  <MiniMesha languageCode={langCode} />
                 )}
                 {label}
               </button>

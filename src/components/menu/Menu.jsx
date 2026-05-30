@@ -2,6 +2,7 @@ import { useState } from "react";
 import tabsConfig from "../../config/tabsConfig.json";
 import { useControls } from "../../contexts/ControlsContext";
 import { useI18n } from "../../contexts/I18nContext";
+import { useLanguageColors } from "../../contexts/LanguageColorsContext";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import ControlItemGroup from "./ControlItemGroup";
 import LocaleLinks from "./LocaleLinks";
@@ -19,9 +20,9 @@ function Menu({
   onToggleMenu,
   filters,
   onFiltersChange,
-  languageColors,
 }) {
   const { controls, updateControl } = useControls();
+  const { languageColors } = useLanguageColors();
   const { t, isRtl } = useI18n();
   const [selectedTab, setSelectedTab] = useState(tabsConfig.defaultTab);
   const isMobile = useMediaQuery("(max-width: 640px)");
