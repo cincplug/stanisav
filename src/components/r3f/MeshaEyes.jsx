@@ -58,10 +58,10 @@ const Eye = ({
       if (progress >= 1) {
         state.isBlinking = false;
         lidPivotRef.current.rotation.x = 0;
+        groupRef.current.lookAt(camera.position);
       } else {
         const phase = progress < 0.5 ? progress * 2 : (1 - progress) * 2;
         lidPivotRef.current.rotation.x = (phase * Math.PI) / 3;
-        groupRef.current.lookAt(camera.position);
       }
     } else if (Math.ceil(time) % 2 === 0) {
       groupRef.current.lookAt(camera.position);
