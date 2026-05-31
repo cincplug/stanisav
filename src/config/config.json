@@ -1,6 +1,6 @@
 {
   "entrance": {
-    "entranceDuration": 5000,
+    "labelsEntranceDuration": 5000,
     "labelRevealDuration": 500,
     "meshaRevealSequence": [
       { "part": "eyes", "holdMs": 2000 },

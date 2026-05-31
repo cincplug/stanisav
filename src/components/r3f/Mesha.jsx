@@ -105,7 +105,7 @@ const Mesha = ({
     noseColorMap[wordOrder[2]],
   ];
 
-  const { entranceDuration } = config.entrance;
+  const { labelsEntranceDuration } = config.entrance;
   const { sphereRadius } = config.layout;
 
   const targetPosition = isMeshaSequenceDone ? position : [0, 0, sphereRadius];
@@ -115,7 +115,7 @@ const Mesha = ({
     y: targetPosition[1],
     z: targetPosition[2],
     config: {
-      duration: isEntranceComplete ? switchDuration : entranceDuration,
+      duration: isEntranceComplete ? switchDuration : labelsEntranceDuration,
     },
     immediate: isMotionReduced || !isMeshaSequenceDone,
   });
@@ -131,8 +131,8 @@ const Mesha = ({
   );
 
   useThrottledFrame(({ clock, camera }) => {
-    if (looksAround && lookAroundRef.current && isMeshaSequenceDone) {
-      if (wordOrderFlexibility === "rigid") {
+    if (looksAround && lookAroundRef.current) {
+      if (wordOrderFlexibility === "rigid" || !isEntranceComplete) {
         groupRef.current.lookAt(camera.position);
         return;
       }

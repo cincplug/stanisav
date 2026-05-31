@@ -6,7 +6,7 @@ import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 import { config } from "../../modules/configStore";
 
 const { stageLight } = config;
-const { entranceDuration } = config.entrance;
+const { labelsEntranceDuration } = config.entrance;
 
 const StageLight = ({
   cameraZ,
@@ -26,7 +26,7 @@ const StageLight = ({
     from: { entranceProgress: 1 / 2 },
     to: { entranceProgress: 1 },
     config: {
-      duration: isEntranceComplete ? 0 : entranceDuration,
+      duration: isEntranceComplete ? 0 : labelsEntranceDuration,
     },
     immediate: isMotionReduced,
   });

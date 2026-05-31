@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { getEntranceSteps } from "../i18n/runtime";
 import { config } from "../modules/configStore";
 import { useAppState } from "./AppStateContext";
@@ -7,7 +7,7 @@ import { useControls } from "./ControlsContext";
 const {
   meshaRevealSequence,
   labelsRevealDelay,
-  entranceDuration,
+  labelsEntranceDuration,
   labelRevealDuration,
   startRadiusFactor,
 } = config.entrance;
@@ -23,11 +23,9 @@ const toInnerStartPosition = ([x, y, z]) => [
   z * startRadiusFactor,
 ];
 
-// Time the balloon shows before the next message replaces it
 const calculateBalloonDisplayDuration = (message) =>
   durationBase + message.length * durationPerCharacter;
 
-// Full duration including dismiss — used only after the last message
 const calculateBalloonFullDuration = (message) =>
   calculateBalloonDisplayDuration(message) + durationDismiss;
 
@@ -40,42 +38,43 @@ export const EntranceProvider = ({ children }) => {
 
   const allParts = meshaRevealSequence.map((s) => s.part);
 
+  // Ref-based cancellation flag shared between the async loop and skipSequence
+  const isSequenceCancelledRef = useRef(false);
+
   const [revealedParts, setRevealedParts] = useState(() => new Set());
   const [isMeshaSequenceDone, setIsMeshaSequenceDone] = useState(false);
-  const [isEntranceComplete, setIsEntranceComplete] = useState(false);
+  const [isLabelsSequenceDone, setIsLabelsSequenceDone] = useState(false);
+  const [isBalloonSequenceDone, setIsBalloonSequenceDone] = useState(false);
   const [mentionedLanguage, setMentionedLanguage] = useState(null);
 
-  // Reveals Mesha parts one by one according to meshaRevealSequence timings.
-  // When the nose appears, triggers the balloon sequence in parallel.
-  useEffect(() => {
-    let cancelled = false;
+  const isEntranceComplete = isLabelsSequenceDone && isBalloonSequenceDone;
 
+  useEffect(() => {
+    isSequenceCancelledRef.current = false;
     const runBalloonSequence = async () => {
       const steps = getEntranceSteps();
       for (let i = 0; i < steps.length; i++) {
-        if (cancelled) return;
+        if (isSequenceCancelledRef.current) return;
         const step = steps[i];
         const isLast = i === steps.length - 1;
         setBalloonText(step.message);
         setMentionedLanguage(step.language ?? null);
-        // Between steps: wait only the display duration so the next message
-        // replaces the balloon before dismiss plays. After the last step:
-        // wait the full duration so the balloon finishes dismissing cleanly.
         await wait(
           isLast
             ? calculateBalloonFullDuration(step.message)
             : calculateBalloonDisplayDuration(step.message),
         );
       }
-      if (!cancelled) {
+      if (!isSequenceCancelledRef.current) {
         setBalloonText("");
         setMentionedLanguage(null);
+        setIsBalloonSequenceDone(true);
       }
     };
 
     const runPartSequence = async () => {
       for (const { part, holdMs } of meshaRevealSequence) {
-        if (cancelled) return;
+        if (isSequenceCancelledRef.current) return;
         setRevealedParts((prev) => new Set([...prev, part]));
         if (part === "nose") {
           runBalloonSequence();
@@ -83,27 +82,32 @@ export const EntranceProvider = ({ children }) => {
         await wait(holdMs);
       }
       await wait(labelsRevealDelay);
-      if (!cancelled) setIsMeshaSequenceDone(true);
+      if (!isSequenceCancelledRef.current) setIsMeshaSequenceDone(true);
     };
 
     runPartSequence();
     return () => {
-      cancelled = true;
+      isSequenceCancelledRef.current = true;
     };
   }, []);
 
   useEffect(() => {
-    if (!isSceneReady || !isMeshaSequenceDone || isEntranceComplete) return;
+    if (!isSceneReady || !isMeshaSequenceDone || isLabelsSequenceDone) return;
     const timer = setTimeout(
-      () => setIsEntranceComplete(true),
-      entranceDuration,
+      () => setIsLabelsSequenceDone(true),
+      labelsEntranceDuration,
     );
     return () => clearTimeout(timer);
-  }, [isSceneReady, isEntranceComplete, isMeshaSequenceDone]);
+  }, [isSceneReady, isLabelsSequenceDone, isMeshaSequenceDone]);
 
   const skipSequence = () => {
+    isSequenceCancelledRef.current = true;
     setRevealedParts(new Set(allParts));
     setIsMeshaSequenceDone(true);
+    setIsLabelsSequenceDone(true);
+    setIsBalloonSequenceDone(true);
+    setBalloonText("");
+    setMentionedLanguage(null);
   };
 
   const getLabelSpringProps = (
@@ -114,7 +118,7 @@ export const EntranceProvider = ({ children }) => {
   ) => {
     const staggerDelay = Math.round(
       (revealOrder / Math.max(1, totalVisibleLabels - 1)) *
-        Math.max(0, entranceDuration - labelRevealDuration),
+        Math.max(0, labelsEntranceDuration - labelRevealDuration),
     );
     const delay =
       isEntranceComplete || isSegmented ? labelRevealDuration : staggerDelay;
@@ -125,7 +129,7 @@ export const EntranceProvider = ({ children }) => {
       delay,
       positionConfig: isEntranceComplete
         ? { tension, friction }
-        : { duration: entranceDuration },
+        : { duration: labelsEntranceDuration },
       revealConfig: { duration: labelRevealDuration },
     };
   };
@@ -135,11 +139,13 @@ export const EntranceProvider = ({ children }) => {
       value={{
         revealedParts,
         isMeshaSequenceDone,
+        isLabelsSequenceDone,
+        isBalloonSequenceDone,
         isEntranceComplete,
         mentionedLanguage,
         getLabelSpringProps,
         skipSequence,
-        setIsEntranceComplete,
+        setIsLabelsSequenceDone,
       }}
     >
       {children}

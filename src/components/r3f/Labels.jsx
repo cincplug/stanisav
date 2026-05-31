@@ -9,8 +9,8 @@ const Labels = ({
   languageFilterStatus,
   languageData,
   selectedLanguage,
-  isEntranceComplete,
-  setIsEntranceComplete,
+  isLabelsSequenceDone,
+  setIsLabelsSequenceDone,
 }) => {
   const { languageColors } = useLanguageColors();
   const visibleLabelCodes = Object.keys(formattedPositions).filter(
@@ -26,13 +26,13 @@ const Labels = ({
   const prevVisibleCountRef = useRef(totalVisibleLabels);
   useEffect(() => {
     if (
-      !isEntranceComplete &&
+      !isLabelsSequenceDone &&
       prevVisibleCountRef.current !== totalVisibleLabels
     ) {
-      setIsEntranceComplete(true);
+      setIsLabelsSequenceDone(true);
     }
     prevVisibleCountRef.current = totalVisibleLabels;
-  }, [totalVisibleLabels, isEntranceComplete]);
+  }, [totalVisibleLabels, isLabelsSequenceDone]);
 
   return (
     <>

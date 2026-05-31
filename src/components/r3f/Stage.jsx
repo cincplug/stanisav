@@ -32,7 +32,8 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
     isMeshaSequenceDone,
     skipSequence,
     isEntranceComplete,
-    setIsEntranceComplete,
+    isLabelsSequenceDone,
+    setIsLabelsSequenceDone,
     mentionedLanguage,
   } = useEntrance();
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
@@ -136,7 +137,6 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
   useEffect(() => {
     if ((selectedLanguage || isSegmented) && !isEntranceComplete) {
       skipSequence();
-      setIsEntranceComplete(true);
     }
   }, [selectedLanguage, isSegmented]);
 
@@ -239,8 +239,8 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
             languageColors={languageColors}
             languageData={languageData}
             selectedLanguage={selectedLanguage}
-            isEntranceComplete={isEntranceComplete}
-            setIsEntranceComplete={setIsEntranceComplete}
+            isLabelsSequenceDone={isLabelsSequenceDone}
+            setIsLabelsSequenceDone={setIsLabelsSequenceDone}
           />
         )}
 
