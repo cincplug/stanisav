@@ -6,22 +6,36 @@ import { formatCamelCase } from "../../utils/stringUtils";
 import Range from "./ux/Range";
 
 const AdvancedControls = () => {
-  const { advancedControls, updateAdvancedControl, isAdvancedOpen, toggleAdvanced } =
-    useControls();
+  const {
+    advancedControls,
+    updateAdvancedControl,
+    isAdvancedOpen,
+    toggleAdvanced,
+  } = useControls();
   const groups = useAdvancedControlRanges();
   const advancedRef = useRef();
-  const {t} = useI18n();
+  const { t } = useI18n();
 
   useEffect(() => {
     if (isAdvancedOpen) {
-      advancedRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      advancedRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
   }, [isAdvancedOpen]);
 
   return (
     <fieldset className="control-group advanced-controls" ref={advancedRef}>
       <legend className="control-item">
-        <label><input type="checkbox" className="advanced-controls-toggle" onChange={toggleAdvanced} /> {t("controls.showMore.label")} </label>
+        <label>
+          <input
+            type="checkbox"
+            className="advanced-controls-toggle"
+            onChange={toggleAdvanced}
+          />{" "}
+          {t("controls.showMore.label")}{" "}
+        </label>
       </legend>
 
       {isAdvancedOpen &&
@@ -29,7 +43,7 @@ const AdvancedControls = () => {
           <fieldset key={groupName} className="control-group">
             <legend>{formatCamelCase(groupName)}</legend>
             <div className="controls-grid">
-              {entries.map(({ dotKey, label, min, max, step }) => {
+              {entries.map(({ dotKey, label, min, max }) => {
                 const currentValue = advancedControls[dotKey];
                 return (
                   <div key={dotKey} className="control-item range-control">
@@ -40,10 +54,9 @@ const AdvancedControls = () => {
                     <Range
                       min={min}
                       max={max}
-                      step={step}
                       value={currentValue}
                       onChange={(e) =>
-                        updateAdvancedControl(dotKey, parseFloat(e.target.value))
+                        updateAdvancedControl(dotKey, parseInt(e.target.value))
                       }
                     />
                   </div>
