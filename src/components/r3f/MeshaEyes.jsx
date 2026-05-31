@@ -70,14 +70,17 @@ const Eye = ({
 
   const eyelidMaterial = useShaderMaterial(eyelidColor);
 
+  const segments = 48;
+
   return (
     <group position={position} scale={eyeScale} ref={groupRef} renderOrder={2}>
       <mesh linguisticProperty="evidentiality" onClick={onClick}>
-        <sphereGeometry args={[eyeSize, 32, 32]} />
+        <sphereGeometry args={[eyeSize, segments, segments]} />
         {isSelectedOuter ? (
           <shaderMaterial args={[highlightMaterial]} />
         ) : (
           <meshBasicMaterial
+            wireframe
             color={config.colors.white}
             depthTest={false}
             transparent={true}
@@ -90,7 +93,7 @@ const Eye = ({
         linguisticProperty="verbAspect"
         onClick={onClick}
       >
-        <sphereGeometry args={[irisSize, 32, 32]} />
+        <sphereGeometry args={[irisSize, segments, segments]} />
         {isSelectedInner ? (
           <shaderMaterial args={[highlightMaterial]} />
         ) : (
@@ -103,7 +106,7 @@ const Eye = ({
       </mesh>
 
       <mesh position={[0, 0, pupilZ]}>
-        <sphereGeometry args={[pupilSize, 32, 32]} />
+        <sphereGeometry args={[pupilSize, segments, segments]} />
         <meshStandardMaterial
           color={config.colors.labelTextColor}
           metalness={0.7}
@@ -116,7 +119,7 @@ const Eye = ({
       <group ref={lidPivotRef} position={[0, 0, eyeSize]} renderOrder={2}>
         <mesh position={[0, eyeSize / 2, 0]} scale={[1, 0.5, 1]}>
           <sphereGeometry
-            args={[eyeSize, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2]}
+            args={[eyeSize, segments, 16, 0, Math.PI * 2, 0, Math.PI / 2]}
           />
           <shaderMaterial
             args={[eyelidMaterial]}
@@ -136,7 +139,6 @@ const MeshaEyes = ({
   size,
   depth,
   isoCode,
-  mainZ,
   onClick,
   isSelectedOuter,
   isSelectedInner,
@@ -148,7 +150,7 @@ const MeshaEyes = ({
   });
 
   const { controls } = useControls();
-  const { eyeSize, eyeProtrusion, eyeX, eyeY } = controls;
+  const { eyeSize, eyeProtrusion, eyeX, eyeY, eyeZ } = controls;
   const { audioRef } = usePlaylist();
   const highlightMaterial = useHighlightMaterial(0, 2);
 
@@ -191,9 +193,9 @@ const MeshaEyes = ({
   };
 
   return (
-    <group position={[0, 0, mainZ]}>
-      <Eye position={[-eyeX, eyeY, 0]} {...sharedEyeProps} />
-      <Eye position={[eyeX, eyeY, 0]} {...sharedEyeProps} />
+    <group>
+      <Eye position={[-eyeX, eyeY, eyeZ]} {...sharedEyeProps} />
+      <Eye position={[eyeX, eyeY, eyeZ]} {...sharedEyeProps} />
     </group>
   );
 };

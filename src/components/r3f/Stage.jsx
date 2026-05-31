@@ -212,7 +212,7 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
             ? rotateSpeed * rotateSpeedFactor.scene.zoomed
             : rotateSpeed * rotateSpeedFactor.scene.initial
         }
-        isEnabled={!isSegmented}
+        isEnabled={!isSegmented && isMeshaSequenceDone}
       />
 
       <StageLight

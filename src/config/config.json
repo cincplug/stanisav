@@ -1,12 +1,12 @@
 {
   "entrance": {
-    "labelsEntranceDuration": 5000,
+    "labelsEntranceDuration": 7000,
     "labelRevealDuration": 500,
     "meshaRevealSequence": [
-      { "part": "eyes", "holdMs": 2000 },
-      { "part": "nose", "holdMs": 600 },
-      { "part": "ears", "holdMs": 500 },
-      { "part": "tongue", "holdMs": 300 },
+      { "part": "eyes", "holdMs": 1000 },
+      { "part": "nose", "holdMs": 800 },
+      { "part": "ears", "holdMs": 600 },
+      { "part": "tongue", "holdMs": 400 },
       { "part": "teeth", "holdMs": 200 }
     ],
     "labelsRevealDelay": 500,

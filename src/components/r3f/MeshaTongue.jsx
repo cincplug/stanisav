@@ -21,7 +21,6 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
   const stripesType = tongueMaterial?.uniforms?.uStripesType?.value ?? 0;
   const highlightMaterial = useHighlightMaterial(stripesType);
 
-
   useThrottledFrame(() => {
     const { harmonicsData } = audioData;
 
@@ -40,7 +39,7 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
         segments,
         segments,
       );
-      meshRef.current.rotation.x = harmonicsData[0] / 8;
+      meshRef.current.rotation.x = harmonicsData[0] / 4;
     }
   });
 
@@ -54,7 +53,6 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
       ref={meshRef}
       position={[0, 2, 1]}
       scale={[1 / 3, -1 / 6, -1]}
-      rotation={[0, 0, 0]}
       onClick={onClick}
       linguisticProperty="tonality"
     >

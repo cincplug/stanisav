@@ -188,7 +188,6 @@ const Mesha = ({
           size={scores.evidentiality}
           depth={scores.verbAspect}
           isoCode={selectedLanguage}
-          mainZ={eyeZ}
           onClick={handlePropertyClick}
           isSelectedOuter={selectedProperty === "evidentiality"}
           isSelectedInner={selectedProperty === "verbAspect"}
