@@ -15,7 +15,7 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
   const { controls } = useControls();
   const { audioData } = useAudioData();
   const { tongueSize } = controls;
-  const { tongueX, tongueY, tongueZ, tongueWidth, tongueHeight, tongueDepth } =
+  const { tongueX, tongueY, tongueZ, tongueWidth, tongueHeight, tongueLength } =
     config.meshaVisualization;
 
   const meshRef = useRef();
@@ -43,7 +43,7 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
         segments,
         segments,
       );
-      meshRef.current.rotation.x = harmonicsData[0] / 4;
+      meshRef.current.rotation.x = harmonicsData[0] / 12;
     }
   });
 
@@ -56,7 +56,7 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
     <mesh
       ref={meshRef}
       position={[tongueX, tongueY, tongueZ]}
-      scale={[tongueWidth, tongueHeight, tongueDepth]}
+      scale={[tongueWidth, -tongueHeight, -tongueLength]}
       onClick={onClick}
       linguisticProperty="tonality"
     >

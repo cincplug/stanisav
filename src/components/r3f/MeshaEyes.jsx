@@ -36,6 +36,7 @@ const Eye = ({
     pupilSize,
     pupilMetalness,
     pupilRoughness,
+    segments,
   } = config.meshaVisualization;
 
   const irisScale = eyeSize * irisSize;
@@ -78,8 +79,6 @@ const Eye = ({
   });
 
   const eyelidMaterial = useShaderMaterial(eyelidColor);
-
-  const segments = 48;
 
   return (
     <group position={position} scale={eyeScale} ref={groupRef} renderOrder={2}>

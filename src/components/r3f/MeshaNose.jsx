@@ -3,6 +3,7 @@ import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useEntrance } from "../../contexts/EntranceContext";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
+import { config } from "../../modules/configStore";
 
 const MeshaNose = ({
   position,
@@ -20,12 +21,12 @@ const MeshaNose = ({
   const { pupilSize } = controls;
   const highlightMaterial = useHighlightMaterial(0, 2);
 
+  const { segments } = config.meshaVisualization;
+
   useThrottledFrame(({ camera }) => {
     if (!groupRef.current) return;
     groupRef.current.lookAt(camera.position);
   });
-
-  const segments = 64;
 
   const { revealedParts } = useEntrance();
   if (!revealedParts.has("nose")) return null;
