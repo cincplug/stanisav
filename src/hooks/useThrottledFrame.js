@@ -2,7 +2,7 @@ import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { config } from "../modules/configStore";
 
-const { timeRate } = config.meshDeformation;
+const { timeRate } = config.meshaVisualization;
 
 export const useThrottledFrame = (callback) => {
   const accRef = useRef(0);

@@ -14,8 +14,8 @@ const Eye = ({
   position,
   irisColor,
   eyelidColor,
-  size,
-  depth,
+  evidentiality,
+  verbAspect,
   eyeSize,
   eyeProtrusion,
   blinkStateRef,
@@ -27,14 +27,23 @@ const Eye = ({
   const lidPivotRef = useRef();
   const groupRef = useRef();
 
-  const irisSize = eyeSize * 0.75;
-  const pupilSize = eyeSize * 0.5;
-  const eyeScale = 1 + size / 4;
-  const depthFactor = depth / 4;
+  const {
+    blinkDuration,
+    eyelidWidth,
+    eyelidHeight,
+    eyelidDepth,
+    irisSize,
+    pupilSize,
+    pupilMetalness,
+    pupilRoughness,
+  } = config.meshaVisualization;
+
+  const irisScale = eyeSize * irisSize;
+  const pupilScale = eyeSize * pupilSize;
+  const eyeScale = 1 + evidentiality / 4;
+  const depthFactor = verbAspect / 4;
   const irisZ = eyeProtrusion / 2 + depthFactor * eyeProtrusion;
   const pupilZ = eyeProtrusion + depthFactor * eyeProtrusion;
-
-  const { blinkDuration } = config.meshDeformation;
 
   const { revealedParts } = useEntrance();
   const isEntranceBlinkPhase = !revealedParts.has("nose");
@@ -88,7 +97,7 @@ const Eye = ({
         linguisticProperty="verbAspect"
         onClick={onClick}
       >
-        <sphereGeometry args={[irisSize, segments, segments]} />
+        <sphereGeometry args={[irisScale, segments, segments]} />
         {isSelectedInner ? (
           <shaderMaterial args={[highlightMaterial]} />
         ) : (
@@ -101,20 +110,31 @@ const Eye = ({
       </mesh>
 
       <mesh position={[0, 0, pupilZ]}>
-        <sphereGeometry args={[pupilSize, segments, segments]} />
+        <sphereGeometry args={[pupilScale, segments, segments]} />
         <meshStandardMaterial
           color={config.colors.labelTextColor}
-          metalness={0.7}
-          roughness={0.4}
+          metalness={pupilMetalness}
+          roughness={pupilRoughness}
           depthTest={false}
           transparent={true}
         />
       </mesh>
 
       <group ref={lidPivotRef} position={[0, 0, eyeSize]} renderOrder={2}>
-        <mesh position={[0, eyeSize / 2, 0]} scale={[1, 0.5, 1]}>
+        <mesh
+          position={[0, eyeSize / 2, 0]}
+          scale={[eyelidWidth, eyelidHeight, eyelidDepth]}
+        >
           <sphereGeometry
-            args={[eyeSize, segments, 16, 0, Math.PI * 2, 0, Math.PI / 2]}
+            args={[
+              eyeSize,
+              segments,
+              segments / 3,
+              0,
+              Math.PI * 2,
+              0,
+              Math.PI / 2,
+            ]}
           />
           <shaderMaterial
             args={[eyelidMaterial]}
@@ -131,8 +151,8 @@ const Eye = ({
 const MeshaEyes = ({
   irisColor,
   eyelidColor,
-  size,
-  depth,
+  evidentiality,
+  verbAspect,
   isoCode,
   onClick,
   isSelectedOuter,
@@ -176,8 +196,8 @@ const MeshaEyes = ({
   const sharedEyeProps = {
     irisColor,
     eyelidColor,
-    size,
-    depth,
+    evidentiality,
+    verbAspect,
     eyeSize,
     eyeProtrusion,
     blinkStateRef,

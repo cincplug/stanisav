@@ -115,7 +115,7 @@ class AudioAnalysisService {
     this.lastFrameTime = now;
     this.deltaAccumulator += delta;
 
-    const interval = this.config.meshDeformation.timeRate;
+    const interval = this.config.meshaVisualization.timeRate;
     if (this.deltaAccumulator >= interval) {
       this.deltaAccumulator -= interval;
       this.analyser.getByteFrequencyData(this.dataArray);
@@ -167,7 +167,7 @@ class AudioAnalysisService {
    */
   processFrequencyBand(startBin, endBin, outputArray) {
     const bandSize = Math.ceil((endBin - startBin) / outputArray.length);
-    const { amplitudeThreshold, decayRate } = this.config.meshDeformation;
+    const { amplitudeThreshold, decayRate } = this.config.meshaVisualization;
 
     for (let i = 0; i < outputArray.length; i++) {
       const binStart = startBin + i * bandSize;

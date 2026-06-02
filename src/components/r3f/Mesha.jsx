@@ -147,7 +147,7 @@ const Mesha = ({
     }
   });
 
-  const segments = config.meshDeformation.meshSegments;
+  const segments = config.meshaVisualization.meshSegments;
 
   const earPosition = useMemo(
     () => ({
@@ -185,8 +185,8 @@ const Mesha = ({
         <MeshaEyes
           irisColor={color}
           eyelidColor={skinColor}
-          size={scores.evidentiality}
-          depth={scores.verbAspect}
+          evidentiality={scores.evidentiality}
+          verbAspect={scores.verbAspect}
           isoCode={selectedLanguage}
           onClick={handlePropertyClick}
           isSelectedOuter={selectedProperty === "evidentiality"}

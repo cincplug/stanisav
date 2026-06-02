@@ -45,14 +45,6 @@
     "shaderRingCount": 12,
     "shaderRingSpeed": 1.2
   },
-  "meshaLight": {
-    "intensity": 73,
-    "decay": 2.2,
-    "distance": 74,
-    "color": "#ffeedd",
-    "spread": 1.2,
-    "z": 4
-  },
   "stageLight": {
     "intensity": 20,
     "decay": 0.4,
@@ -62,6 +54,40 @@
       "segmented": 200,
       "segmentedSelected": 130
     }
+  },
+  "meshaLight": {
+    "intensity": 73,
+    "decay": 2.2,
+    "distance": 74,
+    "color": "#ffeedd",
+    "spread": 1.2,
+    "z": 4
+  },
+  "meshaVisualization": {
+    "earHeight": 7,
+    "earWidth": 0.6,
+    "earDepth": 1,
+    "irisSize": 0.75,
+    "pupilSize": 0.5,
+    "pupilMetalness": 0.7,
+    "pupilRoughness": 0.4,
+    "eyelidWidth": 1,
+    "eyelidHeight": 0.5,
+    "eyelidDepth": 1,
+    "tongueX": 0,
+    "tongueY": 2,
+    "tongueZ": 1,
+    "tongueWidth": 0.3,
+    "tongueHeight": -0.2,
+    "tongueDepth": -1,
+    "maxDeformation": 1.2,
+    "deformationSmoothness": 0.1,
+    "amplitudeThreshold": 0.1,
+    "blinkDuration": 0.2,
+    "decayRate": 0.7,
+    "verticalVariationMultiplier": 0.1,
+    "meshSegments": 12,
+    "timeRate": 20
   },
   "camera": {
     "cameraX": 0,
@@ -88,15 +114,5 @@
     "fundamentalMax": 800,
     "harmonicsMin": 700,
     "harmonicsMax": 4000
-  },
-  "meshDeformation": {
-    "maxDeformation": 1.2,
-    "deformationSmoothness": 0.1,
-    "amplitudeThreshold": 0.1,
-    "blinkDuration": 0.2,
-    "decayRate": 0.7,
-    "verticalVariationMultiplier": 0.1,
-    "meshSegments": 12,
-    "timeRate": 20
   }
 }

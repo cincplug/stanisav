@@ -6,6 +6,7 @@ import { useEntrance } from "../../contexts/EntranceContext";
 import { useAudioData } from "../../hooks/useAudioData.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
+import { config } from "../../modules/configStore";
 import { createAudioSurface } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
@@ -14,6 +15,9 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
   const { controls } = useControls();
   const { audioData } = useAudioData();
   const { tongueSize } = controls;
+  const { tongueX, tongueY, tongueZ, tongueWidth, tongueHeight, tongueDepth } =
+    config.meshaVisualization;
+
   const meshRef = useRef();
 
   // Pass tongueMaterial's stripesType so highlight keeps the stripes visible.
@@ -51,8 +55,8 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
   return (
     <mesh
       ref={meshRef}
-      position={[0, 2, 1]}
-      scale={[1 / 3, -1 / 6, -1]}
+      position={[tongueX, tongueY, tongueZ]}
+      scale={[tongueWidth, tongueHeight, tongueDepth]}
       onClick={onClick}
       linguisticProperty="tonality"
     >

@@ -5,6 +5,7 @@ import { useEntrance } from "../../contexts/EntranceContext";
 import { useAudioData } from "../../hooks/useAudioData.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
+import { config } from "../../modules/configStore";
 import { createAudioSurface } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
@@ -22,6 +23,7 @@ const MeshaEars = ({
   const highlightMaterial = useHighlightMaterial(0);
   const leftMeshRef = useRef();
   const rightMeshRef = useRef();
+  const { earHeight, earWidth, earDepth } = config.meshaVisualization;
 
   useThrottledFrame(() => {
     const audioSurface = createAudioSurface({
@@ -60,7 +62,7 @@ const MeshaEars = ({
       <mesh
         ref={leftMeshRef}
         position={[-x, y, z]}
-        scale={[-0.6, 8 / (segments * 2), 1]}
+        scale={[-earWidth, earHeight / (segments * 2), earDepth]}
         onClick={onClick}
         linguisticProperty="morphology"
       >
@@ -69,7 +71,7 @@ const MeshaEars = ({
       <mesh
         ref={rightMeshRef}
         position={[x, y, z]}
-        scale={[0.6, 8 / (segments * 2), 1]}
+        scale={[earWidth, earHeight / (segments * 2), earDepth]}
         onClick={onClick}
         linguisticProperty="morphology"
       >

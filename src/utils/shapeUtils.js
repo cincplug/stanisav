@@ -1,10 +1,8 @@
 import { config } from "../modules/configStore";
 
 export const createAudioSurface = ({ audioBand, size, bend, radius }) => {
-  const {
-    maxDeformation,
-    verticalVariationMultiplier,
-  } = config.meshDeformation;
+  const { maxDeformation, verticalVariationMultiplier } =
+    config.meshaVisualization;
 
   const frequencyBands = 32;
 
