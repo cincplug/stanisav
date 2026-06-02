@@ -43,7 +43,7 @@ const AdvancedControls = () => {
           <fieldset key={groupName} className="control-group">
             <legend>{formatCamelCase(groupName)}</legend>
             <div className="controls-grid">
-              {entries.map(({ dotKey, label, min, max }) => {
+              {entries.map(({ dotKey, label, min, max, step }) => {
                 const currentValue = advancedControls[dotKey];
                 return (
                   <div key={dotKey} className="control-item range-control">
@@ -54,6 +54,7 @@ const AdvancedControls = () => {
                     <Range
                       min={min}
                       max={max}
+                      step={step}
                       value={currentValue}
                       onChange={(e) =>
                         updateAdvancedControl(dotKey, parseInt(e.target.value))

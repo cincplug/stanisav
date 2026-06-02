@@ -147,7 +147,7 @@ const Mesha = ({
     }
   });
 
-  const segments = config.meshaVisualization.meshSegments;
+  const segments = config.meshaVisualization.meshSegmentsInt;
 
   const earPosition = useMemo(
     () => ({
