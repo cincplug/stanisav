@@ -210,6 +210,17 @@ export const GlobeIcon = (props) => (
     />
   </svg>
 );
+export const CircleIcon = (props) => (
+  <svg
+    width={iconSize}
+    height={iconSize}
+    viewBox={viewBox}
+    fill="none"
+    {...props}
+  >
+    <circle cx="12" cy="12" r="8" fill={iconColor} stroke="none" />
+  </svg>
+);
 
 export const SegmentationIcon = (props) => (
   <svg

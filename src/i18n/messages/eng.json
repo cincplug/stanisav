@@ -424,7 +424,8 @@
     "close": "Close menu",
     "open": "Open menu",
     "languageSelector": "App language",
-    "isVisual": "Visual"
+    "isVisual": "Visual",
+    "reset": "Reset"
   },
   "playlist": {
     "controls": "Playlist controls",

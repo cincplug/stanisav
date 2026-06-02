@@ -1,11 +1,11 @@
 import { advancedConfigGroups } from "../modules/configStore";
 
 const deriveMin = (value) => {
-  return Math.abs(value / 5);
+  return Math.abs(value / 5) - 1;
 };
 
 const deriveMax = (value) => {
-  return Math.abs(value * 5);
+  return Math.abs(value * 5) + 1;
 };
 
 const deriveStep = (value) => {
