@@ -1,19 +1,21 @@
 import { advancedConfigGroups } from "../modules/configStore";
 
 const deriveMin = (value) => {
-  return value / 5;
+  return Math.abs(value / 5);
 };
 
 const deriveMax = (value) => {
-  return value * 5;
+  return Math.abs(value * 5);
 };
 
 const deriveStep = (value) => {
-  if (value.endsWith("Int")) {
-    console.log(value.endsWith("Int"));
-    return 1;
-  }
-  return 0.1;
+  const abs = Math.abs(value);
+  const str = String(abs);
+  const decimalIndex = str.indexOf(".");
+  const decimalPlaces = decimalIndex === -1 ? 0 : str.length - decimalIndex - 1;
+  if (decimalPlaces >= 2) return 0.01;
+  if (decimalPlaces === 1) return 0.1;
+  return 1;
 };
 
 // Returns advancedConfigGroups with min, max, step derived per entry
@@ -26,6 +28,6 @@ export const useAdvancedControlRanges = () =>
       staticDefault,
       min: deriveMin(staticDefault),
       max: deriveMax(staticDefault),
-      step: deriveStep(dotKey),
+      step: deriveStep(staticDefault),
     })),
   }));

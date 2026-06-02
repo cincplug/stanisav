@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import { useControls } from "../../contexts/ControlsContext";
 import { useI18n } from "../../contexts/I18nContext";
 import { useAdvancedControlRanges } from "../../hooks/useAdvancedControlRanges";
-import { formatCamelCase } from "../../utils/stringUtils";
 import Range from "./ux/Range";
 
 const AdvancedControls = () => {
@@ -41,14 +40,14 @@ const AdvancedControls = () => {
       {isAdvancedOpen &&
         groups.map(({ groupName, entries }) => (
           <fieldset key={groupName} className="control-group">
-            <legend>{formatCamelCase(groupName)}</legend>
+            <legend>{groupName}</legend>
             <div className="controls-grid">
               {entries.map(({ dotKey, label, min, max, step }) => {
                 const currentValue = advancedControls[dotKey];
                 return (
                   <div key={dotKey} className="control-item range-control">
                     <label>
-                      <span>{formatCamelCase(label)}</span>
+                      <span>{label}</span>
                       <span>{currentValue}</span>
                     </label>
                     <Range
@@ -57,7 +56,12 @@ const AdvancedControls = () => {
                       step={step}
                       value={currentValue}
                       onChange={(e) =>
-                        updateAdvancedControl(dotKey, parseInt(e.target.value))
+                        updateAdvancedControl(
+                          dotKey,
+                          step === 1
+                            ? parseInt(e.target.value)
+                            : e.target.value,
+                        )
                       }
                     />
                   </div>
