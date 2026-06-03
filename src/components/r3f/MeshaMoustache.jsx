@@ -3,11 +3,9 @@ import { useMemo, useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useAudioData } from "../../hooks/useAudioData.js";
-import {
-  useHighlightMaterial,
-  useShaderMaterial,
-} from "../../hooks/useShaderMaterial.js";
+import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
+import { config } from "../../modules/configStore";
 import { shiftHue } from "../../utils/colorUtils";
 import { createTuftShape } from "../../utils/shapeUtils.js";
 
@@ -26,6 +24,7 @@ const MeshaMoustache = ({
 }) => {
   const tuftsRef = useRef([]);
   const tuftDataRef = useRef([]);
+  const { tuftSpacing, tuftColorStep, segments } = config.meshaVisualization;
 
   const { controls } = useControls();
   const { audioData } = useAudioData();
@@ -40,7 +39,7 @@ const MeshaMoustache = ({
   const tuftsWithRotation = useMemo(() => {
     if (!tuftCount) return [];
 
-    const spacing = (eyeX / tuftCount) * 3;
+    const spacing = (eyeX / tuftCount) * tuftSpacing;
     const totalWidth = spacing * (tuftCount - 1);
     const baseX = totalWidth / 2;
     const centerIndex = (tuftCount - 1) / 2;
@@ -63,7 +62,7 @@ const MeshaMoustache = ({
 
     tuftDataRef.current = result;
     return result;
-  }, [tuftCount, eyeX, eyeZ, y, z]);
+  }, [tuftCount, tuftSpacing, eyeX, eyeZ, y, z]);
 
   useThrottledFrame(() => {
     const audioBandData = audioData[audioBand];
@@ -84,10 +83,6 @@ const MeshaMoustache = ({
 
   if (!tuftsWithRotation.length) return null;
 
-  const moustacheColor = shiftHue(color, 90);
-
-  const moustacheMaterial = useShaderMaterial(moustacheColor);
-
   return (
     <>
       {tuftsWithRotation.map((tuft, i) => (
@@ -102,11 +97,15 @@ const MeshaMoustache = ({
             scale={tuft.scale}
             linguisticProperty={linguisticProperty}
           >
-            <parametricGeometry args={[tuftSurface, 12, 12]} />
+            <parametricGeometry args={[tuftSurface, segments, segments]} />
             {isSelected ? (
               <shaderMaterial args={[highlightMaterial]} />
             ) : (
-              <shaderMaterial args={[moustacheMaterial]} />
+              <meshPhongMaterial
+                color={shiftHue(color, i * tuftColorStep)}
+                wireframe
+                side={2}
+              />
             )}
           </mesh>
         </group>

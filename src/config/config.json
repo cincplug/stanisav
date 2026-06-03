@@ -76,6 +76,8 @@
     "tongueWidth": 0.4,
     "tongueHeight": 0.6,
     "tongueLength": 1.1,
+    "tuftSpacing": 4.1,
+    "tuftColorStep": 30,
     "maxDeformation": 1.2,
     "deformationSmoothness": 0.1,
     "amplitudeThreshold": 0.1,
