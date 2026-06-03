@@ -73,7 +73,7 @@ body {
   height: 100%;
   overflow: hidden;
   background-color: var(--color-1);
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto Slab", serif;
 }
 
 a {

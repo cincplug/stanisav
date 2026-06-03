@@ -141,6 +141,7 @@ const Label = ({
 
   return (
     <Text
+      font="/fonts/RobotoSlab-SemiBold.ttf"
       onClick={handleClick}
       ref={labelRef}
       fontSize={labelSize}
