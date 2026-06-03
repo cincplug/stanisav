@@ -92,6 +92,8 @@ const Mesha = ({
   } = linguisticProperties;
 
   const { white, labelTextColor } = config.colors;
+  const { labelsEntranceDuration } = config.entrance;
+  const { sphereRadius } = config.layout;
 
   const noseColorMap = {
     S: white,
@@ -104,9 +106,6 @@ const Mesha = ({
     noseColorMap[wordOrder[1]],
     noseColorMap[wordOrder[2]],
   ];
-
-  const { labelsEntranceDuration } = config.entrance;
-  const { sphereRadius } = config.layout;
 
   const targetPosition = isMeshaSequenceDone ? position : [0, 0, sphereRadius];
 
@@ -147,7 +146,7 @@ const Mesha = ({
     }
   });
 
-  const segments = config.meshaVisualization.segments;
+  const { segments } = config.meshaVisualization;
 
   const earPosition = useMemo(
     () => ({

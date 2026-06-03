@@ -25,14 +25,10 @@
     "sphereRadius": 22
   },
   "rotateSpeedFactor": {
-    "scene": {
-      "initial": 3,
-      "zoomed": 0.1
-    },
-    "mesha": {
-      "initial": 0,
-      "zoomed": 0.5
-    }
+    "sceneInitial": 3,
+    "sceneZoomed": 0.1,
+    "meshaInitial": 0,
+    "meshaZoomed": 0.5
   },
   "shader": {
     "shaderAmbient": 0.7,
@@ -64,22 +60,22 @@
     "z": 4
   },
   "meshaVisualization": {
-    "earHeight": 7,
+    "earHeight": 7.1,
     "earWidth": 0.6,
-    "earDepth": 1,
+    "earDepth": 1.1,
     "irisSize": 0.75,
-    "pupilSize": 0.5,
+    "pupilSize": 0.51,
     "pupilMetalness": 0.7,
     "pupilRoughness": 0.4,
-    "eyelidWidth": 1,
+    "eyelidWidth": 1.1,
     "eyelidHeight": 0.5,
-    "eyelidDepth": 1,
+    "eyelidDepth": 1.1,
     "tongueX": 0,
     "tongueY": 3.2,
-    "tongueZ": 1,
+    "tongueZ": 1.1,
     "tongueWidth": 0.4,
     "tongueHeight": 0.6,
-    "tongueLength": 1,
+    "tongueLength": 1.1,
     "maxDeformation": 1.2,
     "deformationSmoothness": 0.1,
     "amplitudeThreshold": 0.1,

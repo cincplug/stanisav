@@ -8,14 +8,22 @@ import {
 } from "../shaders/shader";
 import { useThrottledFrame } from "./useThrottledFrame";
 
-// ─── Tonality / skin material ─────────────────────────────────────────────────
-
 export const useShaderMaterial = (
   baseColor,
   accentColor,
   stripesType,
   side = 2,
 ) => {
+  const {
+    shaderAmbient,
+    shaderLightingMin,
+    shaderLightingMax,
+    shaderLightingDiffuse,
+    shaderShadeChecker,
+    shaderShadeStripe,
+    shaderCheckerFrequency,
+  } = config.shader;
+
   const baseColorObj = useMemo(() => new Color(baseColor), [baseColor]);
   const accentColorObj = useMemo(() => new Color(accentColor), [accentColor]);
 
@@ -26,46 +34,75 @@ export const useShaderMaterial = (
         uAccentColor: { value: accentColorObj },
         uStripesType: { value: stripesType },
         uAccentOpacity: { value: 1.0 },
-        uAmbient: { value: config.shader.shaderAmbient },
-        uLightingMin: { value: config.shader.shaderLightingMin },
-        uLightingMax: { value: config.shader.shaderLightingMax },
-        uLightingDiffuseScale: { value: config.shader.shaderLightingDiffuse },
-        uShadeChecker: { value: config.shader.shaderShadeChecker },
-        uShadeStripe: { value: config.shader.shaderShadeStripe },
-        uCheckerFrequency: { value: config.shader.shaderCheckerFrequency },
+        uAmbient: { value: shaderAmbient },
+        uLightingMin: { value: shaderLightingMin },
+        uLightingMax: { value: shaderLightingMax },
+        uLightingDiffuseScale: { value: shaderLightingDiffuse },
+        uShadeChecker: { value: shaderShadeChecker },
+        uShadeStripe: { value: shaderShadeStripe },
+        uCheckerFrequency: { value: shaderCheckerFrequency },
       },
       vertexShader: meshVertexShader,
       fragmentShader: tonalityFragmentShader,
       side,
       transparent: false,
     }),
-    [baseColorObj, accentColorObj, stripesType],
+    [
+      baseColorObj,
+      accentColorObj,
+      stripesType,
+      shaderAmbient,
+      shaderLightingMin,
+      shaderLightingMax,
+      shaderLightingDiffuse,
+      shaderShadeChecker,
+      shaderShadeStripe,
+      shaderCheckerFrequency,
+    ],
   );
 
-  // Sync shader uniforms from config each frame so advanced control edits reflect live
   useThrottledFrame(() => {
-    material.uniforms.uAmbient.value = config.shader.shaderAmbient;
-    material.uniforms.uLightingMin.value = config.shader.shaderLightingMin;
-    material.uniforms.uLightingMax.value = config.shader.shaderLightingMax;
-    material.uniforms.uLightingDiffuseScale.value = config.shader.shaderLightingDiffuse;
-    material.uniforms.uShadeChecker.value = config.shader.shaderShadeChecker;
-    material.uniforms.uShadeStripe.value = config.shader.shaderShadeStripe;
-    material.uniforms.uCheckerFrequency.value = config.shader.shaderCheckerFrequency;
+    const {
+      shaderAmbient,
+      shaderLightingMin,
+      shaderLightingMax,
+      shaderLightingDiffuse,
+      shaderShadeChecker,
+      shaderShadeStripe,
+      shaderCheckerFrequency,
+    } = config.shader;
+
+    material.uniforms.uAmbient.value = shaderAmbient;
+    material.uniforms.uLightingMin.value = shaderLightingMin;
+    material.uniforms.uLightingMax.value = shaderLightingMax;
+    material.uniforms.uLightingDiffuseScale.value = shaderLightingDiffuse;
+    material.uniforms.uShadeChecker.value = shaderShadeChecker;
+    material.uniforms.uShadeStripe.value = shaderShadeStripe;
+    material.uniforms.uCheckerFrequency.value = shaderCheckerFrequency;
   });
 
   return material;
 };
 
-// ─── Highlight material ───────────────────────────────────────────────────────
-
 export const useHighlightMaterial = (stripesType = 0, side = 2) => {
+  const {
+    shaderAmbient,
+    shaderLightingMin,
+    shaderLightingMax,
+    shaderLightingDiffuse,
+    shaderShadeChecker,
+    shaderShadeStripe,
+    shaderRingCount,
+    shaderRingSpeed,
+  } = config.shader;
+
   const ringColor = useMemo(() => new Color(config.colors.currentColor), []);
   const ringColorShade = useMemo(
     () =>
       new Color(config.colors.currentColor).multiplyScalar(
-        (config.shader.shaderShadeChecker + config.shader.shaderShadeStripe) / 2,
+        (shaderShadeChecker + shaderShadeStripe) / 2,
       ),
-    [],
+    [shaderShadeChecker, shaderShadeStripe],
   );
 
   const material = useMemo(
@@ -75,32 +112,52 @@ export const useHighlightMaterial = (stripesType = 0, side = 2) => {
         uRingColorShade: { value: ringColorShade },
         uStripesType: { value: stripesType },
         uTime: { value: 0 },
-        uAmbient: { value: config.shader.shaderAmbient },
-        uLightingMin: { value: config.shader.shaderLightingMin },
-        uLightingMax: { value: config.shader.shaderLightingMax },
-        uLightingDiffuseScale: { value: config.shader.shaderLightingDiffuse },
-        uShadeStripe: { value: config.shader.shaderShadeStripe },
-        uRingCount: { value: config.shader.shaderRingCount },
-        uRingSpeed: { value: config.shader.shaderRingSpeed },
+        uAmbient: { value: shaderAmbient },
+        uLightingMin: { value: shaderLightingMin },
+        uLightingMax: { value: shaderLightingMax },
+        uLightingDiffuseScale: { value: shaderLightingDiffuse },
+        uShadeStripe: { value: shaderShadeStripe },
+        uRingCount: { value: shaderRingCount },
+        uRingSpeed: { value: shaderRingSpeed },
       },
       vertexShader: meshVertexShader,
       fragmentShader: highlightFragmentShader,
       side,
       transparent: false,
     }),
-    [stripesType],
+    [
+      stripesType,
+      ringColor,
+      ringColorShade,
+      shaderAmbient,
+      shaderLightingMin,
+      shaderLightingMax,
+      shaderLightingDiffuse,
+      shaderShadeStripe,
+      shaderRingCount,
+      shaderRingSpeed,
+    ],
   );
 
-  // Sync uTime for ring animation and shader uniforms from config for live advanced edits
   useThrottledFrame(({ clock }) => {
+    const {
+      shaderAmbient,
+      shaderLightingMin,
+      shaderLightingMax,
+      shaderLightingDiffuse,
+      shaderShadeStripe,
+      shaderRingCount,
+      shaderRingSpeed,
+    } = config.shader;
+
     material.uniforms.uTime.value = clock.getElapsedTime();
-    material.uniforms.uAmbient.value = config.shader.shaderAmbient;
-    material.uniforms.uLightingMin.value = config.shader.shaderLightingMin;
-    material.uniforms.uLightingMax.value = config.shader.shaderLightingMax;
-    material.uniforms.uLightingDiffuseScale.value = config.shader.shaderLightingDiffuse;
-    material.uniforms.uShadeStripe.value = config.shader.shaderShadeStripe;
-    material.uniforms.uRingCount.value = config.shader.shaderRingCount;
-    material.uniforms.uRingSpeed.value = config.shader.shaderRingSpeed;
+    material.uniforms.uAmbient.value = shaderAmbient;
+    material.uniforms.uLightingMin.value = shaderLightingMin;
+    material.uniforms.uLightingMax.value = shaderLightingMax;
+    material.uniforms.uLightingDiffuseScale.value = shaderLightingDiffuse;
+    material.uniforms.uShadeStripe.value = shaderShadeStripe;
+    material.uniforms.uRingCount.value = shaderRingCount;
+    material.uniforms.uRingSpeed.value = shaderRingSpeed;
   });
 
   return material;

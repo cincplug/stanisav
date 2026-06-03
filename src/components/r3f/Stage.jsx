@@ -37,7 +37,9 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
     mentionedLanguage,
   } = useEntrance();
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
+  const { rotateSpeedFactor } = config;
   const { cameraX, cameraY, cameraZ, fov, near, far } = config.camera;
+  const { radialOffsetModifier, sphereRadius } = config.layout;
   const {
     bgColor,
     isMyMesha,
@@ -51,12 +53,10 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
     axis,
     rotateSpeed,
     isMotionReduced,
+    labelSize,
   } = controls;
 
   const orbitControlsRef = useRef();
-
-  const { rotateSpeedFactor } = config;
-  const { radialOffsetModifier, sphereRadius } = config.layout;
 
   const languageData = data?.languageData || {};
   const { languageCodes, languageLineages, speakerData, typologicalFeatures } =
@@ -159,7 +159,7 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
 
       return [
         base[0] + radial[0] * radialOffsetModifier,
-        base[1] + radial[1] * radialOffsetModifier,
+        base[1] + radial[1] * radialOffsetModifier + labelSize,
         base[2] + radial[2] * radialOffsetModifier,
       ];
     }
@@ -209,8 +209,8 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
         axis={axis}
         speed={
           selectedLanguage
-            ? rotateSpeed * rotateSpeedFactor.scene.zoomed
-            : rotateSpeed * rotateSpeedFactor.scene.initial
+            ? rotateSpeed * rotateSpeedFactor.sceneZoomed
+            : rotateSpeed * rotateSpeedFactor.sceneInitial
         }
         isEnabled={!isSegmented && isMeshaSequenceDone}
       />
@@ -252,8 +252,8 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
           renderOrder={languageCodes.length}
           rotateSpeed={
             selectedLanguage
-              ? rotateSpeed * rotateSpeedFactor.mesha.zoomed
-              : rotateSpeed * rotateSpeedFactor.mesha.initial
+              ? rotateSpeed * rotateSpeedFactor.meshaZoomed
+              : rotateSpeed * rotateSpeedFactor.meshaInitial
           }
           isMotionReduced={isMotionReduced}
         />
