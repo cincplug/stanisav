@@ -4,12 +4,10 @@ import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeom
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useEntrance } from "../../contexts/EntranceContext";
 import { useAudioData } from "../../hooks/useAudioData.js";
-import {
-  useHighlightMaterial,
-  useShaderMaterial,
-} from "../../hooks/useShaderMaterial.js";
+import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { config } from "../../modules/configStore";
+import { shiftHue } from "../../utils/colorUtils";
 import { createToothShape } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
@@ -24,6 +22,8 @@ const MeshaTeeth = ({
   const { controls } = useControls();
   const { audioData } = useAudioData();
   const { teethSize } = controls;
+  const { toothColor } = config.colors;
+  const { toothColorStep } = config.meshaVisualization;
   const highlightMaterial = useHighlightMaterial(0, 2);
 
   const teeth = useMemo(() => {
@@ -72,8 +72,6 @@ const MeshaTeeth = ({
     }
   });
 
-  const teethMaterial = useShaderMaterial(config.colors.white);
-
   if (!teeth.length) return null;
 
   const { revealedParts } = useEntrance();
@@ -96,7 +94,10 @@ const MeshaTeeth = ({
             {isSelected ? (
               <shaderMaterial args={[highlightMaterial]} />
             ) : (
-              <shaderMaterial args={[teethMaterial]} />
+              <meshPhongMaterial
+                color={shiftHue(toothColor, toothColorStep * i)}
+                side={2}
+              />
             )}
           </mesh>
         </group>

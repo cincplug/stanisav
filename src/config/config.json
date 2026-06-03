@@ -78,6 +78,7 @@
     "tongueLength": 1.1,
     "tuftSpacing": 4.1,
     "tuftColorStep": 30,
+    "toothColorStep": 10,
     "maxDeformation": 1.2,
     "deformationSmoothness": 0.1,
     "amplitudeThreshold": 0.1,
@@ -100,6 +101,7 @@
     "maxSiblingSpread": 60,
     "currentColor": "#50a7ff",
     "labelTextColor": "#070b0f",
+    "toothColor": "#87e7f7",
     "white": "#e7ebef"
   },
   "speechBalloon": {
