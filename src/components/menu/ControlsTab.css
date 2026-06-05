@@ -45,6 +45,13 @@
 }
 
 .advanced-controls {
+  legend {
+    label {
+      display: flex;
+      gap: var(--gap-half);
+    }
+  }
+
   .controls-grid {
     grid-template-columns: 1fr;
   }

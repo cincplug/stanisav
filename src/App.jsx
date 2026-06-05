@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import "./App.css";
-import Flowers from "./components/menu/Flowers";
 import IdCard from "./components/menu/IdCard";
 import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
@@ -87,8 +86,6 @@ function App() {
             languageColor={languageColors[selectedLanguage]}
           />
         )}
-
-        {!isMobile && <Flowers selectedLanguage={selectedLanguage} />}
       </div>
     </div>
   );
