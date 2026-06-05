@@ -46,6 +46,7 @@ const Mesha = ({
   const { controls } = useControls();
   const {
     meshaSize,
+    eyeX,
     eyeZ,
     eyeY,
     eyeSize,
@@ -239,7 +240,7 @@ const Mesha = ({
             stepDeg={12}
           />
         )}
-        <SpeechBalloon anchorPosition={[0, eyeY, eyeZ]} />
+        <SpeechBalloon anchorPosition={[eyeX * 2, eyeY, eyeZ]} />
       </group>
       <MeshaLight />
     </a.group>

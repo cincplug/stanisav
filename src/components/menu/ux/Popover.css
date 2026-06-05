@@ -1,87 +1,90 @@
-.tooltip-popover {
-  position: absolute;
-  overflow: visible;
-  margin: 0;
-  top: unset;
-  right: unset;
-
-  border: var(--border-width-thin) solid var(--color-2);
-  border-radius: var(--border-radius);
-  background: var(--color-2);
-  box-shadow: var(--shadow-strong);
-  color: var(--color-4);
-  font-size: var(--font-size-m);
+.popover-bubble {
+  border-radius: var(--border-radius-balloon);
+  background: var(--color-4);
+  color: var(--color-1);
   max-width: var(--panel-width);
+  text-align: center;
+}
 
-  &:not(:popover-open) {
-    display: none;
-  }
+.popover-bubble p {
+  margin: 0;
+}
 
-  &::after {
-    content: "";
-    position: absolute;
-    background: var(--color-2);
-  }
+.popover-tail {
+  --tail-overlap: 1px;
+  background: var(--color-4);
+  flex-shrink: 0;
+  position: relative;
+}
 
-  &[data-position="top"],
-  &:not([data-position]) {
-    bottom: calc(anchor(top) + var(--gap) + var(--tooltip-tail-size, 8px));
-    left: anchor(center);
-    translate: -50% 0;
+/* Cardinal: base width is 2x tail size, height is 1x */
+.popover-tail[data-position="top"],
+.popover-tail[data-position="bottom"],
+.popover-tail:not([data-position]) {
+  width: calc(var(--tooltip-tail-size) * 2);
+  height: var(--tooltip-tail-size);
+}
 
-    &::after {
-      bottom: calc(-1 * var(--tooltip-tail-size, 8px));
-      left: 50%;
-      translate: -50% 0;
-      width: calc(var(--tooltip-tail-size, 8px) * 2);
-      height: var(--tooltip-tail-size, 8px);
-      clip-path: polygon(0 0, 100% 0, 50% 100%);
-    }
-  }
+.popover-tail[data-position="left"],
+.popover-tail[data-position="right"] {
+  width: var(--tooltip-tail-size);
+  height: calc(var(--tooltip-tail-size) * 2);
+}
 
-  &[data-position="bottom"] {
-    top: calc(anchor(bottom) + var(--gap) + var(--tooltip-tail-size, 8px));
-    left: anchor(center);
-    translate: -50% 0;
+/* Diagonal: square */
+.popover-tail[data-position="top-left"],
+.popover-tail[data-position="top-right"],
+.popover-tail[data-position="bottom-left"],
+.popover-tail[data-position="bottom-right"] {
+  width: var(--tooltip-tail-size);
+  height: var(--tooltip-tail-size);
+}
 
-    &::after {
-      top: calc(-1 * var(--tooltip-tail-size, 8px));
-      left: 50%;
-      translate: -50% 0;
-      width: calc(var(--tooltip-tail-size, 8px) * 2);
-      height: var(--tooltip-tail-size, 8px);
-      clip-path: polygon(50% 0, 100% 100%, 0 100%);
-    }
-  }
+/* Cardinal masks and transforms */
+.popover-tail[data-position="top"],
+.popover-tail:not([data-position]) {
+  mask: url("/icons/balloon-tail-cardinal.svg") center / contain no-repeat;
+  bottom: var(--tail-overlap);
+}
 
-  &[data-position="left"] {
-    left: anchor(left);
-    top: anchor(center);
-    translate: calc(-100% - var(--gap) - var(--tooltip-tail-size, 8px)) -50%;
-    right: unset;
+.popover-tail[data-position="bottom"] {
+  mask: url("/icons/balloon-tail-cardinal.svg") center / contain no-repeat;
+  transform: scaleY(-1);
+  top: var(--tail-overlap);
+}
 
-    &::after {
-      right: calc(-1 * var(--tooltip-tail-size, 8px));
-      top: 50%;
-      translate: 0 -50%;
-      width: var(--tooltip-tail-size, 8px);
-      height: calc(var(--tooltip-tail-size, 8px) * 2);
-      clip-path: polygon(0 0, 0 100%, 100% 50%);
-    }
-  }
+.popover-tail[data-position="left"] {
+  mask: url("/icons/balloon-tail-cardinal.svg") center / contain no-repeat;
+  transform: rotate(90deg);
+  right: var(--tail-overlap);
+}
 
-  &[data-position="right"] {
-    left: calc(anchor(right) + var(--gap) + var(--tooltip-tail-size, 8px));
-    top: anchor(center);
-    translate: 0 -50%;
+.popover-tail[data-position="right"] {
+  mask: url("/icons/balloon-tail-cardinal.svg") center / contain no-repeat;
+  transform: rotate(-90deg);
+  left: var(--tail-overlap);
+}
 
-    &::after {
-      left: calc(-1 * var(--tooltip-tail-size, 8px));
-      top: 50%;
-      translate: 0 -50%;
-      width: var(--tooltip-tail-size, 8px);
-      height: calc(var(--tooltip-tail-size, 8px) * 2);
-      clip-path: polygon(100% 0, 100% 100%, 0 50%);
-    }
-  }
+/* Diagonal masks and transforms */
+.popover-tail[data-position="top-left"] {
+  mask: url("/icons/balloon-tail-diagonal.svg") center / contain no-repeat;
+  bottom: var(--tail-overlap);
+}
+
+.popover-tail[data-position="top-right"] {
+  mask: url("/icons/balloon-tail-diagonal.svg") center / contain no-repeat;
+  transform: scaleX(-1);
+  bottom: var(--tail-overlap);
+}
+
+.popover-tail[data-position="bottom-left"] {
+  mask: url("/icons/balloon-tail-diagonal.svg") center / contain no-repeat;
+  transform: scaleY(-1);
+  top: var(--tail-overlap);
+}
+
+.popover-tail[data-position="bottom-right"] {
+  mask: url("/icons/balloon-tail-diagonal.svg") center / contain no-repeat;
+  transform: scale(-1);
+  top: var(--tail-overlap);
 }

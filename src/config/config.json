@@ -104,7 +104,11 @@
     "toothColor": "#87e7f7",
     "white": "#e7ebef"
   },
+  "popover": {
+    "defaultPosition": "top"
+  },
   "speechBalloon": {
+    "defaultPosition": "top-right",
     "durationBase": 1500,
     "durationPerCharacter": 30,
     "durationDismiss": 400

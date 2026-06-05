@@ -1,15 +1,74 @@
 .speech-balloon {
   display: flex;
-  flex-direction: column;
   align-items: center;
   width: var(--panel-width);
-  border-radius: var(--border-radius-balloon);
-  transform: translateX(-50%) translateY(calc(-100% - var(--tooltip-tail-size)));
   pointer-events: none;
   animation:
     balloon-hold var(--balloon-duration, 3s) ease forwards,
     balloon-dismiss var(--balloon-dismiss-duration, 400ms) ease forwards;
   animation-delay: 0ms, var(--balloon-duration, 3s);
+}
+
+/* Cardinal positions */
+.speech-balloon[data-position="top"],
+.speech-balloon:not([data-position]) {
+  flex-direction: column;
+  transform: translateX(-50%) translateY(calc(-100% - var(--tooltip-tail-size)));
+}
+
+.speech-balloon[data-position="bottom"] {
+  flex-direction: column-reverse;
+  transform: translateX(-50%) translateY(var(--tooltip-tail-size));
+}
+
+.speech-balloon[data-position="left"] {
+  flex-direction: row;
+  transform: translateX(calc(-100% - var(--tooltip-tail-size))) translateY(-50%);
+}
+
+.speech-balloon[data-position="right"] {
+  flex-direction: row-reverse;
+  transform: translateX(var(--tooltip-tail-size)) translateY(-50%);
+}
+
+/* Diagonal positions: balloon offset so its corner meets the anchor point */
+.speech-balloon[data-position="top-left"] {
+  flex-direction: column;
+  align-items: flex-end;
+  transform: translateX(calc(-100% + var(--border-radius-balloon)))
+    translateY(calc(-100% - var(--tooltip-tail-size)));
+}
+
+.speech-balloon[data-position="top-right"] {
+  flex-direction: column;
+  align-items: flex-start;
+  transform: translateX(calc(0px - var(--border-radius-balloon)))
+    translateY(calc(-100% - var(--tooltip-tail-size)));
+}
+
+.speech-balloon[data-position="bottom-left"] {
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  transform: translateX(calc(-100% + var(--border-radius-balloon)))
+    translateY(var(--tooltip-tail-size));
+}
+
+.speech-balloon[data-position="bottom-right"] {
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  transform: translateX(calc(0px - var(--border-radius-balloon)))
+    translateY(var(--tooltip-tail-size));
+}
+
+/* Tail alignment for diagonal positions: pushed to the corner edge */
+.speech-balloon[data-position="top-left"] .popover-tail,
+.speech-balloon[data-position="bottom-left"] .popover-tail {
+  margin-right: var(--border-radius-balloon);
+}
+
+.speech-balloon[data-position="top-right"] .popover-tail,
+.speech-balloon[data-position="bottom-right"] .popover-tail {
+  margin-left: var(--border-radius-balloon);
 }
 
 @keyframes balloon-hold {
@@ -26,24 +85,4 @@
   to {
     opacity: 0;
   }
-}
-
-.speech-balloon-bubble {
-  background: var(--color-4);
-  color: var(--color-1);
-  border-radius: var(--border-radius-balloon);
-  max-width: var(--panel-width);
-  text-align: center;
-}
-
-.speech-balloon-bubble p {
-  margin: 0;
-}
-
-.speech-balloon-tail {
-  width: calc(var(--tooltip-tail-size) * 2);
-  height: calc(var(--tooltip-tail-size) * 2);
-  background: var(--color-4);
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  flex-shrink: 0;
 }

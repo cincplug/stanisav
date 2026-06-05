@@ -1,16 +1,22 @@
 import { Html } from "@react-three/drei";
 import { useAppState } from "../../contexts/AppStateContext";
 import { config } from "../../modules/configStore";
+import "../menu/ux/Popover.css";
 import "./SpeechBalloon.css";
 
-const SpeechBalloon = ({ anchorPosition = [0, 4, 0] }) => {
-  const { durationBase, durationPerCharacter, durationDismiss } =
-    config.speechBalloon;
+const SpeechBalloon = ({ anchorPosition = [0, 4, 0], position }) => {
+  const {
+    durationBase,
+    durationPerCharacter,
+    durationDismiss,
+    defaultPosition,
+  } = config.speechBalloon;
 
   const { balloonText, setBalloonText } = useAppState();
 
   if (!balloonText) return null;
 
+  const resolvedPosition = position ?? defaultPosition;
   const durationMs = durationBase + balloonText.length * durationPerCharacter;
 
   return (
@@ -22,6 +28,7 @@ const SpeechBalloon = ({ anchorPosition = [0, 4, 0] }) => {
     >
       <div
         className="speech-balloon"
+        data-position={resolvedPosition}
         style={{
           "--balloon-duration": `${durationMs}ms`,
           "--balloon-dismiss-duration": `${durationDismiss}ms`,
@@ -33,7 +40,7 @@ const SpeechBalloon = ({ anchorPosition = [0, 4, 0] }) => {
         <div className="speech-balloon-bubble popover-bubble">
           <p>{balloonText}</p>
         </div>
-        <div className="speech-balloon-tail" />
+        <div className="popover-tail" data-position={resolvedPosition} />
       </div>
     </Html>
   );
