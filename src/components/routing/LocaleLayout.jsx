@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Navigate, Outlet, useLocation, useParams } from "react-router-dom";
-import { useI18n } from "../../contexts/I18nContext";
+import { useI18nContext } from "../../contexts/I18nContext";
 import {
   defaultUrlSlug,
   resolveUrlLocale,
@@ -12,7 +12,7 @@ const getPathWithoutLocale = (pathname) => pathname.replace(/^\/[^/]+/, "");
 function LocaleLayout() {
   const { locale } = useParams();
   const location = useLocation();
-  const { setLocale } = useI18n();
+  const { setLocale } = useI18nContext();
 
   const iso3 = resolveUrlLocale(locale);
   const canonicalSlug = iso3 ? toUrlSlug(iso3) : null;

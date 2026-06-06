@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef } from "react";
 import controlsConfig from "../../config/controls.json";
-import { useControls } from "../../contexts/ControlsContext";
+import { useControlsContext } from "../../contexts/ControlsContext";
 import { localizeControlConfig } from "../../utils/i18nUtils";
 import "./Flowers.css";
 import { thumbIconMap } from "./thumbIconMap";
@@ -9,7 +9,7 @@ import Range from "./ux/Range";
 const Flowers = ({ selectedLanguage }) => {
   if (selectedLanguage) return null;
 
-  const { controls, updateControl } = useControls();
+  const { controls, updateControl } = useControlsContext();
   const containerRef = useRef(null);
 
   const rangeControls = Object.entries(controlsConfig)

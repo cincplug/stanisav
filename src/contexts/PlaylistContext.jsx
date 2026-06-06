@@ -7,15 +7,15 @@ import {
   useState,
 } from "react";
 import { getSortingData, sortLanguages } from "../utils/sortingUtils";
-import { useAppState } from "./AppStateContext";
-import { useControls } from "./ControlsContext";
-import { useLanguageSelection } from "./LanguageSelectionContext";
+import { useAppStateContext } from "./AppStateContext";
+import { useControlsContext } from "./ControlsContext";
+import { useLanguageSelectionContext } from "./LanguageSelectionContext";
 
 const PlaylistContext = createContext(null);
 
 export const PlaylistProvider = ({ children }) => {
-  const { data, isSceneReady } = useAppState();
-  const { controls } = useControls();
+  const { data, isSceneReady } = useAppStateContext();
+  const { controls } = useControlsContext();
   const {
     isAutoplay,
     isMyMesha,
@@ -31,7 +31,7 @@ export const PlaylistProvider = ({ children }) => {
     filters,
     selectedLanguage,
     viewAllLanguages,
-  } = useLanguageSelection();
+  } = useLanguageSelectionContext();
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -391,7 +391,7 @@ export const PlaylistProvider = ({ children }) => {
   );
 };
 
-export const usePlaylist = () => {
+export const usePlaylistContext = () => {
   const context = useContext(PlaylistContext);
   if (!context) {
     throw new Error("usePlaylist must be used within a PlaylistProvider");

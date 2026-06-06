@@ -1,9 +1,9 @@
-import { useI18n } from "../../contexts/I18nContext";
+import { useI18nContext } from "../../contexts/I18nContext";
 import { CloseIcon } from "./MenuIcons";
 import "./SearchTab.css";
 
 function SearchBox({ searchTerm, setSearchTerm, clearSearch }) {
-  const { t } = useI18n();
+  const { t } = useI18nContext();
 
   const handleClear = () => {
     clearSearch();

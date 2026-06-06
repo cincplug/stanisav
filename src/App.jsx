@@ -3,16 +3,16 @@ import "./App.css";
 import IdCard from "./components/menu/IdCard";
 import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
-import { useAppState } from "./contexts/AppStateContext";
-import { useControls } from "./contexts/ControlsContext";
-import { useI18n } from "./contexts/I18nContext";
-import { useLanguageColors } from "./contexts/LanguageColorsContext.jsx";
-import { useLanguageSelection } from "./contexts/LanguageSelectionContext";
-import { usePlaylist } from "./contexts/PlaylistContext";
+import { useAppStateContext } from "./contexts/AppStateContext";
+import { useControlsContext } from "./contexts/ControlsContext";
+import { useI18nContext } from "./contexts/I18nContext";
+import { useLanguageColorsContext } from "./contexts/LanguageColorsContext.jsx";
+import { useLanguageSelectionContext } from "./contexts/LanguageSelectionContext";
+import { usePlaylistContext } from "./contexts/PlaylistContext";
 import { useMediaQuery } from "./hooks/useMediaQuery.js";
 
 function App() {
-  const { isRtl } = useI18n();
+  const { isRtl } = useI18nContext();
   const {
     isLoading,
     data,
@@ -23,16 +23,16 @@ function App() {
     setNodes,
     setFilters,
     handleCameraFocus,
-  } = useAppState();
+  } = useAppStateContext();
 
   const isMobile = useMediaQuery();
-  const { controls, updateControl } = useControls();
-  const { selectedLanguage } = useLanguageSelection();
-  const { pausePlaylist } = usePlaylist();
+  const { controls, updateControl } = useControlsContext();
+  const { selectedLanguage } = useLanguageSelectionContext();
+  const { pausePlaylist } = usePlaylistContext();
   const { isIdCardVisible, isMenuExpanded, isSegmented } = controls;
   const { sampleUrl, sub } = data?.languageData[selectedLanguage] || {};
 
-  const { languageColors } = useLanguageColors();
+  const { languageColors } = useLanguageColorsContext();
 
   useEffect(() => {
     document.documentElement.style.setProperty(

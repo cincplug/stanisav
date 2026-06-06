@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { useControls } from "../../contexts/ControlsContext";
-import { useI18n } from "../../contexts/I18nContext";
+import { useControlsContext } from "../../contexts/ControlsContext";
+import { useI18nContext } from "../../contexts/I18nContext";
 import { useAdvancedControlRanges } from "../../hooks/useAdvancedControlRanges";
 import { CircleIcon, ExpandIcon, RotateSpeedIcon } from "./MenuIcons";
 import Range from "./ux/Range";
@@ -11,11 +11,11 @@ const AdvancedControls = () => {
     updateAdvancedControl,
     isAdvancedOpen,
     toggleAdvanced,
-  } = useControls();
+  } = useControlsContext();
 
   const groups = useAdvancedControlRanges();
   const advancedRef = useRef();
-  const { t } = useI18n();
+  const { t } = useI18nContext();
 
   const [openGroups, setOpenGroups] = useState({});
 

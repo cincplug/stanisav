@@ -2,7 +2,7 @@ import { extend } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { dragBindings } from "../../config/dragBindings.js";
-import { useControls } from "../../contexts/ControlsContext.jsx";
+import { useControlsContext } from "../../contexts/ControlsContext.jsx";
 import { useAudioData } from "../../hooks/useAudioData.js";
 import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
@@ -28,7 +28,7 @@ const MeshaMoustache = ({
   const tuftDataRef = useRef([]);
   const { tuftSpacing, tuftColorStep, segments } = config.meshaVisualization;
 
-  const { controls } = useControls();
+  const { controls } = useControlsContext();
   const { audioData } = useAudioData();
   const { eyeZ, eyeX, moustacheSize } = controls;
   const highlightMaterial = useHighlightMaterial(0, 2);

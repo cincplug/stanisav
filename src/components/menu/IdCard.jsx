@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef } from "react";
-import { useI18n } from "../../contexts/I18nContext";
-import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
+import { useI18nContext } from "../../contexts/I18nContext";
+import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
 import { getLocalizedLanguageName } from "../../i18n/runtime";
 import { getFamilyLabel } from "../../utils/i18nUtils";
 import {
@@ -27,14 +27,14 @@ function IdCard({
   onSourceVideoClick,
   onToggleSubtitle,
 }) {
-  const { locale, t } = useI18n();
+  const { locale, t } = useI18nContext();
 
   const lineageTrail = useMemo(() => {
     const lineageKey = languageLineages?.[languageCode];
     return getLineageTrail(lineageKey);
   }, [languageCode, languageLineages]);
 
-  const { selectedProperty } = useLanguageSelection();
+  const { selectedProperty } = useLanguageSelectionContext();
 
   const properties = useMemo(() => {
     if (!languageCode || !language) return [];

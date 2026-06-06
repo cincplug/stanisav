@@ -1,8 +1,8 @@
 import tabsConfig from "../../config/tabsConfig.json";
-import { useI18n } from "../../contexts/I18nContext";
+import { useI18nContext } from "../../contexts/I18nContext";
 
 function TabNavigation({ selectedTab, setSelectedTab }) {
-  const { t } = useI18n();
+  const { t } = useI18nContext();
   const tabs = tabsConfig.tabs;
 
   const handleKeyDown = (e, index) => {

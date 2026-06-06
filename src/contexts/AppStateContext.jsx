@@ -35,7 +35,7 @@ export const AppStateProvider = ({ children }) => {
   );
 };
 
-export const useAppState = () => {
+export const useAppStateContext = () => {
   const context = useContext(AppStateContext);
   if (!context) {
     throw new Error("useAppState must be used within an AppStateProvider");

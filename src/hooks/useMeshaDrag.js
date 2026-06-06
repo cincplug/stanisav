@@ -1,13 +1,13 @@
 import { useDrag } from "@use-gesture/react";
 import { useRef } from "react";
-import { useControls } from "../contexts/ControlsContext";
+import { useControlsContext } from "../contexts/ControlsContext";
 import { useDragContext } from "../contexts/DragContext";
 import { config } from "../modules/configStore";
 import { resolveControlBounds } from "../utils/controlUtils";
 
 export const useMeshaDrag = (bindings) => {
   const { controls, updateControl, advancedControls, updateAdvancedControl } =
-    useControls();
+    useControlsContext();
   const { notifyDragStart, notifyDragEnd } = useDragContext();
 
   const { dragSensitivity, timeRate } = config.meshaVisualization;

@@ -1,21 +1,21 @@
 import { useEffect } from "react";
-import { useControls } from "../../contexts/ControlsContext";
-import { useI18n } from "../../contexts/I18nContext";
-import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
-import { usePlaylist } from "../../contexts/PlaylistContext";
+import { useControlsContext } from "../../contexts/ControlsContext";
+import { useI18nContext } from "../../contexts/I18nContext";
+import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
+import { usePlaylistContext } from "../../contexts/PlaylistContext";
 import {
   LoopIcon,
   NextIcon,
   PauseIcon,
   PlayIcon,
   PrevIcon,
-  StopIcon
+  StopIcon,
 } from "./MenuIcons";
 import "./Playlist.css";
 
 export default function Playlist() {
-  const { t } = useI18n();
-  const { selectedLanguage, viewAllLanguages } = useLanguageSelection();
+  const { t } = useI18nContext();
+  const { selectedLanguage, viewAllLanguages } = useLanguageSelectionContext();
   const {
     isPlaying,
     startPlaylist,
@@ -23,9 +23,9 @@ export default function Playlist() {
     goToPrev,
     goToNext,
     goToBegin,
-  } = usePlaylist();
+  } = usePlaylistContext();
 
-  const { controls, updateControl } = useControls();
+  const { controls, updateControl } = useControlsContext();
 
   // Add keyboard shortcuts
   useEffect(() => {

@@ -2,11 +2,11 @@ import { useSpring } from "@react-spring/three";
 import { Text } from "@react-three/drei";
 import { useCallback, useMemo, useRef } from "react";
 import { MeshStandardMaterial } from "three";
-import { useAppState } from "../../contexts/AppStateContext.jsx";
-import { useControls } from "../../contexts/ControlsContext.jsx";
-import { useEntrance } from "../../contexts/EntranceContext.jsx";
-import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
-import { usePlaylist } from "../../contexts/PlaylistContext.jsx";
+import { useAppStateContext } from "../../contexts/AppStateContext.jsx";
+import { useControlsContext } from "../../contexts/ControlsContext.jsx";
+import { useEntranceContext } from "../../contexts/EntranceContext.jsx";
+import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext.jsx";
+import { usePlaylistContext } from "../../contexts/PlaylistContext.jsx";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { config } from "../../modules/configStore";
 import { getLanguageLabel } from "../../utils/linguisticUtils.js";
@@ -21,11 +21,11 @@ const Label = ({
   totalVisibleLabels,
 }) => {
   const labelRef = useRef();
-  const { controls } = useControls();
-  const { data } = useAppState();
+  const { controls } = useControlsContext();
+  const { data } = useAppStateContext();
   const { filteredLanguages, filters, selectedLanguage } =
-    useLanguageSelection();
-  const { startFromLanguage } = usePlaylist();
+    useLanguageSelectionContext();
+  const { startFromLanguage } = usePlaylistContext();
   const { labelContent, labelSize, d4, isSegmented, isMotionReduced } =
     controls;
   const { radialOffsetModifier } = config.layout;
@@ -54,7 +54,7 @@ const Label = ({
     [position],
   );
 
-  const { getLabelSpringProps } = useEntrance();
+  const { getLabelSpringProps } = useEntranceContext();
   const {
     startPosition,
     finalPosition: springFinalPosition,

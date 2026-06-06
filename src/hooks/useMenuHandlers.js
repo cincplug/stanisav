@@ -1,7 +1,7 @@
-import { useLanguageSelection } from "../contexts/LanguageSelectionContext";
+import { useLanguageSelectionContext } from "../contexts/LanguageSelectionContext";
 
 export const useMenuHandlers = (onCameraFocus, isSceneReady) => {
-  const { selectLanguage, viewAllLanguages } = useLanguageSelection();
+  const { selectLanguage, viewAllLanguages } = useLanguageSelectionContext();
 
   const handleLanguageFocus = (languageCode) => selectLanguage(languageCode);
 

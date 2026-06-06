@@ -1,7 +1,7 @@
 import { a, useSpring } from "@react-spring/three";
 import { useThree } from "@react-three/fiber";
 import { useRef } from "react";
-import { useControls } from "../../contexts/ControlsContext";
+import { useControlsContext } from "../../contexts/ControlsContext";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 import { config } from "../../modules/configStore";
 
@@ -18,7 +18,7 @@ const StageLight = ({
   selectedLanguage,
 }) => {
   const { camera, controls: threeControls } = useThree();
-  const { controls } = useControls();
+  const { controls } = useControlsContext();
   const { light } = controls;
   const lightRef = useRef();
 

@@ -1,13 +1,13 @@
 import { createContext, useContext, useMemo } from "react";
 import { calculateLanguageColors } from "../utils/colorUtils";
-import { useAppState } from "./AppStateContext";
-import { useControls } from "./ControlsContext";
+import { useAppStateContext } from "./AppStateContext";
+import { useControlsContext } from "./ControlsContext";
 
 const ColorsContext = createContext(null);
 
 export const LanguageColorsProvider = ({ children }) => {
-  const { data } = useAppState();
-  const { controls } = useControls();
+  const { data } = useAppStateContext();
+  const { controls } = useControlsContext();
 
   const languageColors = useMemo(() => {
     if (!data?.languageData || !data?.languageLineages) return {};
@@ -25,7 +25,7 @@ export const LanguageColorsProvider = ({ children }) => {
   );
 };
 
-export const useLanguageColors = () => {
+export const useLanguageColorsContext = () => {
   const context = useContext(ColorsContext);
   if (!context)
     throw new Error(

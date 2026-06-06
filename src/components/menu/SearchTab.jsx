@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import tabsConfig from "../../config/tabsConfig.json";
-import { useI18n } from "../../contexts/I18nContext";
-import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
-import { usePlaylist } from "../../contexts/PlaylistContext";
+import { useI18nContext } from "../../contexts/I18nContext";
+import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
+import { usePlaylistContext } from "../../contexts/PlaylistContext";
 import { getFamilyLabel } from "../../utils/i18nUtils";
 import SearchBox from "./SearchBox";
 import "./SearchTab.css";
@@ -15,9 +15,9 @@ function SearchResults({
   languageColors = {},
 }) {
   const threshold = tabsConfig.searchLengthThreshold;
-  const { selectedLanguage } = useLanguageSelection();
-  const { startFromLanguage } = usePlaylist();
-  const { t } = useI18n();
+  const { selectedLanguage } = useLanguageSelectionContext();
+  const { startFromLanguage } = usePlaylistContext();
+  const { t } = useI18nContext();
 
   // Handler for selecting a language from results
   const handleSelectLanguage = (langCode) => {
@@ -90,8 +90,8 @@ function SearchTab({
   setSearchTerm,
   clearSearch,
 }) {
-  const { selectLanguage } = useLanguageSelection();
-  const { startFromLanguage } = usePlaylist();
+  const { selectLanguage } = useLanguageSelectionContext();
+  const { startFromLanguage } = usePlaylistContext();
   const lastAutoSelectedRef = useRef(null);
 
   // Handle exact match selection (only once per unique match)

@@ -1,17 +1,17 @@
 import { useCallback, useEffect, useMemo, useRef } from "react";
 import lineages from "../../config/lineages.json";
-import { useControls } from "../../contexts/ControlsContext";
-import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
-import { usePlaylist } from "../../contexts/PlaylistContext";
+import { useControlsContext } from "../../contexts/ControlsContext";
+import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
+import { usePlaylistContext } from "../../contexts/PlaylistContext";
 import { buildLanguageTree, groupLanguages } from "../../utils/groupingUtils";
 import { getSortingData, sortLanguages } from "../../utils/sortingUtils";
 import "./LanguagesTab.css";
 import LanguageTree from "./LanguageTree";
 
 function LanguagesTab({ languageData, isSelected, languageColors = {} }) {
-  const { selectedLanguage } = useLanguageSelection();
-  const { startFromLanguage } = usePlaylist();
-  const { controls } = useControls();
+  const { selectedLanguage } = useLanguageSelectionContext();
+  const { startFromLanguage } = usePlaylistContext();
+  const { controls } = useControlsContext();
   const buttonRefs = useRef({});
 
   const { sortBy, labelContent, isReverse } = controls;

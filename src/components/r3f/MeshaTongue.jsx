@@ -2,8 +2,8 @@ import { extend } from "@react-three/fiber";
 import { useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { dragBindings } from "../../config/dragBindings.js";
-import { useControls } from "../../contexts/ControlsContext.jsx";
-import { useEntrance } from "../../contexts/EntranceContext";
+import { useControlsContext } from "../../contexts/ControlsContext.jsx";
+import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useAudioData } from "../../hooks/useAudioData.js";
 import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
@@ -14,7 +14,7 @@ import { createAudioSurface } from "../../utils/shapeUtils.js";
 extend({ ParametricGeometry });
 
 const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
-  const { controls } = useControls();
+  const { controls } = useControlsContext();
   const { audioData } = useAudioData();
   const { tongueSize } = controls;
   const { tongueX, tongueY, tongueZ, tongueWidth, tongueHeight, tongueLength } =
@@ -50,7 +50,7 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
 
   const activeMaterial = isSelected ? highlightMaterial : tongueMaterial;
 
-  const { revealedParts } = useEntrance();
+  const { revealedParts } = useEntranceContext();
   if (!revealedParts.has("tongue")) return null;
 
   return (

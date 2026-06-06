@@ -62,7 +62,7 @@ export const LanguageSelectionProvider = ({ children }) => {
   );
 };
 
-export const useLanguageSelection = () => {
+export const useLanguageSelectionContext = () => {
   const context = useContext(LanguageSelectionContext);
   if (!context) {
     throw new Error(

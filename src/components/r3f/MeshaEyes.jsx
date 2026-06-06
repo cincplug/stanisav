@@ -1,9 +1,9 @@
 import { useRef } from "react";
 import blinkTimings from "../../config/blinkTimings.json";
 import { dragBindings } from "../../config/dragBindings.js";
-import { useControls } from "../../contexts/ControlsContext.jsx";
-import { useEntrance } from "../../contexts/EntranceContext.jsx";
-import { usePlaylist } from "../../contexts/PlaylistContext.jsx";
+import { useControlsContext } from "../../contexts/ControlsContext.jsx";
+import { useEntranceContext } from "../../contexts/EntranceContext.jsx";
+import { usePlaylistContext } from "../../contexts/PlaylistContext.jsx";
 import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
 import {
   useHighlightMaterial,
@@ -49,7 +49,7 @@ const Eye = ({
   const irisZ = eyeProtrusion / 2 + depthFactor * eyeProtrusion;
   const pupilZ = eyeProtrusion + depthFactor * eyeProtrusion;
 
-  const { revealedParts } = useEntrance();
+  const { revealedParts } = useEntranceContext();
   const isEntranceBlinkPhase = !revealedParts.has("nose");
 
   useThrottledFrame(({ camera, clock }) => {
@@ -173,9 +173,9 @@ const MeshaEyes = ({
     lastCheckedIndex: 0,
   });
 
-  const { controls } = useControls();
+  const { controls } = useControlsContext();
   const { eyeSize, eyeProtrusion, eyeX, eyeY, eyeZ } = controls;
-  const { audioRef } = usePlaylist();
+  const { audioRef } = usePlaylistContext();
   const highlightMaterial = useHighlightMaterial(0, 2);
   const timings = blinkTimings[isoCode] ?? [];
 

@@ -1,10 +1,10 @@
 import { Line } from "@react-three/drei";
 import { Vector3 } from "three";
-import { useControls } from "../../contexts/ControlsContext";
+import { useControlsContext } from "../../contexts/ControlsContext";
 import LabelsClusterTitle from "./LabelsClusterTitle";
 
 const LabelsCluster = ({ title, languageCodes, formattedPositions }) => {
-  const { controls } = useControls();
+  const { controls } = useControlsContext();
   const { isSegmented } = controls;
 
   if (!isSegmented) return null;

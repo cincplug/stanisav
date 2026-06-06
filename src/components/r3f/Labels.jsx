@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { useLanguageColors } from "../../contexts/LanguageColorsContext";
+import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext";
 import Label from "./Label";
 import LabelsCluster from "./LabelsCluster";
 
@@ -12,7 +12,7 @@ const Labels = ({
   isLabelsSequenceDone,
   setIsLabelsSequenceDone,
 }) => {
-  const { languageColors } = useLanguageColors();
+  const { languageColors } = useLanguageColorsContext();
   const visibleLabelCodes = Object.keys(formattedPositions).filter(
     (langCode) => {
       const position = formattedPositions[langCode];

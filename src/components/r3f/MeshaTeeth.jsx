@@ -2,8 +2,8 @@ import { extend } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { dragBindings } from "../../config/dragBindings.js";
-import { useControls } from "../../contexts/ControlsContext.jsx";
-import { useEntrance } from "../../contexts/EntranceContext";
+import { useControlsContext } from "../../contexts/ControlsContext.jsx";
+import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useAudioData } from "../../hooks/useAudioData.js";
 import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
@@ -21,7 +21,7 @@ const MeshaTeeth = ({
   isSelected,
 }) => {
   const teethRefs = useRef([]);
-  const { controls } = useControls();
+  const { controls } = useControlsContext();
   const { audioData } = useAudioData();
   const { teethSize } = controls;
   const { toothColor } = config.colors;
@@ -78,7 +78,7 @@ const MeshaTeeth = ({
 
   if (!teeth.length) return null;
 
-  const { revealedParts } = useEntrance();
+  const { revealedParts } = useEntranceContext();
   if (!revealedParts.has("teeth")) return null;
 
   return (

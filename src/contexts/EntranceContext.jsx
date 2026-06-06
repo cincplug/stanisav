@@ -1,8 +1,8 @@
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { getEntranceSteps } from "../i18n/runtime";
 import { config } from "../modules/configStore";
-import { useAppState } from "./AppStateContext";
-import { useControls } from "./ControlsContext";
+import { useAppStateContext } from "./AppStateContext";
+import { useControlsContext } from "./ControlsContext";
 
 const {
   meshaRevealSequence,
@@ -32,9 +32,9 @@ const calculateBalloonFullDuration = (message) =>
 const EntranceContext = createContext(null);
 
 export const EntranceProvider = ({ children }) => {
-  const { controls } = useControls();
+  const { controls } = useControlsContext();
   const { tension, friction } = controls;
-  const { isSceneReady, setBalloonText } = useAppState();
+  const { isSceneReady, setBalloonText } = useAppStateContext();
 
   const allParts = meshaRevealSequence.map((s) => s.part);
 
@@ -153,7 +153,7 @@ export const EntranceProvider = ({ children }) => {
   );
 };
 
-export const useEntrance = () => {
+export const useEntranceContext = () => {
   const context = useContext(EntranceContext);
   if (!context)
     throw new Error("useEntrance must be used within an EntranceProvider");

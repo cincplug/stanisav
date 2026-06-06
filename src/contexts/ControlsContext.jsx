@@ -64,7 +64,7 @@ export const ControlsProvider = ({ children }) => {
   );
 };
 
-export const useControls = () => {
+export const useControlsContext = () => {
   const context = useContext(ControlsContext);
   if (!context) {
     throw new Error("useControls must be used within an ControlsProvider");

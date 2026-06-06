@@ -1,11 +1,11 @@
 import controlsConfig from "../../config/controls.json";
-import { useControls } from "../../contexts/ControlsContext";
+import { useControlsContext } from "../../contexts/ControlsContext";
 import AdvancedControls from "./AdvancedControls";
 import ControlItemGroup from "./ControlItemGroup";
 import "./ControlsTab.css";
 
 const ControlsTab = ({ className }) => {
-  const { controls, updateControl } = useControls();
+  const { controls, updateControl } = useControlsContext();
 
   const uniqueGroups = Object.keys(controlsConfig).filter(
     (group) => group !== "Header",

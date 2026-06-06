@@ -1,4 +1,4 @@
-import { useI18n } from "../../contexts/I18nContext";
+import { useI18nContext } from "../../contexts/I18nContext";
 import { useMediaQuery } from "../../hooks/useMediaQuery.js";
 import * as MenuIcons from "./MenuIcons";
 import { thumbIconMap } from "./thumbIconMap.js";
@@ -13,7 +13,7 @@ const ControlItem = ({
   groupIndex,
   controlIndex,
 }) => {
-  const { t } = useI18n();
+  const { t } = useI18nContext();
   const {
     id,
     type,

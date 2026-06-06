@@ -5,9 +5,9 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { useI18n } from "../../contexts/I18nContext";
-import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
-import { usePlaylist } from "../../contexts/PlaylistContext";
+import { useI18nContext } from "../../contexts/I18nContext";
+import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
+import { usePlaylistContext } from "../../contexts/PlaylistContext";
 import {
   filterLanguagesByFeatures,
   getFeatureValues,
@@ -16,7 +16,7 @@ import {
   getAllFeatures,
   getFeatureDescription,
   getFeatureLabel,
-  isPropertyDescribed
+  isPropertyDescribed,
 } from "../../utils/linguisticUtils";
 import { sortFeatureValues } from "../../utils/sortingUtils";
 import "./FiltersTab.css";
@@ -26,17 +26,16 @@ import Properties from "./Properties";
 import Tooltip from "./ux/Tooltip";
 
 function FiltersTab({ data, languageColors = {} }) {
-  const { viewAllLanguages, selectedLanguage } = useLanguageSelection();
-  const { pausePlaylist, startFromLanguage } = usePlaylist();
-  const { filters, updateFilters } =
-    useLanguageSelection();
+  const { viewAllLanguages, selectedLanguage } = useLanguageSelectionContext();
+  const { pausePlaylist, startFromLanguage } = usePlaylistContext();
+  const { filters, updateFilters } = useLanguageSelectionContext();
 
   const features = getAllFeatures();
   const [allowMultipleChoices, setAllowMultipleChoices] = useState(false);
   const [lastChangedFeature, setLastChangedFeature] = useState(null);
   const buttonRefs = useRef({});
   const fieldsetRefs = useRef({});
-  const { t } = useI18n();
+  const { t } = useI18nContext();
 
   const handleCheckboxChange = (feature, value, checked) => {
     let newFilters = { ...filters };

@@ -2,11 +2,11 @@ import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
 import lineages from "../../config/lineages.json";
-import { useControls } from "../../contexts/ControlsContext";
-import { useEntrance } from "../../contexts/EntranceContext";
-import { useI18n } from "../../contexts/I18nContext";
-import { useLanguageColors } from "../../contexts/LanguageColorsContext";
-import { useLanguageSelection } from "../../contexts/LanguageSelectionContext";
+import { useControlsContext } from "../../contexts/ControlsContext";
+import { useEntranceContext } from "../../contexts/EntranceContext";
+import { useI18nContext } from "../../contexts/I18nContext";
+import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext";
+import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
 import { useDataManager } from "../../hooks/useDataManager";
 import { config } from "../../modules/configStore";
 import { LayoutEngine } from "../../modules/layoutEngine";
@@ -24,10 +24,10 @@ import SceneReadyGate from "./SceneReadyGate";
 import StageLight from "./StageLight";
 
 const Stage = ({ onDataLoaded, onLoadingChange }) => {
-  const { controls } = useControls();
-  const { locale, isLocaleReady } = useI18n();
-  const { filters, selectedLanguage } = useLanguageSelection();
-  const { languageColors } = useLanguageColors();
+  const { controls } = useControlsContext();
+  const { locale, isLocaleReady } = useI18nContext();
+  const { filters, selectedLanguage } = useLanguageSelectionContext();
+  const { languageColors } = useLanguageColorsContext();
   const {
     isMeshaSequenceDone,
     skipSequence,
@@ -35,7 +35,7 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
     isLabelsSequenceDone,
     setIsLabelsSequenceDone,
     mentionedLanguage,
-  } = useEntrance();
+  } = useEntranceContext();
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
   const { rotateSpeedFactor } = config;
   const { cameraX, cameraY, cameraZ, fov, near, far } = config.camera;

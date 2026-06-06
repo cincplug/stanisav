@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { dragBindings } from "../../config/dragBindings.js";
-import { useControls } from "../../contexts/ControlsContext.jsx";
-import { useEntrance } from "../../contexts/EntranceContext";
+import { useControlsContext } from "../../contexts/ControlsContext.jsx";
+import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
@@ -19,7 +19,7 @@ const MeshaNose = ({
   const segmentARef = useRef();
   const segmentBRef = useRef();
   const segmentCRef = useRef();
-  const { controls } = useControls();
+  const { controls } = useControlsContext();
   const { pupilSize } = controls;
   const highlightMaterial = useHighlightMaterial(0, 2);
 
@@ -32,7 +32,7 @@ const MeshaNose = ({
     groupRef.current.lookAt(camera.position);
   });
 
-  const { revealedParts } = useEntrance();
+  const { revealedParts } = useEntranceContext();
   if (!revealedParts.has("nose")) return null;
 
   return (

@@ -3,12 +3,12 @@ import { extend } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
-import { useAppState } from "../../contexts/AppStateContext.jsx";
-import { useControls } from "../../contexts/ControlsContext.jsx";
+import { useAppStateContext } from "../../contexts/AppStateContext.jsx";
+import { useControlsContext } from "../../contexts/ControlsContext.jsx";
 import { useDragContext } from "../../contexts/DragContext.jsx";
-import { useEntrance } from "../../contexts/EntranceContext.jsx";
-import { useLanguageColors } from "../../contexts/LanguageColorsContext.jsx";
-import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
+import { useEntranceContext } from "../../contexts/EntranceContext.jsx";
+import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext.jsx";
+import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext.jsx";
 import { useShaderMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { config } from "../../modules/configStore";
@@ -42,9 +42,9 @@ const Mesha = ({
   const lookAroundRef = useRef();
   const lookAroundRotationRef = useRef(0);
 
-  const { data } = useAppState();
-  const { languageColors } = useLanguageColors();
-  const { controls } = useControls();
+  const { data } = useAppStateContext();
+  const { languageColors } = useLanguageColorsContext();
+  const { controls } = useControlsContext();
   const {
     meshaSize,
     eyeX,
@@ -57,9 +57,9 @@ const Mesha = ({
     switchDuration,
   } = controls;
   const { selectedProperty, setSelectedProperty, selectedLanguage } =
-    useLanguageSelection();
+    useLanguageSelectionContext();
 
-  const { isMeshaSequenceDone, isEntranceComplete } = useEntrance();
+  const { isMeshaSequenceDone, isEntranceComplete } = useEntranceContext();
   const { isDragging } = useDragContext();
 
   const linguisticProperties = data?.typologicalFeatures?.[languageCode];

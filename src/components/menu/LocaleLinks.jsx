@@ -1,10 +1,10 @@
 import languages from "../../config/languages.json";
-import { useI18n } from "../../contexts/I18nContext";
+import { useI18nContext } from "../../contexts/I18nContext";
 import { getSupportedLocales, toUrlSlug } from "../../i18n/runtime";
 import Select from "./ux/Select";
 
 export default function LocaleLinks({ isCompact = false }) {
-  const { locale, t } = useI18n();
+  const { locale, t } = useI18nContext();
   const currentSlug = toUrlSlug(locale);
 
   const options = getSupportedLocales()

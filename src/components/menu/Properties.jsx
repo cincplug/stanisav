@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useRef } from "react";
 import linguisticConfig from "../../config/linguisticConfig.json";
-import { useI18n } from "../../contexts/I18nContext";
+import { useI18nContext } from "../../contexts/I18nContext";
 import "./Properties.css";
 
 const Properties = ({ propertyKey, selectedLanguageValue }) => {
-  const { t } = useI18n();
+  const { t } = useI18nContext();
 
   const property = linguisticConfig[propertyKey];
   const variants = useMemo(() => Object.entries(property.values), [property]);

@@ -1,15 +1,15 @@
 import { useThree } from "@react-three/fiber";
 import { useCallback, useEffect, useRef } from "react";
 import { Vector3 } from "three";
-import { useControls } from "../contexts/ControlsContext";
-import { useLanguageSelection } from "../contexts/LanguageSelectionContext";
+import { useControlsContext } from "../contexts/ControlsContext";
+import { useLanguageSelectionContext } from "../contexts/LanguageSelectionContext";
 import { config } from "../modules/configStore";
 import { useThrottledFrame } from "./useThrottledFrame";
 
 export const useCameraController = ({ languageNodes, selectedLanguage }) => {
-  const { cameraFocusRequest } = useLanguageSelection();
+  const { cameraFocusRequest } = useLanguageSelectionContext();
   const { camera, controls: threeControls } = useThree();
-  const { controls } = useControls();
+  const { controls } = useControlsContext();
   const { zoomDistance, switchDuration, isSegmented } = controls;
   const { cameraX, cameraY, cameraZ, fov, near, far } = config.camera;
 

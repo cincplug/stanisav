@@ -1,10 +1,10 @@
 import { useEffect, useRef } from "react";
-import { useAppState } from "../../contexts/AppStateContext";
+import { useAppStateContext } from "../../contexts/AppStateContext";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 
 const SceneReadyGate = ({ hasDrawableScene }) => {
   const visualReadyRef = useRef(false);
-  const { setIsSceneReady } = useAppState();
+  const { setIsSceneReady } = useAppStateContext();
 
   useEffect(() => {
     if (!hasDrawableScene) {

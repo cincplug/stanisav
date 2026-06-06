@@ -1,5 +1,5 @@
 import { Html } from "@react-three/drei";
-import { useAppState } from "../../contexts/AppStateContext";
+import { useAppStateContext } from "../../contexts/AppStateContext";
 import { config } from "../../modules/configStore";
 import "../menu/ux/Popover.css";
 import "./SpeechBalloon.css";
@@ -12,7 +12,7 @@ const SpeechBalloon = ({ anchorPosition = [0, 4, 0], position }) => {
     defaultPosition,
   } = config.speechBalloon;
 
-  const { balloonText, setBalloonText } = useAppState();
+  const { balloonText, setBalloonText } = useAppStateContext();
 
   if (!balloonText) return null;
 
