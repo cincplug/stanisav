@@ -1,8 +1,10 @@
 import { extend } from "@react-three/fiber";
 import { useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
+import { dragBindings } from "../../config/dragBindings.js";
 import { useEntrance } from "../../contexts/EntranceContext";
 import { useAudioData } from "../../hooks/useAudioData.js";
+import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { config } from "../../modules/configStore";
@@ -24,6 +26,8 @@ const MeshaEars = ({
   const leftMeshRef = useRef();
   const rightMeshRef = useRef();
   const { earHeight, earWidth, earDepth } = config.meshaVisualization;
+
+  const bind = useMeshaDrag(dragBindings.ears);
 
   useThrottledFrame(() => {
     const audioSurface = createAudioSurface({
@@ -65,6 +69,7 @@ const MeshaEars = ({
         scale={[-earWidth, earHeight / (segments * 2), earDepth]}
         onClick={onClick}
         linguisticProperty="morphology"
+        {...bind()}
       >
         <shaderMaterial args={[activeMaterial]} />
       </mesh>
@@ -74,6 +79,7 @@ const MeshaEars = ({
         scale={[earWidth, earHeight / (segments * 2), earDepth]}
         onClick={onClick}
         linguisticProperty="morphology"
+        {...bind()}
       >
         <shaderMaterial args={[activeMaterial]} />
       </mesh>

@@ -1,8 +1,10 @@
 import { useRef } from "react";
 import blinkTimings from "../../config/blinkTimings.json";
+import { dragBindings } from "../../config/dragBindings.js";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useEntrance } from "../../contexts/EntranceContext.jsx";
 import { usePlaylist } from "../../contexts/PlaylistContext.jsx";
+import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
 import {
   useHighlightMaterial,
   useShaderMaterial,
@@ -23,6 +25,7 @@ const Eye = ({
   isSelectedOuter,
   isSelectedInner,
   highlightMaterial,
+  dragHandlers,
 }) => {
   const lidPivotRef = useRef();
   const groupRef = useRef();
@@ -53,6 +56,7 @@ const Eye = ({
     if (!lidPivotRef.current) return;
     const state = blinkStateRef.current;
     const time = clock.getElapsedTime();
+
     if (state.isBlinking) {
       const elapsed = time - state.startTime;
       const progress = elapsed / blinkDuration;
@@ -81,7 +85,13 @@ const Eye = ({
   const eyelidMaterial = useShaderMaterial(eyelidColor);
 
   return (
-    <group position={position} scale={eyeScale} ref={groupRef} renderOrder={2}>
+    <group
+      position={position}
+      scale={eyeScale}
+      ref={groupRef}
+      renderOrder={2}
+      {...dragHandlers()}
+    >
       <mesh linguisticProperty="evidentiality" onClick={onClick}>
         <sphereGeometry args={[eyeSize, segments, segments]} />
         {isSelectedOuter ? (
@@ -167,8 +177,9 @@ const MeshaEyes = ({
   const { eyeSize, eyeProtrusion, eyeX, eyeY, eyeZ } = controls;
   const { audioRef } = usePlaylist();
   const highlightMaterial = useHighlightMaterial(0, 2);
-
   const timings = blinkTimings[isoCode] ?? [];
+
+  const bind = useMeshaDrag(dragBindings.eyes);
 
   useThrottledFrame(({ clock }) => {
     const state = blinkStateRef.current;
@@ -204,6 +215,7 @@ const MeshaEyes = ({
     isSelectedOuter,
     isSelectedInner,
     highlightMaterial,
+    dragHandlers: bind,
   };
 
   return (

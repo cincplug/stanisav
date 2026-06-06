@@ -1,9 +1,11 @@
 import { extend } from "@react-three/fiber";
 import { useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
+import { dragBindings } from "../../config/dragBindings.js";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useEntrance } from "../../contexts/EntranceContext";
 import { useAudioData } from "../../hooks/useAudioData.js";
+import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { config } from "../../modules/configStore";
@@ -20,15 +22,14 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
 
   const meshRef = useRef();
 
-  // Pass tongueMaterial's stripesType so highlight keeps the stripes visible.
-  // tongueMaterial.uniforms.uStripesType.value carries the language's stripesType.
   const stripesType = tongueMaterial?.uniforms?.uStripesType?.value ?? 0;
   const highlightMaterial = useHighlightMaterial(stripesType);
+
+  const bind = useMeshaDrag(dragBindings.tongue);
 
   useThrottledFrame(() => {
     const { harmonicsData } = audioData;
 
-    // size and radius normalized to 1; overall scale comes from root group in Mesha.jsx
     const audioSurface = createAudioSurface({
       audioBand: harmonicsData,
       size: tongueSize,
@@ -59,6 +60,7 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
       scale={[tongueWidth, -tongueHeight, -tongueLength]}
       onClick={onClick}
       linguisticProperty="tonality"
+      {...bind()}
     >
       <shaderMaterial args={[activeMaterial]} />
     </mesh>

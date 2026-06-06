@@ -1,9 +1,11 @@
 import { extend } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
+import { dragBindings } from "../../config/dragBindings.js";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useEntrance } from "../../contexts/EntranceContext";
 import { useAudioData } from "../../hooks/useAudioData.js";
+import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { config } from "../../modules/configStore";
@@ -25,6 +27,8 @@ const MeshaTeeth = ({
   const { toothColor } = config.colors;
   const { toothColorStep } = config.meshaVisualization;
   const highlightMaterial = useHighlightMaterial(0, 2);
+
+  const bind = useMeshaDrag(dragBindings.teeth);
 
   const teeth = useMemo(() => {
     if (toothCount === 0) return [];
@@ -78,7 +82,7 @@ const MeshaTeeth = ({
   if (!revealedParts.has("teeth")) return null;
 
   return (
-    <group position={[0, 1, 1]} scale={teethSize}>
+    <group position={[0, 1, 1]} scale={teethSize} {...bind()}>
       {teeth.map((tooth, i) => (
         <group
           key={tooth.key}

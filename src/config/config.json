@@ -86,7 +86,8 @@
     "decayRate": 0.7,
     "verticalVariationMultiplier": 0.1,
     "segments": 32,
-    "timeRate": 20
+    "timeRate": 20,
+    "dragSensitivity": 0.1
   },
   "camera": {
     "cameraX": 0,

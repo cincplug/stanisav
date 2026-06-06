@@ -1,8 +1,10 @@
 import { extend } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
+import { dragBindings } from "../../config/dragBindings.js";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useAudioData } from "../../hooks/useAudioData.js";
+import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { config } from "../../modules/configStore";
@@ -30,6 +32,8 @@ const MeshaMoustache = ({
   const { audioData } = useAudioData();
   const { eyeZ, eyeX, moustacheSize } = controls;
   const highlightMaterial = useHighlightMaterial(0, 2);
+
+  const bind = useMeshaDrag(dragBindings.moustache);
 
   const tuftSurface = useMemo(
     () => createTuftShape(moustacheSize, tuftCount),
@@ -76,7 +80,6 @@ const MeshaMoustache = ({
       );
       const amplitude = audioBandData[bandIndex];
       const scale = moustacheSize + amplitude;
-
       tuftGroup.scale.set(scale, scale, scale);
     });
   });
@@ -84,7 +87,7 @@ const MeshaMoustache = ({
   if (!tuftsWithRotation.length) return null;
 
   return (
-    <>
+    <group {...bind()}>
       {tuftsWithRotation.map((tuft, i) => (
         <group
           key={tuft.key}
@@ -110,7 +113,7 @@ const MeshaMoustache = ({
           </mesh>
         </group>
       ))}
-    </>
+    </group>
   );
 };
 

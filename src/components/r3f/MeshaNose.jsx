@@ -1,6 +1,8 @@
 import { useRef } from "react";
+import { dragBindings } from "../../config/dragBindings.js";
 import { useControls } from "../../contexts/ControlsContext.jsx";
 import { useEntrance } from "../../contexts/EntranceContext";
+import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { config } from "../../modules/configStore";
@@ -23,6 +25,8 @@ const MeshaNose = ({
 
   const { segments } = config.meshaVisualization;
 
+  const bind = useMeshaDrag(dragBindings.nose);
+
   useThrottledFrame(({ camera }) => {
     if (!groupRef.current) return;
     groupRef.current.lookAt(camera.position);
@@ -32,7 +36,13 @@ const MeshaNose = ({
   if (!revealedParts.has("nose")) return null;
 
   return (
-    <group ref={groupRef} position={position} scale={scale} renderOrder={2}>
+    <group
+      ref={groupRef}
+      position={position}
+      scale={scale}
+      renderOrder={2}
+      {...bind()}
+    >
       <mesh
         ref={segmentARef}
         scale={1}

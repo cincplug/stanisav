@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useControls } from "../../contexts/ControlsContext";
 import { useI18n } from "../../contexts/I18nContext";
 import { useAdvancedControlRanges } from "../../hooks/useAdvancedControlRanges";
-import { RotateSpeedIcon, ExpandIcon, CircleIcon } from "./MenuIcons";
+import { CircleIcon, ExpandIcon, RotateSpeedIcon } from "./MenuIcons";
 import Range from "./ux/Range";
 
 const AdvancedControls = () => {
