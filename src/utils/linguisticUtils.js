@@ -157,3 +157,25 @@ export const getLanguageLabel = (languageCode, languageData, labelContent) => {
       throw new Error(`Unsupported labelContent '${labelContent}'`);
   }
 };
+
+// Builds the speech balloon text for a clicked face property.
+// Numeric properties show name and number only (no value labels or descriptions exist for them).
+// Described properties append the description after the value label.
+export const buildPropertyBalloonText = (propertyKey, rawValue) => {
+  const propertyName = getFeatureName(propertyKey);
+
+  if (isNumericFeature(propertyKey)) {
+    return `${propertyName}: ${formatNumber(rawValue)}`;
+  }
+
+  const valueLabel = Array.isArray(rawValue)
+    ? rawValue.map((v) => getFeatureLabel(propertyKey, v)).join(", ")
+    : getFeatureLabel(propertyKey, rawValue);
+
+  if (!isPropertyDescribed(propertyKey)) {
+    return `${propertyName}: ${valueLabel}`;
+  }
+
+  const description = getFeatureDescription(propertyKey, rawValue);
+  return `${propertyName}: ${valueLabel}. ${description}`;
+};

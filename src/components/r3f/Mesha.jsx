@@ -15,6 +15,7 @@ import { config } from "../../modules/configStore";
 import microphoneService from "../../services/microphoneService.js";
 import { shiftHue } from "../../utils/colorUtils";
 import {
+  buildPropertyBalloonText,
   getFeatureScore,
   getFeatureScoreList,
 } from "../../utils/linguisticUtils.js";
@@ -42,7 +43,7 @@ const Mesha = ({
   const lookAroundRef = useRef();
   const lookAroundRotationRef = useRef(0);
 
-  const { data } = useAppStateContext();
+  const { data, setBalloonText } = useAppStateContext();
   const { languageColors } = useLanguageColorsContext();
   const { controls } = useControlsContext();
   const {
@@ -164,8 +165,17 @@ const Mesha = ({
 
   const handlePropertyClick = (e) => {
     e.stopPropagation();
-    const prop = e.object.linguisticProperty;
-    setSelectedProperty(selectedProperty === prop ? null : prop);
+    const propertyKey = e.object.linguisticProperty;
+    const nextProperty = selectedProperty === propertyKey ? null : propertyKey;
+    setSelectedProperty(nextProperty);
+    setBalloonText(
+      nextProperty
+        ? buildPropertyBalloonText(
+            nextProperty,
+            linguisticProperties[nextProperty],
+          )
+        : "",
+    );
   };
 
   return (
