@@ -5,6 +5,7 @@ import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeom
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
 import { useAppState } from "../../contexts/AppStateContext.jsx";
 import { useControls } from "../../contexts/ControlsContext.jsx";
+import { useDragContext } from "../../contexts/DragContext.jsx";
 import { useEntrance } from "../../contexts/EntranceContext.jsx";
 import { useLanguageColors } from "../../contexts/LanguageColorsContext.jsx";
 import { useLanguageSelection } from "../../contexts/LanguageSelectionContext.jsx";
@@ -59,6 +60,7 @@ const Mesha = ({
     useLanguageSelection();
 
   const { isMeshaSequenceDone, isEntranceComplete } = useEntrance();
+  const { isDragging } = useDragContext();
 
   const linguisticProperties = data?.typologicalFeatures?.[languageCode];
   const color = languageColors[languageCode];
@@ -132,6 +134,8 @@ const Mesha = ({
 
   useThrottledFrame(({ clock, camera }) => {
     if (looksAround && lookAroundRef.current) {
+      if (isDragging) return;
+
       if (wordOrderFlexibility === "rigid" || !isEntranceComplete) {
         groupRef.current.lookAt(camera.position);
         return;
