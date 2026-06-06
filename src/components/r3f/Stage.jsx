@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
 import lineages from "../../config/lineages.json";
 import { useControlsContext } from "../../contexts/ControlsContext";
+import { useDragContext } from "../../contexts/DragContext";
 import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useI18nContext } from "../../contexts/I18nContext";
 import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext";
@@ -36,6 +37,7 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
     setIsLabelsSequenceDone,
     mentionedLanguage,
   } = useEntranceContext();
+  const { isDragging } = useDragContext();
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
   const { rotateSpeedFactor } = config;
   const { cameraX, cameraY, cameraZ, fov, near, far } = config.camera;
@@ -200,7 +202,7 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
         enableDamping={true}
         makeDefault={true}
         enableZoom={isSegmented}
-        enableRotate={!isSegmented}
+        enableRotate={!isSegmented && !isDragging}
         autoRotate={false}
       />
 
