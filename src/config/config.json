@@ -60,9 +60,9 @@
     "z": 4
   },
   "meshaVisualization": {
-    "earHeight": 7.1,
-    "earWidth": 0.6,
-    "earDepth": 1.1,
+    "earHeight": 7.4,
+    "earWidth": 0.5,
+    "earDepth": 9.4,
     "irisSize": 0.75,
     "pupilSize": 0.51,
     "pupilMetalness": 0.7,

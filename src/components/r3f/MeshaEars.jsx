@@ -66,7 +66,7 @@ const MeshaEars = ({
       <mesh
         ref={leftMeshRef}
         position={[-x, y, z]}
-        scale={[-earWidth, earHeight / (segments * 2), earDepth]}
+        scale={[-earWidth, earHeight / (segments * 2), earDepth / segments]}
         onClick={onClick}
         linguisticProperty="morphology"
         {...bind()}
@@ -76,7 +76,7 @@ const MeshaEars = ({
       <mesh
         ref={rightMeshRef}
         position={[x, y, z]}
-        scale={[earWidth, earHeight / (segments * 2), earDepth]}
+        scale={[earWidth, earHeight / (segments * 2), earDepth / segments]}
         onClick={onClick}
         linguisticProperty="morphology"
         {...bind()}
