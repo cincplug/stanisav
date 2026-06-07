@@ -1,14 +1,16 @@
 import { useDrag } from "@use-gesture/react";
 import { useRef } from "react";
 import { useControlsContext } from "../contexts/ControlsContext";
-import { useDragContext } from "../contexts/DragContext";
+import { useDragContext } from "../contexts/DragContext.jsx";
+import { useLanguageSelectionContext } from "../contexts/LanguageSelectionContext.jsx";
 import { config } from "../modules/configStore";
 import { resolveControlBounds } from "../utils/controlUtils";
 
-export const useMeshaDrag = (bindings) => {
+export const useMeshaDrag = (bindings, linguisticProperty = null) => {
   const { controls, updateControl, advancedControls, updateAdvancedControl } =
     useControlsContext();
   const { notifyDragStart, notifyDragEnd } = useDragContext();
+  const { selectProperty } = useLanguageSelectionContext();
 
   const { dragSensitivity, timeRate } = config.meshaVisualization;
 
@@ -32,6 +34,7 @@ export const useMeshaDrag = (bindings) => {
 
       if (first) {
         notifyDragStart();
+        if (linguisticProperty) selectProperty(linguisticProperty);
         dragThrottleRef.current = { elapsed: 0, lastTime: performance.now() };
 
         const snapshot = {};
@@ -42,6 +45,9 @@ export const useMeshaDrag = (bindings) => {
 
       if (last) {
         notifyDragEnd();
+        if (linguisticProperty) {
+          selectProperty(null);
+        }
         return;
       }
 

@@ -25,7 +25,7 @@ const MeshaNose = ({
 
   const { segments } = config.meshaVisualization;
 
-  const bind = useMeshaDrag(dragBindings.nose);
+  const bind = useMeshaDrag(dragBindings.nose, "wordOrder");
 
   useThrottledFrame(({ camera }) => {
     if (!groupRef.current) return;

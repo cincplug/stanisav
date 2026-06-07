@@ -179,7 +179,7 @@ const MeshaEyes = ({
   const highlightMaterial = useHighlightMaterial(0, 2);
   const timings = blinkTimings[isoCode] ?? [];
 
-  const bind = useMeshaDrag(dragBindings.eyes);
+  const bind = useMeshaDrag(dragBindings.eyes, "evidentiality");
 
   useThrottledFrame(({ clock }) => {
     const state = blinkStateRef.current;

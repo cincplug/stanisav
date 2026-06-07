@@ -15,7 +15,6 @@ import { config } from "../../modules/configStore";
 import microphoneService from "../../services/microphoneService.js";
 import { shiftHue } from "../../utils/colorUtils";
 import {
-  buildPropertyBalloonText,
   getFeatureScore,
   getFeatureScoreList,
 } from "../../utils/linguisticUtils.js";
@@ -43,7 +42,7 @@ const Mesha = ({
   const lookAroundRef = useRef();
   const lookAroundRotationRef = useRef(0);
 
-  const { data, setBalloonText } = useAppStateContext();
+  const { data } = useAppStateContext();
   const { languageColors } = useLanguageColorsContext();
   const { controls } = useControlsContext();
   const {
@@ -57,8 +56,7 @@ const Mesha = ({
     axis,
     switchDuration,
   } = controls;
-  const { selectedProperty, setSelectedProperty, selectedLanguage } =
-    useLanguageSelectionContext();
+  const { selectedProperty, selectedLanguage } = useLanguageSelectionContext();
 
   const { isMeshaSequenceDone, isEntranceComplete } = useEntranceContext();
   const { isDragging } = useDragContext();
@@ -178,21 +176,6 @@ const Mesha = ({
     [scores.morphology],
   );
 
-  const handlePropertyClick = (e) => {
-    e.stopPropagation();
-    const propertyKey = e.object.linguisticProperty;
-    const nextProperty = selectedProperty === propertyKey ? null : propertyKey;
-    setSelectedProperty(nextProperty);
-    setBalloonText(
-      nextProperty
-        ? buildPropertyBalloonText(
-            nextProperty,
-            linguisticProperties[nextProperty],
-          )
-        : "",
-    );
-  };
-
   return (
     <a.group
       ref={groupRef}
@@ -207,7 +190,6 @@ const Mesha = ({
           bend={scores.morphology / 3}
           segments={2 + scores.morphology * 3}
           earPosition={earPosition}
-          onClick={handlePropertyClick}
           isSelected={selectedProperty === "morphology"}
         />
 
@@ -217,7 +199,6 @@ const Mesha = ({
           evidentiality={scores.evidentiality}
           verbAspect={scores.verbAspect}
           isoCode={selectedLanguage}
-          onClick={handlePropertyClick}
           isSelectedOuter={selectedProperty === "evidentiality"}
           isSelectedInner={selectedProperty === "verbAspect"}
         />
@@ -226,7 +207,6 @@ const Mesha = ({
           position={[0, eyeY - eyeSize, eyeZ]}
           scale={noseSize}
           segmentColors={noseSegmentColors}
-          onClick={handlePropertyClick}
           isSelectedOuter={selectedProperty === "wordOrder"}
           isSelectedInner={selectedProperty === "wordOrderFlexibility"}
         />
@@ -234,13 +214,11 @@ const Mesha = ({
         <MeshaTongue
           tongueMaterial={tongueMaterial}
           segments={segments}
-          onClick={handlePropertyClick}
           isSelected={selectedProperty === "tonality"}
         />
         <MeshaTeeth
           toothCount={phonemeCount}
           consonantClusterSize={maxConsonantClusterSize}
-          onClick={handlePropertyClick}
           isSelected={selectedProperty === "phonemeCount"}
         />
         {caseCount && (
@@ -250,7 +228,6 @@ const Mesha = ({
             color={shiftHue(color, 120)}
             y={eyeY / 2}
             z={eyeZ}
-            onClick={handlePropertyClick}
             isSelected={selectedProperty === "caseCount"}
             audioBand="harmonicsData"
             stepDeg={3}
@@ -263,7 +240,6 @@ const Mesha = ({
             color={color}
             y={(eyeY * 4) / 3}
             z={eyeZ}
-            onClick={handlePropertyClick}
             isSelected={selectedProperty === "nounClassCount"}
             audioBand="fundamentalData"
             stepDeg={12}

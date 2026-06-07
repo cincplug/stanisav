@@ -28,7 +28,7 @@ const MeshaTeeth = ({
   const { toothColorStep } = config.meshaVisualization;
   const highlightMaterial = useHighlightMaterial(0, 2);
 
-  const bind = useMeshaDrag(dragBindings.teeth);
+  const bind = useMeshaDrag(dragBindings.teeth, "phonemeCount");
 
   const teeth = useMemo(() => {
     if (toothCount === 0) return [];

@@ -1,25 +1,28 @@
 import { Html } from "@react-three/drei";
-import { useAppStateContext } from "../../contexts/AppStateContext";
+import { useEntranceContext } from "../../contexts/EntranceContext";
 import { config } from "../../modules/configStore";
 import "../menu/ux/Popover.css";
 import "./SpeechBalloon.css";
 
 const SpeechBalloon = ({
-  anchorPosition = [0, 4, 0],
+  anchorPosition,
   position = config.speechBalloon.defaultPosition,
+  balloonText,
 }) => {
   const { durationBase, durationPerCharacter, durationDismiss } =
     config.speechBalloon;
 
-  const { balloonText, setBalloonText } = useAppStateContext();
+  const { entranceBalloonText, setEntranceBalloonText } = useEntranceContext();
 
-  if (!balloonText) return null;
+  const text = entranceBalloonText || balloonText;
 
-  const durationMs = durationBase + balloonText.length * durationPerCharacter;
+  if (!text) return null;
+
+  const duration = durationBase + text.length * durationPerCharacter;
 
   return (
     <Html
-      key={balloonText}
+      key={text}
       position={anchorPosition}
       occlude={false}
       zIndexRange={[0, 0]}
@@ -28,15 +31,16 @@ const SpeechBalloon = ({
         className="speech-balloon"
         data-position={position}
         style={{
-          "--balloon-duration": `${durationMs}ms`,
+          "--balloon-duration": `${duration}ms`,
           "--balloon-dismiss-duration": `${durationDismiss}ms`,
         }}
         onAnimationEnd={(e) => {
-          if (e.animationName === "balloon-dismiss") setBalloonText("");
+          if (e.animationName === "balloon-dismiss" && entranceBalloonText)
+            setEntranceBalloonText("");
         }}
       >
         <div className="speech-balloon-bubble popover-bubble">
-          <p>{balloonText}</p>
+          <p>{text}</p>
         </div>
         <div className="popover-tail" data-position={position} />
       </div>

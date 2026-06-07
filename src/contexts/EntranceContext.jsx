@@ -34,11 +34,9 @@ const EntranceContext = createContext(null);
 export const EntranceProvider = ({ children }) => {
   const { controls } = useControlsContext();
   const { tension, friction } = controls;
-  const { isSceneReady, setBalloonText } = useAppStateContext();
+  const { isSceneReady } = useAppStateContext();
 
   const allParts = meshaRevealSequence.map((s) => s.part);
-
-  // Ref-based cancellation flag shared between the async loop and skipSequence
   const isSequenceCancelledRef = useRef(false);
 
   const [revealedParts, setRevealedParts] = useState(() => new Set());
@@ -46,18 +44,20 @@ export const EntranceProvider = ({ children }) => {
   const [isLabelsSequenceDone, setIsLabelsSequenceDone] = useState(false);
   const [isBalloonSequenceDone, setIsBalloonSequenceDone] = useState(false);
   const [mentionedLanguage, setMentionedLanguage] = useState(null);
+  const [entranceBalloonText, setEntranceBalloonText] = useState("");
 
   const isEntranceComplete = isLabelsSequenceDone && isBalloonSequenceDone;
 
   useEffect(() => {
     isSequenceCancelledRef.current = false;
+
     const runBalloonSequence = async () => {
       const steps = getEntranceSteps();
       for (let i = 0; i < steps.length; i++) {
         if (isSequenceCancelledRef.current) return;
         const step = steps[i];
         const isLast = i === steps.length - 1;
-        setBalloonText(step.message);
+        setEntranceBalloonText(step.message);
         setMentionedLanguage(step.language ?? null);
         await wait(
           isLast
@@ -66,7 +66,7 @@ export const EntranceProvider = ({ children }) => {
         );
       }
       if (!isSequenceCancelledRef.current) {
-        setBalloonText("");
+        setEntranceBalloonText("");
         setMentionedLanguage(null);
         setIsBalloonSequenceDone(true);
       }
@@ -76,9 +76,7 @@ export const EntranceProvider = ({ children }) => {
       for (const { part, holdMs } of meshaRevealSequence) {
         if (isSequenceCancelledRef.current) return;
         setRevealedParts((prev) => new Set([...prev, part]));
-        if (part === "nose") {
-          runBalloonSequence();
-        }
+        if (part === "nose") runBalloonSequence();
         await wait(holdMs);
       }
       await wait(labelsRevealDelay);
@@ -106,7 +104,7 @@ export const EntranceProvider = ({ children }) => {
     setIsMeshaSequenceDone(true);
     setIsLabelsSequenceDone(true);
     setIsBalloonSequenceDone(true);
-    setBalloonText("");
+    setEntranceBalloonText("");
     setMentionedLanguage(null);
   };
 
@@ -143,6 +141,8 @@ export const EntranceProvider = ({ children }) => {
         isBalloonSequenceDone,
         isEntranceComplete,
         mentionedLanguage,
+        entranceBalloonText,
+        setEntranceBalloonText,
         getLabelSpringProps,
         skipSequence,
         setIsLabelsSequenceDone,

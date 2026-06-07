@@ -25,7 +25,7 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
   const stripesType = tongueMaterial?.uniforms?.uStripesType?.value ?? 0;
   const highlightMaterial = useHighlightMaterial(stripesType);
 
-  const bind = useMeshaDrag(dragBindings.tongue);
+  const bind = useMeshaDrag(dragBindings.tongue, "tonality");
 
   useThrottledFrame(() => {
     const { harmonicsData } = audioData;

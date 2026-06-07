@@ -27,7 +27,7 @@ const MeshaEars = ({
   const rightMeshRef = useRef();
   const { earHeight, earWidth, earDepth } = config.meshaVisualization;
 
-  const bind = useMeshaDrag(dragBindings.ears);
+  const bind = useMeshaDrag(dragBindings.ears, "morphology");
 
   useThrottledFrame(() => {
     const audioSurface = createAudioSurface({

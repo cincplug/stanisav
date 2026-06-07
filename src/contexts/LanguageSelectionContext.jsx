@@ -1,14 +1,35 @@
-import { createContext, useCallback, useContext, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from "react";
 import { filterLanguagesByFeatures } from "../utils/filteringUtils";
+import {
+  buildPropertyBalloonText,
+  getFeatureName,
+} from "../utils/linguisticUtils";
+import { useAppStateContext } from "./AppStateContext";
 
 const LanguageSelectionContext = createContext();
 
 export const LanguageSelectionProvider = ({ children }) => {
+  const { data } = useAppStateContext();
+
   const [selectedLanguage, setSelectedLanguage] = useState(null);
   const [selectedProperty, setSelectedProperty] = useState(null);
+  const [propertyBalloonText, setPropertyBalloonText] = useState("");
   const [filters, setFilters] = useState({});
   const [filteredLanguages, setFilteredLanguages] = useState(new Set());
   const [cameraFocusRequest, setCameraFocusRequest] = useState(null);
+
+  // Linguistic properties for the currently selected language —
+  // the single source of truth for property values across drag, click, and balloon text
+  const linguisticProperties = useMemo(
+    () => data?.typologicalFeatures?.[selectedLanguage] ?? null,
+    [data, selectedLanguage],
+  );
 
   const selectLanguage = useCallback((languageCode) => {
     setSelectedLanguage(languageCode);
@@ -17,6 +38,27 @@ export const LanguageSelectionProvider = ({ children }) => {
 
   const clearSelection = useCallback(() => {
     setSelectedLanguage(null);
+  }, []);
+
+  const selectProperty = useCallback(
+    (propertyKey) => {
+      setSelectedProperty(propertyKey);
+      if (!propertyKey) {
+        setPropertyBalloonText("");
+        return;
+      }
+      const rawValue = linguisticProperties?.[propertyKey];
+      setPropertyBalloonText(
+        rawValue !== undefined
+          ? buildPropertyBalloonText(propertyKey, rawValue)
+          : getFeatureName(propertyKey),
+      );
+    },
+    [linguisticProperties],
+  );
+
+  const clearPropertyBalloon = useCallback(() => {
+    setPropertyBalloonText("");
   }, []);
 
   const updateFilters = useCallback((filters, data) => {
@@ -44,6 +86,10 @@ export const LanguageSelectionProvider = ({ children }) => {
   const contextValue = {
     selectedLanguage,
     selectedProperty,
+    propertyBalloonText,
+    linguisticProperties,
+    selectProperty,
+    clearPropertyBalloon,
     setSelectedProperty,
     filters,
     filteredLanguages,

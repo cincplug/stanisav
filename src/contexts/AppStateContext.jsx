@@ -8,7 +8,6 @@ export const AppStateProvider = ({ children }) => {
   const [isSceneReady, setIsSceneReady] = useState(false);
   const [, setNodes] = useState(null);
   const [cameraFocusRequest, setCameraFocusRequest] = useState(null);
-  const [balloonText, setBalloonText] = useState("");
 
   const handleCameraFocus = (type, target) => {
     setCameraFocusRequest({ type, target, timestamp: Date.now() });
@@ -19,12 +18,10 @@ export const AppStateProvider = ({ children }) => {
     data,
     isSceneReady,
     cameraFocusRequest,
-    balloonText,
     setData,
     setIsSceneReady,
     setIsLoading,
     setNodes,
-    setBalloonText,
     handleCameraFocus,
   };
 
@@ -37,8 +34,7 @@ export const AppStateProvider = ({ children }) => {
 
 export const useAppStateContext = () => {
   const context = useContext(AppStateContext);
-  if (!context) {
+  if (!context)
     throw new Error("useAppState must be used within an AppStateProvider");
-  }
   return context;
 };

@@ -33,7 +33,7 @@ const MeshaMoustache = ({
   const { eyeZ, eyeX, moustacheSize } = controls;
   const highlightMaterial = useHighlightMaterial(0, 2);
 
-  const bind = useMeshaDrag(dragBindings.moustache);
+  const bind = useMeshaDrag(dragBindings.moustache, linguisticProperty);
 
   const tuftSurface = useMemo(
     () => createTuftShape(moustacheSize, tuftCount),
