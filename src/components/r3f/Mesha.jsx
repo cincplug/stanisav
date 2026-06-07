@@ -133,20 +133,35 @@ const Mesha = ({
     stripesType,
   );
 
+  const rotationOffsetRef = useRef(0);
+  const wasBlockedRef = useRef(false);
+
   useThrottledFrame(({ clock, camera }) => {
     if (looksAround && lookAroundRef.current) {
-      if (isDragging || !isEntranceComplete) return;
+      const isBlocked =
+        isDragging || !isEntranceComplete || wordOrderFlexibility === "rigid";
 
-      if (wordOrderFlexibility === "rigid") {
-        groupRef.current.lookAt(camera.position);
+      if (isBlocked) {
+        if (wordOrderFlexibility === "rigid") {
+          groupRef.current.lookAt(camera.position);
+        }
+        wasBlockedRef.current = true;
         return;
       }
+
+      const time = clock.getElapsedTime();
+
+      if (wasBlockedRef.current) {
+        rotationOffsetRef.current =
+          lookAroundRotationRef.current - time * rotateSpeed;
+        wasBlockedRef.current = false;
+      }
+
       if (wordOrderFlexibility === "semi-flexible") {
         groupRef.current.lookAt(camera.position);
       }
-      const time = clock.getElapsedTime();
-      const speed = rotateSpeed;
-      const rotation = time * speed;
+
+      const rotation = time * rotateSpeed + rotationOffsetRef.current;
       lookAroundRef.current.rotation[axis] = rotation;
       lookAroundRotationRef.current = rotation;
     }
