@@ -135,9 +135,9 @@ const Mesha = ({
 
   useThrottledFrame(({ clock, camera }) => {
     if (looksAround && lookAroundRef.current) {
-      if (isDragging) return;
+      if (isDragging || !isEntranceComplete) return;
 
-      if (wordOrderFlexibility === "rigid" || !isEntranceComplete) {
+      if (wordOrderFlexibility === "rigid") {
         groupRef.current.lookAt(camera.position);
         return;
       }
@@ -254,8 +254,13 @@ const Mesha = ({
             stepDeg={12}
           />
         )}
-        <SpeechBalloon anchorPosition={[eyeX * 2, eyeY, eyeZ]} />
       </group>
+      <SpeechBalloon
+        position={selectedLanguage ? "bottom" : "top-right"}
+        anchorPosition={
+          selectedLanguage ? [0, -eyeY, eyeZ] : [eyeX, eyeY * 2, eyeZ]
+        }
+      />
       <MeshaLight />
     </a.group>
   );

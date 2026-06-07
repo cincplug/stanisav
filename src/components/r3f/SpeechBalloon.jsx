@@ -4,19 +4,17 @@ import { config } from "../../modules/configStore";
 import "../menu/ux/Popover.css";
 import "./SpeechBalloon.css";
 
-const SpeechBalloon = ({ anchorPosition = [0, 4, 0], position }) => {
-  const {
-    durationBase,
-    durationPerCharacter,
-    durationDismiss,
-    defaultPosition,
-  } = config.speechBalloon;
+const SpeechBalloon = ({
+  anchorPosition = [0, 4, 0],
+  position = config.speechBalloon.defaultPosition,
+}) => {
+  const { durationBase, durationPerCharacter, durationDismiss } =
+    config.speechBalloon;
 
   const { balloonText, setBalloonText } = useAppStateContext();
 
   if (!balloonText) return null;
 
-  const resolvedPosition = position ?? defaultPosition;
   const durationMs = durationBase + balloonText.length * durationPerCharacter;
 
   return (
@@ -28,7 +26,7 @@ const SpeechBalloon = ({ anchorPosition = [0, 4, 0], position }) => {
     >
       <div
         className="speech-balloon"
-        data-position={resolvedPosition}
+        data-position={position}
         style={{
           "--balloon-duration": `${durationMs}ms`,
           "--balloon-dismiss-duration": `${durationDismiss}ms`,
@@ -40,7 +38,7 @@ const SpeechBalloon = ({ anchorPosition = [0, 4, 0], position }) => {
         <div className="speech-balloon-bubble popover-bubble">
           <p>{balloonText}</p>
         </div>
-        <div className="popover-tail" data-position={resolvedPosition} />
+        <div className="popover-tail" data-position={position} />
       </div>
     </Html>
   );

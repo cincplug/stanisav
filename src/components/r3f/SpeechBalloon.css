@@ -7,68 +7,75 @@
     balloon-hold var(--balloon-duration, 3s) ease forwards,
     balloon-dismiss var(--balloon-dismiss-duration, 400ms) ease forwards;
   animation-delay: 0ms, var(--balloon-duration, 3s);
-}
 
-/* Cardinal positions */
-.speech-balloon[data-position="top"],
-.speech-balloon:not([data-position]) {
-  flex-direction: column;
-  transform: translateX(-50%) translateY(calc(-100% - var(--tooltip-tail-size)));
-}
+  /* Cardinal positions */
+  &[data-position="top"],
+  &:not([data-position]) {
+    flex-direction: column;
+    transform: translateX(-50%)
+      translateY(calc(-100% - var(--tooltip-tail-size)));
+  }
 
-.speech-balloon[data-position="bottom"] {
-  flex-direction: column-reverse;
-  transform: translateX(-50%) translateY(var(--tooltip-tail-size));
-}
+  &[data-position="bottom"] {
+    flex-direction: column-reverse;
+    transform: translateX(-50%) translateY(var(--tooltip-tail-size));
+  }
 
-.speech-balloon[data-position="left"] {
-  flex-direction: row;
-  transform: translateX(calc(-100% - var(--tooltip-tail-size))) translateY(-50%);
-}
+  &[data-position="left"] {
+    flex-direction: row;
+    transform: translateX(calc(-100% - var(--tooltip-tail-size)))
+      translateY(-50%);
+  }
 
-.speech-balloon[data-position="right"] {
-  flex-direction: row-reverse;
-  transform: translateX(var(--tooltip-tail-size)) translateY(-50%);
-}
+  &[data-position="right"] {
+    flex-direction: row-reverse;
+    transform: translateX(var(--tooltip-tail-size)) translateY(-50%);
+  }
 
-/* Diagonal positions: balloon offset so its corner meets the anchor point */
-.speech-balloon[data-position="top-left"] {
-  flex-direction: column;
-  align-items: flex-end;
-  transform: translateX(calc(-100% + var(--border-radius-balloon)))
-    translateY(calc(-100% - var(--tooltip-tail-size)));
-}
+  /* Diagonal positions: balloon offset so its corner meets the anchor point */
+  &[data-position="top-left"] {
+    flex-direction: column;
+    align-items: flex-end;
+    transform: translateX(calc(-100% + var(--border-radius-balloon)))
+      translateY(calc(-100% - var(--tooltip-tail-size)));
 
-.speech-balloon[data-position="top-right"] {
-  flex-direction: column;
-  align-items: flex-start;
-  transform: translateX(calc(0px - var(--border-radius-balloon)))
-    translateY(calc(-100% - var(--tooltip-tail-size)));
-}
+    .popover-tail {
+      margin-right: var(--border-radius-balloon);
+    }
+  }
 
-.speech-balloon[data-position="bottom-left"] {
-  flex-direction: column-reverse;
-  align-items: flex-end;
-  transform: translateX(calc(-100% + var(--border-radius-balloon)))
-    translateY(var(--tooltip-tail-size));
-}
+  &[data-position="top-right"] {
+    flex-direction: column;
+    align-items: flex-start;
+    transform: translateX(calc(0px - var(--border-radius-balloon)))
+      translateY(calc(-100% - var(--tooltip-tail-size)));
 
-.speech-balloon[data-position="bottom-right"] {
-  flex-direction: column-reverse;
-  align-items: flex-start;
-  transform: translateX(calc(0px - var(--border-radius-balloon)))
-    translateY(var(--tooltip-tail-size));
-}
+    .popover-tail {
+      margin-left: var(--border-radius-balloon);
+    }
+  }
 
-/* Tail alignment for diagonal positions: pushed to the corner edge */
-.speech-balloon[data-position="top-left"] .popover-tail,
-.speech-balloon[data-position="bottom-left"] .popover-tail {
-  margin-right: var(--border-radius-balloon);
-}
+  &[data-position="bottom-left"] {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    transform: translateX(calc(-100% + var(--border-radius-balloon)))
+      translateY(var(--tooltip-tail-size));
 
-.speech-balloon[data-position="top-right"] .popover-tail,
-.speech-balloon[data-position="bottom-right"] .popover-tail {
-  margin-left: var(--border-radius-balloon);
+    .popover-tail {
+      margin-right: var(--border-radius-balloon);
+    }
+  }
+
+  &[data-position="bottom-right"] {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    transform: translateX(calc(0px - var(--border-radius-balloon)))
+      translateY(var(--tooltip-tail-size));
+
+    .popover-tail {
+      margin-left: var(--border-radius-balloon);
+    }
+  }
 }
 
 @keyframes balloon-hold {

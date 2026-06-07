@@ -55,13 +55,13 @@
 
 .popover-tail[data-position="left"] {
   mask: url("/icons/balloon-tail-cardinal.svg") center / contain no-repeat;
-  transform: rotate(90deg);
+  transform: rotate(-90deg);
   right: var(--tail-overlap);
 }
 
 .popover-tail[data-position="right"] {
   mask: url("/icons/balloon-tail-cardinal.svg") center / contain no-repeat;
-  transform: rotate(-90deg);
+  transform: rotate(90deg);
   left: var(--tail-overlap);
 }
 
