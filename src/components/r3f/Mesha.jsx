@@ -40,21 +40,12 @@ const Mesha = ({
 }) => {
   const groupRef = useRef();
   const lookAroundRef = useRef();
-  const lookAroundRotationRef = useRef(0);
 
   const { data } = useAppStateContext();
   const { languageColors } = useLanguageColorsContext();
   const { controls } = useControlsContext();
-  const {
-    meshaSize,
-    eyeX,
-    eyeZ,
-    eyeY,
-    eyeSize,
-    noseSize,
-    earSize,
-    switchDuration,
-  } = controls;
+  const { meshaSize, eyeZ, eyeY, eyeSize, noseSize, earSize, switchDuration } =
+    controls;
   const { selectedProperty, selectedLanguage } = useLanguageSelectionContext();
 
   const { isMeshaSequenceDone, isEntranceComplete } = useEntranceContext();
@@ -144,9 +135,7 @@ const Mesha = ({
       const time = clock.getElapsedTime();
 
       if (wasBlockedRef.current) {
-        rotationOffsetRef.current =
-          lookAroundRotationRef.current - time * rotateSpeed;
-        wasBlockedRef.current = false;
+        rotationOffsetRef.current = wasBlockedRef.current = false;
       }
 
       const rotation = time * rotateSpeed + rotationOffsetRef.current;
@@ -154,8 +143,6 @@ const Mesha = ({
 
       lookAroundRef.current.rotation.z =
         wordOrderFlexibility === "flexible" ? rotation : 0;
-
-      lookAroundRotationRef.current = rotation;
     }
   });
 
@@ -240,14 +227,7 @@ const Mesha = ({
           />
         )}
       </group>
-      <SpeechBalloon
-        position={selectedLanguage ? "bottom" : "right"}
-        anchorPosition={
-          selectedLanguage
-            ? [0, -eyeY, eyeZ]
-            : [eyeX + meshaSize + 2, eyeY * 2, eyeZ]
-        }
-      />
+      <SpeechBalloon position={"bottom"} anchorPosition={[0, eyeY, eyeZ]} />
       <MeshaLight />
     </a.group>
   );
