@@ -1,46 +1,49 @@
 [
-  { "message": "You know how some languages sound." },
-  { "message": "But how do they look?" },
-  { "message": "Well they have different properties." },
-  { "message": "So let's visualize those properties." },
   {
-    "message": "Isolating languages can have their ears apart",
-    "language": "cmn"
+    "message": "Some languages look like birds. Those are fusional languages.",
+    "language": "srp"
   },
   {
-    "message": "While agglutinative can have them together",
-    "language": "jpn"
+    "message": "Others look like cats, they are isolating.",
+    "language": "bam"
   },
   {
-    "message": "Languages with evidentiality aspect will have big eyes",
+    "message": "Yet others look like fish, those would be agglutinative.",
+    "language": "ach"
+  },
+  {
+    "message": "Languages with evidentiality aspect have big eyes.",
     "language": "tur"
   },
   {
-    "message": "Let the number of teeth reflect a number of phonemes",
+    "message": "Those with many phonemes also have many teeth.",
     "language": "naq"
   },
   {
-    "message": "Let their angle reflect how many consonants can be in one cluster",
+    "message": "Shape of teeth tells how many consonants they can cluster together.",
     "language": "kat"
   },
   {
-    "message": "Those with many declension cases will have a big moustache",
+    "message": "Those with declension have a big moustache.",
     "language": "hun"
   },
   {
-    "message": "Number of genders can reflect in a hairstyle",
+    "message": "Those with lot of genders have lot of eyebrows",
     "language": "ful"
   },
   {
-    "message": "Tonal languages will get stripes on the tongue",
+    "message": "Tonal languages have stripes on the tongue",
     "language": "vie"
   },
   {
-    "message": "Those with pitch accent get another kind of stripes",
+    "message": "And there's another kind of stripes for pitch accent",
     "language": "swe"
   },
-  { "message": "Explore that, and hear how all these languages sound." },
+  { "message": "Our team was working hard on visualizing all that" },
   {
-    "message": "...or at least how some front-end developer guy thinks that they sound"
+    "message": "It took us a lot of time to deploy it"
+  },
+  {
+    "message": "So now at least enjoy it"
   }
 ]
