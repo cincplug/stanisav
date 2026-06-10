@@ -116,7 +116,7 @@
   "Colors": {
     "bgColor": {
       "type": "color",
-      "defaultValue": "#070b0f",
+      "defaultValue": "#071b2f",
       "isShownInMenu": true
     },
     "hue": {

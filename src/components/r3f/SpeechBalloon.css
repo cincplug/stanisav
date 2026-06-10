@@ -1,8 +1,11 @@
 .speech-balloon {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  width: var(--panel-width);
+  max-width: var(--panel-width);
+  min-width: calc(var(--panel-width) / 2);
   pointer-events: none;
+  text-wrap: balance;
+
   animation:
     balloon-hold var(--balloon-duration, 3s) ease forwards,
     balloon-dismiss var(--balloon-dismiss-duration, 400ms) ease forwards;

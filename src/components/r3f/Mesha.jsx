@@ -109,7 +109,9 @@ const Mesha = ({
     noseColorMap[wordOrder[2]],
   ];
 
-  const targetPosition = isMeshaSequenceDone ? position : [0, 0, sphereRadius];
+  const targetPosition = isMeshaSequenceDone
+    ? position
+    : [0, 0, sphereRadius * 2];
 
   const spring = useSpring({
     x: targetPosition[0],
@@ -247,9 +249,9 @@ const Mesha = ({
         )}
       </group>
       <SpeechBalloon
-        position={selectedLanguage ? "bottom" : "top-right"}
+        position={selectedLanguage ? "bottom" : "right"}
         anchorPosition={
-          selectedLanguage ? [0, -eyeY, eyeZ] : [eyeX, eyeY * 2, eyeZ]
+          selectedLanguage ? [0, -eyeY, eyeZ] : [eyeX + 1, eyeY * 2, eyeZ]
         }
       />
       <MeshaLight />
