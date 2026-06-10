@@ -53,7 +53,6 @@ const Mesha = ({
     eyeSize,
     noseSize,
     earSize,
-    axis,
     switchDuration,
   } = controls;
   const { selectedProperty, selectedLanguage } = useLanguageSelectionContext();
@@ -95,7 +94,6 @@ const Mesha = ({
 
   const { white, labelTextColor } = config.colors;
   const { labelsEntranceDuration } = config.entrance;
-  const { sphereRadius } = config.layout;
 
   const noseColorMap = {
     S: white,
@@ -109,9 +107,7 @@ const Mesha = ({
     noseColorMap[wordOrder[2]],
   ];
 
-  const targetPosition = isMeshaSequenceDone
-    ? position
-    : [0, 0, sphereRadius * 2];
+  const targetPosition = position;
 
   const spring = useSpring({
     x: targetPosition[0],
@@ -136,15 +132,11 @@ const Mesha = ({
   const rotationOffsetRef = useRef(0);
   const wasBlockedRef = useRef(false);
 
-  useThrottledFrame(({ clock, camera }) => {
+  useThrottledFrame(({ clock }) => {
     if (looksAround && lookAroundRef.current) {
-      const isBlocked =
-        isDragging || !isEntranceComplete || wordOrderFlexibility === "rigid";
+      const isBlocked = isDragging || wordOrderFlexibility === "rigid";
 
       if (isBlocked) {
-        if (wordOrderFlexibility === "rigid") {
-          groupRef.current.lookAt(camera.position);
-        }
         wasBlockedRef.current = true;
         return;
       }
@@ -157,12 +149,12 @@ const Mesha = ({
         wasBlockedRef.current = false;
       }
 
-      if (wordOrderFlexibility === "semi-flexible") {
-        groupRef.current.lookAt(camera.position);
-      }
-
       const rotation = time * rotateSpeed + rotationOffsetRef.current;
-      lookAroundRef.current.rotation[axis] = rotation;
+      lookAroundRef.current.rotation.y = rotation;
+
+      lookAroundRef.current.rotation.z =
+        wordOrderFlexibility === "flexible" ? rotation : 0;
+
       lookAroundRotationRef.current = rotation;
     }
   });
@@ -251,7 +243,9 @@ const Mesha = ({
       <SpeechBalloon
         position={selectedLanguage ? "bottom" : "right"}
         anchorPosition={
-          selectedLanguage ? [0, -eyeY, eyeZ] : [eyeX + 1, eyeY * 2, eyeZ]
+          selectedLanguage
+            ? [0, -eyeY, eyeZ]
+            : [eyeX + meshaSize + 2, eyeY * 2, eyeZ]
         }
       />
       <MeshaLight />
