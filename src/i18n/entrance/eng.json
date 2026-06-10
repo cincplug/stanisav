@@ -1,44 +1,42 @@
 [
-  { "message": "You know how some languages sound. But how do they look?" },
-  { "message": "Well let's draw them depending on their properties." },
+  { "message": "You know how some languages sound." },
+  { "message": "But how do they look?" },
+  { "message": "Well they have different properties." },
+  { "message": "So let's visualize those properties." },
   {
-    "message": "Chinese languages have isolating morphology, so let's have their ears isolated",
+    "message": "Isolating languages can have their ears apart",
     "language": "cmn"
   },
   {
-    "message": "But Japanese or Korean are agglutinative, so let's glue those ears together",
-    "language": "kor"
+    "message": "While agglutinative can have them together",
+    "language": "jpn"
   },
   {
-    "message": "Turkish has the aspect of evidentiality, so let's give it big eyes",
+    "message": "Languages with evidentiality aspect will have big eyes",
     "language": "tur"
   },
   {
-    "message": "Hawaiian has 13 sounds, that's how much teeth it has",
-    "language": "haw"
-  },
-  {
-    "message": "Unlike Khoekhoe with no less that 115 sounds",
+    "message": "Let the number of teeth reflect a number of phonemes",
     "language": "naq"
   },
   {
-    "message": "Georgian can put up to 6 consonants in a cluster, so its teeth will reflect that",
+    "message": "Let their angle reflect how many consonants can be in one cluster",
     "language": "kat"
   },
   {
-    "message": "Hungarian has amazing 18 declension cases, so it deserves a corresponding moustache",
+    "message": "Those with many declension cases will have a big moustache",
     "language": "hun"
   },
   {
-    "message": "While Fula with 25 noun classes needs a proper hairstyle",
+    "message": "Number of genders can reflect in a hairstyle",
     "language": "ful"
   },
   {
-    "message": "Vietnamese is tonal, which you can recognize by stripes on its tongue",
+    "message": "Tonal languages will get stripes on the tongue",
     "language": "vie"
   },
   {
-    "message": "While Swedish has a pitch accent and therefore another kind of stripes",
+    "message": "Those with pitch accent get another kind of stripes",
     "language": "swe"
   },
   { "message": "Explore that, and hear how all these languages sound." },
