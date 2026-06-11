@@ -19,7 +19,6 @@ const Eye = ({
   evidentiality,
   verbAspect,
   eyeSize,
-  eyeProtrusion,
   blinkStateRef,
   onClick,
   isSelectedOuter,
@@ -45,9 +44,9 @@ const Eye = ({
   const irisScale = eyeSize * irisSize;
   const pupilScale = eyeSize * pupilSize;
   const eyeScale = 1 + evidentiality / 4;
-  const depthFactor = verbAspect / 4;
-  const irisZ = eyeProtrusion / 2 + depthFactor * eyeProtrusion;
-  const pupilZ = eyeProtrusion + depthFactor * eyeProtrusion;
+
+  const irisZ = eyeSize / 2;
+  const pupilZ = eyeSize;
 
   const { revealedParts } = useEntranceContext();
   const isEntranceBlinkPhase = !revealedParts.has("nose");
@@ -132,7 +131,11 @@ const Eye = ({
       <group ref={lidPivotRef} position={[0, 0, eyeSize]} renderOrder={2}>
         <mesh
           position={[0, eyeSize / 2, 0]}
-          scale={[eyelidWidth, eyelidHeight, eyelidDepth]}
+          scale={[
+            eyelidWidth * verbAspect,
+            (eyelidHeight * verbAspect) / 2,
+            eyelidDepth,
+          ]}
         >
           <sphereGeometry
             args={[
@@ -174,7 +177,7 @@ const MeshaEyes = ({
   });
 
   const { controls } = useControlsContext();
-  const { eyeSize, eyeProtrusion, eyeX, eyeY, eyeZ } = controls;
+  const { eyeSize, eyeX, eyeY, eyeZ } = controls;
   const { audioRef } = usePlaylistContext();
   const highlightMaterial = useHighlightMaterial(0, 2);
   const timings = blinkTimings[isoCode] ?? [];
@@ -209,7 +212,6 @@ const MeshaEyes = ({
     evidentiality,
     verbAspect,
     eyeSize,
-    eyeProtrusion,
     blinkStateRef,
     onClick,
     isSelectedOuter,

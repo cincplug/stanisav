@@ -242,14 +242,6 @@
       "defaultValue": 0.25,
       "isShownInMenu": true
     },
-    "eyeProtrusion": {
-      "type": "range",
-      "min": 0,
-      "max": 1,
-      "step": 0.01,
-      "defaultValue": 0.2,
-      "isShownInMenu": false
-    },
     "noseSize": {
       "type": "range",
       "min": 0.1,

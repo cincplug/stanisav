@@ -67,7 +67,7 @@
     "pupilSize": 0.51,
     "pupilMetalness": 0.7,
     "pupilRoughness": 0.4,
-    "eyelidWidth": 1.1,
+    "eyelidWidth": 0.8,
     "eyelidHeight": 0.5,
     "eyelidDepth": 1.1,
     "tongueX": 0,
