@@ -232,34 +232,32 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
         selectedLanguage={selectedLanguage}
       />
 
-      <group>
-        {!shouldShowEmptyMessage && isMeshaSequenceDone && (
-          <Labels
-            groups={groups}
-            formattedPositions={formattedPositions}
-            languageFilterStatus={languageFilterStatus}
-            languageColors={languageColors}
-            languageData={languageData}
-            selectedLanguage={selectedLanguage}
-            isLabelsSequenceDone={isLabelsSequenceDone}
-            setIsLabelsSequenceDone={setIsLabelsSequenceDone}
-          />
-        )}
-
-        <Mesha
-          languageCode={meshaLanguageCode}
-          position={meshaPosition}
-          isMyMesha={isMyMesha}
-          looksAround={true}
-          renderOrder={languageCodes.length}
-          rotateSpeed={
-            selectedLanguage
-              ? rotateSpeed * rotateSpeedFactor.meshaZoomed
-              : rotateSpeed * rotateSpeedFactor.meshaInitial
-          }
-          isMotionReduced={isMotionReduced}
+      {!shouldShowEmptyMessage && isMeshaSequenceDone && (
+        <Labels
+          groups={groups}
+          formattedPositions={formattedPositions}
+          languageFilterStatus={languageFilterStatus}
+          languageColors={languageColors}
+          languageData={languageData}
+          selectedLanguage={selectedLanguage}
+          isLabelsSequenceDone={isLabelsSequenceDone}
+          setIsLabelsSequenceDone={setIsLabelsSequenceDone}
         />
-      </group>
+      )}
+
+      <Mesha
+        languageCode={meshaLanguageCode}
+        position={meshaPosition}
+        isMyMesha={isMyMesha}
+        renderOrder={languageCodes.length - 1}
+        looksAround={true}
+        rotateSpeed={
+          selectedLanguage
+            ? rotateSpeed * rotateSpeedFactor.meshaZoomed
+            : rotateSpeed * rotateSpeedFactor.meshaInitial
+        }
+        isMotionReduced={isMotionReduced}
+      />
     </Canvas>
   );
 };

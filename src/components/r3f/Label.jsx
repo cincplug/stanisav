@@ -100,7 +100,7 @@ const Label = ({
       new MeshStandardMaterial({
         color: labelTextColor,
         depthTest: !!selectedLanguage,
-        depthWrite: !!selectedLanguage,
+        transparent: true,
       }),
     [selectedLanguage],
   );
@@ -126,9 +126,7 @@ const Label = ({
 
     labelRef.current.quaternion.copy(camera.quaternion);
 
-    if (isSelected) {
-      labelRef.current.renderOrder = totalVisibleLabels;
-    } else if (!selectedLanguage && d4) {
+    if (!selectedLanguage && d4) {
       animatedD4.current += delta;
       if (animatedD4.current >= totalVisibleLabels) animatedD4.current = 0;
 

@@ -109,11 +109,7 @@ const Eye = ({
         {isSelectedInner ? (
           <shaderMaterial args={[highlightMaterial]} />
         ) : (
-          <meshBasicMaterial
-            color={irisColor}
-            depthTest={false}
-            transparent={true}
-          />
+          <meshBasicMaterial color={irisColor} />
         )}
       </mesh>
 
@@ -148,12 +144,7 @@ const Eye = ({
               Math.PI / 2,
             ]}
           />
-          <shaderMaterial
-            args={[eyelidMaterial]}
-            depthTest={false}
-            transparent={true}
-            side={0}
-          />
+          <shaderMaterial args={[eyelidMaterial]} side={0} />
         </mesh>
       </group>
     </group>

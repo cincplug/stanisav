@@ -59,8 +59,6 @@ const MeshaNose = ({
             wireframe={true}
             color={segmentColors[0]}
             side={2}
-            depthTest={false}
-            transparent={true}
           />
         )}
       </mesh>
@@ -81,8 +79,6 @@ const MeshaNose = ({
             wireframe={true}
             color={segmentColors[1]}
             side={2}
-            depthTest={false}
-            transparent={true}
           />
         )}
       </mesh>
@@ -98,8 +94,6 @@ const MeshaNose = ({
             wireframe={true}
             color={segmentColors[2]}
             side={2}
-            depthTest={false}
-            transparent={true}
           />
         )}
       </mesh>
