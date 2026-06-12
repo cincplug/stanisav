@@ -60,9 +60,10 @@
     "z": 4
   },
   "meshaVisualization": {
-    "earHeight": 7.4,
-    "earWidth": 0.5,
-    "earDepth": 9.4,
+    "earHeight": 0.3,
+    "earWidth": 0.1,
+    "earDepth": 2.4,
+    "earBend": 1.8,
     "irisSize": 0.75,
     "pupilSize": 0.51,
     "pupilMetalness": 0.7,
@@ -71,7 +72,7 @@
     "eyelidHeight": 0.5,
     "eyelidDepth": 1.1,
     "tongueX": 0,
-    "tongueY": 3.2,
+    "tongueY": 2.2,
     "tongueZ": 1.1,
     "tongueWidth": 0.4,
     "tongueHeight": 0.6,

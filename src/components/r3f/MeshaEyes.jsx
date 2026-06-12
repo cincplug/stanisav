@@ -82,6 +82,7 @@ const Eye = ({
   });
 
   const eyelidMaterial = useShaderMaterial(eyelidColor);
+  const whiteMaterial = useShaderMaterial(config.colors.white);
 
   return (
     <group
@@ -94,7 +95,7 @@ const Eye = ({
       <mesh linguisticProperty="evidentiality" onClick={onClick}>
         <sphereGeometry args={[eyeSize, segments, segments]} />
         {isSelectedOuter ? (
-          <shaderMaterial args={[highlightMaterial]} />
+          <shaderMaterial args={[whiteMaterial]} />
         ) : (
           <meshBasicMaterial wireframe color={config.colors.white} />
         )}
@@ -109,7 +110,11 @@ const Eye = ({
         {isSelectedInner ? (
           <shaderMaterial args={[highlightMaterial]} />
         ) : (
-          <meshBasicMaterial color={irisColor} />
+          <meshBasicMaterial
+            color={irisColor}
+            depthTest={false}
+            transparent={true}
+          />
         )}
       </mesh>
 
@@ -126,7 +131,7 @@ const Eye = ({
 
       <group ref={lidPivotRef} position={[0, 0, eyeSize]} renderOrder={2}>
         <mesh
-          position={[0, eyeSize / 2, 0]}
+          position={[0, eyeSize, 0]}
           scale={[
             eyelidWidth * verbAspect,
             (eyelidHeight * verbAspect) / 2,
@@ -134,17 +139,15 @@ const Eye = ({
           ]}
         >
           <sphereGeometry
-            args={[
-              eyeSize,
-              segments,
-              segments / 3,
-              0,
-              Math.PI * 2,
-              0,
-              Math.PI / 2,
-            ]}
+            args={[eyeSize, segments, segments, 0, Math.PI * 2, 0, Math.PI / 2]}
           />
-          <shaderMaterial args={[eyelidMaterial]} side={0} />
+          <shaderMaterial
+            args={[eyelidMaterial]}
+            side={1}
+            depthTest={false}
+            transparent={true}
+            wireframe
+          />
         </mesh>
       </group>
     </group>

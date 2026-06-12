@@ -15,7 +15,7 @@ export const createAudioSurface = ({ audioBand, size, bend, radius }) => {
     const xCircle = Math.cos(angle) * radius;
     const x = xFlat + (xCircle - xFlat) * bend;
 
-    const yBaseFlat = 2;
+    const yBaseFlat = 0;
     const yBaseCircle = Math.sin(angle) * radius;
     const yBase = yBaseFlat + (yBaseCircle - yBaseFlat) * bend;
 

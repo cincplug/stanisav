@@ -41,6 +41,7 @@ const Labels = ({
 
         return (
           <Label
+            key={langCode}
             languageCode={langCode}
             position={[position.x, position.y, position.z]}
             isSelected={selectedLanguage === langCode}

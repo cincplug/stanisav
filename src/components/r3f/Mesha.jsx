@@ -44,8 +44,16 @@ const Mesha = ({
   const { data } = useAppStateContext();
   const { languageColors } = useLanguageColorsContext();
   const { controls } = useControlsContext();
-  const { meshaSize, eyeZ, eyeY, eyeSize, noseSize, earSize, switchDuration } =
-    controls;
+  const {
+    meshaSize,
+    eyeZ,
+    eyeY,
+    eyeSize,
+    noseSize,
+    earSize,
+    switchDuration,
+    axis,
+  } = controls;
   const { selectedProperty, selectedLanguage } = useLanguageSelectionContext();
 
   const { isMeshaSequenceDone, isEntranceComplete } = useEntranceContext();
@@ -139,14 +147,12 @@ const Mesha = ({
       }
 
       const rotation = time * rotateSpeed + rotationOffsetRef.current;
-      lookAroundRef.current.rotation.y = rotation;
-
-      lookAroundRef.current.rotation.z =
-        wordOrderFlexibility === "flexible" ? rotation : 0;
+      lookAroundRef.current.rotation[axis] =
+        wordOrderFlexibility === "flexible" ? Math.tan(rotation) : rotation;
     }
   });
 
-  const { segments } = config.meshaVisualization;
+  const { segments, earBend } = config.meshaVisualization;
 
   const earPosition = useMemo(
     () => ({
@@ -168,8 +174,8 @@ const Mesha = ({
         <MeshaEar
           earMaterial={skinMaterial}
           size={earSize}
-          bend={scores.morphology / 3}
-          segments={2 + scores.morphology * 3}
+          bend={scores.morphology * earBend}
+          segments={scores.morphology}
           earPosition={earPosition}
           isSelected={selectedProperty === "morphology"}
         />
