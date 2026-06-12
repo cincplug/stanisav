@@ -7,7 +7,6 @@ const Labels = ({
   groups,
   formattedPositions,
   languageFilterStatus,
-  languageData,
   selectedLanguage,
   isLabelsSequenceDone,
   setIsLabelsSequenceDone,
@@ -42,9 +41,7 @@ const Labels = ({
 
         return (
           <Label
-            key={langCode}
             languageCode={langCode}
-            language={languageData[langCode]}
             position={[position.x, position.y, position.z]}
             isSelected={selectedLanguage === langCode}
             color={languageColors[langCode]}
