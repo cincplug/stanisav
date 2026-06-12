@@ -128,31 +128,39 @@ const Mesha = ({
     stripesType,
   );
 
-  const rotationOffsetRef = useRef(0);
-  const wasBlockedRef = useRef(false);
+  // Accumulated rotation angles, updated every frame via delta — never reset on
+  // unblock or language change, so rotation is always continuous
+  const rotationYRef = useRef(0);
+  const rotationXPhaseRef = useRef(0);
 
-  useThrottledFrame(({ clock }) => {
-    if (looksAround && lookAroundRef.current) {
-      const isBlocked = isDragging || wordOrderFlexibility === "rigid";
+  useThrottledFrame(({ camera }, delta) => {
+    if (!looksAround || !lookAroundRef.current) return;
 
-      if (isBlocked) {
-        wasBlockedRef.current = true;
-        return;
-      }
+    const isBlocked = isDragging || wordOrderFlexibility === "rigid";
+    if (isBlocked) return;
 
-      const time = clock.getElapsedTime();
+    // Billboard: face the camera as a base orientation
+    lookAroundRef.current.quaternion.copy(camera.quaternion);
 
-      if (wasBlockedRef.current) {
-        rotationOffsetRef.current = wasBlockedRef.current = false;
-      }
+    if (wordOrderFlexibility === "semi-flexible") {
+      rotationYRef.current += delta * rotateSpeed;
+      lookAroundRef.current.rotateY(rotationYRef.current);
+    }
 
-      const rotation = time * rotateSpeed + rotationOffsetRef.current;
-      lookAroundRef.current.rotation[axis] =
-        wordOrderFlexibility === "flexible" ? Math.tan(rotation) : rotation;
+    if (wordOrderFlexibility === "flexible") {
+      rotationYRef.current += delta * rotateSpeed;
+      rotationXPhaseRef.current += delta * rotateSpeed * xNodFrequency;
+
+      lookAroundRef.current.rotateY(rotationYRef.current);
+      // sin³ stays near zero most of the cycle, produces one smooth arc per period
+      lookAroundRef.current.rotateX(
+        Math.pow(Math.sin(rotationXPhaseRef.current), 3) * xNodAmplitude,
+      );
     }
   });
 
-  const { segments, earBend } = config.meshaVisualization;
+  const { segments, earBend, xNodAmplitude, xNodFrequency } =
+    config.meshaVisualization;
 
   const earPosition = useMemo(
     () => ({

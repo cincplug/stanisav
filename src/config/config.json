@@ -84,6 +84,8 @@
     "deformationSmoothness": 0.1,
     "amplitudeThreshold": 0.1,
     "blinkDuration": 0.2,
+    "xNodAmplitude": 3.14,
+    "xNodFrequency": 0.3,
     "decayRate": 0.7,
     "verticalVariationMultiplier": 0.1,
     "segments": 32,
