@@ -20,6 +20,7 @@ export const tonalityFragmentShader = /* glsl */ `
   uniform vec3 uAccentColor;
   uniform int uStripesType;
   uniform float uAccentOpacity;
+  uniform float uOpacity;
   uniform float uAmbient;
   uniform float uLightingMin;
   uniform float uLightingMax;
@@ -88,7 +89,7 @@ export const tonalityFragmentShader = /* glsl */ `
     float stripeMask = getStripeMask(vUv, uStripesType);
     vec3 color = mix(checkerColor, litLighterColor, stripeMask);
 
-    gl_FragColor = vec4(color, 1.0);
+    gl_FragColor = vec4(color, uOpacity);
   }
 `;
 
@@ -103,6 +104,7 @@ export const highlightFragmentShader = /* glsl */ `
   uniform vec3 uRingColorShade;
   uniform int uStripesType;
   uniform float uTime;
+  uniform float uOpacity;
   uniform float uAmbient;
   uniform float uLightingMin;
   uniform float uLightingMax;
@@ -168,6 +170,6 @@ export const highlightFragmentShader = /* glsl */ `
     vec3 litLighterColor = litRingColor * uShadeStripe;
     vec3 color = mix(litRingColor, litLighterColor, stripeMask);
 
-    gl_FragColor = vec4(color, 1.0);
+    gl_FragColor = vec4(color, uOpacity);
   }
 `;

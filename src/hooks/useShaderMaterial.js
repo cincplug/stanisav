@@ -12,6 +12,7 @@ export const useShaderMaterial = (
   baseColor,
   accentColor,
   stripesType,
+  opacity = config.shader.shaderOpacity,
   side = 2,
 ) => {
   const {
@@ -34,6 +35,7 @@ export const useShaderMaterial = (
         uAccentColor: { value: accentColorObj },
         uStripesType: { value: stripesType },
         uAccentOpacity: { value: 1.0 },
+        uOpacity: { value: opacity },
         uAmbient: { value: shaderAmbient },
         uLightingMin: { value: shaderLightingMin },
         uLightingMax: { value: shaderLightingMax },
@@ -45,12 +47,13 @@ export const useShaderMaterial = (
       vertexShader: meshVertexShader,
       fragmentShader: tonalityFragmentShader,
       side,
-      transparent: false,
+      transparent: opacity < 1,
     }),
     [
       baseColorObj,
       accentColorObj,
       stripesType,
+      opacity,
       shaderAmbient,
       shaderLightingMin,
       shaderLightingMax,
@@ -84,7 +87,11 @@ export const useShaderMaterial = (
   return material;
 };
 
-export const useHighlightMaterial = (stripesType = 0, side = 2) => {
+export const useHighlightMaterial = (
+  stripesType = 0,
+  opacity = 1,
+  side = 2,
+) => {
   const {
     shaderAmbient,
     shaderLightingMin,
@@ -112,6 +119,7 @@ export const useHighlightMaterial = (stripesType = 0, side = 2) => {
         uRingColorShade: { value: ringColorShade },
         uStripesType: { value: stripesType },
         uTime: { value: 0 },
+        uOpacity: { value: opacity },
         uAmbient: { value: shaderAmbient },
         uLightingMin: { value: shaderLightingMin },
         uLightingMax: { value: shaderLightingMax },
@@ -123,10 +131,11 @@ export const useHighlightMaterial = (stripesType = 0, side = 2) => {
       vertexShader: meshVertexShader,
       fragmentShader: highlightFragmentShader,
       side,
-      transparent: false,
+      transparent: opacity < 1,
     }),
     [
       stripesType,
+      opacity,
       ringColor,
       ringColorShade,
       shaderAmbient,
