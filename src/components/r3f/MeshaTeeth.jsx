@@ -1,6 +1,6 @@
 import { extend } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
-import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
+import { RoundedBoxGeometry } from "three/examples/jsm/Addons.js";
 import { dragBindings } from "../../config/dragBindings.js";
 import { useControlsContext } from "../../contexts/ControlsContext.jsx";
 import { useEntranceContext } from "../../contexts/EntranceContext";
@@ -10,9 +10,8 @@ import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { config } from "../../modules/configStore";
 import { shiftHue } from "../../utils/colorUtils";
-import { createToothShape } from "../../utils/shapeUtils.js";
 
-extend({ ParametricGeometry });
+extend({ RoundedBoxGeometry });
 
 const MeshaTeeth = ({
   toothCount,
@@ -24,9 +23,16 @@ const MeshaTeeth = ({
   const { controls } = useControlsContext();
   const { audioData } = useAudioData();
   const { teethSize } = controls;
-  const { toothColor } = config.colors;
-  const { toothColorStep } = config.meshaVisualization;
+  const { toothColor, toothEmissiveness } = config.colors;
+  const {
+    toothColorStep,
+    toothWidth,
+    toothLength,
+    toothThickness,
+    toothRoundness,
+  } = config.meshaVisualization;
   const highlightMaterial = useHighlightMaterial(0, 2);
+  const centerIndex = (toothCount - 1) / 2;
 
   const bind = useMeshaDrag(dragBindings.teeth, "phonemeCount");
 
@@ -50,7 +56,7 @@ const MeshaTeeth = ({
       return {
         x: Math.cos(angle),
         y: 1,
-        z: Math.sin(angle) + consonantClusterSize / 3,
+        z: Math.sin(angle) + consonantClusterSize / 2,
         positionInCluster,
         rotationAngle,
         key: `tooth-${toothIndex}`,
@@ -69,8 +75,6 @@ const MeshaTeeth = ({
           const bandIndex = Math.floor((xSymmetry * harmonicsData.length) / 6);
           const amplitude = harmonicsData[bandIndex];
           tooth.position.y = -amplitude * 4;
-          const scale = amplitude + consonantClusterSize / 5;
-          tooth.scale.set(scale, scale * -1, scale / 4);
         }
       });
     }
@@ -83,29 +87,42 @@ const MeshaTeeth = ({
 
   return (
     <group position={[0, 1, 1]} scale={teethSize} {...bind()}>
-      {teeth.map((tooth, i) => (
-        <group
-          key={tooth.key}
-          position={[tooth.x, tooth.y, tooth.z - 1]}
-          rotation={[tooth.rotationAngle, 0, 0]}
-        >
-          <mesh
-            ref={(el) => (teethRefs.current[i] = el)}
-            linguisticProperty="phonemeCount"
-            onClick={onClick}
+      {teeth.map((tooth, i) => {
+        const color = shiftHue(toothColor, toothColorStep * i);
+        return (
+          <group
+            key={tooth.key}
+            position={[tooth.x, tooth.y, tooth.z - 1]}
+            rotation={[tooth.rotationAngle, 0, 0]}
           >
-            <parametricGeometry args={[createToothShape, 16, 8]} />
-            {isSelected ? (
-              <shaderMaterial args={[highlightMaterial]} />
-            ) : (
-              <meshPhongMaterial
-                color={shiftHue(toothColor, toothColorStep * i)}
-                side={2}
+            <mesh
+              ref={(el) => (teethRefs.current[i] = el)}
+              linguisticProperty="phonemeCount"
+              onClick={onClick}
+            >
+              <roundedBoxGeometry
+                args={[
+                  toothWidth,
+                  toothLength / (centerIndex + 1),
+                  toothThickness * centerIndex,
+                  6,
+                  toothRoundness,
+                ]}
               />
-            )}
-          </mesh>
-        </group>
-      ))}
+              {isSelected ? (
+                <shaderMaterial args={[highlightMaterial]} />
+              ) : (
+                <meshPhongMaterial
+                  color={color}
+                  emissive={color}
+                  emissiveIntensity={toothEmissiveness}
+                  side={2}
+                />
+              )}
+            </mesh>
+          </group>
+        );
+      })}
     </group>
   );
 };

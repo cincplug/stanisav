@@ -80,6 +80,10 @@
     "tuftSpacing": 4.1,
     "tuftColorStep": 30,
     "toothColorStep": 10,
+    "toothWidth": 0.5,
+    "toothLength": 2,
+    "toothThickness": 0.03,
+    "toothRoundness": 0.1,
     "maxDeformation": 1.2,
     "deformationSmoothness": 0.1,
     "amplitudeThreshold": 0.1,
@@ -107,6 +111,7 @@
     "currentColor": "#50a7ff",
     "labelTextColor": "#070b0f",
     "toothColor": "#87e7f7",
+    "toothEmissiveness": 0.3,
     "white": "#e7ebef"
   },
   "popover": {
