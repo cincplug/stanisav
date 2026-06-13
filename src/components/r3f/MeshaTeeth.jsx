@@ -23,7 +23,7 @@ const MeshaTeeth = ({
   const { controls } = useControlsContext();
   const { audioData } = useAudioData();
   const { teethSize } = controls;
-  const { toothColor, toothEmissiveness } = config.colors;
+  const { toothColor, emissiveness } = config.colors;
   const {
     toothColorStep,
     toothWidth,
@@ -115,7 +115,7 @@ const MeshaTeeth = ({
                 <meshPhongMaterial
                   color={color}
                   emissive={color}
-                  emissiveIntensity={toothEmissiveness}
+                  emissiveIntensity={emissiveness}
                   side={2}
                 />
               )}

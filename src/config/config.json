@@ -55,7 +55,6 @@
     "intensity": 73,
     "decay": 2.2,
     "distance": 74,
-    "color": "#ffeedd",
     "spread": 1.2,
     "z": 4
   },
@@ -97,6 +96,16 @@
     "timeRate": 20,
     "dragSensitivity": 0.1
   },
+  "colors": {
+    "hueCircle": 360,
+    "maxSiblingSpread": 60,
+    "emissiveness": 0.3,
+    "currentColor": "#50a7ff",
+    "labelTextColor": "#070b0f",
+    "lightColor": "#ffeedd",
+    "white": "#e7ebef",
+    "toothColor": "#87e7f7"
+  },
   "camera": {
     "cameraX": 0,
     "cameraY": 0,
@@ -104,15 +113,6 @@
     "fov": 30,
     "near": 0.1,
     "far": 2000
-  },
-  "colors": {
-    "hueCircle": 360,
-    "maxSiblingSpread": 60,
-    "currentColor": "#50a7ff",
-    "labelTextColor": "#070b0f",
-    "toothColor": "#87e7f7",
-    "toothEmissiveness": 0.3,
-    "white": "#e7ebef"
   },
   "popover": {
     "defaultPosition": "top"

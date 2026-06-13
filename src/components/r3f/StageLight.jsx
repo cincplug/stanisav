@@ -6,6 +6,7 @@ import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 import { config } from "../../modules/configStore";
 
 const { stageLight } = config;
+const { lightColor } = config.colors;
 const { labelsEntranceDuration } = config.entrance;
 
 const StageLight = ({
@@ -74,7 +75,7 @@ const StageLight = ({
       intensity={stageLight.intensity * light}
       decay={stageLight.decay}
       distance={animatedDistance}
-      color="#ffeedd"
+      color={lightColor}
     />
   );
 };
