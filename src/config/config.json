@@ -40,7 +40,7 @@
     "shaderCheckerFrequency": 2.0,
     "shaderRingCount": 12,
     "shaderRingSpeed": 1.2,
-    "shaderOpacity": 0.95
+    "shaderOpacity": 0.9
   },
   "stageLight": {
     "intensity": 20,
@@ -77,8 +77,9 @@
     "tongueWidth": 0.4,
     "tongueHeight": 0.6,
     "tongueLength": 1.1,
-    "tuftSpacing": 4.1,
-    "tuftColorStep": 30,
+    "moustacheSpacing": 4.1,
+    "moustacheColorStep": 30,
+    "moustacheTipRadius": 0.3,
     "toothColorStep": 10,
     "toothWidth": 0.5,
     "toothLength": 2,

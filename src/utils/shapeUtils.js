@@ -39,13 +39,15 @@ export const createAudioSurface = ({ audioBand, size, bend, radius }) => {
 };
 
 export function createTuftShape(moustacheSize, tuftCount) {
+  const { moustacheTipRadius } = config.meshaVisualization;
+
   return function (u, v, target) {
     const theta = u * Math.PI * 2;
     const t = v * 2 - 1;
 
     const halfHeight = moustacheSize;
     const maxRadius = moustacheSize / tuftCount;
-    const tipRadius = moustacheSize * 0.4;
+    const tipRadius = moustacheSize * moustacheTipRadius;
 
     const waist = 1 - Math.abs(t);
     const radius = tipRadius + (maxRadius - tipRadius) * Math.pow(waist, 2);

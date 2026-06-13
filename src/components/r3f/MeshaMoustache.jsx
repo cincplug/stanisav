@@ -1,17 +1,48 @@
 import { extend } from "@react-three/fiber";
-import { useMemo, useRef } from "react";
+import { forwardRef, useMemo, useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { dragBindings } from "../../config/dragBindings.js";
 import { useControlsContext } from "../../contexts/ControlsContext.jsx";
 import { useAudioData } from "../../hooks/useAudioData.js";
 import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
-import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
+import {
+  useHighlightMaterial,
+  useShaderMaterial,
+} from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { config } from "../../modules/configStore";
 import { shiftHue } from "../../utils/colorUtils";
 import { createTuftShape } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
+
+const MeshaTuft = forwardRef(
+  (
+    { tuft, tuftSurface, color, isSelected, linguisticProperty, onClick },
+    ref,
+  ) => {
+    const { segments } = config.meshaVisualization;
+    const tuftMaterial = useShaderMaterial(color);
+    const highlightMaterial = useHighlightMaterial(0, 2);
+
+    return (
+      <group ref={ref} position={[tuft.x, tuft.y, tuft.z]} onClick={onClick}>
+        <mesh
+          rotation={[0, 0, tuft.rotationRad]}
+          scale={tuft.scale}
+          linguisticProperty={linguisticProperty}
+        >
+          <parametricGeometry args={[tuftSurface, segments, segments]} />
+          {isSelected ? (
+            <shaderMaterial args={[highlightMaterial]} />
+          ) : (
+            <shaderMaterial args={[tuftMaterial]} />
+          )}
+        </mesh>
+      </group>
+    );
+  },
+);
 
 const MeshaMoustache = ({
   linguisticProperty,
@@ -26,13 +57,10 @@ const MeshaMoustache = ({
 }) => {
   const tuftsRef = useRef([]);
   const tuftDataRef = useRef([]);
-  const { tuftSpacing, tuftColorStep, segments } = config.meshaVisualization;
-
+  const { moustacheSpacing, moustacheColorStep } = config.meshaVisualization;
   const { controls } = useControlsContext();
   const { audioData } = useAudioData();
   const { eyeZ, eyeX, moustacheSize } = controls;
-  const highlightMaterial = useHighlightMaterial(0, 2);
-
   const bind = useMeshaDrag(dragBindings.moustache, linguisticProperty);
 
   const tuftSurface = useMemo(
@@ -42,18 +70,15 @@ const MeshaMoustache = ({
 
   const tuftsWithRotation = useMemo(() => {
     if (!tuftCount) return [];
-
-    const spacing = (eyeX / tuftCount) * tuftSpacing;
+    const spacing = (eyeX / tuftCount) * moustacheSpacing;
     const totalWidth = spacing * (tuftCount - 1);
     const baseX = totalWidth / 2;
     const centerIndex = (tuftCount - 1) / 2;
-
     const result = Array.from({ length: tuftCount }, (_, i) => {
       const offsetFromCenter = Math.abs(i - centerIndex);
       const t = centerIndex === 0 ? 0 : offsetFromCenter / centerIndex;
       const scale = 0.5 + 0.5 * t;
       const rotationRad = ((180 + (i - centerIndex) * stepDeg) * Math.PI) / 180;
-
       return {
         key: `moustache-${i}`,
         x: baseX - i * spacing,
@@ -63,14 +88,12 @@ const MeshaMoustache = ({
         scale,
       };
     });
-
     tuftDataRef.current = result;
     return result;
-  }, [tuftCount, tuftSpacing, eyeX, eyeZ, y, z]);
+  }, [tuftCount, moustacheSpacing, eyeX, eyeZ, y, z]);
 
   useThrottledFrame(() => {
     const audioBandData = audioData[audioBand];
-
     tuftsRef.current.forEach((tuftGroup, i) => {
       if (!tuftGroup) return;
       const bandIndex = Math.floor(
@@ -89,29 +112,16 @@ const MeshaMoustache = ({
   return (
     <group {...bind()}>
       {tuftsWithRotation.map((tuft, i) => (
-        <group
+        <MeshaTuft
           key={tuft.key}
           ref={(el) => (tuftsRef.current[i] = el)}
-          position={[tuft.x, tuft.y, tuft.z]}
+          tuft={tuft}
+          tuftSurface={tuftSurface}
+          color={shiftHue(color, i * moustacheColorStep)}
+          isSelected={isSelected}
+          linguisticProperty={linguisticProperty}
           onClick={onClick}
-        >
-          <mesh
-            rotation={[0, 0, tuft.rotationRad]}
-            scale={tuft.scale}
-            linguisticProperty={linguisticProperty}
-          >
-            <parametricGeometry args={[tuftSurface, segments, segments]} />
-            {isSelected ? (
-              <shaderMaterial args={[highlightMaterial]} />
-            ) : (
-              <meshPhongMaterial
-                color={shiftHue(color, i * tuftColorStep)}
-                wireframe
-                side={2}
-              />
-            )}
-          </mesh>
-        </group>
+        />
       ))}
     </group>
   );

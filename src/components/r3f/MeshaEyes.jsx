@@ -97,7 +97,7 @@ const Eye = ({
         {isSelectedOuter ? (
           <shaderMaterial args={[whiteMaterial]} />
         ) : (
-          <meshBasicMaterial wireframe color={config.colors.white} />
+          <meshBasicMaterial color={config.colors.white} />
         )}
       </mesh>
 
