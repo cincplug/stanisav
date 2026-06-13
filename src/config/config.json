@@ -28,7 +28,7 @@
     "sceneInitial": 3,
     "sceneZoomed": 0.1,
     "meshaInitial": 0,
-    "meshaZoomed": 0.5
+    "meshaZoomed": 0.6
   },
   "shader": {
     "shaderAmbient": 0.7,
@@ -84,8 +84,9 @@
     "deformationSmoothness": 0.1,
     "amplitudeThreshold": 0.1,
     "blinkDuration": 0.2,
-    "xNodAmplitude": 3.14,
-    "xNodFrequency": 0.3,
+    "saltoAmplitude": 2,
+    "saltoFrequency": 0.5,
+    "saltoPow": 4,
     "decayRate": 0.7,
     "verticalVariationMultiplier": 0.1,
     "segments": 32,

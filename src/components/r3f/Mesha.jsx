@@ -1,6 +1,7 @@
 import { a, useSpring } from "@react-spring/three";
 import { extend } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
+import { Euler, Quaternion } from "three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
 import { useAppStateContext } from "../../contexts/AppStateContext.jsx";
@@ -30,6 +31,9 @@ import SpeechBalloon from "./SpeechBalloon";
 extend({ ParametricGeometry });
 extend({ TextGeometry });
 
+const scratchEuler = new Euler();
+const scratchQuat = new Quaternion();
+
 const Mesha = ({
   languageCode,
   position,
@@ -44,16 +48,8 @@ const Mesha = ({
   const { data } = useAppStateContext();
   const { languageColors } = useLanguageColorsContext();
   const { controls } = useControlsContext();
-  const {
-    meshaSize,
-    eyeZ,
-    eyeY,
-    eyeSize,
-    noseSize,
-    earSize,
-    switchDuration,
-    axis,
-  } = controls;
+  const { meshaSize, eyeZ, eyeY, eyeSize, noseSize, earSize, switchDuration } =
+    controls;
   const { selectedProperty, selectedLanguage } = useLanguageSelectionContext();
 
   const { isMeshaSequenceDone, isEntranceComplete } = useEntranceContext();
@@ -93,6 +89,8 @@ const Mesha = ({
 
   const { white, labelTextColor } = config.colors;
   const { labelsEntranceDuration } = config.entrance;
+  const { segments, earBend, saltoAmplitude, saltoFrequency, saltoPow } =
+    config.meshaVisualization;
 
   const noseColorMap = {
     S: white,
@@ -131,36 +129,56 @@ const Mesha = ({
   // Accumulated rotation angles, updated every frame via delta — never reset on
   // unblock or language change, so rotation is always continuous
   const rotationYRef = useRef(0);
-  const rotationXPhaseRef = useRef(0);
+  const saltoPhaseRef = useRef(0);
+  const prevWordOrderFlexibilityRef = useRef("");
 
   useThrottledFrame(({ camera }, delta) => {
     if (!looksAround || !lookAroundRef.current) return;
 
     const isBlocked = isDragging || wordOrderFlexibility === "rigid";
-    if (isBlocked) return;
+    if (isBlocked) {
+      prevWordOrderFlexibilityRef.current = wordOrderFlexibility;
+      return;
+    }
 
-    // Billboard: face the camera as a base orientation
+    // On transition into flexible, snap phase to the nearest π multiple so
+    // sin(phase) starts at 0 and X/Z rotation opens from current orientation
+    if (
+      wordOrderFlexibility === "flexible" &&
+      prevWordOrderFlexibilityRef.current !== "flexible"
+    ) {
+      saltoPhaseRef.current =
+        Math.round(rotationYRef.current / Math.PI) * Math.PI;
+    }
+    prevWordOrderFlexibilityRef.current = wordOrderFlexibility;
+
+    rotationYRef.current += delta * rotateSpeed;
+
     lookAroundRef.current.quaternion.copy(camera.quaternion);
 
     if (wordOrderFlexibility === "semi-flexible") {
-      rotationYRef.current += delta * rotateSpeed;
-      lookAroundRef.current.rotateY(rotationYRef.current);
+      scratchEuler.set(0, rotationYRef.current, 0, "YXZ");
+      scratchQuat.setFromEuler(scratchEuler);
+      lookAroundRef.current.quaternion.multiply(scratchQuat);
     }
 
     if (wordOrderFlexibility === "flexible") {
-      rotationYRef.current += delta * rotateSpeed;
-      rotationXPhaseRef.current += delta * rotateSpeed * xNodFrequency;
+      saltoPhaseRef.current += delta * rotateSpeed * saltoFrequency;
 
-      lookAroundRef.current.rotateY(rotationYRef.current);
-      // sin³ stays near zero most of the cycle, produces one smooth arc per period
-      lookAroundRef.current.rotateX(
-        Math.pow(Math.sin(rotationXPhaseRef.current), 3) * xNodAmplitude,
-      );
+      const rotX =
+        Math.pow(Math.sin(saltoPhaseRef.current), saltoPow) *
+        saltoAmplitude *
+        Math.PI;
+      const rotZ =
+        Math.pow(Math.cos(saltoPhaseRef.current), saltoPow) *
+        saltoAmplitude *
+        Math.PI;
+
+      scratchEuler.set(rotX, rotationYRef.current, rotZ, "YXZ");
+      scratchQuat.setFromEuler(scratchEuler);
+      lookAroundRef.current.quaternion.multiply(scratchQuat);
     }
   });
-
-  const { segments, earBend, xNodAmplitude, xNodFrequency } =
-    config.meshaVisualization;
 
   const earPosition = useMemo(
     () => ({
