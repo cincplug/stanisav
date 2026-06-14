@@ -48,8 +48,16 @@ const Mesha = ({
   const { data } = useAppStateContext();
   const { languageColors } = useLanguageColorsContext();
   const { controls } = useControlsContext();
-  const { meshaSize, eyeZ, eyeY, eyeSize, noseSize, earSize, switchDuration } =
-    controls;
+  const {
+    meshaSize,
+    eyeZ,
+    eyeY,
+    eyeSize,
+    noseSize,
+    earSize,
+    switchDuration,
+    sphereRadius,
+  } = controls;
   const { selectedProperty, selectedLanguage } = useLanguageSelectionContext();
 
   const { isMeshaSequenceDone, isEntranceComplete } = useEntranceContext();
@@ -111,7 +119,8 @@ const Mesha = ({
     noseColorMap[wordOrder[2]],
   ];
 
-  const targetPosition = position;
+  const initialPosition = [0, 0, sphereRadius];
+  const targetPosition = isMeshaSequenceDone ? position : initialPosition;
 
   const spring = useSpring({
     x: targetPosition[0],
@@ -148,7 +157,7 @@ const Mesha = ({
   const saltoRotZRef = useRef(0);
 
   useThrottledFrame(({ camera }, delta) => {
-    if (!looksAround || !lookAroundRef.current) return;
+    if (!looksAround || !lookAroundRef.current || !isEntranceComplete) return;
 
     const isBlocked = isDragging || wordOrderFlexibility === "rigid";
     const wasFlexible = prevWordOrderFlexibilityRef.current === "flexible";
