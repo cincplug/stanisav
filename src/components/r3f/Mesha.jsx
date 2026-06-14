@@ -89,8 +89,15 @@ const Mesha = ({
 
   const { white, labelTextColor } = config.colors;
   const { labelsEntranceDuration } = config.entrance;
-  const { segments, earBend, saltoAmplitude, saltoFrequency, saltoPow } =
-    config.meshaVisualization;
+  const {
+    skinHueShift,
+    moustacheHueShift,
+    segments,
+    earBend,
+    saltoAmplitude,
+    saltoFrequency,
+    saltoPow,
+  } = config.meshaVisualization;
 
   const noseColorMap = {
     S: white,
@@ -116,8 +123,8 @@ const Mesha = ({
     immediate: isMotionReduced || !isMeshaSequenceDone,
   });
 
-  const skinColor = shiftHue(color, -60);
-  const skinColorInvert = shiftHue(color, 60);
+  const skinColor = shiftHue(color, skinHueShift);
+  const skinColorInvert = shiftHue(color, -skinHueShift);
 
   const skinMaterial = useShaderMaterial(skinColor, skinColorInvert, 0);
   const tongueMaterial = useShaderMaterial(
@@ -125,6 +132,9 @@ const Mesha = ({
     skinColor,
     stripesType,
   );
+
+  const moustacheColor = shiftHue(color, moustacheHueShift);
+  const eyebrowColor = shiftHue(color, -moustacheHueShift);
 
   // Accumulated rotation angles, updated every frame via delta — never reset on
   // unblock or language change, so rotation is always continuous
@@ -238,7 +248,7 @@ const Mesha = ({
           <MeshaMoustache
             linguisticProperty="caseCount"
             tuftCount={caseCount}
-            color={shiftHue(color, 120)}
+            color={moustacheColor}
             y={eyeY / 2}
             z={eyeZ}
             isSelected={selectedProperty === "caseCount"}
@@ -250,7 +260,7 @@ const Mesha = ({
           <MeshaMoustache
             linguisticProperty="nounClassCount"
             tuftCount={nounClassCount}
-            color={color}
+            color={eyebrowColor}
             y={(eyeY * 4) / 3}
             z={eyeZ}
             isSelected={selectedProperty === "nounClassCount"}

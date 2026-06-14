@@ -35,7 +35,7 @@
     "shaderLightingMin": 0.7,
     "shaderLightingMax": 1.2,
     "shaderLightingDiffuse": 0.5,
-    "shaderShadeChecker": 0.95,
+    "shaderShadeChecker": 1.22,
     "shaderShadeStripe": 2,
     "shaderCheckerFrequency": 2.0,
     "shaderRingCount": 12,
@@ -60,6 +60,8 @@
     "z": 4
   },
   "meshaVisualization": {
+    "skinHueShift": 30,
+    "moustacheHueShift": 120,
     "earHeight": 0.3,
     "earWidth": 0.1,
     "earDepth": 2.4,

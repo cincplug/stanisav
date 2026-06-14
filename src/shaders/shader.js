@@ -32,12 +32,6 @@ export const tonalityFragmentShader = /* glsl */ `
   varying vec3 vNormal;
   varying vec3 vPosition;
 
-  float getCheckerMask(vec2 uv) {
-    float checkerX = step(0.5, fract(uv.x * uCheckerFrequency));
-    float checkerY = step(0.5, fract(uv.y * uCheckerFrequency));
-    return abs(checkerX - checkerY);
-  }
-
   float getVerticalStripeMask(float coord, int count) {
     float stripeWidth = 0.8 / float(count) * 0.4;
     float stripeSpacing = 1.2 / float(count);
@@ -79,15 +73,16 @@ export const tonalityFragmentShader = /* glsl */ `
     float lighting = uAmbient + (diffuse1 + diffuse2 + diffuse3) * uLightingDiffuseScale;
     lighting = clamp(lighting, uLightingMin, uLightingMax);
 
-    vec3 litBaseColor = uBaseColor * lighting;
-    vec3 litLighterColor = litBaseColor * uShadeStripe;
+    // Radial gradient: uBaseColor at center, darker shade at edges
+    float distFromCenter = length(vUv - 0.5) * 2.0;
+    vec3 edgeColor = uBaseColor * uShadeChecker;
+    vec3 gradientColor = mix(uBaseColor, edgeColor, distFromCenter);
 
-    float checkerMask = getCheckerMask(vUv);
-    vec3 darkerBase = litBaseColor * uShadeChecker;
-    vec3 checkerColor = mix(litBaseColor, darkerBase, checkerMask);
+    vec3 litColor = gradientColor * lighting;
+    vec3 litLighterColor = litColor * uShadeStripe;
 
     float stripeMask = getStripeMask(vUv, uStripesType);
-    vec3 color = mix(checkerColor, litLighterColor, stripeMask);
+    vec3 color = mix(litColor, litLighterColor, stripeMask);
 
     gl_FragColor = vec4(color, uOpacity);
   }
