@@ -53,9 +53,9 @@
     }
   },
   "meshaLight": {
-    "intensity": 73,
-    "decay": 2.2,
-    "distance": 74,
+    "intensity": 69,
+    "decay": 2.5,
+    "distance": 45,
     "spread": 1.2,
     "z": 4
   },
