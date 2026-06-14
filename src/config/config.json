@@ -93,7 +93,7 @@
     "blinkDuration": 0.2,
     "saltoAmplitude": 2,
     "saltoFrequency": 0.5,
-    "saltoPow": 4,
+    "saltoPow": 3,
     "decayRate": 0.7,
     "verticalVariationMultiplier": 0.1,
     "segments": 32,

@@ -1,7 +1,7 @@
 import { a, useSpring } from "@react-spring/three";
 import { extend } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
-import { Euler, Quaternion } from "three";
+import { Euler, MathUtils, Quaternion } from "three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
 import { useAppStateContext } from "../../contexts/AppStateContext.jsx";
@@ -136,58 +136,78 @@ const Mesha = ({
   const moustacheColor = shiftHue(color, moustacheHueShift);
   const eyebrowColor = shiftHue(color, -moustacheHueShift);
 
-  // Accumulated rotation angles, updated every frame via delta — never reset on
-  // unblock or language change, so rotation is always continuous
+  // Accumulated rotation angles — never reset, so rotation stays continuous
+  // across language switches, unblocks, and mode transitions
   const rotationYRef = useRef(0);
   const saltoPhaseRef = useRef(0);
   const prevWordOrderFlexibilityRef = useRef("");
+
+  // Live X/Z tilt angles carried across frames so they can be damped to zero
+  // when leaving "flexible" instead of snapping
+  const saltoRotXRef = useRef(0);
+  const saltoRotZRef = useRef(0);
 
   useThrottledFrame(({ camera }, delta) => {
     if (!looksAround || !lookAroundRef.current) return;
 
     const isBlocked = isDragging || wordOrderFlexibility === "rigid";
+    const wasFlexible = prevWordOrderFlexibilityRef.current === "flexible";
+    prevWordOrderFlexibilityRef.current = wordOrderFlexibility;
+
     if (isBlocked) {
-      prevWordOrderFlexibilityRef.current = wordOrderFlexibility;
+      // Damp residual X/Z tilt to zero even while blocked, so the transition
+      // out of flexible completes smoothly regardless of when drag starts
+      saltoRotXRef.current = MathUtils.damp(saltoRotXRef.current, 0, 4, delta);
+      saltoRotZRef.current = MathUtils.damp(saltoRotZRef.current, 0, 4, delta);
       return;
     }
 
-    // On transition into flexible, snap phase to the nearest π multiple so
-    // sin(phase) starts at 0 and X/Z rotation opens from current orientation
-    if (
-      wordOrderFlexibility === "flexible" &&
-      prevWordOrderFlexibilityRef.current !== "flexible"
-    ) {
-      saltoPhaseRef.current =
-        Math.round(rotationYRef.current / Math.PI) * Math.PI;
-    }
-    prevWordOrderFlexibilityRef.current = wordOrderFlexibility;
-
-    rotationYRef.current += delta * rotateSpeed;
-
-    lookAroundRef.current.quaternion.copy(camera.quaternion);
+    rotationYRef.current =
+      (rotationYRef.current + delta * rotateSpeed) % (Math.PI * 2);
 
     if (wordOrderFlexibility === "semi-flexible") {
-      scratchEuler.set(0, rotationYRef.current, 0, "YXZ");
-      scratchQuat.setFromEuler(scratchEuler);
-      lookAroundRef.current.quaternion.multiply(scratchQuat);
+      // Damp out any residual X/Z tilt left over from a prior flexible phase
+      saltoRotXRef.current = MathUtils.damp(saltoRotXRef.current, 0, 4, delta);
+      saltoRotZRef.current = MathUtils.damp(saltoRotZRef.current, 0, 4, delta);
     }
 
     if (wordOrderFlexibility === "flexible") {
-      saltoPhaseRef.current += delta * rotateSpeed * saltoFrequency;
+      // On transition into flexible, snap phase to the nearest π multiple so
+      // sin(phase) starts at 0 and X/Z rotation opens from current orientation
+      if (!wasFlexible) {
+        saltoPhaseRef.current =
+          Math.round(rotationYRef.current / Math.PI) * Math.PI;
+      }
 
-      const rotX =
-        Math.pow(Math.sin(saltoPhaseRef.current), saltoPow) *
+      saltoPhaseRef.current =
+        (saltoPhaseRef.current + delta * rotateSpeed * saltoFrequency) %
+        (Math.PI * 2);
+
+      const sinPhase = Math.sin(saltoPhaseRef.current);
+      const cosPhase = Math.cos(saltoPhaseRef.current);
+      saltoRotXRef.current =
+        Math.sign(sinPhase) *
+        Math.pow(Math.abs(sinPhase), saltoPow) *
         saltoAmplitude *
         Math.PI;
-      const rotZ =
-        Math.pow(Math.cos(saltoPhaseRef.current), saltoPow) *
+      saltoRotZRef.current =
+        Math.sign(cosPhase) *
+        Math.pow(Math.abs(cosPhase), saltoPow) *
         saltoAmplitude *
         Math.PI;
-
-      scratchEuler.set(rotX, rotationYRef.current, rotZ, "YXZ");
-      scratchQuat.setFromEuler(scratchEuler);
-      lookAroundRef.current.quaternion.multiply(scratchQuat);
     }
+
+    // Always apply — semi-flexible and the transition out of flexible both
+    // write saltoRotX/Z (either driven or damped), so one quaternion path covers all
+    lookAroundRef.current.quaternion.copy(camera.quaternion);
+    scratchEuler.set(
+      saltoRotXRef.current,
+      rotationYRef.current,
+      saltoRotZRef.current,
+      "YXZ",
+    );
+    scratchQuat.setFromEuler(scratchEuler);
+    lookAroundRef.current.quaternion.multiply(scratchQuat);
   });
 
   const earPosition = useMemo(
