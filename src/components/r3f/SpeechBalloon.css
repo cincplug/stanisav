@@ -81,6 +81,12 @@
   }
 }
 
+.speech-balloon-root {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 @keyframes balloon-hold {
   from,
   to {
