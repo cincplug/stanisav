@@ -37,7 +37,6 @@
     "shaderLightingDiffuse": 0.5,
     "shaderShadeChecker": 1.22,
     "shaderShadeStripe": 2,
-    "shaderCheckerFrequency": 2.0,
     "shaderRingCount": 12,
     "shaderRingSpeed": 1.2,
     "shaderOpacity": 0.9

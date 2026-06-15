@@ -22,7 +22,6 @@ export const useShaderMaterial = (
     shaderLightingDiffuse,
     shaderShadeChecker,
     shaderShadeStripe,
-    shaderCheckerFrequency,
   } = config.shader;
 
   const baseColorObj = useMemo(() => new Color(baseColor), [baseColor]);
@@ -42,7 +41,6 @@ export const useShaderMaterial = (
         uLightingDiffuseScale: { value: shaderLightingDiffuse },
         uShadeChecker: { value: shaderShadeChecker },
         uShadeStripe: { value: shaderShadeStripe },
-        uCheckerFrequency: { value: shaderCheckerFrequency },
       },
       vertexShader: meshVertexShader,
       fragmentShader: tonalityFragmentShader,
@@ -60,7 +58,6 @@ export const useShaderMaterial = (
       shaderLightingDiffuse,
       shaderShadeChecker,
       shaderShadeStripe,
-      shaderCheckerFrequency,
     ],
   );
 
@@ -72,7 +69,6 @@ export const useShaderMaterial = (
       shaderLightingDiffuse,
       shaderShadeChecker,
       shaderShadeStripe,
-      shaderCheckerFrequency,
     } = config.shader;
 
     material.uniforms.uAmbient.value = shaderAmbient;
@@ -81,7 +77,6 @@ export const useShaderMaterial = (
     material.uniforms.uLightingDiffuseScale.value = shaderLightingDiffuse;
     material.uniforms.uShadeChecker.value = shaderShadeChecker;
     material.uniforms.uShadeStripe.value = shaderShadeStripe;
-    material.uniforms.uCheckerFrequency.value = shaderCheckerFrequency;
   });
 
   return material;

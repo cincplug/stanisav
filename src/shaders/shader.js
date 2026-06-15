@@ -27,7 +27,6 @@ export const tonalityFragmentShader = /* glsl */ `
   uniform float uLightingDiffuseScale;
   uniform float uShadeChecker;
   uniform float uShadeStripe;
-  uniform float uCheckerFrequency;
   varying vec2 vUv;
   varying vec3 vNormal;
   varying vec3 vPosition;
