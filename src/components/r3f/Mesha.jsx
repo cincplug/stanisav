@@ -298,7 +298,7 @@ const Mesha = ({
           />
         )}
       </group>
-      <SpeechBalloon position={"bottom"} anchorPosition={[0, eyeY, eyeZ]} />
+      <SpeechBalloon position={"bottom-right"} anchorPosition={position} />
       <MeshaLight />
     </a.group>
   );
