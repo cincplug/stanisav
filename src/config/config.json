@@ -122,6 +122,7 @@
   },
   "speechBalloon": {
     "defaultPosition": "top-right",
+    "defaultAnchorOffset": [0, 0, 0],
     "durationBase": 1500,
     "durationPerCharacter": 30,
     "durationDismiss": 400
