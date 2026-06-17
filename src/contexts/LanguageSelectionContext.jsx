@@ -7,8 +7,8 @@ import {
 } from "react";
 import { filterLanguagesByFeatures } from "../utils/filteringUtils";
 import {
-  buildPropertyBalloonText,
   getFeatureName,
+  getPropertyBalloonText,
 } from "../utils/linguisticUtils";
 import { useAppStateContext } from "./AppStateContext";
 
@@ -19,7 +19,7 @@ export const LanguageSelectionProvider = ({ children }) => {
 
   const [selectedLanguage, setSelectedLanguage] = useState(null);
   const [selectedProperty, setSelectedProperty] = useState(null);
-  const [propertyBalloonText, setPropertyBalloonText] = useState("");
+  const [balloonText, setBalloonText] = useState("");
   const [filters, setFilters] = useState({});
   const [filteredLanguages, setFilteredLanguages] = useState(new Set());
   const [cameraFocusRequest, setCameraFocusRequest] = useState(null);
@@ -44,13 +44,13 @@ export const LanguageSelectionProvider = ({ children }) => {
     (propertyKey) => {
       setSelectedProperty(propertyKey);
       if (!propertyKey) {
-        setPropertyBalloonText("");
+        setBalloonText("");
         return;
       }
       const rawValue = linguisticProperties?.[propertyKey];
-      setPropertyBalloonText(
+      setBalloonText(
         rawValue !== undefined
-          ? buildPropertyBalloonText(propertyKey, rawValue)
+          ? getPropertyBalloonText(propertyKey, rawValue)
           : getFeatureName(propertyKey),
       );
     },
@@ -58,7 +58,7 @@ export const LanguageSelectionProvider = ({ children }) => {
   );
 
   const clearPropertyBalloon = useCallback(() => {
-    setPropertyBalloonText("");
+    setBalloonText("");
   }, []);
 
   const updateFilters = useCallback((filters, data) => {
@@ -86,7 +86,8 @@ export const LanguageSelectionProvider = ({ children }) => {
   const contextValue = {
     selectedLanguage,
     selectedProperty,
-    propertyBalloonText,
+    balloonText,
+    setBalloonText,
     linguisticProperties,
     selectProperty,
     clearPropertyBalloon,

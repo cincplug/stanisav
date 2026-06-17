@@ -161,7 +161,7 @@ export const getLanguageLabel = (languageCode, languageData, labelContent) => {
 // Builds the speech balloon text for a clicked face property.
 // Numeric properties show name and number only (no value labels or descriptions exist for them).
 // Described properties append the description after the value label.
-export const buildPropertyBalloonText = (propertyKey, rawValue) => {
+export const getPropertyBalloonText = (propertyKey, rawValue) => {
   const propertyName = getFeatureName(propertyKey);
 
   if (isNumericFeature(propertyKey)) {

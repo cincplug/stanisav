@@ -1,5 +1,6 @@
 import { Html } from "@react-three/drei";
 import { useEntranceContext } from "../../contexts/EntranceContext";
+import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
 import { config } from "../../modules/configStore";
 import "../menu/ux/Popover.css";
 import "./SpeechBalloon.css";
@@ -10,12 +11,12 @@ import "./SpeechBalloon.css";
 const SpeechBalloon = ({
   anchorOffset = config.speechBalloon.defaultAnchorOffset,
   position = config.speechBalloon.defaultPosition,
-  balloonText,
 }) => {
   const { durationBase, durationPerCharacter, durationDismiss } =
     config.speechBalloon;
 
   const { entranceBalloonText, setEntranceBalloonText } = useEntranceContext();
+  const { balloonText } = useLanguageSelectionContext();
 
   const text = entranceBalloonText || balloonText;
 
