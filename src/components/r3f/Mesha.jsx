@@ -145,14 +145,9 @@ const Mesha = ({
   const moustacheColor = shiftHue(color, moustacheHueShift);
   const eyebrowColor = shiftHue(color, -moustacheHueShift);
 
-  // Accumulated rotation angles — never reset, so rotation stays continuous
-  // across language switches, unblocks, and mode transitions
   const rotationYRef = useRef(0);
   const saltoPhaseRef = useRef(0);
   const prevWordOrderFlexibilityRef = useRef("");
-
-  // Live X/Z tilt angles carried across frames so they can be damped to zero
-  // when leaving "flexible" instead of snapping
   const saltoRotXRef = useRef(0);
   const saltoRotZRef = useRef(0);
 
@@ -163,26 +158,13 @@ const Mesha = ({
     const wasFlexible = prevWordOrderFlexibilityRef.current === "flexible";
     prevWordOrderFlexibilityRef.current = wordOrderFlexibility;
 
-    if (isBlocked) {
-      // Damp residual X/Z tilt to zero even while blocked, so the transition
-      // out of flexible completes smoothly regardless of when drag starts
-      saltoRotXRef.current = MathUtils.damp(saltoRotXRef.current, 0, 4, delta);
-      saltoRotZRef.current = MathUtils.damp(saltoRotZRef.current, 0, 4, delta);
-      return;
+    if (!isBlocked) {
+      rotationYRef.current =
+        (rotationYRef.current + delta * rotateSpeed) % (Math.PI * 2);
     }
 
-    rotationYRef.current =
-      (rotationYRef.current + delta * rotateSpeed) % (Math.PI * 2);
-
-    if (wordOrderFlexibility === "semi-flexible") {
-      // Damp out any residual X/Z tilt left over from a prior flexible phase
-      saltoRotXRef.current = MathUtils.damp(saltoRotXRef.current, 0, 4, delta);
-      saltoRotZRef.current = MathUtils.damp(saltoRotZRef.current, 0, 4, delta);
-    }
-
-    if (wordOrderFlexibility === "flexible") {
-      // On transition into flexible, snap phase to the nearest π multiple so
-      // sin(phase) starts at 0 and X/Z rotation opens from current orientation
+    if (wordOrderFlexibility === "flexible" && !isBlocked) {
+      // Snap phase on transition into flexible so sin(phase) opens from 0
       if (!wasFlexible) {
         saltoPhaseRef.current =
           Math.round(rotationYRef.current / Math.PI) * Math.PI;
@@ -204,10 +186,25 @@ const Mesha = ({
         Math.pow(Math.abs(cosPhase), saltoPow) *
         saltoAmplitude *
         Math.PI;
+    } else {
+      saltoRotXRef.current = MathUtils.damp(
+        saltoRotXRef.current,
+        Math.round(saltoRotXRef.current / (Math.PI * 2)) * (Math.PI * 2),
+        4,
+        delta,
+      );
+      saltoRotZRef.current = MathUtils.damp(
+        saltoRotZRef.current,
+        Math.round(saltoRotZRef.current / (Math.PI * 2)) * (Math.PI * 2),
+        4,
+        delta,
+      );
+
+      if (wasFlexible) {
+        saltoPhaseRef.current = 0;
+      }
     }
 
-    // Always apply — semi-flexible and the transition out of flexible both
-    // write saltoRotX/Z (either driven or damped), so one quaternion path covers all
     lookAroundRef.current.quaternion.copy(camera.quaternion);
     scratchEuler.set(
       saltoRotXRef.current,
