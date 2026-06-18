@@ -134,8 +134,7 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
 
     const distForWidth = halfW / Math.tan(halfFovH);
     const distForHeight = halfH / Math.tan(halfFovV);
-    const distance =
-      Math.max(distForWidth, distForHeight) * config.segmentation.margin;
+    const distance = Math.max(distForWidth, distForHeight);
 
     const targetCameraPosition = new Vector3(
       center.x,

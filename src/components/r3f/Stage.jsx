@@ -56,6 +56,7 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
     rotateSpeed,
     isMotionReduced,
     labelSize,
+    meshaSize,
   } = controls;
 
   const orbitControlsRef = useRef();
@@ -154,7 +155,7 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
       if (isSegmented) {
         return [
           base[0],
-          base[1],
+          base[1] + radialOffsetModifier / 2,
           base[2] + radial[2] + radialOffsetModifier + sphereRadius,
         ];
       }
@@ -166,7 +167,7 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
       ];
     }
 
-    return [0, sphereRadius, 0];
+    return [0, sphereRadius - meshaSize / 2, 0];
   }, [selectedLanguage, formattedPositions]);
 
   const hasSelectedFilters = Object.keys(filters).length > 0;
