@@ -19,6 +19,8 @@ const Label = ({
   color,
   revealOrder,
   totalVisibleLabels,
+  meshRef,
+  revealRef,
 }) => {
   const labelRef = useRef();
   const { controls } = useControlsContext();
@@ -125,6 +127,10 @@ const Label = ({
     labelRef.current.scale.setScalar(reveal);
 
     labelRef.current.quaternion.copy(camera.quaternion);
+
+    // Keep external refs in sync so the Lines sibling can read live position and reveal
+    if (meshRef) meshRef.current = labelRef.current;
+    if (revealRef) revealRef.current = reveal;
 
     if (!selectedLanguage && d4) {
       animatedD4.current += delta;

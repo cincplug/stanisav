@@ -59,8 +59,7 @@ class LayoutEngine {
       axis,
     } = controls;
 
-    const { buildPoint } =
-      spiralAxis[axis] ?? spiralAxis.y;
+    const { buildPoint } = spiralAxis[axis] ?? spiralAxis.y;
     const { poleOf: entrancePoleOf, equatorialOf: entranceEquatorialOf } =
       spiralAxis[entranceSpiralAxis] ?? spiralAxis[axis];
 
@@ -107,18 +106,7 @@ class LayoutEngine {
       { poleOf: entrancePoleOf, equatorialOf: entranceEquatorialOf },
     );
 
-    const proximityOrderedBasePoints = this.reorderBySpatialProximity(
-      angularBasePoints,
-      {
-        maxLookahead: Math.max(
-          8,
-          Math.round(Math.sqrt(sortedLanguages.length)),
-        ),
-      },
-    );
-    const basePoints = this.rotatePointsToFrontFacingAnchor(
-      proximityOrderedBasePoints,
-    );
+    const basePoints = this.rotatePointsToFrontFacingAnchor(angularBasePoints);
     const basePositions = {};
     sortedLanguages.forEach((code, i) => {
       basePositions[code] = basePoints[i];

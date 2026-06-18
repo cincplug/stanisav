@@ -58,6 +58,12 @@
       "defaultValue": false,
       "isDesktopOnly": true,
       "isShownInMenu": false
+    },
+    "hasLines": {
+      "type": "checkbox",
+      "defaultValue": true,
+      "isDesktopOnly": false,
+      "isShownInMenu": false
     }
   },
   "Scene": {

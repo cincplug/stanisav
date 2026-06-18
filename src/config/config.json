@@ -1,6 +1,6 @@
 {
   "entrance": {
-    "labelsEntranceDuration": 7000,
+    "labelsEntranceDuration": 27000,
     "labelRevealDuration": 500,
     "meshaRevealSequence": [
       { "part": "eyes", "holdMs": 1000 },
@@ -9,8 +9,8 @@
       { "part": "tongue", "holdMs": 400 },
       { "part": "teeth", "holdMs": 200 }
     ],
-    "labelsRevealDelay": 500,
-    "startRadiusFactor": 0.8,
+    "labelsRevealDelay": 50,
+    "startRadiusFactor": 1.6,
     "entranceSpiralAxis": "z"
   },
   "segmentation": {
@@ -132,5 +132,10 @@
     "fundamentalMax": 800,
     "harmonicsMin": 700,
     "harmonicsMax": 4000
+  },
+  "lines": {
+    "opacity": 0.45,
+    "lineWidth": 1,
+    "centerPullRatio": 0.5
   }
 }
