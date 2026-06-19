@@ -27,12 +27,13 @@ const Labels = ({
 
   const totalVisibleLabels = visibleLabelCodes.length;
 
-  // Stable arrays of refs, one entry per visible label, resized when count changes.
-  // labelRefs: each entry holds the label's live Three.js mesh.
-  // revealRefs: each entry holds the label's current reveal scalar [0, 1].
+  const visibleCodesKey = visibleLabelCodes.join(",");
+
   const labelRefsRef = useRef([]);
   const revealRefsRef = useRef([]);
-  if (labelRefsRef.current.length !== totalVisibleLabels) {
+  const prevCodesKeyRef = useRef("");
+  if (prevCodesKeyRef.current !== visibleCodesKey) {
+    prevCodesKeyRef.current = visibleCodesKey;
     labelRefsRef.current = Array.from({ length: totalVisibleLabels }, () => ({
       current: null,
     }));

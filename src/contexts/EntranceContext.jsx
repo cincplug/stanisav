@@ -76,7 +76,7 @@ export const EntranceProvider = ({ children }) => {
       for (const { part, holdMs } of meshaRevealSequence) {
         if (isSequenceCancelledRef.current) return;
         setRevealedParts((prev) => new Set([...prev, part]));
-        if (part === "nose") runBalloonSequence();
+        if (part === "eyes") runBalloonSequence();
         await wait(holdMs);
       }
       await wait(labelsRevealDelay);

@@ -49,7 +49,7 @@ const Eye = ({
   const pupilZ = eyeSize;
 
   const { revealedParts } = useEntranceContext();
-  const isEntranceBlinkPhase = !revealedParts.has("nose");
+  const isEntranceBlinkPhase = !revealedParts.has("eyes");
 
   useThrottledFrame(({ camera, clock }) => {
     if (!lidPivotRef.current) return;

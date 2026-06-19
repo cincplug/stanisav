@@ -1,20 +1,20 @@
 {
   "entrance": {
-    "labelsEntranceDuration": 22000,
+    "labelsEntranceDuration": 12000,
     "labelRevealDuration": 500,
     "meshaRevealSequence": [
-      { "part": "eyes", "holdMs": 1000 },
-      { "part": "nose", "holdMs": 800 },
-      { "part": "ears", "holdMs": 600 },
-      { "part": "tongue", "holdMs": 400 },
+      { "part": "eyes", "holdMs": 800 },
+      { "part": "nose", "holdMs": 500 },
+      { "part": "ears", "holdMs": 400 },
+      { "part": "tongue", "holdMs": 300 },
       { "part": "teeth", "holdMs": 200 }
     ],
-    "labelsRevealDelay": 50,
+    "labelsRevealDelay": 100,
     "startRadiusFactor": 1.2,
     "entranceSpiralAxis": "z"
   },
   "segmentation": {
-    "margin": 0.8,
+    "margin": 0.9,
     "gap": 0.7,
     "titleOffset": 1.2,
     "cellSpacing": 0.12,
@@ -52,7 +52,7 @@
     }
   },
   "meshaLight": {
-    "intensity": 69,
+    "intensity": 120,
     "decay": 2.5,
     "distance": 45,
     "spread": 1.2,
@@ -134,8 +134,8 @@
     "harmonicsMax": 4000
   },
   "lines": {
-    "opacity": 0.1,
-    "lineWidth": 10,
-    "centerPullRatio": 1.2
+    "opacity": 0.2,
+    "lineWidth": 73,
+    "centerPullRatio": 0.8
   }
 }

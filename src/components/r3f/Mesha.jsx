@@ -152,7 +152,7 @@ const Mesha = ({
   const saltoRotZRef = useRef(0);
 
   useThrottledFrame(({ camera }, delta) => {
-    if (!looksAround || !lookAroundRef.current || !isEntranceComplete) return;
+    if (!looksAround || !lookAroundRef.current) return;
 
     const isBlocked = isDragging || wordOrderFlexibility === "rigid";
     const wasFlexible = prevWordOrderFlexibilityRef.current === "flexible";
@@ -164,7 +164,6 @@ const Mesha = ({
     }
 
     if (wordOrderFlexibility === "flexible" && !isBlocked) {
-      // Snap phase on transition into flexible so sin(phase) opens from 0
       if (!wasFlexible) {
         saltoPhaseRef.current =
           Math.round(rotationYRef.current / Math.PI) * Math.PI;
