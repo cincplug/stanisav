@@ -122,7 +122,7 @@
   "Colors": {
     "bgColor": {
       "type": "color",
-      "defaultValue": "#071b2f",
+      "defaultValue": "#070b0f",
       "isShownInMenu": true
     },
     "hue": {

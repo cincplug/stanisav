@@ -11,6 +11,14 @@ import { usePlaylistContext } from "../../contexts/PlaylistContext";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 import { config } from "../../modules/configStore";
 
+// Draws one line per label from the label's animated position toward the sphere center.
+// Uses LineSegments2 + LineMaterial for configurable screen-space line width.
+// Each line uses its label's outlineColor unless a color override prop is provided.
+// Lines appear alongside their label: hidden lines are pushed off-screen until reveal > 0.
+// During entrance, centerPullRatio springs from its positive config value to its negative.
+// Clicking a line selects its associated language via startFromLanguage.
+// labelRefs: array of { current: Three.js mesh | null }
+// revealRefs: array of { current: number } — reveal scalar in [0, 1]
 const Lines = ({
   visibleLabelCodes,
   labelRefs,
@@ -24,14 +32,14 @@ const Lines = ({
   const { labelsEntranceDuration } = config.entrance;
   const { currentColor } = config.colors;
   const { isEntranceComplete } = useEntranceContext();
-  const { switchDuration } = useControlsContext().controls;
+  const { switchDuration, bgColor } = useControlsContext().controls;
   const { startFromLanguage } = usePlaylistContext();
 
   const countLines = visibleLabelCodes.length;
 
   const geometryRef = useRef(null);
   const materialRef = useRef(null);
-
+  // meshRef holds the LineSegments2 instance; kept in state so <primitive> re-renders when rebuilt
   const [mesh, setMesh] = useState(null);
 
   const positionsRef = useRef(null);
@@ -65,6 +73,7 @@ const Lines = ({
     return new LineSegments2(geo, mat);
   };
 
+  // Rebuild mesh whenever the set of visible codes changes
   useEffect(() => {
     if (countLines < 1) {
       setMesh(null);
@@ -73,6 +82,7 @@ const Lines = ({
     setMesh(buildScene(countLines));
   }, [visibleLabelCodes.join(",")]);
 
+  // Keep LineMaterial resolution in sync with canvas size so line width stays correct
   useEffect(() => {
     if (materialRef.current) {
       materialRef.current.resolution.set(size.width, size.height);
@@ -89,6 +99,7 @@ const Lines = ({
   });
 
   const fallbackColor = new Color(color ?? currentColor);
+  const centerColor = new Color(bgColor);
 
   const hiddenX = 0;
   const hiddenY = 0;
@@ -116,10 +127,12 @@ const Lines = ({
         continue;
       }
 
+      // Label end — live animated position
       posArray[vertexStart] = labelMesh.position.x;
       posArray[vertexStart + 1] = labelMesh.position.y;
       posArray[vertexStart + 2] = labelMesh.position.z;
 
+      // Center-pull end — lerped toward or away from origin
       posArray[vertexStart + 3] = labelMesh.position.x * (1 - currentRatio);
       posArray[vertexStart + 4] = labelMesh.position.y * (1 - currentRatio);
       posArray[vertexStart + 5] = labelMesh.position.z * (1 - currentRatio);
@@ -128,12 +141,14 @@ const Lines = ({
         ? fallbackColor
         : new Color(languageColors[visibleLabelCodes[i]] ?? currentColor);
 
+      // Label end — language color
       colArray[vertexStart] = lineColor.r;
       colArray[vertexStart + 1] = lineColor.g;
       colArray[vertexStart + 2] = lineColor.b;
-      colArray[vertexStart + 3] = lineColor.r;
-      colArray[vertexStart + 4] = lineColor.g;
-      colArray[vertexStart + 5] = lineColor.b;
+      // Center-pull end — background color, making the line dissolve into the scene
+      colArray[vertexStart + 3] = centerColor.r;
+      colArray[vertexStart + 4] = centerColor.g;
+      colArray[vertexStart + 5] = centerColor.b;
     }
 
     geometryRef.current.setPositions(posArray);
@@ -143,6 +158,7 @@ const Lines = ({
   const handleClick = useCallback(
     (e) => {
       e.stopPropagation();
+      // LineSegments2 raycasting returns the segment index in faceIndex
       const langCode = visibleLabelCodes[e.faceIndex];
       if (langCode) startFromLanguage(langCode);
     },
@@ -158,6 +174,7 @@ const Lines = ({
 
   if (!mesh) return null;
 
+  // <primitive> lets R3F attach onClick to the imperative LineSegments2 object
   return <primitive object={mesh} onClick={handleClick} />;
 };
 
