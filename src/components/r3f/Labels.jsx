@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useControlsContext } from "../../contexts/ControlsContext";
 import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext";
-import { config } from "../../modules/configStore";
 import Label from "./Label";
 import LabelsCluster from "./LabelsCluster";
 import Lines from "./Lines";
@@ -17,7 +16,6 @@ const Labels = ({
   const { languageColors } = useLanguageColorsContext();
   const { controls } = useControlsContext();
   const { hasLines, isSegmented } = controls;
-  const { currentColor } = config.colors;
 
   const visibleLabelCodes = Object.keys(formattedPositions).filter(
     (langCode) => {
@@ -63,7 +61,7 @@ const Labels = ({
           visibleLabelCodes={visibleLabelCodes}
           labelRefs={labelRefs}
           revealRefs={revealRefs}
-          color={currentColor}
+          languageColors={languageColors}
         />
       )}
 

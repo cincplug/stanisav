@@ -134,8 +134,8 @@
     "harmonicsMax": 4000
   },
   "lines": {
-    "opacity": 0.4,
-    "lineWidth": 1,
-    "centerPullRatio": -0.5
+    "opacity": 0.1,
+    "lineWidth": 10,
+    "centerPullRatio": 1.2
   }
 }
