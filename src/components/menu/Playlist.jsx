@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useControlsContext } from "../../contexts/ControlsContext";
 import { useI18nContext } from "../../contexts/I18nContext";
 import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
@@ -26,15 +26,19 @@ export default function Playlist() {
   } = usePlaylistContext();
 
   const { controls, updateControl } = useControlsContext();
+  const playButtonRef = useRef(null);
 
-  // Add keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e) => {
+      if (e.target.matches("input, textarea, select, button, a")) {
+        // Allow only the loop shortcut through even on interactive elements,
+        // all others require focus to be outside interactive elements
+        if (e.key !== "l") return;
+      }
+
       switch (e.key) {
         case " ":
         case "k":
-          // Only fire if focus isn't on an interactive element
-          if (e.target.matches("input, textarea, select, button, a")) return;
           e.preventDefault();
           isPlaying ? pausePlaylist() : startPlaylist();
           break;
@@ -49,12 +53,14 @@ export default function Playlist() {
           goToNext();
           break;
         case "Home":
-          if (e.target.matches("input, textarea, select, button, a")) return;
           e.preventDefault();
           goToBegin();
           break;
+        case "s":
+          e.preventDefault();
+          handleStop();
+          break;
         case "l":
-          if (e.target.matches("input, textarea, select, button, a")) return;
           e.preventDefault();
           updateControl("isAutoplay", !controls.isAutoplay);
           break;
@@ -65,16 +71,18 @@ export default function Playlist() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isPlaying, controls.isAutoplay]);
 
-  const playLabel = isPlaying ? t("playlist.pause") : t("playlist.play");
-  const playIcon = isPlaying ? <PauseIcon /> : <PlayIcon />;
-
   const toggleLoop = () => updateControl("isAutoplay", !controls.isAutoplay);
 
-  // Stop button handler: same as viewAll in FiltersTab
   const handleStop = () => {
     pausePlaylist();
     viewAllLanguages();
+    // Restore focus to the play button so keyboard users aren't left stranded
+    // when the stop button disappears from the DOM
+    playButtonRef.current?.focus();
   };
+
+  const playLabel = isPlaying ? t("playlist.pause") : t("playlist.play");
+  const playIcon = isPlaying ? <PauseIcon /> : <PlayIcon />;
 
   return (
     <div
@@ -82,10 +90,15 @@ export default function Playlist() {
       role="group"
       aria-label={t("playlist.controls")}
     >
-      <button onClick={goToPrev} aria-label={t("playlist.previous")}>
+      <button
+        onClick={goToPrev}
+        aria-label={t("playlist.previous")}
+        disabled={!selectedLanguage}
+      >
         <PrevIcon className="prev-icon" />
       </button>
       <button
+        ref={playButtonRef}
         className="playlist-main"
         onClick={isPlaying ? pausePlaylist : startPlaylist}
         aria-label={playLabel}
@@ -97,17 +110,23 @@ export default function Playlist() {
         onClick={handleStop}
         aria-label={t("playlist.stop")}
         className="stop-icon"
+        disabled={!selectedLanguage}
       >
         <StopIcon />
       </button>
-      <button onClick={goToNext} aria-label={t("playlist.next")}>
+      <button
+        onClick={goToNext}
+        aria-label={t("playlist.next")}
+        disabled={!selectedLanguage}
+      >
         <NextIcon className="next-icon" />
       </button>
       <button
         onClick={toggleLoop}
-        aria-label={t("playlist.toggleLoop")}
+        aria-label={t("controls.isAutoplay.label")}
         aria-pressed={controls.isAutoplay}
         className={controls.isAutoplay ? "selected" : ""}
+        disabled={!selectedLanguage}
       >
         <LoopIcon selected={controls.isAutoplay} />
       </button>
