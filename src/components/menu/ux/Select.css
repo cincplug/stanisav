@@ -6,6 +6,7 @@
     right: var(--gap-half);
     top: 50%;
     transform: translateY(-50%);
+    pointer-events: none;
   }
 }
 
@@ -26,6 +27,10 @@
   &:focus-visible {
     outline: var(--outline-default);
     outline-offset: 1px;
+  }
+
+  .menu.compact & {
+    padding-inline-end: var(--icon-size-m);
   }
 
   .menu.expanded & {
