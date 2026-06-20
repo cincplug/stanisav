@@ -95,6 +95,9 @@
     "noseSize": {
       "label": "鼻子大小"
     },
+    "rotateSpeed": {
+      "label": "旋转速度"
+    },
     "saturation": {
       "label": "饱和度"
     },
@@ -102,7 +105,7 @@
       "label": "显示更多"
     },
     "sortBy": {
-      "label": "语言排序方式",
+      "label": "排序",
       "options": {
         "alphabetically": "字母顺序",
         "caseCount": "格的数量",
@@ -422,7 +425,8 @@
     "close": "关闭菜单",
     "isVisual": "视觉",
     "languageSelector": "应用语言",
-    "open": "打开菜单"
+    "open": "打开菜单",
+    "reset": "重置"
   },
   "overlay": {
     "emptyFilter": "该筛选组合下没有语言，你可能选择了过多筛选条件。",

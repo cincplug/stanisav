@@ -95,6 +95,9 @@
     "noseSize": {
       "label": "Girman hanci"
     },
+    "rotateSpeed": {
+      "label": "Saurin juyawa"
+    },
     "saturation": {
       "label": "Cikar Launi"
     },
@@ -102,7 +105,7 @@
       "label": "Nuna ƙari"
     },
     "sortBy": {
-      "label": "Tsara harsuna bisa",
+      "label": "Tsarawa",
       "options": {
         "alphabetically": "Tsarin haruffa",
         "caseCount": "Yawan shari'o'i",
@@ -422,7 +425,8 @@
     "close": "Rufe menu",
     "isVisual": "Na gani",
     "languageSelector": "Harshe na manhaja",
-    "open": "Buɗe menu"
+    "open": "Buɗe menu",
+    "reset": "Sake saiti"
   },
   "overlay": {
     "emptyFilter": "Babu harsuna don wannan haɗin tace. Wataƙila ka zaɓi tacewa da yawa.",

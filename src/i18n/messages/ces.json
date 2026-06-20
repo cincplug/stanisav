@@ -95,6 +95,9 @@
     "noseSize": {
       "label": "Velikost nosu"
     },
+    "rotateSpeed": {
+      "label": "Rychlost otáčení"
+    },
     "saturation": {
       "label": "Sytost"
     },
@@ -422,7 +425,8 @@
     "close": "Zavřít nabídku",
     "isVisual": "Vizuální",
     "languageSelector": "Jazyk aplikace",
-    "open": "Otevřít nabídku"
+    "open": "Otevřít nabídku",
+    "reset": "Resetovat"
   },
   "overlay": {
     "emptyFilter": "Pro tuto kombinaci filtrů nejsou žádné jazyky. Pravděpodobně jsi vybral(a) příliš mnoho filtrů.",

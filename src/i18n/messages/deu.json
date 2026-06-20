@@ -95,6 +95,9 @@
     "noseSize": {
       "label": "Nasengröße"
     },
+    "rotateSpeed": {
+      "label": "Drehgeschwindigkeit"
+    },
     "saturation": {
       "label": "Sättigung"
     },
@@ -102,7 +105,7 @@
       "label": "Mehr anzeigen"
     },
     "sortBy": {
-      "label": "Sprachen sortieren nach",
+      "label": "Sortierung",
       "options": {
         "alphabetically": "Alphabetische Reihenfolge",
         "caseCount": "Kasusanzahl",
@@ -422,7 +425,8 @@
     "close": "Menü schließen",
     "isVisual": "Visuell",
     "languageSelector": "App-Sprache",
-    "open": "Menü öffnen"
+    "open": "Menü öffnen",
+    "reset": "Zurücksetzen"
   },
   "overlay": {
     "emptyFilter": "Keine Sprachen für diese Filterkombination. Du hast wahrscheinlich zu viele Filter ausgewählt.",

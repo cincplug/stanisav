@@ -95,6 +95,9 @@
     "noseSize": {
       "label": "Burun boyutu"
     },
+    "rotateSpeed": {
+      "label": "Dönme hızı"
+    },
     "saturation": {
       "label": "Doygunluk"
     },
@@ -102,7 +105,7 @@
       "label": "Daha fazla göster"
     },
     "sortBy": {
-      "label": "Dilleri sıralama ölçütü",
+      "label": "Sıralama",
       "options": {
         "alphabetically": "Alfabetik sıra",
         "caseCount": "Durum sayısı",
@@ -422,7 +425,8 @@
     "close": "Menüyü kapat",
     "isVisual": "Görsel",
     "languageSelector": "Uygulama dili",
-    "open": "Menüyü aç"
+    "open": "Menüyü aç",
+    "reset": "Sıfırla"
   },
   "overlay": {
     "emptyFilter": "Bu filtre kombinasyonu için dil bulunamadı. Muhtemelen çok fazla filtre seçtiniz.",

@@ -95,6 +95,9 @@
     "noseSize": {
       "label": "Kích thước mũi"
     },
+    "rotateSpeed": {
+      "label": "Tốc độ xoay"
+    },
     "saturation": {
       "label": "Độ bão hòa"
     },
@@ -102,7 +105,7 @@
       "label": "Hiển thị thêm"
     },
     "sortBy": {
-      "label": "Sắp xếp ngôn ngữ theo",
+      "label": "Sắp xếp",
       "options": {
         "alphabetically": "Thứ tự bảng chữ cái",
         "caseCount": "Số lượng cách",
@@ -422,7 +425,8 @@
     "close": "Đóng menu",
     "isVisual": "Trực quan",
     "languageSelector": "Ngôn ngữ ứng dụng",
-    "open": "Mở menu"
+    "open": "Mở menu",
+    "reset": "Đặt lại"
   },
   "overlay": {
     "emptyFilter": "Không có ngôn ngữ nào cho tổ hợp bộ lọc đó. Bạn có thể đã chọn quá nhiều bộ lọc.",

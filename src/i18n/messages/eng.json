@@ -94,7 +94,7 @@
       "label": "Nose size"
     },
     "sortBy": {
-      "label": "Sort languages by",
+      "label": "Sorting",
       "options": {
         "alphabetically": "Alphabetical order",
         "caseCount": "Case count",

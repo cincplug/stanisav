@@ -95,6 +95,9 @@
     "noseSize": {
       "label": "Ukubwa wa pua"
     },
+    "rotateSpeed": {
+      "label": "Kasi ya mzunguko"
+    },
     "saturation": {
       "label": "Ukolezi"
     },
@@ -102,7 +105,7 @@
       "label": "Onyesha zaidi"
     },
     "sortBy": {
-      "label": "Panga lugha kulingana na",
+      "label": "Upangaji",
       "options": {
         "alphabetically": "Mpangilio wa alfabeti",
         "caseCount": "Idadi ya hali",
@@ -422,7 +425,8 @@
     "close": "Funga menyu",
     "isVisual": "Ya kuona",
     "languageSelector": "Lugha ya programu",
-    "open": "Fungua menyu"
+    "open": "Fungua menyu",
+    "reset": "Weka upya"
   },
   "overlay": {
     "emptyFilter": "Hakuna lugha kwa mchanganyiko huo wa vichujio. Labda umechagua vichujio vingi mno.",

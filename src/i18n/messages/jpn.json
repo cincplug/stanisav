@@ -95,6 +95,9 @@
     "noseSize": {
       "label": "鼻のサイズ"
     },
+    "rotateSpeed": {
+      "label": "回転速度"
+    },
     "saturation": {
       "label": "彩度"
     },
@@ -102,7 +105,7 @@
       "label": "もっと表示"
     },
     "sortBy": {
-      "label": "言語の並び順",
+      "label": "並び替え",
       "options": {
         "alphabetically": "アルファベット順",
         "caseCount": "格の数",
@@ -422,7 +425,8 @@
     "close": "メニューを閉じる",
     "isVisual": "ビジュアル",
     "languageSelector": "アプリの言語",
-    "open": "メニューを開く"
+    "open": "メニューを開く",
+    "reset": "リセット"
   },
   "overlay": {
     "emptyFilter": "そのフィルターの組み合わせに該当する言語はありません。フィルターを選びすぎている可能性があります。",

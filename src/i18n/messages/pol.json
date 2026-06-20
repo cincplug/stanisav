@@ -95,6 +95,9 @@
     "noseSize": {
       "label": "Rozmiar nosa"
     },
+    "rotateSpeed": {
+      "label": "Prędkość obrotu"
+    },
     "saturation": {
       "label": "Nasycenie"
     },
@@ -422,7 +425,8 @@
     "close": "Zamknij menu",
     "isVisual": "Wizualny",
     "languageSelector": "Język aplikacji",
-    "open": "Otwórz menu"
+    "open": "Otwórz menu",
+    "reset": "Resetuj"
   },
   "overlay": {
     "emptyFilter": "Brak języków dla tej kombinacji filtrów. Prawdopodobnie wybrano zbyt wiele filtrów.",

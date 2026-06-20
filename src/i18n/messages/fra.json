@@ -95,6 +95,9 @@
     "noseSize": {
       "label": "Taille du nez"
     },
+    "rotateSpeed": {
+      "label": "Vitesse de rotation"
+    },
     "saturation": {
       "label": "Saturation"
     },
@@ -102,7 +105,7 @@
       "label": "Afficher plus"
     },
     "sortBy": {
-      "label": "Trier les langues par",
+      "label": "Tri",
       "options": {
         "alphabetically": "Ordre alphabétique",
         "caseCount": "Nombre de cas",
@@ -422,7 +425,8 @@
     "close": "Fermer le menu",
     "isVisual": "Visuel",
     "languageSelector": "Langue de l'application",
-    "open": "Ouvrir le menu"
+    "open": "Ouvrir le menu",
+    "reset": "Réinitialiser"
   },
   "overlay": {
     "emptyFilter": "Aucune langue pour cette combinaison de filtres. Vous avez probablement sélectionné trop de filtres.",

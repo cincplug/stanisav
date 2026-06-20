@@ -95,6 +95,9 @@
     "noseSize": {
       "label": "Veličina nosa"
     },
+    "rotateSpeed": {
+      "label": "Brzina rotacije"
+    },
     "saturation": {
       "label": "Zasićenost"
     },
@@ -422,7 +425,8 @@
     "close": "Zatvori meni",
     "isVisual": "Визуелно",
     "languageSelector": "Jezik aplikacije",
-    "open": "Otvori meni"
+    "open": "Otvori meni",
+    "reset": "Resetuj"
   },
   "overlay": {
     "emptyFilter": "Nema jezika za tu kombinaciju filtera. Verovatno si izabrao/la previše filtera.",

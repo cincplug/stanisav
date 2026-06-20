@@ -95,6 +95,9 @@
     "noseSize": {
       "label": "코 크기"
     },
+    "rotateSpeed": {
+      "label": "회전 속도"
+    },
     "saturation": {
       "label": "채도"
     },
@@ -102,7 +105,7 @@
       "label": "더 보기"
     },
     "sortBy": {
-      "label": "언어 정렬 기준",
+      "label": "정렬",
       "options": {
         "alphabetically": "알파벳순",
         "caseCount": "격 수",
@@ -422,7 +425,8 @@
     "close": "메뉴 닫기",
     "isVisual": "비주얼",
     "languageSelector": "앱 언어",
-    "open": "메뉴 열기"
+    "open": "메뉴 열기",
+    "reset": "초기화"
   },
   "overlay": {
     "emptyFilter": "해당 필터 조합에 맞는 언어가 없습니다. 필터를 너무 많이 선택하셨을 수 있습니다.",
