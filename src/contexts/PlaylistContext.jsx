@@ -30,6 +30,7 @@ export const PlaylistProvider = ({ children }) => {
     filteredLanguages,
     filters,
     selectedLanguage,
+    setSelectedLanguage,
     viewAllLanguages,
   } = useLanguageSelectionContext();
 
@@ -219,7 +220,7 @@ export const PlaylistProvider = ({ children }) => {
 
     const code = codes[currentIndex];
     if (selectedLanguage !== code) {
-      selectLanguage(code);
+      setSelectedLanguage(code);
     }
 
     let cleanup = () => {};

@@ -11,9 +11,8 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
   const { camera, controls: threeControls } = useThree();
   const { controls } = useControlsContext();
   const { zoomDistance, switchDuration, isSegmented } = controls;
-  const { cameraX, cameraY, cameraZ, fov, near, far } = config.camera;
+  const { fov, near, far } = config.camera;
 
-  // Apply static projection config once on mount.
   useEffect(() => {
     if (!camera) return;
     camera.fov = fov;
@@ -23,7 +22,6 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
   }, [camera]);
 
   const animationStateRef = useRef(null);
-  const lastFocusedRef = useRef(null);
   const initializedViewRef = useRef(false);
 
   useThrottledFrame(() => {
@@ -62,8 +60,6 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
     }
   });
 
-  // Start a new camera animation toward targetPosition, looking at lookAtTarget.
-  // Captures current camera position/target as the start of the animation.
   const startCameraAnimation = useCallback(
     (targetPosition, lookAtTarget) => {
       animationStateRef.current = {
@@ -93,11 +89,6 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
     },
     [languageNodes, zoomDistance, isSegmented, startCameraAnimation],
   );
-
-  const setInitialCameraPosition = useCallback(() => {
-    const initialCameraPosition = new Vector3(cameraX, cameraY, cameraZ);
-    startCameraAnimation(initialCameraPosition, new Vector3(0, 0, 0));
-  }, [cameraX, cameraY, cameraZ, startCameraAnimation]);
 
   const fitToNodes = useCallback(() => {
     const positions = Object.values(languageNodes);
@@ -144,49 +135,31 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
     startCameraAnimation(targetCameraPosition, center);
   }, [languageNodes, fov, camera, startCameraAnimation]);
 
-  // On first load, use the configured initial position.
-  // On subsequent layout changes, fit everything in view unless a language is focused.
+  // On first load and on layout changes, fit all nodes in view
+  // unless a language is already selected (which drives its own zoom below)
   useEffect(() => {
     if (!languageNodes || Object.keys(languageNodes).length === 0) return;
 
     if (!initializedViewRef.current) {
       initializedViewRef.current = true;
-      setInitialCameraPosition();
-      return;
     }
 
     if (!selectedLanguage) {
       fitToNodes();
     }
-  }, [languageNodes, selectedLanguage, fitToNodes, setInitialCameraPosition]);
+  }, [languageNodes, selectedLanguage, fitToNodes]);
 
+  // cameraFocusRequest handles only the "fitAll" case —
+  // language zoom is driven by selectedLanguage below
   useEffect(() => {
     if (!cameraFocusRequest || !languageNodes) return;
-
-    const { type, target } = cameraFocusRequest;
-    switch (type) {
-      case "language":
-        focusOnLanguage(target);
-        break;
-      case "fitAll":
-        fitToNodes();
-        break;
-      case "viewAll":
-        setInitialCameraPosition();
-        break;
+    if (cameraFocusRequest.type === "fitAll") {
+      fitToNodes();
     }
-  }, [
-    cameraFocusRequest,
-    languageNodes,
-    focusOnLanguage,
-    setInitialCameraPosition,
-    fitToNodes,
-  ]);
+  }, [cameraFocusRequest, languageNodes, fitToNodes]);
 
   useEffect(() => {
     if (!selectedLanguage || !languageNodes) return;
-    if (lastFocusedRef.current === selectedLanguage) return;
-    lastFocusedRef.current = selectedLanguage;
     focusOnLanguage(selectedLanguage);
   }, [selectedLanguage, languageNodes, focusOnLanguage]);
 };

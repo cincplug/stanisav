@@ -79,6 +79,16 @@ const Mesha = ({
     };
   }, [isMyMesha]);
 
+  // Mesha.jsx — add this effect after the existing microphone useEffect
+
+  useEffect(() => {
+    if (!selectedLanguage) {
+      saltoRotXRef.current = 0;
+      saltoRotZRef.current = 0;
+      saltoPhaseRef.current = 0;
+    }
+  }, [selectedLanguage]);
+
   const scores = getFeatureScoreList(linguisticProperties, [
     "wordOrderFlexibility",
     "morphology",

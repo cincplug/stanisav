@@ -24,21 +24,10 @@ export const LanguageSelectionProvider = ({ children }) => {
   const [filteredLanguages, setFilteredLanguages] = useState(new Set());
   const [cameraFocusRequest, setCameraFocusRequest] = useState(null);
 
-  // Linguistic properties for the currently selected language —
-  // the single source of truth for property values across drag, click, and balloon text
   const linguisticProperties = useMemo(
     () => data?.typologicalFeatures?.[selectedLanguage] ?? null,
     [data, selectedLanguage],
   );
-
-  const selectLanguage = useCallback((languageCode) => {
-    setSelectedLanguage(languageCode);
-    setCameraFocusRequest({ type: "language", target: languageCode });
-  }, []);
-
-  const clearSelection = useCallback(() => {
-    setSelectedLanguage(null);
-  }, []);
 
   const selectProperty = useCallback(
     (propertyKey) => {
@@ -73,14 +62,9 @@ export const LanguageSelectionProvider = ({ children }) => {
 
   const viewAllLanguages = useCallback(() => {
     setSelectedLanguage(null);
-    setCameraFocusRequest({ type: "fitAll" });
     setFilters({});
     setFilteredLanguages(new Set());
-  }, []);
-
-  const resetCameraView = useCallback(() => {
-    setSelectedLanguage(null);
-    setCameraFocusRequest({ type: "viewAll" });
+    setCameraFocusRequest({ type: "fitAll", timestamp: Date.now() });
   }, []);
 
   const contextValue = {
@@ -94,10 +78,8 @@ export const LanguageSelectionProvider = ({ children }) => {
     setSelectedProperty,
     filters,
     filteredLanguages,
-    selectLanguage,
+    setSelectedLanguage,
     viewAllLanguages,
-    resetCameraView,
-    clearSelection,
     updateFilters,
     cameraFocusRequest,
   };
