@@ -1,13 +1,12 @@
 import { easings, useSpring } from "@react-spring/three";
 import { useThree } from "@react-three/fiber";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Color } from "three";
 import { LineMaterial } from "three/examples/jsm/lines/LineMaterial.js";
 import { LineSegments2 } from "three/examples/jsm/lines/LineSegments2.js";
 import { LineSegmentsGeometry } from "three/examples/jsm/lines/LineSegmentsGeometry.js";
 import { useControlsContext } from "../../contexts/ControlsContext";
 import { useEntranceContext } from "../../contexts/EntranceContext";
-import { usePlaylistContext } from "../../contexts/PlaylistContext";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 import { config } from "../../modules/configStore";
 
@@ -16,7 +15,6 @@ import { config } from "../../modules/configStore";
 // Each line uses its label's outlineColor unless a color override prop is provided.
 // Lines appear alongside their label: hidden lines are pushed off-screen until reveal > 0.
 // During entrance, centerPullRatio springs from its positive config value to its negative.
-// Clicking a line selects its associated language via startFromLanguage.
 // labelRefs: array of { current: Three.js mesh | null }
 // revealRefs: array of { current: number } — reveal scalar in [0, 1]
 const Lines = ({
@@ -33,14 +31,12 @@ const Lines = ({
   const { currentColor } = config.colors;
   const { isEntranceComplete } = useEntranceContext();
   const { switchDuration, bgColor } = useControlsContext().controls;
-  const { startFromLanguage } = usePlaylistContext();
 
   const countLines = visibleLabelCodes.length;
 
   const geometryRef = useRef(null);
   const materialRef = useRef(null);
-  // meshRef holds the LineSegments2 instance; kept in state so <primitive> re-renders when rebuilt
-  const [mesh, setMesh] = useState(null);
+  const meshRef = useRef(null);
 
   const positionsRef = useRef(null);
   const colorsRef = useRef(null);
@@ -70,16 +66,12 @@ const Lines = ({
 
     geometryRef.current = geo;
     materialRef.current = mat;
-    return new LineSegments2(geo, mat);
+    meshRef.current = new LineSegments2(geo, mat);
   };
 
   // Rebuild mesh whenever the set of visible codes changes
   useEffect(() => {
-    if (countLines < 1) {
-      setMesh(null);
-      return;
-    }
-    setMesh(buildScene(countLines));
+    if (countLines > 0) buildScene(countLines);
   }, [visibleLabelCodes.join(",")]);
 
   // Keep LineMaterial resolution in sync with canvas size so line width stays correct
@@ -105,8 +97,10 @@ const Lines = ({
   const hiddenY = 0;
   const hiddenZ = -99999;
 
-  useThrottledFrame(() => {
-    if (countLines < 1 || !mesh || !geometryRef.current) return;
+  useThrottledFrame(({ scene }) => {
+    if (countLines < 1 || !meshRef.current || !geometryRef.current) return;
+
+    if (!meshRef.current.parent) scene.add(meshRef.current);
 
     const posArray = positionsRef.current;
     const colArray = colorsRef.current;
@@ -155,27 +149,15 @@ const Lines = ({
     geometryRef.current.setColors(colArray);
   });
 
-  const handleClick = useCallback(
-    (e) => {
-      e.stopPropagation();
-      // LineSegments2 raycasting returns the segment index in faceIndex
-      const langCode = visibleLabelCodes[e.faceIndex];
-      if (langCode) startFromLanguage(langCode);
-    },
-    [visibleLabelCodes, startFromLanguage],
-  );
-
   useEffect(() => {
     return () => {
+      meshRef.current?.parent?.remove(meshRef.current);
       geometryRef.current?.dispose();
       materialRef.current?.dispose();
     };
   }, []);
 
-  if (!mesh) return null;
-
-  // <primitive> lets R3F attach onClick to the imperative LineSegments2 object
-  return <primitive object={mesh} onClick={handleClick} />;
+  return null;
 };
 
 export default Lines;
