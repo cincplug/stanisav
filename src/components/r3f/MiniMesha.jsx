@@ -1,12 +1,10 @@
 import { Canvas } from "@react-three/fiber";
-import { useControlsContext } from "../../contexts/ControlsContext.jsx";
 import { config } from "../../modules/configStore";
 import Mesha from "../r3f/Mesha.jsx";
 
 const MiniMesha = ({ languageCode }) => {
-  const { controls } = useControlsContext();
   const { cameraX, cameraY, cameraZ, fov, near, far } = config.camera;
-  const { bgColor } = controls;
+  const { bgColor } = config.colors;
 
   return (
     <div className="mini-mesha">

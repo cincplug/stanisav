@@ -2,7 +2,6 @@ import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { getEntranceSteps } from "../i18n/runtime";
 import { config } from "../modules/configStore";
 import { useAppStateContext } from "./AppStateContext";
-import { useControlsContext } from "./ControlsContext";
 
 const {
   meshaRevealSequence,
@@ -32,8 +31,7 @@ const calculateBalloonFullDuration = (message) =>
 const EntranceContext = createContext(null);
 
 export const EntranceProvider = ({ children }) => {
-  const { controls } = useControlsContext();
-  const { tension, friction } = controls;
+  const { tension, friction } = config.motion;
   const { isSceneReady } = useAppStateContext();
 
   const allParts = meshaRevealSequence.map((s) => s.part);

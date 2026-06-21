@@ -2,7 +2,6 @@ import { extend } from "@react-three/fiber";
 import { forwardRef, useMemo, useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { dragBindings } from "../../config/dragBindings.js";
-import { useControlsContext } from "../../contexts/ControlsContext.jsx";
 import { useAudioData } from "../../hooks/useAudioData.js";
 import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
 import {
@@ -57,10 +56,9 @@ const MeshaMoustache = ({
 }) => {
   const tuftsRef = useRef([]);
   const tuftDataRef = useRef([]);
-  const { moustacheSpacing, moustacheColorStep } = config.meshaVisualization;
-  const { controls } = useControlsContext();
+  const { eyeZ, eyeX, moustacheSize, moustacheSpacing, moustacheColorStep } =
+    config.meshaVisualization;
   const { audioData } = useAudioData();
-  const { eyeZ, eyeX, moustacheSize } = controls;
   const bind = useMeshaDrag(dragBindings.moustache, linguisticProperty);
 
   const tuftSurface = useMemo(

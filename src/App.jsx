@@ -29,7 +29,7 @@ function App() {
   const { controls, updateControl } = useControlsContext();
   const { selectedLanguage } = useLanguageSelectionContext();
   const { pausePlaylist } = usePlaylistContext();
-  const { isIdCardVisible, isMenuExpanded, isSegmented } = controls;
+  const { isIdCardVisible, isMenuExpanded, isSegmented, labelSize } = controls;
   const { sampleUrl, sub } = data?.languageData[selectedLanguage] || {};
 
   const { languageColors } = useLanguageColorsContext();
@@ -37,9 +37,9 @@ function App() {
   useEffect(() => {
     document.documentElement.style.setProperty(
       "--label-size-scale",
-      controls.labelSize / 1.5,
+      labelSize / 1.5,
     );
-  }, [controls.labelSize]);
+  }, [labelSize]);
 
   const isMeshaMini = isMobile && !!selectedLanguage && isMenuExpanded;
 

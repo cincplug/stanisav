@@ -5,9 +5,6 @@ import { config } from "../../modules/configStore";
 import "../menu/ux/Popover.css";
 import "./SpeechBalloon.css";
 
-// anchorOffset: [x, y, z] in Mesha's local space — places the tail origin
-// (e.g. [0, eyeY, eyeZ] to anchor near the eyes).
-// CSS handles the final visual offset from that anchor point.
 const SpeechBalloon = ({
   anchorOffset = config.speechBalloon.defaultAnchorOffset,
   position = config.speechBalloon.defaultPosition,
@@ -25,8 +22,6 @@ const SpeechBalloon = ({
   const duration = durationBase + text.length * durationPerCharacter;
 
   return (
-    // position prop places the Html anchor in Mesha's local space,
-    // so the balloon follows Mesha through orbit, spring, and salto
     <Html
       key={text}
       position={anchorOffset}

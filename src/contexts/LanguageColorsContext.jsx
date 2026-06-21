@@ -11,11 +11,7 @@ export const LanguageColorsProvider = ({ children }) => {
 
   const languageColors = useMemo(() => {
     if (!data?.languageData || !data?.languageLineages) return {};
-    return calculateLanguageColors(
-      data.languageData,
-      data.languageLineages,
-      controls,
-    );
+    return calculateLanguageColors(data.languageData, data.languageLineages);
   }, [data?.languageData, data?.languageLineages, controls]);
 
   return (

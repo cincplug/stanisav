@@ -6,6 +6,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { config } from "../modules/configStore";
 import { getSortingData, sortLanguages } from "../utils/sortingUtils";
 import { useAppStateContext } from "./AppStateContext";
 import { useControlsContext } from "./ControlsContext";
@@ -16,15 +17,9 @@ const PlaylistContext = createContext(null);
 export const PlaylistProvider = ({ children }) => {
   const { data, isSceneReady } = useAppStateContext();
   const { controls } = useControlsContext();
-  const {
-    isAutoplay,
-    isMyMesha,
-    isLuka,
-    switchDuration,
-    sortBy,
-    labelContent,
-    isReverse,
-  } = controls;
+  const { isAutoplay, isMyMesha, isLuka, sortBy, labelContent, isReverse } =
+    controls;
+  const { switchDuration } = config.camera;
   const {
     selectLanguage,
     filteredLanguages,

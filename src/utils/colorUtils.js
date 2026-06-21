@@ -10,18 +10,9 @@ export const shiftHue = (color, shift) => {
   return oklchToHex({ l: parsed.l, c: parsed.c, h: parsed.h + shift });
 };
 
-export const calculateLanguageColors = (
-  languageData,
-  languageLineages,
-  controls,
-) => {
-  const {
-    hue,
-    lightness,
-    saturation,
-  } = controls;
-
-  const { hueCircle, maxSiblingSpread } = config.colors;
+export const calculateLanguageColors = (languageData, languageLineages) => {
+  const { hue, lightness, saturation, hueCircle, maxSiblingSpread } =
+    config.colors;
 
   const result = {};
   const buckets = {};

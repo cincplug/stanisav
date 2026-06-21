@@ -2,7 +2,6 @@ import { extend } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import { RoundedBoxGeometry } from "three/examples/jsm/Addons.js";
 import { dragBindings } from "../../config/dragBindings.js";
-import { useControlsContext } from "../../contexts/ControlsContext.jsx";
 import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useAudioData } from "../../hooks/useAudioData.js";
 import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
@@ -20,11 +19,10 @@ const MeshaTeeth = ({
   isSelected,
 }) => {
   const teethRefs = useRef([]);
-  const { controls } = useControlsContext();
   const { audioData } = useAudioData();
-  const { teethSize } = controls;
   const { toothColor, emissiveness } = config.colors;
   const {
+    teethSize,
     toothColorStep,
     toothWidth,
     toothLength,

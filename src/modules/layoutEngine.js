@@ -11,6 +11,7 @@ import {
 const { sphereRadius } = config.layout;
 const { entranceSpiralAxis } = config.entrance;
 const { gap, cellSpacing, cellSizeModifier } = config.segmentation;
+const { irrationality, axis } = config.scene;
 
 const spiralAxis = {
   x: {
@@ -50,14 +51,7 @@ class LayoutEngine {
   sphereLayout(data, controls = {}) {
     const { languageData, languageLineages, speakerData, typologicalFeatures } =
       data;
-    const {
-      sortBy,
-      labelContent,
-      isReverse,
-      isSegmented,
-      irrationality,
-      axis,
-    } = controls;
+    const { sortBy, labelContent, isReverse, isSegmented } = controls;
 
     const { buildPoint } = spiralAxis[axis] ?? spiralAxis.y;
     const { poleOf: entrancePoleOf, equatorialOf: entranceEquatorialOf } =

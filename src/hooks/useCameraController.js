@@ -10,8 +10,8 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
   const { cameraFocusRequest } = useLanguageSelectionContext();
   const { camera, controls: threeControls } = useThree();
   const { controls } = useControlsContext();
-  const { zoomDistance, switchDuration, isSegmented } = controls;
-  const { fov, near, far } = config.camera;
+  const { isSegmented } = controls;
+  const { zoomDistance, switchDuration, fov, near, far } = config.camera;
 
   useEffect(() => {
     if (!camera) return;

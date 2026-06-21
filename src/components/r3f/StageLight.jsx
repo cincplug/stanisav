@@ -1,7 +1,6 @@
 import { a, useSpring } from "@react-spring/three";
 import { useThree } from "@react-three/fiber";
 import { useRef } from "react";
-import { useControlsContext } from "../../contexts/ControlsContext";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 import { config } from "../../modules/configStore";
 
@@ -19,8 +18,6 @@ const StageLight = ({
   selectedLanguage,
 }) => {
   const { camera, controls: threeControls } = useThree();
-  const { controls } = useControlsContext();
-  const { light } = controls;
   const lightRef = useRef();
 
   const { entranceProgress } = useSpring({
@@ -72,7 +69,7 @@ const StageLight = ({
   return (
     <a.pointLight
       ref={lightRef}
-      intensity={stageLight.intensity * light}
+      intensity={stageLight.intensity}
       decay={stageLight.decay}
       distance={animatedDistance}
       color={lightColor}

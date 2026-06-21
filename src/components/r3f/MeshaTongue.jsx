@@ -2,7 +2,6 @@ import { extend } from "@react-three/fiber";
 import { useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { dragBindings } from "../../config/dragBindings.js";
-import { useControlsContext } from "../../contexts/ControlsContext.jsx";
 import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useAudioData } from "../../hooks/useAudioData.js";
 import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
@@ -14,11 +13,16 @@ import { createAudioSurface } from "../../utils/shapeUtils.js";
 extend({ ParametricGeometry });
 
 const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
-  const { controls } = useControlsContext();
   const { audioData } = useAudioData();
-  const { tongueSize } = controls;
-  const { tongueX, tongueY, tongueZ, tongueWidth, tongueHeight, tongueLength } =
-    config.meshaVisualization;
+  const {
+    tongueSize,
+    tongueX,
+    tongueY,
+    tongueZ,
+    tongueWidth,
+    tongueHeight,
+    tongueLength,
+  } = config.meshaVisualization;
 
   const meshRef = useRef();
 

@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import blinkTimings from "../../config/blinkTimings.json";
 import { dragBindings } from "../../config/dragBindings.js";
-import { useControlsContext } from "../../contexts/ControlsContext.jsx";
 import { useEntranceContext } from "../../contexts/EntranceContext.jsx";
 import { usePlaylistContext } from "../../contexts/PlaylistContext.jsx";
 import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
@@ -170,8 +169,7 @@ const MeshaEyes = ({
     lastCheckedIndex: 0,
   });
 
-  const { controls } = useControlsContext();
-  const { eyeSize, eyeX, eyeY, eyeZ } = controls;
+  const { eyeSize, eyeX, eyeY, eyeZ } = config.meshaVisualization;
   const { audioRef } = usePlaylistContext();
   const highlightMaterial = useHighlightMaterial(0, 2);
   const timings = blinkTimings[isoCode] ?? [];

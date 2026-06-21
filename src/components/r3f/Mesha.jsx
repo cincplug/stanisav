@@ -5,7 +5,6 @@ import { Euler, MathUtils, Quaternion } from "three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
 import { useAppStateContext } from "../../contexts/AppStateContext.jsx";
-import { useControlsContext } from "../../contexts/ControlsContext.jsx";
 import { useDragContext } from "../../contexts/DragContext.jsx";
 import { useEntranceContext } from "../../contexts/EntranceContext.jsx";
 import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext.jsx";
@@ -47,17 +46,8 @@ const Mesha = ({
 
   const { data } = useAppStateContext();
   const { languageColors } = useLanguageColorsContext();
-  const { controls } = useControlsContext();
-  const {
-    meshaSize,
-    eyeZ,
-    eyeY,
-    eyeSize,
-    noseSize,
-    earSize,
-    switchDuration,
-    sphereRadius,
-  } = controls;
+  const { meshaSize, eyeZ, eyeY, eyeSize, noseSize, earSize, sphereRadius } =
+    config.meshaVisualization;
   const { selectedProperty, selectedLanguage } = useLanguageSelectionContext();
 
   const { isMeshaSequenceDone, isEntranceComplete } = useEntranceContext();
@@ -118,6 +108,7 @@ const Mesha = ({
     saltoFrequency,
     saltoPow,
   } = config.meshaVisualization;
+  const { switchDuration } = config.camera;
 
   const noseColorMap = {
     S: white,

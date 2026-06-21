@@ -26,6 +26,7 @@ export default function Playlist() {
   } = usePlaylistContext();
 
   const { controls, updateControl } = useControlsContext();
+  const { isAutoplay } = controls;
   const playButtonRef = useRef(null);
 
   useEffect(() => {
@@ -62,16 +63,16 @@ export default function Playlist() {
           break;
         case "l":
           e.preventDefault();
-          updateControl("isAutoplay", !controls.isAutoplay);
+          updateControl("isAutoplay", !isAutoplay);
           break;
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isPlaying, controls.isAutoplay]);
+  }, [isPlaying, isAutoplay]);
 
-  const toggleLoop = () => updateControl("isAutoplay", !controls.isAutoplay);
+  const toggleLoop = () => updateControl("isAutoplay", isAutoplay);
 
   const handleStop = () => {
     pausePlaylist();
@@ -124,11 +125,11 @@ export default function Playlist() {
       <button
         onClick={toggleLoop}
         aria-label={t("controls.isAutoplay.label")}
-        aria-pressed={controls.isAutoplay}
-        className={controls.isAutoplay ? "selected" : ""}
+        aria-pressed={isAutoplay}
+        className={isAutoplay ? "selected" : ""}
         disabled={!selectedLanguage}
       >
-        <LoopIcon selected={controls.isAutoplay} />
+        <LoopIcon selected={isAutoplay} />
       </button>
     </div>
   );

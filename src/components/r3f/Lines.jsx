@@ -5,7 +5,6 @@ import { Color } from "three";
 import { LineMaterial } from "three/examples/jsm/lines/LineMaterial.js";
 import { LineSegments2 } from "three/examples/jsm/lines/LineSegments2.js";
 import { LineSegmentsGeometry } from "three/examples/jsm/lines/LineSegmentsGeometry.js";
-import { useControlsContext } from "../../contexts/ControlsContext";
 import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 import { config } from "../../modules/configStore";
@@ -28,9 +27,9 @@ const Lines = ({
 
   const { opacity, lineWidth, centerPullRatio } = config.lines;
   const { labelsEntranceDuration } = config.entrance;
-  const { currentColor } = config.colors;
+  const { currentColor, bgColor } = config.colors;
+  const { switchDuration } = config.camera;
   const { isEntranceComplete } = useEntranceContext();
-  const { switchDuration, bgColor } = useControlsContext().controls;
 
   const countLines = visibleLabelCodes.length;
 

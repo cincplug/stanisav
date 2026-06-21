@@ -42,22 +42,12 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
   const { rotateSpeedFactor } = config;
   const { cameraX, cameraY, cameraZ, fov, near, far } = config.camera;
   const { radialOffsetModifier, sphereRadius } = config.layout;
-  const {
-    bgColor,
-    isMyMesha,
-    tension,
-    friction,
-    sortBy,
-    labelContent,
-    isReverse,
-    isSegmented,
-    irrationality,
-    axis,
-    rotateSpeed,
-    isMotionReduced,
-    labelSize,
-    meshaSize,
-  } = controls;
+  const { bgColor } = config.colors;
+  const { tension, friction, isMotionReduced } = config.motion;
+  const { meshaSize } = config.meshaVisualization;
+  const { isMyMesha, rotateSpeed, irrationality, axis } = config.scene;
+
+  const { sortBy, labelContent, isReverse, isSegmented, labelSize } = controls;
 
   const orbitControlsRef = useRef();
 
