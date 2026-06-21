@@ -1,59 +1,5 @@
 {
   "controls": {
-    "axis": {
-      "label": "अक्ष",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
-    },
-    "bgColor": {
-      "label": "पृष्ठभूमि"
-    },
-    "cameraX": {
-      "label": "कैमरा X"
-    },
-    "cameraY": {
-      "label": "कैमरा Y"
-    },
-    "cameraZ": {
-      "label": "कैमरा Z"
-    },
-    "d4": {
-      "label": "कुछ प्रकार का 4D"
-    },
-    "earSize": {
-      "label": "कान का आकार"
-    },
-    "eyeSize": {
-      "label": "आँख का आकार"
-    },
-    "eyeX": {
-      "label": "आँख X"
-    },
-    "eyeY": {
-      "label": "आँख Y"
-    },
-    "eyeZ": {
-      "label": "आँख Z"
-    },
-    "friction": {
-      "label": "घर्षण"
-    },
-    "groups": {
-      "camera": "कैमरा",
-      "colors": "रंग",
-      "mesha": "Mesha",
-      "motion": "गति",
-      "scene": "दृश्य"
-    },
-    "hue": {
-      "label": "रंगत"
-    },
-    "irrationality": {
-      "label": "अतार्किकता"
-    },
     "isAutoplay": {
       "label": "स्वतः चलाएँ"
     },
@@ -80,27 +26,6 @@
     "labelSize": {
       "label": "लेबल आकार"
     },
-    "light": {
-      "label": "प्रकाश"
-    },
-    "lightness": {
-      "label": "चमक"
-    },
-    "meshaSize": {
-      "label": "Mesha आकार"
-    },
-    "moustacheSize": {
-      "label": "मूँछ का आकार"
-    },
-    "noseSize": {
-      "label": "नाक का आकार"
-    },
-    "rotateSpeed": {
-      "label": "घूर्णन गति"
-    },
-    "saturation": {
-      "label": "संतृप्ति"
-    },
     "showMore": {
       "label": "और दिखाएँ"
     },
@@ -122,21 +47,6 @@
         "wordOrder": "शब्द क्रम",
         "wordOrderFlexibility": "शब्द क्रम लचीलापन"
       }
-    },
-    "switchDuration": {
-      "label": "स्विच अवधि"
-    },
-    "teethSize": {
-      "label": "दाँतों का आकार"
-    },
-    "tension": {
-      "label": "तनाव"
-    },
-    "tongueSize": {
-      "label": "जीभ का आकार"
-    },
-    "zoomDistance": {
-      "label": "ज़ूम दूरी"
     }
   },
   "filters": {

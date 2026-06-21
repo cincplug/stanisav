@@ -1,59 +1,5 @@
 {
   "controls": {
-    "axis": {
-      "label": "අක්ෂය",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
-    },
-    "bgColor": {
-      "label": "පසුබිම"
-    },
-    "cameraX": {
-      "label": "කැමරා X"
-    },
-    "cameraY": {
-      "label": "කැමරා Y"
-    },
-    "cameraZ": {
-      "label": "කැමරා Z"
-    },
-    "d4": {
-      "label": "යම් ආකාරයක 4D"
-    },
-    "earSize": {
-      "label": "කන් ප්‍රමාණය"
-    },
-    "eyeSize": {
-      "label": "ඇස් ප්‍රමාණය"
-    },
-    "eyeX": {
-      "label": "ඇස X"
-    },
-    "eyeY": {
-      "label": "ඇස Y"
-    },
-    "eyeZ": {
-      "label": "ඇස Z"
-    },
-    "friction": {
-      "label": "ඝර්ෂණය"
-    },
-    "groups": {
-      "camera": "කැමරාව",
-      "colors": "වර්ණ",
-      "mesha": "මේෂා",
-      "motion": "චලනය",
-      "scene": "දර්ශනය"
-    },
-    "hue": {
-      "label": "වර්ණ තානය"
-    },
-    "irrationality": {
-      "label": "අයුතුකම"
-    },
     "isAutoplay": {
       "label": "ස්වයංක්‍රීය වාදනය"
     },
@@ -80,27 +26,6 @@
     "labelSize": {
       "label": "ලේබල් ප්‍රමාණය"
     },
-    "light": {
-      "label": "ආලෝකය"
-    },
-    "lightness": {
-      "label": "දීප්තිය"
-    },
-    "meshaSize": {
-      "label": "මේෂා ප්‍රමාණය"
-    },
-    "moustacheSize": {
-      "label": "උඩු රැවුල ප්‍රමාණය"
-    },
-    "noseSize": {
-      "label": "නාසය ප්‍රමාණය"
-    },
-    "rotateSpeed": {
-      "label": "භ්‍රමණ වේගය"
-    },
-    "saturation": {
-      "label": "සන්තෘප්තිය"
-    },
     "showMore": {
       "label": "තවත් පෙන්වන්න"
     },
@@ -122,21 +47,6 @@
         "wordOrder": "වචන අනුපිළිවෙල",
         "wordOrderFlexibility": "වචන අනුපිළිවෙලේ ස්වෙච්ඡාතාවය"
       }
-    },
-    "switchDuration": {
-      "label": "මාරු කාලය"
-    },
-    "teethSize": {
-      "label": "දත් ප්‍රමාණය"
-    },
-    "tension": {
-      "label": "තතුව"
-    },
-    "tongueSize": {
-      "label": "දිව ප්‍රමාණය"
-    },
-    "zoomDistance": {
-      "label": "සූම් දුර"
     }
   },
   "filters": {

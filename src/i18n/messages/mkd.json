@@ -1,59 +1,5 @@
 {
   "controls": {
-    "axis": {
-      "label": "Оска",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
-    },
-    "bgColor": {
-      "label": "Позадина"
-    },
-    "cameraX": {
-      "label": "Камера X"
-    },
-    "cameraY": {
-      "label": "Камера Y"
-    },
-    "cameraZ": {
-      "label": "Камера Z"
-    },
-    "d4": {
-      "label": "Некој вид 4D"
-    },
-    "earSize": {
-      "label": "Големина на уши"
-    },
-    "eyeSize": {
-      "label": "Големина на окото"
-    },
-    "eyeX": {
-      "label": "Око X"
-    },
-    "eyeY": {
-      "label": "Око Y"
-    },
-    "eyeZ": {
-      "label": "Око Z"
-    },
-    "friction": {
-      "label": "Триење"
-    },
-    "groups": {
-      "camera": "Камера",
-      "colors": "Бои",
-      "mesha": "Меша",
-      "motion": "Движење",
-      "scene": "Сцена"
-    },
-    "hue": {
-      "label": "Нијанса"
-    },
-    "irrationality": {
-      "label": "Ирационалност"
-    },
     "isAutoplay": {
       "label": "Автоматска репродукција"
     },
@@ -80,27 +26,6 @@
     "labelSize": {
       "label": "Големина на ознаката"
     },
-    "light": {
-      "label": "Светлина"
-    },
-    "lightness": {
-      "label": "Светлина"
-    },
-    "meshaSize": {
-      "label": "Мешина големина"
-    },
-    "moustacheSize": {
-      "label": "Големина на мустаќите"
-    },
-    "noseSize": {
-      "label": "Големина на носот"
-    },
-    "rotateSpeed": {
-      "label": "Брзина на ротација"
-    },
-    "saturation": {
-      "label": "Заситеност"
-    },
     "showMore": {
       "label": "Прикажи повеќе"
     },
@@ -122,21 +47,6 @@
         "wordOrder": "Ред на зборови",
         "wordOrderFlexibility": "Флексибилност на редот на зборови"
       }
-    },
-    "switchDuration": {
-      "label": "Траење на преодот"
-    },
-    "teethSize": {
-      "label": "Големина на забите"
-    },
-    "tension": {
-      "label": "Напнатост"
-    },
-    "tongueSize": {
-      "label": "Големина на јазик"
-    },
-    "zoomDistance": {
-      "label": "Оддалеченост на зумот"
     }
   },
   "filters": {

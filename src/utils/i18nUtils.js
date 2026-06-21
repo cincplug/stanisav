@@ -1,27 +1,4 @@
-import { translate, getLocalizedLineageLabel } from "../i18n/runtime";
-
-const toGroupKey = (groupName) => {
-  const words = String(groupName)
-    .trim()
-    .split(/[^a-zA-Z0-9]+/)
-    .filter(Boolean);
-
-  if (words.length === 0) {
-    throw new Error(`Invalid control group '${groupName}'`);
-  }
-
-  return words
-    .map((word, index) => {
-      const lower = word.toLowerCase();
-      return index === 0
-        ? lower
-        : `${lower.charAt(0).toUpperCase()}${lower.slice(1)}`;
-    })
-    .join("");
-};
-
-export const getControlGroupLabel = (groupName) =>
-  translate(`controls.groups.${toGroupKey(groupName)}`);
+import { getLocalizedLineageLabel, translate } from "../i18n/runtime";
 
 export const getControlLabel = (controlId) =>
   translate(`controls.${controlId}.label`);

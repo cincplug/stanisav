@@ -1,59 +1,5 @@
 {
   "controls": {
-    "axis": {
-      "label": "Sumbu",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
-    },
-    "bgColor": {
-      "label": "Latar belakang"
-    },
-    "cameraX": {
-      "label": "Kamera X"
-    },
-    "cameraY": {
-      "label": "Kamera Y"
-    },
-    "cameraZ": {
-      "label": "Kamera Z"
-    },
-    "d4": {
-      "label": "Semacam 4D"
-    },
-    "earSize": {
-      "label": "Ukuran telinga"
-    },
-    "eyeSize": {
-      "label": "Ukuran mata"
-    },
-    "eyeX": {
-      "label": "Mata X"
-    },
-    "eyeY": {
-      "label": "Mata Y"
-    },
-    "eyeZ": {
-      "label": "Mata Z"
-    },
-    "friction": {
-      "label": "Gesekan"
-    },
-    "groups": {
-      "camera": "Kamera",
-      "colors": "Warna",
-      "mesha": "Mesha",
-      "motion": "Gerakan",
-      "scene": "Adegan"
-    },
-    "hue": {
-      "label": "Rona"
-    },
-    "irrationality": {
-      "label": "Irasionalitas"
-    },
     "isAutoplay": {
       "label": "Putar otomatis"
     },
@@ -80,27 +26,6 @@
     "labelSize": {
       "label": "Ukuran label"
     },
-    "light": {
-      "label": "Cahaya"
-    },
-    "lightness": {
-      "label": "Kecerahan"
-    },
-    "meshaSize": {
-      "label": "Ukuran Mesha"
-    },
-    "moustacheSize": {
-      "label": "Ukuran kumis"
-    },
-    "noseSize": {
-      "label": "Ukuran hidung"
-    },
-    "rotateSpeed": {
-      "label": "Kecepatan rotasi"
-    },
-    "saturation": {
-      "label": "Saturasi"
-    },
     "showMore": {
       "label": "Tampilkan lebih banyak"
     },
@@ -122,21 +47,6 @@
         "wordOrder": "Urutan kata",
         "wordOrderFlexibility": "Fleksibilitas urutan kata"
       }
-    },
-    "switchDuration": {
-      "label": "Durasi peralihan"
-    },
-    "teethSize": {
-      "label": "Ukuran gigi"
-    },
-    "tension": {
-      "label": "Tegangan"
-    },
-    "tongueSize": {
-      "label": "Ukuran lidah"
-    },
-    "zoomDistance": {
-      "label": "Jarak zoom"
     }
   },
   "filters": {

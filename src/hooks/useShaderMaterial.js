@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { Color } from "three";
-import { config } from "../modules/configStore";
+import { useConfigContext } from "../contexts/ConfigContext";
 import {
   highlightFragmentShader,
   meshVertexShader,
@@ -8,13 +8,8 @@ import {
 } from "../shaders/shader";
 import { useThrottledFrame } from "./useThrottledFrame";
 
-export const useShaderMaterial = (
-  baseColor,
-  accentColor,
-  stripesType,
-  opacity = config.shader.shaderOpacity,
-  side = 2,
-) => {
+export const useShaderMaterial = (baseColor, accentColor, stripesType) => {
+  const { config } = useConfigContext();
   const {
     shaderAmbient,
     shaderLightingMin,
@@ -22,6 +17,7 @@ export const useShaderMaterial = (
     shaderLightingDiffuse,
     shaderShadeChecker,
     shaderShadeStripe,
+    shaderOpacity,
   } = config.shader;
 
   const baseColorObj = useMemo(() => new Color(baseColor), [baseColor]);
@@ -34,7 +30,7 @@ export const useShaderMaterial = (
         uAccentColor: { value: accentColorObj },
         uStripesType: { value: stripesType },
         uAccentOpacity: { value: 1.0 },
-        uOpacity: { value: opacity },
+        uOpacity: { value: shaderOpacity },
         uAmbient: { value: shaderAmbient },
         uLightingMin: { value: shaderLightingMin },
         uLightingMax: { value: shaderLightingMax },
@@ -44,14 +40,13 @@ export const useShaderMaterial = (
       },
       vertexShader: meshVertexShader,
       fragmentShader: tonalityFragmentShader,
-      side,
-      transparent: opacity < 1,
+      side: 2,
+      transparent: shaderOpacity < 1,
     }),
     [
       baseColorObj,
       accentColorObj,
       stripesType,
-      opacity,
       shaderAmbient,
       shaderLightingMin,
       shaderLightingMax,
@@ -69,12 +64,14 @@ export const useShaderMaterial = (
       shaderLightingDiffuse,
       shaderShadeChecker,
       shaderShadeStripe,
+      shaderOpacity,
     } = config.shader;
 
     material.uniforms.uAmbient.value = shaderAmbient;
     material.uniforms.uLightingMin.value = shaderLightingMin;
     material.uniforms.uLightingMax.value = shaderLightingMax;
     material.uniforms.uLightingDiffuseScale.value = shaderLightingDiffuse;
+    material.uniforms.uOpacity.value = shaderOpacity;
     material.uniforms.uShadeChecker.value = shaderShadeChecker;
     material.uniforms.uShadeStripe.value = shaderShadeStripe;
   });
@@ -82,16 +79,14 @@ export const useShaderMaterial = (
   return material;
 };
 
-export const useHighlightMaterial = (
-  stripesType = 0,
-  opacity = 1,
-  side = 2,
-) => {
+export const useHighlightMaterial = (stripesType = 0) => {
+  const { config } = useConfigContext();
   const {
     shaderAmbient,
     shaderLightingMin,
     shaderLightingMax,
     shaderLightingDiffuse,
+    shaderOpacity,
     shaderShadeChecker,
     shaderShadeStripe,
     shaderRingCount,
@@ -114,7 +109,7 @@ export const useHighlightMaterial = (
         uRingColorShade: { value: ringColorShade },
         uStripesType: { value: stripesType },
         uTime: { value: 0 },
-        uOpacity: { value: opacity },
+        uOpacity: { value: shaderOpacity },
         uAmbient: { value: shaderAmbient },
         uLightingMin: { value: shaderLightingMin },
         uLightingMax: { value: shaderLightingMax },
@@ -125,12 +120,12 @@ export const useHighlightMaterial = (
       },
       vertexShader: meshVertexShader,
       fragmentShader: highlightFragmentShader,
-      side,
-      transparent: opacity < 1,
+      side: 2,
+      transparent: shaderOpacity < 1,
     }),
     [
       stripesType,
-      opacity,
+      shaderOpacity,
       ringColor,
       ringColorShade,
       shaderAmbient,
@@ -150,6 +145,7 @@ export const useHighlightMaterial = (
       shaderLightingMax,
       shaderLightingDiffuse,
       shaderShadeStripe,
+      shaderOpacity,
       shaderRingCount,
       shaderRingSpeed,
     } = config.shader;
@@ -159,6 +155,7 @@ export const useHighlightMaterial = (
     material.uniforms.uLightingMin.value = shaderLightingMin;
     material.uniforms.uLightingMax.value = shaderLightingMax;
     material.uniforms.uLightingDiffuseScale.value = shaderLightingDiffuse;
+    material.uniforms.uOpacity.value = shaderOpacity;
     material.uniforms.uShadeStripe.value = shaderShadeStripe;
     material.uniforms.uRingCount.value = shaderRingCount;
     material.uniforms.uRingSpeed.value = shaderRingSpeed;

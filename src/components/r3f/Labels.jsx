@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { useControlsContext } from "../../contexts/ControlsContext";
+import { useConfigContext } from "../../contexts/ConfigContext";
 import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext";
 import Label from "./Label";
 import LabelsCluster from "./LabelsCluster";
@@ -14,8 +14,9 @@ const Labels = ({
   setIsLabelsSequenceDone,
 }) => {
   const { languageColors } = useLanguageColorsContext();
-  const { controls } = useControlsContext();
-  const { hasLines, isSegmented } = controls;
+
+  const { config } = useConfigContext();
+  const { hasLines, isSegmented } = config.header;
 
   const visibleLabelCodes = Object.keys(formattedPositions).filter(
     (langCode) => {

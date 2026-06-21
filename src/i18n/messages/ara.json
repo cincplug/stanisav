@@ -1,59 +1,5 @@
 {
   "controls": {
-    "axis": {
-      "label": "المحور",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
-    },
-    "bgColor": {
-      "label": "الخلفية"
-    },
-    "cameraX": {
-      "label": "الكاميرا X"
-    },
-    "cameraY": {
-      "label": "الكاميرا Y"
-    },
-    "cameraZ": {
-      "label": "الكاميرا Z"
-    },
-    "d4": {
-      "label": "نوع من الأبعاد الأربعة"
-    },
-    "earSize": {
-      "label": "حجم الأذن"
-    },
-    "eyeSize": {
-      "label": "حجم العين"
-    },
-    "eyeX": {
-      "label": "العين X"
-    },
-    "eyeY": {
-      "label": "العين Y"
-    },
-    "eyeZ": {
-      "label": "العين Z"
-    },
-    "friction": {
-      "label": "الاحتكاك"
-    },
-    "groups": {
-      "camera": "الكاميرا",
-      "colors": "الألوان",
-      "mesha": "Mesha",
-      "motion": "الحركة",
-      "scene": "المشهد"
-    },
-    "hue": {
-      "label": "درجة اللون"
-    },
-    "irrationality": {
-      "label": "اللاعقلانية"
-    },
     "isAutoplay": {
       "label": "تشغيل تلقائي"
     },
@@ -80,27 +26,6 @@
     "labelSize": {
       "label": "حجم التسمية"
     },
-    "light": {
-      "label": "إضاءة"
-    },
-    "lightness": {
-      "label": "السطوع"
-    },
-    "meshaSize": {
-      "label": "حجم Mesha"
-    },
-    "moustacheSize": {
-      "label": "حجم الشارب"
-    },
-    "noseSize": {
-      "label": "حجم الأنف"
-    },
-    "rotateSpeed": {
-      "label": "سرعة الدوران"
-    },
-    "saturation": {
-      "label": "التشبع"
-    },
     "showMore": {
       "label": "عرض المزيد"
     },
@@ -122,21 +47,6 @@
         "wordOrder": "ترتيب الكلمات",
         "wordOrderFlexibility": "مرونة ترتيب الكلمات"
       }
-    },
-    "switchDuration": {
-      "label": "مدة التبديل"
-    },
-    "teethSize": {
-      "label": "حجم الأسنان"
-    },
-    "tension": {
-      "label": "الشد"
-    },
-    "tongueSize": {
-      "label": "حجم اللسان"
-    },
-    "zoomDistance": {
-      "label": "مسافة التكبير"
     }
   },
   "filters": {

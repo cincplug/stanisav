@@ -1,10 +1,11 @@
 import { a } from "@react-spring/three";
 import { useRef } from "react";
+import { useConfigContext } from "../../contexts/ConfigContext";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
-import { config } from "../../modules/configStore";
 
 const MeshaLight = () => {
   const groupRef = useRef();
+  const { config } = useConfigContext();
   const { intensity, decay, distance, spread, z } = config.meshaLight;
   const { lightColor } = config.colors;
 

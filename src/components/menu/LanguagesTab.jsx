@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef } from "react";
 import lineages from "../../config/lineages.json";
-import { useControlsContext } from "../../contexts/ControlsContext";
+import { useConfigContext } from "../../contexts/ConfigContext";
 import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
 import { usePlaylistContext } from "../../contexts/PlaylistContext";
 import { buildLanguageTree, groupLanguages } from "../../utils/groupingUtils";
@@ -11,10 +11,10 @@ import LanguageTree from "./LanguageTree";
 function LanguagesTab({ languageData, isSelected, languageColors = {} }) {
   const { selectedLanguage } = useLanguageSelectionContext();
   const { startFromLanguage } = usePlaylistContext();
-  const { controls } = useControlsContext();
   const buttonRefs = useRef({});
 
-  const { sortBy, labelContent, isReverse } = controls;
+  const { config } = useConfigContext();
+  const { sortBy, labelContent, isReverse } = config.header;
 
   const { languageCodes, languageLineages, speakerData, typologicalFeatures } =
     useMemo(() => getSortingData(languageData), [languageData]);

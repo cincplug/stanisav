@@ -1,16 +1,18 @@
 import { Html } from "@react-three/drei";
+import { useConfigContext } from "../../contexts/ConfigContext";
 import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
-import { config } from "../../modules/configStore";
 import "../menu/ux/Popover.css";
 import "./SpeechBalloon.css";
 
-const SpeechBalloon = ({
-  anchorOffset = config.speechBalloon.defaultAnchorOffset,
-  position = config.speechBalloon.defaultPosition,
-}) => {
-  const { durationBase, durationPerCharacter, durationDismiss } =
-    config.speechBalloon;
+const SpeechBalloon = ({ anchorOffset, position }) => {
+  const { config } = useConfigContext();
+  const {
+    durationBase,
+    durationPerCharacter,
+    durationDismiss,
+    defaultPosition,
+  } = config.speechBalloon;
 
   const { entranceBalloonText, setEntranceBalloonText } = useEntranceContext();
   const { balloonText } = useLanguageSelectionContext();
@@ -24,14 +26,14 @@ const SpeechBalloon = ({
   return (
     <Html
       key={text}
-      position={anchorOffset}
+      position={anchorOffset || [0, 0, 0]}
       transform={false}
       occlude={false}
       zIndexRange={[0, 0]}
     >
       <div
         className="speech-balloon"
-        data-position={position}
+        data-position={position || defaultPosition}
         style={{
           "--balloon-duration": `${duration}ms`,
           "--balloon-dismiss-duration": `${durationDismiss}ms`,
@@ -44,7 +46,10 @@ const SpeechBalloon = ({
         <div className="speech-balloon-bubble popover-bubble">
           <p>{text}</p>
         </div>
-        <div className="popover-tail" data-position={position} />
+        <div
+          className="popover-tail"
+          data-position={position || defaultPosition}
+        />
       </div>
     </Html>
   );

@@ -1,59 +1,5 @@
 {
   "controls": {
-    "axis": {
-      "label": "Oś",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
-    },
-    "bgColor": {
-      "label": "Tło"
-    },
-    "cameraX": {
-      "label": "Kamera X"
-    },
-    "cameraY": {
-      "label": "Kamera Y"
-    },
-    "cameraZ": {
-      "label": "Kamera Z"
-    },
-    "d4": {
-      "label": "Coś w rodzaju 4D"
-    },
-    "earSize": {
-      "label": "Rozmiar uszu"
-    },
-    "eyeSize": {
-      "label": "Rozmiar oka"
-    },
-    "eyeX": {
-      "label": "Oko X"
-    },
-    "eyeY": {
-      "label": "Oko Y"
-    },
-    "eyeZ": {
-      "label": "Oko Z"
-    },
-    "friction": {
-      "label": "Tarcie"
-    },
-    "groups": {
-      "camera": "Kamera",
-      "colors": "Kolory",
-      "mesha": "Mesza",
-      "motion": "Ruch",
-      "scene": "Scena"
-    },
-    "hue": {
-      "label": "Odcień"
-    },
-    "irrationality": {
-      "label": "Irracjonalność"
-    },
     "isAutoplay": {
       "label": "Autoodtwarzanie"
     },
@@ -80,27 +26,6 @@
     "labelSize": {
       "label": "Rozmiar etykiety"
     },
-    "light": {
-      "label": "Światło"
-    },
-    "lightness": {
-      "label": "Jasność"
-    },
-    "meshaSize": {
-      "label": "Rozmiar Meszy"
-    },
-    "moustacheSize": {
-      "label": "Rozmiar wąsów"
-    },
-    "noseSize": {
-      "label": "Rozmiar nosa"
-    },
-    "rotateSpeed": {
-      "label": "Prędkość obrotu"
-    },
-    "saturation": {
-      "label": "Nasycenie"
-    },
     "showMore": {
       "label": "Pokaż więcej"
     },
@@ -122,21 +47,6 @@
         "wordOrder": "Szyk zdania",
         "wordOrderFlexibility": "Elastyczność szyku zdania"
       }
-    },
-    "switchDuration": {
-      "label": "Czas przejścia"
-    },
-    "teethSize": {
-      "label": "Rozmiar zębów"
-    },
-    "tension": {
-      "label": "Napięcie"
-    },
-    "tongueSize": {
-      "label": "Rozmiar języka"
-    },
-    "zoomDistance": {
-      "label": "Odległość zoomu"
     }
   },
   "filters": {

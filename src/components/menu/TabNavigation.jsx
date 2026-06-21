@@ -32,7 +32,7 @@ function TabNavigation({ selectedTab, setSelectedTab }) {
             key={tab.id}
             id={`tab-${tab.id}`}
             role="tab"
-            aria-label={`${t(`tabs.${tab.id}`)} ${tab.isVisual ? t("menu.isVisual") : ""}`}
+            aria-label={`${t(`tabs.${tab.id}`)}`}
             aria-selected={isSelected}
             aria-controls={`tabpanel-${tab.id}`}
             onClick={() => setSelectedTab(tab.id)}

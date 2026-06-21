@@ -1,12 +1,8 @@
 import { a, useSpring } from "@react-spring/three";
 import { useThree } from "@react-three/fiber";
 import { useRef } from "react";
+import { useConfigContext } from "../../contexts/ConfigContext";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame";
-import { config } from "../../modules/configStore";
-
-const { stageLight } = config;
-const { lightColor } = config.colors;
-const { labelsEntranceDuration } = config.entrance;
 
 const StageLight = ({
   cameraZ,
@@ -18,8 +14,12 @@ const StageLight = ({
   selectedLanguage,
 }) => {
   const { camera, controls: threeControls } = useThree();
-  const lightRef = useRef();
+  const { config } = useConfigContext();
+  const { stageLight } = config;
+  const { lightColor } = config.colors;
+  const { labelsEntranceDuration } = config.entrance;
 
+  const lightRef = useRef();
   const { entranceProgress } = useSpring({
     from: { entranceProgress: 1 / 2 },
     to: { entranceProgress: 1 },

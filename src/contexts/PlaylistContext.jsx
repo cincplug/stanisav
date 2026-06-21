@@ -6,19 +6,18 @@ import {
   useRef,
   useState,
 } from "react";
-import { config } from "../modules/configStore";
 import { getSortingData, sortLanguages } from "../utils/sortingUtils";
 import { useAppStateContext } from "./AppStateContext";
-import { useControlsContext } from "./ControlsContext";
+import { useConfigContext } from "./ConfigContext";
 import { useLanguageSelectionContext } from "./LanguageSelectionContext";
 
 const PlaylistContext = createContext(null);
 
 export const PlaylistProvider = ({ children }) => {
   const { data, isSceneReady } = useAppStateContext();
-  const { controls } = useControlsContext();
-  const { isAutoplay, isMyMesha, isLuka, sortBy, labelContent, isReverse } =
-    controls;
+  const { config } = useConfigContext();
+  const { isMyMesha, sortBy, labelContent, isReverse } = config.header;
+  const { isAutoplay, isLuka } = config.global;
   const { switchDuration } = config.camera;
   const {
     selectLanguage,
@@ -313,7 +312,7 @@ export const PlaylistProvider = ({ children }) => {
             audio.addEventListener("error", handleError);
           });
 
-          await setupAudioVisualization(audio);
+          await setupAudioVisualization(audio, config);
 
           audio.addEventListener("ended", handleAudioEnded);
           cleanup = () => {

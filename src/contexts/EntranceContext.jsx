@@ -1,36 +1,37 @@
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { getEntranceSteps } from "../i18n/runtime";
-import { config } from "../modules/configStore";
 import { useAppStateContext } from "./AppStateContext";
-
-const {
-  meshaRevealSequence,
-  labelsRevealDelay,
-  labelsEntranceDuration,
-  labelRevealDuration,
-  startRadiusFactor,
-} = config.entrance;
-
-const { durationBase, durationPerCharacter, durationDismiss } =
-  config.speechBalloon;
-
-const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-const toInnerStartPosition = ([x, y, z]) => [
-  x * startRadiusFactor,
-  y * startRadiusFactor,
-  z * startRadiusFactor,
-];
-
-const calculateBalloonDisplayDuration = (message) =>
-  durationBase + message.length * durationPerCharacter;
-
-const calculateBalloonFullDuration = (message) =>
-  calculateBalloonDisplayDuration(message) + durationDismiss;
+import { useConfigContext } from "./ConfigContext";
 
 const EntranceContext = createContext(null);
 
 export const EntranceProvider = ({ children }) => {
+  const { config } = useConfigContext();
+
+  const {
+    meshaRevealSequence,
+    labelsRevealDelay,
+    labelsEntranceDuration,
+    labelRevealDuration,
+    startRadiusFactor,
+  } = config.entrance;
+
+  const { durationBase, durationPerCharacter, durationDismiss } =
+    config.speechBalloon;
+
+  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  const toInnerStartPosition = ([x, y, z]) => [
+    x * startRadiusFactor,
+    y * startRadiusFactor,
+    z * startRadiusFactor,
+  ];
+
+  const calculateBalloonDisplayDuration = (message) =>
+    durationBase + message.length * durationPerCharacter;
+
+  const calculateBalloonFullDuration = (message) =>
+    calculateBalloonDisplayDuration(message) + durationDismiss;
   const { tension, friction } = config.motion;
   const { isSceneReady } = useAppStateContext();
 

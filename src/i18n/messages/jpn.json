@@ -1,59 +1,5 @@
 {
   "controls": {
-    "axis": {
-      "label": "軸",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
-    },
-    "bgColor": {
-      "label": "背景"
-    },
-    "cameraX": {
-      "label": "カメラ X"
-    },
-    "cameraY": {
-      "label": "カメラ Y"
-    },
-    "cameraZ": {
-      "label": "カメラ Z"
-    },
-    "d4": {
-      "label": "ある種の4D"
-    },
-    "earSize": {
-      "label": "耳のサイズ"
-    },
-    "eyeSize": {
-      "label": "目のサイズ"
-    },
-    "eyeX": {
-      "label": "目 X"
-    },
-    "eyeY": {
-      "label": "目 Y"
-    },
-    "eyeZ": {
-      "label": "目 Z"
-    },
-    "friction": {
-      "label": "摩擦"
-    },
-    "groups": {
-      "camera": "カメラ",
-      "colors": "色",
-      "mesha": "Mesha",
-      "motion": "モーション",
-      "scene": "シーン"
-    },
-    "hue": {
-      "label": "色相"
-    },
-    "irrationality": {
-      "label": "非合理性"
-    },
     "isAutoplay": {
       "label": "自動再生"
     },
@@ -80,27 +26,6 @@
     "labelSize": {
       "label": "ラベルサイズ"
     },
-    "light": {
-      "label": "ライト"
-    },
-    "lightness": {
-      "label": "明度"
-    },
-    "meshaSize": {
-      "label": "Meshaのサイズ"
-    },
-    "moustacheSize": {
-      "label": "口ひげのサイズ"
-    },
-    "noseSize": {
-      "label": "鼻のサイズ"
-    },
-    "rotateSpeed": {
-      "label": "回転速度"
-    },
-    "saturation": {
-      "label": "彩度"
-    },
     "showMore": {
       "label": "もっと表示"
     },
@@ -122,21 +47,6 @@
         "wordOrder": "語順",
         "wordOrderFlexibility": "語順の柔軟性"
       }
-    },
-    "switchDuration": {
-      "label": "切替時間"
-    },
-    "teethSize": {
-      "label": "歯のサイズ"
-    },
-    "tension": {
-      "label": "テンション"
-    },
-    "tongueSize": {
-      "label": "舌のサイズ"
-    },
-    "zoomDistance": {
-      "label": "ズーム距離"
     }
   },
   "filters": {

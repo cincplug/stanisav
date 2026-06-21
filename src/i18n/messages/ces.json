@@ -1,59 +1,5 @@
 {
   "controls": {
-    "axis": {
-      "label": "Osa",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
-    },
-    "bgColor": {
-      "label": "Pozadí"
-    },
-    "cameraX": {
-      "label": "Kamera X"
-    },
-    "cameraY": {
-      "label": "Kamera Y"
-    },
-    "cameraZ": {
-      "label": "Kamera Z"
-    },
-    "d4": {
-      "label": "Nějaký druh 4D"
-    },
-    "earSize": {
-      "label": "Velikost uší"
-    },
-    "eyeSize": {
-      "label": "Velikost oka"
-    },
-    "eyeX": {
-      "label": "Oko X"
-    },
-    "eyeY": {
-      "label": "Oko Y"
-    },
-    "eyeZ": {
-      "label": "Oko Z"
-    },
-    "friction": {
-      "label": "Tření"
-    },
-    "groups": {
-      "camera": "Kamera",
-      "colors": "Barvy",
-      "mesha": "Meša",
-      "motion": "Pohyb",
-      "scene": "Scéna"
-    },
-    "hue": {
-      "label": "Odstín"
-    },
-    "irrationality": {
-      "label": "Iracionalita"
-    },
     "isAutoplay": {
       "label": "Automatické přehrávání"
     },
@@ -80,27 +26,6 @@
     "labelSize": {
       "label": "Velikost popisku"
     },
-    "light": {
-      "label": "Světlo"
-    },
-    "lightness": {
-      "label": "Světlost"
-    },
-    "meshaSize": {
-      "label": "Mešina velikost"
-    },
-    "moustacheSize": {
-      "label": "Velikost kníru"
-    },
-    "noseSize": {
-      "label": "Velikost nosu"
-    },
-    "rotateSpeed": {
-      "label": "Rychlost otáčení"
-    },
-    "saturation": {
-      "label": "Sytost"
-    },
     "showMore": {
       "label": "Zobrazit více"
     },
@@ -122,21 +47,6 @@
         "wordOrder": "Slovosled",
         "wordOrderFlexibility": "Flexibilita slovosledu"
       }
-    },
-    "switchDuration": {
-      "label": "Délka přechodu"
-    },
-    "teethSize": {
-      "label": "Velikost zubů"
-    },
-    "tension": {
-      "label": "Napětí"
-    },
-    "tongueSize": {
-      "label": "Velikost jazyka"
-    },
-    "zoomDistance": {
-      "label": "Vzdálenost přiblížení"
     }
   },
   "filters": {

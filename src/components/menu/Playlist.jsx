@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { useControlsContext } from "../../contexts/ControlsContext";
+import { useConfigContext } from "../../contexts/ConfigContext";
 import { useI18nContext } from "../../contexts/I18nContext";
 import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
 import { usePlaylistContext } from "../../contexts/PlaylistContext";
@@ -25,8 +25,8 @@ export default function Playlist() {
     goToBegin,
   } = usePlaylistContext();
 
-  const { controls, updateControl } = useControlsContext();
-  const { isAutoplay } = controls;
+  const { config, updateConfigValue } = useConfigContext();
+  const { isAutoplay } = config.global;
   const playButtonRef = useRef(null);
 
   useEffect(() => {
@@ -63,7 +63,7 @@ export default function Playlist() {
           break;
         case "l":
           e.preventDefault();
-          updateControl("isAutoplay", !isAutoplay);
+          updateConfigValue("global.isAutoplay", !isAutoplay);
           break;
       }
     };
@@ -72,7 +72,7 @@ export default function Playlist() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isPlaying, isAutoplay]);
 
-  const toggleLoop = () => updateControl("isAutoplay", isAutoplay);
+  const toggleLoop = () => updateConfigValue("global.isAutoplay", !isAutoplay);
 
   const handleStop = () => {
     pausePlaylist();

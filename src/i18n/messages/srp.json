@@ -1,59 +1,5 @@
 {
   "controls": {
-    "axis": {
-      "label": "Osa",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
-    },
-    "bgColor": {
-      "label": "Pozadina"
-    },
-    "cameraX": {
-      "label": "Kamera X"
-    },
-    "cameraY": {
-      "label": "Kamera Y"
-    },
-    "cameraZ": {
-      "label": "Kamera Z"
-    },
-    "d4": {
-      "label": "Nekakav 4D"
-    },
-    "earSize": {
-      "label": "Veličina ušiju"
-    },
-    "eyeSize": {
-      "label": "Veličina očiju"
-    },
-    "eyeX": {
-      "label": "Oko X"
-    },
-    "eyeY": {
-      "label": "Oko Y"
-    },
-    "eyeZ": {
-      "label": "Oko Z"
-    },
-    "friction": {
-      "label": "Trenje"
-    },
-    "groups": {
-      "camera": "Kamera",
-      "colors": "Boje",
-      "mesha": "Meša",
-      "motion": "Kretanje",
-      "scene": "Scena"
-    },
-    "hue": {
-      "label": "Nijansa"
-    },
-    "irrationality": {
-      "label": "Iracionalnost"
-    },
     "isAutoplay": {
       "label": "Automatska reprodukcija"
     },
@@ -80,27 +26,6 @@
     "labelSize": {
       "label": "Veličina oznake"
     },
-    "light": {
-      "label": "Svetlo"
-    },
-    "lightness": {
-      "label": "Svetlina"
-    },
-    "meshaSize": {
-      "label": "Mešina veličina"
-    },
-    "moustacheSize": {
-      "label": "Veličina brkova"
-    },
-    "noseSize": {
-      "label": "Veličina nosa"
-    },
-    "rotateSpeed": {
-      "label": "Brzina rotacije"
-    },
-    "saturation": {
-      "label": "Zasićenost"
-    },
     "showMore": {
       "label": "Prikaži više"
     },
@@ -122,21 +47,6 @@
         "wordOrder": "Red reči",
         "wordOrderFlexibility": "Fleksibilnost reda reči"
       }
-    },
-    "switchDuration": {
-      "label": "Trajanje prelaza"
-    },
-    "teethSize": {
-      "label": "Veličina zuba"
-    },
-    "tension": {
-      "label": "Napon"
-    },
-    "tongueSize": {
-      "label": "Dužina jezika"
-    },
-    "zoomDistance": {
-      "label": "Daljina zuma"
     }
   },
   "filters": {

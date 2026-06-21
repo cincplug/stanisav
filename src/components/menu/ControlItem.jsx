@@ -1,82 +1,27 @@
-import { useI18nContext } from "../../contexts/I18nContext";
-import { useMediaQuery } from "../../hooks/useMediaQuery.js";
-import * as MenuIcons from "./MenuIcons";
-import { thumbIconMap } from "./thumbIconMap.js";
+import { resolveControlBounds } from "../../utils/configUtils";
 import Range from "./ux/Range.jsx";
 import Select from "./ux/Select";
 
+// control shape: { dotKey, type, label, options, value }
+// type and options are inferred upstream by inferControlType
 const ControlItem = ({
   control,
-  value,
   onChange,
-  isCompact = false,
-  groupIndex,
-  controlIndex,
+  groupIndex = 0,
+  controlIndex = 0,
 }) => {
-  const { t } = useI18nContext();
-  const {
-    id,
-    type,
-    label,
-    min,
-    max,
-    step,
-    options,
-    isVisual,
-    isDesktopOnly,
-    compactMenuIcon,
-  } = control;
-
-  const isMobile = useMediaQuery();
-  if (isMobile && isDesktopOnly) return null;
+  const { dotKey, type, label, options, value } = control;
 
   const handleChange = (newValue) => {
     const processedValue = type === "range" ? parseFloat(newValue) : newValue;
     onChange(processedValue);
   };
 
-  const ariaLabel = isVisual ? `${label} (${t("menu.isVisual")})` : undefined;
-
-  // Compact mode: render an icon button or icon-toggled select.
-  // Only reached when compactMenuIcon is present (ControlItemGroup filters for it).
-  if (isCompact) {
-    const Icon = MenuIcons[compactMenuIcon];
-
-    if (type === "checkbox") {
-      return (
-        <button
-          className={`menu-item${value ? " selected" : ""}`}
-          onClick={() => handleChange(!value)}
-          aria-label={ariaLabel || label}
-          aria-pressed={value}
-        >
-          <Icon />
-        </button>
-      );
-    }
-
-    if (type === "select") {
-      return (
-        <Select
-          options={options}
-          value={value}
-          onChange={onChange}
-          label={ariaLabel || label}
-          toggleContent={() => <Icon />}
-          toggleClassName="menu-item"
-        />
-      );
-    }
-
-    return null;
-  }
-
-  // Full menu rendering
   switch (type) {
     case "checkbox":
       return (
-        <div className={`control-item ${type}-control ${id}`}>
-          <label aria-label={ariaLabel}>
+        <div className={`control-item ${type}-control ${dotKey}`}>
+          <label>
             <input
               type="checkbox"
               checked={value}
@@ -89,8 +34,8 @@ const ControlItem = ({
 
     case "color":
       return (
-        <div className={`control-item ${type}-control ${id}`}>
-          <label aria-label={ariaLabel}>{label}</label>
+        <div className={`control-item ${type}-control ${dotKey}`}>
+          <label>{label}</label>
           <input
             type="color"
             value={value}
@@ -99,10 +44,11 @@ const ControlItem = ({
         </div>
       );
 
-    case "range":
+    case "range": {
+      const { min, max, step } = resolveControlBounds(dotKey);
       return (
-        <div className={`control-item ${type}-control ${id}`}>
-          <label aria-label={ariaLabel}>
+        <div className={`control-item ${type}-control ${dotKey}`}>
+          <label>
             <span>{label}</span>
             <span>{value}</span>
           </label>
@@ -113,44 +59,21 @@ const ControlItem = ({
             step={step}
             value={value}
             onChange={(e) => handleChange(e.target.value)}
-            thumbIcon={thumbIconMap[id]}
           />
         </div>
       );
+    }
 
     case "select":
       return (
-        <div className={`control-item ${type}-control ${id}`}>
-          <label aria-label={ariaLabel}>{label}</label>
+        <div className={`control-item ${type}-control ${dotKey}`}>
+          <label>{label}</label>
           <Select
             options={options}
             value={value}
             onChange={onChange}
-            label={ariaLabel || label}
+            label={label}
           />
-        </div>
-      );
-
-    case "radio":
-      return (
-        <div className={`control-item ${type}-control ${id}`}>
-          <fieldset>
-            <legend aria-label={ariaLabel}>{label}</legend>
-            <div className="radio-group">
-              {options.map(({ value: optVal, label: optLabel }) => (
-                <label key={optVal} className="radio-option">
-                  <input
-                    type="radio"
-                    name={id}
-                    value={optVal}
-                    checked={value === optVal}
-                    onChange={(e) => handleChange(e.target.value)}
-                  />
-                  <span>{optLabel}</span>
-                </label>
-              ))}
-            </div>
-          </fieldset>
         </div>
       );
 

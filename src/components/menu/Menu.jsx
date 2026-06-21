@@ -1,6 +1,6 @@
 import { useState } from "react";
 import tabsConfig from "../../config/tabsConfig.json";
-import { useControlsContext } from "../../contexts/ControlsContext";
+import { useConfigContext } from "../../contexts/ConfigContext";
 import { useI18nContext } from "../../contexts/I18nContext";
 import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
@@ -21,15 +21,15 @@ function Menu({
   filters,
   onFiltersChange,
 }) {
-  const { controls, updateControl } = useControlsContext();
+  const { config, updateConfigValue } = useConfigContext();
   const { languageColors } = useLanguageColorsContext();
   const { t, isRtl } = useI18nContext();
   const [selectedTab, setSelectedTab] = useState(tabsConfig.defaultTab);
   const isMobile = useMediaQuery("(max-width: 640px)");
 
-  const handleControlChange = (controlId, value) => {
-    onControlChange(controlId, value);
-    updateControl(controlId, value);
+  const handleControlChange = (dotKey, value) => {
+    onControlChange(dotKey, value);
+    updateConfigValue(dotKey, value);
   };
 
   const handleTabChange = (tabId) => {
@@ -46,11 +46,7 @@ function Menu({
         <label>{t("menu.languageSelector")}</label>
         <LocaleLinks />
       </div>
-      <ControlItemGroup
-        groupName="Header"
-        controls={controls}
-        onChange={handleControlChange}
-      />
+      <ControlItemGroup groupName="header" />
     </div>
   );
 
@@ -68,12 +64,10 @@ function Menu({
               <CloseIcon />
             </button>
             <Playlist />
-            {/* On desktop, header controls sit here so sticky works without a fixed height */}
             {!isMobile && renderHeaderControls()}
           </div>
 
           <div className="menu-scroll-area">
-            {/* On mobile, header controls scroll away with the content */}
             {isMobile && renderHeaderControls()}
             <TabNavigation
               selectedTab={selectedTab}
@@ -82,7 +76,7 @@ function Menu({
             <TabRenderer
               selectedTab={selectedTab}
               setSelectedTab={setSelectedTab}
-              controls={controls}
+              config={config}
               onControlChange={handleControlChange}
               languageData={data?.languages || {}}
               data={data}

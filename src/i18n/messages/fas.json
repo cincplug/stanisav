@@ -1,59 +1,5 @@
 {
   "controls": {
-    "axis": {
-      "label": "محور",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
-    },
-    "bgColor": {
-      "label": "پس‌زمینه"
-    },
-    "cameraX": {
-      "label": "دوربین X"
-    },
-    "cameraY": {
-      "label": "دوربین Y"
-    },
-    "cameraZ": {
-      "label": "دوربین Z"
-    },
-    "d4": {
-      "label": "نوعی ۴ بعدی"
-    },
-    "earSize": {
-      "label": "اندازه گوش"
-    },
-    "eyeSize": {
-      "label": "اندازه چشم"
-    },
-    "eyeX": {
-      "label": "چشم X"
-    },
-    "eyeY": {
-      "label": "چشم Y"
-    },
-    "eyeZ": {
-      "label": "چشم Z"
-    },
-    "friction": {
-      "label": "اصطکاک"
-    },
-    "groups": {
-      "camera": "دوربین",
-      "colors": "رنگ‌ها",
-      "mesha": "Mesha",
-      "motion": "حرکت",
-      "scene": "صحنه"
-    },
-    "hue": {
-      "label": "فام"
-    },
-    "irrationality": {
-      "label": "غیرمنطقی بودن"
-    },
     "isAutoplay": {
       "label": "پخش خودکار"
     },
@@ -80,27 +26,6 @@
     "labelSize": {
       "label": "اندازه برچسب"
     },
-    "light": {
-      "label": "نور"
-    },
-    "lightness": {
-      "label": "روشنایی"
-    },
-    "meshaSize": {
-      "label": "اندازه Mesha"
-    },
-    "moustacheSize": {
-      "label": "اندازه سبیل"
-    },
-    "noseSize": {
-      "label": "اندازه بینی"
-    },
-    "rotateSpeed": {
-      "label": "سرعت چرخش"
-    },
-    "saturation": {
-      "label": "اشباع"
-    },
     "showMore": {
       "label": "نمایش بیشتر"
     },
@@ -122,21 +47,6 @@
         "wordOrder": "ترتیب کلمات",
         "wordOrderFlexibility": "انعطاف‌پذیری ترتیب کلمات"
       }
-    },
-    "switchDuration": {
-      "label": "مدت زمان تغییر"
-    },
-    "teethSize": {
-      "label": "اندازه دندان‌ها"
-    },
-    "tension": {
-      "label": "کشش"
-    },
-    "tongueSize": {
-      "label": "اندازه زبان"
-    },
-    "zoomDistance": {
-      "label": "فاصله زوم"
     }
   },
   "filters": {

@@ -1,28 +1,19 @@
-import controlsConfig from "../../config/controls.json";
-import { useControlsContext } from "../../contexts/ControlsContext";
-import AdvancedControls from "./AdvancedControls";
+import staticConfig from "../../config/config.json";
 import ControlItemGroup from "./ControlItemGroup";
 import "./ControlsTab.css";
 
+// All top-level group names from config, excluding "header" which renders above the tabs
+const configGroupNames = Object.keys(staticConfig).filter(
+  (group) => group !== "header",
+);
+
 const ControlsTab = ({ className }) => {
-  const { controls, updateControl } = useControlsContext();
-
-  const uniqueGroups = Object.keys(controlsConfig).filter(
-    (group) => group !== "Header",
-  );
-
+  // ConfigContext is consumed inside ControlItemGroup; nothing extra needed here
   return (
     <div className={`control-section ${className}`}>
-      {uniqueGroups.map((groupName) => (
-        <ControlItemGroup
-          key={groupName}
-          groupName={groupName}
-          controls={controls}
-          onChange={updateControl}
-          showFieldset
-        />
+      {configGroupNames.map((groupName) => (
+        <ControlItemGroup key={groupName} groupName={groupName} showFieldset />
       ))}
-      <AdvancedControls />
     </div>
   );
 };

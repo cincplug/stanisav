@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import App from "./App.jsx";
 import { AppStateProvider } from "./contexts/AppStateContext";
-import { ControlsProvider } from "./contexts/ControlsContext";
+import { ConfigProvider } from "./contexts/ConfigContext.jsx";
 import { DragProvider } from "./contexts/DragContext.jsx";
 import { EntranceProvider } from "./contexts/EntranceContext";
 import { I18nProvider } from "./contexts/I18nContext";
@@ -20,7 +20,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <I18nProvider>
       <AppStateProvider>
-        <ControlsProvider>
+        <ConfigProvider>
           <LanguageColorsProvider>
             <LanguageSelectionProvider>
               <EntranceProvider>
@@ -54,7 +54,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               </EntranceProvider>
             </LanguageSelectionProvider>
           </LanguageColorsProvider>
-        </ControlsProvider>
+        </ConfigProvider>
       </AppStateProvider>
     </I18nProvider>
   </React.StrictMode>,

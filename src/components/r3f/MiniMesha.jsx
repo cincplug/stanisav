@@ -1,8 +1,9 @@
 import { Canvas } from "@react-three/fiber";
-import { config } from "../../modules/configStore";
+import { useConfigContext } from "../../contexts/ConfigContext";
 import Mesha from "../r3f/Mesha.jsx";
 
 const MiniMesha = ({ languageCode }) => {
+  const { config } = useConfigContext();
   const { cameraX, cameraY, cameraZ, fov, near, far } = config.camera;
   const { bgColor } = config.colors;
 

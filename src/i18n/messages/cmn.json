@@ -1,59 +1,5 @@
 {
   "controls": {
-    "axis": {
-      "label": "轴",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
-    },
-    "bgColor": {
-      "label": "背景"
-    },
-    "cameraX": {
-      "label": "摄像机 X"
-    },
-    "cameraY": {
-      "label": "摄像机 Y"
-    },
-    "cameraZ": {
-      "label": "摄像机 Z"
-    },
-    "d4": {
-      "label": "某种4D"
-    },
-    "earSize": {
-      "label": "耳朵大小"
-    },
-    "eyeSize": {
-      "label": "眼睛大小"
-    },
-    "eyeX": {
-      "label": "眼睛 X"
-    },
-    "eyeY": {
-      "label": "眼睛 Y"
-    },
-    "eyeZ": {
-      "label": "眼睛 Z"
-    },
-    "friction": {
-      "label": "摩擦力"
-    },
-    "groups": {
-      "camera": "摄像机",
-      "colors": "颜色",
-      "mesha": "Mesha",
-      "motion": "运动",
-      "scene": "场景"
-    },
-    "hue": {
-      "label": "色相"
-    },
-    "irrationality": {
-      "label": "非理性"
-    },
     "isAutoplay": {
       "label": "自动播放"
     },
@@ -80,27 +26,6 @@
     "labelSize": {
       "label": "标签大小"
     },
-    "light": {
-      "label": "灯光"
-    },
-    "lightness": {
-      "label": "亮度"
-    },
-    "meshaSize": {
-      "label": "Mesha 大小"
-    },
-    "moustacheSize": {
-      "label": "胡须大小"
-    },
-    "noseSize": {
-      "label": "鼻子大小"
-    },
-    "rotateSpeed": {
-      "label": "旋转速度"
-    },
-    "saturation": {
-      "label": "饱和度"
-    },
     "showMore": {
       "label": "显示更多"
     },
@@ -122,21 +47,6 @@
         "wordOrder": "语序",
         "wordOrderFlexibility": "语序灵活性"
       }
-    },
-    "switchDuration": {
-      "label": "切换时长"
-    },
-    "teethSize": {
-      "label": "牙齿大小"
-    },
-    "tension": {
-      "label": "张力"
-    },
-    "tongueSize": {
-      "label": "舌头大小"
-    },
-    "zoomDistance": {
-      "label": "缩放距离"
     }
   },
   "filters": {

@@ -1,59 +1,5 @@
 {
   "controls": {
-    "axis": {
-      "label": "Axis",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
-    },
-    "bgColor": {
-      "label": "Launin bango"
-    },
-    "cameraX": {
-      "label": "Kyamara X"
-    },
-    "cameraY": {
-      "label": "Kyamara Y"
-    },
-    "cameraZ": {
-      "label": "Kyamara Z"
-    },
-    "d4": {
-      "label": "Wani irin 4D"
-    },
-    "earSize": {
-      "label": "Girman kunne"
-    },
-    "eyeSize": {
-      "label": "Girman ido"
-    },
-    "eyeX": {
-      "label": "Ido X"
-    },
-    "eyeY": {
-      "label": "Ido Y"
-    },
-    "eyeZ": {
-      "label": "Ido Z"
-    },
-    "friction": {
-      "label": "Gogayya"
-    },
-    "groups": {
-      "camera": "Kyamara",
-      "colors": "Launuka",
-      "mesha": "Mesha",
-      "motion": "Motsi",
-      "scene": "Yanayi"
-    },
-    "hue": {
-      "label": "Inuwar Launi"
-    },
-    "irrationality": {
-      "label": "Rashin hankali"
-    },
     "isAutoplay": {
       "label": "Kunna Kai Tsaye"
     },
@@ -80,27 +26,6 @@
     "labelSize": {
       "label": "Girman alama"
     },
-    "light": {
-      "label": "Haske"
-    },
-    "lightness": {
-      "label": "Haske"
-    },
-    "meshaSize": {
-      "label": "Girman Mesha"
-    },
-    "moustacheSize": {
-      "label": "Girman gashin baki"
-    },
-    "noseSize": {
-      "label": "Girman hanci"
-    },
-    "rotateSpeed": {
-      "label": "Saurin juyawa"
-    },
-    "saturation": {
-      "label": "Cikar Launi"
-    },
     "showMore": {
       "label": "Nuna ƙari"
     },
@@ -122,21 +47,6 @@
         "wordOrder": "Tsarin kalma",
         "wordOrderFlexibility": "Sassauci na tsarin kalma"
       }
-    },
-    "switchDuration": {
-      "label": "Tsawon canzawa"
-    },
-    "teethSize": {
-      "label": "Girman haƙori"
-    },
-    "tension": {
-      "label": "Ƙarfin ja"
-    },
-    "tongueSize": {
-      "label": "Girman harshe"
-    },
-    "zoomDistance": {
-      "label": "Nisan zum"
     }
   },
   "filters": {

@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef } from "react";
 import controlsConfig from "../../config/controls.json";
-import { useControlsContext } from "../../contexts/ControlsContext";
+import { useConfigContext } from "../../contexts/ControlsContext";
 import { localizeControlConfig } from "../../utils/i18nUtils";
 import "./Flowers.css";
 import { thumbIconMap } from "./thumbIconMap";
@@ -9,7 +9,7 @@ import Range from "./ux/Range";
 const Flowers = ({ selectedLanguage }) => {
   if (selectedLanguage) return null;
 
-  const { controls, updateControl } = useControlsContext();
+  const { controls, updateConfigValue } = useConfigContext();
   const containerRef = useRef(null);
 
   const rangeControls = Object.entries(controlsConfig)
@@ -40,7 +40,9 @@ const Flowers = ({ selectedLanguage }) => {
               step={step}
               value={controls[id]}
               tooltip={`${label}: ${controls[id]}`}
-              onChange={(e) => updateControl(id, parseFloat(e.target.value))}
+              onChange={(e) =>
+                updateConfigValue(id, parseFloat(e.target.value))
+              }
               thumbIcon={thumbIconMap[id]}
             />
           </div>

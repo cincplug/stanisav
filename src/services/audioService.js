@@ -1,32 +1,18 @@
-/**
- * Simple local audio service for language samples
- */
-
 import audioAnalysisService from "./audioAnalysisService.js";
 
-// Simple cache for audio URLs
 const audioUrlCache = new Map();
-
-// Track selected audio elements for analysis
 const selectedAudioElements = new Set();
 
-/**
- * Get audio URL for a language using local files
- * Expected file format: /audio/samples/{languageCode}.mp3 or /audio/samples/{languageCode}-luka.mp3
- */
 export async function getLanguageAudioUrl(languageCode, isLuka = true) {
   const cacheKey = `${languageCode}-${isLuka ? "luka" : "regular"}`;
 
-  // Check cache first
   if (audioUrlCache.has(cacheKey)) {
     return audioUrlCache.get(cacheKey);
   }
 
-  // Choose file path based on isLuka setting
   const suffix = isLuka ? "-luka" : "";
   const audioUrl = `/audio/samples/${languageCode}${suffix}.mp3`;
 
-  // Test if file exists by trying to fetch it
   try {
     const response = await fetch(audioUrl, { method: "HEAD" });
     if (response.ok) {
@@ -36,33 +22,25 @@ export async function getLanguageAudioUrl(languageCode, isLuka = true) {
       audioUrlCache.set(cacheKey, null);
       return null;
     }
-  } catch (error) {
+  } catch {
     audioUrlCache.set(cacheKey, null);
     return null;
   }
 }
 
-/**
- * Setup audio element for visualization analysis
- */
-export async function setupAudioVisualization(audioElement) {
+// config must include meshaVisualization and voiceRange groups
+export async function setupAudioVisualization(audioElement, config) {
   if (!audioElement || selectedAudioElements.has(audioElement)) {
     return;
   }
 
   try {
-    // Initialize audio context if needed
     await audioAnalysisService.initializeAudioContext();
-
-    // Connect audio element to analyser
     audioAnalysisService.connectAudioElement(audioElement);
-
-    // Track this element
     selectedAudioElements.add(audioElement);
 
-    // Setup event listeners
     audioElement.addEventListener("play", () => {
-      audioAnalysisService.startAnalysis();
+      audioAnalysisService.startAnalysis(config);
     });
 
     audioElement.addEventListener("pause", () => {
@@ -73,7 +51,6 @@ export async function setupAudioVisualization(audioElement) {
       audioAnalysisService.stopAnalysis();
     });
 
-    // Cleanup when element is removed
     const cleanup = () => {
       selectedAudioElements.delete(audioElement);
       audioAnalysisService.stopAnalysis();
@@ -85,9 +62,6 @@ export async function setupAudioVisualization(audioElement) {
   }
 }
 
-/**
- * Get the audio analysis service instance
- */
 export function getAudioAnalysisService() {
   return audioAnalysisService;
 }

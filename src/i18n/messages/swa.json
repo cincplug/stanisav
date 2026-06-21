@@ -1,59 +1,5 @@
 {
   "controls": {
-    "axis": {
-      "label": "Mhimili",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
-    },
-    "bgColor": {
-      "label": "Mandharinyuma"
-    },
-    "cameraX": {
-      "label": "Kamera X"
-    },
-    "cameraY": {
-      "label": "Kamera Y"
-    },
-    "cameraZ": {
-      "label": "Kamera Z"
-    },
-    "d4": {
-      "label": "Aina fulani ya 4D"
-    },
-    "earSize": {
-      "label": "Ukubwa wa masikio"
-    },
-    "eyeSize": {
-      "label": "Ukubwa wa jicho"
-    },
-    "eyeX": {
-      "label": "Jicho X"
-    },
-    "eyeY": {
-      "label": "Jicho Y"
-    },
-    "eyeZ": {
-      "label": "Jicho Z"
-    },
-    "friction": {
-      "label": "Msuguano"
-    },
-    "groups": {
-      "camera": "Kamera",
-      "colors": "Rangi",
-      "mesha": "Mesha",
-      "motion": "Mwendo",
-      "scene": "Eneo"
-    },
-    "hue": {
-      "label": "Toni"
-    },
-    "irrationality": {
-      "label": "Ujinga"
-    },
     "isAutoplay": {
       "label": "Cheza kiotomatiki"
     },
@@ -80,27 +26,6 @@
     "labelSize": {
       "label": "Ukubwa wa lebo"
     },
-    "light": {
-      "label": "Mwanga"
-    },
-    "lightness": {
-      "label": "Mwangaza"
-    },
-    "meshaSize": {
-      "label": "Ukubwa wa Mesha"
-    },
-    "moustacheSize": {
-      "label": "Ukubwa wa masharubu"
-    },
-    "noseSize": {
-      "label": "Ukubwa wa pua"
-    },
-    "rotateSpeed": {
-      "label": "Kasi ya mzunguko"
-    },
-    "saturation": {
-      "label": "Ukolezi"
-    },
     "showMore": {
       "label": "Onyesha zaidi"
     },
@@ -122,21 +47,6 @@
         "wordOrder": "Mpangilio wa maneno",
         "wordOrderFlexibility": "Kubadilika kwa mpangilio wa maneno"
       }
-    },
-    "switchDuration": {
-      "label": "Muda wa kubadilisha"
-    },
-    "teethSize": {
-      "label": "Ukubwa wa meno"
-    },
-    "tension": {
-      "label": "Mvutano"
-    },
-    "tongueSize": {
-      "label": "Ukubwa wa ulimi"
-    },
-    "zoomDistance": {
-      "label": "Umbali wa kukuza"
     }
   },
   "filters": {

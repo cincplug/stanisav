@@ -10,8 +10,7 @@
     },
     {
       "id": "controls",
-      "component": "ControlsTab",
-      "isVisual": true
+      "component": "ControlsTab"
     },
     {
       "id": "search",

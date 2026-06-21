@@ -4,7 +4,7 @@ import IdCard from "./components/menu/IdCard";
 import Menu from "./components/menu/Menu";
 import Stage from "./components/r3f/Stage";
 import { useAppStateContext } from "./contexts/AppStateContext";
-import { useControlsContext } from "./contexts/ControlsContext";
+import { useConfigContext } from "./contexts/ConfigContext.jsx";
 import { useI18nContext } from "./contexts/I18nContext";
 import { useLanguageColorsContext } from "./contexts/LanguageColorsContext.jsx";
 import { useLanguageSelectionContext } from "./contexts/LanguageSelectionContext";
@@ -26,10 +26,11 @@ function App() {
   } = useAppStateContext();
 
   const isMobile = useMediaQuery();
-  const { controls, updateControl } = useControlsContext();
+  const { config, updateConfigValue } = useConfigContext();
   const { selectedLanguage } = useLanguageSelectionContext();
   const { pausePlaylist } = usePlaylistContext();
-  const { isIdCardVisible, isMenuExpanded, isSegmented, labelSize } = controls;
+  const { isIdCardVisible, isMenuExpanded } = config.global;
+  const { isSegmented, labelSize } = config.header;
   const { sampleUrl, sub } = data?.languageData[selectedLanguage] || {};
 
   const { languageColors } = useLanguageColorsContext();
@@ -48,15 +49,19 @@ function App() {
       className={`app-container${isRtl ? " rtl" : ""} ${isLoading ? "loading" : ""} ${isMenuExpanded ? "menu-expanded" : ""}`}
     >
       <Menu
-        controls={controls}
-        onControlChange={updateControl}
+        config={config}
+        onControlChange={updateConfigValue}
         data={data}
         isLoading={isLoading}
         isSceneReady={isSceneReady}
         onCameraFocus={handleCameraFocus}
         isExpanded={isMenuExpanded}
-        onToggleMenu={() => updateControl("isMenuExpanded", !isMenuExpanded)}
-        onToggleSegmentation={() => updateControl("isSegmented", !isSegmented)}
+        onToggleMenu={() =>
+          updateConfigValue("global.isMenuExpanded", !isMenuExpanded)
+        }
+        onToggleSegmentation={() =>
+          updateConfigValue("isSegmented", !isSegmented)
+        }
         filters={filters}
         onFiltersChange={setFilters}
         languageColors={languageColors}
@@ -80,7 +85,7 @@ function App() {
             sampleUrl={sampleUrl}
             onSourceVideoClick={pausePlaylist}
             onToggleSubtitle={(nextValue) =>
-              updateControl("isIdCardVisible", nextValue)
+              updateConfigValue("global.isIdCardVisible", nextValue)
             }
             sub={sub}
             languageColor={languageColors[selectedLanguage]}

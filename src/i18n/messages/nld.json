@@ -1,59 +1,5 @@
 {
   "controls": {
-    "axis": {
-      "label": "As",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
-    },
-    "bgColor": {
-      "label": "Achtergrond"
-    },
-    "cameraX": {
-      "label": "Camera X"
-    },
-    "cameraY": {
-      "label": "Camera Y"
-    },
-    "cameraZ": {
-      "label": "Camera Z"
-    },
-    "d4": {
-      "label": "Een soort 4D"
-    },
-    "earSize": {
-      "label": "Oorgrootte"
-    },
-    "eyeSize": {
-      "label": "Ooggrootte"
-    },
-    "eyeX": {
-      "label": "Oog X"
-    },
-    "eyeY": {
-      "label": "Oog Y"
-    },
-    "eyeZ": {
-      "label": "Oog Z"
-    },
-    "friction": {
-      "label": "Wrijving"
-    },
-    "groups": {
-      "camera": "Camera",
-      "colors": "Kleuren",
-      "mesha": "Mesha",
-      "motion": "Beweging",
-      "scene": "Scène"
-    },
-    "hue": {
-      "label": "Tint"
-    },
-    "irrationality": {
-      "label": "Irrationaliteit"
-    },
     "isAutoplay": {
       "label": "Automatisch afspelen"
     },
@@ -80,27 +26,6 @@
     "labelSize": {
       "label": "Labelgrootte"
     },
-    "light": {
-      "label": "Licht"
-    },
-    "lightness": {
-      "label": "Lichtheid"
-    },
-    "meshaSize": {
-      "label": "Mesha-grootte"
-    },
-    "moustacheSize": {
-      "label": "Snorgrootte"
-    },
-    "noseSize": {
-      "label": "Neusgrootte"
-    },
-    "rotateSpeed": {
-      "label": "Rotatiesnelheid"
-    },
-    "saturation": {
-      "label": "Verzadiging"
-    },
     "showMore": {
       "label": "Meer weergeven"
     },
@@ -122,21 +47,6 @@
         "wordOrder": "Woordvolgorde",
         "wordOrderFlexibility": "Flexibiliteit van woordvolgorde"
       }
-    },
-    "switchDuration": {
-      "label": "Wisselduur"
-    },
-    "teethSize": {
-      "label": "Tandgrootte"
-    },
-    "tension": {
-      "label": "Spanning"
-    },
-    "tongueSize": {
-      "label": "Tonggrootte"
-    },
-    "zoomDistance": {
-      "label": "Zoomafstand"
     }
   },
   "filters": {

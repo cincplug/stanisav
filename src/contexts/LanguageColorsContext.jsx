@@ -1,18 +1,31 @@
 import { createContext, useContext, useMemo } from "react";
 import { calculateLanguageColors } from "../utils/colorUtils";
 import { useAppStateContext } from "./AppStateContext";
-import { useControlsContext } from "./ControlsContext";
+import { useConfigContext } from "./ConfigContext";
 
 const ColorsContext = createContext(null);
 
 export const LanguageColorsProvider = ({ children }) => {
   const { data } = useAppStateContext();
-  const { controls } = useControlsContext();
+  const { config } = useConfigContext();
+  const { hue, lightness, saturation, hueCircle, maxSiblingSpread } =
+    config.colors;
 
   const languageColors = useMemo(() => {
-    if (!data?.languageData || !data?.languageLineages) return {};
-    return calculateLanguageColors(data.languageData, data.languageLineages);
-  }, [data?.languageData, data?.languageLineages, controls]);
+    if (!data) return {};
+
+    const { languageData, languageLineages } = data;
+
+    return calculateLanguageColors(
+      languageData,
+      languageLineages,
+      hue,
+      lightness,
+      saturation,
+      hueCircle,
+      maxSiblingSpread,
+    );
+  }, [data?.languageData, data?.languageLineages, config.header]);
 
   return (
     <ColorsContext.Provider value={{ languageColors }}>

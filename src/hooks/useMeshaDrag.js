@@ -1,17 +1,21 @@
 import { useDrag } from "@use-gesture/react";
 import { useRef } from "react";
-import { useControlsContext } from "../contexts/ControlsContext";
+import { useConfigContext } from "../contexts/ConfigContext.jsx";
 import { useDragContext } from "../contexts/DragContext.jsx";
 import { useLanguageSelectionContext } from "../contexts/LanguageSelectionContext.jsx";
-import { config } from "../modules/configStore";
-import { resolveControlBounds } from "../utils/controlUtils";
+import { resolveControlBounds } from "../utils/configUtils.js";
 
 export const useMeshaDrag = (bindings, linguisticProperty = null) => {
-  const { controls, updateControl, advancedControls, updateAdvancedControl } =
-    useControlsContext();
+  const {
+    controls,
+    updateConfigValue,
+    advancedControls,
+    updateAdvancedControl,
+  } = useConfigContext();
   const { notifyDragStart, notifyDragEnd } = useDragContext();
   const { selectProperty } = useLanguageSelectionContext();
 
+  const { config } = useConfigContext();
   const { dragSensitivity, timeRate } = config.meshaVisualization;
 
   const dragStartValuesRef = useRef({});
@@ -24,7 +28,7 @@ export const useMeshaDrag = (bindings, linguisticProperty = null) => {
   };
 
   const applyValue = (binding, value) => {
-    if (binding.controlKey) updateControl(binding.controlKey, value);
+    if (binding.controlKey) updateConfigValue(binding.controlKey, value);
     if (binding.advancedKey) updateAdvancedControl(binding.advancedKey, value);
   };
 

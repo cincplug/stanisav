@@ -1,59 +1,5 @@
 {
   "controls": {
-    "axis": {
-      "label": "Trục",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
-    },
-    "bgColor": {
-      "label": "Nền"
-    },
-    "cameraX": {
-      "label": "Máy ảnh X"
-    },
-    "cameraY": {
-      "label": "Máy ảnh Y"
-    },
-    "cameraZ": {
-      "label": "Máy ảnh Z"
-    },
-    "d4": {
-      "label": "Một dạng 4D nào đó"
-    },
-    "earSize": {
-      "label": "Kích thước tai"
-    },
-    "eyeSize": {
-      "label": "Kích thước mắt"
-    },
-    "eyeX": {
-      "label": "Mắt X"
-    },
-    "eyeY": {
-      "label": "Mắt Y"
-    },
-    "eyeZ": {
-      "label": "Mắt Z"
-    },
-    "friction": {
-      "label": "Ma sát"
-    },
-    "groups": {
-      "camera": "Máy ảnh",
-      "colors": "Màu sắc",
-      "mesha": "Mesha",
-      "motion": "Chuyển động",
-      "scene": "Cảnh"
-    },
-    "hue": {
-      "label": "Sắc độ"
-    },
-    "irrationality": {
-      "label": "Phi lý"
-    },
     "isAutoplay": {
       "label": "Tự động phát"
     },
@@ -80,27 +26,6 @@
     "labelSize": {
       "label": "Kích thước nhãn"
     },
-    "light": {
-      "label": "Ánh"
-    },
-    "lightness": {
-      "label": "Độ sáng"
-    },
-    "meshaSize": {
-      "label": "Kích thước Mesha"
-    },
-    "moustacheSize": {
-      "label": "Kích thước ria mép"
-    },
-    "noseSize": {
-      "label": "Kích thước mũi"
-    },
-    "rotateSpeed": {
-      "label": "Tốc độ xoay"
-    },
-    "saturation": {
-      "label": "Độ bão hòa"
-    },
     "showMore": {
       "label": "Hiển thị thêm"
     },
@@ -122,21 +47,6 @@
         "wordOrder": "Trật tự từ",
         "wordOrderFlexibility": "Độ linh hoạt trật tự từ"
       }
-    },
-    "switchDuration": {
-      "label": "Thời gian chuyển đổi"
-    },
-    "teethSize": {
-      "label": "Kích thước răng"
-    },
-    "tension": {
-      "label": "Độ căng"
-    },
-    "tongueSize": {
-      "label": "Kích thước lưỡi"
-    },
-    "zoomDistance": {
-      "label": "Khoảng cách thu phóng"
     }
   },
   "filters": {

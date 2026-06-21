@@ -1,11 +1,11 @@
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
-import { config } from "../modules/configStore";
-
-const { timeRate } = config.meshaVisualization;
+import { useConfigContext } from "../contexts/ConfigContext";
 
 export const useThrottledFrame = (callback) => {
   const accRef = useRef(0);
+  const { config } = useConfigContext();
+  const { timeRate } = config.meshaVisualization;
 
   useFrame((state, delta) => {
     accRef.current += delta * 1000;

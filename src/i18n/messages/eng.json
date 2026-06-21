@@ -1,56 +1,10 @@
 {
   "controls": {
-    "bgColor": {
-      "label": "Background"
-    },
-    "cameraX": {
-      "label": "Camera X"
-    },
-    "cameraY": {
-      "label": "Camera Y"
-    },
-    "cameraZ": {
-      "label": "Camera Z"
-    },
-    "earSize": {
-      "label": "Ear size"
-    },
-    "eyeSize": {
-      "label": "Eye size"
-    },
-    "eyeX": {
-      "label": "Eye X"
-    },
-    "eyeY": {
-      "label": "Eye Y"
-    },
-    "eyeZ": {
-      "label": "Eye Z"
-    },
-    "friction": {
-      "label": "Friction"
-    },
-    "saturation": {
-      "label": "Saturation"
-    },
-    "lightness": {
-      "label": "Lightness"
-    },
-    "groups": {
-      "camera": "Camera",
-      "colors": "Colors",
-      "mesha": "Mesha",
-      "motion": "Motion",
-      "scene": "Scene"
-    },
     "showMore": {
       "label": "Show more"
     },
     "isIdCardVisible": {
       "label": "ID card"
-    },
-    "hue": {
-      "label": "Hue"
     },
     "isAutoplay": {
       "label": "Autoplay"
@@ -72,27 +26,6 @@
     "labelSize": {
       "label": "Label size"
     },
-    "light": {
-      "label": "Light"
-    },
-    "rotateSpeed": {
-      "label": "Rotation speed"
-    },
-    "irrationality": {
-      "label": "Irrationality"
-    },
-    "d4": {
-      "label": "Some kind of 4d"
-    },
-    "meshaSize": {
-      "label": "Mesha size"
-    },
-    "moustacheSize": {
-      "label": "Moustache size"
-    },
-    "noseSize": {
-      "label": "Nose size"
-    },
     "sortBy": {
       "label": "Sorting",
       "options": {
@@ -112,31 +45,8 @@
         "scripts": "Scripts"
       }
     },
-    "axis": {
-      "label": "Axis",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
-    },
     "isSegmented": {
       "label": "Segmentation"
-    },
-    "switchDuration": {
-      "label": "Switch duration"
-    },
-    "teethSize": {
-      "label": "Teeth size"
-    },
-    "tension": {
-      "label": "Tension"
-    },
-    "tongueSize": {
-      "label": "Tongue size"
-    },
-    "zoomDistance": {
-      "label": "Zoom distance"
     }
   },
   "filters": {

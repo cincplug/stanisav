@@ -1,59 +1,5 @@
 {
   "controls": {
-    "axis": {
-      "label": "Eixo",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
-    },
-    "bgColor": {
-      "label": "Fundo"
-    },
-    "cameraX": {
-      "label": "Câmera X"
-    },
-    "cameraY": {
-      "label": "Câmera Y"
-    },
-    "cameraZ": {
-      "label": "Câmera Z"
-    },
-    "d4": {
-      "label": "Algum tipo de 4D"
-    },
-    "earSize": {
-      "label": "Tamanho da orelha"
-    },
-    "eyeSize": {
-      "label": "Tamanho do olho"
-    },
-    "eyeX": {
-      "label": "Olho X"
-    },
-    "eyeY": {
-      "label": "Olho Y"
-    },
-    "eyeZ": {
-      "label": "Olho Z"
-    },
-    "friction": {
-      "label": "Atrito"
-    },
-    "groups": {
-      "camera": "Câmera",
-      "colors": "Cores",
-      "mesha": "Mesha",
-      "motion": "Movimento",
-      "scene": "Cena"
-    },
-    "hue": {
-      "label": "Matiz"
-    },
-    "irrationality": {
-      "label": "Irracionalidade"
-    },
     "isAutoplay": {
       "label": "Reprodução automática"
     },
@@ -80,27 +26,6 @@
     "labelSize": {
       "label": "Tamanho do rótulo"
     },
-    "light": {
-      "label": "Luz"
-    },
-    "lightness": {
-      "label": "Luminosidade"
-    },
-    "meshaSize": {
-      "label": "Tamanho de Mesha"
-    },
-    "moustacheSize": {
-      "label": "Tamanho do bigode"
-    },
-    "noseSize": {
-      "label": "Tamanho do nariz"
-    },
-    "rotateSpeed": {
-      "label": "Velocidade de rotação"
-    },
-    "saturation": {
-      "label": "Saturação"
-    },
     "showMore": {
       "label": "Mostrar mais"
     },
@@ -122,21 +47,6 @@
         "wordOrder": "Ordem das palavras",
         "wordOrderFlexibility": "Flexibilidade da ordem das palavras"
       }
-    },
-    "switchDuration": {
-      "label": "Duração da transição"
-    },
-    "teethSize": {
-      "label": "Tamanho dos dentes"
-    },
-    "tension": {
-      "label": "Tensão"
-    },
-    "tongueSize": {
-      "label": "Tamanho da língua"
-    },
-    "zoomDistance": {
-      "label": "Distância do zoom"
     }
   },
   "filters": {

@@ -1,6 +1,6 @@
 import { Text } from "@react-three/drei";
 import { useEffect, useMemo, useRef } from "react";
-import { config } from "../../modules/configStore";
+import { useConfigContext } from "../../contexts/ConfigContext";
 import { getClusterTopCenter } from "../../utils/sceneUtils";
 
 const LabelsClusterTitle = ({ languagePositions, title }) => {
@@ -11,15 +11,18 @@ const LabelsClusterTitle = ({ languagePositions, title }) => {
     [languagePositions],
   );
 
+  const { config } = useConfigContext();
+  const { titleOffset } = config.segmentation;
+
   useEffect(() => {
     if (titleRef.current && topCenter) {
       titleRef.current.position.set(
         topCenter.x,
-        topCenter.y + config.segmentation.titleOffset,
+        topCenter.y + titleOffset,
         topCenter.z,
       );
     }
-  }, [topCenter]);
+  }, [topCenter, titleOffset]);
 
   return (
     <Text

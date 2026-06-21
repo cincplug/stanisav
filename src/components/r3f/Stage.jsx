@@ -2,14 +2,13 @@ import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
 import lineages from "../../config/lineages.json";
-import { useControlsContext } from "../../contexts/ControlsContext";
+import { useConfigContext } from "../../contexts/ConfigContext";
 import { useDragContext } from "../../contexts/DragContext";
 import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useI18nContext } from "../../contexts/I18nContext";
 import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext";
 import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
 import { useDataManager } from "../../hooks/useDataManager";
-import { config } from "../../modules/configStore";
 import { LayoutEngine } from "../../modules/layoutEngine";
 import { groupLanguages } from "../../utils/groupingUtils";
 import {
@@ -25,7 +24,6 @@ import SceneReadyGate from "./SceneReadyGate";
 import StageLight from "./StageLight";
 
 const Stage = ({ onDataLoaded, onLoadingChange }) => {
-  const { controls } = useControlsContext();
   const { locale, isLocaleReady } = useI18nContext();
   const { filters, selectedLanguage } = useLanguageSelectionContext();
   const { languageColors } = useLanguageColorsContext();
@@ -39,6 +37,7 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
   } = useEntranceContext();
   const { isDragging } = useDragContext();
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
+  const { config } = useConfigContext();
   const { rotateSpeedFactor } = config;
   const { cameraX, cameraY, cameraZ, fov, near, far } = config.camera;
   const { radialOffsetModifier, sphereRadius } = config.layout;
@@ -46,8 +45,8 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
   const { tension, friction, isMotionReduced } = config.motion;
   const { meshaSize } = config.meshaVisualization;
   const { isMyMesha, rotateSpeed, irrationality, axis } = config.scene;
-
-  const { sortBy, labelContent, isReverse, isSegmented, labelSize } = controls;
+  const { sortBy, labelContent, isReverse, isSegmented, labelSize } =
+    config.header;
 
   const orbitControlsRef = useRef();
 
@@ -69,7 +68,7 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
           speakerData,
           typologicalFeatures,
         },
-        controls,
+        config,
       ),
     [
       layoutEngine,

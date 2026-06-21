@@ -2,18 +2,19 @@ import { extend } from "@react-three/fiber";
 import { useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { dragBindings } from "../../config/dragBindings.js";
+import { useConfigContext } from "../../contexts/ConfigContext";
 import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useAudioData } from "../../hooks/useAudioData.js";
 import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
-import { config } from "../../modules/configStore";
 import { createAudioSurface } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
 
 const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
   const { audioData } = useAudioData();
+  const { config } = useConfigContext();
   const {
     tongueSize,
     tongueX,
@@ -22,6 +23,8 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
     tongueWidth,
     tongueHeight,
     tongueLength,
+    maxDeformation,
+    verticalVariationMultiplier,
   } = config.meshaVisualization;
 
   const meshRef = useRef();
@@ -39,6 +42,8 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
       size: tongueSize,
       bend: 0,
       radius: 1,
+      maxDeformation,
+      verticalVariationMultiplier,
     });
 
     if (meshRef.current) {

@@ -1,59 +1,5 @@
 {
   "controls": {
-    "axis": {
-      "label": "Achse",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
-    },
-    "bgColor": {
-      "label": "Hintergrund"
-    },
-    "cameraX": {
-      "label": "Kamera X"
-    },
-    "cameraY": {
-      "label": "Kamera Y"
-    },
-    "cameraZ": {
-      "label": "Kamera Z"
-    },
-    "d4": {
-      "label": "Eine Art von 4D"
-    },
-    "earSize": {
-      "label": "Ohrengröße"
-    },
-    "eyeSize": {
-      "label": "Augengröße"
-    },
-    "eyeX": {
-      "label": "Auge X"
-    },
-    "eyeY": {
-      "label": "Auge Y"
-    },
-    "eyeZ": {
-      "label": "Auge Z"
-    },
-    "friction": {
-      "label": "Reibung"
-    },
-    "groups": {
-      "camera": "Kamera",
-      "colors": "Farben",
-      "mesha": "Mesha",
-      "motion": "Bewegung",
-      "scene": "Szene"
-    },
-    "hue": {
-      "label": "Farbton"
-    },
-    "irrationality": {
-      "label": "Irrationalität"
-    },
     "isAutoplay": {
       "label": "Automatische Wiedergabe"
     },
@@ -80,27 +26,6 @@
     "labelSize": {
       "label": "Beschriftungsgröße"
     },
-    "light": {
-      "label": "Licht"
-    },
-    "lightness": {
-      "label": "Helligkeit"
-    },
-    "meshaSize": {
-      "label": "Mesha-Größe"
-    },
-    "moustacheSize": {
-      "label": "Schnurrbart-Größe"
-    },
-    "noseSize": {
-      "label": "Nasengröße"
-    },
-    "rotateSpeed": {
-      "label": "Drehgeschwindigkeit"
-    },
-    "saturation": {
-      "label": "Sättigung"
-    },
     "showMore": {
       "label": "Mehr anzeigen"
     },
@@ -122,21 +47,6 @@
         "wordOrder": "Wortstellung",
         "wordOrderFlexibility": "Wortstellungsflexibilität"
       }
-    },
-    "switchDuration": {
-      "label": "Wechseldauer"
-    },
-    "teethSize": {
-      "label": "Zahnzgröße"
-    },
-    "tension": {
-      "label": "Spannung"
-    },
-    "tongueSize": {
-      "label": "Zungengröße"
-    },
-    "zoomDistance": {
-      "label": "Zoom-Distanz"
     }
   },
   "filters": {

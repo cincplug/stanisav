@@ -1,4 +1,32 @@
 {
+  "header": {
+    "sortBy": [
+      "alphabetically",
+      "speakers",
+      "family",
+      "tonality",
+      "morphology",
+      "wordOrder",
+      "wordOrderFlexibility",
+      "evidentiality",
+      "verbAspect",
+      "phonemeCount",
+      "caseCount",
+      "nounClassCount",
+      "maxConsonantClusterSize"
+    ],
+    "labelContent": ["name", "nativeName", "isoCode"],
+    "labelSize": [1.5, 1.75, 2],
+    "isReverse": false,
+    "isSegmented": false
+  },
+  "global": {
+    "isMenuExpanded": false,
+    "isIdCardVisible": false,
+    "isMyMesha": false,
+    "isAutoplay": true,
+    "isLuka": true
+  },
   "entrance": {
     "labelsEntranceDuration": 12000,
     "labelRevealDuration": 500,
@@ -18,9 +46,7 @@
     "d4": true,
     "rotateSpeed": 1,
     "axis": "y",
-    "isMyMesha": false,
-    "isAutoplay": true,
-    "isLuka": true
+    "hasLines": true
   },
   "segmentation": {
     "margin": 0.9,
@@ -111,7 +137,7 @@
     "deformationSmoothness": 0.1,
     "amplitudeThreshold": 0.1,
     "blinkDuration": 0.2,
-    "saltoAmplitude": 0.6,
+    "saltoAmplitude": 0.8,
     "saltoFrequency": 2.1,
     "saltoPow": 125,
     "decayRate": 0.7,
@@ -154,7 +180,6 @@
   },
   "speechBalloon": {
     "defaultPosition": "top-right",
-    "defaultAnchorOffset": [0, 0, 0],
     "durationBase": 1500,
     "durationPerCharacter": 30,
     "durationDismiss": 400

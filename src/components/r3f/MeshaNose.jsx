@@ -1,10 +1,10 @@
 import { useRef } from "react";
 import { dragBindings } from "../../config/dragBindings.js";
+import { useConfigContext } from "../../contexts/ConfigContext";
 import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
-import { config } from "../../modules/configStore";
 
 const MeshaNose = ({
   position,
@@ -20,6 +20,7 @@ const MeshaNose = ({
   const segmentCRef = useRef();
   const highlightMaterial = useHighlightMaterial(0, 2);
 
+  const { config } = useConfigContext();
   const { segments, pupilSize } = config.meshaVisualization;
 
   const bind = useMeshaDrag(dragBindings.nose, "wordOrder");

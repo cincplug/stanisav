@@ -1,59 +1,5 @@
 {
   "controls": {
-    "axis": {
-      "label": "Asse",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
-    },
-    "bgColor": {
-      "label": "Sfondo"
-    },
-    "cameraX": {
-      "label": "Telecamera X"
-    },
-    "cameraY": {
-      "label": "Telecamera Y"
-    },
-    "cameraZ": {
-      "label": "Telecamera Z"
-    },
-    "d4": {
-      "label": "Una specie di 4D"
-    },
-    "earSize": {
-      "label": "Dimensione orecchie"
-    },
-    "eyeSize": {
-      "label": "Dimensione occhio"
-    },
-    "eyeX": {
-      "label": "Occhio X"
-    },
-    "eyeY": {
-      "label": "Occhio Y"
-    },
-    "eyeZ": {
-      "label": "Occhio Z"
-    },
-    "friction": {
-      "label": "Attrito"
-    },
-    "groups": {
-      "camera": "Telecamera",
-      "colors": "Colori",
-      "mesha": "Mesha",
-      "motion": "Movimento",
-      "scene": "Scena"
-    },
-    "hue": {
-      "label": "Tonalità"
-    },
-    "irrationality": {
-      "label": "Irrazionalità"
-    },
     "isAutoplay": {
       "label": "Riproduzione automatica"
     },
@@ -80,27 +26,6 @@
     "labelSize": {
       "label": "Dimensione etichetta"
     },
-    "light": {
-      "label": "Luce"
-    },
-    "lightness": {
-      "label": "Luminosità"
-    },
-    "meshaSize": {
-      "label": "Dimensione di Mesha"
-    },
-    "moustacheSize": {
-      "label": "Dimensione baffi"
-    },
-    "noseSize": {
-      "label": "Dimensione naso"
-    },
-    "rotateSpeed": {
-      "label": "Velocità di rotazione"
-    },
-    "saturation": {
-      "label": "Saturazione"
-    },
     "showMore": {
       "label": "Mostra di più"
     },
@@ -122,21 +47,6 @@
         "wordOrder": "Ordine delle parole",
         "wordOrderFlexibility": "Flessibilità dell'ordine delle parole"
       }
-    },
-    "switchDuration": {
-      "label": "Durata transizione"
-    },
-    "teethSize": {
-      "label": "Dimensione denti"
-    },
-    "tension": {
-      "label": "Tensione"
-    },
-    "tongueSize": {
-      "label": "Dimensione lingua"
-    },
-    "zoomDistance": {
-      "label": "Distanza zoom"
     }
   },
   "filters": {

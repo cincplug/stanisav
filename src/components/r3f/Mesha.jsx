@@ -5,13 +5,13 @@ import { Euler, MathUtils, Quaternion } from "three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
 import { useAppStateContext } from "../../contexts/AppStateContext.jsx";
+import { useConfigContext } from "../../contexts/ConfigContext";
 import { useDragContext } from "../../contexts/DragContext.jsx";
 import { useEntranceContext } from "../../contexts/EntranceContext.jsx";
 import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext.jsx";
 import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext.jsx";
 import { useShaderMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
-import { config } from "../../modules/configStore";
 import microphoneService from "../../services/microphoneService.js";
 import { shiftHue } from "../../utils/colorUtils";
 import {
@@ -46,6 +46,21 @@ const Mesha = ({
 
   const { data } = useAppStateContext();
   const { languageColors } = useLanguageColorsContext();
+  const { config } = useConfigContext();
+  const { white, labelTextColor } = config.colors;
+  const { labelsEntranceDuration } = config.entrance;
+  const {
+    skinHueShift,
+    moustacheHueShift,
+    moustacheY,
+    eyebrowY,
+    segments,
+    earBend,
+    saltoAmplitude,
+    saltoFrequency,
+    saltoPow,
+  } = config.meshaVisualization;
+  const { switchDuration } = config.camera;
   const { meshaSize, eyeZ, eyeY, eyeSize, noseSize, earSize, sphereRadius } =
     config.meshaVisualization;
   const { selectedProperty, selectedLanguage } = useLanguageSelectionContext();
@@ -94,21 +109,6 @@ const Mesha = ({
     maxConsonantClusterSize,
     wordOrderFlexibility,
   } = linguisticProperties;
-
-  const { white, labelTextColor } = config.colors;
-  const { labelsEntranceDuration } = config.entrance;
-  const {
-    skinHueShift,
-    moustacheHueShift,
-    moustacheY,
-    eyebrowY,
-    segments,
-    earBend,
-    saltoAmplitude,
-    saltoFrequency,
-    saltoPow,
-  } = config.meshaVisualization;
-  const { switchDuration } = config.camera;
 
   const noseColorMap = {
     S: white,

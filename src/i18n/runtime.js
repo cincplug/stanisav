@@ -131,9 +131,7 @@ export const translate = (key, params) => {
   }
 
   if (message === undefined) {
-    throw new Error(
-      `Missing translation key '${key}' for locale '${currentLocale}'`,
-    );
+    return key;
   }
 
   if (typeof message !== "string") {

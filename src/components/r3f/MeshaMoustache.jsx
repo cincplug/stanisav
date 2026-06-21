@@ -2,6 +2,7 @@ import { extend } from "@react-three/fiber";
 import { forwardRef, useMemo, useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { dragBindings } from "../../config/dragBindings.js";
+import { useConfigContext } from "../../contexts/ConfigContext";
 import { useAudioData } from "../../hooks/useAudioData.js";
 import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
 import {
@@ -9,7 +10,6 @@ import {
   useShaderMaterial,
 } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
-import { config } from "../../modules/configStore";
 import { shiftHue } from "../../utils/colorUtils";
 import { createTuftShape } from "../../utils/shapeUtils.js";
 
@@ -20,6 +20,7 @@ const MeshaTuft = forwardRef(
     { tuft, tuftSurface, color, isSelected, linguisticProperty, onClick },
     ref,
   ) => {
+    const { config } = useConfigContext();
     const { segments } = config.meshaVisualization;
     const tuftMaterial = useShaderMaterial(color);
     const highlightMaterial = useHighlightMaterial(0, 2);
@@ -56,13 +57,21 @@ const MeshaMoustache = ({
 }) => {
   const tuftsRef = useRef([]);
   const tuftDataRef = useRef([]);
-  const { eyeZ, eyeX, moustacheSize, moustacheSpacing, moustacheColorStep } =
-    config.meshaVisualization;
+
+  const { config } = useConfigContext();
+  const {
+    eyeZ,
+    eyeX,
+    moustacheSize,
+    moustacheSpacing,
+    moustacheColorStep,
+    moustacheTipRadius,
+  } = config.meshaVisualization;
   const { audioData } = useAudioData();
   const bind = useMeshaDrag(dragBindings.moustache, linguisticProperty);
 
   const tuftSurface = useMemo(
-    () => createTuftShape(moustacheSize, tuftCount),
+    () => createTuftShape(moustacheSize, tuftCount, moustacheTipRadius),
     [moustacheSize, tuftCount],
   );
 

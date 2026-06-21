@@ -1,10 +1,10 @@
 import { extend } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { dragBindings } from "../../config/dragBindings.js";
+import { useConfigContext } from "../../contexts/ConfigContext";
 import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
-import { config } from "../../modules/configStore";
 import { createAudioSurface } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
@@ -19,7 +19,14 @@ const MeshaEars = ({
   isSelected,
 }) => {
   const highlightMaterial = useHighlightMaterial(0);
-  const { earHeight, earWidth, earDepth } = config.meshaVisualization;
+  const { config } = useConfigContext();
+  const {
+    earHeight,
+    earWidth,
+    earDepth,
+    maxDeformation,
+    verticalVariationMultiplier,
+  } = config.meshaVisualization;
   const bind = useMeshaDrag(dragBindings.ears, "morphology");
 
   const { revealedParts } = useEntranceContext();
@@ -28,7 +35,13 @@ const MeshaEars = ({
   const { x, y, z } = earPosition;
   const activeMaterial = isSelected ? highlightMaterial : earMaterial;
 
-  const staticSurface = createAudioSurface({ size, bend, radius: size });
+  const staticSurface = createAudioSurface({
+    size,
+    bend,
+    radius: size,
+    maxDeformation,
+    verticalVariationMultiplier,
+  });
 
   return (
     <>

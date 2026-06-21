@@ -3,12 +3,11 @@ import { Text } from "@react-three/drei";
 import { useCallback, useMemo, useRef } from "react";
 import { MeshStandardMaterial } from "three";
 import { useAppStateContext } from "../../contexts/AppStateContext.jsx";
-import { useControlsContext } from "../../contexts/ControlsContext.jsx";
+import { useConfigContext } from "../../contexts/ConfigContext.jsx";
 import { useEntranceContext } from "../../contexts/EntranceContext.jsx";
 import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext.jsx";
 import { usePlaylistContext } from "../../contexts/PlaylistContext.jsx";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
-import { config } from "../../modules/configStore";
 import { getLanguageLabel } from "../../utils/linguisticUtils.js";
 import { calculateRadialOffset } from "../../utils/sceneUtils.js";
 
@@ -23,13 +22,15 @@ const Label = ({
   revealRef,
 }) => {
   const labelRef = useRef();
-  const { controls } = useControlsContext();
   const { data } = useAppStateContext();
   const { filteredLanguages, filters, selectedLanguage } =
     useLanguageSelectionContext();
   const { startFromLanguage } = usePlaylistContext();
-  const { labelContent, labelSize, d4, isSegmented, isMotionReduced } =
-    controls;
+
+  const { config } = useConfigContext();
+  const { labelContent, labelSize, isSegmented } = config.header;
+  const { d4 } = config.scene;
+  const { isMotionReduced } = config.motion;
   const { radialOffsetModifier } = config.layout;
   const { labelTextColor } = config.colors;
 

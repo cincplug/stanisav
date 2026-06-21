@@ -1,9 +1,11 @@
-import { config } from "../modules/configStore";
-
-export const createAudioSurface = ({ audioBand, size, bend, radius }) => {
-  const { maxDeformation, verticalVariationMultiplier } =
-    config.meshaVisualization;
-
+export const createAudioSurface = ({
+  audioBand,
+  size,
+  bend,
+  radius,
+  maxDeformation,
+  verticalVariationMultiplier,
+}) => {
   const frequencyBands = 32;
 
   return (u, v, target) => {
@@ -38,9 +40,7 @@ export const createAudioSurface = ({ audioBand, size, bend, radius }) => {
   };
 };
 
-export function createTuftShape(moustacheSize, tuftCount) {
-  const { moustacheTipRadius } = config.meshaVisualization;
-
+export function createTuftShape(moustacheSize, tuftCount, moustacheTipRadius) {
   return function (u, v, target) {
     const theta = u * Math.PI * 2;
     const t = v * 2 - 1;

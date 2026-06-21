@@ -1,6 +1,5 @@
 import { converter, formatHex } from "culori";
 import lineages from "../config/lineages.json";
-import { config } from "../modules/configStore";
 
 const toOklch = converter("oklch");
 const oklchToHex = ({ l, c, h }) => formatHex({ mode: "oklch", l, c, h });
@@ -10,10 +9,15 @@ export const shiftHue = (color, shift) => {
   return oklchToHex({ l: parsed.l, c: parsed.c, h: parsed.h + shift });
 };
 
-export const calculateLanguageColors = (languageData, languageLineages) => {
-  const { hue, lightness, saturation, hueCircle, maxSiblingSpread } =
-    config.colors;
-
+export const calculateLanguageColors = (
+  languageData,
+  languageLineages,
+  hue,
+  lightness,
+  saturation,
+  hueCircle,
+  maxSiblingSpread,
+) => {
   const result = {};
   const buckets = {};
   const nodeChildren = new Map();

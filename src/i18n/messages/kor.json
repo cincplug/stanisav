@@ -1,59 +1,5 @@
 {
   "controls": {
-    "axis": {
-      "label": "축",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
-    },
-    "bgColor": {
-      "label": "배경"
-    },
-    "cameraX": {
-      "label": "카메라 X"
-    },
-    "cameraY": {
-      "label": "카메라 Y"
-    },
-    "cameraZ": {
-      "label": "카메라 Z"
-    },
-    "d4": {
-      "label": "일종의 4D"
-    },
-    "earSize": {
-      "label": "귀 크기"
-    },
-    "eyeSize": {
-      "label": "눈 크기"
-    },
-    "eyeX": {
-      "label": "눈 X"
-    },
-    "eyeY": {
-      "label": "눈 Y"
-    },
-    "eyeZ": {
-      "label": "눈 Z"
-    },
-    "friction": {
-      "label": "마찰"
-    },
-    "groups": {
-      "camera": "카메라",
-      "colors": "색상",
-      "mesha": "Mesha",
-      "motion": "모션",
-      "scene": "장면"
-    },
-    "hue": {
-      "label": "색조"
-    },
-    "irrationality": {
-      "label": "비합리성"
-    },
     "isAutoplay": {
       "label": "자동 재생"
     },
@@ -80,27 +26,6 @@
     "labelSize": {
       "label": "레이블 크기"
     },
-    "light": {
-      "label": "조명"
-    },
-    "lightness": {
-      "label": "명도"
-    },
-    "meshaSize": {
-      "label": "Mesha 크기"
-    },
-    "moustacheSize": {
-      "label": "콧수염 크기"
-    },
-    "noseSize": {
-      "label": "코 크기"
-    },
-    "rotateSpeed": {
-      "label": "회전 속도"
-    },
-    "saturation": {
-      "label": "채도"
-    },
     "showMore": {
       "label": "더 보기"
     },
@@ -122,21 +47,6 @@
         "wordOrder": "어순",
         "wordOrderFlexibility": "어순 유연성"
       }
-    },
-    "switchDuration": {
-      "label": "전환 시간"
-    },
-    "teethSize": {
-      "label": "치아 크기"
-    },
-    "tension": {
-      "label": "장력"
-    },
-    "tongueSize": {
-      "label": "혀 크기"
-    },
-    "zoomDistance": {
-      "label": "줌 거리"
     }
   },
   "filters": {

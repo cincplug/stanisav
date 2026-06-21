@@ -1,5 +1,4 @@
 import { Vector3 } from "three";
-import { config } from "../modules/configStore";
 import { getSpeakerGroup } from "../utils/groupingUtils";
 import { getLanguageLabel } from "../utils/linguisticUtils";
 import {
@@ -7,11 +6,6 @@ import {
   getLineagePathForKey,
   sortLanguages,
 } from "../utils/sortingUtils";
-
-const { sphereRadius } = config.layout;
-const { entranceSpiralAxis } = config.entrance;
-const { gap, cellSpacing, cellSizeModifier } = config.segmentation;
-const { irrationality, axis } = config.scene;
 
 const spiralAxis = {
   x: {
@@ -39,19 +33,24 @@ class LayoutEngine {
     this.currentAlgorithm = "sphere-layout";
   }
 
-  calculateLayout(data, controls = {}, algorithm = null) {
+  calculateLayout(data, config = {}, algorithm = null) {
     const algo = algorithm || this.currentAlgorithm;
     if (!this.algorithms[algo]) {
       console.warn(`Unknown algorithm: ${algo}, falling back to sphere-layout`);
-      return this.algorithms["sphere-layout"](data, controls);
+      return this.algorithms["sphere-layout"](data, config);
     }
-    return this.algorithms[algo](data, controls);
+    return this.algorithms[algo](data, config);
   }
 
-  sphereLayout(data, controls = {}) {
+  sphereLayout(data, config = {}) {
     const { languageData, languageLineages, speakerData, typologicalFeatures } =
       data;
-    const { sortBy, labelContent, isReverse, isSegmented } = controls;
+    const { sortBy, labelContent, isReverse, isSegmented } = config.header;
+    const { layout, entrance, segmentation, scene } = config;
+    const { sphereRadius } = layout;
+    const { entranceSpiralAxis } = entrance;
+    const { gap, cellSpacing, cellSizeModifier } = segmentation;
+    const { irrationality, axis } = scene;
 
     const { buildPoint } = spiralAxis[axis] ?? spiralAxis.y;
     const { poleOf: entrancePoleOf, equatorialOf: entranceEquatorialOf } =
@@ -146,7 +145,7 @@ class LayoutEngine {
         const rowMembers = members.slice(row * cols, (row + 1) * cols);
         const rowWidth = rowMembers.reduce((sum, code) => {
           const text = getLanguageLabel(code, languageData, labelContent);
-          return sum + this.estimateLabelWidth(text, cellSize);
+          return sum + this.estimateLabelWidth(text, cellSize, cellSpacing);
         }, 0);
         if (rowWidth > maxRowWidth) maxRowWidth = rowWidth;
       }
@@ -211,7 +210,7 @@ class LayoutEngine {
       const members = clusters[key];
       const labelWidths = members.map((code) => {
         const text = getLanguageLabel(code, languageData, labelContent);
-        return this.estimateLabelWidth(text, cellSize);
+        return this.estimateLabelWidth(text, cellSize, cellSpacing);
       });
       const localPoints = this.generateVariableWidthGrid(
         members.length,
@@ -235,7 +234,7 @@ class LayoutEngine {
     return { positions, sortedLanguages };
   }
 
-  estimateLabelWidth(text, cellSize) {
+  estimateLabelWidth(text, cellSize, cellSpacing) {
     return text.length * cellSize * cellSpacing;
   }
 
@@ -269,7 +268,6 @@ class LayoutEngine {
       const rowEnd = Math.min(rowStart + cols, numPoints);
       const rowWidths = labelWidths.slice(rowStart, rowEnd);
 
-      // Pack labels left-to-right, then center the whole row
       let cursor = 0;
       const rowXPositions = rowWidths.map((w) => {
         const x = cursor + w / 2;

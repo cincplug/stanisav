@@ -1,59 +1,5 @@
 {
   "controls": {
-    "axis": {
-      "label": "அச்சு",
-      "options": {
-        "x": "X",
-        "y": "Y",
-        "z": "Z"
-      }
-    },
-    "bgColor": {
-      "label": "பின்னணி"
-    },
-    "cameraX": {
-      "label": "கேமரா X"
-    },
-    "cameraY": {
-      "label": "கேமரா Y"
-    },
-    "cameraZ": {
-      "label": "கேமரா Z"
-    },
-    "d4": {
-      "label": "ஒருவித 4D"
-    },
-    "earSize": {
-      "label": "காது அளவு"
-    },
-    "eyeSize": {
-      "label": "கண் அளவு"
-    },
-    "eyeX": {
-      "label": "கண் X"
-    },
-    "eyeY": {
-      "label": "கண் Y"
-    },
-    "eyeZ": {
-      "label": "கண் Z"
-    },
-    "friction": {
-      "label": "உராய்வு"
-    },
-    "groups": {
-      "camera": "கேமரா",
-      "colors": "நிறங்கள்",
-      "mesha": "Mesha",
-      "motion": "இயக்கம்",
-      "scene": "காட்சி"
-    },
-    "hue": {
-      "label": "நிறச்சாயல்"
-    },
-    "irrationality": {
-      "label": "இர்ரேஷனாலிட்டி"
-    },
     "isAutoplay": {
       "label": "தானியங்கி இயக்கம்"
     },
@@ -80,27 +26,6 @@
     "labelSize": {
       "label": "லேபிள் அளவு"
     },
-    "light": {
-      "label": "விளக்கு"
-    },
-    "lightness": {
-      "label": "ஒளிர்வு"
-    },
-    "meshaSize": {
-      "label": "Mesha அளவு"
-    },
-    "moustacheSize": {
-      "label": "மீசை அளவு"
-    },
-    "noseSize": {
-      "label": "மூக்கு அளவு"
-    },
-    "rotateSpeed": {
-      "label": "சுழற்சி வேகம்"
-    },
-    "saturation": {
-      "label": "நிறச்செறிவு"
-    },
     "showMore": {
       "label": "மேலும் காண்பி"
     },
@@ -122,21 +47,6 @@
         "wordOrder": "சொல் வரிசை",
         "wordOrderFlexibility": "சொல் வரிசை நெகிழ்வுத்தன்மை"
       }
-    },
-    "switchDuration": {
-      "label": "மாற்று கால அளவு"
-    },
-    "teethSize": {
-      "label": "பல் அளவு"
-    },
-    "tension": {
-      "label": "இழுவிசை"
-    },
-    "tongueSize": {
-      "label": "நாக்கின் அளவு"
-    },
-    "zoomDistance": {
-      "label": "மேலோட்ட தூரம்"
     }
   },
   "filters": {
