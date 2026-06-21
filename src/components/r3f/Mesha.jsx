@@ -188,12 +188,12 @@ const Mesha = ({
       const sinPhase = Math.sin(saltoPhaseRef.current);
       const cosPhase = Math.cos(saltoPhaseRef.current);
       saltoRotXRef.current =
-        Math.sign(sinPhase) *
+        Math.sign(cosPhase) *
         Math.pow(Math.abs(sinPhase), saltoPow) *
         saltoAmplitude *
         Math.PI;
       saltoRotZRef.current =
-        Math.sign(cosPhase) *
+        Math.sign(sinPhase) *
         Math.pow(Math.abs(cosPhase), saltoPow) *
         saltoAmplitude *
         Math.PI;
