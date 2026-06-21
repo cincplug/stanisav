@@ -110,6 +110,8 @@ const Mesha = ({
   const {
     skinHueShift,
     moustacheHueShift,
+    moustacheY,
+    eyebrowY,
     segments,
     earBend,
     saltoAmplitude,
@@ -284,11 +286,11 @@ const Mesha = ({
             linguisticProperty="caseCount"
             tuftCount={caseCount}
             color={moustacheColor}
-            y={eyeY / 2}
+            y={moustacheY}
             z={eyeZ}
             isSelected={selectedProperty === "caseCount"}
             audioBand="harmonicsData"
-            stepDeg={3}
+            stepDeg={6}
           />
         )}
         {nounClassCount && (
@@ -296,7 +298,7 @@ const Mesha = ({
             linguisticProperty="nounClassCount"
             tuftCount={nounClassCount}
             color={eyebrowColor}
-            y={(eyeY * 4) / 3}
+            y={eyebrowY}
             z={eyeZ}
             isSelected={selectedProperty === "nounClassCount"}
             audioBand="fundamentalData"
