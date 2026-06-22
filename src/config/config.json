@@ -54,7 +54,8 @@
     "gap": 0.7,
     "titleOffset": 1.2,
     "cellSpacing": 0.12,
-    "cellSizeModifier": 1
+    "cellSizeModifier": 1,
+    "lightModifier": 1.34
   },
   "rotateSpeed": {
     "sceneInitial": 3,
@@ -78,9 +79,7 @@
     "decay": 0.4,
     "distance": {
       "default": 174,
-      "selected": 100,
-      "segmented": 200,
-      "segmentedSelected": 130
+      "selected": 100
     }
   },
   "meshaLight": {
@@ -181,8 +180,8 @@
     "durationDismiss": 400
   },
   "voiceRange": {
-    "fundamentalMin": 85,
-    "fundamentalMax": 800,
+    "fundamentMin": 85,
+    "fundamentMax": 800,
     "harmonicsMin": 700,
     "harmonicsMax": 4000
   },

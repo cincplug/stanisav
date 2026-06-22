@@ -15,9 +15,10 @@ const StageLight = ({
 }) => {
   const { camera, controls: threeControls } = useThree();
   const { config } = useConfigContext();
-  const { stageLight } = config;
   const { lightColor } = config.colors;
   const { entranceDuration } = config.entrance;
+  const { distance, intensity, decay } = config.stageLight;
+  const { lightModifier } = config.segmentation;
 
   const lightRef = useRef();
   const { entranceProgress } = useSpring({
@@ -29,17 +30,10 @@ const StageLight = ({
     immediate: isMotionReduced,
   });
 
-  const distanceKey =
-    isSegmented && selectedLanguage
-      ? "segmentedSelected"
-      : isSegmented
-        ? "segmented"
-        : selectedLanguage
-          ? "selected"
-          : "default";
-
   const { animatedDistance } = useSpring({
-    animatedDistance: stageLight.distance[distanceKey],
+    animatedDistance:
+      distance[selectedLanguage ? "selected" : "default"] *
+      (isSegmented ? lightModifier : 1),
     config: { tension, friction },
   });
 
@@ -69,8 +63,8 @@ const StageLight = ({
   return (
     <a.pointLight
       ref={lightRef}
-      intensity={stageLight.intensity}
-      decay={stageLight.decay}
+      intensity={intensity}
+      decay={decay}
       distance={animatedDistance}
       color={lightColor}
     />

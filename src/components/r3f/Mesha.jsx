@@ -292,7 +292,7 @@ const Mesha = ({
             y={eyebrowY}
             z={eyeZ}
             isSelected={selectedProperty === "nounClassCount"}
-            audioBand="fundamentalData"
+            audioBand="fundamentData"
             stepDeg={12}
           />
         )}
