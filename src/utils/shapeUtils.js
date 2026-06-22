@@ -37,14 +37,14 @@ export const createAudioSurface = ({
   };
 };
 
-export function createTuftShape(moustacheSize, tuftCount, moustacheTipRadius) {
+export function createTuftShape(tuftSize, tuftCount, tuftTipRadius) {
   return function (u, v, target) {
     const theta = u * Math.PI * 2;
     const t = v * 2 - 1;
 
-    const halfHeight = moustacheSize;
-    const maxRadius = moustacheSize / tuftCount;
-    const tipRadius = moustacheSize * moustacheTipRadius;
+    const halfHeight = tuftSize;
+    const maxRadius = tuftSize / tuftCount;
+    const tipRadius = tuftSize * tuftTipRadius;
 
     const waist = 1 - Math.abs(t);
     const radius = tipRadius + (maxRadius - tipRadius) * Math.pow(waist, 2);

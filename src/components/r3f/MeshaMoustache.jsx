@@ -59,25 +59,19 @@ const MeshaMoustache = ({
   const tuftDataRef = useRef([]);
 
   const { config } = useConfigContext();
-  const {
-    eyeZ,
-    eyeX,
-    moustacheSize,
-    moustacheSpacing,
-    moustacheColorStep,
-    moustacheTipRadius,
-  } = config.mesha;
+  const { eyeZ, eyeX, tuftSize, tuftSpacing, tuftColorStep, tuftTipRadius } =
+    config.mesha;
   const { audioData } = useAudioData();
   const bind = useMeshaDrag(dragBindings.moustache, linguisticProperty);
 
   const tuftSurface = useMemo(
-    () => createTuftShape(moustacheSize, tuftCount, moustacheTipRadius),
-    [moustacheSize, tuftCount],
+    () => createTuftShape(tuftSize, tuftCount, tuftTipRadius),
+    [tuftSize, tuftCount],
   );
 
   const tuftsWithRotation = useMemo(() => {
     if (!tuftCount) return [];
-    const spacing = (eyeX / tuftCount) * moustacheSpacing;
+    const spacing = (eyeX / tuftCount) * tuftSpacing;
     const totalWidth = spacing * (tuftCount - 1);
     const baseX = totalWidth / 2;
     const centerIndex = (tuftCount - 1) / 2;
@@ -97,7 +91,7 @@ const MeshaMoustache = ({
     });
     tuftDataRef.current = result;
     return result;
-  }, [tuftCount, moustacheSpacing, eyeX, eyeZ, y, z]);
+  }, [tuftCount, tuftSpacing, eyeX, eyeZ, y, z]);
 
   useThrottledFrame(() => {
     const audioBandData = audioData[audioBand];
@@ -109,7 +103,7 @@ const MeshaMoustache = ({
           tuftCount,
       );
       const amplitude = audioBandData[bandIndex];
-      const scale = moustacheSize + amplitude;
+      const scale = tuftSize + amplitude;
       tuftGroup.scale.set(scale, scale, scale);
     });
   });
@@ -124,7 +118,7 @@ const MeshaMoustache = ({
           ref={(el) => (tuftsRef.current[i] = el)}
           tuft={tuft}
           tuftSurface={tuftSurface}
-          color={shiftHue(color, i * moustacheColorStep)}
+          color={shiftHue(color, i * tuftColorStep)}
           isSelected={isSelected}
           linguisticProperty={linguisticProperty}
           onClick={onClick}

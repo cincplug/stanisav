@@ -51,8 +51,8 @@ const Mesha = ({
   const { entranceDuration } = config.entrance;
   const {
     skinHueShift,
-    moustacheHueShift,
-    moustacheY,
+    tuftHueShift,
+    tuftY,
     eyebrowY,
     segments,
     earBend,
@@ -145,8 +145,8 @@ const Mesha = ({
     stripesType,
   );
 
-  const moustacheColor = shiftHue(color, moustacheHueShift);
-  const eyebrowColor = shiftHue(color, -moustacheHueShift);
+  const tuftColor = shiftHue(color, tuftHueShift);
+  const eyebrowColor = shiftHue(color, -tuftHueShift);
 
   const rotationYRef = useRef(0);
   const saltoPhaseRef = useRef(0);
@@ -276,8 +276,8 @@ const Mesha = ({
           <MeshaMoustache
             linguisticProperty="caseCount"
             tuftCount={caseCount}
-            color={moustacheColor}
-            y={moustacheY}
+            color={tuftColor}
+            y={tuftY}
             z={eyeZ}
             isSelected={selectedProperty === "caseCount"}
             audioBand="harmonicsData"
