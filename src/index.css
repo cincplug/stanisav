@@ -1,9 +1,10 @@
 :root {
   /* Typography */
-  --font-size-l: 1.2rem;
-  --font-size-m: 0.9rem;
-  --font-size-s: 0.8rem;
-  --font-size-xs: 0.6rem;
+  --font-size-xl: 1.5rem;
+  --font-size-l: 1.25rem;
+  --font-size-m: 1rem;
+  --font-size-s: 0.75rem;
+  --font-size-xs: 0.5rem;
 
   /* Colors */
   --color-1: #070b0f;
@@ -168,15 +169,16 @@ input[type="radio"] {
 
 fieldset {
   border: none;
-  border-bottom: var(--border);
-  padding: 0 0 var(--gap-double);
+  border-top: var(--border);
+  padding: var(--gap) 0;
   margin-top: var(--gap-double);
+  gap: var(--gap);
 }
 
 legend {
   color: var(--color-4);
-  margin: 0 0 var(--gap) -2px;
   font-size: var(--font-size-l);
+  text-align: center;
 }
 
 /* Shared classes and utils */

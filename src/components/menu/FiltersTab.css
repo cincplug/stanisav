@@ -21,11 +21,6 @@
   border-radius: var(--border-radius);
 }
 
-.filter-group-title {
-  margin: 0 0 var(--gap-half);
-  font-weight: normal;
-}
-
 .info-link {
   text-decoration: none;
   margin-left: var(--gap);
