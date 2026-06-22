@@ -21,7 +21,7 @@ const MeshaNose = ({
   const highlightMaterial = useHighlightMaterial(0, 2);
 
   const { config } = useConfigContext();
-  const { segments, pupilSize } = config.meshaVisualization;
+  const { segments, pupilSize } = config.mesha;
 
   const bind = useMeshaDrag(dragBindings.nose, "wordOrder");
 

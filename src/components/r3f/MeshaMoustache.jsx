@@ -21,7 +21,7 @@ const MeshaTuft = forwardRef(
     ref,
   ) => {
     const { config } = useConfigContext();
-    const { segments } = config.meshaVisualization;
+    const { segments } = config.mesha;
     const tuftMaterial = useShaderMaterial(color);
     const highlightMaterial = useHighlightMaterial(0, 2);
 
@@ -66,7 +66,7 @@ const MeshaMoustache = ({
     moustacheSpacing,
     moustacheColorStep,
     moustacheTipRadius,
-  } = config.meshaVisualization;
+  } = config.mesha;
   const { audioData } = useAudioData();
   const bind = useMeshaDrag(dragBindings.moustache, linguisticProperty);
 

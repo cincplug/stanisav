@@ -27,7 +27,7 @@ const Lines = ({
 
   const { config } = useConfigContext();
   const { opacity, lineWidth, centerPullRatio } = config.lines;
-  const { labelsEntranceDuration } = config.entrance;
+  const { entranceDuration } = config.entrance;
   const { currentColor, bgColor } = config.colors;
   const { switchDuration } = config.camera;
   const { isEntranceComplete } = useEntranceContext();
@@ -85,7 +85,7 @@ const Lines = ({
     from: { ratio: centerPullRatio },
     to: { ratio: -centerPullRatio },
     config: {
-      duration: isEntranceComplete ? switchDuration : labelsEntranceDuration,
+      duration: isEntranceComplete ? switchDuration : entranceDuration,
       easing: easings.easeInOutCubic,
     },
   });

@@ -53,7 +53,7 @@ class AudioAnalysisService {
     }
   }
 
-  // config must include { meshaVisualization: { timeRate, amplitudeThreshold, decayRate }, voiceRange: { ... } }
+  // config must include { mesha: { timeRate, amplitudeThreshold, decayRate }, voiceRange: { ... } }
   startAnalysis(config) {
     if (this.isAnalyzing) {
       return;
@@ -85,7 +85,7 @@ class AudioAnalysisService {
     this.lastFrameTime = now;
     this.deltaAccumulator += delta;
 
-    const { timeRate } = this.analysisConfig.meshaVisualization;
+    const { timeRate } = this.analysisConfig.mesha;
     if (this.deltaAccumulator >= timeRate) {
       this.deltaAccumulator -= timeRate;
       this.analyser.getByteFrequencyData(this.dataArray);
@@ -126,8 +126,7 @@ class AudioAnalysisService {
 
   processFrequencyBand(startBin, endBin, outputArray) {
     const bandSize = Math.ceil((endBin - startBin) / outputArray.length);
-    const { amplitudeThreshold, decayRate } =
-      this.analysisConfig.meshaVisualization;
+    const { amplitudeThreshold, decayRate } = this.analysisConfig.mesha;
 
     for (let i = 0; i < outputArray.length; i++) {
       const binStart = startBin + i * bandSize;

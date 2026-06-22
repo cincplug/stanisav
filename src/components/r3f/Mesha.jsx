@@ -48,7 +48,7 @@ const Mesha = ({
   const { languageColors } = useLanguageColorsContext();
   const { config } = useConfigContext();
   const { white, labelTextColor } = config.colors;
-  const { labelsEntranceDuration } = config.entrance;
+  const { entranceDuration } = config.entrance;
   const {
     skinHueShift,
     moustacheHueShift,
@@ -59,10 +59,10 @@ const Mesha = ({
     saltoAmplitude,
     saltoFrequency,
     saltoPow,
-  } = config.meshaVisualization;
+  } = config.mesha;
   const { switchDuration } = config.camera;
   const { meshaSize, eyeZ, eyeY, eyeSize, noseSize, earSize, sphereRadius } =
-    config.meshaVisualization;
+    config.mesha;
   const { selectedProperty, selectedLanguage } = useLanguageSelectionContext();
 
   const { isMeshaSequenceDone, isEntranceComplete } = useEntranceContext();
@@ -130,7 +130,7 @@ const Mesha = ({
     y: targetPosition[1],
     z: targetPosition[2],
     config: {
-      duration: isEntranceComplete ? switchDuration : labelsEntranceDuration,
+      duration: isEntranceComplete ? switchDuration : entranceDuration,
     },
     immediate: isMotionReduced || !isMeshaSequenceDone,
   });

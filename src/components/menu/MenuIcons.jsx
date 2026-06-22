@@ -286,7 +286,7 @@ export const SortIcon = (props) => (
   </svg>
 );
 
-export const IrrationalityIcon = (props) => (
+export const spiralRatioIcon = (props) => (
   <svg
     width={iconSize}
     height={iconSize}

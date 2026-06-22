@@ -20,13 +20,8 @@ const MeshaEars = ({
 }) => {
   const highlightMaterial = useHighlightMaterial(0);
   const { config } = useConfigContext();
-  const {
-    earHeight,
-    earWidth,
-    earDepth,
-    maxDeformation,
-    verticalVariationMultiplier,
-  } = config.meshaVisualization;
+  const { earHeight, earWidth, earDepth, maxDeformation, verticalVariation } =
+    config.mesha;
   const bind = useMeshaDrag(dragBindings.ears, "morphology");
 
   const { revealedParts } = useEntranceContext();
@@ -40,7 +35,7 @@ const MeshaEars = ({
     bend,
     radius: size,
     maxDeformation,
-    verticalVariationMultiplier,
+    verticalVariation,
   });
 
   return (

@@ -29,9 +29,8 @@ const Label = ({
 
   const { config } = useConfigContext();
   const { labelContent, labelSize, isSegmented } = config.header;
-  const { d4 } = config.scene;
+  const { isMingling, labelOffset } = config.scene;
   const { isMotionReduced } = config.motion;
-  const { radialOffsetModifier } = config.layout;
   const { labelTextColor } = config.colors;
 
   if (Object.keys(filters).length > 0 && !filteredLanguages.has(languageCode)) {
@@ -93,10 +92,10 @@ const Label = ({
 
   // Selection offset spring (radial push when selected)
   const selectionSpring = useSpring({
-    offset: isSelected ? radialOffsetModifier : 0,
+    offset: isSelected ? labelOffset : 0,
   });
 
-  const animatedD4 = useRef(0);
+  const mingleRef = useRef(0);
 
   const textMaterial = useMemo(
     () =>
@@ -115,7 +114,7 @@ const Label = ({
     const offset = selectionSpring.offset.get();
 
     if (isSegmented) {
-      labelRef.current.position.set(x, y, z + offset * radialOffsetModifier);
+      labelRef.current.position.set(x, y, z + offset * labelOffset);
     } else {
       labelRef.current.position.set(
         x + radialOffset[0] * offset,
@@ -133,12 +132,12 @@ const Label = ({
     if (meshRef) meshRef.current = labelRef.current;
     if (revealRef) revealRef.current = reveal;
 
-    if (!selectedLanguage && d4) {
-      animatedD4.current += delta;
-      if (animatedD4.current >= totalVisibleLabels) animatedD4.current = 0;
+    if (!selectedLanguage && isMingling) {
+      mingleRef.current += delta;
+      if (mingleRef.current >= totalVisibleLabels) mingleRef.current = 0;
 
       labelRef.current.renderOrder =
-        revealOrder >= animatedD4.current ? revealOrder : 0;
+        revealOrder >= mingleRef.current ? revealOrder : 0;
     } else {
       labelRef.current.renderOrder = 0;
     }

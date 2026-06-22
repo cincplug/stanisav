@@ -39,7 +39,7 @@ const Eye = ({
     pupilMetalness,
     pupilRoughness,
     segments,
-  } = config.meshaVisualization;
+  } = config.mesha;
 
   const irisScale = eyeSize * irisSize;
   const pupilScale = eyeSize * pupilSize;
@@ -171,7 +171,7 @@ const MeshaEyes = ({
   });
 
   const { config } = useConfigContext();
-  const { eyeSize, eyeX, eyeY, eyeZ } = config.meshaVisualization;
+  const { eyeSize, eyeX, eyeY, eyeZ } = config.mesha;
   const { audioRef } = usePlaylistContext();
   const highlightMaterial = useHighlightMaterial(0, 2);
   const timings = blinkTimings[isoCode] ?? [];

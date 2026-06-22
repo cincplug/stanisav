@@ -7,14 +7,14 @@ const _pos = new Vector3();
 
 export default function OrbitModifier({
   orbitControlsRef,
-  axis,
+  spiralAxis,
   speed,
   isEnabled,
 }) {
   useThrottledFrame((_, delta) => {
     if (!isEnabled || !orbitControlsRef.current) return;
 
-    if (axis === "z") {
+    if (spiralAxis === "z") {
       const controls = orbitControlsRef.current;
       const cam = controls.object;
       const target = controls.target;

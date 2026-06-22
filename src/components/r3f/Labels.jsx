@@ -16,7 +16,8 @@ const Labels = ({
   const { languageColors } = useLanguageColorsContext();
 
   const { config } = useConfigContext();
-  const { hasLines, isSegmented } = config.header;
+  const { isSegmented } = config.header;
+  const { hasLines } = config.scene;
 
   const visibleLabelCodes = Object.keys(formattedPositions).filter(
     (langCode) => {

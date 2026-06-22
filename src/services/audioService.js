@@ -28,7 +28,7 @@ export async function getLanguageAudioUrl(languageCode, isLuka = true) {
   }
 }
 
-// config must include meshaVisualization and voiceRange groups
+// config must include mesha and voiceRange groups
 export async function setupAudioVisualization(audioElement, config) {
   if (!audioElement || selectedAudioElements.has(audioElement)) {
     return;

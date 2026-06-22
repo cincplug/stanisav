@@ -34,6 +34,7 @@
     label {
       justify-content: space-between;
       margin-bottom: var(--gap);
+      font-size: var(--font-size-m);
     }
   }
 }

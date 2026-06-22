@@ -24,8 +24,8 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
     tongueHeight,
     tongueLength,
     maxDeformation,
-    verticalVariationMultiplier,
-  } = config.meshaVisualization;
+    verticalVariation,
+  } = config.mesha;
 
   const meshRef = useRef();
 
@@ -43,7 +43,7 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
       bend: 0,
       radius: 1,
       maxDeformation,
-      verticalVariationMultiplier,
+      verticalVariation,
     });
 
     if (meshRef.current) {

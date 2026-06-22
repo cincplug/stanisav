@@ -38,13 +38,13 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
   const { isDragging } = useDragContext();
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
   const { config } = useConfigContext();
-  const { rotateSpeedFactor } = config;
+  const { rotateSpeed } = config;
   const { cameraX, cameraY, cameraZ, fov, near, far } = config.camera;
-  const { radialOffsetModifier, sphereRadius } = config.layout;
   const { bgColor } = config.colors;
   const { tension, friction, isMotionReduced } = config.motion;
-  const { meshaSize } = config.meshaVisualization;
-  const { isMyMesha, rotateSpeed, irrationality, axis } = config.scene;
+  const { meshaSize } = config.mesha;
+  const { isMyMesha, spiralRatio, spiralAxis, labelOffset, sphereRadius } =
+    config.scene;
   const { sortBy, labelContent, isReverse, isSegmented, labelSize } =
     config.header;
 
@@ -83,8 +83,8 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
       isSegmented,
       locale,
       isLocaleReady,
-      irrationality,
-      axis,
+      spiralRatio,
+      spiralAxis,
     ],
   );
 
@@ -144,15 +144,15 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
       if (isSegmented) {
         return [
           base[0],
-          base[1] + radialOffsetModifier / 2,
-          base[2] + radial[2] + radialOffsetModifier + sphereRadius,
+          base[1] + labelOffset / 2,
+          base[2] + radial[2] + labelOffset + sphereRadius,
         ];
       }
 
       return [
-        base[0] + radial[0] * radialOffsetModifier,
-        base[1] + radial[1] * radialOffsetModifier + labelSize,
-        base[2] + radial[2] * radialOffsetModifier,
+        base[0] + radial[0] * labelOffset,
+        base[1] + radial[1] * labelOffset + labelSize,
+        base[2] + radial[2] * labelOffset,
       ];
     }
 
@@ -198,11 +198,9 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
 
       <OrbitModifier
         orbitControlsRef={orbitControlsRef}
-        axis={axis}
+        spiralAxis={spiralAxis}
         speed={
-          selectedLanguage
-            ? rotateSpeed * rotateSpeedFactor.sceneZoomed
-            : rotateSpeed * rotateSpeedFactor.sceneInitial
+          selectedLanguage ? rotateSpeed.sceneZoomed : rotateSpeed.sceneInitial
         }
         isEnabled={!isSegmented && isMeshaSequenceDone}
       />
@@ -242,9 +240,7 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
         renderOrder={languageCodes.length - 1}
         looksAround={true}
         rotateSpeed={
-          selectedLanguage
-            ? rotateSpeed * rotateSpeedFactor.meshaZoomed
-            : rotateSpeed * rotateSpeedFactor.meshaInitial
+          selectedLanguage ? rotateSpeed.meshaZoomed : rotateSpeed.meshaInitial
         }
         isMotionReduced={isMotionReduced}
       />

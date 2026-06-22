@@ -17,14 +17,14 @@ const StageLight = ({
   const { config } = useConfigContext();
   const { stageLight } = config;
   const { lightColor } = config.colors;
-  const { labelsEntranceDuration } = config.entrance;
+  const { entranceDuration } = config.entrance;
 
   const lightRef = useRef();
   const { entranceProgress } = useSpring({
     from: { entranceProgress: 1 / 2 },
     to: { entranceProgress: 1 },
     config: {
-      duration: isEntranceComplete ? 0 : labelsEntranceDuration,
+      duration: isEntranceComplete ? 0 : entranceDuration,
     },
     immediate: isMotionReduced,
   });

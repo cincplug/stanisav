@@ -7,7 +7,7 @@ import {
   sortLanguages,
 } from "../utils/sortingUtils";
 
-const spiralAxis = {
+const spiralAxisConfig = {
   x: {
     buildPoint: (cos, u, v) => new Vector3(cos, u, v),
     poleOf: (p) => p.x,
@@ -46,15 +46,13 @@ class LayoutEngine {
     const { languageData, languageLineages, speakerData, typologicalFeatures } =
       data;
     const { sortBy, labelContent, isReverse, isSegmented } = config.header;
-    const { layout, entrance, segmentation, scene } = config;
-    const { sphereRadius } = layout;
-    const { entranceSpiralAxis } = entrance;
-    const { gap, cellSpacing, cellSizeModifier } = segmentation;
-    const { irrationality, axis } = scene;
+    const { entranceAxis } = config.entrance;
+    const { gap, cellSpacing, cellSizeModifier } = config.segmentation;
+    const { spiralRatio, spiralAxis, sphereRadius } = config.scene;
 
-    const { buildPoint } = spiralAxis[axis] ?? spiralAxis.y;
+    const { buildPoint } = spiralAxisConfig[spiralAxis] ?? spiralAxisConfig.y;
     const { poleOf: entrancePoleOf, equatorialOf: entranceEquatorialOf } =
-      spiralAxis[entranceSpiralAxis] ?? spiralAxis[axis];
+      spiralAxisConfig[entranceAxis] ?? spiralAxisConfig[spiralAxis];
 
     const getClusterKey = (code) => {
       switch (sortBy) {
@@ -93,7 +91,7 @@ class LayoutEngine {
       this.generateFibonacciSphere(
         sortedLanguages.length,
         sphereRadius,
-        irrationality,
+        spiralRatio,
         buildPoint,
       ),
       { poleOf: entrancePoleOf, equatorialOf: entranceEquatorialOf },
@@ -238,9 +236,9 @@ class LayoutEngine {
     return text.length * cellSize * cellSpacing;
   }
 
-  generateFibonacciSphere(numPoints, radius, irrationality, buildPoint) {
+  generateFibonacciSphere(numPoints, radius, spiralRatio, buildPoint) {
     const points = [];
-    const notNecessarilyGoldenRatio = Math.sqrt(irrationality) + 1;
+    const notNecessarilyGoldenRatio = Math.sqrt(spiralRatio) + 1;
     const angleIncrement = Math.PI * 2 * notNecessarilyGoldenRatio;
     for (let i = 0; i < numPoints; i++) {
       const t = i / numPoints;
@@ -358,15 +356,18 @@ class LayoutEngine {
     return [...points.slice(bestIndex), ...points.slice(0, bestIndex)];
   }
 
-  sortSpherePointsByAngle(points, axisConfig) {
+  sortSpherePointsByAngle(points, spiralAxisConfig) {
     const bandCount = Math.round(Math.sqrt(points.length));
 
     const lat = (p) => {
-      const [e0, e1] = axisConfig.equatorialOf(p);
-      return Math.atan2(Math.sqrt(e0 ** 2 + e1 ** 2), axisConfig.poleOf(p));
+      const [e0, e1] = spiralAxisConfig.equatorialOf(p);
+      return Math.atan2(
+        Math.sqrt(e0 ** 2 + e1 ** 2),
+        spiralAxisConfig.poleOf(p),
+      );
     };
     const lon = (p) => {
-      const [e0, e1] = axisConfig.equatorialOf(p);
+      const [e0, e1] = spiralAxisConfig.equatorialOf(p);
       return Math.atan2(e1, e0);
     };
 

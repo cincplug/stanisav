@@ -18,7 +18,6 @@ const MiniMesha = ({ languageCode }) => {
           position={[0, -3, 100]}
           isMyMesha={false}
           looksAround
-          rotateSpeed={1}
           renderOrder={1}
         />
       </Canvas>

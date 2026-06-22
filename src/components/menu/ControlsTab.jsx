@@ -4,7 +4,7 @@ import "./ControlsTab.css";
 
 // All top-level group names from config, excluding "header" which renders above the tabs
 const configGroupNames = Object.keys(staticConfig).filter(
-  (group) => group !== "header",
+  (group) => !["header", "global", "entrance"].includes(group),
 );
 
 const ControlsTab = ({ className }) => {

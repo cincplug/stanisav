@@ -24,7 +24,7 @@ export const tonalityFragmentShader = /* glsl */ `
   uniform float uAmbient;
   uniform float uLightingMin;
   uniform float uLightingMax;
-  uniform float uLightingDiffuseScale;
+  uniform float uLightingDiffuse;
   uniform float uShadeChecker;
   uniform float uShadeStripe;
   varying vec2 vUv;
@@ -69,7 +69,7 @@ export const tonalityFragmentShader = /* glsl */ `
     float diffuse2 = max(dot(normal, light2), 0.0);
     float diffuse3 = max(dot(normal, light3), 0.0);
 
-    float lighting = uAmbient + (diffuse1 + diffuse2 + diffuse3) * uLightingDiffuseScale;
+    float lighting = uAmbient + (diffuse1 + diffuse2 + diffuse3) * uLightingDiffuse;
     lighting = clamp(lighting, uLightingMin, uLightingMax);
 
     // Radial gradient: uBaseColor at center, darker shade at edges
@@ -102,7 +102,7 @@ export const highlightFragmentShader = /* glsl */ `
   uniform float uAmbient;
   uniform float uLightingMin;
   uniform float uLightingMax;
-  uniform float uLightingDiffuseScale;
+  uniform float uLightingDiffuse;
   uniform float uShadeStripe;
   uniform float uRingCount;
   uniform float uRingSpeed;
@@ -148,7 +148,7 @@ export const highlightFragmentShader = /* glsl */ `
     float diffuse2 = max(dot(normal, light2), 0.0);
     float diffuse3 = max(dot(normal, light3), 0.0);
 
-    float lighting = uAmbient + (diffuse1 + diffuse2 + diffuse3) * uLightingDiffuseScale;
+    float lighting = uAmbient + (diffuse1 + diffuse2 + diffuse3) * uLightingDiffuse;
     lighting = clamp(lighting, uLightingMin, uLightingMax);
 
     // Concentric rings from UV center, expanding over time

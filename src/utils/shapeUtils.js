@@ -4,7 +4,7 @@ export const createAudioSurface = ({
   bend,
   radius,
   maxDeformation,
-  verticalVariationMultiplier,
+  verticalVariation,
 }) => {
   const frequencyBands = 32;
 
@@ -24,15 +24,12 @@ export const createAudioSurface = ({
     let y = yBase;
 
     if (audioBand) {
-      const verticalVariation =
-        Math.sin(v * Math.PI) * verticalVariationMultiplier;
-
       const uForBand = u > 0.5 ? 1 - u : u;
       const bandIndex = Math.floor(uForBand * (frequencyBands - 1));
       const amplitude = audioBand[bandIndex] || 0;
       y = yBase + amplitude * maxDeformation * size;
       if (u > 0.5) {
-        y *= 1 + verticalVariation;
+        y *= 1 + Math.sin(v * Math.PI) * verticalVariation;
       }
     }
 

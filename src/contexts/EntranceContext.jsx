@@ -11,24 +11,24 @@ export const EntranceProvider = ({ children }) => {
   const {
     meshaRevealSequence,
     labelsRevealDelay,
-    labelsEntranceDuration,
+    entranceDuration,
     labelRevealDuration,
-    startRadiusFactor,
+    startLabelOffset,
   } = config.entrance;
 
-  const { durationBase, durationPerCharacter, durationDismiss } =
+  const { durationBase, durationPerLetter, durationDismiss } =
     config.speechBalloon;
 
   const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   const toInnerStartPosition = ([x, y, z]) => [
-    x * startRadiusFactor,
-    y * startRadiusFactor,
-    z * startRadiusFactor,
+    x * startLabelOffset,
+    y * startLabelOffset,
+    z * startLabelOffset,
   ];
 
   const calculateBalloonDisplayDuration = (message) =>
-    durationBase + message.length * durationPerCharacter;
+    durationBase + message.length * durationPerLetter;
 
   const calculateBalloonFullDuration = (message) =>
     calculateBalloonDisplayDuration(message) + durationDismiss;
@@ -92,7 +92,7 @@ export const EntranceProvider = ({ children }) => {
     if (!isSceneReady || !isMeshaSequenceDone || isLabelsSequenceDone) return;
     const timer = setTimeout(
       () => setIsLabelsSequenceDone(true),
-      labelsEntranceDuration,
+      entranceDuration,
     );
     return () => clearTimeout(timer);
   }, [isSceneReady, isLabelsSequenceDone, isMeshaSequenceDone]);
@@ -115,7 +115,7 @@ export const EntranceProvider = ({ children }) => {
   ) => {
     const staggerDelay = Math.round(
       (revealOrder / Math.max(1, totalVisibleLabels - 1)) *
-        Math.max(0, labelsEntranceDuration - labelRevealDuration),
+        Math.max(0, entranceDuration - labelRevealDuration),
     );
     const delay =
       isEntranceComplete || isSegmented ? labelRevealDuration : staggerDelay;
@@ -126,7 +126,7 @@ export const EntranceProvider = ({ children }) => {
       delay,
       positionConfig: isEntranceComplete
         ? { tension, friction }
-        : { duration: labelsEntranceDuration },
+        : { duration: entranceDuration },
       revealConfig: { duration: labelRevealDuration },
     };
   };

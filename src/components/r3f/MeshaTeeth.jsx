@@ -29,7 +29,7 @@ const MeshaTeeth = ({
     toothLength,
     toothThickness,
     toothRoundness,
-  } = config.meshaVisualization;
+  } = config.mesha;
   const highlightMaterial = useHighlightMaterial(0, 2);
   const centerIndex = (toothCount - 1) / 2;
 

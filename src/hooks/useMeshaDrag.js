@@ -16,7 +16,7 @@ export const useMeshaDrag = (bindings, linguisticProperty = null) => {
   const { selectProperty } = useLanguageSelectionContext();
 
   const { config } = useConfigContext();
-  const { dragSensitivity, timeRate } = config.meshaVisualization;
+  const { dragSensitivity, timeRate } = config.mesha;
 
   const dragStartValuesRef = useRef({});
   const dragThrottleRef = useRef({ elapsed: 0, lastTime: 0 });

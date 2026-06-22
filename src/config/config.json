@@ -28,7 +28,7 @@
     "isLuka": true
   },
   "entrance": {
-    "labelsEntranceDuration": 12000,
+    "entranceDuration": 12000,
     "labelRevealDuration": 500,
     "meshaRevealSequence": [
       { "part": "eyes", "holdMs": 800 },
@@ -38,15 +38,16 @@
       { "part": "teeth", "holdMs": 200 }
     ],
     "labelsRevealDelay": 100,
-    "startRadiusFactor": 1.2,
-    "entranceSpiralAxis": "z"
+    "startLabelOffset": 1.2,
+    "entranceAxis": "z"
   },
   "scene": {
-    "irrationality": 50,
-    "d4": true,
-    "rotateSpeed": 1,
-    "axis": "y",
-    "hasLines": true
+    "hasLines": true,
+    "isMingling": true,
+    "spiralRatio": [0.61803, 0.41421, 0.73205, 0.23606, 0.64575, 0.31662],
+    "spiralAxis": ["y", "x", "z"],
+    "labelOffset": 5,
+    "sphereRadius": 22
   },
   "segmentation": {
     "margin": 0.9,
@@ -55,26 +56,22 @@
     "cellSpacing": 0.12,
     "cellSizeModifier": 1
   },
-  "layout": {
-    "radialOffsetModifier": 5,
-    "sphereRadius": 22
-  },
-  "rotateSpeedFactor": {
+  "rotateSpeed": {
     "sceneInitial": 3,
     "sceneZoomed": 0.1,
     "meshaInitial": 0,
     "meshaZoomed": 0.6
   },
   "shader": {
-    "shaderAmbient": 0.7,
-    "shaderLightingMin": 0.7,
-    "shaderLightingMax": 1.2,
-    "shaderLightingDiffuse": 0.5,
-    "shaderShadeChecker": 1.22,
-    "shaderShadeStripe": 2,
-    "shaderRingCount": 12,
-    "shaderRingSpeed": 1.2,
-    "shaderOpacity": 0.9
+    "ambient": 0.7,
+    "lightingMin": 0.7,
+    "lightingMax": 1.2,
+    "lightingDiffuse": 0.5,
+    "shadeChecker": 1.22,
+    "shadeStripe": 2,
+    "ringCount": 12,
+    "ringSpeed": 1.2,
+    "opacity": 0.9
   },
   "stageLight": {
     "intensity": 20,
@@ -93,7 +90,7 @@
     "spread": 1.2,
     "z": 4
   },
-  "meshaVisualization": {
+  "mesha": {
     "meshaSize": 2.1,
     "earSize": 1.7,
     "tongueSize": 4,
@@ -133,15 +130,14 @@
     "toothLength": 2.1,
     "toothThickness": 0.03,
     "toothRoundness": 0.1,
-    "maxDeformation": 1.2,
-    "deformationSmoothness": 0.1,
-    "amplitudeThreshold": 0.1,
-    "blinkDuration": 0.2,
     "saltoAmplitude": 0.8,
     "saltoFrequency": 2.1,
     "saltoPow": 125,
+    "blinkDuration": 0.2,
+    "maxDeformation": 1.2,
+    "amplitudeThreshold": 0.1,
     "decayRate": 0.7,
-    "verticalVariationMultiplier": 0.1,
+    "verticalVariation": 0.1,
     "segments": 32,
     "timeRate": 20,
     "dragSensitivity": 0.1
@@ -181,7 +177,7 @@
   "speechBalloon": {
     "defaultPosition": "top-right",
     "durationBase": 1500,
-    "durationPerCharacter": 30,
+    "durationPerLetter": 30,
     "durationDismiss": 400
   },
   "voiceRange": {
