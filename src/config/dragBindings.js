@@ -19,7 +19,7 @@ export const dragBindings = {
     y: { advancedKey: "mesha.tongueSize" },
   },
   teeth: {
-    y: { advancedKey: "mesha.teethSize" },
+    y: { advancedKey: "mesha.toothSize" },
   },
   moustache: {
     // horizontal drag on moustache adjusts its spread (mirrors eyeX)

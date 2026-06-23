@@ -23,7 +23,7 @@ const MeshaTeeth = ({
   const { config } = useConfigContext();
   const { toothColor, emissiveness } = config.colors;
   const {
-    teethSize,
+    toothSize,
     toothColorStep,
     toothWidth,
     toothLength,
@@ -85,7 +85,7 @@ const MeshaTeeth = ({
   if (!revealedParts.has("teeth")) return null;
 
   return (
-    <group position={[0, 1, 1]} scale={teethSize} {...bind()}>
+    <group position={[0, 1, 1]} scale={toothSize} {...bind()}>
       {teeth.map((tooth, i) => {
         const color = shiftHue(toothColor, toothColorStep * i);
         return (
