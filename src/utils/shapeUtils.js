@@ -47,10 +47,10 @@ export function createTuftShape(tuftSize, tuftCount, tuftTipRadius) {
     const tipRadius = tuftSize * tuftTipRadius;
 
     const waist = 1 - Math.abs(t);
-    const radius = tipRadius + (maxRadius - tipRadius) * Math.pow(waist, 2);
+    const radius = tipRadius + (maxRadius - tipRadius) * waist;
 
     const x = t * halfHeight;
-    const y = Math.cos(theta) * radius;
+    const y = Math.cos(theta);
     const z = Math.sin(theta) * radius;
 
     target.set(x, y, z);
