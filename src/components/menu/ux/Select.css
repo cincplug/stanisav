@@ -3,7 +3,7 @@
 
   .expand-icon {
     position: absolute;
-    right: var(--gap-half);
+    inset-inline-end: var(--gap-half); /* follows text direction */
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
@@ -21,19 +21,14 @@
   cursor: pointer;
   height: var(--icon-size-l);
   box-sizing: border-box;
-  padding: 0 var(--icon-size-l) 0 var(--gap);
+  /* Large padding on the end where the icon sits, small on the start */
+  padding-inline-start: var(--gap);
+  padding-inline-end: var(--icon-size-l);
+  padding-block: 0;
 
   &:hover,
   &:focus-visible {
     outline: var(--outline-default);
     outline-offset: 1px;
-  }
-
-  .menu.compact & {
-    padding-inline-end: var(--icon-size-m);
-  }
-
-  .menu.expanded & {
-    width: 100%;
   }
 }
