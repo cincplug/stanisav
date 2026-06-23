@@ -78,7 +78,7 @@ const MeshaMoustache = ({
     const result = Array.from({ length: tuftCount }, (_, i) => {
       const offsetFromCenter = Math.abs(i - centerIndex);
       const t = centerIndex === 0 ? 0 : offsetFromCenter / centerIndex;
-      const scale = 0.5 + 0.5 * t;
+      const scale = tuftSize / (t + 1) / Math.sqrt(tuftCount + 1);
       const rotationRad = ((180 + (i - centerIndex) * stepDeg) * Math.PI) / 180;
       return {
         key: `moustache-${i}`,
