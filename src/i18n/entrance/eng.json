@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "message": "Jsem Lojza Souhlaška, menim podobu podle jazyku",
+    "language": "eng"
+  },
+  {
+    "message": "Když je jazyk izolačni, tak vypadam takhle.",
+    "language": "kea"
+  },
+  {
+    "message": "Když je aglutinačni, takhle.",
+    "language": "haw"
+  },
+  {
+    "message": "Když je navic tonalni, tak mam prouhy na jazyku.",
+    "language": "ach"
+  },
+  {
+    "message": "Když mam 3 padu, tak mam 3 kniru.",
+    "language": "hil"
+  },
+  {
+    "message": "Když mam 4 padu, tak mam 4 kniru.",
+    "language": "kbd"
+  },
+  {
+    "message": "Aneb 7.",
+    "language": "xal"
+  },
+  {
+    "message": "Nebo treba 18.",
+    "language": "hun"
+  },
+  {
+    "message": "Jestli ma moc pohlavi, tak ja mam moc vlasu.",
+    "language": "kik"
+  },
+  {
+    "message": "No tak klikejte, klikejte.",
+    "language": "ces"
+  }
+]
