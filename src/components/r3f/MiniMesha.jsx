@@ -6,11 +6,12 @@ const MiniMesha = ({ languageCode }) => {
   const { config } = useConfigContext();
   const { cameraX, cameraY, cameraZ, fov, near, far } = config.camera;
   const { bgColor } = config.colors;
+  const rotateSpeed = config.rotateSpeed.meshaZoomed;
 
   return (
     <div className="mini-mesha">
       <Canvas
-        camera={{ position: [cameraX, cameraY, cameraZ - 2], fov, near, far }}
+        camera={{ position: [cameraX, cameraY, cameraZ], fov, near, far }}
         gl={{ antialias: true, clearColor: bgColor, alpha: true }}
       >
         <Mesha
@@ -18,7 +19,7 @@ const MiniMesha = ({ languageCode }) => {
           position={[0, -3, 100]}
           isMyMesha={false}
           looksAround
-          renderOrder={1}
+          rotateSpeed={rotateSpeed}
         />
       </Canvas>
     </div>
