@@ -168,16 +168,16 @@ const Mesha = ({
 
     if (wordOrderFlexibility === "flexible" && !isBlocked) {
       if (!wasFlexible) {
-        saltoPhaseRef.current =
-          Math.round(rotationYRef.current / Math.PI) * Math.PI;
+        saltoPhaseRef.current = Math.PI;
       }
 
       saltoPhaseRef.current =
         (saltoPhaseRef.current + delta * rotateSpeed * saltoFrequency) %
         (Math.PI * 2);
 
-      const sinPhase = Math.sin(saltoPhaseRef.current);
-      const cosPhase = Math.cos(saltoPhaseRef.current);
+      const shiftedPhase = saltoPhaseRef.current - Math.PI / 2;
+      const sinPhase = Math.sin(shiftedPhase);
+      const cosPhase = Math.cos(shiftedPhase);
       saltoRotXRef.current =
         Math.sign(cosPhase) *
         Math.pow(Math.abs(sinPhase), saltoPow) *

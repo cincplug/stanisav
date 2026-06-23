@@ -129,8 +129,8 @@
     "toothLength": 2.1,
     "toothThickness": 0.03,
     "toothRoundness": 0.1,
-    "saltoAmplitude": 0.8,
-    "saltoFrequency": 2.1,
+    "saltoAmplitude": 0.9,
+    "saltoFrequency": 2.7,
     "saltoPow": 125,
     "blinkDuration": 0.2,
     "maxDeformation": 1.2,
@@ -138,7 +138,7 @@
     "decayRate": 0.7,
     "verticalVariation": 0.1,
     "segments": 32,
-    "timeRate": 20,
+    "timeRate": 15,
     "dragSensitivity": 0.1
   },
   "colors": {
