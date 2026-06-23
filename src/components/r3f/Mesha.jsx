@@ -175,7 +175,7 @@ const Mesha = ({
         (saltoPhaseRef.current + delta * rotateSpeed * saltoFrequency) %
         (Math.PI * 2);
 
-      const shiftedPhase = saltoPhaseRef.current - Math.PI / 2;
+      const shiftedPhase = saltoPhaseRef.current - Math.PI;
       const sinPhase = Math.sin(shiftedPhase);
       const cosPhase = Math.cos(shiftedPhase);
       saltoRotXRef.current =

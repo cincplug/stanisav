@@ -28,14 +28,14 @@
     "isLuka": true
   },
   "entrance": {
-    "entranceDuration": 12000,
+    "entranceDuration": 6000,
     "labelRevealDuration": 500,
     "meshaRevealSequence": [
       { "part": "eyes", "holdMs": 800 },
-      { "part": "nose", "holdMs": 500 },
+      { "part": "nose", "holdMs": 600 },
       { "part": "ears", "holdMs": 400 },
-      { "part": "tongue", "holdMs": 300 },
-      { "part": "teeth", "holdMs": 200 }
+      { "part": "tongue", "holdMs": 400 },
+      { "part": "teeth", "holdMs": 400 }
     ],
     "labelsRevealDelay": 100,
     "startLabelOffset": 1.2,
