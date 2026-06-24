@@ -297,7 +297,7 @@ const Mesha = ({
         )}
         <SpeechBalloon
           position="top-right"
-          anchorOffset={[0, eyeY + meshaSize / 2, eyeZ]}
+          anchorOffset={[0, eyeY + eyeSize * 2, eyeZ]}
         />
       </group>
     </a.group>
