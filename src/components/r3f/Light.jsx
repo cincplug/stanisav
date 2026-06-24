@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { useConfigContext } from "../../contexts/ConfigContext";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 
-const StageLight = ({
+const Light = ({
   cameraZ,
   isMotionReduced,
   isEntranceComplete,
@@ -17,7 +17,7 @@ const StageLight = ({
   const { config } = useConfigContext();
   const { lightColor } = config.colors;
   const { entranceDuration } = config.entrance;
-  const { distance, intensity, decay } = config.stageLight;
+  const { distance, intensity, decay } = config.light;
   const { lightModifier } = config.segmentation;
 
   const lightRef = useRef();
@@ -30,10 +30,11 @@ const StageLight = ({
     immediate: isMotionReduced,
   });
 
-  const { animatedDistance } = useSpring({
+  const { animatedDistance, animatedIntensity } = useSpring({
     animatedDistance:
       distance[selectedLanguage ? "selected" : "default"] *
       (isSegmented ? lightModifier : 1),
+    animatedIntensity: intensity[selectedLanguage ? "selected" : "default"],
     config: { tension, friction },
   });
 
@@ -63,7 +64,7 @@ const StageLight = ({
   return (
     <a.pointLight
       ref={lightRef}
-      intensity={intensity}
+      intensity={animatedIntensity}
       decay={decay}
       distance={animatedDistance}
       color={lightColor}
@@ -71,4 +72,4 @@ const StageLight = ({
   );
 };
 
-export default StageLight;
+export default Light;

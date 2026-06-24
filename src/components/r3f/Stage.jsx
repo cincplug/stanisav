@@ -18,10 +18,10 @@ import {
 import { getSortingData } from "../../utils/sortingUtils";
 import Camera from "./Camera";
 import Labels from "./Labels";
+import Light from "./Light";
 import Mesha from "./Mesha";
 import OrbitModifier from "./OrbitModifier";
 import SceneReadyGate from "./SceneReadyGate";
-import StageLight from "./StageLight";
 
 const Stage = ({ onDataLoaded, onLoadingChange }) => {
   const { locale, isLocaleReady } = useI18nContext();
@@ -205,7 +205,7 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
         isEnabled={!isSegmented && isMeshaSequenceDone}
       />
 
-      <StageLight
+      <Light
         cameraZ={cameraZ}
         isMotionReduced={isMotionReduced}
         isEntranceComplete={isEntranceComplete}

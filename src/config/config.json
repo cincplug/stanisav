@@ -79,7 +79,7 @@
     "sceneZoomed": 0.1
   },
   "shader": {
-    "ambient": 0.7,
+    "ambient": 1.4,
     "lightingDiffuse": 0.5,
     "lightingMax": 1.2,
     "lightingMin": 0.7,
@@ -89,20 +89,16 @@
     "shadeChecker": 1.22,
     "shadeStripe": 2
   },
-  "stageLight": {
+  "light": {
     "decay": 0.4,
     "distance": {
       "default": 174,
-      "selected": 100
+      "selected": 106
     },
-    "intensity": 20
-  },
-  "meshaLight": {
-    "decay": 2.5,
-    "distance": 45,
-    "intensity": 80,
-    "spread": 1.2,
-    "z": 4
+    "intensity": {
+      "default": 20,
+      "selected": 54
+    }
   },
   "mesha": {
     "amplitudeThreshold": 0.1,

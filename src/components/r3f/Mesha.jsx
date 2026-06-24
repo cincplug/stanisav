@@ -20,7 +20,6 @@ import {
 } from "../../utils/linguisticUtils.js";
 import MeshaEar from "./MeshaEars.jsx";
 import MeshaEyes from "./MeshaEyes.jsx";
-import MeshaLight from "./MeshaLight.jsx";
 import MeshaMoustache from "./MeshaMoustache.jsx";
 import MeshaNose from "./MeshaNose.jsx";
 import MeshaTeeth from "./MeshaTeeth.jsx";
@@ -301,7 +300,6 @@ const Mesha = ({
           anchorOffset={[0, eyeY + meshaSize / 2, eyeZ]}
         />
       </group>
-      <MeshaLight />
     </a.group>
   );
 };
