@@ -2,15 +2,21 @@ import { useThree } from "@react-three/fiber";
 import { useCallback, useEffect, useRef } from "react";
 import { Vector3 } from "three";
 import { useConfigContext } from "../contexts/ConfigContext";
+import { useEntranceContext } from "../contexts/EntranceContext";
 import { useLanguageSelectionContext } from "../contexts/LanguageSelectionContext";
 import { useThrottledFrame } from "./useThrottledFrame";
 
 export const useCameraController = ({ languageNodes, selectedLanguage }) => {
   const { cameraFocusRequest } = useLanguageSelectionContext();
+  const { isMeshaSequenceDone } = useEntranceContext();
   const { camera, controls: threeControls } = useThree();
   const { config } = useConfigContext();
   const { isSegmented } = config.header;
-  const { zoomDistance, switchDuration, fov, near, far } = config.camera;
+  const { zoomDistance, homeDistance, switchDuration, fov, near, far } =
+    config.camera;
+  const { entranceDuration } = config.entrance;
+  const { meshaSize } = config.mesha;
+  const { sphereRadius } = config.scene;
 
   useEffect(() => {
     if (!camera) return;
@@ -21,7 +27,6 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
   }, [camera]);
 
   const animationStateRef = useRef(null);
-  const initializedViewRef = useRef(false);
 
   useThrottledFrame(() => {
     const state = animationStateRef.current;
@@ -60,14 +65,14 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
   });
 
   const startCameraAnimation = useCallback(
-    (targetPosition, lookAtTarget) => {
+    (targetPosition, lookAtTarget, duration = switchDuration) => {
       animationStateRef.current = {
         startPos: camera.position.clone(),
         startTarget: threeControls?.target?.clone() || new Vector3(),
         targetPos: targetPosition,
         lookAt: lookAtTarget,
         startTime: null,
-        duration: switchDuration,
+        duration,
       };
     },
     [camera, threeControls, switchDuration],
@@ -87,6 +92,19 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
       startCameraAnimation(targetCameraPosition, languagePosition);
     },
     [languageNodes, zoomDistance, isSegmented, startCameraAnimation],
+  );
+
+  // Animates camera to face Mesha at his resting home position.
+  // Camera approaches along Z (matching the scene's natural viewing axis) so
+  // Mesha is centered and at the same framing as when a language is selected.
+  const focusOnMeshaHome = useCallback(
+    (duration) => {
+      const meshaHomeY = sphereRadius - meshaSize;
+      const meshaHomePosition = new Vector3(0, meshaHomeY, 0);
+      const targetCameraPosition = new Vector3(0, meshaHomeY, homeDistance);
+      startCameraAnimation(targetCameraPosition, meshaHomePosition, duration);
+    },
+    [sphereRadius, meshaSize, zoomDistance, startCameraAnimation],
   );
 
   const fitToNodes = useCallback(() => {
@@ -134,22 +152,15 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
     startCameraAnimation(targetCameraPosition, center);
   }, [languageNodes, fov, camera, startCameraAnimation]);
 
-  // On first load and on layout changes, fit all nodes in view
-  // unless a language is already selected (which drives its own zoom below)
+  // When Mesha's reveal sequence finishes, fly the camera in to his home
+  // position at the same speed his spring animation takes to get there
   useEffect(() => {
-    if (!languageNodes || Object.keys(languageNodes).length === 0) return;
+    if (!isMeshaSequenceDone) return;
+    if (selectedLanguage) return;
+    focusOnMeshaHome(entranceDuration);
+  }, [isMeshaSequenceDone]);
 
-    if (!initializedViewRef.current) {
-      initializedViewRef.current = true;
-    }
-
-    if (!selectedLanguage) {
-      fitToNodes();
-    }
-  }, [languageNodes, selectedLanguage, fitToNodes]);
-
-  // cameraFocusRequest handles only the "fitAll" case —
-  // language zoom is driven by selectedLanguage below
+  // cameraFocusRequest handles fitAll, triggered by stop button and view-all
   useEffect(() => {
     if (!cameraFocusRequest || !languageNodes) return;
     if (cameraFocusRequest.type === "fitAll") {

@@ -61,8 +61,8 @@ const Mesha = ({
     saltoPow,
   } = config.mesha;
   const { switchDuration } = config.camera;
-  const { meshaSize, eyeZ, eyeY, eyeSize, noseSize, earSize, sphereRadius } =
-    config.mesha;
+  const { meshaSize, eyeZ, eyeY, eyeSize, noseSize, earSize } = config.mesha;
+  const { sphereRadius } = config.scene;
   const { selectedProperty, selectedLanguage } = useLanguageSelectionContext();
 
   const { isMeshaSequenceDone, isEntranceComplete } = useEntranceContext();
@@ -122,7 +122,7 @@ const Mesha = ({
     noseColorMap[wordOrder[2]],
   ];
 
-  const initialPosition = [0, 0, sphereRadius];
+  const initialPosition = [0, 0, sphereRadius * 2];
   const targetPosition = isMeshaSequenceDone ? position : initialPosition;
 
   const spring = useSpring({
@@ -296,8 +296,11 @@ const Mesha = ({
             stepDeg={12}
           />
         )}
+        <SpeechBalloon
+          position="top-right"
+          anchorOffset={[0, eyeY + meshaSize / 2, eyeZ]}
+        />
       </group>
-      <SpeechBalloon position="bottom-right" anchorOffset={[0, eyeY, eyeZ]} />
       <MeshaLight />
     </a.group>
   );

@@ -31,7 +31,7 @@
     "entranceAxis": "z",
     "entranceDuration": 6000,
     "labelRevealDuration": 500,
-    "labelsRevealDelay": 100,
+    "labelsRevealDelay": 1000,
     "meshaRevealSequence": [
       {
         "holdMs": 800,
@@ -75,7 +75,7 @@
   "rotateSpeed": {
     "meshaInitial": 0,
     "meshaZoomed": 0.6,
-    "sceneInitial": 3,
+    "sceneInitial": 1,
     "sceneZoomed": 0.1
   },
   "shader": {
@@ -178,7 +178,8 @@
     "fov": 30,
     "near": 0.1,
     "switchDuration": 1200,
-    "zoomDistance": 37
+    "zoomDistance": 37,
+    "homeDistance": 64
   },
   "motion": {
     "friction": 64,
