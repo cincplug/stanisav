@@ -59,13 +59,12 @@ const MeshaMoustache = ({
   const tuftDataRef = useRef([]);
 
   const { config } = useConfigContext();
-  const { eyeZ, eyeX, tuftSize, tuftSpacing, tuftColorStep, tuftTipRadius } =
-    config.mesha;
+  const { eyeZ, eyeX, tuftSize, tuftSpacing, tuftColorStep } = config.mesha;
   const { audioData } = useAudioData();
   const bind = useMeshaDrag(dragBindings.moustache, linguisticProperty);
 
   const tuftSurface = useMemo(
-    () => createTuftShape(tuftSize, tuftCount, tuftTipRadius),
+    () => createTuftShape(tuftSize, tuftCount),
     [tuftSize, tuftCount],
   );
 

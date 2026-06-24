@@ -254,7 +254,7 @@ const Mesha = ({
         />
 
         <MeshaNose
-          position={[0, eyeY - eyeSize, eyeZ]}
+          position={[0, eyeY - eyeSize, eyeZ + eyeSize / 2]}
           scale={noseSize}
           segmentColors={noseSegmentColors}
           isSelectedOuter={selectedProperty === "wordOrder"}

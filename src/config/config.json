@@ -79,7 +79,7 @@
     "sceneZoomed": 0.1
   },
   "shader": {
-    "ambient": 1.4,
+    "ambient": 1.2,
     "lightingDiffuse": 0.5,
     "lightingMax": 1.2,
     "lightingMin": 0.7,
@@ -106,9 +106,9 @@
     "decayRate": 0.7,
     "dragSensitivity": 0.1,
     "earBend": 1.8,
-    "earDepth": 0.9,
+    "earDepth": 1.1,
     "earHeight": 0.3,
-    "earSize": 1.7,
+    "earSize": 1.8,
     "earWidth": 0.1,
     "eyebrowY": 2.7,
     "eyelidDepth": 1.1,
@@ -134,7 +134,7 @@
     "tongueHeight": 0.6,
     "tongueLength": 1.1,
     "tongueSize": 4,
-    "tongueWidth": 0.4,
+    "tongueWidth": 0.5,
     "tongueX": 0,
     "tongueY": 1.4,
     "tongueZ": 1.1,
@@ -148,7 +148,6 @@
     "tuftHueShift": 120,
     "tuftSize": 0.36,
     "tuftSpacing": 4.8,
-    "tuftTipRadius": 0.3,
     "tuftY": 1.4,
     "verticalVariation": 0.1
   },

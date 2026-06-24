@@ -37,20 +37,17 @@ export const createAudioSurface = ({
   };
 };
 
-export function createTuftShape(tuftSize, tuftCount, tuftTipRadius) {
+export function createTuftShape(tuftSize, tuftCount) {
   return function (u, v, target) {
     const theta = u * Math.PI * 2;
     const t = v * 2 - 1;
 
-    const halfHeight = tuftSize;
     const maxRadius = tuftSize / tuftCount;
-    const tipRadius = tuftSize * tuftTipRadius;
 
-    const waist = 1 - Math.abs(t);
-    const radius = tipRadius + (maxRadius - tipRadius) * waist;
+    const radius = maxRadius * t;
 
-    const x = t * halfHeight;
-    const y = Math.cos(theta);
+    const x = t * tuftSize;
+    const y = Math.cos(theta) / 2;
     const z = Math.sin(theta) * radius;
 
     target.set(x, y, z);
