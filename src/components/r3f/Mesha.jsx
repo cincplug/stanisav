@@ -1,7 +1,7 @@
 import { a, useSpring } from "@react-spring/three";
 import { extend } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
-import { Euler, MathUtils, Quaternion } from "three";
+import { Euler, MathUtils, Mesh, Quaternion } from "three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
 import { useAppStateContext } from "../../contexts/AppStateContext.jsx";
@@ -47,7 +47,7 @@ const Mesha = ({
   const { languageColors } = useLanguageColorsContext();
   const { config } = useConfigContext();
   const { white, labelTextColor } = config.colors;
-  const { entranceDuration } = config.entrance;
+  const { entranceDuration, meshaAssembleRate } = config.entrance;
   const {
     skinHueShift,
     tuftHueShift,
@@ -64,7 +64,8 @@ const Mesha = ({
   const { sphereRadius } = config.scene;
   const { selectedProperty, selectedLanguage } = useLanguageSelectionContext();
 
-  const { isMeshaSequenceDone, isEntranceComplete } = useEntranceContext();
+  const { isMeshaSequenceDone, isEntranceComplete, onMeshaSequenceDone } =
+    useEntranceContext();
   const { isDragging } = useDragContext();
 
   const linguisticProperties = data?.typologicalFeatures?.[languageCode];
@@ -83,8 +84,6 @@ const Mesha = ({
     };
   }, [isMyMesha]);
 
-  // Mesha.jsx — add this effect after the existing microphone useEffect
-
   useEffect(() => {
     if (!selectedLanguage) {
       saltoRotXRef.current = 0;
@@ -92,6 +91,29 @@ const Mesha = ({
       saltoPhaseRef.current = 0;
     }
   }, [selectedLanguage]);
+
+  // Traverse all meshes inside Mesha's group, hide them, then reveal one by one
+  useEffect(() => {
+    if (!lookAroundRef.current) return;
+
+    const meshes = [];
+    lookAroundRef.current.traverse((object) => {
+      if (object instanceof Mesh) meshes.push(object);
+    });
+
+    meshes.forEach((mesh) => {
+      mesh.visible = false;
+    });
+
+    const timers = meshes.map((mesh, i) =>
+      setTimeout(() => {
+        mesh.visible = true;
+        if (i === meshes.length - 1) onMeshaSequenceDone();
+      }, i * meshaAssembleRate),
+    );
+
+    return () => timers.forEach(clearTimeout);
+  }, []);
 
   const scores = getFeatureScoreList(linguisticProperties, [
     "wordOrderFlexibility",

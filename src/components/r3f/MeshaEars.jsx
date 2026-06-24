@@ -2,7 +2,6 @@ import { extend } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { dragBindings } from "../../config/dragBindings.js";
 import { useConfigContext } from "../../contexts/ConfigContext";
-import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { createAudioSurface } from "../../utils/shapeUtils.js";
@@ -23,9 +22,6 @@ const MeshaEars = ({
   const { earHeight, earWidth, earDepth, maxDeformation, verticalVariation } =
     config.mesha;
   const bind = useMeshaDrag(dragBindings.ears, "morphology");
-
-  const { revealedParts } = useEntranceContext();
-  if (!revealedParts.has("ears")) return null;
 
   const { x, y, z } = earPosition;
   const activeMaterial = isSelected ? highlightMaterial : earMaterial;

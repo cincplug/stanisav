@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { dragBindings } from "../../config/dragBindings.js";
 import { useConfigContext } from "../../contexts/ConfigContext";
-import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
@@ -29,9 +28,6 @@ const MeshaNose = ({
     if (!groupRef.current) return;
     groupRef.current.lookAt(camera.position);
   });
-
-  const { revealedParts } = useEntranceContext();
-  if (!revealedParts.has("nose")) return null;
 
   return (
     <group

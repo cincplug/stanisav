@@ -3,7 +3,6 @@ import { useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { dragBindings } from "../../config/dragBindings.js";
 import { useConfigContext } from "../../contexts/ConfigContext";
-import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useAudioData } from "../../hooks/useAudioData.js";
 import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
@@ -58,9 +57,6 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
   });
 
   const activeMaterial = isSelected ? highlightMaterial : tongueMaterial;
-
-  const { revealedParts } = useEntranceContext();
-  if (!revealedParts.has("tongue")) return null;
 
   return (
     <mesh

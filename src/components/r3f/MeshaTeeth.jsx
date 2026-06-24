@@ -3,7 +3,6 @@ import { useMemo, useRef } from "react";
 import { RoundedBoxGeometry } from "three/examples/jsm/Addons.js";
 import { dragBindings } from "../../config/dragBindings.js";
 import { useConfigContext } from "../../contexts/ConfigContext";
-import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useAudioData } from "../../hooks/useAudioData.js";
 import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
 import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
@@ -80,9 +79,6 @@ const MeshaTeeth = ({
   });
 
   if (!teeth.length) return null;
-
-  const { revealedParts } = useEntranceContext();
-  if (!revealedParts.has("teeth")) return null;
 
   return (
     <group position={[0, 1, 1]} scale={toothSize} {...bind()}>

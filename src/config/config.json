@@ -30,8 +30,8 @@
   "entrance": {
     "entranceAxis": "z",
     "entranceDuration": 6000,
+    "meshaAssembleRate": 50,
     "labelRevealDuration": 500,
-    "labelsRevealDelay": 1000,
     "meshaRevealSequence": [
       {
         "holdMs": 800,

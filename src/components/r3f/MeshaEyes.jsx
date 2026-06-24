@@ -41,15 +41,15 @@ const Eye = ({
     segments,
   } = config.mesha;
 
+  // Eyes remain closed (lid down) until Mesha's mesh reveal sequence finishes
+  const { isMeshaSequenceDone } = useEntranceContext();
+
   const irisScale = eyeSize * irisSize;
   const pupilScale = eyeSize * pupilSize;
   const eyeScale = 1 + evidentiality / 4;
 
   const irisZ = eyeSize / 2;
   const pupilZ = eyeSize;
-
-  const { revealedParts } = useEntranceContext();
-  const isEntranceBlinkPhase = !revealedParts.has("eyes");
 
   useThrottledFrame(({ camera, clock }) => {
     if (!lidPivotRef.current) return;
@@ -60,7 +60,7 @@ const Eye = ({
       const elapsed = time - state.startTime;
       const progress = elapsed / blinkDuration;
 
-      if (isEntranceBlinkPhase) {
+      if (!isMeshaSequenceDone) {
         if (!state.isBlinking) {
           state.isBlinking = true;
           state.startTime = time;
