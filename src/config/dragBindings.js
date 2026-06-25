@@ -9,21 +9,22 @@ export const dragBindings = {
   },
   ears: {
     // horizontal drag widens/narrows ear spread; no vertical binding yet
-    x: { advancedKey: "mesha.earSize" },
+    x: { advancedKey: "mesha.earWidth" },
+    y: { advancedKey: "mesha.earHeight" },
   },
   nose: {
     y: { advancedKey: "mesha.noseSize" },
   },
   tongue: {
     x: { advancedKey: "mesha.tongueWidth" },
-    y: { advancedKey: "mesha.tongueSize" },
+    y: { advancedKey: "mesha.tongueLength" },
   },
   teeth: {
     y: { advancedKey: "mesha.toothSize" },
   },
   moustache: {
     // horizontal drag on moustache adjusts its spread (mirrors eyeX)
-    x: { advancedKey: "mesha.eyeX" },
+    x: { advancedKey: "mesha.tuftSpacing" },
     y: { advancedKey: "mesha.tuftSize" },
   },
 };

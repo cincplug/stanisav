@@ -6,30 +6,25 @@ import { useLanguageSelectionContext } from "../contexts/LanguageSelectionContex
 import { resolveControlBounds } from "../utils/configUtils.js";
 
 export const useMeshaDrag = (bindings, linguisticProperty = null) => {
-  const {
-    controls,
-    updateConfigValue,
-    advancedControls,
-    updateAdvancedControl,
-  } = useConfigContext();
+  const { config, updateConfigValue } = useConfigContext();
   const { notifyDragStart, notifyDragEnd } = useDragContext();
   const { selectProperty } = useLanguageSelectionContext();
 
-  const { config } = useConfigContext();
   const { dragSensitivity, timeRate } = config.mesha;
 
   const dragStartValuesRef = useRef({});
   const dragThrottleRef = useRef({ elapsed: 0, lastTime: 0 });
 
+  // Reads current value from config by dot-notation key
   const resolveCurrentValue = (binding) => {
-    if (binding.controlKey) return controls[binding.controlKey];
-    if (binding.advancedKey) return advancedControls[binding.advancedKey];
-    return 0;
+    const dotKey = binding.advancedKey ?? binding.controlKey;
+    return dotKey.split(".").reduce((node, k) => node?.[k], config) ?? 0;
   };
 
+  // Writes updated value back into config by dot-notation key
   const applyValue = (binding, value) => {
-    if (binding.controlKey) updateConfigValue(binding.controlKey, value);
-    if (binding.advancedKey) updateAdvancedControl(binding.advancedKey, value);
+    const dotKey = binding.advancedKey ?? binding.controlKey;
+    updateConfigValue(dotKey, value);
   };
 
   const bind = useDrag(
@@ -49,9 +44,7 @@ export const useMeshaDrag = (bindings, linguisticProperty = null) => {
 
       if (last) {
         notifyDragEnd();
-        if (linguisticProperty) {
-          selectProperty(null);
-        }
+        if (linguisticProperty) selectProperty(null);
         return;
       }
 
@@ -67,8 +60,7 @@ export const useMeshaDrag = (bindings, linguisticProperty = null) => {
 
       if (bindings.x) {
         const { min, max } = resolveControlBounds(
-          bindings.x.controlKey,
-          bindings.x.advancedKey,
+          bindings.x.advancedKey ?? bindings.x.controlKey,
         );
         const rawValue = dragStartValuesRef.current.x + mx * dragSensitivity;
         applyValue(bindings.x, Math.min(Math.max(rawValue, min), max));
@@ -76,8 +68,7 @@ export const useMeshaDrag = (bindings, linguisticProperty = null) => {
 
       if (bindings.y) {
         const { min, max } = resolveControlBounds(
-          bindings.y.controlKey,
-          bindings.y.advancedKey,
+          bindings.y.advancedKey ?? bindings.y.controlKey,
         );
         const rawValue = dragStartValuesRef.current.y - my * dragSensitivity;
         applyValue(bindings.y, Math.min(Math.max(rawValue, min), max));
