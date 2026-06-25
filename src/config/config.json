@@ -74,7 +74,7 @@
     },
     "intensity": {
       "default": 20,
-      "selected": 54
+      "selected": 88
     },
     "decay": 0.4
   },
@@ -85,7 +85,7 @@
     "dragSensitivity": 0.1,
     "earBend": 1.8,
     "earDepth": 1.1,
-    "earHeight": 0.3,
+    "earHeight": 0.4,
     "earSize": 2.1,
     "earWidth": 0.1,
     "eyebrowY": 2.7,
@@ -95,7 +95,7 @@
     "eyeSize": 0.25,
     "eyeX": 0.7,
     "eyeY": 2.1,
-    "eyeZ": 2.1,
+    "eyeZ": 1.8,
     "irisSize": 0.75,
     "maxDeformation": 1.2,
     "meshaSize": 2.1,

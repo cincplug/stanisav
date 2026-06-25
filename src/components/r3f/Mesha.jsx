@@ -62,6 +62,7 @@ const Mesha = ({
   const { switchDuration } = config.camera;
   const { meshaSize, eyeZ, eyeY, eyeSize, noseSize, earSize } = config.mesha;
   const { sphereRadius } = config.scene;
+  const { labelSize } = config.header;
   const { selectedProperty, selectedLanguage } = useLanguageSelectionContext();
 
   const { isMeshaSequenceDone, isEntranceComplete, onMeshaSequenceDone } =
@@ -145,10 +146,11 @@ const Mesha = ({
 
   const initialPosition = [0, 0, sphereRadius * 2];
   const targetPosition = isMeshaSequenceDone ? position : initialPosition;
+  const nudgeIfSelected = selectedLanguage ? labelSize / 2 : 0;
 
   const spring = useSpring({
     x: targetPosition[0],
-    y: targetPosition[1],
+    y: targetPosition[1] - nudgeIfSelected,
     z: targetPosition[2],
     config: {
       duration: isEntranceComplete ? switchDuration : entranceDuration,
