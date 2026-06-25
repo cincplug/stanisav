@@ -32,28 +32,6 @@
     "entranceDuration": 6000,
     "meshaAssembleRate": 50,
     "labelRevealDuration": 500,
-    "meshaRevealSequence": [
-      {
-        "holdMs": 800,
-        "part": "eyes"
-      },
-      {
-        "holdMs": 600,
-        "part": "nose"
-      },
-      {
-        "holdMs": 400,
-        "part": "ears"
-      },
-      {
-        "holdMs": 400,
-        "part": "tongue"
-      },
-      {
-        "holdMs": 400,
-        "part": "teeth"
-      }
-    ],
     "startLabelOffset": 1.2
   },
   "scene": {
@@ -79,7 +57,7 @@
     "sceneZoomed": 0.1
   },
   "shader": {
-    "ambient": 1.2,
+    "ambient": 0.7,
     "lightingDiffuse": 0.5,
     "lightingMax": 1.2,
     "lightingMin": 0.7,
@@ -90,7 +68,6 @@
     "shadeStripe": 2
   },
   "light": {
-    "decay": 0.4,
     "distance": {
       "default": 174,
       "selected": 106
@@ -98,7 +75,8 @@
     "intensity": {
       "default": 20,
       "selected": 54
-    }
+    },
+    "decay": 0.4
   },
   "mesha": {
     "amplitudeThreshold": 0.1,

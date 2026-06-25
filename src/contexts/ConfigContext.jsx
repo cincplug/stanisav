@@ -53,10 +53,6 @@ const readDotKey = (dotKey, obj) =>
 const ConfigContext = createContext(null);
 
 export const ConfigProvider = ({ children }) => {
-  // config mirrors config.json's nested shape with select arrays resolved to their
-  // first element, so consumers destructure naturally:
-  // const { sortBy } = config.header;  → "alphabetically"
-  // const { meshaRevealSequence } = config.entrance;  → original array, untouched
   const [config, setConfig] = useState(() =>
     resolveInitialValues(staticConfig),
   );
