@@ -3,29 +3,22 @@ import { useRef } from "react";
 import { useConfigContext } from "../contexts/ConfigContext.jsx";
 import { useDragContext } from "../contexts/DragContext.jsx";
 import { useLanguageSelectionContext } from "../contexts/LanguageSelectionContext.jsx";
-import { resolveControlBounds } from "../utils/configUtils.js";
 
 export const useMeshaDrag = (bindings, linguisticProperty = null) => {
   const { config, updateConfigValue } = useConfigContext();
   const { notifyDragStart, notifyDragEnd } = useDragContext();
   const { selectProperty } = useLanguageSelectionContext();
 
-  const { dragSensitivity, timeRate } = config.mesha;
+  const { dragSensitivity, timeRate, dragSessionRange } = config.mesha;
 
   const dragStartValuesRef = useRef({});
   const dragThrottleRef = useRef({ elapsed: 0, lastTime: 0 });
 
-  // Reads current value from config by dot-notation key
-  const resolveCurrentValue = (binding) => {
-    const dotKey = binding.advancedKey ?? binding.controlKey;
-    return dotKey.split(".").reduce((node, k) => node?.[k], config) ?? 0;
-  };
+  const resolveCurrentValue = (binding) =>
+    binding.configKey.split(".").reduce((node, k) => node?.[k], config) ?? 0;
 
-  // Writes updated value back into config by dot-notation key
-  const applyValue = (binding, value) => {
-    const dotKey = binding.advancedKey ?? binding.controlKey;
-    updateConfigValue(dotKey, value);
-  };
+  const applyValue = (binding, value) =>
+    updateConfigValue(binding.configKey, value);
 
   const bind = useDrag(
     ({ movement: [mx, my], first, last, active, event }) => {
@@ -59,19 +52,27 @@ export const useMeshaDrag = (bindings, linguisticProperty = null) => {
       throttle.elapsed -= timeRate;
 
       if (bindings.x) {
-        const { min, max } = resolveControlBounds(
-          bindings.x.advancedKey ?? bindings.x.controlKey,
+        const startX = dragStartValuesRef.current.x;
+        const rawValue = startX + mx * dragSensitivity;
+        applyValue(
+          bindings.x,
+          Math.min(
+            Math.max(rawValue, startX - dragSessionRange),
+            startX + dragSessionRange,
+          ),
         );
-        const rawValue = dragStartValuesRef.current.x + mx * dragSensitivity;
-        applyValue(bindings.x, Math.min(Math.max(rawValue, min), max));
       }
 
       if (bindings.y) {
-        const { min, max } = resolveControlBounds(
-          bindings.y.advancedKey ?? bindings.y.controlKey,
+        const startY = dragStartValuesRef.current.y;
+        const rawValue = startY - my * dragSensitivity;
+        applyValue(
+          bindings.y,
+          Math.min(
+            Math.max(rawValue, startY - dragSessionRange),
+            startY + dragSessionRange,
+          ),
         );
-        const rawValue = dragStartValuesRef.current.y - my * dragSensitivity;
-        applyValue(bindings.y, Math.min(Math.max(rawValue, min), max));
       }
     },
     { pointerEvents: true },

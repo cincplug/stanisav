@@ -1,30 +1,30 @@
 // Maps each Mesha component to drag axis bindings.
-// Each axis maps to either advancedKey (controls.json) or advancedKey (dot-notation into config.json).
+// Each axis maps to either configKey (controls.json) or configKey (dot-notation into config.json).
 // x axis: horizontal drag, y axis: vertical drag.
 
 export const dragBindings = {
   eyes: {
-    x: { advancedKey: "mesha.eyeX" },
-    y: { advancedKey: "mesha.eyeY" },
+    x: { configKey: "mesha.eyeX" },
+    y: { configKey: "mesha.eyeY" },
   },
   ears: {
     // horizontal drag widens/narrows ear spread; no vertical binding yet
-    x: { advancedKey: "mesha.earWidth" },
-    y: { advancedKey: "mesha.earHeight" },
+    x: { configKey: "mesha.earWidth" },
+    y: { configKey: "mesha.earHeight" },
   },
   nose: {
-    y: { advancedKey: "mesha.noseSize" },
+    y: { configKey: "mesha.noseSize" },
   },
   tongue: {
-    x: { advancedKey: "mesha.tongueWidth" },
-    y: { advancedKey: "mesha.tongueLength" },
+    x: { configKey: "mesha.tongueWidth" },
+    y: { configKey: "mesha.tongueLength" },
   },
   teeth: {
-    y: { advancedKey: "mesha.toothSize" },
+    y: { configKey: "mesha.toothSize" },
   },
   moustache: {
     // horizontal drag on moustache adjusts its spread (mirrors eyeX)
-    x: { advancedKey: "mesha.tuftSpacing" },
-    y: { advancedKey: "mesha.tuftSize" },
+    x: { configKey: "mesha.tuftSpacing" },
+    y: { configKey: "mesha.tuftSize" },
   },
 };

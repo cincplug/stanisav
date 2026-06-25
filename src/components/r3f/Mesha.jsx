@@ -320,8 +320,12 @@ const Mesha = ({
           />
         )}
         <SpeechBalloon
-          position="top-right"
-          anchorOffset={[0, eyeY + eyeSize * 2, eyeZ]}
+          position={selectedLanguage ? "top" : "top-right"}
+          anchorOffset={
+            selectedLanguage
+              ? [0, eyeY + eyeSize * 2, eyeZ]
+              : [0, eyeY + eyeSize * 2, eyeZ]
+          }
         />
       </group>
     </a.group>

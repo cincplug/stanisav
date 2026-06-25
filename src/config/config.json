@@ -83,6 +83,7 @@
     "blinkDuration": 0.2,
     "decayRate": 0.7,
     "dragSensitivity": 0.1,
+    "dragSessionRange": 0.3,
     "earBend": 1.8,
     "earDepth": 1.1,
     "earHeight": 0.4,
