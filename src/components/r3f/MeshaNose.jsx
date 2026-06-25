@@ -1,33 +1,70 @@
 import { useRef } from "react";
+import { MathUtils } from "three";
 import { dragBindings } from "../../config/dragBindings.js";
 import { useConfigContext } from "../../contexts/ConfigContext";
 import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
-import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
-import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
+import {
+  useHighlightMaterial,
+  useShaderMaterial,
+} from "../../hooks/useShaderMaterial.js";
+
+const ROLE_ARC = {
+  S: { isFullCircle: false, gapAngle: 0 },
+  V: { isFullCircle: false, gapAngle: Math.PI / 2 },
+  O: { isFullCircle: true, gapAngle: 0 },
+};
 
 const MeshaNose = ({
   position,
   scale,
-  segmentColors,
+  wordOrder,
+  color,
   onClick,
   isSelectedOuter,
   isSelectedInner,
 }) => {
   const groupRef = useRef();
-  const segmentARef = useRef();
-  const segmentBRef = useRef();
-  const segmentCRef = useRef();
   const highlightMaterial = useHighlightMaterial(0, 2);
 
   const { config } = useConfigContext();
-  const { segments, pupilSize } = config.mesha;
+  const {
+    segments,
+    noseSize,
+    noseThickness,
+    noseSliceAngle,
+    noseCirclePadding,
+  } = config.mesha;
+
+  const { white, labelTextColor } = config.colors;
 
   const bind = useMeshaDrag(dragBindings.nose, "wordOrder");
 
-  useThrottledFrame(({ camera }) => {
-    if (!groupRef.current) return;
-    groupRef.current.lookAt(camera.position);
+  const sliceRad = MathUtils.degToRad(noseSliceAngle);
+  const fullArc = Math.PI * 2;
+  const tubeRadius = noseThickness / 2;
+
+  const innerRadius = noseSize;
+  const middleRadius = innerRadius + tubeRadius * 2 + noseCirclePadding;
+  const outerRadius = middleRadius + tubeRadius * 2 + noseCirclePadding;
+  const radii = [outerRadius, middleRadius, innerRadius];
+
+  const roles = wordOrder.split("");
+  const colors = { S: white, V: color, O: labelTextColor };
+
+  const rings = roles.map((role, i) => {
+    const { isFullCircle, gapAngle } = ROLE_ARC[role] ?? ROLE_ARC.O;
+    const arc = isFullCircle ? fullArc : fullArc - sliceRad;
+    const rotZ = isFullCircle ? 0 : gapAngle - (arc + sliceRad / 2);
+    return {
+      arc,
+      rotZ,
+      torusR: radii[i],
+      material: useShaderMaterial(colors[role]),
+    };
   });
+
+  const isSelected = [isSelectedOuter, isSelectedInner, isSelectedInner];
+  const linguisticProps = ["wordOrder"];
 
   return (
     <group
@@ -37,60 +74,21 @@ const MeshaNose = ({
       renderOrder={2}
       {...bind()}
     >
-      <mesh
-        ref={segmentARef}
-        scale={1}
-        linguisticProperty="wordOrder"
-        onClick={onClick}
-      >
-        <sphereGeometry
-          args={[pupilSize, segments, segments, -Math.PI, Math.PI]}
-        />
-        {isSelectedOuter ? (
-          <shaderMaterial args={[highlightMaterial]} />
-        ) : (
-          <meshBasicMaterial
-            wireframe={true}
-            color={segmentColors[0]}
-            side={2}
-          />
-        )}
-      </mesh>
-
-      <mesh
-        ref={segmentBRef}
-        scale={0.8}
-        linguisticProperty="wordOrderFlexibility"
-        onClick={onClick}
-      >
-        <sphereGeometry
-          args={[pupilSize, segments, segments, 0, Math.PI * 2, 0, Math.PI / 2]}
-        />
-        {isSelectedInner ? (
-          <shaderMaterial args={[highlightMaterial]} />
-        ) : (
-          <meshBasicMaterial
-            wireframe={true}
-            color={segmentColors[1]}
-            side={2}
-          />
-        )}
-      </mesh>
-
-      <mesh ref={segmentCRef} scale={0.6} linguisticProperty="noseInner">
-        <sphereGeometry
-          args={[pupilSize, segments, segments, 0, Math.PI * 2, 0, Math.PI]}
-        />
-        {isSelectedInner ? (
-          <shaderMaterial args={[highlightMaterial]} />
-        ) : (
-          <meshBasicMaterial
-            wireframe={true}
-            color={segmentColors[2]}
-            side={2}
-          />
-        )}
-      </mesh>
+      {rings.map(({ arc, rotZ, torusR, material }, i) => (
+        <mesh
+          key={i}
+          rotation-z={rotZ}
+          linguisticProperty={linguisticProps[i]}
+          onClick={i < 2 ? onClick : undefined}
+        >
+          <torusGeometry args={[torusR, tubeRadius, segments, segments, arc]} />
+          {isSelected[i] ? (
+            <shaderMaterial args={[highlightMaterial]} />
+          ) : (
+            <shaderMaterial args={[material]} />
+          )}
+        </mesh>
+      ))}
     </group>
   );
 };

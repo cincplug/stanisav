@@ -95,9 +95,9 @@ const Eye = ({
       <mesh linguisticProperty="evidentiality" onClick={onClick}>
         <sphereGeometry args={[eyeSize, segments, segments]} />
         {isSelectedOuter ? (
-          <shaderMaterial args={[whiteMaterial]} />
+          <shaderMaterial args={[highlightMaterial]} />
         ) : (
-          <meshBasicMaterial color={config.colors.white} />
+          <shaderMaterial args={[whiteMaterial]} />
         )}
       </mesh>
 

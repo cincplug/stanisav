@@ -48,7 +48,6 @@ const Mesha = ({
   const { languageColors } = useLanguageColorsContext();
   const { isAnimating } = usePlaylistContext();
   const { config } = useConfigContext();
-  const { white, labelTextColor } = config.colors;
   const { entranceDuration, meshaAssembleRate } = config.entrance;
   const {
     skinHueShift,
@@ -142,18 +141,6 @@ const Mesha = ({
     maxConsonantClusterSize,
     wordOrderFlexibility,
   } = linguisticProperties;
-
-  const noseColorMap = {
-    S: white,
-    V: color,
-    O: labelTextColor,
-  };
-
-  const noseSegmentColors = [
-    noseColorMap[wordOrder[0]],
-    noseColorMap[wordOrder[1]],
-    noseColorMap[wordOrder[2]],
-  ];
 
   const initialPosition = [0, 0, sphereRadius * 2];
   const targetPosition = isMeshaSequenceDone ? position : initialPosition;
@@ -289,9 +276,10 @@ const Mesha = ({
         />
 
         <MeshaNose
-          position={[0, eyeY - eyeSize, eyeZ + eyeSize / 2]}
+          position={[0, eyeY - eyeSize, eyeZ + eyeSize]}
           scale={noseSize}
-          segmentColors={noseSegmentColors}
+          color={color}
+          wordOrder={wordOrder}
           isSelectedOuter={selectedProperty === "wordOrder"}
           isSelectedInner={selectedProperty === "wordOrderFlexibility"}
         />
