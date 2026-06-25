@@ -30,7 +30,7 @@
   "entrance": {
     "entranceAxis": "z",
     "entranceDuration": 6000,
-    "meshaAssembleRate": 50,
+    "meshaAssembleRate": 40,
     "labelRevealDuration": 500,
     "startLabelOffset": 1.2
   },
@@ -86,7 +86,7 @@
     "dragSessionRange": 0.3,
     "earBend": 1.8,
     "earDepth": 1.1,
-    "earHeight": 0.4,
+    "earHeight": 0.3,
     "earSize": 2.1,
     "earWidth": 0.1,
     "eyebrowY": 2.7,
@@ -151,7 +151,7 @@
     "far": 2000,
     "fov": 30,
     "near": 0.1,
-    "switchDuration": 1200,
+    "switchDuration": 1500,
     "zoomDistance": 37,
     "homeDistance": 64
   },

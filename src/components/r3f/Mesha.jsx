@@ -1,6 +1,6 @@
 import { a, useSpring } from "@react-spring/three";
 import { extend } from "@react-three/fiber";
-import { useEffect, useMemo, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef } from "react";
 import { Euler, MathUtils, Mesh, Quaternion } from "three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
@@ -10,6 +10,7 @@ import { useDragContext } from "../../contexts/DragContext.jsx";
 import { useEntranceContext } from "../../contexts/EntranceContext.jsx";
 import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext.jsx";
 import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext.jsx";
+import { usePlaylistContext } from "../../contexts/PlaylistContext";
 import { useShaderMaterial } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import microphoneService from "../../services/microphoneService.js";
@@ -45,6 +46,7 @@ const Mesha = ({
 
   const { data } = useAppStateContext();
   const { languageColors } = useLanguageColorsContext();
+  const { isAnimating } = usePlaylistContext();
   const { config } = useConfigContext();
   const { white, labelTextColor } = config.colors;
   const { entranceDuration, meshaAssembleRate } = config.entrance;
@@ -93,8 +95,7 @@ const Mesha = ({
     }
   }, [selectedLanguage]);
 
-  // Traverse all meshes inside Mesha's group, hide them, then reveal one by one
-  useEffect(() => {
+  const runAssemble = useCallback(() => {
     if (!lookAroundRef.current) return;
 
     const meshes = [];
@@ -115,6 +116,16 @@ const Mesha = ({
 
     return () => timers.forEach(clearTimeout);
   }, []);
+
+  useEffect(() => {
+    runAssemble();
+  }, []);
+
+  useEffect(() => {
+    if (isAnimating) {
+      runAssemble();
+    }
+  }, [isAnimating]);
 
   const scores = getFeatureScoreList(linguisticProperties, [
     "wordOrderFlexibility",
@@ -290,11 +301,7 @@ const Mesha = ({
           segments={segments}
           isSelected={selectedProperty === "tonality"}
         />
-        <MeshaTeeth
-          toothCount={phonemeCount}
-          consonantClusterSize={maxConsonantClusterSize}
-          isSelected={selectedProperty === "phonemeCount"}
-        />
+
         {caseCount && (
           <MeshaMoustache
             linguisticProperty="caseCount"
@@ -307,6 +314,7 @@ const Mesha = ({
             stepDeg={6}
           />
         )}
+
         {nounClassCount && (
           <MeshaMoustache
             linguisticProperty="nounClassCount"
@@ -319,6 +327,13 @@ const Mesha = ({
             stepDeg={12}
           />
         )}
+
+        <MeshaTeeth
+          toothCount={phonemeCount}
+          consonantClusterSize={maxConsonantClusterSize}
+          isSelected={selectedProperty === "phonemeCount"}
+        />
+
         <SpeechBalloon
           position={selectedLanguage ? "top" : "top-right"}
           anchorOffset={
