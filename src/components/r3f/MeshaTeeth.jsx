@@ -1,15 +1,53 @@
 import { extend } from "@react-three/fiber";
-import { useMemo, useRef } from "react";
+import { forwardRef, useMemo, useRef } from "react";
 import { RoundedBoxGeometry } from "three/examples/jsm/Addons.js";
 import { dragBindings } from "../../config/dragBindings.js";
 import { useConfigContext } from "../../contexts/ConfigContext";
 import { useAudioData } from "../../hooks/useAudioData.js";
 import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
-import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
+import {
+  useHighlightMaterial,
+  useShaderMaterial,
+} from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { shiftHue } from "../../utils/colorUtils";
 
 extend({ RoundedBoxGeometry });
+
+// Isolated tooth so each instance can call useShaderMaterial with its own color
+const MeshaTooth = forwardRef(
+  ({ tooth, centerIndex, color, isSelected, onClick }, ref) => {
+    const { config } = useConfigContext();
+    const { toothWidth, toothLength, toothThickness, toothRoundness } =
+      config.mesha;
+    const toothMaterial = useShaderMaterial(color);
+    const highlightMaterial = useHighlightMaterial(0, 2);
+
+    return (
+      <group
+        position={[tooth.x, tooth.y, tooth.z - 1]}
+        rotation={[tooth.rotationAngle, 0, 0]}
+      >
+        <mesh ref={ref} linguisticProperty="phonemeCount" onClick={onClick}>
+          <roundedBoxGeometry
+            args={[
+              toothWidth,
+              toothLength / (centerIndex + 1),
+              toothThickness * centerIndex,
+              6,
+              toothRoundness,
+            ]}
+          />
+          {isSelected ? (
+            <shaderMaterial args={[highlightMaterial]} />
+          ) : (
+            <shaderMaterial args={[toothMaterial]} />
+          )}
+        </mesh>
+      </group>
+    );
+  },
+);
 
 const MeshaTeeth = ({
   toothCount,
@@ -20,16 +58,8 @@ const MeshaTeeth = ({
   const teethRefs = useRef([]);
   const { audioData } = useAudioData();
   const { config } = useConfigContext();
-  const { toothColor, emissiveness } = config.colors;
-  const {
-    toothSize,
-    toothColorStep,
-    toothWidth,
-    toothLength,
-    toothThickness,
-    toothRoundness,
-  } = config.mesha;
-  const highlightMaterial = useHighlightMaterial(0, 2);
+  const { toothColor } = config.colors;
+  const { toothSize, toothColorStep } = config.mesha;
   const centerIndex = (toothCount - 1) / 2;
 
   const bind = useMeshaDrag(dragBindings.teeth, "phonemeCount");
@@ -82,42 +112,17 @@ const MeshaTeeth = ({
 
   return (
     <group position={[0, 1, 1]} scale={toothSize} {...bind()}>
-      {teeth.map((tooth, i) => {
-        const color = shiftHue(toothColor, toothColorStep * i);
-        return (
-          <group
-            key={tooth.key}
-            position={[tooth.x, tooth.y, tooth.z - 1]}
-            rotation={[tooth.rotationAngle, 0, 0]}
-          >
-            <mesh
-              ref={(el) => (teethRefs.current[i] = el)}
-              linguisticProperty="phonemeCount"
-              onClick={onClick}
-            >
-              <roundedBoxGeometry
-                args={[
-                  toothWidth,
-                  toothLength / (centerIndex + 1),
-                  toothThickness * centerIndex,
-                  6,
-                  toothRoundness,
-                ]}
-              />
-              {isSelected ? (
-                <shaderMaterial args={[highlightMaterial]} />
-              ) : (
-                <meshPhongMaterial
-                  color={color}
-                  emissive={color}
-                  emissiveIntensity={emissiveness}
-                  side={2}
-                />
-              )}
-            </mesh>
-          </group>
-        );
-      })}
+      {teeth.map((tooth, i) => (
+        <MeshaTooth
+          key={tooth.key}
+          ref={(el) => (teethRefs.current[i] = el)}
+          tooth={tooth}
+          centerIndex={centerIndex}
+          color={shiftHue(toothColor, toothColorStep * i)}
+          isSelected={isSelected}
+          onClick={onClick}
+        />
+      ))}
     </group>
   );
 };
