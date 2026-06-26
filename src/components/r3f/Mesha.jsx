@@ -51,6 +51,7 @@ const Mesha = ({
   const { entranceDuration } = config.entrance;
   const {
     assembleRate,
+    isPhoenix,
     skinHueShift,
     tuftHueShift,
     tuftY,
@@ -123,6 +124,7 @@ const Mesha = ({
 
   const prevIsAnimatingRef = useRef(false);
   useEffect(() => {
+    if (!isPhoenix) return;
     const wasAnimating = prevIsAnimatingRef.current;
     prevIsAnimatingRef.current = isAnimating;
 
