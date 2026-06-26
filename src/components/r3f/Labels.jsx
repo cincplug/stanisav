@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { useConfigContext } from "../../contexts/ConfigContext";
 import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext";
 import Label from "./Label";
@@ -19,12 +19,14 @@ const Labels = ({
   const { isSegmented } = config.header;
   const { hasLines } = config.scene;
 
-  const visibleLabelCodes = Object.keys(formattedPositions).filter(
-    (langCode) => {
-      const position = formattedPositions[langCode];
-      const filterStatus = languageFilterStatus[langCode];
-      return Boolean(position) && Boolean(filterStatus?.isVisible);
-    },
+  const visibleLabelCodes = useMemo(
+    () =>
+      Object.keys(formattedPositions).filter((langCode) => {
+        const position = formattedPositions[langCode];
+        const filterStatus = languageFilterStatus[langCode];
+        return Boolean(position) && Boolean(filterStatus?.isVisible);
+      }),
+    [formattedPositions, languageFilterStatus],
   );
 
   const totalVisibleLabels = visibleLabelCodes.length;

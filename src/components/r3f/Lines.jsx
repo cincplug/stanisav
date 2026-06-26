@@ -29,7 +29,7 @@ const Lines = ({
   const { opacity, lineWidth, centerPullRatio } = config.lines;
   const { entranceDuration } = config.entrance;
   const { currentColor, bgColor } = config.colors;
-  const { switchDuration } = config.camera;
+  const { switchDuration, far } = config.camera;
   const { isEntranceComplete } = useEntranceContext();
 
   const countLines = visibleLabelCodes.length;
@@ -95,7 +95,7 @@ const Lines = ({
 
   const hiddenX = 0;
   const hiddenY = 0;
-  const hiddenZ = -99999;
+  const hiddenZ = -far * 2;
 
   useThrottledFrame(({ scene }) => {
     if (countLines < 1 || !meshRef.current || !geometryRef.current) return;

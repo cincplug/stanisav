@@ -99,7 +99,7 @@
     "eyeY": 2.1,
     "eyeZ": 1.8,
     "irisSize": 0.75,
-    "isPhoenix": false,
+    "isPhoenix": true,
     "maxDeformation": 1.2,
     "meshaSize": 1.5,
     "noseSize": 0.25,
@@ -181,7 +181,7 @@
     "harmonicsMin": 700
   },
   "lines": {
-    "centerPullRatio": 1,
+    "centerPullRatio": 0.74,
     "lineWidth": 73,
     "opacity": 0.2
   }
