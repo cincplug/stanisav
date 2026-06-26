@@ -1,9 +1,5 @@
 import staticConfig from "../config/config.json";
 
-export const deriveMin = (value) => Math.abs(value / 5) - 1;
-
-export const deriveMax = (value) => Math.abs(value * 5) + 1;
-
 export const deriveStep = (value) => {
   const abs = Math.abs(value);
   const str = String(abs);
@@ -12,6 +8,18 @@ export const deriveStep = (value) => {
   if (decimalPlaces >= 2) return 0.01;
   if (decimalPlaces === 1) return 0.1;
   return 1;
+};
+
+export const deriveMin = (value) => {
+  const step = deriveStep(value);
+  const raw = Math.abs(value / 5) - 1;
+  return Math.round(raw / step) * step;
+};
+
+export const deriveMax = (value) => {
+  const step = deriveStep(value);
+  const raw = Math.abs(value * 5) + 1;
+  return Math.round(raw / step) * step;
 };
 
 // Reads a dot-notation key from a nested object
