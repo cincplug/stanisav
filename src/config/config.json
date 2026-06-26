@@ -74,7 +74,7 @@
     },
     "intensity": {
       "default": 20,
-      "selected": 88
+      "selected": 64
     },
     "decay": 0.4
   },
