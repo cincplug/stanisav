@@ -38,7 +38,7 @@ const MeshaEars = ({
     <>
       <mesh
         position={[-x, y, z]}
-        scale={[-earWidth, earHeight / segments, (earDepth / segments) * 2]}
+        scale={[-earWidth, earHeight / segments, earDepth]}
         onClick={onClick}
         linguisticProperty="morphology"
         {...bind()}
@@ -48,7 +48,7 @@ const MeshaEars = ({
       </mesh>
       <mesh
         position={[x, y, z]}
-        scale={[earWidth, earHeight / segments, (earDepth / segments) * 2]}
+        scale={[earWidth, earHeight / segments, earDepth]}
         onClick={onClick}
         linguisticProperty="morphology"
         {...bind()}
