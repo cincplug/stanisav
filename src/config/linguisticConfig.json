@@ -45,12 +45,12 @@
       "fusional": {
         "label": "Fusional",
         "description": "Words change their form through endings and prefixes that bundle multiple grammatical meanings at once. A single ending might express gender, number, and case simultaneously, making the pieces hard to pull apart.",
-        "score": 6
+        "score": 5
       },
       "polysynthetic": {
         "label": "Polysynthetic",
         "description": "A single word can express what other languages would say in a whole sentence, by fusing the verb, subject, object, and other elements together. Common in indigenous languages of the Americas and the Arctic.",
-        "score": 9
+        "score": 10
       }
     }
   },

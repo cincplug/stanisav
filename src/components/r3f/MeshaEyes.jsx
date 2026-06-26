@@ -149,7 +149,6 @@ const Eye = ({
             side={1}
             depthTest={false}
             transparent={true}
-            wireframe
           />
         </mesh>
       </group>

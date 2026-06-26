@@ -10,20 +10,34 @@ extend({ ParametricGeometry });
 
 const MeshaEars = ({
   earMaterial,
-  earPosition,
   size,
-  bend,
-  segments,
+  morphologyScore,
   onClick,
   isSelected,
 }) => {
   const highlightMaterial = useHighlightMaterial(0);
   const { config } = useConfigContext();
-  const { earHeight, earWidth, earDepth, maxDeformation, verticalVariation } =
-    config;
+  const {
+    earHeight,
+    earWidth,
+    earDepth,
+    earX,
+    earY,
+    earZ,
+    maxDeformation,
+    verticalVariation,
+    segments,
+  } = config;
+
+  const bend = morphologyScore * earX;
   const bind = useMeshaDrag(dragBindings.ears, "morphology");
 
-  const { x, y, z } = earPosition;
+  const position = {
+    x: earX - morphologyScore,
+    y: earY,
+    z: earZ,
+  };
+  const { x, y, z } = position;
   const activeMaterial = isSelected ? highlightMaterial : earMaterial;
 
   const staticSurface = createAudioSurface({
@@ -38,7 +52,7 @@ const MeshaEars = ({
     <>
       <mesh
         position={[-x, y, z]}
-        scale={[-earWidth, earHeight / segments, earDepth]}
+        scale={[-earWidth, earHeight / bend, earDepth]}
         onClick={onClick}
         linguisticProperty="morphology"
         {...bind()}
@@ -48,7 +62,7 @@ const MeshaEars = ({
       </mesh>
       <mesh
         position={[x, y, z]}
-        scale={[earWidth, earHeight / segments, earDepth]}
+        scale={[earWidth, earHeight / bend, earDepth]}
         onClick={onClick}
         linguisticProperty="morphology"
         {...bind()}

@@ -1,6 +1,6 @@
 import { a, useSpring } from "@react-spring/three";
 import { extend } from "@react-three/fiber";
-import { useCallback, useEffect, useMemo, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { Euler, MathUtils, Mesh, Quaternion } from "three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
@@ -58,7 +58,6 @@ const Mesha = ({
     tuftY,
     eyebrowY,
     segments,
-    earBend,
     saltoAmplitude,
     saltoFrequency,
     saltoPow,
@@ -250,15 +249,6 @@ const Mesha = ({
     lookAroundRef.current.quaternion.multiply(scratchQuat);
   });
 
-  const earPosition = useMemo(
-    () => ({
-      x: 1.5 - scores.morphology / 2,
-      y: (scores.morphology + 1) / 4,
-      z: 1,
-    }),
-    [scores.morphology],
-  );
-
   return (
     <a.group
       ref={groupRef}
@@ -280,9 +270,7 @@ const Mesha = ({
         <MeshaEar
           earMaterial={skinMaterial}
           size={earSize}
-          bend={scores.morphology * earBend}
-          segments={scores.morphology}
-          earPosition={earPosition}
+          morphologyScore={scores.morphology}
           isSelected={selectedProperty === "morphology"}
         />
 
