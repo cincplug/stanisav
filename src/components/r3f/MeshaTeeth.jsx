@@ -18,8 +18,7 @@ extend({ RoundedBoxGeometry });
 const MeshaTooth = forwardRef(
   ({ tooth, centerIndex, color, isSelected, onClick }, ref) => {
     const { config } = useConfigContext();
-    const { toothWidth, toothLength, toothThickness, toothRoundness } =
-      config.mesha;
+    const { toothWidth, toothLength, toothThickness, toothRoundness } = config;
     const toothMaterial = useShaderMaterial(color);
     const highlightMaterial = useHighlightMaterial(0, 2);
 
@@ -58,8 +57,7 @@ const MeshaTeeth = ({
   const teethRefs = useRef([]);
   const { audioData } = useAudioData();
   const { config } = useConfigContext();
-  const { toothColor } = config.colors;
-  const { toothSize, toothColorStep } = config.mesha;
+  const { toothColor, toothSize, toothColorStep } = config;
   const centerIndex = (toothCount - 1) / 2;
 
   const bind = useMeshaDrag(dragBindings.teeth, "phonemeCount");

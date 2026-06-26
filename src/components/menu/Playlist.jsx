@@ -26,7 +26,7 @@ export default function Playlist() {
   } = usePlaylistContext();
 
   const { config, updateConfigValue } = useConfigContext();
-  const { isAutoplay } = config.global;
+  const { isAutoplay } = config;
   const playButtonRef = useRef(null);
 
   useEffect(() => {

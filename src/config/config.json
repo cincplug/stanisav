@@ -30,7 +30,6 @@
   "entrance": {
     "entranceAxis": "z",
     "entranceDuration": 6000,
-
     "labelRevealDuration": 500,
     "startLabelOffset": 1.2
   },
@@ -46,38 +45,34 @@
     "cellSizeModifier": 1,
     "cellSpacing": 0.12,
     "gap": 0.7,
-    "lightModifier": 1.34,
+    "segmentedLightModifier": 1.15,
     "margin": 0.9,
     "titleOffset": 1.2
   },
   "rotateSpeed": {
-    "meshaInitial": 0,
-    "meshaZoomed": 0.6,
-    "sceneInitial": 1,
-    "sceneZoomed": 0.1
+    "rotateSpeedMeshaInitial": 0,
+    "rotateSpeedMeshaZoomed": 0.6,
+    "rotateSpeedSceneInitial": 1,
+    "rotateSpeedSceneZoomed": 0.1
   },
   "shader": {
     "ambient": 0.7,
     "lightingDiffuse": 0.5,
     "lightingMax": 1.2,
     "lightingMin": 0.7,
-    "opacity": 0.9,
+    "shaderOpacity": 0.8,
     "ringCount": 12,
     "ringSpeed": 1.2,
     "shadeChecker": 1.22,
     "shadeStripe": 2
   },
   "light": {
-    "distance": {
-      "default": 174,
-      "selected": 111
-    },
-    "intensity": {
-      "default": 20,
-      "selected": 64
-    },
-    "decay": 0.4,
-    "ambient": 0.1
+    "defaultLightDistance": 174,
+    "zoomedLightDistance": 111,
+    "defaultLightIntensity": 20,
+    "zoomedLightIntensity": 64,
+    "lightDecay": 0.4,
+    "ambientLight": 0.1
   },
   "mesha": {
     "amplitudeThreshold": 0.1,
@@ -184,6 +179,6 @@
   "lines": {
     "centerPullRatio": 0.74,
     "lineWidth": 73,
-    "opacity": 0.2
+    "lineOpacity": 0.2
   }
 }

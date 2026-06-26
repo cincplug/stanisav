@@ -15,10 +15,17 @@ const Light = ({
 }) => {
   const { camera, controls: threeControls } = useThree();
   const { config } = useConfigContext();
-  const { lightColor } = config.colors;
-  const { entranceDuration } = config.entrance;
-  const { distance, intensity, decay, ambient } = config.light;
-  const { lightModifier } = config.segmentation;
+  const {
+    lightColor,
+    entranceDuration,
+    defaultLightDistance,
+    zoomedLightDistance,
+    defaultLightIntensity,
+    zoomedLightIntensity,
+    lightDecay,
+    ambientLight,
+    segmentedLightModifier,
+  } = config;
 
   const lightRef = useRef();
   const { entranceProgress } = useSpring({
@@ -32,9 +39,11 @@ const Light = ({
 
   const { animatedDistance, animatedIntensity } = useSpring({
     animatedDistance:
-      distance[selectedLanguage ? "selected" : "default"] *
-      (isSegmented ? lightModifier : 1),
-    animatedIntensity: intensity[selectedLanguage ? "selected" : "default"],
+      (selectedLanguage ? zoomedLightDistance : defaultLightDistance) *
+      (isSegmented ? segmentedLightModifier : 1),
+    animatedIntensity: selectedLanguage
+      ? zoomedLightIntensity
+      : defaultLightIntensity,
     config: { tension, friction },
   });
 
@@ -63,11 +72,11 @@ const Light = ({
 
   return (
     <>
-      <ambientLight color={lightColor} intensity={ambient}></ambientLight>
+      <ambientLight color={lightColor} intensity={ambientLight}></ambientLight>
       <a.pointLight
         ref={lightRef}
         intensity={animatedIntensity}
-        decay={decay}
+        decay={lightDecay}
         distance={animatedDistance}
         color={lightColor}
       />

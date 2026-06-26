@@ -33,9 +33,9 @@ const MeshaNose = ({
     noseThickness,
     noseSliceAngle,
     noseCirclePadding,
-  } = config.mesha;
-
-  const { white, labelTextColor } = config.colors;
+    white,
+    labelTextColor,
+  } = config;
 
   const bind = useMeshaDrag(dragBindings.nose, "wordOrder");
 

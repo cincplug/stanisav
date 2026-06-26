@@ -45,10 +45,19 @@ class LayoutEngine {
   sphereLayout(data, config = {}) {
     const { languageData, languageLineages, speakerData, typologicalFeatures } =
       data;
-    const { sortBy, labelContent, isReverse, isSegmented } = config.header;
-    const { entranceAxis } = config.entrance;
-    const { gap, cellSpacing, cellSizeModifier } = config.segmentation;
-    const { spiralRatio, spiralAxis, sphereRadius } = config.scene;
+    const {
+      sortBy,
+      labelContent,
+      isReverse,
+      isSegmented,
+      entranceAxis,
+      gap,
+      cellSpacing,
+      cellSizeModifier,
+      spiralRatio,
+      spiralAxis,
+      sphereRadius,
+    } = config;
 
     const { buildPoint } = spiralAxisConfig[spiralAxis] ?? spiralAxisConfig.y;
     const { poleOf: entrancePoleOf, equatorialOf: entranceEquatorialOf } =

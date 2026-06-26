@@ -24,7 +24,7 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
     tongueLength,
     maxDeformation,
     verticalVariation,
-  } = config.mesha;
+  } = config;
 
   const meshRef = useRef();
 

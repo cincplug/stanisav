@@ -39,7 +39,9 @@ const Eye = ({
     pupilMetalness,
     pupilRoughness,
     segments,
-  } = config.mesha;
+    labelTextColor,
+    white,
+  } = config;
 
   // Eyes remain closed (lid down) until Mesha's mesh reveal sequence finishes
   const { isMeshaSequenceDone } = useEntranceContext();
@@ -82,7 +84,7 @@ const Eye = ({
   });
 
   const eyelidMaterial = useShaderMaterial(eyelidColor);
-  const whiteMaterial = useShaderMaterial(config.colors.white);
+  const whiteMaterial = useShaderMaterial(white);
 
   return (
     <group
@@ -96,7 +98,7 @@ const Eye = ({
       <mesh position={[0, 0, pupilZ]}>
         <sphereGeometry args={[pupilScale, segments, segments]} />
         <meshStandardMaterial
-          color={config.colors.labelTextColor}
+          color={labelTextColor}
           metalness={pupilMetalness}
           roughness={pupilRoughness}
           depthTest={false}
@@ -172,7 +174,7 @@ const MeshaEyes = ({
   });
 
   const { config } = useConfigContext();
-  const { eyeSize, eyeX, eyeY, eyeZ } = config.mesha;
+  const { eyeSize, eyeX, eyeY, eyeZ } = config;
   const { audioRef } = usePlaylistContext();
   const highlightMaterial = useHighlightMaterial(0, 2);
   const timings = blinkTimings[isoCode] ?? [];

@@ -12,7 +12,7 @@ const LabelsClusterTitle = ({ languagePositions, title }) => {
   );
 
   const { config } = useConfigContext();
-  const { titleOffset } = config.segmentation;
+  const { titleOffset, white } = config;
 
   useEffect(() => {
     if (titleRef.current && topCenter) {
@@ -31,7 +31,7 @@ const LabelsClusterTitle = ({ languagePositions, title }) => {
       fontWeight="bold"
       anchorX="center"
       anchorY="bottom"
-      color={config.colors.white}
+      color={white}
     >
       {title}
     </Text>

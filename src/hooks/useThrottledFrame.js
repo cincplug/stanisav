@@ -5,7 +5,7 @@ import { useConfigContext } from "../contexts/ConfigContext";
 export const useThrottledFrame = (callback) => {
   const accRef = useRef(0);
   const { config } = useConfigContext();
-  const { timeRate } = config.mesha;
+  const { timeRate } = config;
 
   useFrame((state, delta) => {
     accRef.current += delta * 1000;

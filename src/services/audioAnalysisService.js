@@ -85,7 +85,7 @@ class AudioAnalysisService {
     this.lastFrameTime = now;
     this.deltaAccumulator += delta;
 
-    const { timeRate } = this.analysisConfig.mesha;
+    const { timeRate } = this.analysisConfig;
     if (this.deltaAccumulator >= timeRate) {
       this.deltaAccumulator -= timeRate;
       this.analyser.getByteFrequencyData(this.dataArray);
@@ -105,7 +105,7 @@ class AudioAnalysisService {
     const binCount = this.dataArray.length;
 
     const { fundamentMin, fundamentMax, harmonicsMin, harmonicsMax } =
-      this.analysisConfig.voiceRange;
+      this.analysisConfig;
 
     const fundamentMinBin = Math.floor((fundamentMin / nyquist) * binCount);
     const fundamentMaxBin = Math.floor((fundamentMax / nyquist) * binCount);
@@ -126,7 +126,7 @@ class AudioAnalysisService {
 
   processFrequencyBand(startBin, endBin, outputArray) {
     const bandSize = Math.ceil((endBin - startBin) / outputArray.length);
-    const { amplitudeThreshold, decayRate } = this.analysisConfig.mesha;
+    const { amplitudeThreshold, decayRate } = this.analysisConfig;
 
     for (let i = 0; i < outputArray.length; i++) {
       const binStart = startBin + i * bandSize;

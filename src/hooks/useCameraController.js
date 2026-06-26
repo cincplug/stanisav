@@ -11,12 +11,18 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
   const { isMeshaSequenceDone } = useEntranceContext();
   const { camera, controls: threeControls } = useThree();
   const { config } = useConfigContext();
-  const { isSegmented } = config.header;
-  const { zoomDistance, homeDistance, switchDuration, fov, near, far } =
-    config.camera;
-  const { entranceDuration } = config.entrance;
-  const { meshaSize } = config.mesha;
-  const { sphereRadius } = config.scene;
+  const {
+    isSegmented,
+    zoomDistance,
+    homeDistance,
+    switchDuration,
+    fov,
+    near,
+    far,
+    entranceDuration,
+    meshaSize,
+    sphereRadius,
+  } = config;
 
   useEffect(() => {
     if (!camera) return;
@@ -157,7 +163,9 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
   useEffect(() => {
     if (!isMeshaSequenceDone) return;
     if (selectedLanguage) return;
-    focusOnMeshaHome(entranceDuration);
+    if (!isSegmented) {
+      focusOnMeshaHome(entranceDuration);
+    }
   }, [isMeshaSequenceDone]);
 
   // cameraFocusRequest handles fitAll, triggered by stop button and view-all

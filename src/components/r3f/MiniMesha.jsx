@@ -4,9 +4,8 @@ import Mesha from "../r3f/Mesha.jsx";
 
 const MiniMesha = ({ languageCode }) => {
   const { config } = useConfigContext();
-  const { cameraX, cameraY, cameraZ, fov, near, far } = config.camera;
-  const { bgColor } = config.colors;
-  const rotateSpeed = config.rotateSpeed.meshaZoomed;
+  const { cameraX, cameraY, cameraZ, fov, near, far, bgColor } = config;
+  const rotateSpeed = 1;
 
   return (
     <div className="mini-mesha">

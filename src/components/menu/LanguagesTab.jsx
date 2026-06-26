@@ -14,7 +14,7 @@ function LanguagesTab({ languageData, isSelected, languageColors = {} }) {
   const buttonRefs = useRef({});
 
   const { config } = useConfigContext();
-  const { sortBy, labelContent, isReverse } = config.header;
+  const { sortBy, labelContent, isReverse } = config;
 
   const { languageCodes, languageLineages, speakerData, typologicalFeatures } =
     useMemo(() => getSortingData(languageData), [languageData]);

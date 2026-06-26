@@ -38,15 +38,33 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
   const { isDragging } = useDragContext();
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
   const { config } = useConfigContext();
-  const { rotateSpeed } = config;
-  const { cameraX, cameraY, cameraZ, fov, near, far } = config.camera;
-  const { bgColor } = config.colors;
-  const { tension, friction, isMotionReduced } = config.motion;
-  const { meshaSize } = config.mesha;
-  const { isMyMesha, spiralRatio, spiralAxis, labelOffset, sphereRadius } =
-    config.scene;
-  const { sortBy, labelContent, isReverse, isSegmented, labelSize } =
-    config.header;
+  const {
+    cameraX,
+    cameraY,
+    cameraZ,
+    fov,
+    near,
+    far,
+    bgColor,
+    tension,
+    friction,
+    isMotionReduced,
+    meshaSize,
+    isMyMesha,
+    spiralRatio,
+    spiralAxis,
+    labelOffset,
+    sphereRadius,
+    sortBy,
+    labelContent,
+    isReverse,
+    isSegmented,
+    labelSize,
+    rotateSpeedSceneInitial,
+    rotateSpeedSceneZoomed,
+    rotateSpeedMeshaInitial,
+    rotateSpeedMeshaZoomed,
+  } = config;
 
   const orbitControlsRef = useRef();
 
@@ -200,7 +218,7 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
         orbitControlsRef={orbitControlsRef}
         spiralAxis={spiralAxis}
         speed={
-          selectedLanguage ? rotateSpeed.sceneZoomed : rotateSpeed.sceneInitial
+          selectedLanguage ? rotateSpeedSceneZoomed : rotateSpeedSceneInitial
         }
         isEnabled={!isSegmented && isMeshaSequenceDone}
       />
@@ -240,7 +258,7 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
         renderOrder={languageCodes.length - 1}
         looksAround={true}
         rotateSpeed={
-          selectedLanguage ? rotateSpeed.meshaZoomed : rotateSpeed.meshaInitial
+          selectedLanguage ? rotateSpeedMeshaZoomed : rotateSpeedMeshaInitial
         }
         isMotionReduced={isMotionReduced}
       />

@@ -5,7 +5,7 @@ import LabelsClusterTitle from "./LabelsClusterTitle";
 
 const LabelsCluster = ({ title, languageCodes, formattedPositions }) => {
   const { config } = useConfigContext();
-  const { isSegmented } = config.header;
+  const { isSegmented } = config;
 
   if (!isSegmented) return null;
 

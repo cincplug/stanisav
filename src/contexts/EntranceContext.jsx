@@ -15,13 +15,16 @@ const EntranceContext = createContext(null);
 export const EntranceProvider = ({ children }) => {
   const { config } = useConfigContext();
 
-  const { entranceDuration, labelRevealDuration, startLabelOffset } =
-    config.entrance;
-
-  const { durationBase, durationPerLetter, durationDismiss } =
-    config.speechBalloon;
-
-  const { tension, friction } = config.motion;
+  const {
+    entranceDuration,
+    labelRevealDuration,
+    startLabelOffset,
+    durationBase,
+    durationPerLetter,
+    durationDismiss,
+    tension,
+    friction,
+  } = config;
   const { isSceneReady } = useAppStateContext();
 
   const isSequenceCancelledRef = useRef(false);

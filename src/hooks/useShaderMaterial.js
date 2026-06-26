@@ -17,8 +17,8 @@ export const useShaderMaterial = (baseColor, accentColor, stripesType) => {
     lightingDiffuse,
     shadeChecker,
     shadeStripe,
-    opacity,
-  } = config.shader;
+    shaderOpacity,
+  } = config;
 
   const baseColorObj = useMemo(() => new Color(baseColor), [baseColor]);
   const accentColorObj = useMemo(() => new Color(accentColor), [accentColor]);
@@ -30,7 +30,7 @@ export const useShaderMaterial = (baseColor, accentColor, stripesType) => {
         uAccentColor: { value: accentColorObj },
         uStripesType: { value: stripesType },
         uAccentOpacity: { value: 1.0 },
-        uOpacity: { value: opacity },
+        uOpacity: { value: shaderOpacity },
         uAmbient: { value: ambient },
         uLightingMin: { value: lightingMin },
         uLightingMax: { value: lightingMax },
@@ -41,7 +41,7 @@ export const useShaderMaterial = (baseColor, accentColor, stripesType) => {
       vertexShader: meshVertexShader,
       fragmentShader: tonalityFragmentShader,
       side: 2,
-      transparent: opacity < 1,
+      transparent: shaderOpacity < 1,
     }),
     [
       baseColorObj,
@@ -64,14 +64,14 @@ export const useShaderMaterial = (baseColor, accentColor, stripesType) => {
       lightingDiffuse,
       shadeChecker,
       shadeStripe,
-      opacity,
-    } = config.shader;
+      shaderOpacity,
+    } = config;
 
     material.uniforms.uAmbient.value = ambient;
     material.uniforms.uLightingMin.value = lightingMin;
     material.uniforms.uLightingMax.value = lightingMax;
     material.uniforms.uLightingDiffuse.value = lightingDiffuse;
-    material.uniforms.uOpacity.value = opacity;
+    material.uniforms.uOpacity.value = shaderOpacity;
     material.uniforms.uShadeChecker.value = shadeChecker;
     material.uniforms.uShadeStripe.value = shadeStripe;
   });
@@ -86,19 +86,18 @@ export const useHighlightMaterial = (stripesType = 0) => {
     lightingMin,
     lightingMax,
     lightingDiffuse,
-    opacity,
+    shaderOpacity,
     shadeChecker,
     shadeStripe,
     ringCount,
     ringSpeed,
-  } = config.shader;
+    currentColor,
+  } = config;
 
-  const ringColor = useMemo(() => new Color(config.colors.currentColor), []);
+  const ringColor = useMemo(() => new Color(currentColor), []);
   const ringColorShade = useMemo(
     () =>
-      new Color(config.colors.currentColor).multiplyScalar(
-        (shadeChecker + shadeStripe) / 2,
-      ),
+      new Color(currentColor).multiplyScalar((shadeChecker + shadeStripe) / 2),
     [shadeChecker, shadeStripe],
   );
 
@@ -109,7 +108,7 @@ export const useHighlightMaterial = (stripesType = 0) => {
         uRingColorShade: { value: ringColorShade },
         uStripesType: { value: stripesType },
         uTime: { value: 0 },
-        uOpacity: { value: opacity },
+        uOpacity: { value: shaderOpacity },
         uAmbient: { value: ambient },
         uLightingMin: { value: lightingMin },
         uLightingMax: { value: lightingMax },
@@ -121,11 +120,11 @@ export const useHighlightMaterial = (stripesType = 0) => {
       vertexShader: meshVertexShader,
       fragmentShader: highlightFragmentShader,
       side: 2,
-      transparent: opacity < 1,
+      transparent: shaderOpacity < 1,
     }),
     [
       stripesType,
-      opacity,
+      shaderOpacity,
       ringColor,
       ringColorShade,
       ambient,
@@ -145,17 +144,17 @@ export const useHighlightMaterial = (stripesType = 0) => {
       lightingMax,
       lightingDiffuse,
       shadeStripe,
-      opacity,
+      shaderOpacity,
       ringCount,
       ringSpeed,
-    } = config.shader;
+    } = config;
 
     material.uniforms.uTime.value = clock.getElapsedTime();
     material.uniforms.uAmbient.value = ambient;
     material.uniforms.uLightingMin.value = lightingMin;
     material.uniforms.uLightingMax.value = lightingMax;
     material.uniforms.uLightingDiffuse.value = lightingDiffuse;
-    material.uniforms.uOpacity.value = opacity;
+    material.uniforms.uOpacity.value = shaderOpacity;
     material.uniforms.uShadeStripe.value = shadeStripe;
     material.uniforms.uRingCount.value = ringCount;
     material.uniforms.uRingSpeed.value = ringSpeed;

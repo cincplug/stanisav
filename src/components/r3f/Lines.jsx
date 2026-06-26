@@ -26,10 +26,16 @@ const Lines = ({
   const { size } = useThree();
 
   const { config } = useConfigContext();
-  const { opacity, lineWidth, centerPullRatio } = config.lines;
-  const { entranceDuration } = config.entrance;
-  const { currentColor, bgColor } = config.colors;
-  const { switchDuration, far } = config.camera;
+  const {
+    lineOpacity,
+    lineWidth,
+    centerPullRatio,
+    entranceDuration,
+    currentColor,
+    bgColor,
+    switchDuration,
+    far,
+  } = config;
   const { isEntranceComplete } = useEntranceContext();
 
   const countLines = visibleLabelCodes.length;
@@ -57,7 +63,7 @@ const Lines = ({
     const mat = new LineMaterial({
       vertexColors: true,
       transparent: true,
-      opacity,
+      opacity: lineOpacity,
       linewidth: lineWidth,
       depthTest: false,
       toneMapped: false,

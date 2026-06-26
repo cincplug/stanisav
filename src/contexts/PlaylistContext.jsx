@@ -16,9 +16,15 @@ const PlaylistContext = createContext(null);
 export const PlaylistProvider = ({ children }) => {
   const { data, isSceneReady } = useAppStateContext();
   const { config } = useConfigContext();
-  const { isMyMesha, sortBy, labelContent, isReverse } = config.header;
-  const { isAutoplay, isLuka } = config.global;
-  const { switchDuration } = config.camera;
+  const {
+    isMyMesha,
+    sortBy,
+    labelContent,
+    isReverse,
+    isAutoplay,
+    isLuka,
+    switchDuration,
+  } = config;
   const {
     filteredLanguages,
     filters,

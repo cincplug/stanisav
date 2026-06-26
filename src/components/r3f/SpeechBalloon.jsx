@@ -8,7 +8,7 @@ import "./SpeechBalloon.css";
 const SpeechBalloon = ({ anchorOffset, position }) => {
   const { config } = useConfigContext();
   const { durationBase, durationPerLetter, durationDismiss, defaultPosition } =
-    config.speechBalloon;
+    config;
 
   const { entranceBalloonText, setEntranceBalloonText } = useEntranceContext();
   const { balloonText } = useLanguageSelectionContext();

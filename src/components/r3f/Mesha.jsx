@@ -48,8 +48,9 @@ const Mesha = ({
   const { languageColors } = useLanguageColorsContext();
   const { isAnimating } = usePlaylistContext();
   const { config } = useConfigContext();
-  const { entranceDuration } = config.entrance;
   const {
+    entranceDuration,
+    switchDuration,
     assembleRate,
     isPhoenix,
     skinHueShift,
@@ -61,11 +62,16 @@ const Mesha = ({
     saltoAmplitude,
     saltoFrequency,
     saltoPow,
-  } = config.mesha;
-  const { switchDuration } = config.camera;
-  const { meshaSize, eyeZ, eyeY, eyeSize, noseSize, earSize } = config.mesha;
-  const { sphereRadius } = config.scene;
-  const { labelSize } = config.header;
+    meshaSize,
+    eyeZ,
+    eyeY,
+    eyeSize,
+    noseSize,
+    earSize,
+    sphereRadius,
+    labelSize,
+  } = config;
+
   const { selectedProperty, selectedLanguage } = useLanguageSelectionContext();
 
   const { isMeshaSequenceDone, isEntranceComplete, onMeshaSequenceDone } =

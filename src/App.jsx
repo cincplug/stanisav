@@ -29,8 +29,7 @@ function App() {
   const { config, updateConfigValue } = useConfigContext();
   const { selectedLanguage } = useLanguageSelectionContext();
   const { pausePlaylist } = usePlaylistContext();
-  const { isIdCardVisible, isMenuExpanded } = config.global;
-  const { isSegmented, labelSize } = config.header;
+  const { isIdCardVisible, isMenuExpanded, isSegmented, labelSize } = config;
   const { sampleUrl, sub } = data?.languageData[selectedLanguage] || {};
 
   const { languageColors } = useLanguageColorsContext();

@@ -16,8 +16,7 @@ const Labels = ({
   const { languageColors } = useLanguageColorsContext();
 
   const { config } = useConfigContext();
-  const { isSegmented } = config.header;
-  const { hasLines } = config.scene;
+  const { isSegmented, hasLines } = config;
 
   const visibleLabelCodes = useMemo(
     () =>

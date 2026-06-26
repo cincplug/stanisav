@@ -28,10 +28,15 @@ const Label = ({
   const { startFromLanguage } = usePlaylistContext();
 
   const { config } = useConfigContext();
-  const { labelContent, labelSize, isSegmented } = config.header;
-  const { isMingling, labelOffset } = config.scene;
-  const { isMotionReduced } = config.motion;
-  const { labelTextColor } = config.colors;
+  const {
+    labelContent,
+    labelSize,
+    isSegmented,
+    isMingling,
+    labelOffset,
+    isMotionReduced,
+    labelTextColor,
+  } = config;
 
   if (Object.keys(filters).length > 0 && !filteredLanguages.has(languageCode)) {
     return null;

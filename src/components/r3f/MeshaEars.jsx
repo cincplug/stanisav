@@ -20,7 +20,7 @@ const MeshaEars = ({
   const highlightMaterial = useHighlightMaterial(0);
   const { config } = useConfigContext();
   const { earHeight, earWidth, earDepth, maxDeformation, verticalVariation } =
-    config.mesha;
+    config;
   const bind = useMeshaDrag(dragBindings.ears, "morphology");
 
   const { x, y, z } = earPosition;

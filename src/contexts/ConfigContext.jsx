@@ -1,17 +1,12 @@
 import { createContext, useCallback, useContext, useState } from "react";
 import staticConfig from "../config/config.json";
 
-// Arrays whose every item is a primitive of the same type are select option lists;
-// the default value is the first item. All other arrays (object arrays, mixed) are
-// data values and must be left as-is.
 const isSelectOptions = (arr) =>
   arr.length > 0 &&
   arr.every(
     (item) => typeof item === typeof arr[0] && typeof item !== "object",
   );
 
-// Recursively resolves the initial runtime state from staticConfig.
-// Select option arrays are collapsed to their first element; everything else is kept.
 const resolveInitialValues = (obj) => {
   if (Array.isArray(obj)) return isSelectOptions(obj) ? obj[0] : obj;
   if (typeof obj === "object" && obj !== null) {
@@ -22,12 +17,28 @@ const resolveInitialValues = (obj) => {
   return obj;
 };
 
-// Reads the original value for a key from staticConfig by dot-notation.
+// Recursively flattens a nested config object into a single-level object.
+// Select option arrays are collapsed to their first element; non-select arrays are kept as-is.
+const flattenConfig = (obj) => {
+  const result = {};
+  const traverse = (node) => {
+    for (const [key, value] of Object.entries(node)) {
+      if (Array.isArray(value)) {
+        result[key] = isSelectOptions(value) ? value[0] : value;
+      } else if (typeof value === "object" && value !== null) {
+        traverse(value);
+      } else {
+        result[key] = value;
+      }
+    }
+  };
+  traverse(obj);
+  return result;
+};
+
 const readStaticDotKey = (dotKey) =>
   dotKey.split(".").reduce((obj, k) => obj?.[k], staticConfig);
 
-// Recursively flattens a group object into [relKey, value] pairs for the controls panel.
-// Non-select arrays (object arrays etc.) are skipped — they are not user-editable controls.
 const flattenGroupEntries = (obj, prefix = "") =>
   Object.entries(obj).flatMap(([key, value]) => {
     const relKey = prefix ? `${prefix}.${key}` : key;
@@ -39,26 +50,24 @@ const flattenGroupEntries = (obj, prefix = "") =>
     return [[relKey, value]];
   });
 
-// Writes a value into a nested object by dot-notation key, immutably
 const setDotKey = (obj, dotKey, value) => {
   const [head, ...rest] = dotKey.split(".");
   if (rest.length === 0) return { ...obj, [head]: value };
   return { ...obj, [head]: setDotKey(obj[head] ?? {}, rest.join("."), value) };
 };
 
-// Reads a value from a nested object by dot-notation key
 const readDotKey = (dotKey, obj) =>
   dotKey.split(".").reduce((node, k) => node?.[k], obj);
 
 const ConfigContext = createContext(null);
 
 export const ConfigProvider = ({ children }) => {
-  const [config, setConfig] = useState(() =>
+  const [groupedConfig, setGroupedConfig] = useState(() =>
     resolveInitialValues(staticConfig),
   );
 
   const updateConfigValue = useCallback((dotKey, value) => {
-    setConfig((prev) => setDotKey(prev, dotKey, value));
+    setGroupedConfig((prev) => setDotKey(prev, dotKey, value));
   }, []);
 
   const resetConfigValue = useCallback((dotKey) => {
@@ -67,12 +76,9 @@ export const ConfigProvider = ({ children }) => {
       Array.isArray(staticValue) && isSelectOptions(staticValue)
         ? staticValue[0]
         : staticValue;
-    setConfig((prev) => setDotKey(prev, dotKey, resolvedValue));
+    setGroupedConfig((prev) => setDotKey(prev, dotKey, resolvedValue));
   }, []);
 
-  // Returns flat entries for one top-level group, used by the controls panel.
-  // For select controls, options come from staticConfig; current value from live config.
-  // Entry shape: { dotKey, groupRelativeKey, options, value }
   const getConfigGroup = useCallback(
     (groupName) => {
       const staticGroup = staticConfig[groupName];
@@ -83,16 +89,26 @@ export const ConfigProvider = ({ children }) => {
           dotKey,
           groupRelativeKey: relKey,
           options: Array.isArray(staticValue) ? staticValue : null,
-          value: readDotKey(dotKey, config),
+          value: readDotKey(dotKey, groupedConfig),
         };
       });
     },
-    [config],
+    [groupedConfig],
   );
+
+  // Flat config is derived from groupedConfig so it always stays in sync.
+  // Consumers can destructure any key directly: const { meshaSize, cameraX } = config
+  const config = flattenConfig(groupedConfig);
 
   return (
     <ConfigContext.Provider
-      value={{ config, updateConfigValue, resetConfigValue, getConfigGroup }}
+      value={{
+        config,
+        groupedConfig,
+        updateConfigValue,
+        resetConfigValue,
+        getConfigGroup,
+      }}
     >
       {children}
     </ConfigContext.Provider>
