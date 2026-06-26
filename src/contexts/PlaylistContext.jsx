@@ -20,7 +20,6 @@ export const PlaylistProvider = ({ children }) => {
   const { isAutoplay, isLuka } = config.global;
   const { switchDuration } = config.camera;
   const {
-    selectLanguage,
     filteredLanguages,
     filters,
     selectedLanguage,
@@ -31,6 +30,7 @@ export const PlaylistProvider = ({ children }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [playlistSession, setPlaylistSession] = useState(0);
+  // True for switchDuration after each language change; Mesha uses this to reassemble
   const [isAnimating, setIsAnimating] = useState(false);
 
   // Whether the user explicitly paused — prevents auto-resume on re-renders
@@ -40,6 +40,7 @@ export const PlaylistProvider = ({ children }) => {
   // iOS Safari's requirement that audio be unlocked during a gesture handler
   const audioRef = useRef(null);
   const delayTimeoutRef = useRef(null);
+  const animatingTimeoutRef = useRef(null);
   // isAutoplay is read inside an async callback (handleAudioEnded) so we mirror it
   // in a ref to always have the current value without stale closure issues
   const isAutoplayRef = useRef(isAutoplay);
@@ -142,7 +143,6 @@ export const PlaylistProvider = ({ children }) => {
 
   const pausePlaylist = useCallback(() => {
     setIsPlaying(false);
-    setIsAnimating(false);
     userPausedRef.current = true;
     stopCurrentAudio();
   }, [stopCurrentAudio]);
@@ -215,17 +215,22 @@ export const PlaylistProvider = ({ children }) => {
     const code = codes[currentIndex];
     if (selectedLanguage !== code) {
       setSelectedLanguage(code);
+      if (animatingTimeoutRef.current)
+        clearTimeout(animatingTimeoutRef.current);
+      setIsAnimating(true);
+      animatingTimeoutRef.current = setTimeout(() => {
+        setIsAnimating(false);
+        animatingTimeoutRef.current = null;
+      }, switchDuration);
     }
 
     let cleanup = () => {};
 
     const playAudio = async () => {
       stopCurrentAudio();
-      setIsAnimating(true);
 
       delayTimeoutRef.current = setTimeout(async () => {
         delayTimeoutRef.current = null;
-        setIsAnimating(false);
 
         try {
           const { getLanguageAudioUrl, setupAudioVisualization } =
@@ -346,13 +351,15 @@ export const PlaylistProvider = ({ children }) => {
     switchDuration,
     stopCurrentAudio,
     handleAudioEnded,
-    selectLanguage,
     selectedLanguage,
+    setSelectedLanguage,
   ]);
 
   useEffect(() => {
     return () => {
       stopCurrentAudio();
+      if (animatingTimeoutRef.current)
+        clearTimeout(animatingTimeoutRef.current);
     };
   }, [stopCurrentAudio]);
 

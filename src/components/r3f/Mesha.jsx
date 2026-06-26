@@ -48,8 +48,9 @@ const Mesha = ({
   const { languageColors } = useLanguageColorsContext();
   const { isAnimating } = usePlaylistContext();
   const { config } = useConfigContext();
-  const { entranceDuration, meshaAssembleRate } = config.entrance;
+  const { entranceDuration } = config.entrance;
   const {
+    assembleRate,
     skinHueShift,
     tuftHueShift,
     tuftY,
@@ -110,7 +111,7 @@ const Mesha = ({
       setTimeout(() => {
         mesh.visible = true;
         if (i === meshes.length - 1) onMeshaSequenceDone();
-      }, i * meshaAssembleRate),
+      }, i * assembleRate),
     );
 
     return () => timers.forEach(clearTimeout);
@@ -120,10 +121,12 @@ const Mesha = ({
     runAssemble();
   }, []);
 
+  const prevIsAnimatingRef = useRef(false);
   useEffect(() => {
-    if (isAnimating) {
-      runAssemble();
-    }
+    const wasAnimating = prevIsAnimatingRef.current;
+    prevIsAnimatingRef.current = isAnimating;
+
+    if (!wasAnimating && isAnimating) runAssemble();
   }, [isAnimating]);
 
   const scores = getFeatureScoreList(linguisticProperties, [
@@ -256,15 +259,6 @@ const Mesha = ({
       position-z={spring.z}
     >
       <group ref={lookAroundRef} scale={meshaSize}>
-        <MeshaEar
-          earMaterial={skinMaterial}
-          size={earSize}
-          bend={scores.morphology * earBend}
-          segments={scores.morphology}
-          earPosition={earPosition}
-          isSelected={selectedProperty === "morphology"}
-        />
-
         <MeshaEyes
           irisColor={color}
           eyelidColor={skinColor}
@@ -273,6 +267,15 @@ const Mesha = ({
           isoCode={selectedLanguage}
           isSelectedOuter={selectedProperty === "evidentiality"}
           isSelectedInner={selectedProperty === "verbAspect"}
+        />
+
+        <MeshaEar
+          earMaterial={skinMaterial}
+          size={earSize}
+          bend={scores.morphology * earBend}
+          segments={scores.morphology}
+          earPosition={earPosition}
+          isSelected={selectedProperty === "morphology"}
         />
 
         <MeshaNose

@@ -90,7 +90,6 @@ function SearchTab({
   setSearchTerm,
   clearSearch,
 }) {
-  const { selectLanguage } = useLanguageSelectionContext();
   const { startFromLanguage } = usePlaylistContext();
   const lastAutoSelectedRef = useRef(null);
 
@@ -113,7 +112,7 @@ function SearchTab({
         startFromLanguage(exactMatch.code);
       }
     }
-  }, [searchTerm, searchResults, selectLanguage, startFromLanguage]);
+  }, [searchTerm, searchResults, startFromLanguage]);
 
   return (
     <div className="control-section">

@@ -30,7 +30,7 @@
   "entrance": {
     "entranceAxis": "z",
     "entranceDuration": 6000,
-    "meshaAssembleRate": 70,
+
     "labelRevealDuration": 500,
     "startLabelOffset": 1.2
   },
@@ -80,6 +80,7 @@
   },
   "mesha": {
     "amplitudeThreshold": 0.1,
+    "assembleRate": 70,
     "blinkDuration": 0.2,
     "decayRate": 0.7,
     "dragSensitivity": 0.1,

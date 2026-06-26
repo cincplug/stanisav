@@ -92,20 +92,20 @@ const Eye = ({
       renderOrder={2}
       {...dragHandlers()}
     >
-      <mesh linguisticProperty="evidentiality" onClick={onClick}>
-        <sphereGeometry args={[eyeSize, segments, segments]} />
-        {isSelectedOuter ? (
-          <shaderMaterial args={[highlightMaterial]} />
-        ) : (
-          <shaderMaterial args={[whiteMaterial]} />
-        )}
+      {/* pupil */}
+      <mesh position={[0, 0, pupilZ]}>
+        <sphereGeometry args={[pupilScale, segments, segments]} />
+        <meshStandardMaterial
+          color={config.colors.labelTextColor}
+          metalness={pupilMetalness}
+          roughness={pupilRoughness}
+          depthTest={false}
+          transparent={true}
+        />
       </mesh>
 
-      <mesh
-        position={[0, 0, irisZ]}
-        linguisticProperty="verbAspect"
-        onClick={onClick}
-      >
+      {/* iris */}
+      <mesh position={[0, 0, irisZ]} onClick={onClick}>
         <sphereGeometry args={[irisScale, segments, segments]} />
         {isSelectedInner ? (
           <shaderMaterial args={[highlightMaterial]} />
@@ -118,19 +118,20 @@ const Eye = ({
         )}
       </mesh>
 
-      <mesh position={[0, 0, pupilZ]}>
-        <sphereGeometry args={[pupilScale, segments, segments]} />
-        <meshStandardMaterial
-          color={config.colors.labelTextColor}
-          metalness={pupilMetalness}
-          roughness={pupilRoughness}
-          depthTest={false}
-          transparent={true}
-        />
+      {/* white */}
+      <mesh linguisticProperty="evidentiality" onClick={onClick}>
+        <sphereGeometry args={[eyeSize, segments, segments]} />
+        {isSelectedOuter ? (
+          <shaderMaterial args={[highlightMaterial]} />
+        ) : (
+          <shaderMaterial args={[whiteMaterial]} />
+        )}
       </mesh>
 
+      {/* eyelid */}
       <group ref={lidPivotRef} position={[0, 0, eyeSize]} renderOrder={2}>
         <mesh
+          linguisticProperty="verbAspect"
           position={[0, eyeSize, 0]}
           scale={[
             eyelidWidth * verbAspect,

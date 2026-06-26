@@ -60,6 +60,7 @@ export const LanguageSelectionProvider = ({ children }) => {
     setFilteredLanguages(new Set(filteredResults.map((lang) => lang.code)));
   }, []);
 
+  // Immediate reset with no transition — used when returning to the globe view
   const viewAllLanguages = useCallback(() => {
     setSelectedLanguage(null);
     setFilters({});
@@ -69,6 +70,10 @@ export const LanguageSelectionProvider = ({ children }) => {
 
   const contextValue = {
     selectedLanguage,
+    // Exposed for PlaylistContext which manages the transition timing (isAnimating)
+    // and needs to commit the new language as part of that sequence.
+    // UI components must use startFromLanguage from PlaylistContext instead.
+    setSelectedLanguage,
     selectedProperty,
     balloonText,
     setBalloonText,
@@ -78,7 +83,6 @@ export const LanguageSelectionProvider = ({ children }) => {
     setSelectedProperty,
     filters,
     filteredLanguages,
-    setSelectedLanguage,
     viewAllLanguages,
     updateFilters,
     cameraFocusRequest,
