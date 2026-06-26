@@ -17,7 +17,7 @@ const Light = ({
   const { config } = useConfigContext();
   const { lightColor } = config.colors;
   const { entranceDuration } = config.entrance;
-  const { distance, intensity, decay } = config.light;
+  const { distance, intensity, decay, ambient } = config.light;
   const { lightModifier } = config.segmentation;
 
   const lightRef = useRef();
@@ -62,13 +62,16 @@ const Light = ({
   });
 
   return (
-    <a.pointLight
-      ref={lightRef}
-      intensity={animatedIntensity}
-      decay={decay}
-      distance={animatedDistance}
-      color={lightColor}
-    />
+    <>
+      <ambientLight color={lightColor} intensity={ambient}></ambientLight>
+      <a.pointLight
+        ref={lightRef}
+        intensity={animatedIntensity}
+        decay={decay}
+        distance={animatedDistance}
+        color={lightColor}
+      />
+    </>
   );
 };
 

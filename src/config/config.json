@@ -38,7 +38,7 @@
     "hasLines": true,
     "isMingling": true,
     "labelOffset": 5,
-    "sphereRadius": 22,
+    "sphereRadius": 16,
     "spiralAxis": ["y", "x", "z"],
     "spiralRatio": [0.61803, 0.41421, 0.73205, 0.23606, 0.64575, 0.31662]
   },
@@ -70,13 +70,14 @@
   "light": {
     "distance": {
       "default": 174,
-      "selected": 106
+      "selected": 111
     },
     "intensity": {
       "default": 20,
       "selected": 64
     },
-    "decay": 0.4
+    "decay": 0.4,
+    "ambient": 0.1
   },
   "mesha": {
     "amplitudeThreshold": 0.1,
@@ -87,7 +88,7 @@
     "dragSessionRange": 0.3,
     "earBend": 1.8,
     "earDepth": 1.1,
-    "earHeight": 0.4,
+    "earHeight": 0.3,
     "earSize": 1.9,
     "earWidth": 0.1,
     "eyebrowY": 2.7,
@@ -120,7 +121,7 @@
     "tongueSize": 4,
     "tongueWidth": 0.5,
     "tongueX": 0,
-    "tongueY": 1.4,
+    "tongueY": 1.5,
     "tongueZ": 1.1,
     "toothColorStep": 11,
     "toothLength": 2.1,
@@ -158,7 +159,7 @@
     "near": 0.1,
     "switchDuration": 1500,
     "zoomDistance": 27,
-    "homeDistance": 64
+    "homeDistance": 37
   },
   "motion": {
     "friction": 64,
