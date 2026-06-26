@@ -77,6 +77,9 @@ export const EntranceProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
+    const steps = getEntranceSteps();
+    if (steps.length === 0) return;
+    setMentionedLanguage(steps[0].language);
     isSequenceCancelledRef.current = false;
     return () => {
       isSequenceCancelledRef.current = true;
