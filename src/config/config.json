@@ -16,7 +16,7 @@
       "maxConsonantClusterSize"
     ],
     "labelContent": ["name", "nativeName", "isoCode"],
-    "labelSize": [1.5, 1.75, 2],
+    "labelSize": [1, 1.25, 1.5, 1.75],
     "isReverse": false,
     "isSegmented": false
   },
@@ -101,7 +101,7 @@
     "irisSize": 0.75,
     "isPhoenix": false,
     "maxDeformation": 1.2,
-    "meshaSize": 1.9,
+    "meshaSize": 1.5,
     "noseSize": 0.25,
     "noseThickness": 0.4,
     "noseSliceAngle": 60,
@@ -157,7 +157,7 @@
     "fov": 30,
     "near": 0.1,
     "switchDuration": 1500,
-    "zoomDistance": 37,
+    "zoomDistance": 27,
     "homeDistance": 64
   },
   "motion": {

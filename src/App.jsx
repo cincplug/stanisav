@@ -36,10 +36,7 @@ function App() {
   const { languageColors } = useLanguageColorsContext();
 
   useEffect(() => {
-    document.documentElement.style.setProperty(
-      "--label-size-scale",
-      labelSize / 1.5,
-    );
+    document.documentElement.style.setProperty("--label-size-scale", labelSize);
   }, [labelSize]);
 
   const isMeshaMini = isMobile && !!selectedLanguage && isMenuExpanded;
