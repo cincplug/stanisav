@@ -8,13 +8,7 @@ import { createAudioSurface } from "../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
 
-const MeshaEars = ({
-  earMaterial,
-  size,
-  morphologyScore,
-  onClick,
-  isSelected,
-}) => {
+const MeshaEars = ({ earMaterial, morphologyScore, onClick, isSelected }) => {
   const highlightMaterial = useHighlightMaterial(0);
   const { config } = useConfigContext();
   const {
@@ -24,6 +18,7 @@ const MeshaEars = ({
     earX,
     earY,
     earZ,
+    earSize,
     maxDeformation,
     verticalVariation,
     segments,
@@ -41,9 +36,9 @@ const MeshaEars = ({
   const activeMaterial = isSelected ? highlightMaterial : earMaterial;
 
   const staticSurface = createAudioSurface({
-    size,
+    size: earSize,
     bend,
-    radius: size,
+    radius: earSize,
     maxDeformation,
     verticalVariation,
   });

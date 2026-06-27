@@ -184,6 +184,7 @@ const Mesha = ({
   const prevWordOrderFlexibilityRef = useRef("");
   const saltoRotXRef = useRef(0);
   const saltoRotZRef = useRef(0);
+  const attentionRef = useRef();
 
   useThrottledFrame(({ camera }, delta) => {
     if (!looksAround || !lookAroundRef.current) return;
@@ -195,6 +196,7 @@ const Mesha = ({
     if (!isBlocked) {
       rotationYRef.current =
         (rotationYRef.current + delta * rotateSpeed) % (Math.PI * 2);
+      attentionRef.current.lookAt(camera.position);
     }
 
     if (wordOrderFlexibility === "flexible" && !isBlocked) {
@@ -239,6 +241,7 @@ const Mesha = ({
     }
 
     lookAroundRef.current.quaternion.copy(camera.quaternion);
+
     scratchEuler.set(
       saltoRotXRef.current,
       rotationYRef.current,
@@ -267,12 +270,13 @@ const Mesha = ({
           isSelectedInner={selectedProperty === "verbAspect"}
         />
 
-        <MeshaEar
-          earMaterial={skinMaterial}
-          size={earSize}
-          morphologyScore={scores.morphology}
-          isSelected={selectedProperty === "morphology"}
-        />
+        <group ref={attentionRef}>
+          <MeshaEar
+            earMaterial={skinMaterial}
+            morphologyScore={scores.morphology}
+            isSelected={selectedProperty === "morphology"}
+          />
+        </group>
 
         <MeshaNose
           position={[0, eyeY - eyeSize, eyeZ + eyeSize]}
