@@ -61,9 +61,17 @@
   left: 0;
 }
 
+@font-face {
+  font-family: "Roboto Slab";
+  src: url("/fonts/RobotoSlab-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-display: swap;
+}
+
 /* Elements */
 html {
   font-size: calc(16px * var(--label-size-scale, 1));
+  font-family: "Roboto Slab", serif;
 }
 
 html,
@@ -74,7 +82,6 @@ body {
   height: 100%;
   overflow: hidden;
   background-color: var(--color-1);
-  font-family: "Roboto Slab", serif;
 }
 
 a {
