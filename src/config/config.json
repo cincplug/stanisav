@@ -126,6 +126,8 @@
     "toothSize": 0.6,
     "toothThickness": 0.03,
     "toothWidth": 0.5,
+    "toothY": 1.1,
+    "toothZ": 1.1,
     "tuftColorStep": 33,
     "tuftHueShift": 120,
     "tuftSize": 0.36,

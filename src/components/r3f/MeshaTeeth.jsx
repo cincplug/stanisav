@@ -57,7 +57,7 @@ const MeshaTeeth = ({
   const teethRefs = useRef([]);
   const { audioData } = useAudioData();
   const { config } = useConfigContext();
-  const { toothColor, toothSize, toothColorStep } = config;
+  const { toothColor, toothSize, toothColorStep, toothY, toothZ } = config;
   const centerIndex = (toothCount - 1) / 2;
 
   const bind = useMeshaDrag(dragBindings.teeth, "phonemeCount");
@@ -109,7 +109,7 @@ const MeshaTeeth = ({
   if (!teeth.length) return null;
 
   return (
-    <group position={[0, 1, 1]} scale={toothSize} {...bind()}>
+    <group position={[0, toothY, toothZ]} scale={toothSize} {...bind()}>
       {teeth.map((tooth, i) => (
         <MeshaTooth
           key={tooth.key}
