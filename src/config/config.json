@@ -98,6 +98,7 @@
     "eyeZ": 1.8,
     "irisSize": 0.75,
     "isPhoenix": false,
+    "isSurprised": false,
     "maxDeformation": 1.2,
     "meshaSize": 1.5,
     "noseSize": 0.25,

@@ -53,6 +53,7 @@ const Mesha = ({
     switchDuration,
     assembleRate,
     isPhoenix,
+    isSurprised,
     skinHueShift,
     tuftHueShift,
     tuftY,
@@ -196,7 +197,6 @@ const Mesha = ({
     if (!isBlocked) {
       rotationYRef.current =
         (rotationYRef.current + delta * rotateSpeed) % (Math.PI * 2);
-      attentionRef.current.lookAt(camera.position);
     }
 
     if (wordOrderFlexibility === "flexible" && !isBlocked) {
@@ -221,19 +221,25 @@ const Mesha = ({
         Math.pow(Math.abs(cosPhase), saltoPow) *
         saltoAmplitude *
         Math.PI;
+      attentionRef.current.scale.y = saltoRotXRef.current + 1;
+      attentionRef.current.scale.x = saltoRotZRef.current + 1;
     } else {
-      saltoRotXRef.current = MathUtils.damp(
-        saltoRotXRef.current,
-        Math.round(saltoRotXRef.current / (Math.PI * 2)) * (Math.PI * 2),
-        4,
-        delta,
-      );
-      saltoRotZRef.current = MathUtils.damp(
-        saltoRotZRef.current,
-        Math.round(saltoRotZRef.current / (Math.PI * 2)) * (Math.PI * 2),
-        4,
-        delta,
-      );
+      if (!isSurprised) {
+        saltoRotXRef.current = MathUtils.damp(
+          saltoRotXRef.current,
+          Math.round(saltoRotXRef.current / (Math.PI * 2)) * (Math.PI * 2),
+          4,
+          delta,
+        );
+        saltoRotZRef.current = MathUtils.damp(
+          saltoRotZRef.current,
+          Math.round(saltoRotZRef.current / (Math.PI * 2)) * (Math.PI * 2),
+          4,
+          delta,
+        );
+        attentionRef.current.scale.y = 0;
+        attentionRef.current.scale.x = 0;
+      }
 
       if (wasFlexible) {
         saltoPhaseRef.current = 0;
