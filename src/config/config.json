@@ -162,8 +162,9 @@
     "homeDistance": 37
   },
   "motion": {
-    "friction": 64,
     "isMotionReduced": false,
+    "dampLambda": 12,
+    "friction": 64,
     "tension": 100
   },
   "popover": {

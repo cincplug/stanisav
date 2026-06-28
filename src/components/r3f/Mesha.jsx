@@ -62,12 +62,14 @@ const Mesha = ({
     saltoAmplitude,
     saltoFrequency,
     saltoPow,
+    dampLambda,
     meshaSize,
     eyeZ,
     eyeY,
     eyeSize,
     noseSize,
     earSize,
+    earY,
     sphereRadius,
     labelSize,
   } = config;
@@ -181,16 +183,26 @@ const Mesha = ({
   const eyebrowColor = shiftHue(color, -tuftHueShift);
 
   const rotationYRef = useRef(0);
+  const earYRef = useRef(eyeY);
+  const earScaleXRef = useRef(1);
+  const earScaleYRef = useRef(1);
+  const earsRef = useRef();
   const saltoPhaseRef = useRef(0);
   const prevWordOrderFlexibilityRef = useRef("");
   const saltoRotXRef = useRef(0);
   const saltoRotZRef = useRef(0);
-  const attentionRef = useRef();
 
   useThrottledFrame(({ camera }, delta) => {
     if (!looksAround || !lookAroundRef.current) return;
 
-    const isBlocked = isDragging || wordOrderFlexibility === "rigid";
+    const dampTo = (current, target) =>
+      MathUtils.damp(current, target, dampLambda, delta);
+
+    const nearestFullRotation = (value) =>
+      Math.round(value / (Math.PI * 2)) * (Math.PI * 2);
+
+    const isBlocked =
+      isDragging || isAnimating || wordOrderFlexibility === "rigid";
     const wasFlexible = prevWordOrderFlexibilityRef.current === "flexible";
     prevWordOrderFlexibilityRef.current = wordOrderFlexibility;
 
@@ -221,24 +233,21 @@ const Mesha = ({
         Math.pow(Math.abs(cosPhase), saltoPow) *
         saltoAmplitude *
         Math.PI;
-      attentionRef.current.scale.y = saltoRotXRef.current + 1;
-      attentionRef.current.scale.x = saltoRotZRef.current + 1;
+
+      earScaleYRef.current = saltoRotXRef.current + 1;
+      earScaleXRef.current = saltoRotZRef.current + 1;
     } else {
       if (!isSurprised) {
-        saltoRotXRef.current = MathUtils.damp(
+        saltoRotXRef.current = dampTo(
           saltoRotXRef.current,
-          Math.round(saltoRotXRef.current / (Math.PI * 2)) * (Math.PI * 2),
-          4,
-          delta,
+          nearestFullRotation(saltoRotXRef.current),
         );
-        saltoRotZRef.current = MathUtils.damp(
+        saltoRotZRef.current = dampTo(
           saltoRotZRef.current,
-          Math.round(saltoRotZRef.current / (Math.PI * 2)) * (Math.PI * 2),
-          4,
-          delta,
+          nearestFullRotation(saltoRotZRef.current),
         );
-        attentionRef.current.scale.y = 1;
-        attentionRef.current.scale.x = 1;
+        earScaleYRef.current = dampTo(earScaleYRef.current, 1);
+        earScaleXRef.current = dampTo(earScaleXRef.current, 1);
       }
 
       if (wasFlexible) {
@@ -246,7 +255,14 @@ const Mesha = ({
       }
     }
 
+    earsRef.current.scale.y = earScaleYRef.current;
+    earsRef.current.scale.x = earScaleXRef.current;
+
     lookAroundRef.current.quaternion.copy(camera.quaternion);
+
+    const targetEarY = selectedLanguage && !isAnimating ? earY : eyeY;
+    earYRef.current = dampTo(earYRef.current, targetEarY);
+    earsRef.current.position.y = earYRef.current;
 
     scratchEuler.set(
       saltoRotXRef.current,
@@ -276,13 +292,12 @@ const Mesha = ({
           isSelectedInner={selectedProperty === "verbAspect"}
         />
 
-        <group ref={attentionRef}>
-          <MeshaEar
-            earMaterial={skinMaterial}
-            morphologyScore={scores.morphology}
-            isSelected={selectedProperty === "morphology"}
-          />
-        </group>
+        <MeshaEar
+          ref={earsRef}
+          earMaterial={skinMaterial}
+          morphologyScore={scores.morphology}
+          isSelected={selectedProperty === "morphology"}
+        />
 
         <MeshaNose
           position={[0, eyeY - eyeSize, eyeZ + eyeSize]}
