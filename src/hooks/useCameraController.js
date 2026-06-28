@@ -8,7 +8,7 @@ import { useThrottledFrame } from "./useThrottledFrame";
 
 export const useCameraController = ({ languageNodes, selectedLanguage }) => {
   const { cameraFocusRequest } = useLanguageSelectionContext();
-  const { isMeshaSequenceDone } = useEntranceContext();
+  const { isMeshaSequenceDone, entranceSteps } = useEntranceContext();
   const { camera, controls: threeControls } = useThree();
   const { config } = useConfigContext();
   const {
@@ -163,8 +163,10 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
   useEffect(() => {
     if (!isMeshaSequenceDone) return;
     if (selectedLanguage) return;
-    if (!isSegmented) {
+    if (!isSegmented && entranceSteps.length) {
       focusOnMeshaHome(entranceDuration);
+    } else {
+      fitToNodes();
     }
   }, [isMeshaSequenceDone]);
 

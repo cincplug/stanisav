@@ -12,6 +12,8 @@ import { useConfigContext } from "./ConfigContext";
 
 const EntranceContext = createContext(null);
 
+const entranceSteps = getEntranceSteps();
+
 export const EntranceProvider = ({ children }) => {
   const { config } = useConfigContext();
 
@@ -52,11 +54,10 @@ export const EntranceProvider = ({ children }) => {
     calculateBalloonDisplayDuration(message) + durationDismiss;
 
   const runBalloonSequence = async () => {
-    const steps = getEntranceSteps();
-    for (let i = 0; i < steps.length; i++) {
+    for (let i = 0; i < entranceSteps.length; i++) {
       if (isSequenceCancelledRef.current) return;
-      const step = steps[i];
-      const isLast = i === steps.length - 1;
+      const step = entranceSteps[i];
+      const isLast = i === entranceSteps.length - 1;
       setEntranceBalloonText(step.message);
       setMentionedLanguage(step.language ?? null);
       await wait(
@@ -80,9 +81,8 @@ export const EntranceProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    const steps = getEntranceSteps();
-    if (steps.length === 0) return;
-    setMentionedLanguage(steps[0].language);
+    if (entranceSteps.length === 0) return;
+    setMentionedLanguage(entranceSteps[0].language);
     isSequenceCancelledRef.current = false;
     return () => {
       isSequenceCancelledRef.current = true;
@@ -134,6 +134,7 @@ export const EntranceProvider = ({ children }) => {
   return (
     <EntranceContext.Provider
       value={{
+        entranceSteps,
         isMeshaSequenceDone,
         isLabelsSequenceDone,
         isBalloonSequenceDone,

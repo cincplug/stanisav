@@ -49,7 +49,6 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
     tension,
     friction,
     isMotionReduced,
-    meshaSize,
     isMyMesha,
     spiralRatio,
     spiralAxis,
@@ -174,7 +173,7 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
       ];
     }
 
-    return [0, sphereRadius + meshaSize / 2, 0];
+    return [0, sphereRadius, 0];
   }, [selectedLanguage, formattedPositions]);
 
   const hasSelectedFilters = Object.keys(filters).length > 0;

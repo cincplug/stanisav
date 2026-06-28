@@ -237,8 +237,8 @@ const Mesha = ({
           4,
           delta,
         );
-        attentionRef.current.scale.y = 0;
-        attentionRef.current.scale.x = 0;
+        attentionRef.current.scale.y = 1;
+        attentionRef.current.scale.x = 1;
       }
 
       if (wasFlexible) {
