@@ -68,7 +68,6 @@ const Mesha = ({
     eyeY,
     eyeSize,
     noseSize,
-    earSize,
     earY,
     sphereRadius,
     labelSize,

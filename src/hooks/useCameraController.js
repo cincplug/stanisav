@@ -22,6 +22,8 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
     entranceDuration,
     meshaSize,
     sphereRadius,
+    margin,
+    sortBy,
   } = config;
 
   useEffect(() => {
@@ -148,7 +150,7 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
 
     const distForWidth = halfW / Math.tan(halfFovH);
     const distForHeight = halfH / Math.tan(halfFovV);
-    const distance = Math.max(distForWidth, distForHeight);
+    const distance = Math.max(distForWidth, distForHeight) * margin;
 
     const targetCameraPosition = new Vector3(
       center.x,
@@ -169,6 +171,10 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
       fitToNodes();
     }
   }, [isMeshaSequenceDone]);
+
+  useEffect(() => {
+    fitToNodes();
+  }, [isSegmented, sortBy, fitToNodes]);
 
   // cameraFocusRequest handles fitAll, triggered by stop button and view-all
   useEffect(() => {

@@ -46,8 +46,8 @@
     "cellSpacing": 0.12,
     "gap": 0.7,
     "segmentedLightModifier": 1.15,
-    "margin": 0.9,
-    "titleOffset": 1.2
+    "margin": 1.1,
+    "titleOffset": 0.9
   },
   "rotateSpeed": {
     "rotateSpeedMeshaInitial": 0,
