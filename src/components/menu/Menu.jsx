@@ -7,7 +7,7 @@ import { useMediaQuery } from "../../hooks/useMediaQuery";
 import ControlItemGroup from "./ControlItemGroup";
 import LocaleLinks from "./LocaleLinks";
 import "./Menu.css";
-import { BurgerIcon, CloseIcon } from "./MenuIcons";
+import { BurgerIcon, CloseIcon, SegmentationIcon } from "./MenuIcons";
 import Playlist from "./Playlist";
 import TabNavigation from "./TabNavigation";
 import TabRenderer from "./TabRenderer";
@@ -26,6 +26,7 @@ function Menu({
   const { t, isRtl } = useI18nContext();
   const [selectedTab, setSelectedTab] = useState(tabsConfig.defaultTab);
   const isMobile = useMediaQuery("(max-width: 640px)");
+  const { isSegmented } = config;
 
   const handleControlChange = (dotKey, value) => {
     onControlChange(dotKey, value);
@@ -90,6 +91,14 @@ function Menu({
         <div className={`menu compact${isRtl ? " rtl" : ""}`}>
           <Playlist />
           <LocaleLinks isCompact />
+          <button
+            onClick={() => updateConfigValue("isSegmented", !isSegmented)}
+            aria-pressed={isSegmented}
+            className={`menu-item ${isSegmented ? "selected" : ""}`}
+            aria-label={t("controls.isSegmented.label")}
+          >
+            <SegmentationIcon />
+          </button>
           <button
             id="menu-open"
             onClick={() => onToggleMenu(true)}

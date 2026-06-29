@@ -52,7 +52,7 @@
   "rotateSpeed": {
     "rotateSpeedMeshaInitial": 0,
     "rotateSpeedMeshaZoomed": 0.6,
-    "rotateSpeedSceneInitial": 1,
+    "rotateSpeedSceneInitial": 1.5,
     "rotateSpeedSceneZoomed": 0.1
   },
   "shader": {
@@ -86,7 +86,7 @@
     "earSize": 1.9,
     "earWidth": 0.2,
     "earX": 2,
-    "earY": -0.9,
+    "earY": -0.2,
     "earZ": 1.1,
     "eyebrowY": 2.7,
     "eyelidDepth": 1.1,
@@ -159,7 +159,7 @@
     "near": 0.1,
     "switchDuration": 1500,
     "zoomDistance": 27,
-    "homeDistance": 37
+    "homeDistance": 54
   },
   "motion": {
     "isMotionReduced": false,
