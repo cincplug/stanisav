@@ -12,7 +12,7 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
   const { camera, controls: threeControls } = useThree();
   const { config } = useConfigContext();
   const {
-    isSegmented,
+    isBlackboard,
     zoomDistance,
     homeDistance,
     switchDuration,
@@ -22,7 +22,7 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
     entranceDuration,
     meshaSize,
     sphereRadius,
-    segmentMargin,
+    boardMargin,
     sortBy,
   } = config;
 
@@ -95,11 +95,11 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
       const targetCameraPosition = calculateCameraPosition(
         languagePosition,
         zoomDistance,
-        isSegmented,
+        isBlackboard,
       );
       startCameraAnimation(targetCameraPosition, languagePosition);
     },
-    [languageNodes, zoomDistance, isSegmented, startCameraAnimation],
+    [languageNodes, zoomDistance, isBlackboard, startCameraAnimation],
   );
 
   // Animates camera to face Mesha at his resting home position.
@@ -150,7 +150,7 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
 
     const distForWidth = halfW / Math.tan(halfFovH);
     const distForHeight = halfH / Math.tan(halfFovV);
-    const distance = Math.max(distForWidth, distForHeight) * segmentMargin;
+    const distance = Math.max(distForWidth, distForHeight) * boardMargin;
 
     const targetCameraPosition = new Vector3(
       center.x,
@@ -165,7 +165,7 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
   useEffect(() => {
     if (!isMeshaSequenceDone) return;
     if (selectedLanguage) return;
-    if (!isSegmented && entranceSteps.length) {
+    if (!isBlackboard && entranceSteps.length) {
       focusOnMeshaHome(entranceDuration);
     } else {
       fitToNodes();
@@ -174,7 +174,7 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
 
   useEffect(() => {
     fitToNodes();
-  }, [isSegmented, sortBy, fitToNodes]);
+  }, [isBlackboard, sortBy, fitToNodes]);
 
   // cameraFocusRequest handles fitAll, triggered by stop button and view-all
   useEffect(() => {
@@ -190,8 +190,8 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
   }, [selectedLanguage, languageNodes, focusOnLanguage]);
 };
 
-const calculateCameraPosition = (nodePosition, zoomDistance, isSegmented) => {
-  if (isSegmented) {
+const calculateCameraPosition = (nodePosition, zoomDistance, isBlackboard) => {
+  if (isBlackboard) {
     return new Vector3(
       nodePosition.x,
       nodePosition.y,

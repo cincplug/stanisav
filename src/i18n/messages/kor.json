@@ -3,6 +3,9 @@
     "isAutoplay": {
       "label": "자동 재생"
     },
+    "isBlackboard": {
+      "label": "칠판"
+    },
     "isIdCardVisible": {
       "label": "신분증"
     },
@@ -11,9 +14,6 @@
     },
     "isReverse": {
       "label": "역순 정렬"
-    },
-    "isSegmented": {
-      "label": "세분화"
     },
     "labelContent": {
       "label": "표시 내용",

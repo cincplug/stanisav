@@ -18,7 +18,7 @@
     "labelContent": ["name", "nativeName", "isoCode"],
     "labelSize": [1, 1.25, 1.5, 1.75],
     "isReverse": false,
-    "isSegmented": false
+    "isBlackboard": false
   },
   "global": {
     "isAutoplay": true,
@@ -43,10 +43,10 @@
   },
   "blackboard": {
     "boardSpacing": 0.12,
-    "segmentGap": 0.7,
-    "segmentLight": 1.15,
-    "segmentMargin": 1.1,
-    "titleOffset": 0.9
+    "boardGap": 0.7,
+    "boardLight": 1.15,
+    "boardMargin": 1.1,
+    "boardTitleGap": 0.9
   },
   "rotateSpeed": {
     "rotateSpeedMeshaInitial": 0,

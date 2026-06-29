@@ -3,6 +3,9 @@
     "isAutoplay": {
       "label": "Otomatik oynatma"
     },
+    "isBlackboard": {
+      "label": "Kara tahta"
+    },
     "isIdCardVisible": {
       "label": "Kimlik kartı"
     },
@@ -11,9 +14,6 @@
     },
     "isReverse": {
       "label": "Ters sıra"
-    },
-    "isSegmented": {
-      "label": "Bölütleme"
     },
     "labelContent": {
       "label": "Görüntüle",

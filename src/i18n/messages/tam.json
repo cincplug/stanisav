@@ -3,6 +3,9 @@
     "isAutoplay": {
       "label": "தானியங்கி இயக்கம்"
     },
+    "isBlackboard": {
+      "label": "கரும்பலகை"
+    },
     "isIdCardVisible": {
       "label": "அடையாள அட்டை"
     },
@@ -11,9 +14,6 @@
     },
     "isReverse": {
       "label": "தலைகீழ் வரிசை"
-    },
-    "isSegmented": {
-      "label": "பிரித்தல்"
     },
     "labelContent": {
       "label": "காட்சி",

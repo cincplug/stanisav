@@ -10,7 +10,7 @@ const Light = ({
   isEntranceComplete,
   tension,
   friction,
-  isSegmented,
+  isBlackboard,
   selectedLanguage,
 }) => {
   const { camera, controls: threeControls } = useThree();
@@ -24,7 +24,7 @@ const Light = ({
     zoomedLightIntensity,
     lightDecay,
     ambientLight,
-    segmentLight,
+    boardLight,
   } = config;
 
   const lightRef = useRef();
@@ -40,7 +40,7 @@ const Light = ({
   const { animatedDistance, animatedIntensity } = useSpring({
     animatedDistance:
       (selectedLanguage ? zoomedLightDistance : defaultLightDistance) *
-      (isSegmented ? segmentLight : 1),
+      (isBlackboard ? boardLight : 1),
     animatedIntensity: selectedLanguage
       ? zoomedLightIntensity
       : defaultLightIntensity,
@@ -52,7 +52,7 @@ const Light = ({
 
     const progress = entranceProgress.get();
 
-    if (isSegmented && threeControls?.target) {
+    if (isBlackboard && threeControls?.target) {
       const target = threeControls.target;
       lightRef.current.position.set(
         target.x * progress,

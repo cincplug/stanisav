@@ -3,6 +3,9 @@
     "isAutoplay": {
       "label": "Putar otomatis"
     },
+    "isBlackboard": {
+      "label": "Papan Tulis"
+    },
     "isIdCardVisible": {
       "label": "KTP"
     },
@@ -11,9 +14,6 @@
     },
     "isReverse": {
       "label": "Urutan terbalik"
-    },
-    "isSegmented": {
-      "label": "Segmentasi"
     },
     "labelContent": {
       "label": "Tampilan",

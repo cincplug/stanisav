@@ -3,6 +3,9 @@
     "isAutoplay": {
       "label": "تشغيل تلقائي"
     },
+    "isBlackboard": {
+      "label": "سبورة"
+    },
     "isIdCardVisible": {
       "label": "بطاقة الهوية"
     },
@@ -11,9 +14,6 @@
     },
     "isReverse": {
       "label": "ترتيب عكسي"
-    },
-    "isSegmented": {
-      "label": "تجزئة"
     },
     "labelContent": {
       "label": "العرض",

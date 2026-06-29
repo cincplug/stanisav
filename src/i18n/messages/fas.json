@@ -3,6 +3,9 @@
     "isAutoplay": {
       "label": "پخش خودکار"
     },
+    "isBlackboard": {
+      "label": "تخته‌سیاه"
+    },
     "isIdCardVisible": {
       "label": "کارت شناسایی"
     },
@@ -11,9 +14,6 @@
     },
     "isReverse": {
       "label": "ترتیب معکوس"
-    },
-    "isSegmented": {
-      "label": "بخش‌بندی"
     },
     "labelContent": {
       "label": "نمایش",

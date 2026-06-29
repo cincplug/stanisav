@@ -16,7 +16,7 @@ const Labels = ({
   const { languageColors } = useLanguageColorsContext();
 
   const { config } = useConfigContext();
-  const { isSegmented, hasLines } = config;
+  const { isBlackboard, hasLines } = config;
 
   const visibleLabelCodes = useMemo(
     () =>
@@ -60,7 +60,7 @@ const Labels = ({
 
   return (
     <>
-      {hasLines && !isSegmented && !selectedLanguage && (
+      {hasLines && !isBlackboard && !selectedLanguage && (
         <Lines
           visibleLabelCodes={visibleLabelCodes}
           labelRefs={labelRefs}

@@ -12,17 +12,17 @@ const LabelsClusterTitle = ({ languagePositions, title }) => {
   );
 
   const { config } = useConfigContext();
-  const { titleOffset, white } = config;
+  const { boardTitleGap, white } = config;
 
   useEffect(() => {
     if (titleRef.current && topCenter) {
       titleRef.current.position.set(
         topCenter.x,
-        topCenter.y + titleOffset,
+        topCenter.y + boardTitleGap,
         topCenter.z,
       );
     }
-  }, [topCenter, titleOffset]);
+  }, [topCenter, boardTitleGap]);
 
   return (
     <Text

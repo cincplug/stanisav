@@ -3,6 +3,9 @@
     "isAutoplay": {
       "label": "ස්වයංක්‍රීය වාදනය"
     },
+    "isBlackboard": {
+      "label": "කළු ලෑල්ල"
+    },
     "isIdCardVisible": {
       "label": "හැඳුනුම්පත"
     },
@@ -11,9 +14,6 @@
     },
     "isReverse": {
       "label": "ප්‍රතිලෝම අනුපිළිවෙල"
-    },
-    "isSegmented": {
-      "label": "ඛණ්ඩනය"
     },
     "labelContent": {
       "label": "ප්‍රදර්ශනය",

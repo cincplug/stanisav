@@ -3,6 +3,9 @@
     "isAutoplay": {
       "label": "Automatisch afspelen"
     },
+    "isBlackboard": {
+      "label": "Schoolbord"
+    },
     "isIdCardVisible": {
       "label": "Identiteitskaart"
     },
@@ -11,9 +14,6 @@
     },
     "isReverse": {
       "label": "Omgekeerde volgorde"
-    },
-    "isSegmented": {
-      "label": "Segmentatie"
     },
     "labelContent": {
       "label": "Weergave",

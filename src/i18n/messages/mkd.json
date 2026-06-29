@@ -3,6 +3,9 @@
     "isAutoplay": {
       "label": "Автоматска репродукција"
     },
+    "isBlackboard": {
+      "label": "Табла"
+    },
     "isIdCardVisible": {
       "label": "Лична карта"
     },
@@ -11,9 +14,6 @@
     },
     "isReverse": {
       "label": "Обратен редослед"
-    },
-    "isSegmented": {
-      "label": "Сегментација"
     },
     "labelContent": {
       "label": "Приказ",

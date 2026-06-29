@@ -3,6 +3,9 @@
     "isAutoplay": {
       "label": "Kunna Kai Tsaye"
     },
+    "isBlackboard": {
+      "label": "Allon rubutu"
+    },
     "isIdCardVisible": {
       "label": "Katin shaida"
     },
@@ -11,9 +14,6 @@
     },
     "isReverse": {
       "label": "Tsarin baya"
-    },
-    "isSegmented": {
-      "label": "Rarrabuwa"
     },
     "labelContent": {
       "label": "Nuni",

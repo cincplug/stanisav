@@ -5,9 +5,9 @@ import LabelsClusterTitle from "./LabelsClusterTitle";
 
 const LabelsCluster = ({ title, languageCodes, formattedPositions }) => {
   const { config } = useConfigContext();
-  const { isSegmented } = config;
+  const { isBlackboard } = config;
 
-  if (!isSegmented) return null;
+  if (!isBlackboard) return null;
 
   const languagePositions = {};
   languageCodes.forEach((code) => {

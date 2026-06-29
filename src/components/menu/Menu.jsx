@@ -26,7 +26,7 @@ function Menu({
   const { t, isRtl } = useI18nContext();
   const [selectedTab, setSelectedTab] = useState(tabsConfig.defaultTab);
   const isMobile = useMediaQuery("(max-width: 640px)");
-  const { isSegmented } = config;
+  const { isBlackboard } = config;
 
   const handleControlChange = (dotKey, value) => {
     onControlChange(dotKey, value);
@@ -92,10 +92,10 @@ function Menu({
           <Playlist />
           <LocaleLinks isCompact />
           <button
-            onClick={() => updateConfigValue("isSegmented", !isSegmented)}
-            aria-pressed={isSegmented}
-            className={`menu-item ${isSegmented ? "selected" : ""}`}
-            aria-label={t("controls.isSegmented.label")}
+            onClick={() => updateConfigValue("isBlackboard", !isBlackboard)}
+            aria-pressed={isBlackboard}
+            className={`menu-item ${isBlackboard ? "selected" : ""}`}
+            aria-label={t("controls.isBlackboard.label")}
           >
             <BlackboardIcon />
           </button>

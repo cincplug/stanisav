@@ -109,7 +109,7 @@ export const EntranceProvider = ({ children }) => {
 
   const getLabelSpringProps = (
     finalPosition,
-    isSegmented,
+    isBlackboard,
     revealOrder,
     totalVisibleLabels,
   ) => {
@@ -118,7 +118,7 @@ export const EntranceProvider = ({ children }) => {
         Math.max(0, entranceDuration - labelRevealDuration),
     );
     const delay =
-      isEntranceComplete || isSegmented ? labelRevealDuration : staggerDelay;
+      isEntranceComplete || isBlackboard ? labelRevealDuration : staggerDelay;
 
     return {
       startPosition: toInnerStartPosition(finalPosition),

@@ -45,7 +45,7 @@
         "scripts": "Scripts"
       }
     },
-    "isSegmented": {
+    "isBlackboard": {
       "label": "Blackboard"
     }
   },

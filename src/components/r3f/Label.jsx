@@ -31,7 +31,7 @@ const Label = ({
   const {
     labelContent,
     labelSize,
-    isSegmented,
+    isBlackboard,
     isMingling,
     labelOffset,
     isMotionReduced,
@@ -70,7 +70,7 @@ const Label = ({
     revealConfig,
   } = getLabelSpringProps(
     position,
-    isSegmented,
+    isBlackboard,
     revealOrder,
     totalVisibleLabels,
   );
@@ -118,7 +118,7 @@ const Label = ({
     const [x, y, z] = positionSpring.position.get();
     const offset = selectionSpring.offset.get();
 
-    if (isSegmented) {
+    if (isBlackboard) {
       labelRef.current.position.set(x, y, z + offset * labelOffset);
     } else {
       labelRef.current.position.set(

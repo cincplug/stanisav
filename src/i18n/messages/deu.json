@@ -3,6 +3,9 @@
     "isAutoplay": {
       "label": "Automatische Wiedergabe"
     },
+    "isBlackboard": {
+      "label": "Tafel"
+    },
     "isIdCardVisible": {
       "label": "Personalausweis"
     },
@@ -11,9 +14,6 @@
     },
     "isReverse": {
       "label": "Umgekehrte Reihenfolge"
-    },
-    "isSegmented": {
-      "label": "Segmentierung"
     },
     "labelContent": {
       "label": "Anzeige",

@@ -3,6 +3,9 @@
     "isAutoplay": {
       "label": "Автовідтворення"
     },
+    "isBlackboard": {
+      "label": "Дошка"
+    },
     "isIdCardVisible": {
       "label": "Посвідчення особи"
     },
@@ -11,9 +14,6 @@
     },
     "isReverse": {
       "label": "Зворотний порядок"
-    },
-    "isSegmented": {
-      "label": "Сегментація"
     },
     "labelContent": {
       "label": "Відображення",

@@ -3,6 +3,9 @@
     "isAutoplay": {
       "label": "Automatické přehrávání"
     },
+    "isBlackboard": {
+      "label": "Tabule"
+    },
     "isIdCardVisible": {
       "label": "Občanka"
     },
@@ -11,9 +14,6 @@
     },
     "isReverse": {
       "label": "Obrácené pořadí"
-    },
-    "isSegmented": {
-      "label": "Segmentace"
     },
     "labelContent": {
       "label": "Zobrazení",

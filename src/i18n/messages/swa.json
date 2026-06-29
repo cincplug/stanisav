@@ -3,6 +3,9 @@
     "isAutoplay": {
       "label": "Cheza kiotomatiki"
     },
+    "isBlackboard": {
+      "label": "Ubao"
+    },
     "isIdCardVisible": {
       "label": "Kitambulisho"
     },
@@ -11,9 +14,6 @@
     },
     "isReverse": {
       "label": "Mpangilio wa nyuma"
-    },
-    "isSegmented": {
-      "label": "Mgawanyiko"
     },
     "labelContent": {
       "label": "Onyesha",

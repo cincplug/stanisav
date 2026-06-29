@@ -29,7 +29,7 @@ function App() {
   const { config, updateConfigValue } = useConfigContext();
   const { selectedLanguage } = useLanguageSelectionContext();
   const { pausePlaylist } = usePlaylistContext();
-  const { isIdCardVisible, isMenuExpanded, isSegmented, labelSize } = config;
+  const { isIdCardVisible, isMenuExpanded, isBlackboard, labelSize } = config;
   const { sampleUrl, sub } = data?.languageData[selectedLanguage] || {};
 
   const { languageColors } = useLanguageColorsContext();
@@ -56,7 +56,7 @@ function App() {
           updateConfigValue("global.isMenuExpanded", !isMenuExpanded)
         }
         onToggleBlackboard={() =>
-          updateConfigValue("isSegmented", !isSegmented)
+          updateConfigValue("isBlackboard", !isBlackboard)
         }
         filters={filters}
         onFiltersChange={setFilters}

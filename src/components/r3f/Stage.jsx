@@ -57,7 +57,7 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
     sortBy,
     labelContent,
     isReverse,
-    isSegmented,
+    isBlackboard,
     labelSize,
     rotateSpeedSceneInitial,
     rotateSpeedSceneZoomed,
@@ -97,7 +97,7 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
       sphereRadius,
       labelContent,
       isReverse,
-      isSegmented,
+      isBlackboard,
       locale,
       isLocaleReady,
       spiralRatio,
@@ -144,10 +144,10 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
   );
 
   useEffect(() => {
-    if ((selectedLanguage || isSegmented) && !isEntranceComplete) {
+    if ((selectedLanguage || isBlackboard) && !isEntranceComplete) {
       skipSequence();
     }
-  }, [selectedLanguage, isSegmented]);
+  }, [selectedLanguage, isBlackboard]);
 
   const meshaLanguageCode =
     selectedLanguage || mentionedLanguage || sortedLanguageCodes[0];
@@ -158,7 +158,7 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
       const base = [pos.x, pos.y, pos.z];
       const radial = calculateRadialOffset(base);
 
-      if (isSegmented) {
+      if (isBlackboard) {
         return [
           base[0],
           base[1] + labelOffset / 2,
@@ -208,8 +208,8 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
         ref={orbitControlsRef}
         enableDamping={true}
         makeDefault={true}
-        enableZoom={isSegmented}
-        enableRotate={!isSegmented && !isDragging}
+        enableZoom={isBlackboard}
+        enableRotate={!isBlackboard && !isDragging}
         autoRotate={false}
       />
 
@@ -219,7 +219,7 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
         speed={
           selectedLanguage ? rotateSpeedSceneZoomed : rotateSpeedSceneInitial
         }
-        isEnabled={!isSegmented && isMeshaSequenceDone}
+        isEnabled={!isBlackboard && isMeshaSequenceDone}
       />
 
       <Light
@@ -228,7 +228,7 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
         isEntranceComplete={isEntranceComplete}
         tension={tension}
         friction={friction}
-        isSegmented={isSegmented}
+        isBlackboard={isBlackboard}
         selectedLanguage={selectedLanguage}
       />
 

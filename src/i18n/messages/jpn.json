@@ -3,6 +3,9 @@
     "isAutoplay": {
       "label": "自動再生"
     },
+    "isBlackboard": {
+      "label": "黒板"
+    },
     "isIdCardVisible": {
       "label": "身分証明書"
     },
@@ -11,9 +14,6 @@
     },
     "isReverse": {
       "label": "逆順"
-    },
-    "isSegmented": {
-      "label": "セグメンテーション"
     },
     "labelContent": {
       "label": "表示内容",

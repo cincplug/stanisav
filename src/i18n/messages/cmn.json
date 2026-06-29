@@ -3,6 +3,9 @@
     "isAutoplay": {
       "label": "自动播放"
     },
+    "isBlackboard": {
+      "label": "黑板"
+    },
     "isIdCardVisible": {
       "label": "身份证"
     },
@@ -11,9 +14,6 @@
     },
     "isReverse": {
       "label": "倒序排列"
-    },
-    "isSegmented": {
-      "label": "分割"
     },
     "labelContent": {
       "label": "显示内容",

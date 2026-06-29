@@ -3,6 +3,9 @@
     "isAutoplay": {
       "label": "Tự động phát"
     },
+    "isBlackboard": {
+      "label": "Bảng đen"
+    },
     "isIdCardVisible": {
       "label": "Chứng minh nhân dân"
     },
@@ -11,9 +14,6 @@
     },
     "isReverse": {
       "label": "Thứ tự ngược"
-    },
-    "isSegmented": {
-      "label": "Phân đoạn"
     },
     "labelContent": {
       "label": "Hiển thị",

@@ -3,6 +3,9 @@
     "isAutoplay": {
       "label": "Riproduzione automatica"
     },
+    "isBlackboard": {
+      "label": "Lavagna"
+    },
     "isIdCardVisible": {
       "label": "Carta d'identità"
     },
@@ -11,9 +14,6 @@
     },
     "isReverse": {
       "label": "Ordine inverso"
-    },
-    "isSegmented": {
-      "label": "Segmentazione"
     },
     "labelContent": {
       "label": "Visualizzazione",

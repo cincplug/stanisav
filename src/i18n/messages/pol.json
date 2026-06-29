@@ -3,6 +3,9 @@
     "isAutoplay": {
       "label": "Autoodtwarzanie"
     },
+    "isBlackboard": {
+      "label": "Tablica"
+    },
     "isIdCardVisible": {
       "label": "Dowód osobisty"
     },
@@ -11,9 +14,6 @@
     },
     "isReverse": {
       "label": "Odwróć kolejność"
-    },
-    "isSegmented": {
-      "label": "Segmentacja"
     },
     "labelContent": {
       "label": "Wyświetlanie",

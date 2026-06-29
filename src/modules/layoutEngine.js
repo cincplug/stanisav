@@ -49,9 +49,9 @@ class LayoutEngine {
       sortBy,
       labelContent,
       isReverse,
-      isSegmented,
+      isBlackboard,
       entranceAxis,
-      segmentGap,
+      boardGap,
       boardSpacing,
       spiralRatio,
       spiralAxis,
@@ -65,7 +65,7 @@ class LayoutEngine {
     const getClusterKey = (code) => {
       switch (sortBy) {
         case "speakers":
-          return isSegmented
+          return isBlackboard
             ? (getSpeakerGroup(languageData[code].speakers)?.title ?? "all")
             : "all";
         case "family":
@@ -129,7 +129,7 @@ class LayoutEngine {
       (4 * Math.PI * sphereRadius ** 2) / sortedLanguages.length,
     );
     const cellSize = nodeSpacing;
-    const clusterPadding = cellSize * segmentGap;
+    const clusterPadding = cellSize * boardGap;
 
     // --- Cluster dimensions in cell units ---
     const clusterDims = {};
@@ -228,7 +228,7 @@ class LayoutEngine {
       });
     });
 
-    const t = isSegmented ? 1 : 0;
+    const t = isBlackboard ? 1 : 0;
 
     const positions = {};
     sortedLanguages.forEach((code) => {

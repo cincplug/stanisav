@@ -3,6 +3,9 @@
     "isAutoplay": {
       "label": "स्वतः चलाएँ"
     },
+    "isBlackboard": {
+      "label": "श्यामपट"
+    },
     "isIdCardVisible": {
       "label": "पहचान पत्र"
     },
@@ -11,9 +14,6 @@
     },
     "isReverse": {
       "label": "उल्टा क्रम"
-    },
-    "isSegmented": {
-      "label": "खंडन"
     },
     "labelContent": {
       "label": "प्रदर्शन",
