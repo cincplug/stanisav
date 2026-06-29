@@ -59,10 +59,10 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
     isReverse,
     isBlackboard,
     labelSize,
-    rotateSpeedSceneInitial,
-    rotateSpeedSceneZoomed,
-    rotateSpeedMeshaInitial,
-    rotateSpeedMeshaZoomed,
+    spinSpeedSceneInitial,
+    spinSpeedSceneZoomed,
+    spinSpeedMeshaInitial,
+    spinSpeedMeshaZoomed,
   } = config;
 
   const orbitControlsRef = useRef();
@@ -216,9 +216,7 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
       <OrbitModifier
         orbitControlsRef={orbitControlsRef}
         spiralAxis={spiralAxis}
-        speed={
-          selectedLanguage ? rotateSpeedSceneZoomed : rotateSpeedSceneInitial
-        }
+        speed={selectedLanguage ? spinSpeedSceneZoomed : spinSpeedSceneInitial}
         isEnabled={!isBlackboard && isMeshaSequenceDone}
       />
 
@@ -256,8 +254,8 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
         isMyMesha={isMyMesha}
         renderOrder={languageCodes.length - 1}
         looksAround={true}
-        rotateSpeed={
-          selectedLanguage ? rotateSpeedMeshaZoomed : rotateSpeedMeshaInitial
+        spinSpeed={
+          selectedLanguage ? spinSpeedMeshaZoomed : spinSpeedMeshaInitial
         }
         isMotionReduced={isMotionReduced}
       />

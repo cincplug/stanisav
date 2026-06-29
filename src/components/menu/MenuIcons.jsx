@@ -396,7 +396,7 @@ export const LightIcon = (props) => (
   </svg>
 );
 
-export const RotateSpeedIcon = (props) => (
+export const SpinSpeedIcon = (props) => (
   <svg
     width={iconSize}
     height={iconSize}

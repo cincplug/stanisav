@@ -33,10 +33,12 @@
     "labelRevealDuration": 500,
     "startLabelOffset": 1.2
   },
-  "scene": {
+  "sphere": {
     "hasLines": true,
     "isMingling": true,
     "labelOffset": 5,
+    "spinSpeedSceneInitial": 1.5,
+    "spinSpeedSceneZoomed": 0.1,
     "sphereRadius": 16,
     "spiralAxis": ["y", "x", "z"],
     "spiralRatio": [0.61803, 0.41421, 0.73205, 0.23606, 0.64575, 0.31662]
@@ -47,12 +49,6 @@
     "boardLight": 1.15,
     "boardMargin": 1.1,
     "boardTitleGap": 0.9
-  },
-  "rotateSpeed": {
-    "rotateSpeedMeshaInitial": 0,
-    "rotateSpeedMeshaZoomed": 0.6,
-    "rotateSpeedSceneInitial": 1.5,
-    "rotateSpeedSceneZoomed": 0.1
   },
   "shader": {
     "ambient": 0.7,
@@ -107,6 +103,8 @@
     "pupilMetalness": 0.7,
     "pupilRoughness": 0.4,
     "pupilSize": 0.51,
+    "spinSpeedMeshaInitial": 0,
+    "spinSpeedMeshaZoomed": 0.6,
     "saltoAmplitude": 0.785,
     "saltoFrequency": 1.8,
     "saltoPow": 150,
