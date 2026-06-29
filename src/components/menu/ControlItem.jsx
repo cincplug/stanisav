@@ -1,4 +1,5 @@
 import { resolveControlBounds } from "../../utils/configUtils";
+import { formatCamelCase } from "../../utils/stringUtils.js";
 import Range from "./ux/Range.jsx";
 import Select from "./ux/Select";
 
@@ -10,7 +11,8 @@ const ControlItem = ({
   groupIndex = 0,
   controlIndex = 0,
 }) => {
-  const { dotKey, type, label, options, value } = control;
+  const { dotKey, type, label: rawLabel, options, value } = control;
+  const label = formatCamelCase(rawLabel);
 
   const handleChange = (newValue) => {
     const processedValue = type === "range" ? parseFloat(newValue) : newValue;

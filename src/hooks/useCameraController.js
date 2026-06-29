@@ -22,7 +22,7 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
     entranceDuration,
     meshaSize,
     sphereRadius,
-    margin,
+    segmentMargin,
     sortBy,
   } = config;
 
@@ -150,7 +150,7 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
 
     const distForWidth = halfW / Math.tan(halfFovH);
     const distForHeight = halfH / Math.tan(halfFovV);
-    const distance = Math.max(distForWidth, distForHeight) * margin;
+    const distance = Math.max(distForWidth, distForHeight) * segmentMargin;
 
     const targetCameraPosition = new Vector3(
       center.x,

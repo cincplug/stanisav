@@ -222,7 +222,7 @@ export const CircleIcon = (props) => (
   </svg>
 );
 
-export const SegmentationIcon = (props) => (
+export const BlackboardIcon = (props) => (
   <svg
     width={iconSize}
     height={iconSize}

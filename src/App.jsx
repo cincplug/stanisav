@@ -55,7 +55,7 @@ function App() {
         onToggleMenu={() =>
           updateConfigValue("global.isMenuExpanded", !isMenuExpanded)
         }
-        onToggleSegmentation={() =>
+        onToggleBlackboard={() =>
           updateConfigValue("isSegmented", !isSegmented)
         }
         filters={filters}

@@ -24,7 +24,7 @@ const Light = ({
     zoomedLightIntensity,
     lightDecay,
     ambientLight,
-    segmentedLightModifier,
+    segmentLight,
   } = config;
 
   const lightRef = useRef();
@@ -40,7 +40,7 @@ const Light = ({
   const { animatedDistance, animatedIntensity } = useSpring({
     animatedDistance:
       (selectedLanguage ? zoomedLightDistance : defaultLightDistance) *
-      (isSegmented ? segmentedLightModifier : 1),
+      (isSegmented ? segmentLight : 1),
     animatedIntensity: selectedLanguage
       ? zoomedLightIntensity
       : defaultLightIntensity,

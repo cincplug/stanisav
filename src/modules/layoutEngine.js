@@ -51,9 +51,8 @@ class LayoutEngine {
       isReverse,
       isSegmented,
       entranceAxis,
-      gap,
-      cellSpacing,
-      cellSizeModifier,
+      segmentGap,
+      boardSpacing,
       spiralRatio,
       spiralAxis,
       sphereRadius,
@@ -129,8 +128,8 @@ class LayoutEngine {
     const nodeSpacing = Math.sqrt(
       (4 * Math.PI * sphereRadius ** 2) / sortedLanguages.length,
     );
-    const cellSize = nodeSpacing * cellSizeModifier;
-    const clusterPadding = cellSize * gap;
+    const cellSize = nodeSpacing;
+    const clusterPadding = cellSize * segmentGap;
 
     // --- Cluster dimensions in cell units ---
     const clusterDims = {};
@@ -152,7 +151,7 @@ class LayoutEngine {
         const rowMembers = members.slice(row * cols, (row + 1) * cols);
         const rowWidth = rowMembers.reduce((sum, code) => {
           const text = getLanguageLabel(code, languageData, labelContent);
-          return sum + this.estimateLabelWidth(text, cellSize, cellSpacing);
+          return sum + this.estimateLabelWidth(text, cellSize, boardSpacing);
         }, 0);
         if (rowWidth > maxRowWidth) maxRowWidth = rowWidth;
       }
@@ -217,7 +216,7 @@ class LayoutEngine {
       const members = clusters[key];
       const labelWidths = members.map((code) => {
         const text = getLanguageLabel(code, languageData, labelContent);
-        return this.estimateLabelWidth(text, cellSize, cellSpacing);
+        return this.estimateLabelWidth(text, cellSize, boardSpacing);
       });
       const localPoints = this.generateVariableWidthGrid(
         members.length,
@@ -241,8 +240,8 @@ class LayoutEngine {
     return { positions, sortedLanguages };
   }
 
-  estimateLabelWidth(text, cellSize, cellSpacing) {
-    return text.length * cellSize * cellSpacing;
+  estimateLabelWidth(text, cellSize, boardSpacing) {
+    return text.length * cellSize * boardSpacing;
   }
 
   generateFibonacciSphere(numPoints, radius, spiralRatio, buildPoint) {
