@@ -3,7 +3,7 @@ const iconSize = 24;
 const viewBox = `0 0 ${iconSize} ${iconSize}`;
 const strokeWidth = "var(--border-width-thin)";
 
-export const StopIcon = (props) => (
+export const HomeIcon = (props) => (
   <svg
     width={iconSize}
     height={iconSize}
@@ -11,13 +11,9 @@ export const StopIcon = (props) => (
     fill="none"
     {...props}
   >
-    <rect
-      x="6"
-      y="6"
-      width="12"
-      height="12"
-      fill={iconColor}
-      stroke={iconColor}
+    <path
+      d="M2 12 L12 2 L22 12 M20 12 L20 20 L14 20 L14 16 L10 16 L10 20 L4 20 L4 12"
+      stroke="currentColor"
       strokeWidth={strokeWidth}
     />
   </svg>
@@ -65,7 +61,7 @@ export const PlayIcon = (props) => (
     fill="none"
     {...props}
   >
-    <polygon points="8,5 20,12 8,19" fill={iconColor} />
+    <polygon points="7,3 21,12 7,21" fill={iconColor} />
   </svg>
 );
 
@@ -230,9 +226,10 @@ export const BlackboardIcon = (props) => (
     fill="none"
     {...props}
   >
-    <rect x="4" y="5" width="7" height="6" stroke={iconColor} />
-    <rect x="13" y="4" width="7" height="10" stroke={iconColor} />
-    <rect x="6" y="14" width="12" height="6" stroke={iconColor} />
+    <rect x="4" y="4" width="7" height="7" stroke={iconColor} />
+    <rect x="4" y="14" width="7" height="6" stroke={iconColor} />
+    <rect x="14" y="4" width="7" height="4" stroke={iconColor} />
+    <rect x="14" y="11" width="7" height="9" stroke={iconColor} />
   </svg>
 );
 

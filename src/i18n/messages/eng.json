@@ -332,7 +332,8 @@
     "open": "Open menu",
     "languageSelector": "App language",
     "isVisual": "Visual",
-    "reset": "Reset"
+    "reset": "Reset",
+    "back": "Back"
   },
   "playlist": {
     "controls": "Playlist controls",

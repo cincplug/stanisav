@@ -9,7 +9,7 @@ import {
   PauseIcon,
   PlayIcon,
   PrevIcon,
-  StopIcon,
+  HomeIcon,
 } from "./MenuIcons";
 import "./Playlist.css";
 
@@ -115,14 +115,6 @@ export default function Playlist() {
         aria-pressed={isPlaying}
       >
         {playIcon}
-      </button>
-      <button
-        onClick={handleStop}
-        aria-label={t("playlist.stop")}
-        className="stop-icon"
-        disabled={!selectedLanguage}
-      >
-        <StopIcon />
       </button>
       <button
         onClick={goToNext}

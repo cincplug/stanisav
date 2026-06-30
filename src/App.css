@@ -33,3 +33,9 @@
     order: -1;
   }
 }
+
+.home-button {
+  position: absolute;
+  left: var(--gap);
+  top: var(--gap);
+}

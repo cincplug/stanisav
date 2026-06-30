@@ -179,7 +179,6 @@
     "durationDismiss": 400,
     "durationPerLetter": 30
   },
-
   "lines": {
     "centerPullRatio": 0.74,
     "lineWidth": 73,
