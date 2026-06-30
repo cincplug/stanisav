@@ -46,7 +46,7 @@ const Mesha = ({
 
   const { data } = useAppStateContext();
   const { languageColors } = useLanguageColorsContext();
-  const { isAnimating } = usePlaylistContext();
+  const { isAnimating, isPlaying } = usePlaylistContext();
   const { config } = useConfigContext();
   const {
     entranceDuration,
@@ -201,7 +201,10 @@ const Mesha = ({
       Math.round(value / (Math.PI * 2)) * (Math.PI * 2);
 
     const isBlocked =
-      isDragging || isAnimating || wordOrderFlexibility === "rigid";
+      isDragging ||
+      isAnimating ||
+      !isPlaying ||
+      wordOrderFlexibility === "rigid";
     const wasFlexible = prevWordOrderFlexibilityRef.current === "flexible";
     prevWordOrderFlexibilityRef.current = wordOrderFlexibility;
 
