@@ -21,8 +21,6 @@ const MeshaEars = forwardRef(
       earY,
       earZ,
       earSize,
-      maxDeformation,
-      verticalVariation,
       segments,
     } = config;
 
@@ -36,8 +34,6 @@ const MeshaEars = forwardRef(
       size: earSize,
       bend,
       radius: earSize,
-      maxDeformation,
-      verticalVariation,
     });
 
     return (

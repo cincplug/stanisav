@@ -78,6 +78,7 @@ const MeshaNose = ({
         <mesh
           key={i}
           rotation-z={rotZ}
+          position={[0, 0, (i + 1) / rings.length]}
           linguisticProperty={linguisticProps[i]}
           onClick={i < 2 ? onClick : undefined}
         >
