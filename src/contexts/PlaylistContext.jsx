@@ -236,6 +236,12 @@ export const PlaylistProvider = ({ children }) => {
     const playAudio = async () => {
       stopCurrentAudio();
 
+      // Only stagger playback start when we're actually switching to a
+      // different track. Resuming the same (already-loaded) track should
+      // play immediately with no artificial delay.
+      const isTrackChange = selectedLanguage !== code;
+      const startDelay = isTrackChange ? switchDuration : 0;
+
       delayTimeoutRef.current = setTimeout(async () => {
         delayTimeoutRef.current = null;
 
@@ -277,7 +283,7 @@ export const PlaylistProvider = ({ children }) => {
             handleAudioEnded();
           }
         }
-      }, switchDuration);
+      }, startDelay);
     };
 
     playAudio();

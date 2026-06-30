@@ -31,33 +31,42 @@ export default function Playlist() {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.target.matches("input, textarea, select, button, a")) {
-        // Allow only the loop shortcut through even on interactive elements,
-        // all others require focus to be outside interactive elements
-        if (e.key !== "l") return;
-      }
+      const isOnRangeInput = e.target.matches('input[type="range"]');
+      const isOnInteractiveElement = e.target.matches(
+        "input, textarea, select, button, a",
+      );
+
+      // Range inputs don't natively use Space (browsers just scroll the page),
+      // so let our play/pause shortcut claim it instead of falling through.
+      // Every other interactive element keeps native Space/Enter behavior.
+      if (isOnInteractiveElement && !isOnRangeInput && e.key !== "l") return;
 
       switch (e.key) {
         case " ":
-        case "k":
           e.preventDefault();
           isPlaying ? pausePlaylist() : startPlaylist();
           break;
+        case "k":
+          if (isOnInteractiveElement) break;
+          isPlaying ? pausePlaylist() : startPlaylist();
+          break;
         case "ArrowLeft":
-          if (e.target.closest('[role="tablist"]')) return;
+          if (isOnInteractiveElement) break;
           e.preventDefault();
           goToPrev();
           break;
         case "ArrowRight":
-          if (e.target.closest('[role="tablist"]')) return;
+          if (isOnInteractiveElement) break;
           e.preventDefault();
           goToNext();
           break;
         case "Home":
+          if (isOnInteractiveElement) break;
           e.preventDefault();
           goToBegin();
           break;
         case "s":
+          if (isOnInteractiveElement) break;
           e.preventDefault();
           handleStop();
           break;
