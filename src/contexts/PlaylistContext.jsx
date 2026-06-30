@@ -7,6 +7,7 @@ import {
   useState,
 } from "react";
 import { getSortingData, sortLanguages } from "../utils/sortingUtils";
+import { playAudioSequence } from "../services/audioPlaybackService";
 import { useAppStateContext } from "./AppStateContext";
 import { useConfigContext } from "./ConfigContext";
 import { useLanguageSelectionContext } from "./LanguageSelectionContext";
@@ -22,7 +23,7 @@ export const PlaylistProvider = ({ children }) => {
     labelContent,
     isReverse,
     isAutoplay,
-    isLuka,
+    soundSource,
     switchDuration,
   } = config;
   const {
@@ -230,7 +231,7 @@ export const PlaylistProvider = ({ children }) => {
       }, switchDuration);
     }
 
-    let cleanup = () => {};
+    let isEffectActive = true;
 
     const playAudio = async () => {
       stopCurrentAudio();
@@ -239,11 +240,11 @@ export const PlaylistProvider = ({ children }) => {
         delayTimeoutRef.current = null;
 
         try {
-          const { getLanguageAudioUrl, setupAudioVisualization } =
-            await import("../services/audioService");
-          const audioUrl = await getLanguageAudioUrl(code, isLuka);
+          const { getLanguageAudioUrls } =
+            await import("../services/audioUrlResolverService");
+          const audioUrls = await getLanguageAudioUrls(code, soundSource);
 
-          if (!audioUrl) {
+          if (audioUrls.length === 0) {
             console.warn(`No audio available for language: ${code}`);
             handleAudioEnded();
             return;
@@ -259,81 +260,22 @@ export const PlaylistProvider = ({ children }) => {
             audioRef.current = audio;
           }
 
-          audio.pause();
-          // Remove any ended listener from the previous track before swapping src
-          audio.removeEventListener("ended", handleAudioEnded);
-          audio.preload = "auto";
-          audio.src = audioUrl;
-          audio.volume = 0.5;
-          // Calling load() after setting src initiates buffering
-          audio.load();
-
-          // Wait until the browser has enough data to start playback without clipping
-          await new Promise((resolve, reject) => {
-            const READY_THRESHOLD = 2; // HAVE_CURRENT_DATA
-            let settled = false;
-
-            const cleanupListeners = () => {
-              audio.removeEventListener("canplaythrough", handleReady);
-              audio.removeEventListener("canplay", handleReady);
-              audio.removeEventListener("loadeddata", handleReady);
-              audio.removeEventListener("error", handleError);
-            };
-
-            const settle = (fn) => {
-              if (settled) return;
-              settled = true;
-              clearTimeout(timeoutId);
-              cleanupListeners();
-              fn();
-            };
-
-            const handleReady = () => {
-              if (audio.readyState >= READY_THRESHOLD) settle(resolve);
-            };
-
-            const handleError = () => {
-              settle(() =>
-                reject(new Error(`Failed to load audio for ${code}`)),
-              );
-            };
-
-            // Don't block forever on slow networks; proceed if minimum data is available
-            const timeoutId = setTimeout(() => {
-              if (audio.readyState >= READY_THRESHOLD) {
-                settle(resolve);
-              } else {
-                settle(() =>
-                  reject(
-                    new Error(`Audio readiness timeout for language: ${code}`),
-                  ),
-                );
-              }
-            }, 3500);
-
-            // Resolve immediately if already buffered enough (e.g. cached)
-            if (audio.readyState >= READY_THRESHOLD) {
-              settle(resolve);
-              return;
-            }
-
-            audio.addEventListener("canplaythrough", handleReady);
-            audio.addEventListener("canplay", handleReady);
-            audio.addEventListener("loadeddata", handleReady);
-            audio.addEventListener("error", handleError);
+          await playAudioSequence({
+            audio,
+            audioUrls,
+            config,
+            delayDuration: switchDuration / 2,
+            shouldContinue: () => isEffectActive,
           });
 
-          await setupAudioVisualization(audio, config);
-
-          audio.addEventListener("ended", handleAudioEnded);
-          cleanup = () => {
-            audio.removeEventListener("ended", handleAudioEnded);
-          };
-
-          await audio.play();
+          if (isEffectActive) {
+            handleAudioEnded();
+          }
         } catch (error) {
           console.error("Error playing language audio:", error);
-          handleAudioEnded();
+          if (isEffectActive) {
+            handleAudioEnded();
+          }
         }
       }, switchDuration);
     };
@@ -341,7 +283,10 @@ export const PlaylistProvider = ({ children }) => {
     playAudio();
 
     return () => {
-      cleanup();
+      isEffectActive = false;
+      if (audioRef.current) {
+        audioRef.current.removeEventListener("ended", handleAudioEnded);
+      }
       if (delayTimeoutRef.current) {
         clearTimeout(delayTimeoutRef.current);
         delayTimeoutRef.current = null;
@@ -353,12 +298,13 @@ export const PlaylistProvider = ({ children }) => {
     playlistSession,
     isSceneReady,
     isMyMesha,
-    isLuka,
+    soundSource,
     switchDuration,
     stopCurrentAudio,
     handleAudioEnded,
     selectedLanguage,
     setSelectedLanguage,
+    config,
   ]);
 
   useEffect(() => {

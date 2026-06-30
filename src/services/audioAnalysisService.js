@@ -10,6 +10,7 @@ class AudioAnalysisService {
     this.callbacks = new Set();
     this.deltaAccumulator = 0;
     this.animationFrameId = null;
+    this.connectedAudioElements = new Set();
 
     this.fundamentData = defaultAudioData.fundamentData;
     this.harmonicsData = defaultAudioData.harmonicsData;
@@ -50,6 +51,44 @@ class AudioAnalysisService {
     } catch (error) {
       console.error("Failed to connect audio element:", error);
       throw error;
+    }
+  }
+
+  // Wires an audio element to this service: initializes the audio context,
+  // connects the element to the analyser, and starts/stops analysis alongside
+  // the element's own play/pause/ended/error events. Safe to call multiple
+  // times on the same element; subsequent calls are no-ops.
+  // config must include mesha and voiceRange groups
+  async setupVisualization(audioElement, config) {
+    if (!audioElement || this.connectedAudioElements.has(audioElement)) {
+      return;
+    }
+
+    try {
+      await this.initializeAudioContext();
+      this.connectAudioElement(audioElement);
+      this.connectedAudioElements.add(audioElement);
+
+      audioElement.addEventListener("play", () => {
+        this.startAnalysis(config);
+      });
+
+      audioElement.addEventListener("pause", () => {
+        this.stopAnalysis();
+      });
+
+      audioElement.addEventListener("ended", () => {
+        this.stopAnalysis();
+      });
+
+      const cleanup = () => {
+        this.connectedAudioElements.delete(audioElement);
+        this.stopAnalysis();
+      };
+
+      audioElement.addEventListener("error", cleanup);
+    } catch (error) {
+      console.error("Failed to setup audio visualization:", error);
     }
   }
 
@@ -175,6 +214,7 @@ class AudioAnalysisService {
     }
 
     this.callbacks.clear();
+    this.connectedAudioElements.clear();
     this.audioContext = null;
     this.analyser = null;
     this.dataArray = null;

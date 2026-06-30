@@ -23,9 +23,9 @@
   "global": {
     "isAutoplay": true,
     "isIdCardVisible": false,
-    "isLuka": true,
     "isMenuExpanded": false,
-    "isMyMesha": false
+    "isMyMesha": false,
+    "soundSource": ["o-l", "l-o", "l", "o"]
   },
   "entrance": {
     "entranceAxis": "z",
