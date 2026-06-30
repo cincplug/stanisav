@@ -32,7 +32,7 @@ const MeshaNose = ({
     noseSize,
     noseThickness,
     noseSliceAngle,
-    noseCirclePadding,
+    nosePadding,
     white,
     labelTextColor,
   } = config;
@@ -44,8 +44,8 @@ const MeshaNose = ({
   const tubeRadius = noseThickness / 2;
 
   const innerRadius = noseSize;
-  const middleRadius = innerRadius + tubeRadius * 2 + noseCirclePadding;
-  const outerRadius = middleRadius + tubeRadius * 2 + noseCirclePadding;
+  const middleRadius = innerRadius + tubeRadius * 2 + nosePadding;
+  const outerRadius = middleRadius + tubeRadius * 2 + nosePadding;
   const radii = [outerRadius, middleRadius, innerRadius];
 
   const roles = wordOrder.split("");

@@ -1,5 +1,6 @@
 import { useConfigContext } from "../../contexts/ConfigContext";
 import { useI18nContext } from "../../contexts/I18nContext";
+import { formatCamelCase } from "../../utils/stringUtils.js";
 import { inferControlType } from "../../utils/configUtils";
 import ControlItem from "./ControlItem";
 
@@ -58,7 +59,7 @@ function ControlItemGroup({ groupName, showFieldset = false }) {
   if (showFieldset) {
     return (
       <fieldset className="control-group">
-        <legend>{groupName}</legend>
+        <legend>{formatCamelCase(groupName)}</legend>
         <div className="controls-grid">{items}</div>
       </fieldset>
     );

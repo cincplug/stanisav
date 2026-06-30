@@ -5,7 +5,7 @@ import Mesha from "../r3f/Mesha.jsx";
 const MiniMesha = ({ languageCode }) => {
   const { config } = useConfigContext();
   const { cameraX, cameraY, cameraZ, fov, near, far, bgColor } = config;
-  const spinSpeed = 1;
+  const spin = 1;
 
   return (
     <div className="mini-mesha">
@@ -18,7 +18,7 @@ const MiniMesha = ({ languageCode }) => {
           position={[0, -3, 100]}
           isMyMesha={false}
           looksAround
-          spinSpeed={spinSpeed}
+          spin={spin}
         />
       </Canvas>
     </div>

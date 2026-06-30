@@ -35,13 +35,14 @@
       justify-content: space-between;
       margin-bottom: var(--gap);
       font-size: var(--font-size-m);
+      gap: var(--gap);
     }
   }
 }
 
 .controls-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: var(--gap-double);
 }
 

@@ -9,7 +9,7 @@ export const useMeshaDrag = (bindings, linguisticProperty = null) => {
   const { notifyDragStart, notifyDragEnd } = useDragContext();
   const { selectProperty } = useLanguageSelectionContext();
 
-  const { dragSensitivity, timeRate, dragSessionRange } = config;
+  const { dragSensitivity, timeRate, dragRange } = config;
 
   const dragStartValuesRef = useRef({});
   const dragThrottleRef = useRef({ elapsed: 0, lastTime: 0 });
@@ -56,10 +56,7 @@ export const useMeshaDrag = (bindings, linguisticProperty = null) => {
         const rawValue = startX + mx * dragSensitivity;
         applyValue(
           bindings.x,
-          Math.min(
-            Math.max(rawValue, startX - dragSessionRange),
-            startX + dragSessionRange,
-          ),
+          Math.min(Math.max(rawValue, startX - dragRange), startX + dragRange),
         );
       }
 
@@ -68,10 +65,7 @@ export const useMeshaDrag = (bindings, linguisticProperty = null) => {
         const rawValue = startY - my * dragSensitivity;
         applyValue(
           bindings.y,
-          Math.min(
-            Math.max(rawValue, startY - dragSessionRange),
-            startY + dragSessionRange,
-          ),
+          Math.min(Math.max(rawValue, startY - dragRange), startY + dragRange),
         );
       }
     },

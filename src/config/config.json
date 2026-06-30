@@ -34,14 +34,14 @@
     "startLabelOffset": 1.2
   },
   "sphere": {
+    "spiralAxis": ["y", "x", "z"],
+    "spiralRatio": [0.61803, 0.41421, 0.73205, 0.23606, 0.64575, 0.31662],
     "hasLines": true,
     "isMingling": true,
+    "spinSphereInitial": 1.5,
+    "spinSphereZoomed": 0.1,
     "labelOffset": 5,
-    "spinSpeedSceneInitial": 1.5,
-    "spinSpeedSceneZoomed": 0.1,
-    "sphereRadius": 16,
-    "spiralAxis": ["y", "x", "z"],
-    "spiralRatio": [0.61803, 0.41421, 0.73205, 0.23606, 0.64575, 0.31662]
+    "sphereRadius": 16
   },
   "blackboard": {
     "boardSpacing": 0.12,
@@ -70,12 +70,10 @@
     "ambientLight": 0.1
   },
   "mesha": {
-    "amplitudeThreshold": 0.1,
     "assembleRate": 50,
     "blinkDuration": 0.2,
-    "decayRate": 0.7,
     "dragSensitivity": 0.1,
-    "dragSessionRange": 0.3,
+    "dragRange": 0.3,
     "earDepth": 0.6,
     "earHeight": 1.1,
     "earSize": 1.9,
@@ -94,23 +92,20 @@
     "irisSize": 0.75,
     "isPhoenix": false,
     "isSurprised": false,
-    "maxDeformation": 1.2,
     "meshaSize": 1.5,
     "noseSize": 0.25,
     "noseThickness": 0.4,
     "noseSliceAngle": 60,
-    "noseCirclePadding": 0.1,
+    "nosePadding": 0.1,
     "pupilMetalness": 0.7,
     "pupilRoughness": 0.4,
     "pupilSize": 0.51,
-    "spinSpeedMeshaInitial": 0,
-    "spinSpeedMeshaZoomed": 0.6,
     "saltoAmplitude": 0.785,
     "saltoFrequency": 1.8,
     "saltoPow": 150,
     "segments": 32,
-    "skinHueShift": 30,
-    "timeRate": 15,
+    "spinMeshaInitial": 0,
+    "spinMeshaZoomed": 0.6,
     "tongueHeight": 0.6,
     "tongueLength": 1.1,
     "tongueSize": 4,
@@ -130,22 +125,33 @@
     "tuftHueShift": 120,
     "tuftSize": 0.36,
     "tuftSpacing": 4.8,
-    "tuftY": 1.4,
+    "tuftY": 1.4
+  },
+  "audioVisualisation": {
+    "fundamentMax": 800,
+    "fundamentMin": 85,
+    "harmonicsMax": 4000,
+    "harmonicsMin": 700,
+    "amplitudeThreshold": 0.1,
+    "timeRate": 15,
+    "decayRate": 0.7,
+    "maxDeformation": 1.2,
     "verticalVariation": 0.1
   },
   "colors": {
-    "emissiveness": 0.3,
-    "hue": 100,
-    "hueCircle": 360,
-    "lightness": 0.8,
-    "maxSiblingSpread": 60,
-    "saturation": 0.2,
     "bgColor": "#070b0f",
     "currentColor": "#50a7ff",
     "labelTextColor": "#070b0f",
     "lightColor": "#ffeedd",
     "toothColor": "#b4e5ee",
-    "white": "#e7ebef"
+    "white": "#e7ebef",
+    "emissiveness": 0.3,
+    "hue": 100,
+    "hueCircle": 360,
+    "lightness": 0.8,
+    "saturation": 0.2,
+    "maxHueSpread": 60,
+    "skinHueShift": 30
   },
   "camera": {
     "cameraX": 0,
@@ -173,12 +179,7 @@
     "durationDismiss": 400,
     "durationPerLetter": 30
   },
-  "voiceRange": {
-    "fundamentMax": 800,
-    "fundamentMin": 85,
-    "harmonicsMax": 4000,
-    "harmonicsMin": 700
-  },
+
   "lines": {
     "centerPullRatio": 0.74,
     "lineWidth": 73,

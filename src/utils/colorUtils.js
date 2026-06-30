@@ -16,7 +16,7 @@ export const calculateLanguageColors = (
   lightness,
   saturation,
   hueCircle,
-  maxSiblingSpread,
+  maxHueSpread,
 ) => {
   const result = {};
   const buckets = {};
@@ -94,7 +94,7 @@ export const calculateLanguageColors = (
     const index = siblings.indexOf(code);
     const siblingOffset =
       siblings.length > 1
-        ? (index / (siblings.length - 1) - 0.5) * maxSiblingSpread
+        ? (index / (siblings.length - 1) - 0.5) * maxHueSpread
         : 0;
 
     const depth = (lineages?.[lineageKey] ?? []).length;

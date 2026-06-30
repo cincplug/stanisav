@@ -8,7 +8,7 @@ const ColorsContext = createContext(null);
 export const LanguageColorsProvider = ({ children }) => {
   const { data } = useAppStateContext();
   const { config } = useConfigContext();
-  const { hue, lightness, saturation, hueCircle, maxSiblingSpread } = config;
+  const { hue, lightness, saturation, hueCircle, maxHueSpread } = config;
 
   const languageColors = useMemo(() => {
     if (!data) return {};
@@ -22,7 +22,7 @@ export const LanguageColorsProvider = ({ children }) => {
       lightness,
       saturation,
       hueCircle,
-      maxSiblingSpread,
+      maxHueSpread,
     );
   }, [data?.languageData, data?.languageLineages, config]);
 

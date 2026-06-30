@@ -38,7 +38,7 @@ const Mesha = ({
   position,
   isMyMesha,
   looksAround,
-  spinSpeed,
+  spin,
   isMotionReduced,
 }) => {
   const groupRef = useRef();
@@ -207,7 +207,7 @@ const Mesha = ({
 
     if (!isBlocked) {
       rotationYRef.current =
-        (rotationYRef.current + delta * spinSpeed) % (Math.PI * 2);
+        (rotationYRef.current + delta * spin) % (Math.PI * 2);
     }
 
     if (wordOrderFlexibility === "flexible" && !isBlocked) {
@@ -216,8 +216,7 @@ const Mesha = ({
       }
 
       saltoPhaseRef.current =
-        (saltoPhaseRef.current + delta * spinSpeed * saltoFrequency) %
-        (Math.PI * 2);
+        (saltoPhaseRef.current + delta * spin * saltoFrequency) % (Math.PI * 2);
 
       const shiftedPhase = saltoPhaseRef.current - Math.PI;
       const sinPhase = Math.sin(shiftedPhase);
