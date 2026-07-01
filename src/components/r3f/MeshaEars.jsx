@@ -11,8 +11,18 @@ extend({ ParametricGeometry });
 const MeshaEars = ({ earMaterial, morphologyScore, onClick, isSelected }) => {
   const highlightMaterial = useHighlightMaterial(0);
   const { config } = useConfigContext();
-  const { earHeight, earWidth, earDepth, earX, earY, earZ, earSize, segments } =
-    config;
+  const {
+    earHeight,
+    earWidth,
+    earDepth,
+    earTwirl,
+    earTurns,
+    earX,
+    earY,
+    earZ,
+    earSize,
+    segments,
+  } = config;
 
   const bend = morphologyScore * earX;
   const bind = useMeshaDrag(dragBindings.ears, "morphology");
@@ -24,6 +34,8 @@ const MeshaEars = ({ earMaterial, morphologyScore, onClick, isSelected }) => {
     size: earSize,
     bend,
     radius: earSize,
+    twirl: earTwirl,
+    turns: earTurns,
   });
 
   return (
