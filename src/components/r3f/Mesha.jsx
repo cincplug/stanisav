@@ -185,7 +185,6 @@ const Mesha = ({
   const earYRef = useRef(eyeY);
   const earScaleXRef = useRef(1);
   const earScaleYRef = useRef(1);
-  const earsRef = useRef();
   const saltoPhaseRef = useRef(0);
   const prevWordOrderFlexibilityRef = useRef("");
   const saltoRotXRef = useRef(0);
@@ -256,14 +255,10 @@ const Mesha = ({
       }
     }
 
-    earsRef.current.scale.y = earScaleYRef.current;
-    earsRef.current.scale.x = earScaleXRef.current;
-
     lookAroundRef.current.quaternion.copy(camera.quaternion);
 
     const targetEarY = selectedLanguage && !isAnimating ? earY : eyeY;
     earYRef.current = dampTo(earYRef.current, targetEarY);
-    earsRef.current.position.y = earYRef.current;
 
     scratchEuler.set(
       saltoRotXRef.current,
@@ -294,10 +289,21 @@ const Mesha = ({
         />
 
         <MeshaEar
-          ref={earsRef}
           earMaterial={skinMaterial}
           morphologyScore={scores.morphology}
           isSelected={selectedProperty === "morphology"}
+        />
+
+        <MeshaTongue
+          tongueMaterial={tongueMaterial}
+          segments={segments}
+          isSelected={selectedProperty === "tonality"}
+        />
+
+        <MeshaTeeth
+          toothCount={phonemeCount}
+          consonantClusterSize={maxConsonantClusterSize}
+          isSelected={selectedProperty === "phonemeCount"}
         />
 
         <MeshaNose
@@ -307,12 +313,6 @@ const Mesha = ({
           wordOrder={wordOrder}
           isSelectedOuter={selectedProperty === "wordOrder"}
           isSelectedInner={selectedProperty === "wordOrderFlexibility"}
-        />
-
-        <MeshaTongue
-          tongueMaterial={tongueMaterial}
-          segments={segments}
-          isSelected={selectedProperty === "tonality"}
         />
 
         {caseCount && (
@@ -340,12 +340,6 @@ const Mesha = ({
             stepDeg={12}
           />
         )}
-
-        <MeshaTeeth
-          toothCount={phonemeCount}
-          consonantClusterSize={maxConsonantClusterSize}
-          isSelected={selectedProperty === "phonemeCount"}
-        />
 
         <SpeechBalloon
           position={selectedLanguage ? "top" : "top-right"}
