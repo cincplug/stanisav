@@ -12,13 +12,13 @@ export const deriveStep = (value) => {
 
 export const deriveMin = (value) => {
   const step = deriveStep(value);
-  const raw = Math.abs(value / 5) - 1;
+  const raw = Math.abs(value / 5) - 2;
   return Math.round(raw / step) * step;
 };
 
 export const deriveMax = (value) => {
   const step = deriveStep(value);
-  const raw = Math.abs(value * 5) + 1;
+  const raw = Math.abs(value * 5) + 2;
   return Math.round(raw / step) * step;
 };
 
