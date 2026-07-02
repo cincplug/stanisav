@@ -199,6 +199,12 @@ const Mesha = ({
     const nearestFullRotation = (value) =>
       Math.round(value / (Math.PI * 2)) * (Math.PI * 2);
 
+    if (wordOrderFlexibility === "rigid")
+      rotationYRef.current = dampTo(
+        rotationYRef.current,
+        nearestFullRotation(rotationYRef.current),
+      );
+
     const isBlocked =
       isDragging ||
       isAnimating ||
