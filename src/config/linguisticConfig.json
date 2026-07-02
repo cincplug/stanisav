@@ -40,17 +40,17 @@
       "introflexive": {
         "label": "Introflexive",
         "description": "Grammar is built into the word from the inside: a root of consonants carries the core meaning, while different vowel patterns woven through it create new words. For example, the Arabic root k-t-b relates to writing, and kataba, kitāb, and kātib all come from it.",
-        "score": 4
+        "score": 3
       },
       "fusional": {
         "label": "Fusional",
         "description": "Words change their form through endings and prefixes that bundle multiple grammatical meanings at once. A single ending might express gender, number, and case simultaneously, making the pieces hard to pull apart.",
-        "score": 5
+        "score": 4
       },
       "polysynthetic": {
         "label": "Polysynthetic",
         "description": "A single word can express what other languages would say in a whole sentence, by fusing the verb, subject, object, and other elements together. Common in indigenous languages of the Americas and the Arctic.",
-        "score": 7
+        "score": 5
       }
     }
   },
