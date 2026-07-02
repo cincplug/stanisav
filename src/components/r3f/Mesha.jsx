@@ -19,7 +19,7 @@ import {
   getFeatureScore,
   getFeatureScoreList,
 } from "../../utils/linguisticUtils.js";
-import MeshaEar from "./MeshaEars.jsx";
+import MeshaEars from "./MeshaEars.jsx";
 import MeshaEyes from "./MeshaEyes.jsx";
 import MeshaMoustache from "./MeshaMoustache.jsx";
 import MeshaNose from "./MeshaNose.jsx";
@@ -294,7 +294,7 @@ const Mesha = ({
           isSelectedInner={selectedProperty === "verbAspect"}
         />
 
-        <MeshaEar
+        <MeshaEars
           earMaterial={skinMaterial}
           morphologyScore={scores.morphology}
           isSelected={selectedProperty === "morphology"}

@@ -18,7 +18,8 @@
     "labelContent": ["name", "nativeName", "isoCode"],
     "labelSize": [1, 1.25, 1.5, 1.75],
     "isReverse": false,
-    "isBlackboard": false
+    "isBlackboard": false,
+    "isLuka": true
   },
   "global": {
     "isAutoplay": true,
@@ -81,8 +82,8 @@
     "earX": 2,
     "earY": 0.5,
     "earZ": 1.1,
-    "earTwirl": 0.12,
-    "earTurns": 0.6,
+    "earTwirl": 0.22,
+    "earTurns": 2.7,
     "eyebrowY": 2.7,
     "eyelidDepth": 1.1,
     "eyelidHeight": 0.5,
@@ -113,7 +114,7 @@
     "tongueSize": 4,
     "tongueWidth": 0.5,
     "tongueX": 0,
-    "tongueY": 1.5,
+    "tongueY": 0.9,
     "tongueZ": 1.1,
     "toothColorStep": 11,
     "toothLength": 2.1,
