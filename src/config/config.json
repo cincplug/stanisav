@@ -74,7 +74,7 @@
     "blinkDuration": 0.2,
     "dragSensitivity": 0.1,
     "dragRange": 0.3,
-    "earDepth": 0.6,
+    "earDepth": 2.2,
     "earHeight": 1.1,
     "earSize": 1.2,
     "earWidth": 0.2,
@@ -138,7 +138,8 @@
     "timeRate": 15,
     "decayRate": 0.7,
     "maxDeformation": 1.2,
-    "verticalVariation": 0.1
+    "verticalVariation": 0.1,
+    "fireAmount": 3.2
   },
   "colors": {
     "bgColor": "#070b0f",
