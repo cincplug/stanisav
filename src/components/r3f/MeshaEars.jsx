@@ -11,11 +11,16 @@ import { useRef } from "react";
 
 extend({ ParametricGeometry });
 
-const MeshaEars = ({ earMaterial, morphologyScore, onClick, isSelected }) => {
+const MeshaEars = ({
+  earMaterial,
+  morphologyScore,
+  onClick,
+  isSelected,
+  isLuka,
+}) => {
   const highlightMaterial = useHighlightMaterial(0);
   const { config } = useConfigContext();
   const {
-    isLuka,
     earHeight,
     earWidth,
     earDepth,
@@ -103,5 +108,3 @@ const MeshaEars = ({ earMaterial, morphologyScore, onClick, isSelected }) => {
 };
 
 export default MeshaEars;
-
-// 1. playback has a delay between luka and original sample of the same language, but when switching to new language it starts instantly while it should delay it for switchDuration like it is done with animation2. PlaylistContext should receive information from service whether it's in original or luka phase and expose that for consumers

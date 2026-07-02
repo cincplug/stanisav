@@ -18,8 +18,7 @@
     "labelContent": ["name", "nativeName", "isoCode"],
     "labelSize": [1, 1.25, 1.5, 1.75],
     "isReverse": false,
-    "isBlackboard": false,
-    "isLuka": true
+    "isBlackboard": false
   },
   "global": {
     "isAutoplay": true,
@@ -83,7 +82,7 @@
     "earY": 0.5,
     "earZ": 1.1,
     "earTwirl": 0.22,
-    "earTurns": 2.7,
+    "earTurns": 1.2,
     "eyebrowY": 2.7,
     "eyelidDepth": 1.1,
     "eyelidHeight": 0.5,

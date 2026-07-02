@@ -37,33 +37,28 @@ export const PlaylistProvider = ({ children }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [playlistSession, setPlaylistSession] = useState(0);
-  // True for switchDuration after each language change; Mesha uses this to reassemble
   const [isAnimating, setIsAnimating] = useState(false);
+  // Index of the audio URL currently playing within the sequence for a language:
+  // 0 = first sample (original or luka depending on soundSource), 1 = second sample
+  const [audioPhaseIndex, setAudioPhaseIndex] = useState(0);
 
-  // Whether the user explicitly paused — prevents auto-resume on re-renders
   const userPausedRef = useRef(false);
   const playlistRef = useRef([]);
-  // Single reusable Audio element; created once on first user gesture to satisfy
-  // iOS Safari's requirement that audio be unlocked during a gesture handler
   const audioRef = useRef(null);
   const delayTimeoutRef = useRef(null);
   const animatingTimeoutRef = useRef(null);
-  // isAutoplay is read inside an async callback (handleAudioEnded) so we mirror it
-  // in a ref to always have the current value without stale closure issues
   const isAutoplayRef = useRef(isAutoplay);
+  // True when replaying the same language index (resume/MyMesha return),
+  // false on every actual language change; controls whether startDelay is applied
+  const isResumeRef = useRef(false);
 
   useEffect(() => {
     isAutoplayRef.current = isAutoplay;
   }, [isAutoplay]);
 
-  // Must be called synchronously inside a user gesture handler (button click etc.)
-  // iOS Safari will block audio.play() unless the Audio element was created and
-  // triggered during a gesture. Subsequent src swaps on the same element are fine.
   const unlockAudio = useCallback(() => {
     if (!audioRef.current) {
       const audio = new Audio();
-      // Attempt silent play to register the element as gesture-unlocked on iOS.
-      // The promise will reject (no src), that's expected and intentionally ignored.
       audio.play().catch(() => {});
       audioRef.current = audio;
     }
@@ -96,7 +91,6 @@ export const PlaylistProvider = ({ children }) => {
     });
   }, [data, sortBy, labelContent, isReverse, filters, filteredLanguages]);
 
-  // Rebuild playlist when sorting/filtering changes
   useEffect(() => {
     const codes = getSortedLanguageCodes();
     playlistRef.current = codes;
@@ -110,8 +104,6 @@ export const PlaylistProvider = ({ children }) => {
       clearTimeout(delayTimeoutRef.current);
       delayTimeoutRef.current = null;
     }
-    // Pause the shared audio element if it exists; don't null it out since we
-    // reuse the same element for every track
     if (audioRef.current) {
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
@@ -119,11 +111,11 @@ export const PlaylistProvider = ({ children }) => {
   }, []);
 
   const startPlaylist = useCallback(() => {
-    // Unlock must happen here, synchronously, while we're still in the gesture handler
     unlockAudio();
     const codes = getSortedLanguageCodes();
     if (codes.length === 0) return;
     playlistRef.current = codes;
+    isResumeRef.current = false;
     setIsPlaying(true);
     setPlaylistSession((s) => s + 1);
     userPausedRef.current = false;
@@ -134,13 +126,13 @@ export const PlaylistProvider = ({ children }) => {
 
   const startFromLanguage = useCallback(
     (languageCode) => {
-      // Same: unlock synchronously in the gesture handler
       unlockAudio();
       const codes = getSortedLanguageCodes();
       if (codes.length === 0) return;
       const index = codes.indexOf(languageCode);
       if (index === -1) return;
       playlistRef.current = codes;
+      isResumeRef.current = false;
       setCurrentIndex(index);
       setIsPlaying(true);
       setPlaylistSession((s) => s + 1);
@@ -155,11 +147,13 @@ export const PlaylistProvider = ({ children }) => {
   }, [stopCurrentAudio]);
 
   const goToPrev = useCallback(() => {
+    isResumeRef.current = false;
     setCurrentIndex((index) => Math.max(0, index - 1));
     setPlaylistSession((s) => s + 1);
   }, []);
 
   const goToNext = useCallback(() => {
+    isResumeRef.current = false;
     setCurrentIndex((index) => {
       const codes = playlistRef.current;
       return Math.min(codes.length - 1, index + 1);
@@ -168,6 +162,7 @@ export const PlaylistProvider = ({ children }) => {
   }, []);
 
   const goToBegin = useCallback(() => {
+    isResumeRef.current = false;
     setCurrentIndex(0);
     setPlaylistSession((s) => s + 1);
   }, []);
@@ -178,12 +173,13 @@ export const PlaylistProvider = ({ children }) => {
       setCurrentIndex((index) => {
         const nextIndex = index + 1;
         if (nextIndex >= codes.length) {
-          // End of playlist: stop playback
           setIsPlaying(false);
           userPausedRef.current = true;
           viewAllLanguages();
           return index;
         }
+        // Advancing to next language: apply switch delay in the playback effect
+        isResumeRef.current = false;
         return nextIndex;
       });
     } else {
@@ -200,13 +196,14 @@ export const PlaylistProvider = ({ children }) => {
       return;
     }
 
-    // Resume after switching back from MyMesha mode, unless the user had paused manually
     if (
       !isMyMesha &&
       selectedLanguage &&
       !isPlaying &&
       !userPausedRef.current
     ) {
+      // Returning to the same language after MyMesha: resume without switch delay
+      isResumeRef.current = true;
       setIsPlaying(true);
       setPlaylistSession((s) => s + 1);
     }
@@ -236,11 +233,7 @@ export const PlaylistProvider = ({ children }) => {
     const playAudio = async () => {
       stopCurrentAudio();
 
-      // Only stagger playback start when we're actually switching to a
-      // different track. Resuming the same (already-loaded) track should
-      // play immediately with no artificial delay.
-      const isTrackChange = selectedLanguage !== code;
-      const startDelay = isTrackChange ? switchDuration : 0;
+      const startDelay = isResumeRef.current ? 0 : switchDuration;
 
       delayTimeoutRef.current = setTimeout(async () => {
         delayTimeoutRef.current = null;
@@ -256,12 +249,8 @@ export const PlaylistProvider = ({ children }) => {
             return;
           }
 
-          // Reuse the single unlocked Audio element rather than creating a new one.
-          // Creating new Audio() inside a setTimeout loses iOS gesture association.
           let audio = audioRef.current;
           if (!audio) {
-            // Fallback: if somehow unlockAudio wasn't called, create it here.
-            // This won't be gesture-unlocked on iOS but is better than crashing.
             audio = new Audio();
             audioRef.current = audio;
           }
@@ -272,6 +261,7 @@ export const PlaylistProvider = ({ children }) => {
             config,
             delayDuration: switchDuration / 2,
             shouldContinue: () => isEffectActive,
+            onPhaseChange: (phaseIndex) => setAudioPhaseIndex(phaseIndex),
           });
 
           if (isEffectActive) {
@@ -332,6 +322,7 @@ export const PlaylistProvider = ({ children }) => {
   const value = {
     isPlaying,
     isAnimating,
+    audioPhaseIndex,
     currentIndex,
     playlistLength: playlistRef.current.length,
     startPlaylist,

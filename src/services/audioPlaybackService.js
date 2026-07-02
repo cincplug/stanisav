@@ -2,8 +2,6 @@ const AUDIO_VOLUME = 0.5;
 const READY_TIMEOUT_DURATION = 3500;
 const READY_THRESHOLD = 2; // HAVE_CURRENT_DATA
 
-// Loads and plays a single audio URL on the given element, resolving when
-// playback of that track has ended (or rejecting on load/playback failure).
 export async function playAudioTrack(audio, audioUrl, config) {
   const { default: audioAnalysisService } =
     await import("./audioAnalysisService.js");
@@ -25,7 +23,6 @@ export async function playAudioTrack(audio, audioUrl, config) {
     audio.preload = "auto";
     audio.src = audioUrl;
     audio.volume = AUDIO_VOLUME;
-    // Calling load() after setting src initiates buffering
     audio.load();
 
     waitUntilReady(audio, audioUrl)
@@ -38,24 +35,24 @@ export async function playAudioTrack(audio, audioUrl, config) {
   });
 }
 
-// Plays each url in audioUrls sequentially on the given audio element, waiting
-// delayDuration between tracks. shouldContinue is checked before each track so
-// callers can abort the sequence (e.g. on effect cleanup) without throwing.
+// Plays each url in audioUrls sequentially. onPhaseChange(index) is called
+// before each track so callers can track which sample is currently playing.
 export async function playAudioSequence({
   audio,
   audioUrls,
   config,
   delayDuration,
   shouldContinue,
+  onPhaseChange,
 }) {
   for (let urlIndex = 0; urlIndex < audioUrls.length; urlIndex += 1) {
     if (!shouldContinue()) return;
 
+    onPhaseChange?.(urlIndex);
+
     const audioUrl = audioUrls[urlIndex];
     await playAudioTrack(audio, audioUrl, config);
 
-    // Delay between original and luka samples when both are queued; skip
-    // this wait after the last track in the sequence
     const isLastTrack = urlIndex === audioUrls.length - 1;
     if (!isLastTrack) {
       await new Promise((resolveDelay) => {
@@ -65,8 +62,6 @@ export async function playAudioSequence({
   }
 }
 
-// Resolves once the audio element has buffered enough data to start playback
-// without clipping, or rejects on error / readiness timeout (slow network fallback).
 function waitUntilReady(audio, audioUrl) {
   return new Promise((resolveReady, rejectReady) => {
     let isReadySettled = false;
@@ -96,7 +91,6 @@ function waitUntilReady(audio, audioUrl) {
       );
     };
 
-    // Don't block forever on slow networks; proceed if minimum data is available
     const readyTimeoutId = setTimeout(() => {
       if (audio.readyState >= READY_THRESHOLD) {
         settleReady(resolveReady);
@@ -107,7 +101,6 @@ function waitUntilReady(audio, audioUrl) {
       }
     }, READY_TIMEOUT_DURATION);
 
-    // Resolve immediately if already buffered enough (e.g. cached)
     if (audio.readyState >= READY_THRESHOLD) {
       settleReady(resolveReady);
       return;
