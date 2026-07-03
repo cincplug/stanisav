@@ -32,6 +32,7 @@ const MeshaEars = ({
     earSize,
     segments,
     fireAmount,
+    maxDeformation,
     verticalVariation,
   } = config;
 
@@ -45,22 +46,20 @@ const MeshaEars = ({
 
   const { audioData } = useAudioData();
 
-  const maxDeformation = isLuka
-    ? config.maxDeformation * morphologyScore * fireAmount
-    : 0;
-
   useThrottledFrame(() => {
-    const { fundamentData } = audioData;
+    const { harmonicsData } = audioData;
 
     const staticSurface = createAudioSurface({
-      audioBand: fundamentData,
+      audioBand: harmonicsData,
       size: earSize,
       bend,
-      maxDeformation,
+      maxDeformation: !isLuka
+        ? maxDeformation
+        : maxDeformation * morphologyScore * fireAmount,
       verticalVariation,
       radius: earSize,
       twirl: earTwirl,
-      turns: isLuka ? earTwirl : earTurns * fundamentData[6],
+      turns: isLuka ? earTurns : earTurns * fireAmount * harmonicsData[6],
     });
 
     if (meshRef.current) {
