@@ -34,10 +34,10 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
   const bind = useMeshaDrag(dragBindings.tongue, "tonality");
 
   useThrottledFrame(() => {
-    const { harmonicsData } = audioData;
+    const { harmonicsData: fundamentalData } = audioData;
 
     const audioSurface = createAudioSurface({
-      audioBand: harmonicsData,
+      audioBand: fundamentalData,
       size: tongueSize,
       bend: 0,
       radius: 1,
@@ -52,7 +52,6 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
         segments,
         segments,
       );
-      meshRef.current.rotation.x = harmonicsData[0] / 12;
     }
   });
 
@@ -62,7 +61,7 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
     <mesh
       ref={meshRef}
       position={[tongueX, tongueY, tongueZ]}
-      scale={[tongueWidth, -tongueHeight, -tongueLength]}
+      scale={[tongueWidth, tongueHeight, tongueLength]}
       onClick={onClick}
       linguisticProperty="tonality"
       {...bind()}

@@ -57,34 +57,33 @@ const MeshaTeeth = ({
   const teethRefs = useRef([]);
   const { audioData } = useAudioData();
   const { config } = useConfigContext();
-  const { toothColor, toothSize, toothColorStep, toothY, toothZ } = config;
+  const { toothColor, toothSize, toothColorStep, toothY, toothZ, toothSpin } =
+    config;
   const centerIndex = (toothCount - 1) / 2;
 
   const bind = useMeshaDrag(dragBindings.teeth, "phonemeCount");
 
   const teeth = useMemo(() => {
     if (toothCount === 0) return [];
-    const arc = Math.PI * 1.5;
+    const arc = Math.PI;
     const startAngle = Math.PI / 2 - arc / 2;
 
     return Array.from({ length: toothCount }, (_, toothIndex) => {
       const angle = startAngle + (toothIndex / toothCount) * arc;
       const positionInCluster = toothIndex % consonantClusterSize;
       const clusterCenter = (consonantClusterSize - 1) / 2;
-      const rotationIntensity =
+      const y =
         consonantClusterSize > 1
           ? Math.abs(positionInCluster - clusterCenter) /
             Math.floor(consonantClusterSize / 2)
           : 0;
-      const rotationAngle =
-        Math.sign(positionInCluster - clusterCenter) * rotationIntensity;
 
       return {
         x: Math.cos(angle),
-        y: 1,
-        z: Math.sin(angle) + consonantClusterSize / 2,
+        y,
+        z: Math.sin(angle) * consonantClusterSize,
         positionInCluster,
-        rotationAngle,
+        rotationAngle: 0,
         key: `tooth-${toothIndex}`,
       };
     });
@@ -100,7 +99,7 @@ const MeshaTeeth = ({
           const xSymmetry = Math.abs(Math.cos((i / count) * Math.PI * 2));
           const bandIndex = Math.floor((xSymmetry * harmonicsData.length) / 6);
           const amplitude = harmonicsData[bandIndex];
-          tooth.position.y = -amplitude * 4;
+          tooth.rotation.x = amplitude * consonantClusterSize * toothSpin;
         }
       });
     }

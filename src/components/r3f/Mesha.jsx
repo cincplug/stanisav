@@ -71,6 +71,7 @@ const Mesha = ({
     earY,
     sphereRadius,
     labelSize,
+    spinMeshaInitial,
   } = config;
 
   const { selectedProperty, selectedLanguage } = useLanguageSelectionContext();
@@ -202,7 +203,7 @@ const Mesha = ({
     if (wordOrderFlexibility === "rigid")
       rotationYRef.current = dampTo(
         rotationYRef.current,
-        nearestFullRotation(rotationYRef.current),
+        nearestFullRotation(rotationYRef.current) + spinMeshaInitial,
       );
 
     const isBlocked =

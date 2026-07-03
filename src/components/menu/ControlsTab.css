@@ -31,6 +31,7 @@
   &.range-control {
     display: flex;
     flex-direction: column;
+    grid-column: span 2;
     label {
       justify-content: space-between;
       margin-bottom: var(--gap);

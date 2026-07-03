@@ -123,7 +123,7 @@ const Label = ({
     } else {
       labelRef.current.position.set(
         x + radialOffset[0] * offset,
-        y + radialOffset[1] * offset - (isSelected ? 2 : 1),
+        y + radialOffset[1] * offset,
         z + radialOffset[2] * offset,
       );
     }

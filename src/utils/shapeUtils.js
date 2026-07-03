@@ -20,7 +20,7 @@ export const createAudioSurface = ({
     const xCircle = Math.cos(angle) * radius * taper;
     let x = xFlat + (xCircle - xFlat) * bend;
 
-    const yBaseCircle = -Math.abs(Math.sin(angle)) * radius * taper;
+    const yBaseCircle = Math.abs(Math.sin(angle)) * radius * taper;
     let y = yBaseCircle * bend;
 
     if (turns > 0) {

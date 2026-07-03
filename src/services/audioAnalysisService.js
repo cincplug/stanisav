@@ -110,10 +110,10 @@ class AudioAnalysisService {
       this.animationFrameId = null;
     }
 
-    this.notifyCallbacks({
-      fundamentData: this.fundamentData,
-      harmonicsData: this.harmonicsData,
-    });
+    // this.notifyCallbacks({
+    //   fundamentData: this.fundamentData,
+    //   harmonicsData: this.harmonicsData,
+    // });
   }
 
   analyzeAudio() {

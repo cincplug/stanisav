@@ -259,7 +259,7 @@ export const PlaylistProvider = ({ children }) => {
             audio,
             audioUrls,
             config,
-            delayDuration: switchDuration / 2,
+            delayDuration: switchDuration,
             shouldContinue: () => isEffectActive,
             onPhaseChange: (phaseIndex) => setAudioPhaseIndex(phaseIndex),
           });
@@ -300,7 +300,6 @@ export const PlaylistProvider = ({ children }) => {
     handleAudioEnded,
     selectedLanguage,
     setSelectedLanguage,
-    config,
   ]);
 
   useEffect(() => {
