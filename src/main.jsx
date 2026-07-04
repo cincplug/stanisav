@@ -4,7 +4,6 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import App from "./components/App.jsx";
 import { AppStateProvider } from "./contexts/AppStateContext";
 import { ConfigProvider } from "./contexts/ConfigContext.jsx";
-import { DragProvider } from "./contexts/DragContext.jsx";
 import { EntranceProvider } from "./contexts/EntranceContext";
 import { I18nProvider } from "./contexts/I18nContext";
 import { LanguageColorsProvider } from "./contexts/LanguageColorsContext.jsx";
@@ -25,31 +24,25 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <LanguageSelectionProvider>
               <EntranceProvider>
                 <PlaylistProvider>
-                  <DragProvider>
-                    <BrowserRouter>
-                      <Routes>
+                  <BrowserRouter>
+                    <Routes>
+                      <Route
+                        path="/"
+                        element={<Navigate to={`/${defaultUrlSlug}`} replace />}
+                      />
+                      <Route path=":locale" element={<LocaleLayout />}>
+                        <Route index element={<App />} />
                         <Route
-                          path="/"
-                          element={
-                            <Navigate to={`/${defaultUrlSlug}`} replace />
-                          }
+                          path="source-video-gallery"
+                          element={<SourceVideoGallery />}
                         />
-                        <Route path=":locale" element={<LocaleLayout />}>
-                          <Route index element={<App />} />
-                          <Route
-                            path="source-video-gallery"
-                            element={<SourceVideoGallery />}
-                          />
-                        </Route>
-                        <Route
-                          path="*"
-                          element={
-                            <Navigate to={`/${defaultUrlSlug}`} replace />
-                          }
-                        />
-                      </Routes>
-                    </BrowserRouter>
-                  </DragProvider>
+                      </Route>
+                      <Route
+                        path="*"
+                        element={<Navigate to={`/${defaultUrlSlug}`} replace />}
+                      />
+                    </Routes>
+                  </BrowserRouter>
                 </PlaylistProvider>
               </EntranceProvider>
             </LanguageSelectionProvider>

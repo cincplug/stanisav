@@ -1,10 +1,8 @@
 import { useRef } from "react";
 import blinkTimings from "../../../config/blinkTimings.json";
-import { dragBindings } from "../../../config/dragBindings.js";
 import { useConfigContext } from "../../../contexts/ConfigContext.jsx";
 import { useEntranceContext } from "../../../contexts/EntranceContext.jsx";
 import { usePlaylistContext } from "../../../contexts/PlaylistContext.jsx";
-import { useMeshaDrag } from "../../../hooks/useMeshaDrag.js";
 import {
   useHighlightMaterial,
   useShaderMaterial,
@@ -32,8 +30,6 @@ const Eyes = ({
   const { audioRef } = usePlaylistContext();
   const highlightMaterial = useHighlightMaterial(0, 2);
   const timings = blinkTimings[isoCode] ?? [];
-
-  const bind = useMeshaDrag(dragBindings.eyes, "evidentiality");
 
   useThrottledFrame(({ clock }) => {
     const state = blinkStateRef.current;
@@ -68,7 +64,6 @@ const Eyes = ({
     isSelectedOuter,
     isSelectedInner,
     highlightMaterial,
-    dragHandlers: bind,
   };
 
   return (
@@ -91,7 +86,6 @@ const Eye = ({
   isSelectedOuter,
   isSelectedInner,
   highlightMaterial,
-  dragHandlers,
 }) => {
   const lidPivotRef = useRef();
   const groupRef = useRef();
@@ -155,13 +149,7 @@ const Eye = ({
   const whiteMaterial = useShaderMaterial(white);
 
   return (
-    <group
-      position={position}
-      scale={eyeScale}
-      ref={groupRef}
-      renderOrder={2}
-      {...dragHandlers()}
-    >
+    <group position={position} scale={eyeScale} ref={groupRef} renderOrder={2}>
       {/* pupil */}
       <mesh position={[0, 0, pupilZ]}>
         <sphereGeometry args={[pupilScale, segments, segments]} />

@@ -72,8 +72,6 @@
   "mesha": {
     "assembleRate": 50,
     "blinkDuration": 0.2,
-    "dragSensitivity": 0.1,
-    "dragRange": 0.3,
     "earDepth": 2.7,
     "earHeight": 1.1,
     "earSize": 1.2,

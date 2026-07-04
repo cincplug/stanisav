@@ -1,10 +1,8 @@
 import { extend } from "@react-three/fiber";
 import { forwardRef, useMemo, useRef } from "react";
 import { RoundedBoxGeometry } from "three/examples/jsm/Addons.js";
-import { dragBindings } from "../../../config/dragBindings.js";
 import { useConfigContext } from "../../../contexts/ConfigContext.jsx";
 import { useAudioData } from "../../../hooks/useAudioData.js";
-import { useMeshaDrag } from "../../../hooks/useMeshaDrag.js";
 import {
   useHighlightMaterial,
   useShaderMaterial,
@@ -28,8 +26,6 @@ const Teeth = ({ toothCount, consonantClusterSize, onClick, isSelected }) => {
     toothSpin,
   } = config;
   const centerIndex = (toothCount - 1) / 2;
-
-  const bind = useMeshaDrag(dragBindings.teeth, "phonemeCount");
 
   const teeth = useMemo(() => {
     if (toothCount === 0) return [];
@@ -73,7 +69,7 @@ const Teeth = ({ toothCount, consonantClusterSize, onClick, isSelected }) => {
   if (!teeth.length) return null;
 
   return (
-    <group position={[0, toothY, toothZ]} scale={toothSize} {...bind()}>
+    <group position={[0, toothY, toothZ]} scale={toothSize}>
       {teeth.map((tooth, i) => {
         return (
           <Tooth

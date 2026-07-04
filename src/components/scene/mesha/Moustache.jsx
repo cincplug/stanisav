@@ -1,10 +1,8 @@
 import { extend } from "@react-three/fiber";
 import { forwardRef, useMemo, useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
-import { dragBindings } from "../../../config/dragBindings.js";
 import { useConfigContext } from "../../../contexts/ConfigContext.jsx";
 import { useAudioData } from "../../../hooks/useAudioData.js";
-import { useMeshaDrag } from "../../../hooks/useMeshaDrag.js";
 import {
   useHighlightMaterial,
   useShaderMaterial,
@@ -61,7 +59,6 @@ const Moustache = ({
   const { config } = useConfigContext();
   const { eyeZ, eyeX, tuftSize, tuftSpacing, tuftColorStep } = config;
   const { audioData } = useAudioData();
-  const bind = useMeshaDrag(dragBindings.moustache, linguisticProperty);
 
   const tuftSurface = useMemo(
     () => createTuftShape(tuftSize, tuftCount),
@@ -109,22 +106,18 @@ const Moustache = ({
 
   if (!tuftsWithRotation.length) return null;
 
-  return (
-    <group {...bind()}>
-      {tuftsWithRotation.map((tuft, i) => (
-        <Tuft
-          key={tuft.key}
-          ref={(el) => (tuftsRef.current[i] = el)}
-          tuft={tuft}
-          tuftSurface={tuftSurface}
-          color={shiftHue(color, i * tuftColorStep)}
-          isSelected={isSelected}
-          linguisticProperty={linguisticProperty}
-          onClick={onClick}
-        />
-      ))}
-    </group>
-  );
+  return tuftsWithRotation.map((tuft, i) => (
+    <Tuft
+      key={tuft.key}
+      ref={(el) => (tuftsRef.current[i] = el)}
+      tuft={tuft}
+      tuftSurface={tuftSurface}
+      color={shiftHue(color, i * tuftColorStep)}
+      isSelected={isSelected}
+      linguisticProperty={linguisticProperty}
+      onClick={onClick}
+    />
+  ));
 };
 
 export default Moustache;

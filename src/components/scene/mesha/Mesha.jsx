@@ -6,7 +6,6 @@ import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeom
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
 import { useAppStateContext } from "../../../contexts/AppStateContext.jsx";
 import { useConfigContext } from "../../../contexts/ConfigContext.jsx";
-import { useDragContext } from "../../../contexts/DragContext.jsx";
 import { useEntranceContext } from "../../../contexts/EntranceContext.jsx";
 import { useLanguageColorsContext } from "../../../contexts/LanguageColorsContext.jsx";
 import { useLanguageSelectionContext } from "../../../contexts/LanguageSelectionContext.jsx";
@@ -77,7 +76,6 @@ const Mesha = ({
 
   const { isMeshaSequenceDone, isEntranceComplete, onMeshaSequenceDone } =
     useEntranceContext();
-  const { isDragging } = useDragContext();
 
   const linguisticProperties = data?.typologicalFeatures?.[languageCode];
   const color = languageColors[languageCode];
@@ -198,10 +196,7 @@ const Mesha = ({
       Math.round(value / (Math.PI * 2)) * (Math.PI * 2);
 
     const isBlocked =
-      isDragging ||
-      isAnimating ||
-      !isPlaying ||
-      wordOrderFlexibility === "rigid";
+      isAnimating || !isPlaying || wordOrderFlexibility === "rigid";
 
     if (isBlocked) {
       rotationYRef.current = dampTo(

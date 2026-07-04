@@ -1,9 +1,7 @@
 import { extend } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
-import { dragBindings } from "../../../config/dragBindings.js";
 import { useConfigContext } from "../../../contexts/ConfigContext.jsx";
 import { useAudioData } from "../../../hooks/useAudioData.js";
-import { useMeshaDrag } from "../../../hooks/useMeshaDrag.js";
 import { useThrottledFrame } from "../../../hooks/useThrottledFrame.js";
 import { useHighlightMaterial } from "../../../hooks/useShaderMaterial.js";
 import { createAudioSurface } from "../../../utils/shapeUtils.js";
@@ -39,7 +37,6 @@ const Ears = ({
   const meshRef = useRef();
   const meshRef2 = useRef();
   const bend = morphologyScore * earX;
-  const bind = useMeshaDrag(dragBindings.ears, "morphology");
 
   const x = earX - morphologyScore;
   const activeMaterial = isSelected ? highlightMaterial : earMaterial;
@@ -88,7 +85,6 @@ const Ears = ({
         scale={[-earWidth, earHeight / bend, earDepth]}
         onClick={onClick}
         linguisticProperty="morphology"
-        {...bind()}
       >
         <shaderMaterial args={[activeMaterial]} />
       </mesh>
@@ -98,7 +94,6 @@ const Ears = ({
         scale={[earWidth, earHeight / bend, earDepth]}
         onClick={onClick}
         linguisticProperty="morphology"
-        {...bind()}
       >
         <shaderMaterial args={[activeMaterial]} />
       </mesh>

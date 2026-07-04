@@ -3,7 +3,6 @@ import { Canvas } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
 import lineages from "../../config/lineages.json";
 import { useConfigContext } from "../../contexts/ConfigContext";
-import { useDragContext } from "../../contexts/DragContext";
 import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useI18nContext } from "../../contexts/I18nContext";
 import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext";
@@ -35,7 +34,6 @@ const Scene = ({ onDataLoaded, onLoadingChange }) => {
     setIsLabelsSequenceDone,
     mentionedLanguage,
   } = useEntranceContext();
-  const { isDragging } = useDragContext();
   const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
   const { config } = useConfigContext();
   const {
@@ -209,7 +207,7 @@ const Scene = ({ onDataLoaded, onLoadingChange }) => {
         enableDamping={true}
         makeDefault={true}
         enableZoom={isBlackboard}
-        enableRotate={!isBlackboard && !isDragging}
+        enableRotate={!isBlackboard}
         autoRotate={false}
       />
 

@@ -1,8 +1,6 @@
 import { useRef } from "react";
 import { MathUtils } from "three";
-import { dragBindings } from "../../../config/dragBindings.js";
 import { useConfigContext } from "../../../contexts/ConfigContext.jsx";
-import { useMeshaDrag } from "../../../hooks/useMeshaDrag.js";
 import {
   useHighlightMaterial,
   useShaderMaterial,
@@ -37,8 +35,6 @@ const Nose = ({
     labelTextColor,
   } = config;
 
-  const bind = useMeshaDrag(dragBindings.nose, "wordOrder");
-
   const sliceRad = MathUtils.degToRad(noseSliceAngle);
   const fullArc = Math.PI * 2;
   const tubeRadius = noseThickness / 2;
@@ -67,13 +63,7 @@ const Nose = ({
   const linguisticProps = ["wordOrder"];
 
   return (
-    <group
-      ref={groupRef}
-      position={position}
-      scale={scale}
-      renderOrder={2}
-      {...bind()}
-    >
+    <group ref={groupRef} position={position} scale={scale} renderOrder={2}>
       {rings.map(({ arc, rotZ, torusR, material }, i) => (
         <mesh
           key={i}
