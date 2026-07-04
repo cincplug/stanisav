@@ -11,6 +11,74 @@ import {
 } from "../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 
+const MeshaEyes = ({
+  irisColor,
+  eyelidColor,
+  evidentiality,
+  verbAspect,
+  isoCode,
+  onClick,
+  isSelectedOuter,
+  isSelectedInner,
+}) => {
+  const blinkStateRef = useRef({
+    isBlinking: false,
+    startTime: null,
+    lastCheckedIndex: 0,
+  });
+
+  const { config } = useConfigContext();
+  const { eyeSize, eyeX, eyeY, eyeZ } = config;
+  const { audioRef } = usePlaylistContext();
+  const highlightMaterial = useHighlightMaterial(0, 2);
+  const timings = blinkTimings[isoCode] ?? [];
+
+  const bind = useMeshaDrag(dragBindings.eyes, "evidentiality");
+
+  useThrottledFrame(({ clock }) => {
+    const state = blinkStateRef.current;
+    const audio = audioRef.current;
+
+    if (timings.length > 0 && audio && !audio.paused) {
+      const currentTime = audio.currentTime;
+      if (state.lastCheckedIndex > 0 && currentTime < timings[0]) {
+        state.lastCheckedIndex = 0;
+      }
+      while (
+        state.lastCheckedIndex < timings.length &&
+        currentTime >= timings[state.lastCheckedIndex]
+      ) {
+        if (!state.isBlinking) {
+          state.isBlinking = true;
+          state.startTime = clock.getElapsedTime();
+        }
+        state.lastCheckedIndex++;
+      }
+    }
+  });
+
+  const sharedEyeProps = {
+    irisColor,
+    eyelidColor,
+    evidentiality,
+    verbAspect,
+    eyeSize,
+    blinkStateRef,
+    onClick,
+    isSelectedOuter,
+    isSelectedInner,
+    highlightMaterial,
+    dragHandlers: bind,
+  };
+
+  return (
+    <group>
+      <Eye position={[-eyeX, eyeY, eyeZ]} {...sharedEyeProps} />
+      <Eye position={[eyeX, eyeY, eyeZ]} {...sharedEyeProps} />
+    </group>
+  );
+};
+
 const Eye = ({
   position,
   irisColor,
@@ -152,74 +220,6 @@ const Eye = ({
           />
         </mesh>
       </group>
-    </group>
-  );
-};
-
-const MeshaEyes = ({
-  irisColor,
-  eyelidColor,
-  evidentiality,
-  verbAspect,
-  isoCode,
-  onClick,
-  isSelectedOuter,
-  isSelectedInner,
-}) => {
-  const blinkStateRef = useRef({
-    isBlinking: false,
-    startTime: null,
-    lastCheckedIndex: 0,
-  });
-
-  const { config } = useConfigContext();
-  const { eyeSize, eyeX, eyeY, eyeZ } = config;
-  const { audioRef } = usePlaylistContext();
-  const highlightMaterial = useHighlightMaterial(0, 2);
-  const timings = blinkTimings[isoCode] ?? [];
-
-  const bind = useMeshaDrag(dragBindings.eyes, "evidentiality");
-
-  useThrottledFrame(({ clock }) => {
-    const state = blinkStateRef.current;
-    const audio = audioRef.current;
-
-    if (timings.length > 0 && audio && !audio.paused) {
-      const currentTime = audio.currentTime;
-      if (state.lastCheckedIndex > 0 && currentTime < timings[0]) {
-        state.lastCheckedIndex = 0;
-      }
-      while (
-        state.lastCheckedIndex < timings.length &&
-        currentTime >= timings[state.lastCheckedIndex]
-      ) {
-        if (!state.isBlinking) {
-          state.isBlinking = true;
-          state.startTime = clock.getElapsedTime();
-        }
-        state.lastCheckedIndex++;
-      }
-    }
-  });
-
-  const sharedEyeProps = {
-    irisColor,
-    eyelidColor,
-    evidentiality,
-    verbAspect,
-    eyeSize,
-    blinkStateRef,
-    onClick,
-    isSelectedOuter,
-    isSelectedInner,
-    highlightMaterial,
-    dragHandlers: bind,
-  };
-
-  return (
-    <group>
-      <Eye position={[-eyeX, eyeY, eyeZ]} {...sharedEyeProps} />
-      <Eye position={[eyeX, eyeY, eyeZ]} {...sharedEyeProps} />
     </group>
   );
 };

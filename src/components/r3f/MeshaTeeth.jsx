@@ -14,48 +14,6 @@ import { shiftHue } from "../../utils/colorUtils";
 
 extend({ RoundedBoxGeometry });
 
-// Isolated tooth so each instance can call useShaderMaterial with its own color
-const MeshaTooth = forwardRef(({ tooth, color, isSelected, onClick }, ref) => {
-  const { config } = useConfigContext();
-  const {
-    toothWidth,
-    toothLengthCentral,
-    toothThicknessCentral,
-    toothLengthCorner,
-    toothThicknessCorner,
-  } = config;
-  const { indexFromCenter, halfCount } = tooth;
-
-  const toothMaterial = useShaderMaterial(color);
-  const highlightMaterial = useHighlightMaterial(0, 2);
-
-  const ratio = halfCount > 0 ? indexFromCenter / halfCount : 0;
-  const length =
-    toothLengthCentral + (toothLengthCorner - toothLengthCentral) * ratio;
-  const thickness =
-    toothThicknessCentral +
-    (toothThicknessCorner - toothThicknessCentral) * ratio;
-  const roundness = thickness / 2;
-
-  return (
-    <group
-      position={[tooth.x, tooth.y, tooth.z - 1]}
-      rotation={[tooth.rotationAngle, 0, 0]}
-    >
-      <mesh ref={ref} linguisticProperty="phonemeCount" onClick={onClick}>
-        <roundedBoxGeometry
-          args={[toothWidth, length, thickness, 6, roundness]}
-        />
-        {isSelected ? (
-          <shaderMaterial args={[highlightMaterial]} />
-        ) : (
-          <shaderMaterial args={[toothMaterial]} />
-        )}
-      </mesh>
-    </group>
-  );
-});
-
 const MeshaTeeth = ({
   toothCount,
   consonantClusterSize,
@@ -138,5 +96,46 @@ const MeshaTeeth = ({
     </group>
   );
 };
+
+const MeshaTooth = forwardRef(({ tooth, color, isSelected, onClick }, ref) => {
+  const { config } = useConfigContext();
+  const {
+    toothWidth,
+    toothLengthCentral,
+    toothThicknessCentral,
+    toothLengthCorner,
+    toothThicknessCorner,
+  } = config;
+  const { indexFromCenter, halfCount } = tooth;
+
+  const toothMaterial = useShaderMaterial(color);
+  const highlightMaterial = useHighlightMaterial(0, 2);
+
+  const ratio = halfCount > 0 ? indexFromCenter / halfCount : 0;
+  const length =
+    toothLengthCentral + (toothLengthCorner - toothLengthCentral) * ratio;
+  const thickness =
+    toothThicknessCentral +
+    (toothThicknessCorner - toothThicknessCentral) * ratio;
+  const roundness = thickness / 2;
+
+  return (
+    <group
+      position={[tooth.x, tooth.y, tooth.z - 1]}
+      rotation={[tooth.rotationAngle, 0, 0]}
+    >
+      <mesh ref={ref} linguisticProperty="phonemeCount" onClick={onClick}>
+        <roundedBoxGeometry
+          args={[toothWidth, length, thickness, 6, roundness]}
+        />
+        {isSelected ? (
+          <shaderMaterial args={[highlightMaterial]} />
+        ) : (
+          <shaderMaterial args={[toothMaterial]} />
+        )}
+      </mesh>
+    </group>
+  );
+});
 
 export default MeshaTeeth;
