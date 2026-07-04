@@ -3,16 +3,13 @@ import { forwardRef, useMemo, useRef } from "react";
 import { RoundedBoxGeometry } from "three/examples/jsm/Addons.js";
 import { useConfigContext } from "../../../contexts/ConfigContext.jsx";
 import { useAudioData } from "../../../hooks/useAudioData.js";
-import {
-  useHighlightMaterial,
-  useShaderMaterial,
-} from "../../../hooks/useShaderMaterial.js";
+import { useShaderMaterial } from "../../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../../hooks/useThrottledFrame.js";
 import { shiftHue } from "../../../utils/colorUtils.js";
 
 extend({ RoundedBoxGeometry });
 
-const Teeth = ({ toothCount, consonantClusterSize, onClick, isSelected }) => {
+const Teeth = ({ toothCount, consonantClusterSize }) => {
   const teethRefs = useRef([]);
   const { audioData } = useAudioData();
   const { config } = useConfigContext();
@@ -79,8 +76,6 @@ const Teeth = ({ toothCount, consonantClusterSize, onClick, isSelected }) => {
             index={i}
             centerIndex={centerIndex}
             color={shiftHue(toothColor, toothColorStep * i)}
-            isSelected={isSelected}
-            onClick={onClick}
           />
         );
       })}
@@ -88,7 +83,7 @@ const Teeth = ({ toothCount, consonantClusterSize, onClick, isSelected }) => {
   );
 };
 
-const Tooth = forwardRef(({ tooth, color, isSelected, onClick }, ref) => {
+const Tooth = forwardRef(({ tooth, color }, ref) => {
   const { config } = useConfigContext();
   const {
     toothWidth,
@@ -100,7 +95,6 @@ const Tooth = forwardRef(({ tooth, color, isSelected, onClick }, ref) => {
   const { indexFromCenter, halfCount } = tooth;
 
   const toothMaterial = useShaderMaterial(color);
-  const highlightMaterial = useHighlightMaterial(0, 2);
 
   const ratio = halfCount > 0 ? indexFromCenter / halfCount : 0;
   const length =
@@ -115,15 +109,11 @@ const Tooth = forwardRef(({ tooth, color, isSelected, onClick }, ref) => {
       position={[tooth.x, tooth.y, tooth.z - 1]}
       rotation={[tooth.rotationAngle, 0, 0]}
     >
-      <mesh ref={ref} linguisticProperty="phonemeCount" onClick={onClick}>
+      <mesh ref={ref}>
         <roundedBoxGeometry
           args={[toothWidth, length, thickness, 6, roundness]}
         />
-        {isSelected ? (
-          <shaderMaterial args={[highlightMaterial]} />
-        ) : (
-          <shaderMaterial args={[toothMaterial]} />
-        )}
+        <shaderMaterial args={[toothMaterial]} />
       </mesh>
     </group>
   );

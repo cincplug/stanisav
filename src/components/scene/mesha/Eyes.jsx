@@ -3,10 +3,7 @@ import blinkTimings from "../../../config/blinkTimings.json";
 import { useConfigContext } from "../../../contexts/ConfigContext.jsx";
 import { useEntranceContext } from "../../../contexts/EntranceContext.jsx";
 import { usePlaylistContext } from "../../../contexts/PlaylistContext.jsx";
-import {
-  useHighlightMaterial,
-  useShaderMaterial,
-} from "../../../hooks/useShaderMaterial.js";
+import { useShaderMaterial } from "../../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../../hooks/useThrottledFrame.js";
 
 const Eyes = ({
@@ -15,9 +12,6 @@ const Eyes = ({
   evidentiality,
   verbAspect,
   isoCode,
-  onClick,
-  isSelectedOuter,
-  isSelectedInner,
 }) => {
   const blinkStateRef = useRef({
     isBlinking: false,
@@ -28,7 +22,6 @@ const Eyes = ({
   const { config } = useConfigContext();
   const { eyeSize, eyeX, eyeY, eyeZ } = config;
   const { audioRef } = usePlaylistContext();
-  const highlightMaterial = useHighlightMaterial(0, 2);
   const timings = blinkTimings[isoCode] ?? [];
 
   useThrottledFrame(({ clock }) => {
@@ -60,10 +53,6 @@ const Eyes = ({
     verbAspect,
     eyeSize,
     blinkStateRef,
-    onClick,
-    isSelectedOuter,
-    isSelectedInner,
-    highlightMaterial,
   };
 
   return (
@@ -82,10 +71,6 @@ const Eye = ({
   verbAspect,
   eyeSize,
   blinkStateRef,
-  onClick,
-  isSelectedOuter,
-  isSelectedInner,
-  highlightMaterial,
 }) => {
   const lidPivotRef = useRef();
   const groupRef = useRef();
@@ -163,33 +148,24 @@ const Eye = ({
       </mesh>
 
       {/* iris */}
-      <mesh position={[0, 0, irisZ]} onClick={onClick}>
+      <mesh position={[0, 0, irisZ]}>
         <sphereGeometry args={[irisScale, segments, segments]} />
-        {isSelectedInner ? (
-          <shaderMaterial args={[highlightMaterial]} />
-        ) : (
-          <meshBasicMaterial
-            color={irisColor}
-            depthTest={false}
-            transparent={true}
-          />
-        )}
+        <meshBasicMaterial
+          color={irisColor}
+          depthTest={false}
+          transparent={true}
+        />
       </mesh>
 
       {/* white */}
-      <mesh linguisticProperty="evidentiality" onClick={onClick}>
+      <mesh>
         <sphereGeometry args={[eyeSize, segments, segments]} />
-        {isSelectedOuter ? (
-          <shaderMaterial args={[highlightMaterial]} />
-        ) : (
-          <shaderMaterial args={[whiteMaterial]} />
-        )}
+        <shaderMaterial args={[whiteMaterial]} />
       </mesh>
 
       {/* eyelid */}
       <group ref={lidPivotRef} position={[0, 0, eyeSize]} renderOrder={2}>
         <mesh
-          linguisticProperty="verbAspect"
           position={[0, eyeSize, 0]}
           scale={[
             eyelidWidth * verbAspect,

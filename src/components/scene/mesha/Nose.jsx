@@ -1,10 +1,7 @@
 import { useRef } from "react";
 import { MathUtils } from "three";
 import { useConfigContext } from "../../../contexts/ConfigContext.jsx";
-import {
-  useHighlightMaterial,
-  useShaderMaterial,
-} from "../../../hooks/useShaderMaterial.js";
+import { useShaderMaterial } from "../../../hooks/useShaderMaterial.js";
 
 const ROLE_ARC = {
   S: { isFullCircle: false, gapAngle: 0 },
@@ -12,17 +9,8 @@ const ROLE_ARC = {
   O: { isFullCircle: true, gapAngle: 0 },
 };
 
-const Nose = ({
-  position,
-  scale,
-  wordOrder,
-  color,
-  onClick,
-  isSelectedOuter,
-  isSelectedInner,
-}) => {
+const Nose = ({ position, scale, wordOrder, color }) => {
   const groupRef = useRef();
-  const highlightMaterial = useHighlightMaterial(0, 2);
 
   const { config } = useConfigContext();
   const {
@@ -59,9 +47,6 @@ const Nose = ({
     };
   });
 
-  const isSelected = [isSelectedOuter, isSelectedInner, isSelectedInner];
-  const linguisticProps = ["wordOrder"];
-
   return (
     <group ref={groupRef} position={position} scale={scale} renderOrder={2}>
       {rings.map(({ arc, rotZ, torusR, material }, i) => (
@@ -69,15 +54,9 @@ const Nose = ({
           key={i}
           rotation-z={rotZ}
           position={[0, 0, (i + 1) / rings.length]}
-          linguisticProperty={linguisticProps[i]}
-          onClick={i < 2 ? onClick : undefined}
         >
           <torusGeometry args={[torusR, tubeRadius, segments, segments, arc]} />
-          {isSelected[i] ? (
-            <shaderMaterial args={[highlightMaterial]} />
-          ) : (
-            <shaderMaterial args={[material]} />
-          )}
+          <shaderMaterial args={[material]} />
         </mesh>
       ))}
     </group>

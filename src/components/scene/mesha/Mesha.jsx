@@ -72,7 +72,7 @@ const Mesha = ({
     spinMeshaInitial,
   } = config;
 
-  const { selectedProperty, selectedLanguage } = useLanguageSelectionContext();
+  const { selectedLanguage } = useLanguageSelectionContext();
 
   const { isMeshaSequenceDone, isEntranceComplete, onMeshaSequenceDone } =
     useEntranceContext();
@@ -285,27 +285,19 @@ const Mesha = ({
           evidentiality={scores.evidentiality}
           verbAspect={scores.verbAspect}
           isoCode={selectedLanguage}
-          isSelectedOuter={selectedProperty === "evidentiality"}
-          isSelectedInner={selectedProperty === "verbAspect"}
         />
 
         <Ears
           earMaterial={skinMaterial}
           morphologyScore={scores.morphology}
-          isSelected={selectedProperty === "morphology"}
           isLuka={audioPhaseIndex === 1}
         />
 
-        <Tongue
-          tongueMaterial={tongueMaterial}
-          segments={segments}
-          isSelected={selectedProperty === "tonality"}
-        />
+        <Tongue tongueMaterial={tongueMaterial} segments={segments} />
 
         <Teeth
           toothCount={phonemeCount}
           consonantClusterSize={maxConsonantClusterSize}
-          isSelected={selectedProperty === "phonemeCount"}
         />
 
         <Nose
@@ -313,18 +305,14 @@ const Mesha = ({
           scale={noseSize}
           color={color}
           wordOrder={wordOrder}
-          isSelectedOuter={selectedProperty === "wordOrder"}
-          isSelectedInner={selectedProperty === "wordOrderFlexibility"}
         />
 
         {caseCount && (
           <Moustache
-            linguisticProperty="caseCount"
             tuftCount={caseCount}
             color={tuftColor}
             y={tuftY}
             z={eyeZ}
-            isSelected={selectedProperty === "caseCount"}
             audioBand="harmonicsData"
             stepDeg={6}
           />
@@ -332,12 +320,10 @@ const Mesha = ({
 
         {nounClassCount && (
           <Moustache
-            linguisticProperty="nounClassCount"
             tuftCount={nounClassCount}
             color={eyebrowColor}
             y={eyebrowY}
             z={eyeZ}
-            isSelected={selectedProperty === "nounClassCount"}
             audioBand="fundamentData"
             stepDeg={12}
           />

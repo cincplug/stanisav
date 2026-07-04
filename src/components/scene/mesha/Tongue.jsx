@@ -3,13 +3,12 @@ import { useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useConfigContext } from "../../../contexts/ConfigContext.jsx";
 import { useAudioData } from "../../../hooks/useAudioData.js";
-import { useHighlightMaterial } from "../../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../../hooks/useThrottledFrame.js";
 import { createAudioSurface } from "../../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
 
-const Tongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
+const Tongue = ({ tongueMaterial, segments }) => {
   const { audioData } = useAudioData();
   const { config } = useConfigContext();
   const {
@@ -25,9 +24,6 @@ const Tongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
   } = config;
 
   const meshRef = useRef();
-
-  const stripesType = tongueMaterial?.uniforms?.uStripesType?.value ?? 0;
-  const highlightMaterial = useHighlightMaterial(stripesType);
 
   useThrottledFrame(() => {
     const { harmonicsData: fundamentalData } = audioData;
@@ -51,17 +47,13 @@ const Tongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
     }
   });
 
-  const activeMaterial = isSelected ? highlightMaterial : tongueMaterial;
-
   return (
     <mesh
       ref={meshRef}
       position={[tongueX, tongueY, tongueZ]}
       scale={[tongueWidth, tongueHeight, tongueLength]}
-      onClick={onClick}
-      linguisticProperty="tonality"
     >
-      <shaderMaterial args={[activeMaterial]} />
+      <shaderMaterial args={[tongueMaterial]} />
     </mesh>
   );
 };

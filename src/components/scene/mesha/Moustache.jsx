@@ -3,56 +3,14 @@ import { forwardRef, useMemo, useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useConfigContext } from "../../../contexts/ConfigContext.jsx";
 import { useAudioData } from "../../../hooks/useAudioData.js";
-import {
-  useHighlightMaterial,
-  useShaderMaterial,
-} from "../../../hooks/useShaderMaterial.js";
+import { useShaderMaterial } from "../../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../../hooks/useThrottledFrame.js";
 import { shiftHue } from "../../../utils/colorUtils.js";
 import { createTuftShape } from "../../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
 
-const Tuft = forwardRef(
-  (
-    { tuft, tuftSurface, color, isSelected, linguisticProperty, onClick },
-    ref,
-  ) => {
-    const { config } = useConfigContext();
-    const { segments } = config;
-    const tuftMaterial = useShaderMaterial(color);
-    const highlightMaterial = useHighlightMaterial(0, 2);
-
-    return (
-      <group ref={ref} position={[tuft.x, tuft.y, tuft.z]} onClick={onClick}>
-        <mesh
-          rotation={[0, 0, tuft.rotationRad]}
-          scale={tuft.scale}
-          linguisticProperty={linguisticProperty}
-        >
-          <parametricGeometry args={[tuftSurface, segments, segments]} />
-          {isSelected ? (
-            <shaderMaterial args={[highlightMaterial]} />
-          ) : (
-            <shaderMaterial args={[tuftMaterial]} />
-          )}
-        </mesh>
-      </group>
-    );
-  },
-);
-
-const Moustache = ({
-  linguisticProperty,
-  tuftCount,
-  color,
-  y,
-  z,
-  onClick,
-  isSelected,
-  audioBand,
-  stepDeg,
-}) => {
+const Moustache = ({ tuftCount, color, y, z, audioBand, stepDeg }) => {
   const tuftsRef = useRef([]);
   const tuftDataRef = useRef([]);
 
@@ -113,11 +71,23 @@ const Moustache = ({
       tuft={tuft}
       tuftSurface={tuftSurface}
       color={shiftHue(color, i * tuftColorStep)}
-      isSelected={isSelected}
-      linguisticProperty={linguisticProperty}
-      onClick={onClick}
     />
   ));
 };
+
+const Tuft = forwardRef(({ tuft, tuftSurface, color }, ref) => {
+  const { config } = useConfigContext();
+  const { segments } = config;
+  const tuftMaterial = useShaderMaterial(color);
+
+  return (
+    <group ref={ref} position={[tuft.x, tuft.y, tuft.z]}>
+      <mesh rotation={[0, 0, tuft.rotationRad]} scale={tuft.scale}>
+        <parametricGeometry args={[tuftSurface, segments, segments]} />
+        <shaderMaterial args={[tuftMaterial]} />
+      </mesh>
+    </group>
+  );
+});
 
 export default Moustache;

@@ -3,20 +3,12 @@ import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeom
 import { useConfigContext } from "../../../contexts/ConfigContext.jsx";
 import { useAudioData } from "../../../hooks/useAudioData.js";
 import { useThrottledFrame } from "../../../hooks/useThrottledFrame.js";
-import { useHighlightMaterial } from "../../../hooks/useShaderMaterial.js";
 import { createAudioSurface } from "../../../utils/shapeUtils.js";
 import { useRef } from "react";
 
 extend({ ParametricGeometry });
 
-const Ears = ({
-  earMaterial,
-  morphologyScore,
-  onClick,
-  isSelected,
-  isLuka,
-}) => {
-  const highlightMaterial = useHighlightMaterial(0);
+const Ears = ({ earMaterial, morphologyScore, isLuka }) => {
   const { config } = useConfigContext();
   const {
     earHeight,
@@ -39,7 +31,6 @@ const Ears = ({
   const bend = morphologyScore * earX;
 
   const x = earX - morphologyScore;
-  const activeMaterial = isSelected ? highlightMaterial : earMaterial;
 
   const { audioData } = useAudioData();
 
@@ -83,19 +74,15 @@ const Ears = ({
         ref={meshRef}
         position-x={-x}
         scale={[-earWidth, earHeight / bend, earDepth]}
-        onClick={onClick}
-        linguisticProperty="morphology"
       >
-        <shaderMaterial args={[activeMaterial]} />
+        <shaderMaterial args={[earMaterial]} />
       </mesh>
       <mesh
         ref={meshRef2}
         position-x={x}
         scale={[earWidth, earHeight / bend, earDepth]}
-        onClick={onClick}
-        linguisticProperty="morphology"
       >
-        <shaderMaterial args={[activeMaterial]} />
+        <shaderMaterial args={[earMaterial]} />
       </mesh>
     </group>
   );
