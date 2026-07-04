@@ -72,7 +72,7 @@ const Mesha = ({
     spinMeshaInitial,
   } = config;
 
-  const { selectedLanguage } = useLanguageSelectionContext();
+  const { selectedLanguage, setBalloonText } = useLanguageSelectionContext();
 
   const { isMeshaSequenceDone, isEntranceComplete, onMeshaSequenceDone } =
     useEntranceContext();
@@ -271,6 +271,10 @@ const Mesha = ({
     lookAroundRef.current.quaternion.multiply(scratchQuat);
   });
 
+  const handleClick = () => {
+    setBalloonText("Nemoj da me klikćeš");
+  };
+
   return (
     <a.group
       ref={groupRef}
@@ -278,7 +282,7 @@ const Mesha = ({
       position-y={spring.y}
       position-z={spring.z}
     >
-      <group ref={lookAroundRef} scale={meshaSize}>
+      <group ref={lookAroundRef} scale={meshaSize} onClick={handleClick}>
         <Eyes
           irisColor={color}
           eyelidColor={skinColor}
