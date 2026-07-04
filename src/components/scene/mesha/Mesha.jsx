@@ -70,6 +70,7 @@ const Mesha = ({
     earY,
     labelSize,
     spinMeshaInitial,
+    tongueOpacity,
   } = config;
 
   const { selectedLanguage, setBalloonText } = useLanguageSelectionContext();
@@ -172,6 +173,7 @@ const Mesha = ({
     skinColorInvert,
     skinColor,
     stripesType,
+    tongueOpacity,
   );
 
   const tuftColor = shiftHue(color, tuftHueShift);

@@ -113,6 +113,7 @@
     "tongueX": 0,
     "tongueY": 0.1,
     "tongueZ": 1.1,
+    "tongueOpacity": 0.94,
     "toothSize": 0.45,
     "toothSpacing": 0.16,
     "toothWidth": 0.4,
