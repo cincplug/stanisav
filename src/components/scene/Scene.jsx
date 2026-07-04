@@ -23,7 +23,7 @@ import Mesha from "./mesha/Mesha";
 import OrbitModifier from "./OrbitModifier";
 import SceneReadyGate from "./SceneReadyGate";
 
-const Stage = ({ onDataLoaded, onLoadingChange }) => {
+const Scene = ({ onDataLoaded, onLoadingChange }) => {
   const { locale, isLocaleReady } = useI18nContext();
   const { filters, selectedLanguage } = useLanguageSelectionContext();
   const { languageColors } = useLanguageColorsContext();
@@ -173,7 +173,7 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
       ];
     }
 
-    return [0, sphereRadius, 0];
+    return [0, 0, sphereRadius / 2];
   }, [selectedLanguage, formattedPositions]);
 
   const hasSelectedFilters = Object.keys(filters).length > 0;
@@ -261,4 +261,4 @@ const Stage = ({ onDataLoaded, onLoadingChange }) => {
   );
 };
 
-export default Stage;
+export default Scene;

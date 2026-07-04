@@ -29,8 +29,8 @@
   },
   "entrance": {
     "entranceAxis": "z",
-    "entranceDuration": 6000,
-    "labelRevealDuration": 500,
+    "entranceDuration": 3000,
+    "labelRevealDuration": 200,
     "startLabelOffset": 1.2
   },
   "sphere": {
@@ -106,7 +106,7 @@
     "saltoFrequency": 1.8,
     "saltoPow": 150,
     "segments": 64,
-    "spinMeshaInitial": 0.1,
+    "spinMeshaInitial": -0.1,
     "spinMeshaZoomed": 0.7,
     "tongueHeight": 0.6,
     "tongueLength": 1.1,
@@ -115,9 +115,9 @@
     "tongueX": 0,
     "tongueY": 0.1,
     "tongueZ": 1.1,
-    "toothSize": 0.8,
-    "toothSpacing": 0.1,
-    "toothWidth": 0.5,
+    "toothSize": 0.45,
+    "toothSpacing": 0.16,
+    "toothWidth": 0.4,
     "toothLengthCentral": 1.5,
     "toothThicknessCentral": 0.1,
     "toothLengthCorner": 0.4,

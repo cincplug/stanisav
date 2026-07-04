@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import "./App.css";
 import IdCard from "./IdCard.jsx";
 import Menu from "./menu/Menu.jsx";
-import Stage from "./scene/Scene.jsx";
+import Scene from "./scene/Scene.jsx";
 import { HomeIcon } from "./Icons.jsx";
 import { useAppStateContext } from "../contexts/AppStateContext.jsx";
 import { useConfigContext } from "../contexts/ConfigContext.jsx";
@@ -69,9 +69,9 @@ function App() {
         languageColors={languageColors}
       />
 
-      <div className="stage-area">
+      <div className="scene-area">
         {!isMeshaMini && (
-          <Stage
+          <Scene
             onDataLoaded={setData}
             onLoadingChange={setIsLoading}
             onNodesReady={setNodes}

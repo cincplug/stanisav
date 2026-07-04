@@ -69,7 +69,6 @@ const Mesha = ({
     eyeSize,
     noseSize,
     earY,
-    sphereRadius,
     labelSize,
     spinMeshaInitial,
   } = config;
@@ -155,14 +154,12 @@ const Mesha = ({
     wordOrderFlexibility,
   } = linguisticProperties;
 
-  const initialPosition = [0, 0, sphereRadius * 2];
-  const targetPosition = isMeshaSequenceDone ? position : initialPosition;
   const nudgeIfSelected = selectedLanguage ? labelSize / 2 : 0;
 
   const spring = useSpring({
-    x: targetPosition[0],
-    y: targetPosition[1] - nudgeIfSelected,
-    z: targetPosition[2],
+    x: position[0],
+    y: position[1] - nudgeIfSelected,
+    z: position[2],
     config: {
       duration: isEntranceComplete ? switchDuration : entranceDuration,
     },
@@ -200,17 +197,19 @@ const Mesha = ({
     const nearestFullRotation = (value) =>
       Math.round(value / (Math.PI * 2)) * (Math.PI * 2);
 
-    if (wordOrderFlexibility === "rigid")
-      rotationYRef.current = dampTo(
-        rotationYRef.current,
-        nearestFullRotation(rotationYRef.current) + spinMeshaInitial,
-      );
-
     const isBlocked =
       isDragging ||
       isAnimating ||
       !isPlaying ||
       wordOrderFlexibility === "rigid";
+
+    if (isBlocked) {
+      rotationYRef.current = dampTo(
+        rotationYRef.current,
+        nearestFullRotation(rotationYRef.current) + spinMeshaInitial,
+      );
+    }
+
     const wasFlexible = prevWordOrderFlexibilityRef.current === "flexible";
     prevWordOrderFlexibilityRef.current = wordOrderFlexibility;
 
