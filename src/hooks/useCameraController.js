@@ -8,20 +8,16 @@ import { useThrottledFrame } from "./useThrottledFrame";
 
 export const useCameraController = ({ languageNodes, selectedLanguage }) => {
   const { cameraFocusRequest } = useLanguageSelectionContext();
-  const { isMeshaSequenceDone, entranceSteps } = useEntranceContext();
+  const { isMeshaSequenceDone } = useEntranceContext();
   const { camera, controls: threeControls } = useThree();
   const { config } = useConfigContext();
   const {
     isBlackboard,
     zoomDistance,
-    homeDistance,
     switchDuration,
     fov,
     near,
     far,
-    entranceDuration,
-    meshaSize,
-    sphereRadius,
     boardMargin,
     sortBy,
   } = config;
@@ -102,19 +98,6 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
     [languageNodes, zoomDistance, isBlackboard, startCameraAnimation],
   );
 
-  // Animates camera to face Mesha at his resting home position.
-  // Camera approaches along Z (matching the scene's natural viewing axis) so
-  // Mesha is centered and at the same framing as when a language is selected.
-  const focusOnMeshaHome = useCallback(
-    (duration) => {
-      const meshaHomeY = sphereRadius - meshaSize;
-      const meshaHomePosition = new Vector3(0, meshaHomeY, 0);
-      const targetCameraPosition = new Vector3(0, meshaHomeY, homeDistance);
-      startCameraAnimation(targetCameraPosition, meshaHomePosition, duration);
-    },
-    [sphereRadius, meshaSize, zoomDistance, startCameraAnimation],
-  );
-
   const fitToNodes = useCallback(() => {
     const positions = Object.values(languageNodes);
     if (positions.length === 0) return;
@@ -165,11 +148,7 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
   useEffect(() => {
     if (!isMeshaSequenceDone) return;
     if (selectedLanguage) return;
-    if (!isBlackboard && entranceSteps.length) {
-      focusOnMeshaHome(entranceDuration);
-    } else {
-      fitToNodes();
-    }
+    fitToNodes();
   }, [isMeshaSequenceDone]);
 
   useEffect(() => {

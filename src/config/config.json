@@ -167,8 +167,7 @@
     "fov": 30,
     "near": 0.1,
     "switchDuration": 1500,
-    "zoomDistance": 27,
-    "homeDistance": 54
+    "zoomDistance": 27
   },
   "motion": {
     "isMotionReduced": false,
