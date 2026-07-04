@@ -1,17 +1,17 @@
 import { extend } from "@react-three/fiber";
 import { useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
-import { dragBindings } from "../../config/dragBindings.js";
-import { useConfigContext } from "../../contexts/ConfigContext";
-import { useAudioData } from "../../hooks/useAudioData.js";
-import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
-import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
-import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
-import { createAudioSurface } from "../../utils/shapeUtils.js";
+import { dragBindings } from "../../../config/dragBindings.js";
+import { useConfigContext } from "../../../contexts/ConfigContext.jsx";
+import { useAudioData } from "../../../hooks/useAudioData.js";
+import { useMeshaDrag } from "../../../hooks/useMeshaDrag.js";
+import { useHighlightMaterial } from "../../../hooks/useShaderMaterial.js";
+import { useThrottledFrame } from "../../../hooks/useThrottledFrame.js";
+import { createAudioSurface } from "../../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
 
-const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
+const Tongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
   const { audioData } = useAudioData();
   const { config } = useConfigContext();
   const {
@@ -71,4 +71,4 @@ const MeshaTongue = ({ tongueMaterial, segments, onClick, isSelected }) => {
   );
 };
 
-export default MeshaTongue;
+export default Tongue;

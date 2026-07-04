@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
-import { useConfigContext } from "../../contexts/ConfigContext";
-import Mesha from "../r3f/Mesha.jsx";
+import { useConfigContext } from "../contexts/ConfigContext.jsx";
+import Mesha from "./scene/mesha/Mesha.jsx";
 
 const MiniMesha = ({ languageCode }) => {
   const { config } = useConfigContext();
@@ -10,12 +10,17 @@ const MiniMesha = ({ languageCode }) => {
   return (
     <div className="mini-mesha">
       <Canvas
-        camera={{ position: [cameraX, cameraY, cameraZ], fov, near, far }}
+        camera={{
+          position: [cameraX, cameraY, cameraZ],
+          fov,
+          near,
+          far,
+        }}
         gl={{ antialias: true, clearColor: bgColor, alpha: true }}
       >
         <Mesha
           languageCode={languageCode}
-          position={[0, -3, 100]}
+          position={[0, 0, 100]}
           isMyMesha={false}
           looksAround
           spin={spin}

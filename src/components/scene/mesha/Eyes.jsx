@@ -1,17 +1,17 @@
 import { useRef } from "react";
-import blinkTimings from "../../config/blinkTimings.json";
-import { dragBindings } from "../../config/dragBindings.js";
-import { useConfigContext } from "../../contexts/ConfigContext";
-import { useEntranceContext } from "../../contexts/EntranceContext.jsx";
-import { usePlaylistContext } from "../../contexts/PlaylistContext.jsx";
-import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
+import blinkTimings from "../../../config/blinkTimings.json";
+import { dragBindings } from "../../../config/dragBindings.js";
+import { useConfigContext } from "../../../contexts/ConfigContext.jsx";
+import { useEntranceContext } from "../../../contexts/EntranceContext.jsx";
+import { usePlaylistContext } from "../../../contexts/PlaylistContext.jsx";
+import { useMeshaDrag } from "../../../hooks/useMeshaDrag.js";
 import {
   useHighlightMaterial,
   useShaderMaterial,
-} from "../../hooks/useShaderMaterial.js";
-import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
+} from "../../../hooks/useShaderMaterial.js";
+import { useThrottledFrame } from "../../../hooks/useThrottledFrame.js";
 
-const MeshaEyes = ({
+const Eyes = ({
   irisColor,
   eyelidColor,
   evidentiality,
@@ -224,4 +224,4 @@ const Eye = ({
   );
 };
 
-export default MeshaEyes;
+export default Eyes;

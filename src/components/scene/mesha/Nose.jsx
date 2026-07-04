@@ -1,12 +1,12 @@
 import { useRef } from "react";
 import { MathUtils } from "three";
-import { dragBindings } from "../../config/dragBindings.js";
-import { useConfigContext } from "../../contexts/ConfigContext";
-import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
+import { dragBindings } from "../../../config/dragBindings.js";
+import { useConfigContext } from "../../../contexts/ConfigContext.jsx";
+import { useMeshaDrag } from "../../../hooks/useMeshaDrag.js";
 import {
   useHighlightMaterial,
   useShaderMaterial,
-} from "../../hooks/useShaderMaterial.js";
+} from "../../../hooks/useShaderMaterial.js";
 
 const ROLE_ARC = {
   S: { isFullCircle: false, gapAngle: 0 },
@@ -14,7 +14,7 @@ const ROLE_ARC = {
   O: { isFullCircle: true, gapAngle: 0 },
 };
 
-const MeshaNose = ({
+const Nose = ({
   position,
   scale,
   wordOrder,
@@ -94,4 +94,4 @@ const MeshaNose = ({
   );
 };
 
-export default MeshaNose;
+export default Nose;

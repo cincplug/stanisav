@@ -1,5 +1,5 @@
 import { useI18nContext } from "../../contexts/I18nContext";
-import { CloseIcon } from "./MenuIcons";
+import { CloseIcon } from "../Icons";
 import "./SearchTab.css";
 
 function SearchBox({ searchTerm, setSearchTerm, clearSearch }) {

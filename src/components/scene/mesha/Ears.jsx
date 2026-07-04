@@ -1,17 +1,17 @@
 import { extend } from "@react-three/fiber";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
-import { dragBindings } from "../../config/dragBindings.js";
-import { useConfigContext } from "../../contexts/ConfigContext";
-import { useAudioData } from "../../hooks/useAudioData.js";
-import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
-import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
-import { useHighlightMaterial } from "../../hooks/useShaderMaterial.js";
-import { createAudioSurface } from "../../utils/shapeUtils.js";
+import { dragBindings } from "../../../config/dragBindings.js";
+import { useConfigContext } from "../../../contexts/ConfigContext.jsx";
+import { useAudioData } from "../../../hooks/useAudioData.js";
+import { useMeshaDrag } from "../../../hooks/useMeshaDrag.js";
+import { useThrottledFrame } from "../../../hooks/useThrottledFrame.js";
+import { useHighlightMaterial } from "../../../hooks/useShaderMaterial.js";
+import { createAudioSurface } from "../../../utils/shapeUtils.js";
 import { useRef } from "react";
 
 extend({ ParametricGeometry });
 
-const MeshaEars = ({
+const Ears = ({
   earMaterial,
   morphologyScore,
   onClick,
@@ -106,4 +106,4 @@ const MeshaEars = ({
   );
 };
 
-export default MeshaEars;
+export default Ears;

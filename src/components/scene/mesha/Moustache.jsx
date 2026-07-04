@@ -1,21 +1,21 @@
 import { extend } from "@react-three/fiber";
 import { forwardRef, useMemo, useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
-import { dragBindings } from "../../config/dragBindings.js";
-import { useConfigContext } from "../../contexts/ConfigContext";
-import { useAudioData } from "../../hooks/useAudioData.js";
-import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
+import { dragBindings } from "../../../config/dragBindings.js";
+import { useConfigContext } from "../../../contexts/ConfigContext.jsx";
+import { useAudioData } from "../../../hooks/useAudioData.js";
+import { useMeshaDrag } from "../../../hooks/useMeshaDrag.js";
 import {
   useHighlightMaterial,
   useShaderMaterial,
-} from "../../hooks/useShaderMaterial.js";
-import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
-import { shiftHue } from "../../utils/colorUtils";
-import { createTuftShape } from "../../utils/shapeUtils.js";
+} from "../../../hooks/useShaderMaterial.js";
+import { useThrottledFrame } from "../../../hooks/useThrottledFrame.js";
+import { shiftHue } from "../../../utils/colorUtils.js";
+import { createTuftShape } from "../../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
 
-const MeshaTuft = forwardRef(
+const Tuft = forwardRef(
   (
     { tuft, tuftSurface, color, isSelected, linguisticProperty, onClick },
     ref,
@@ -44,7 +44,7 @@ const MeshaTuft = forwardRef(
   },
 );
 
-const MeshaMoustache = ({
+const Moustache = ({
   linguisticProperty,
   tuftCount,
   color,
@@ -112,7 +112,7 @@ const MeshaMoustache = ({
   return (
     <group {...bind()}>
       {tuftsWithRotation.map((tuft, i) => (
-        <MeshaTuft
+        <Tuft
           key={tuft.key}
           ref={(el) => (tuftsRef.current[i] = el)}
           tuft={tuft}
@@ -127,4 +127,4 @@ const MeshaMoustache = ({
   );
 };
 
-export default MeshaMoustache;
+export default Moustache;

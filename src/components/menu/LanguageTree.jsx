@@ -1,7 +1,7 @@
 import { useMediaQuery } from "../../hooks/useMediaQuery.js";
 import { getFamilyLabel } from "../../utils/i18nUtils";
 import { getLanguageLabel } from "../../utils/linguisticUtils";
-import MiniMesha from "../r3f/MiniMesha.jsx";
+import MiniMesha from "../MiniMesha.jsx";
 
 const LanguageTree = ({
   tree,

@@ -1,25 +1,20 @@
 import { extend } from "@react-three/fiber";
 import { forwardRef, useMemo, useRef } from "react";
 import { RoundedBoxGeometry } from "three/examples/jsm/Addons.js";
-import { dragBindings } from "../../config/dragBindings.js";
-import { useConfigContext } from "../../contexts/ConfigContext";
-import { useAudioData } from "../../hooks/useAudioData.js";
-import { useMeshaDrag } from "../../hooks/useMeshaDrag.js";
+import { dragBindings } from "../../../config/dragBindings.js";
+import { useConfigContext } from "../../../contexts/ConfigContext.jsx";
+import { useAudioData } from "../../../hooks/useAudioData.js";
+import { useMeshaDrag } from "../../../hooks/useMeshaDrag.js";
 import {
   useHighlightMaterial,
   useShaderMaterial,
-} from "../../hooks/useShaderMaterial.js";
-import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
-import { shiftHue } from "../../utils/colorUtils";
+} from "../../../hooks/useShaderMaterial.js";
+import { useThrottledFrame } from "../../../hooks/useThrottledFrame.js";
+import { shiftHue } from "../../../utils/colorUtils.js";
 
 extend({ RoundedBoxGeometry });
 
-const MeshaTeeth = ({
-  toothCount,
-  consonantClusterSize,
-  onClick,
-  isSelected,
-}) => {
+const Teeth = ({ toothCount, consonantClusterSize, onClick, isSelected }) => {
   const teethRefs = useRef([]);
   const { audioData } = useAudioData();
   const { config } = useConfigContext();
@@ -81,7 +76,7 @@ const MeshaTeeth = ({
     <group position={[0, toothY, toothZ]} scale={toothSize} {...bind()}>
       {teeth.map((tooth, i) => {
         return (
-          <MeshaTooth
+          <Tooth
             key={tooth.key}
             ref={(el) => (teethRefs.current[i] = el)}
             tooth={tooth}
@@ -97,7 +92,7 @@ const MeshaTeeth = ({
   );
 };
 
-const MeshaTooth = forwardRef(({ tooth, color, isSelected, onClick }, ref) => {
+const Tooth = forwardRef(({ tooth, color, isSelected, onClick }, ref) => {
   const { config } = useConfigContext();
   const {
     toothWidth,
@@ -138,4 +133,4 @@ const MeshaTooth = forwardRef(({ tooth, color, isSelected, onClick }, ref) => {
   );
 });
 
-export default MeshaTeeth;
+export default Teeth;

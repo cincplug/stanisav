@@ -1,4 +1,4 @@
-import { ExpandIcon } from "../MenuIcons";
+import { ExpandIcon } from "../Icons";
 import "./Select.css";
 
 /**

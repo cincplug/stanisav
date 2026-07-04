@@ -1,7 +1,7 @@
 import { resolveControlBounds } from "../../utils/configUtils";
 import { formatCamelCase } from "../../utils/stringUtils.js";
-import Range from "./ux/Range.jsx";
-import Select from "./ux/Select";
+import Range from "../ux/Range.jsx";
+import Select from "../ux/Select";
 
 // control shape: { dotKey, type, label, options, value }
 // type and options are inferred upstream by inferControlType

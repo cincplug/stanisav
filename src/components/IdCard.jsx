@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useRef } from "react";
-import { useI18nContext } from "../../contexts/I18nContext";
-import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
-import { getLocalizedLanguageName } from "../../i18n/runtime";
-import { getFamilyLabel } from "../../utils/i18nUtils";
+import { useI18nContext } from "../contexts/I18nContext";
+import { useLanguageSelectionContext } from "../contexts/LanguageSelectionContext";
+import { getLocalizedLanguageName } from "../i18n/runtime";
+import { getFamilyLabel } from "../utils/i18nUtils";
 import {
   formatNumber,
   formatSpeakers,
@@ -12,9 +12,9 @@ import {
   getFeatureName,
   getLineageTrail,
   isPropertyDescribed,
-} from "../../utils/linguisticUtils";
+} from "../utils/linguisticUtils";
 import "./IdCard.css";
-import { CloseIcon } from "./MenuIcons";
+import { CloseIcon } from "./Icons";
 import Tooltip from "./ux/Tooltip";
 
 function IdCard({

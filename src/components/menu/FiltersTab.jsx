@@ -21,9 +21,9 @@ import {
 import { sortFeatureValues } from "../../utils/sortingUtils";
 import "./FiltersTab.css";
 import LanguageTree from "./LanguageTree";
-import { ZoomDistanceIcon } from "./MenuIcons";
+import { ZoomDistanceIcon } from "../Icons";
 import Properties from "./Properties";
-import Tooltip from "./ux/Tooltip";
+import Tooltip from "../ux/Tooltip";
 
 function FiltersTab({ data, languageColors = {} }) {
   const { viewAllLanguages, selectedLanguage } = useLanguageSelectionContext();

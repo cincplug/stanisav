@@ -7,7 +7,7 @@ import { useMediaQuery } from "../../hooks/useMediaQuery";
 import ControlItemGroup from "./ControlItemGroup";
 import LocaleLinks from "./LocaleLinks";
 import "./Menu.css";
-import { BurgerIcon, CloseIcon, BlackboardIcon } from "./MenuIcons";
+import { BurgerIcon, CloseIcon, BlackboardIcon } from "../Icons";
 import Playlist from "./Playlist";
 import TabNavigation from "./TabNavigation";
 import TabRenderer from "./TabRenderer";

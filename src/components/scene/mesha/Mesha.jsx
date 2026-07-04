@@ -4,28 +4,28 @@ import { useCallback, useEffect, useRef } from "react";
 import { Euler, MathUtils, Mesh, Quaternion } from "three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
-import { useAppStateContext } from "../../contexts/AppStateContext.jsx";
-import { useConfigContext } from "../../contexts/ConfigContext";
-import { useDragContext } from "../../contexts/DragContext.jsx";
-import { useEntranceContext } from "../../contexts/EntranceContext.jsx";
-import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext.jsx";
-import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext.jsx";
-import { usePlaylistContext } from "../../contexts/PlaylistContext";
-import { useShaderMaterial } from "../../hooks/useShaderMaterial.js";
-import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
-import microphoneService from "../../services/microphoneService.js";
-import { shiftHue } from "../../utils/colorUtils";
+import { useAppStateContext } from "../../../contexts/AppStateContext.jsx";
+import { useConfigContext } from "../../../contexts/ConfigContext.jsx";
+import { useDragContext } from "../../../contexts/DragContext.jsx";
+import { useEntranceContext } from "../../../contexts/EntranceContext.jsx";
+import { useLanguageColorsContext } from "../../../contexts/LanguageColorsContext.jsx";
+import { useLanguageSelectionContext } from "../../../contexts/LanguageSelectionContext.jsx";
+import { usePlaylistContext } from "../../../contexts/PlaylistContext.jsx";
+import { useShaderMaterial } from "../../../hooks/useShaderMaterial.js";
+import { useThrottledFrame } from "../../../hooks/useThrottledFrame.js";
+import microphoneService from "../../../services/microphoneService.js";
+import { shiftHue } from "../../../utils/colorUtils.js";
 import {
   getFeatureScore,
   getFeatureScoreList,
-} from "../../utils/linguisticUtils.js";
-import MeshaEars from "./MeshaEars.jsx";
-import MeshaEyes from "./MeshaEyes.jsx";
-import MeshaMoustache from "./MeshaMoustache.jsx";
-import MeshaNose from "./MeshaNose.jsx";
-import MeshaTeeth from "./MeshaTeeth.jsx";
-import MeshaTongue from "./MeshaTongue.jsx";
-import SpeechBalloon from "./SpeechBalloon";
+} from "../../../utils/linguisticUtils.js";
+import Ears from "./Ears.jsx";
+import Eyes from "./Eyes.jsx";
+import Moustache from "./Moustache.jsx";
+import Nose from "./Nose.jsx";
+import Teeth from "./Teeth.jsx";
+import Tongue from "./Tongue.jsx";
+import Balloon from "./Balloon.jsx";
 
 extend({ ParametricGeometry });
 extend({ TextGeometry });
@@ -285,7 +285,7 @@ const Mesha = ({
       position-z={spring.z}
     >
       <group ref={lookAroundRef} scale={meshaSize}>
-        <MeshaEyes
+        <Eyes
           irisColor={color}
           eyelidColor={skinColor}
           evidentiality={scores.evidentiality}
@@ -295,26 +295,26 @@ const Mesha = ({
           isSelectedInner={selectedProperty === "verbAspect"}
         />
 
-        <MeshaEars
+        <Ears
           earMaterial={skinMaterial}
           morphologyScore={scores.morphology}
           isSelected={selectedProperty === "morphology"}
           isLuka={audioPhaseIndex === 1}
         />
 
-        <MeshaTongue
+        <Tongue
           tongueMaterial={tongueMaterial}
           segments={segments}
           isSelected={selectedProperty === "tonality"}
         />
 
-        <MeshaTeeth
+        <Teeth
           toothCount={phonemeCount}
           consonantClusterSize={maxConsonantClusterSize}
           isSelected={selectedProperty === "phonemeCount"}
         />
 
-        <MeshaNose
+        <Nose
           position={[0, eyeY - eyeSize, eyeZ + eyeSize]}
           scale={noseSize}
           color={color}
@@ -324,7 +324,7 @@ const Mesha = ({
         />
 
         {caseCount && (
-          <MeshaMoustache
+          <Moustache
             linguisticProperty="caseCount"
             tuftCount={caseCount}
             color={tuftColor}
@@ -337,7 +337,7 @@ const Mesha = ({
         )}
 
         {nounClassCount && (
-          <MeshaMoustache
+          <Moustache
             linguisticProperty="nounClassCount"
             tuftCount={nounClassCount}
             color={eyebrowColor}
@@ -349,7 +349,7 @@ const Mesha = ({
           />
         )}
 
-        <SpeechBalloon
+        <Balloon
           position={selectedLanguage ? "top" : "top-right"}
           anchorOffset={
             selectedLanguage

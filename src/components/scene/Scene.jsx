@@ -19,7 +19,7 @@ import { getSortingData } from "../../utils/sortingUtils";
 import Camera from "./Camera";
 import Labels from "./Labels";
 import Light from "./Light";
-import Mesha from "./Mesha";
+import Mesha from "./mesha/Mesha";
 import OrbitModifier from "./OrbitModifier";
 import SceneReadyGate from "./SceneReadyGate";
 

@@ -10,7 +10,7 @@ import {
   PlayIcon,
   PrevIcon,
   HomeIcon,
-} from "./MenuIcons";
+} from "../Icons";
 import "./Playlist.css";
 
 export default function Playlist() {

@@ -1,16 +1,16 @@
 import { useEffect } from "react";
 import "./App.css";
-import IdCard from "./components/menu/IdCard";
-import Menu from "./components/menu/Menu";
-import Stage from "./components/r3f/Stage";
-import { HomeIcon } from "./components/menu/MenuIcons.jsx";
-import { useAppStateContext } from "./contexts/AppStateContext";
-import { useConfigContext } from "./contexts/ConfigContext.jsx";
-import { useI18nContext } from "./contexts/I18nContext";
-import { useLanguageColorsContext } from "./contexts/LanguageColorsContext.jsx";
-import { useLanguageSelectionContext } from "./contexts/LanguageSelectionContext";
-import { usePlaylistContext } from "./contexts/PlaylistContext";
-import { useMediaQuery } from "./hooks/useMediaQuery.js";
+import IdCard from "./IdCard.jsx";
+import Menu from "./menu/Menu.jsx";
+import Stage from "./scene/Scene.jsx";
+import { HomeIcon } from "./Icons.jsx";
+import { useAppStateContext } from "../contexts/AppStateContext.jsx";
+import { useConfigContext } from "../contexts/ConfigContext.jsx";
+import { useI18nContext } from "../contexts/I18nContext.jsx";
+import { useLanguageColorsContext } from "../contexts/LanguageColorsContext.jsx";
+import { useLanguageSelectionContext } from "../contexts/LanguageSelectionContext.jsx";
+import { usePlaylistContext } from "../contexts/PlaylistContext.jsx";
+import { useMediaQuery } from "../hooks/useMediaQuery.js";
 
 function App() {
   const { t, isRtl } = useI18nContext();
