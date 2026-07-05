@@ -40,12 +40,7 @@ const Scene = ({ onDataLoaded, onLoadingChange }) => {
     cameraX,
     cameraY,
     cameraZ,
-    fov,
-    near,
-    far,
     bgColor,
-    tension,
-    friction,
     isMotionReduced,
     isMyMesha,
     spiralRatio,
@@ -195,7 +190,7 @@ const Scene = ({ onDataLoaded, onLoadingChange }) => {
     <Canvas
       style={{ width: "100%", height: "100%" }}
       aria-hidden="true"
-      camera={{ position: [cameraX, cameraY, cameraZ], fov, near, far }}
+      camera={{ position: [cameraX, cameraY, cameraZ] }}
       gl={{ antialias: true, clearColor: bgColor }}
     >
       <SceneReadyGate hasDrawableScene={hasDrawableScene} />
@@ -218,15 +213,7 @@ const Scene = ({ onDataLoaded, onLoadingChange }) => {
         isEnabled={!isBlackboard && isMeshaSequenceDone}
       />
 
-      <Light
-        cameraZ={cameraZ}
-        isMotionReduced={isMotionReduced}
-        isEntranceComplete={isEntranceComplete}
-        tension={tension}
-        friction={friction}
-        isBlackboard={isBlackboard}
-        selectedLanguage={selectedLanguage}
-      />
+      <Light selectedLanguage={selectedLanguage} />
 
       <Camera
         languageNodes={formattedPositions}

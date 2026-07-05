@@ -4,15 +4,7 @@ import { useRef } from "react";
 import { useConfigContext } from "../../contexts/ConfigContext";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 
-const Light = ({
-  cameraZ,
-  isMotionReduced,
-  isEntranceComplete,
-  tension,
-  friction,
-  isBlackboard,
-  selectedLanguage,
-}) => {
+const Light = ({ selectedLanguage }) => {
   const { camera, controls: threeControls } = useThree();
   const { config } = useConfigContext();
   const {
@@ -25,6 +17,12 @@ const Light = ({
     lightDecay,
     ambientLight,
     boardLight,
+    cameraZ,
+    isMotionReduced,
+    isEntranceComplete,
+    tension,
+    friction,
+    isBlackboard,
   } = config;
 
   const lightRef = useRef();
