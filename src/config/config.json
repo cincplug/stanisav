@@ -41,7 +41,7 @@
     "spinSphereInitial": 1.5,
     "spinSphereZoomed": 0.1,
     "labelOffset": 5,
-    "sphereRadius": 16
+    "sphereRadius": 19
   },
   "blackboard": {
     "boardSpacing": 0.12,
