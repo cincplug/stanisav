@@ -215,10 +215,7 @@ const Scene = ({ onDataLoaded, onLoadingChange }) => {
 
       <Light selectedLanguage={selectedLanguage} />
 
-      <Camera
-        languageNodes={formattedPositions}
-        selectedLanguage={selectedLanguage}
-      />
+      <Camera languageNodes={formattedPositions} />
 
       {!shouldShowEmptyMessage && isMeshaSequenceDone && (
         <Labels

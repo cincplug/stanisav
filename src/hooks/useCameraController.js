@@ -6,8 +6,9 @@ import { useEntranceContext } from "../contexts/EntranceContext";
 import { useLanguageSelectionContext } from "../contexts/LanguageSelectionContext";
 import { useThrottledFrame } from "./useThrottledFrame";
 
-export const useCameraController = ({ languageNodes, selectedLanguage }) => {
-  const { cameraFocusRequest } = useLanguageSelectionContext();
+export const useCameraController = ({ languageNodes }) => {
+  const { cameraFocusRequest, selectedLanguage } =
+    useLanguageSelectionContext();
   const { isMeshaSequenceDone } = useEntranceContext();
   const { camera, controls: threeControls } = useThree();
   const { config } = useConfigContext();
@@ -20,15 +21,16 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
     far,
     boardMargin,
     sortBy,
+    sphereRadius,
   } = config;
 
   useEffect(() => {
     if (!camera) return;
+
     camera.fov = fov;
     camera.near = near;
-    camera.far = far;
     camera.updateProjectionMatrix();
-  }, [camera]);
+  }, [camera, fov, near]);
 
   const animationStateRef = useRef(null);
 
@@ -49,6 +51,10 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
 
     camera.position.lerpVectors(state.startPos, state.targetPos, easeInOut);
 
+    camera.far =
+      state.startFar + (state.targetFar - state.startFar) * easeInOut;
+    camera.updateProjectionMatrix();
+
     if (threeControls?.target) {
       threeControls.target.lerpVectors(
         state.startTarget,
@@ -60,21 +66,34 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
 
     if (progress >= 1) {
       camera.position.copy(state.targetPos);
+      camera.far = state.targetFar;
+      camera.updateProjectionMatrix();
+
       if (threeControls?.target) {
         threeControls.target.copy(state.lookAt);
         threeControls.update();
       }
+
       animationStateRef.current = null;
     }
   });
 
   const startCameraAnimation = useCallback(
-    (targetPosition, lookAtTarget, duration = switchDuration) => {
+    (
+      targetPosition,
+      lookAtTarget,
+      duration = switchDuration,
+      targetFar = camera.far,
+    ) => {
       animationStateRef.current = {
         startPos: camera.position.clone(),
         startTarget: threeControls?.target?.clone() || new Vector3(),
         targetPos: targetPosition,
         lookAt: lookAtTarget,
+
+        startFar: camera.far,
+        targetFar,
+
         startTime: null,
         duration,
       };
@@ -93,7 +112,15 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
         zoomDistance,
         isBlackboard,
       );
-      startCameraAnimation(targetCameraPosition, languagePosition);
+
+      const targetFar = isBlackboard ? far : sphereRadius * 2;
+
+      startCameraAnimation(
+        targetCameraPosition,
+        languagePosition,
+        switchDuration,
+        targetFar,
+      );
     },
     [languageNodes, zoomDistance, isBlackboard, startCameraAnimation],
   );
@@ -141,7 +168,7 @@ export const useCameraController = ({ languageNodes, selectedLanguage }) => {
       center.y,
       center.z + (maxZ - minZ) / 2 + distance,
     );
-    startCameraAnimation(targetCameraPosition, center);
+    startCameraAnimation(targetCameraPosition, center, switchDuration, far);
   }, [languageNodes, fov, camera, startCameraAnimation]);
 
   // When Mesha's reveal sequence finishes, fly the camera in to his home
