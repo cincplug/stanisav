@@ -25,7 +25,7 @@ const Label = ({
   const { data } = useAppStateContext();
   const { filteredLanguages, filters, selectedLanguage } =
     useLanguageSelectionContext();
-  const { startFromLanguage } = usePlaylistContext();
+  const { startFromLanguage, isAnimating } = usePlaylistContext();
 
   const { config } = useConfigContext();
   const {
@@ -137,7 +137,7 @@ const Label = ({
     if (meshRef) meshRef.current = labelRef.current;
     if (revealRef) revealRef.current = reveal;
 
-    if (!selectedLanguage && isMingling) {
+    if (!selectedLanguage && isMingling && !isAnimating) {
       mingleRef.current += delta;
       if (mingleRef.current >= totalVisibleLabels) mingleRef.current = 0;
 
