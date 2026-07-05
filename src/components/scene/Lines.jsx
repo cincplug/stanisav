@@ -87,6 +87,14 @@ const Lines = ({
     }
   }, [size]);
 
+  // Update material properties directly, without rebuilding geometry
+  useEffect(() => {
+    if (materialRef.current) {
+      materialRef.current.linewidth = lineWidth;
+      materialRef.current.opacity = lineOpacity;
+    }
+  }, [lineWidth, lineOpacity]);
+
   const centerPullSpring = useSpring({
     from: { ratio: centerPullRatio },
     to: { ratio: -centerPullRatio },
