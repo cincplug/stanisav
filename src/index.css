@@ -63,7 +63,7 @@
 
 @font-face {
   font-family: "Roboto Slab";
-  src: url("/fonts/RobotoSlab-SemiBold.ttf") format("truetype");
+  src: url("/fonts/RobotoSlab-Regular.ttf") format("truetype");
   font-weight: 600;
   font-display: swap;
 }
