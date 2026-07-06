@@ -20,7 +20,7 @@ const Ears = ({ earMaterial, morphologyScore, isLuka }) => {
     earY,
     earZ,
     earSize,
-    segments,
+    segmentsBiggest,
     fireAmount,
     maxDeformation,
     verticalVariation,
@@ -54,16 +54,16 @@ const Ears = ({ earMaterial, morphologyScore, isLuka }) => {
       meshRef.current.geometry.dispose();
       meshRef.current.geometry = new ParametricGeometry(
         staticSurface,
-        segments,
-        segments,
+        segmentsBiggest,
+        segmentsBiggest,
       );
     }
     if (meshRef2.current) {
       meshRef2.current.geometry.dispose();
       meshRef2.current.geometry = new ParametricGeometry(
         staticSurface,
-        segments,
-        segments,
+        segmentsBiggest,
+        segmentsBiggest,
       );
     }
   });

@@ -1,38 +1,4 @@
 {
-  "header": {
-    "sortBy": [
-      "alphabetically",
-      "speakers",
-      "family",
-      "tonality",
-      "morphology",
-      "wordOrder",
-      "wordOrderFlexibility",
-      "evidentiality",
-      "verbAspect",
-      "phonemeCount",
-      "caseCount",
-      "nounClassCount",
-      "maxConsonantClusterSize"
-    ],
-    "labelContent": ["name", "nativeName", "isoCode"],
-    "labelSize": [1, 1.25, 1.5, 1.75],
-    "isReverse": false,
-    "isBlackboard": false
-  },
-  "global": {
-    "isAutoplay": true,
-    "isIdCardVisible": false,
-    "isMenuExpanded": false,
-    "isMyMesha": false,
-    "soundSource": ["o-l", "l-o", "l", "o"]
-  },
-  "entrance": {
-    "entranceAxis": "z",
-    "entranceDuration": 3000,
-    "labelRevealDuration": 200,
-    "startLabelOffset": 1.2
-  },
   "sphere": {
     "spiralAxis": ["y", "x", "z"],
     "spiralRatio": [0.61803, 0.41421, 0.73205, 0.23606, 0.64575, 0.31662],
@@ -103,7 +69,6 @@
     "saltoAmplitude": 0.785,
     "saltoFrequency": 1.8,
     "saltoPow": 150,
-    "segments": 64,
     "spinMeshaInitial": -0.1,
     "spinMeshaZoomed": 0.7,
     "tongueHeight": 0.6,
@@ -187,5 +152,45 @@
     "centerPullRatio": 0.74,
     "lineWidth": 73,
     "lineOpacity": 0.2
+  },
+  "header": {
+    "sortBy": [
+      "alphabetically",
+      "speakers",
+      "family",
+      "tonality",
+      "morphology",
+      "wordOrder",
+      "wordOrderFlexibility",
+      "evidentiality",
+      "verbAspect",
+      "phonemeCount",
+      "caseCount",
+      "nounClassCount",
+      "maxConsonantClusterSize"
+    ],
+    "labelContent": ["name", "nativeName", "isoCode"],
+    "labelSize": [1, 1.25, 1.5, 1.75],
+    "isReverse": false,
+    "isBlackboard": false
+  },
+  "global": {
+    "isAutoplay": true,
+    "isIdCardVisible": false,
+    "isMenuExpanded": false,
+    "isMyMesha": false,
+    "soundSource": ["o-l", "l-o", "l", "o"]
+  },
+  "entrance": {
+    "entranceAxis": "z",
+    "entranceDuration": 3000,
+    "labelRevealDuration": 200,
+    "startLabelOffset": 1.2
+  },
+  "segments": {
+    "segmentsSmall": 8,
+    "segmentsMid": 16,
+    "segmentsBig": 32,
+    "segmentsBiggest": 64
   }
 }

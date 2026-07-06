@@ -57,7 +57,6 @@ const Mesha = ({
     tuftHueShift,
     tuftY,
     eyebrowY,
-    segments,
     saltoAmplitude,
     saltoFrequency,
     saltoPow,
@@ -295,7 +294,7 @@ const Mesha = ({
           isLuka={audioPhaseIndex === 1}
         />
 
-        <Tongue tongueMaterial={tongueMaterial} segments={segments} />
+        <Tongue tongueMaterial={tongueMaterial} />
 
         <Teeth
           toothCount={phonemeCount}

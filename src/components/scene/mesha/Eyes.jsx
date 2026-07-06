@@ -85,7 +85,7 @@ const Eye = ({
     pupilSize,
     pupilMetalness,
     pupilRoughness,
-    segments,
+    segmentsMid,
     labelTextColor,
     white,
   } = config;
@@ -137,7 +137,7 @@ const Eye = ({
     <group position={position} scale={eyeScale} ref={groupRef} renderOrder={2}>
       {/* pupil */}
       <mesh position={[0, 0, pupilZ]}>
-        <sphereGeometry args={[pupilScale, segments, segments]} />
+        <sphereGeometry args={[pupilScale, segmentsMid, segmentsMid]} />
         <meshStandardMaterial
           color={labelTextColor}
           metalness={pupilMetalness}
@@ -149,7 +149,7 @@ const Eye = ({
 
       {/* iris */}
       <mesh position={[0, 0, irisZ]}>
-        <sphereGeometry args={[irisScale, segments, segments]} />
+        <sphereGeometry args={[irisScale, segmentsMid, segmentsMid]} />
         <meshBasicMaterial
           color={irisColor}
           depthTest={false}
@@ -159,7 +159,7 @@ const Eye = ({
 
       {/* white */}
       <mesh>
-        <sphereGeometry args={[eyeSize, segments, segments]} />
+        <sphereGeometry args={[eyeSize, segmentsMid, segmentsMid]} />
         <shaderMaterial args={[whiteMaterial]} />
       </mesh>
 
@@ -174,7 +174,15 @@ const Eye = ({
           ]}
         >
           <sphereGeometry
-            args={[eyeSize, segments, segments, 0, Math.PI * 2, 0, Math.PI / 2]}
+            args={[
+              eyeSize,
+              segmentsMid,
+              segmentsMid,
+              0,
+              Math.PI * 2,
+              0,
+              Math.PI / 2,
+            ]}
           />
           <shaderMaterial
             args={[eyelidMaterial]}

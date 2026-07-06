@@ -91,6 +91,7 @@ const Tooth = forwardRef(({ tooth, color }, ref) => {
     toothThicknessCentral,
     toothLengthCorner,
     toothThicknessCorner,
+    segmentsSmall,
   } = config;
   const { indexFromCenter, halfCount } = tooth;
 
@@ -111,7 +112,7 @@ const Tooth = forwardRef(({ tooth, color }, ref) => {
     >
       <mesh ref={ref}>
         <roundedBoxGeometry
-          args={[toothWidth, length, thickness, 6, roundness]}
+          args={[toothWidth, length, thickness, segmentsSmall, roundness]}
         />
         <shaderMaterial args={[toothMaterial]} />
       </mesh>

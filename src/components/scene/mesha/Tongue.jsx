@@ -8,7 +8,7 @@ import { createAudioSurface } from "../../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
 
-const Tongue = ({ tongueMaterial, segments }) => {
+const Tongue = ({ tongueMaterial }) => {
   const { audioData } = useAudioData();
   const { config } = useConfigContext();
   const {
@@ -21,6 +21,7 @@ const Tongue = ({ tongueMaterial, segments }) => {
     tongueLength,
     maxDeformation,
     verticalVariation,
+    segmentsBig,
   } = config;
 
   const meshRef = useRef();
@@ -41,8 +42,8 @@ const Tongue = ({ tongueMaterial, segments }) => {
       meshRef.current.geometry.dispose();
       meshRef.current.geometry = new ParametricGeometry(
         audioSurface,
-        segments,
-        segments,
+        segmentsBig,
+        segmentsBig,
       );
     }
   });
