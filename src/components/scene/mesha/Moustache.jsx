@@ -77,15 +77,13 @@ const Moustache = ({ tuftCount, color, y, z, audioBand, stepDeg }) => {
 
 const Tuft = forwardRef(({ tuft, tuftSurface, color }, ref) => {
   const { config } = useConfigContext();
-  const { segmentsSmall } = config;
+  const { segmentsMid } = config;
   const tuftMaterial = useShaderMaterial(color);
 
   return (
     <group ref={ref} position={[tuft.x, tuft.y, tuft.z]}>
       <mesh rotation={[0, 0, tuft.rotationRad]} scale={tuft.scale}>
-        <parametricGeometry
-          args={[tuftSurface, segmentsSmall, segmentsSmall]}
-        />
+        <parametricGeometry args={[tuftSurface, segmentsMid, segmentsMid]} />
         <shaderMaterial args={[tuftMaterial]} />
       </mesh>
     </group>

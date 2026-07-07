@@ -14,7 +14,7 @@ const Nose = ({ position, scale, wordOrder, color }) => {
 
   const { config } = useConfigContext();
   const {
-    segmentsMid,
+    segmentsBig,
     noseSize,
     noseThickness,
     noseSliceAngle,
@@ -56,7 +56,7 @@ const Nose = ({ position, scale, wordOrder, color }) => {
           position={[0, 0, (i + 1) / rings.length]}
         >
           <torusGeometry
-            args={[torusR, tubeRadius, segmentsMid, segmentsMid, arc]}
+            args={[torusR, tubeRadius, segmentsBig, segmentsBig, arc]}
           />
           <shaderMaterial args={[material]} />
         </mesh>
