@@ -38,11 +38,11 @@
   "mesha": {
     "assembleRate": 50,
     "blinkDuration": 0.2,
-    "earDepth": 2.7,
+    "earDepth": 4.5,
     "earHeight": 1.1,
     "earSize": 1.2,
     "earWidth": 0.2,
-    "earX": 2,
+    "earX": 2.7,
     "earY": 0.5,
     "earZ": 1.1,
     "earTwirl": 0.22,
