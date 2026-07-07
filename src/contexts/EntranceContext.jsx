@@ -117,8 +117,7 @@ export const EntranceProvider = ({ children }) => {
       (revealOrder / Math.max(1, totalVisibleLabels - 1)) *
         Math.max(0, entranceDuration - labelRevealDuration),
     );
-    const delay =
-      isEntranceComplete || isBlackboard ? labelRevealDuration : staggerDelay;
+    const delay = isEntranceComplete ? labelRevealDuration : staggerDelay;
 
     return {
       startPosition: toInnerStartPosition(finalPosition),

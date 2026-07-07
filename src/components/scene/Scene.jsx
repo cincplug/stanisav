@@ -137,7 +137,7 @@ const Scene = ({ onDataLoaded, onLoadingChange }) => {
   );
 
   useEffect(() => {
-    if ((selectedLanguage || isBlackboard) && !isEntranceComplete) {
+    if (selectedLanguage && !isEntranceComplete) {
       skipSequence();
     }
   }, [selectedLanguage, isBlackboard]);
@@ -146,8 +146,8 @@ const Scene = ({ onDataLoaded, onLoadingChange }) => {
     selectedLanguage || mentionedLanguage || sortedLanguageCodes[0];
 
   const meshaPosition = useMemo(() => {
-    if (selectedLanguage && formattedPositions[selectedLanguage]) {
-      const pos = formattedPositions[selectedLanguage];
+    if (formattedPositions[selectedLanguage]) {
+      const pos = formattedPositions[meshaLanguageCode];
       const base = [pos.x, pos.y, pos.z];
       const radial = calculateRadialOffset(base);
 
