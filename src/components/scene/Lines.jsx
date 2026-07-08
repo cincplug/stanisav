@@ -47,9 +47,19 @@ const Lines = ({
   const positionsRef = useRef(null);
   const colorsRef = useRef(null);
 
-  const buildScene = (count) => {
+  // Detaches and disposes whatever mesh/geometry/material is currently held,
+  // so rebuilding never leaves an orphaned mesh frozen in the scene
+  const teardownScene = () => {
+    meshRef.current?.parent?.remove(meshRef.current);
     geometryRef.current?.dispose();
     materialRef.current?.dispose();
+    geometryRef.current = null;
+    materialRef.current = null;
+    meshRef.current = null;
+  };
+
+  const buildScene = (count) => {
+    teardownScene();
 
     const positions = new Float32Array(count * 2 * 3);
     const colors = new Float32Array(count * 2 * 3);
@@ -75,9 +85,14 @@ const Lines = ({
     meshRef.current = new LineSegments2(geo, mat);
   };
 
-  // Rebuild mesh whenever the set of visible codes changes
+  // Rebuild mesh whenever the set of visible codes changes, tearing down
+  // cleanly when there is nothing left to draw
   useEffect(() => {
-    if (countLines > 0) buildScene(countLines);
+    if (countLines > 0) {
+      buildScene(countLines);
+    } else {
+      teardownScene();
+    }
   }, [visibleLabelCodes.join(",")]);
 
   // Keep LineMaterial resolution in sync with canvas size so line width stays correct
@@ -164,11 +179,7 @@ const Lines = ({
   });
 
   useEffect(() => {
-    return () => {
-      meshRef.current?.parent?.remove(meshRef.current);
-      geometryRef.current?.dispose();
-      materialRef.current?.dispose();
-    };
+    return teardownScene;
   }, []);
 
   return null;

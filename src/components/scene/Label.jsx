@@ -23,8 +23,7 @@ const Label = ({
 }) => {
   const labelRef = useRef();
   const { data } = useAppStateContext();
-  const { filteredLanguages, filters, selectedLanguage } =
-    useLanguageSelectionContext();
+  const { selectedLanguage } = useLanguageSelectionContext();
   const { startFromLanguage, isAnimating } = usePlaylistContext();
 
   const { config } = useConfigContext();
@@ -37,10 +36,6 @@ const Label = ({
     isMotionReduced,
     labelTextColor,
   } = config;
-
-  if (Object.keys(filters).length > 0 && !filteredLanguages.has(languageCode)) {
-    return null;
-  }
 
   const handleClick = useCallback(
     (e) => {

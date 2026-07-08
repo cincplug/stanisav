@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef } from "react";
 import { useConfigContext } from "../../contexts/ConfigContext";
 import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext";
+import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
 import Label from "./Label";
 import LabelsCluster from "./LabelsCluster";
 import Lines from "./Lines";
@@ -14,18 +15,32 @@ const Labels = ({
   setIsLabelsSequenceDone,
 }) => {
   const { languageColors } = useLanguageColorsContext();
+  const { filters, filteredLanguages } = useLanguageSelectionContext();
 
   const { config } = useConfigContext();
   const { isBlackboard, hasLines } = config;
+
+  const hasActiveFilters = Object.keys(filters).length > 0;
 
   const visibleLabelCodes = useMemo(
     () =>
       Object.keys(formattedPositions).filter((langCode) => {
         const position = formattedPositions[langCode];
         const filterStatus = languageFilterStatus[langCode];
-        return Boolean(position) && Boolean(filterStatus?.isVisible);
+        const isFilteredOut =
+          hasActiveFilters && !filteredLanguages.has(langCode);
+        return (
+          Boolean(position) &&
+          Boolean(filterStatus?.isVisible) &&
+          !isFilteredOut
+        );
       }),
-    [formattedPositions, languageFilterStatus],
+    [
+      formattedPositions,
+      languageFilterStatus,
+      hasActiveFilters,
+      filteredLanguages,
+    ],
   );
 
   const totalVisibleLabels = visibleLabelCodes.length;
