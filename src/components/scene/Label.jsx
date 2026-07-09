@@ -1,7 +1,7 @@
 import { useSpring } from "@react-spring/three";
 import { Text } from "@react-three/drei";
 import { useCallback, useMemo, useRef } from "react";
-import { MeshStandardMaterial } from "three";
+import { MeshStandardMaterial, Vector3 } from "three";
 import { useAppStateContext } from "../../contexts/AppStateContext.jsx";
 import { useConfigContext } from "../../contexts/ConfigContext.jsx";
 import { useEntranceContext } from "../../contexts/EntranceContext.jsx";
@@ -9,7 +9,6 @@ import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionCon
 import { usePlaylistContext } from "../../contexts/PlaylistContext.jsx";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { getLanguageLabel } from "../../utils/linguisticUtils.js";
-import { calculateRadialOffset } from "../../utils/sceneUtils.js";
 
 const Label = ({
   languageCode,
@@ -51,11 +50,6 @@ const Label = ({
     labelContent,
   );
 
-  const radialOffset = useMemo(
-    () => calculateRadialOffset(position),
-    [position],
-  );
-
   const { getLabelSpringProps } = useEntranceContext();
   const {
     startPosition,
@@ -90,12 +84,16 @@ const Label = ({
     immediate: isMotionReduced,
   });
 
-  // Selection offset spring (radial push when selected)
+  // Selection offset spring (push toward camera when selected)
   const selectionSpring = useSpring({
     offset: isSelected ? labelOffset : 0,
+    immediate: isMotionReduced,
   });
 
   const mingleRef = useRef(0);
+
+  // Reused vector to avoid allocating one every frame
+  const cameraFacingDirection = useMemo(() => new Vector3(), []);
 
   const textMaterial = useMemo(
     () =>
@@ -114,12 +112,18 @@ const Label = ({
     const offset = selectionSpring.offset.get();
 
     if (isBlackboard) {
-      labelRef.current.position.set(x, y, z + offset * labelOffset);
+      // Board is flat on z = 0 and the camera never rotates here, so the
+      // push direction is always world +z — no dependency on live camera
+      // state, so it can't drift while the camera moves
+      labelRef.current.position.set(x, y, z + offset);
     } else {
+      // Sphere camera orbits freely, so push toward wherever the camera
+      // currently is, recomputed each frame
+      cameraFacingDirection.set(0, 0, 1).applyQuaternion(camera.quaternion);
       labelRef.current.position.set(
-        x + radialOffset[0] * offset,
-        y + radialOffset[1] * offset,
-        z + radialOffset[2] * offset,
+        x + cameraFacingDirection.x * offset,
+        y + cameraFacingDirection.y * offset,
+        z + cameraFacingDirection.z * offset,
       );
     }
 

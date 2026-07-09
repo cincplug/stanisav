@@ -202,7 +202,7 @@ const calculateCameraPosition = (nodePosition, zoomDistance, isBlackboard) => {
     return new Vector3(
       nodePosition.x,
       nodePosition.y,
-      nodePosition.z + zoomDistance * 2,
+      nodePosition.z + zoomDistance,
     );
   }
 

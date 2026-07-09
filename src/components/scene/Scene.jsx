@@ -154,8 +154,8 @@ const Scene = ({ onDataLoaded, onLoadingChange }) => {
       if (isBlackboard) {
         return [
           base[0],
-          base[1] + labelOffset / 2,
-          base[2] + radial[2] + labelOffset + sphereRadius,
+          base[1] + radial[1] + labelSize,
+          base[2] + radial[2] + labelOffset,
         ];
       }
 
