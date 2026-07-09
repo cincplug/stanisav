@@ -7,10 +7,11 @@ import { useMediaQuery } from "../../hooks/useMediaQuery";
 import ControlItemGroup from "./ControlItemGroup";
 import LocaleLinks from "./LocaleLinks";
 import "./Menu.css";
-import { BurgerIcon, CloseIcon, BlackboardIcon } from "../Icons";
+import { BurgerIcon, CloseIcon, BlackboardIcon, SortIcon } from "../Icons";
 import Playlist from "./Playlist";
 import TabNavigation from "./TabNavigation";
 import TabRenderer from "./TabRenderer";
+import Select from "../ux/Select";
 
 function Menu({
   onControlChange,
@@ -21,12 +22,30 @@ function Menu({
   filters,
   onFiltersChange,
 }) {
-  const { config, updateConfigValue } = useConfigContext();
+  const { config, updateConfigValue, getConfigGroup } = useConfigContext();
   const { languageColors } = useLanguageColorsContext();
   const { t, isRtl } = useI18nContext();
   const [selectedTab, setSelectedTab] = useState(tabsConfig.defaultTab);
   const isMobile = useMediaQuery("(max-width: 640px)");
-  const { isBlackboard } = config;
+  const { isBlackboard, sortBy } = config;
+
+  const sortByControl = getConfigGroup("header").find(
+    ({ groupRelativeKey }) => groupRelativeKey === "sortBy",
+  );
+
+  const sortByOptions = (sortByControl?.options || []).map((value) => {
+    const i18nKey = `controls.sortBy.options.${value}`;
+    const translated = t(i18nKey);
+    return {
+      value,
+      label: translated !== i18nKey ? translated : String(value),
+    };
+  });
+
+  const selectedSortBy =
+    sortByOptions.find(({ value }) => value === sortBy)?.value ||
+    sortByOptions[0]?.value ||
+    "";
 
   const handleControlChange = (dotKey, value) => {
     onControlChange(dotKey, value);
@@ -91,6 +110,18 @@ function Menu({
         <div className={`menu compact${isRtl ? " rtl" : ""}`}>
           <Playlist />
           <LocaleLinks isCompact />
+          {sortByOptions.length > 0 && (
+            <div className="compact-sort-control">
+              <SortIcon className="compact-sort-icon" />
+              <Select
+                options={sortByOptions}
+                value={selectedSortBy}
+                onChange={(value) => updateConfigValue("header.sortBy", value)}
+                label={t("controls.sortBy.label")}
+                className="compact-sort-select"
+              />
+            </div>
+          )}
           <button
             onClick={() => updateConfigValue("isBlackboard", !isBlackboard)}
             aria-pressed={isBlackboard}
