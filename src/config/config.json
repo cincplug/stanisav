@@ -40,7 +40,7 @@
     "blinkDuration": 0.2,
     "earDepth": 4.5,
     "earHeight": 1.1,
-    "earSize": 1.2,
+    "earSize": 0.8,
     "earWidth": 0.2,
     "earX": 2.7,
     "earY": 0.5,
@@ -51,7 +51,7 @@
     "eyelidDepth": 1.1,
     "eyelidHeight": 0.5,
     "eyelidWidth": 0.8,
-    "eyeSize": 0.25,
+    "eyeSize": 0.22,
     "eyeX": 0.7,
     "eyeY": 2.1,
     "eyeZ": 2.5,
@@ -92,7 +92,7 @@
     "toothSpin": 3.2,
     "toothColorStep": 11,
     "tuftSize": 0.36,
-    "tuftSpacing": 4.8,
+    "tuftSpacing": 5.2,
     "tuftY": 1.4,
     "tuftHueShift": 120,
     "tuftColorStep": 33
@@ -180,7 +180,7 @@
     "isIdCardVisible": false,
     "isMenuExpanded": false,
     "isMyMesha": false,
-    "soundSource": ["o-l", "l-o", "l", "o"]
+    "soundSource": ["o-l", "l", "o", "l-o"]
   },
   "entrance": {
     "entranceAxis": "z",

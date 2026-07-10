@@ -35,7 +35,7 @@ export async function playAudioTrack(audio, audioUrl, config) {
   });
 }
 
-// Plays each url in audioUrls sequentially. onPhaseChange(index) is called
+// Plays each url in audioUrls sequentially. onPhaseChange(index, url) is called
 // before each track so callers can track which sample is currently playing.
 export async function playAudioSequence({
   audio,
@@ -48,9 +48,8 @@ export async function playAudioSequence({
   for (let urlIndex = 0; urlIndex < audioUrls.length; urlIndex += 1) {
     if (!shouldContinue()) return;
 
-    onPhaseChange?.(urlIndex);
-
     const audioUrl = audioUrls[urlIndex];
+    onPhaseChange?.(urlIndex, audioUrl);
     await playAudioTrack(audio, audioUrl, config);
 
     const isLastTrack = urlIndex === audioUrls.length - 1;

@@ -41,6 +41,7 @@ export const PlaylistProvider = ({ children }) => {
   // Index of the audio URL currently playing within the sequence for a language:
   // 0 = first sample (original or luka depending on soundSource), 1 = second sample
   const [audioPhaseIndex, setAudioPhaseIndex] = useState(0);
+  const [isCurrentSampleLuka, setIsCurrentSampleLuka] = useState(false);
 
   const userPausedRef = useRef(false);
   const playlistRef = useRef([]);
@@ -142,6 +143,7 @@ export const PlaylistProvider = ({ children }) => {
 
   const pausePlaylist = useCallback(() => {
     setIsPlaying(false);
+    setIsCurrentSampleLuka(false);
     userPausedRef.current = true;
     stopCurrentAudio();
   }, [stopCurrentAudio]);
@@ -174,6 +176,7 @@ export const PlaylistProvider = ({ children }) => {
         const nextIndex = index + 1;
         if (nextIndex >= codes.length) {
           setIsPlaying(false);
+          setIsCurrentSampleLuka(false);
           userPausedRef.current = true;
           viewAllLanguages();
           return index;
@@ -184,6 +187,7 @@ export const PlaylistProvider = ({ children }) => {
       });
     } else {
       setIsPlaying(false);
+      setIsCurrentSampleLuka(false);
       userPausedRef.current = true;
     }
   }, []);
@@ -191,6 +195,7 @@ export const PlaylistProvider = ({ children }) => {
   useEffect(() => {
     if (isMyMesha) {
       setIsPlaying(false);
+      setIsCurrentSampleLuka(false);
       userPausedRef.current = false;
       stopCurrentAudio();
       return;
@@ -245,6 +250,7 @@ export const PlaylistProvider = ({ children }) => {
 
           if (audioUrls.length === 0) {
             console.warn(`No audio available for language: ${code}`);
+            setIsCurrentSampleLuka(false);
             handleAudioEnded();
             return;
           }
@@ -261,7 +267,10 @@ export const PlaylistProvider = ({ children }) => {
             config,
             delayDuration: switchDuration,
             shouldContinue: () => isEffectActive,
-            onPhaseChange: (phaseIndex) => setAudioPhaseIndex(phaseIndex),
+            onPhaseChange: (phaseIndex, audioUrl) => {
+              setAudioPhaseIndex(phaseIndex);
+              setIsCurrentSampleLuka(Boolean(audioUrl?.endsWith("-luka.mp3")));
+            },
           });
 
           if (isEffectActive) {
@@ -269,6 +278,7 @@ export const PlaylistProvider = ({ children }) => {
           }
         } catch (error) {
           console.error("Error playing language audio:", error);
+          setIsCurrentSampleLuka(false);
           if (isEffectActive) {
             handleAudioEnded();
           }
@@ -322,6 +332,7 @@ export const PlaylistProvider = ({ children }) => {
     isPlaying,
     isAnimating,
     audioPhaseIndex,
+    isCurrentSampleLuka,
     currentIndex,
     playlistLength: playlistRef.current.length,
     startPlaylist,

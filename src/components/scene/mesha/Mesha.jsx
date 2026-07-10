@@ -45,7 +45,7 @@ const Mesha = ({
 
   const { data } = useAppStateContext();
   const { languageColors } = useLanguageColorsContext();
-  const { isAnimating, isPlaying, audioPhaseIndex } = usePlaylistContext();
+  const { isAnimating, isPlaying, isCurrentSampleLuka } = usePlaylistContext();
   const { config } = useConfigContext();
   const {
     entranceDuration,
@@ -291,7 +291,7 @@ const Mesha = ({
         <Ears
           earMaterial={skinMaterial}
           morphologyScore={scores.morphology}
-          isLuka={audioPhaseIndex === 1}
+          isLuka={isCurrentSampleLuka}
         />
 
         <Tongue tongueMaterial={tongueMaterial} />
