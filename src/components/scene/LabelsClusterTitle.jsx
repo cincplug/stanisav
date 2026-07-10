@@ -12,7 +12,7 @@ const LabelsClusterTitle = ({ languagePositions, title }) => {
   );
 
   const { config } = useConfigContext();
-  const { boardTitleGap, white } = config;
+  const { labelSize, boardTitleGap, white } = config;
 
   useEffect(() => {
     if (titleRef.current && topCenter) {
@@ -28,7 +28,7 @@ const LabelsClusterTitle = ({ languagePositions, title }) => {
     <Text
       font="/fonts/RobotoSlab-SemiBold.ttf"
       ref={titleRef}
-      fontSize={2}
+      fontSize={labelSize}
       fontWeight="bold"
       anchorX="center"
       anchorY="bottom"
