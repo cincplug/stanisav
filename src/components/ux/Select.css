@@ -1,6 +1,14 @@
 .select-wrapper {
   position: relative;
 
+  .select-overlay-icon {
+    position: absolute;
+    inset-inline-start: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
   .expand-icon {
     position: absolute;
     inset-inline-end: var(--gap-half); /* follows text direction */
@@ -8,6 +16,12 @@
     transform: translateY(-50%);
     pointer-events: none;
   }
+}
+
+.select-wrapper-with-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .select-native {
@@ -31,4 +45,17 @@
     outline: var(--outline-default);
     outline-offset: 1px;
   }
+}
+
+.select-native.select-native-compact {
+  padding-inline-end: var(--gap);
+}
+
+.select-native.select-native-icon-only {
+  color: transparent;
+  text-shadow: none;
+}
+
+.select-native.select-native-icon-only option {
+  color: var(--color-4);
 }

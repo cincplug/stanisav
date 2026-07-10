@@ -39,43 +39,13 @@
   }
 
   &.compact {
-    .select-native {
-      text-align: center;
-    }
-
-    .compact-sort-control {
-      position: relative;
+    .select-wrapper-with-icon {
       width: var(--icon-size-l);
       height: var(--icon-size-l);
 
-      .select-wrapper {
+      .select-native {
         width: 100%;
         height: 100%;
-      }
-
-      .compact-sort-icon {
-        position: absolute;
-        inset-inline-start: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        pointer-events: none;
-      }
-
-      .expand-icon {
-        display: none;
-      }
-
-      .compact-sort-select {
-        display: block;
-        width: 100%;
-        height: 100%;
-        padding: 0;
-        color: transparent;
-        text-shadow: none;
-      }
-
-      .compact-sort-select option {
-        color: var(--color-4);
       }
     }
   }

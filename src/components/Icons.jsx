@@ -260,26 +260,36 @@ export const SortIcon = (props) => (
     {/* Up arrow on the left */}
     <line
       x1="8"
-      y1="17"
+      y1="20"
       x2="8"
-      y2="7"
+      y2="4"
       stroke={iconColor}
       strokeWidth={strokeWidth}
       strokeLinecap="round"
     />
-    <polygon points="8,4 5,8 11,8" fill={iconColor} />
+    <polygon
+      points="8,4 5,8 11,8"
+      fill={iconColor}
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+    />
 
     {/* Down arrow on the right */}
     <line
       x1="16"
-      y1="7"
+      y1="4"
       x2="16"
-      y2="17"
+      y2="20"
       stroke={iconColor}
       strokeWidth={strokeWidth}
       strokeLinecap="round"
     />
-    <polygon points="16,20 13,16 19,16" fill={iconColor} />
+    <polygon
+      points="16,20 13,16 19,16"
+      fill={iconColor}
+      stroke={iconColor}
+      strokeWidth={strokeWidth}
+    />
   </svg>
 );
 

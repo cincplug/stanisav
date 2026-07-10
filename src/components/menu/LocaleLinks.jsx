@@ -24,6 +24,7 @@ export default function LocaleLinks({ isCompact = false }) {
       value={currentSlug}
       onChange={handleChange}
       label={t("menu.languageSelector")}
+      isCompact
     />
   );
 }

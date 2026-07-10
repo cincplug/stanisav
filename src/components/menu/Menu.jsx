@@ -111,16 +111,14 @@ function Menu({
           <Playlist />
           <LocaleLinks isCompact />
           {sortByOptions.length > 0 && (
-            <div className="compact-sort-control">
-              <SortIcon className="compact-sort-icon" />
-              <Select
-                options={sortByOptions}
-                value={selectedSortBy}
-                onChange={(value) => updateConfigValue("header.sortBy", value)}
-                label={t("controls.sortBy.label")}
-                className="compact-sort-select"
-              />
-            </div>
+            <Select
+              options={sortByOptions}
+              value={selectedSortBy}
+              onChange={(value) => updateConfigValue("header.sortBy", value)}
+              label={t("controls.sortBy.label")}
+              isCompact
+              icon={<SortIcon />}
+            />
           )}
           <button
             onClick={() => updateConfigValue("isBlackboard", !isBlackboard)}
