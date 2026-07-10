@@ -26,6 +26,7 @@ const LabelsClusterTitle = ({ languagePositions, title }) => {
 
   return (
     <Text
+      font="/fonts/RobotoSlab-SemiBold.ttf"
       ref={titleRef}
       fontSize={2}
       fontWeight="bold"
