@@ -4,12 +4,7 @@ import { useConfigContext } from "../contexts/ConfigContext";
 import { meshVertexShader, tonalityFragmentShader } from "../shaders/shader";
 import { useThrottledFrame } from "./useThrottledFrame";
 
-export const useShaderMaterial = (
-  baseColor,
-  accentColor,
-  stripesType,
-  opacity,
-) => {
+export const useShaderMaterial = (baseColor, accentColor, stripesType) => {
   const { config } = useConfigContext();
   const {
     ambient,
@@ -18,11 +13,11 @@ export const useShaderMaterial = (
     lightingDiffuse,
     shadeChecker,
     shadeStripe,
+    shaderOpacity,
   } = config;
 
   const baseColorObj = useMemo(() => new Color(baseColor), [baseColor]);
   const accentColorObj = useMemo(() => new Color(accentColor), [accentColor]);
-  const shaderOpacity = opacity || config.shaderOpacity;
 
   const material = useMemo(
     () => ({
