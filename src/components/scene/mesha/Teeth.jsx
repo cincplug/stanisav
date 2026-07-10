@@ -38,11 +38,10 @@ const Teeth = ({ toothCount, consonantClusterSize }) => {
 
       return {
         x: Math.cos(angle) * radius,
-        y: Math.cos(indexFromCenter) * toothWaviness,
+        y: Math.cos(indexFromCenter) * toothWaviness * consonantClusterSize,
         z: Math.sin(angle) * radius,
         indexFromCenter,
         halfCount,
-        rotationAngle: 0,
         key: `tooth-${toothIndex}`,
       };
     });
@@ -58,7 +57,7 @@ const Teeth = ({ toothCount, consonantClusterSize }) => {
           const xSymmetry = Math.abs(Math.cos((i / count) * Math.PI * 2));
           const bandIndex = Math.floor((xSymmetry * harmonicsData.length) / 6);
           const amplitude = harmonicsData[bandIndex];
-          tooth.rotation.x = amplitude * consonantClusterSize * toothSpin;
+          tooth.rotation.x = amplitude * toothSpin;
         }
       });
     }
@@ -107,10 +106,7 @@ const Tooth = forwardRef(({ tooth, color }, ref) => {
   const roundness = thickness / 2;
 
   return (
-    <group
-      position={[tooth.x, tooth.y, tooth.z - 1]}
-      rotation={[tooth.rotationAngle, 0, 0]}
-    >
+    <group position={[tooth.x, tooth.y, tooth.z - 1]} rotation={[0, 0, 0]}>
       <mesh ref={ref}>
         <roundedBoxGeometry
           args={[toothWidth, length, thickness, segmentsSmall, roundness]}
