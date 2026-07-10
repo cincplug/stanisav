@@ -100,6 +100,9 @@ export default function Playlist() {
       role="group"
       aria-label={t("playlist.controls")}
     >
+      <button onClick={handleStop} aria-label={t("menu.back")}>
+        <HomeIcon />
+      </button>
       <button
         onClick={goToPrev}
         aria-label={t("playlist.previous")}

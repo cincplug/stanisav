@@ -3,8 +3,6 @@ import tabsConfig from "../../config/tabsConfig.json";
 import { useConfigContext } from "../../contexts/ConfigContext";
 import { useI18nContext } from "../../contexts/I18nContext";
 import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext";
-import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext.jsx";
-import { usePlaylistContext } from "../../contexts/PlaylistContext.jsx";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import ControlItemGroup from "./ControlItemGroup";
 import LocaleLinks from "./LocaleLinks";
@@ -32,8 +30,6 @@ function Menu({
 }) {
   const { config, updateConfigValue, getConfigGroup } = useConfigContext();
   const { languageColors } = useLanguageColorsContext();
-  const { selectedLanguage, viewAllLanguages } = useLanguageSelectionContext();
-  const { pausePlaylist } = usePlaylistContext();
   const { t, isRtl } = useI18nContext();
   const [selectedTab, setSelectedTab] = useState(tabsConfig.defaultTab);
   const isMobile = useMediaQuery("(max-width: 640px)");
@@ -64,11 +60,6 @@ function Menu({
 
   const handleTabChange = (tabId) => {
     setSelectedTab(tabId);
-  };
-
-  const handleHomeClick = () => {
-    pausePlaylist();
-    viewAllLanguages();
   };
 
   if (isLoading) {
@@ -123,15 +114,6 @@ function Menu({
         </div>
       ) : (
         <div className={`menu compact${isRtl ? " rtl" : ""}`}>
-          {selectedLanguage && (
-            <button
-              onClick={handleHomeClick}
-              aria-label={t("menu.back")}
-              className="home-button menu-item"
-            >
-              <HomeIcon />
-            </button>
-          )}
           <Playlist />
           <LocaleLinks isCompact />
           {sortByOptions.length > 0 && (
