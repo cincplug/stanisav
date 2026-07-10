@@ -3,7 +3,6 @@ import "./App.css";
 import IdCard from "./IdCard.jsx";
 import Menu from "./menu/Menu.jsx";
 import Scene from "./scene/Scene.jsx";
-import { HomeIcon } from "./Icons.jsx";
 import { useAppStateContext } from "../contexts/AppStateContext.jsx";
 import { useConfigContext } from "../contexts/ConfigContext.jsx";
 import { useI18nContext } from "../contexts/I18nContext.jsx";
@@ -13,7 +12,7 @@ import { usePlaylistContext } from "../contexts/PlaylistContext.jsx";
 import { useMediaQuery } from "../hooks/useMediaQuery.js";
 
 function App() {
-  const { t, isRtl } = useI18nContext();
+  const { isRtl } = useI18nContext();
   const {
     isLoading,
     data,
@@ -28,7 +27,7 @@ function App() {
 
   const isMobile = useMediaQuery();
   const { config, updateConfigValue } = useConfigContext();
-  const { selectedLanguage, viewAllLanguages } = useLanguageSelectionContext();
+  const { selectedLanguage } = useLanguageSelectionContext();
   const { pausePlaylist } = usePlaylistContext();
   const { isIdCardVisible, isMenuExpanded, isBlackboard, labelSize } = config;
   const { sampleUrl, sub } = data?.languageData[selectedLanguage] || {};
@@ -38,11 +37,6 @@ function App() {
   useEffect(() => {
     document.documentElement.style.setProperty("--label-size-scale", labelSize);
   }, [labelSize]);
-
-  const handleHomeClick = () => {
-    pausePlaylist();
-    viewAllLanguages();
-  };
 
   const isMeshaMini = isMobile && !!selectedLanguage && isMenuExpanded;
 
@@ -94,16 +88,6 @@ function App() {
           />
         )}
       </div>
-
-      {(!isMobile || !isMenuExpanded) && selectedLanguage && (
-        <button
-          onClick={handleHomeClick}
-          aria-label={t("menu.back")}
-          className="home-button menu-item"
-        >
-          <HomeIcon />
-        </button>
-      )}
     </div>
   );
 }
