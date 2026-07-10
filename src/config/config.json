@@ -88,6 +88,7 @@
     "toothThicknessCorner": 0.3,
     "toothY": 0.3,
     "toothZ": 1.1,
+    "toothWaviness": 0.1,
     "toothSpin": 3.2,
     "toothColorStep": 11,
     "tuftSize": 0.36,
@@ -130,7 +131,7 @@
     "far": 2000,
     "fov": 30,
     "near": 0.1,
-    "switchDuration": 1500,
+    "switchDuration": 1000,
     "zoomDistance": 27
   },
   "motion": {

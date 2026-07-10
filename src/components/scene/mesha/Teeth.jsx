@@ -21,6 +21,7 @@ const Teeth = ({ toothCount, consonantClusterSize }) => {
     toothY,
     toothZ,
     toothSpin,
+    toothWaviness,
   } = config;
   const centerIndex = (toothCount - 1) / 2;
 
@@ -37,7 +38,7 @@ const Teeth = ({ toothCount, consonantClusterSize }) => {
 
       return {
         x: Math.cos(angle) * radius,
-        y: 0,
+        y: Math.cos(indexFromCenter) * toothWaviness,
         z: Math.sin(angle) * radius,
         indexFromCenter,
         halfCount,
@@ -45,7 +46,7 @@ const Teeth = ({ toothCount, consonantClusterSize }) => {
         key: `tooth-${toothIndex}`,
       };
     });
-  }, [toothCount, toothSpacing]);
+  }, [toothCount, toothSpacing, toothWaviness]);
 
   useThrottledFrame(() => {
     if (teethRefs.current) {
