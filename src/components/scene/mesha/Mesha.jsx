@@ -312,7 +312,6 @@ const Mesha = ({
             color={tuftColor}
             y={tuftY}
             z={eyeZ}
-            audioBand="harmonicsData"
             stepDeg={6}
           />
         )}
@@ -323,7 +322,6 @@ const Mesha = ({
             color={eyebrowColor}
             y={eyebrowY}
             z={eyeZ}
-            audioBand="fundamentData"
             stepDeg={12}
           />
         )}

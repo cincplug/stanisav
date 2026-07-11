@@ -2,21 +2,18 @@ import { extend } from "@react-three/fiber";
 import { forwardRef, useMemo, useRef } from "react";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { useConfigContext } from "../../../contexts/ConfigContext.jsx";
-import { useAudioData } from "../../../hooks/useAudioData.js";
 import { useShaderMaterial } from "../../../hooks/useShaderMaterial.js";
-import { useThrottledFrame } from "../../../hooks/useThrottledFrame.js";
 import { shiftHue } from "../../../utils/colorUtils.js";
 import { createTuftShape } from "../../../utils/shapeUtils.js";
 
 extend({ ParametricGeometry });
 
-const Moustache = ({ tuftCount, color, y, z, audioBand, stepDeg }) => {
+const Moustache = ({ tuftCount, color, y, z, stepDeg }) => {
   const tuftsRef = useRef([]);
   const tuftDataRef = useRef([]);
 
   const { config } = useConfigContext();
   const { eyeZ, eyeX, tuftSize, tuftSpacing, tuftColorStep } = config;
-  const { audioData } = useAudioData();
 
   const tuftSurface = useMemo(
     () => createTuftShape(tuftSize, tuftCount),
@@ -46,21 +43,6 @@ const Moustache = ({ tuftCount, color, y, z, audioBand, stepDeg }) => {
     tuftDataRef.current = result;
     return result;
   }, [tuftCount, tuftSpacing, eyeX, eyeZ, y, z]);
-
-  useThrottledFrame(() => {
-    const audioBandData = audioData[audioBand];
-    tuftsRef.current.forEach((tuftGroup, i) => {
-      if (!tuftGroup) return;
-      const bandIndex = Math.floor(
-        (Math.abs(Math.cos((i / tuftCount) * Math.PI * 2)) *
-          audioBandData.length) /
-          tuftCount,
-      );
-      const amplitude = audioBandData[bandIndex];
-      const scale = tuftSize + amplitude;
-      tuftGroup.scale.set(scale, scale, scale);
-    });
-  });
 
   if (!tuftsWithRotation.length) return null;
 

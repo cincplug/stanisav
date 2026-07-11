@@ -27,7 +27,7 @@ const Tongue = ({ tongueMaterial }) => {
   const meshRef = useRef();
 
   useThrottledFrame(() => {
-    const { harmonicsData: fundamentalData } = audioData;
+    const { fundamentalData } = audioData;
 
     const audioSurface = createAudioSurface({
       audioBand: fundamentalData,

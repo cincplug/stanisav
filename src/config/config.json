@@ -58,7 +58,7 @@
     "irisSize": 0.75,
     "isPhoenix": false,
     "isSurprised": false,
-    "meshaSize": 1.2,
+    "meshaSize": 1.4,
     "noseSize": 0.25,
     "noseThickness": 0.4,
     "noseSliceAngle": 60,
@@ -130,7 +130,7 @@
     "far": 2000,
     "fov": 30,
     "near": 0.1,
-    "switchDuration": 1000,
+    "switchDuration": 1400,
     "zoomDistance": 27
   },
   "motion": {
@@ -179,7 +179,7 @@
     "isIdCardVisible": false,
     "isMenuExpanded": false,
     "isMyMesha": false,
-    "soundSource": ["o-l", "l", "o", "l-o"]
+    "soundSource": ["l", "o-l", "o", "l-o"]
   },
   "entrance": {
     "entranceAxis": "z",
