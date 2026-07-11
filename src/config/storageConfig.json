@@ -1,1 +1,5 @@
-{ "configStorageKey": "meshaConfig" }
+{
+  "configStorageKey": "meshaConfig",
+  "presetDownloadFileName": "mesha-preset.json",
+  "presetNames": []
+}

@@ -65,3 +65,13 @@
   gap: var(--gap-half);
   align-items: center;
 }
+
+.preset-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+
+.preset-file-input {
+  display: none;
+}

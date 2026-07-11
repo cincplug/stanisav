@@ -1,6 +1,9 @@
+import { useRef } from "react";
 import staticConfig from "../../config/config.json";
 import controlsHideConfig from "../../config/controlsHideConfig.json";
+import { presetNames } from "../../config/storageConfig.json";
 import { useConfigContext } from "../../contexts/ConfigContext";
+import { RefreshIcon } from "../Icons.jsx";
 import ControlItemGroup from "./ControlItemGroup";
 import "./ControlsTab.css";
 
@@ -30,20 +33,38 @@ const shouldHideGroup = (groupName, getConfigGroup) => {
   return findConfigValueByKey(getConfigGroup, watchKey) === hideWhenValue;
 };
 
-// True if any control, in any group, currently differs from its default.
-const hasAnyChangedControl = (getConfigGroup) =>
-  allGroupNames.some((groupName) =>
+// True if any control, in any of the given (visible) groups, currently differs from its default.
+// Groups hidden via controlsHideConfig.json are excluded, since their values (e.g. isMenuExpanded)
+// can change without the user touching a visible control.
+const hasAnyChangedControl = (visibleGroupNames, getConfigGroup) =>
+  visibleGroupNames.some((groupName) =>
     getConfigGroup(groupName).some(({ isChanged }) => isChanged),
   );
 
 const ControlsTab = ({ className }) => {
-  const { getConfigGroup, resetAllConfigValues } = useConfigContext();
+  const {
+    getConfigGroup,
+    resetAllConfigValues,
+    downloadConfigPreset,
+    loadConfigFromFile,
+    loadConfigPresetByName,
+  } = useConfigContext();
+  const fileInputRef = useRef(null);
 
   const visibleGroupNames = allGroupNames.filter(
     (groupName) => !shouldHideGroup(groupName, getConfigGroup),
   );
 
-  const isAnyControlChanged = hasAnyChangedControl(getConfigGroup);
+  const isAnyControlChanged = hasAnyChangedControl(
+    visibleGroupNames,
+    getConfigGroup,
+  );
+
+  const handleFileInputChange = (event) => {
+    const selectedFile = event.target.files?.[0];
+    if (selectedFile) loadConfigFromFile(selectedFile);
+    event.target.value = "";
+  };
 
   return (
     <div className={`control-section ${className}`}>
@@ -51,15 +72,56 @@ const ControlsTab = ({ className }) => {
         <ControlItemGroup key={groupName} groupName={groupName} showFieldset />
       ))}
 
-      {isAnyControlChanged && (
-        <fieldset>
-          <button
-            type="button"
-            className="reset-all-button"
-            onClick={resetAllConfigValues}
-          >
-            <span>Reset all</span>
-          </button>
+      <fieldset className="preset-controls">
+        {isAnyControlChanged && (
+          <>
+            <button
+              type="button"
+              className="reset-all-button"
+              onClick={resetAllConfigValues}
+            >
+              <span>Reset to defaults</span>
+            </button>
+
+            <button
+              type="button"
+              className="preset-save-button"
+              onClick={downloadConfigPreset}
+            >
+              Save preset
+            </button>
+          </>
+        )}
+
+        <button
+          type="button"
+          className="preset-load-button"
+          onClick={() => fileInputRef.current?.click()}
+        >
+          Load preset
+        </button>
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="application/json"
+          className="preset-file-input"
+          onChange={handleFileInputChange}
+        />
+      </fieldset>
+
+      {presetNames.length > 0 && (
+        <fieldset className="preset-list preset-controls">
+          <legend>Presets</legend>
+          {presetNames.map((presetName) => (
+            <button
+              key={presetName}
+              type="button"
+              className="preset-select-button"
+              onClick={() => loadConfigPresetByName(presetName)}
+            >
+              {presetName}
+            </button>
+          ))}
         </fieldset>
       )}
     </div>
