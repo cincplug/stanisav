@@ -21,11 +21,11 @@
     "lightingDiffuse": 0.5,
     "lightingMax": 1.2,
     "lightingMin": 0.7,
-    "shaderOpacity": 0.8,
     "ringCount": 12,
     "ringSpeed": 1.2,
     "shadeChecker": 1.22,
-    "shadeStripe": 2
+    "shadeStripe": 2,
+    "shaderOpacity": 0.9
   },
   "light": {
     "defaultLightDistance": 174,
@@ -90,15 +90,15 @@
     "toothWaviness": 0.05,
     "toothSpin": 9.4,
     "toothColorStep": 11,
-    "tuftSize": 0.36,
+    "tuftSize": 0.31,
     "tuftSpacing": 5.2,
     "tuftY": 1.4,
     "tuftHueShift": 120,
     "tuftColorStep": 33
   },
   "audioVisualisation": {
-    "fundamentMax": 800,
-    "fundamentMin": 85,
+    "fundamentalMax": 800,
+    "fundamentalMin": 85,
     "harmonicsMax": 4000,
     "harmonicsMin": 700,
     "amplitudeThreshold": 0.1,
@@ -130,7 +130,7 @@
     "far": 2000,
     "fov": 30,
     "near": 0.1,
-    "switchDuration": 1400,
+    "switchDuration": 1200,
     "zoomDistance": 27
   },
   "motion": {

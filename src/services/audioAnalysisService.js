@@ -12,7 +12,7 @@ class AudioAnalysisService {
     this.animationFrameId = null;
     this.connectedAudioElements = new Set();
 
-    this.fundamentData = defaultAudioData.fundamentData;
+    this.fundamentalData = defaultAudioData.fundamentalData;
     this.harmonicsData = defaultAudioData.harmonicsData;
 
     this.analysisConfig = null;
@@ -111,7 +111,7 @@ class AudioAnalysisService {
     }
 
     // this.notifyCallbacks({
-    //   fundamentData: this.fundamentData,
+    //   fundamentalData: this.fundamentalData,
     //   harmonicsData: this.harmonicsData,
     // });
   }
@@ -130,7 +130,7 @@ class AudioAnalysisService {
       this.analyser.getByteFrequencyData(this.dataArray);
       this.processFrequencyData();
       this.notifyCallbacks({
-        fundamentData: this.fundamentData,
+        fundamentalData: this.fundamentalData,
         harmonicsData: this.harmonicsData,
       });
     }
@@ -143,18 +143,18 @@ class AudioAnalysisService {
     const nyquist = sampleRate / 2;
     const binCount = this.dataArray.length;
 
-    const { fundamentMin, fundamentMax, harmonicsMin, harmonicsMax } =
+    const { fundamentalMin, fundamentalMax, harmonicsMin, harmonicsMax } =
       this.analysisConfig;
 
-    const fundamentMinBin = Math.floor((fundamentMin / nyquist) * binCount);
-    const fundamentMaxBin = Math.floor((fundamentMax / nyquist) * binCount);
+    const fundamentalMinBin = Math.floor((fundamentalMin / nyquist) * binCount);
+    const fundamentalMaxBin = Math.floor((fundamentalMax / nyquist) * binCount);
     const harmonicsMinBin = Math.floor((harmonicsMin / nyquist) * binCount);
     const harmonicsMaxBin = Math.floor((harmonicsMax / nyquist) * binCount);
 
     this.processFrequencyBand(
-      fundamentMinBin,
-      fundamentMaxBin,
-      this.fundamentData,
+      fundamentalMinBin,
+      fundamentalMaxBin,
+      this.fundamentalData,
     );
     this.processFrequencyBand(
       harmonicsMinBin,
