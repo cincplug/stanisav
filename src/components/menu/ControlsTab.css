@@ -47,60 +47,21 @@
   gap: var(--gap-double);
 }
 
-.advanced-controls {
-  legend {
-    label {
-      display: flex;
-      gap: var(--gap-half);
-    }
-  }
+.reset-button {
+  padding: 0;
+  background: none;
+  width: var(--icon-size-s);
+  height: var(--icon-size-s);
 
-  .controls-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .accordion-item-title {
-    display: flex;
-    gap: var(--gap);
+  .reset-icon {
     width: 100%;
-
-    button {
-      display: flex;
-      gap: var(--gap);
-      padding: 0;
-      font-size: var(--font-size-l);
-      background: none;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-    }
+    height: 100%;
+    fill: var(--color-red);
   }
+}
 
-  .control-group {
-    &.collapsed {
-      padding-bottom: var(--gap);
-    }
-  }
-
-  .control-item {
-    label {
-      margin-bottom: 0;
-    }
-  }
-
-  .value {
-    display: flex;
-    gap: var(--gap);
-  }
-
-  .reset-button {
-    padding: 0;
-    background: none;
-    width: var(--icon-size-m);
-    height: var(--icon-size-m);
-
-    .reset-icon {
-      transform: scale(-0.8, 0.8);
-    }
-  }
+.label-wrap {
+  display: flex;
+  gap: var(--gap-half);
+  align-items: center;
 }

@@ -403,7 +403,7 @@ export const LightIcon = (props) => (
   </svg>
 );
 
-export const spinIcon = (props) => (
+export const SpinIcon = (props) => (
   <svg
     width={iconSize}
     height={iconSize}
@@ -421,6 +421,19 @@ export const spinIcon = (props) => (
     />
     {/* Arrowhead tangent to arc end, pointing up-right */}
     <polygon points="21,6 16,8 20,11" fill={iconColor} />
+  </svg>
+);
+
+export const RefreshIcon = (props) => (
+  <svg
+    width={iconSize}
+    height={iconSize}
+    viewBox={viewBox}
+    fill="none"
+    {...props}
+  >
+    {/* Thick ring with a triangular notch forming the arrowhead */}
+    <path d="M12 1.5 a10.5 10.5 0 1 0 9.5 6 h-2.48 A8.25 8.25 0 1 1 12 3.75 V0 l4.5 4 -4.5 3 V2 A9 9 0 0 1 12 1.5Z" />
   </svg>
 );
 

@@ -1,17 +1,19 @@
 import { resolveControlBounds } from "../../utils/configUtils";
 import { formatCamelCase } from "../../utils/stringUtils.js";
+import { RefreshIcon } from "../Icons.jsx";
 import Range from "../ux/Range.jsx";
 import Select from "../ux/Select";
 
-// control shape: { dotKey, type, label, options, value }
+// control shape: { dotKey, type, label, options, value, isChanged }
 // type and options are inferred upstream by inferControlType
 const ControlItem = ({
   control,
   onChange,
+  onReset,
   groupIndex = 0,
   controlIndex = 0,
 }) => {
-  const { dotKey, type, label: rawLabel, options, value } = control;
+  const { dotKey, type, label: rawLabel, options, value, isChanged } = control;
   const label = formatCamelCase(rawLabel);
 
   const handleChange = (newValue) => {
@@ -23,21 +25,37 @@ const ControlItem = ({
     case "checkbox":
       return (
         <div className={`control-item ${type}-control ${dotKey}`}>
-          <label>
+          <div className="label-wrap">
             <input
+              id={dotKey}
               type="checkbox"
               checked={value}
               onChange={(e) => handleChange(e.target.checked)}
             />
-            <span>{label}</span>
-          </label>
+            <label htmlFor={dotKey}>
+              <span>{label}</span>
+            </label>
+            <ResetButton
+              isChanged={isChanged}
+              label={label}
+              onReset={onReset}
+            />
+          </div>
         </div>
       );
 
     case "color":
       return (
         <div className={`control-item ${type}-control ${dotKey}`}>
-          <label>{label}</label>
+          <div className="label-wrap">
+            <label>{label}</label>
+            <ResetButton
+              isChanged={isChanged}
+              label={label}
+              onReset={onReset}
+            />
+          </div>
+
           <input
             type="color"
             value={value}
@@ -51,9 +69,17 @@ const ControlItem = ({
       return (
         <div className={`control-item ${type}-control ${dotKey}`}>
           <label>
-            <span>{label}</span>
+            <div className="label-wrap">
+              <span>{label}</span>
+              <ResetButton
+                isChanged={isChanged}
+                label={label}
+                onReset={onReset}
+              />
+            </div>
             <span>{value}</span>
           </label>
+
           <Range
             style={{ "--i": groupIndex * controlIndex }}
             min={min}
@@ -69,7 +95,14 @@ const ControlItem = ({
     case "select":
       return (
         <div className={`control-item ${type}-control ${dotKey}`}>
-          <label>{label}</label>
+          <div className="label-wrap">
+            <label>{label}</label>
+            <ResetButton
+              isChanged={isChanged}
+              label={label}
+              onReset={onReset}
+            />
+          </div>
           <Select
             options={options}
             value={value}
@@ -82,6 +115,20 @@ const ControlItem = ({
     default:
       return null;
   }
+};
+
+const ResetButton = ({ isChanged, label, onReset }) => {
+  if (!isChanged) return null;
+  return (
+    <button
+      type="button"
+      className="reset-button"
+      onClick={onReset}
+      aria-label={`Reset ${label}`}
+    >
+      <RefreshIcon className="reset-icon" />
+    </button>
+  );
 };
 
 export default ControlItem;

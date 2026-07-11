@@ -24,11 +24,12 @@ const resolveSelectOptions = (rawOptions, groupRelativeKey, t) =>
   });
 
 function ControlItemGroup({ groupName, showFieldset = false }) {
-  const { getConfigGroup, updateConfigValue } = useConfigContext();
+  const { getConfigGroup, updateConfigValue, resetConfigValue } =
+    useConfigContext();
   const { t } = useI18nContext();
 
   const controls = getConfigGroup(groupName).flatMap(
-    ({ dotKey, groupRelativeKey, options, value }) => {
+    ({ dotKey, groupRelativeKey, options, value, isChanged }) => {
       const inferred = inferControlType(options ?? value);
       if (!inferred) return [];
       return [
@@ -40,6 +41,7 @@ function ControlItemGroup({ groupName, showFieldset = false }) {
             : null,
           value,
           label: resolveLabel(groupRelativeKey, t),
+          isChanged,
         },
       ];
     },
@@ -52,6 +54,7 @@ function ControlItemGroup({ groupName, showFieldset = false }) {
       key={control.dotKey}
       control={control}
       onChange={(value) => updateConfigValue(control.dotKey, value)}
+      onReset={() => resetConfigValue(control.dotKey)}
       controlIndex={controlIndex}
     />
   ));

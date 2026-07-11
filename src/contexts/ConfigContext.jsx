@@ -1,5 +1,12 @@
-import { createContext, useCallback, useContext, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import staticConfig from "../config/config.json";
+import { configStorageKey } from "../config/storageConfig.json";
 
 const isSelectOptions = (arr) =>
   arr.length > 0 &&
@@ -59,24 +66,88 @@ const setDotKey = (obj, dotKey, value) => {
 const readDotKey = (dotKey, obj) =>
   dotKey.split(".").reduce((node, k) => node?.[k], obj);
 
+// Resolves the static default for a dot key, collapsing select-option arrays to their first element.
+const resolveDefaultValue = (dotKey) => {
+  const staticValue = readStaticDotKey(dotKey);
+  return Array.isArray(staticValue) && isSelectOptions(staticValue)
+    ? staticValue[0]
+    : staticValue;
+};
+
+// Arrays/objects are compared by content, everything else by reference/primitive equality.
+const areConfigValuesEqual = (valueA, valueB) => {
+  if (Array.isArray(valueA) || Array.isArray(valueB)) {
+    return JSON.stringify(valueA) === JSON.stringify(valueB);
+  }
+  return valueA === valueB;
+};
+
+// Deep-merges a stored config into the default shape, so newly added config
+// keys (not present in an older stored payload) still fall back to their default.
+const mergeStoredConfig = (defaultNode, storedNode) => {
+  if (storedNode === undefined) return defaultNode;
+  if (Array.isArray(defaultNode)) {
+    return Array.isArray(storedNode) ? storedNode : defaultNode;
+  }
+  if (typeof defaultNode === "object" && defaultNode !== null) {
+    if (typeof storedNode !== "object" || storedNode === null)
+      return defaultNode;
+    const result = {};
+    for (const [key, value] of Object.entries(defaultNode)) {
+      result[key] = mergeStoredConfig(value, storedNode[key]);
+    }
+    return result;
+  }
+  return storedNode;
+};
+
+const readStoredConfig = () => {
+  if (typeof window === "undefined") return null;
+  try {
+    const rawStoredConfig = window.localStorage.getItem(configStorageKey);
+    return rawStoredConfig ? JSON.parse(rawStoredConfig) : null;
+  } catch {
+    return null;
+  }
+};
+
 const ConfigContext = createContext(null);
 
 export const ConfigProvider = ({ children }) => {
-  const [groupedConfig, setGroupedConfig] = useState(() =>
-    resolveInitialValues(staticConfig),
-  );
+  const [groupedConfig, setGroupedConfig] = useState(() => {
+    const defaultValues = resolveInitialValues(staticConfig);
+    const storedConfig = readStoredConfig();
+    return storedConfig
+      ? mergeStoredConfig(defaultValues, storedConfig)
+      : defaultValues;
+  });
+
+  // Persists the current config to localStorage whenever it changes,
+  // so values survive a page refresh.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      window.localStorage.setItem(
+        configStorageKey,
+        JSON.stringify(groupedConfig),
+      );
+    } catch {
+      // localStorage may be unavailable (e.g. private browsing quota) - fail silently
+    }
+  }, [groupedConfig]);
 
   const updateConfigValue = useCallback((dotKey, value) => {
     setGroupedConfig((prev) => setDotKey(prev, dotKey, value));
   }, []);
 
   const resetConfigValue = useCallback((dotKey) => {
-    const staticValue = readStaticDotKey(dotKey);
-    const resolvedValue =
-      Array.isArray(staticValue) && isSelectOptions(staticValue)
-        ? staticValue[0]
-        : staticValue;
+    const resolvedValue = resolveDefaultValue(dotKey);
     setGroupedConfig((prev) => setDotKey(prev, dotKey, resolvedValue));
+  }, []);
+
+  // Restores every config value to its static default in one go.
+  const resetAllConfigValues = useCallback(() => {
+    setGroupedConfig(resolveInitialValues(staticConfig));
   }, []);
 
   const getConfigGroup = useCallback(
@@ -85,11 +156,15 @@ export const ConfigProvider = ({ children }) => {
       if (!staticGroup || typeof staticGroup !== "object") return [];
       return flattenGroupEntries(staticGroup).map(([relKey, staticValue]) => {
         const dotKey = `${groupName}.${relKey}`;
+        const value = readDotKey(dotKey, groupedConfig);
+        const defaultValue = resolveDefaultValue(dotKey);
         return {
           dotKey,
           groupRelativeKey: relKey,
           options: Array.isArray(staticValue) ? staticValue : null,
-          value: readDotKey(dotKey, groupedConfig),
+          value,
+          defaultValue,
+          isChanged: !areConfigValuesEqual(value, defaultValue),
         };
       });
     },
@@ -107,6 +182,7 @@ export const ConfigProvider = ({ children }) => {
         groupedConfig,
         updateConfigValue,
         resetConfigValue,
+        resetAllConfigValues,
         getConfigGroup,
       }}
     >

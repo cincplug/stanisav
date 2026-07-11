@@ -30,18 +30,38 @@ const shouldHideGroup = (groupName, getConfigGroup) => {
   return findConfigValueByKey(getConfigGroup, watchKey) === hideWhenValue;
 };
 
+// True if any control, in any group, currently differs from its default.
+const hasAnyChangedControl = (getConfigGroup) =>
+  allGroupNames.some((groupName) =>
+    getConfigGroup(groupName).some(({ isChanged }) => isChanged),
+  );
+
 const ControlsTab = ({ className }) => {
-  const { getConfigGroup } = useConfigContext();
+  const { getConfigGroup, resetAllConfigValues } = useConfigContext();
 
   const visibleGroupNames = allGroupNames.filter(
     (groupName) => !shouldHideGroup(groupName, getConfigGroup),
   );
+
+  const isAnyControlChanged = hasAnyChangedControl(getConfigGroup);
 
   return (
     <div className={`control-section ${className}`}>
       {visibleGroupNames.map((groupName) => (
         <ControlItemGroup key={groupName} groupName={groupName} showFieldset />
       ))}
+
+      {isAnyControlChanged && (
+        <fieldset>
+          <button
+            type="button"
+            className="reset-all-button"
+            onClick={resetAllConfigValues}
+          >
+            <span>Reset all</span>
+          </button>
+        </fieldset>
+      )}
     </div>
   );
 };
