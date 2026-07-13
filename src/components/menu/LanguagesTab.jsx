@@ -3,8 +3,8 @@ import lineages from "../../config/lineages.json";
 import { useConfigContext } from "../../contexts/ConfigContext";
 import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
 import { usePlaylistContext } from "../../contexts/PlaylistContext";
+import { useSortedLanguages } from "../../hooks/useSortedLanguages";
 import { buildLanguageTree, groupLanguages } from "../../utils/groupingUtils";
-import { getSortingData, sortLanguages } from "../../utils/sortingUtils";
 import "./LanguagesTab.css";
 import LanguageTree from "./LanguageTree";
 
@@ -16,32 +16,8 @@ function LanguagesTab({ languageData, isSelected, languageColors = {} }) {
   const { config } = useConfigContext();
   const { sortBy, labelContent, isReverse } = config;
 
-  const { languageCodes, languageLineages, speakerData, typologicalFeatures } =
-    useMemo(() => getSortingData(languageData), [languageData]);
-
-  const sortedLanguageCodes = useMemo(
-    () =>
-      sortLanguages({
-        allLanguages: [...languageCodes],
-        languageData,
-        languageLineages,
-        speakerData,
-        typologicalFeatures,
-        sortBy,
-        labelContent,
-        isReverse,
-      }),
-    [
-      languageCodes,
-      languageData,
-      languageLineages,
-      speakerData,
-      typologicalFeatures,
-      sortBy,
-      labelContent,
-      isReverse,
-    ],
-  );
+  // Use the centralized hook for sorted language codes
+  const sortedLanguageCodes = useSortedLanguages();
 
   const languageTreeData = useMemo(() => {
     if (sortBy === "family") {
@@ -50,25 +26,21 @@ function LanguagesTab({ languageData, isSelected, languageColors = {} }) {
     return null;
   }, [sortedLanguageCodes, sortBy, languageData]);
 
-  const groups = useMemo(
-    () =>
-      groupLanguages({
-        sortedLanguageCodes,
-        sortBy,
-        languageData,
-        languageLineages,
-        labelContent,
-        isReverse,
-      }),
-    [
+  const groups = useMemo(() => {
+    const languageLineages = {};
+    sortedLanguageCodes.forEach((code) => {
+      languageLineages[code] = languageData[code].lineageKey;
+    });
+
+    return groupLanguages({
       sortedLanguageCodes,
       sortBy,
       languageData,
       languageLineages,
       labelContent,
       isReverse,
-    ],
-  );
+    });
+  }, [sortedLanguageCodes, sortBy, languageData, labelContent, isReverse]);
 
   useEffect(() => {
     if (

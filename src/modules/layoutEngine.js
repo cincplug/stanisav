@@ -58,6 +58,13 @@ class LayoutEngine {
       sphereRadius,
     } = config;
 
+    // NOTE: Locale awareness is handled implicitly through the global currentLocale
+    // variable in i18n/runtime.js, which is updated by I18nContext when the user
+    // changes locale. The caller (Scene.jsx) ensures calculateLayout is re-invoked
+    // when locale changes by including locale/isLocaleReady in its dependency array.
+    // When sortLanguages() is called below, it uses getLocalizedLanguageName() which
+    // respects the current global locale.
+
     const { buildPoint } = spiralAxisConfig[spiralAxis] ?? spiralAxisConfig.y;
     const { poleOf: entrancePoleOf, equatorialOf: entranceEquatorialOf } =
       spiralAxisConfig[entranceAxis] ?? spiralAxisConfig[spiralAxis];

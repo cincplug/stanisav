@@ -3,29 +3,22 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from "react";
-import { getSortingData, sortLanguages } from "../utils/sortingUtils";
 import { playAudioSequence } from "../services/audioPlaybackService";
 import { useAppStateContext } from "./AppStateContext";
 import { useConfigContext } from "./ConfigContext";
 import { useLanguageSelectionContext } from "./LanguageSelectionContext";
+import { useSortedLanguages } from "../hooks/useSortedLanguages";
 
 const PlaylistContext = createContext(null);
 
 export const PlaylistProvider = ({ children }) => {
-  const { data, isSceneReady } = useAppStateContext();
+  const { isSceneReady } = useAppStateContext();
   const { config } = useConfigContext();
-  const {
-    isMyMesha,
-    sortBy,
-    labelContent,
-    isReverse,
-    isAutoplay,
-    soundSource,
-    switchDuration,
-  } = config;
+  const { isMyMesha, isAutoplay, soundSource, switchDuration } = config;
   const {
     filteredLanguages,
     filters,
@@ -53,6 +46,25 @@ export const PlaylistProvider = ({ children }) => {
   // false on every actual language change; controls whether startDelay is applied
   const isResumeRef = useRef(false);
 
+  // Get sorted language codes - accounts for current locale
+  const allSortedLanguageCodes = useSortedLanguages();
+
+  // Apply filtering if active filters exist
+  const sortedLanguageCodes = useMemo(() => {
+    if (
+      !filteredLanguages ||
+      filteredLanguages.size === 0 ||
+      !filters ||
+      Object.keys(filters).length === 0
+    ) {
+      return allSortedLanguageCodes;
+    }
+    // Filtering is active: return only languages in filteredLanguages, but in sorted order
+    return allSortedLanguageCodes.filter((code) => filteredLanguages.has(code));
+  }, [allSortedLanguageCodes, filteredLanguages, filters]);
+
+  console.log(sortedLanguageCodes);
+
   useEffect(() => {
     isAutoplayRef.current = isAutoplay;
   }, [isAutoplay]);
@@ -65,40 +77,20 @@ export const PlaylistProvider = ({ children }) => {
     }
   }, []);
 
-  const getSortedLanguageCodes = useCallback(() => {
-    if (!data?.languageData) return [];
-
-    const {
-      languageCodes,
-      languageLineages,
-      speakerData,
-      typologicalFeatures,
-    } = getSortingData(data.languageData);
-
-    let allLanguages = [...languageCodes];
-    if (Object.keys(filters).length > 0 && filteredLanguages.size > 0) {
-      allLanguages = allLanguages.filter((code) => filteredLanguages.has(code));
-    }
-
-    return sortLanguages({
-      allLanguages,
-      languageData: data.languageData,
-      languageLineages,
-      speakerData,
-      typologicalFeatures,
-      sortBy,
-      labelContent,
-      isReverse,
-    });
-  }, [data, sortBy, labelContent, isReverse, filters, filteredLanguages]);
-
   useEffect(() => {
-    const codes = getSortedLanguageCodes();
-    playlistRef.current = codes;
-    if (currentIndex >= codes.length) {
+    playlistRef.current = sortedLanguageCodes;
+  }, [sortedLanguageCodes]);
+
+  // Separate effect: reset currentIndex when sort order changes
+  // This ensures the playlist restarts from the beginning when locale or sort config changes
+  useEffect(() => {
+    if (
+      sortedLanguageCodes.length > 0 &&
+      currentIndex >= sortedLanguageCodes.length
+    ) {
       setCurrentIndex(0);
     }
-  }, [getSortedLanguageCodes, currentIndex]);
+  }, [sortedLanguageCodes, currentIndex]);
 
   const stopCurrentAudio = useCallback(() => {
     if (delayTimeoutRef.current) {
@@ -113,9 +105,8 @@ export const PlaylistProvider = ({ children }) => {
 
   const startPlaylist = useCallback(() => {
     unlockAudio();
-    const codes = getSortedLanguageCodes();
+    const codes = playlistRef.current;
     if (codes.length === 0) return;
-    playlistRef.current = codes;
     isResumeRef.current = false;
     setIsPlaying(true);
     setPlaylistSession((s) => s + 1);
@@ -123,22 +114,21 @@ export const PlaylistProvider = ({ children }) => {
     if (currentIndex >= codes.length || currentIndex < 0) {
       setCurrentIndex(0);
     }
-  }, [getSortedLanguageCodes, currentIndex, unlockAudio]);
+  }, [currentIndex, unlockAudio]);
 
   const startFromLanguage = useCallback(
     (languageCode) => {
       unlockAudio();
-      const codes = getSortedLanguageCodes();
+      const codes = playlistRef.current;
       if (codes.length === 0) return;
       const index = codes.indexOf(languageCode);
       if (index === -1) return;
-      playlistRef.current = codes;
       isResumeRef.current = false;
       setCurrentIndex(index);
       setIsPlaying(true);
       setPlaylistSession((s) => s + 1);
     },
-    [getSortedLanguageCodes, unlockAudio],
+    [unlockAudio],
   );
 
   const pausePlaylist = useCallback(() => {
