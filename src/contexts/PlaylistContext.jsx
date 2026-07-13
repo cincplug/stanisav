@@ -63,8 +63,6 @@ export const PlaylistProvider = ({ children }) => {
     return allSortedLanguageCodes.filter((code) => filteredLanguages.has(code));
   }, [allSortedLanguageCodes, filteredLanguages, filters]);
 
-  console.log(sortedLanguageCodes);
-
   useEffect(() => {
     isAutoplayRef.current = isAutoplay;
   }, [isAutoplay]);

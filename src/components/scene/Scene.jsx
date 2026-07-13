@@ -1,20 +1,16 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
-import lineages from "../../config/lineages.json";
 import { useConfigContext } from "../../contexts/ConfigContext";
 import { useEntranceContext } from "../../contexts/EntranceContext";
-import { useI18nContext } from "../../contexts/I18nContext";
 import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext";
 import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
 import { useDataManager } from "../../hooks/useDataManager";
-import { LayoutEngine } from "../../modules/layoutEngine";
-import { groupLanguages } from "../../utils/groupingUtils";
+import { useLayout } from "../../hooks/useLayout";
 import {
   calculateLanguageFilterStatus,
   calculateRadialOffset,
 } from "../../utils/sceneUtils";
-import { getSortingData } from "../../utils/sortingUtils";
 import Camera from "./Camera";
 import Labels from "./Labels";
 import Light from "./Light";
@@ -23,7 +19,6 @@ import OrbitModifier from "./OrbitModifier";
 import SceneReadyGate from "./SceneReadyGate";
 
 const Scene = ({ onDataLoaded, onLoadingChange }) => {
-  const { locale, isLocaleReady } = useI18nContext();
   const { filters, selectedLanguage } = useLanguageSelectionContext();
   const { languageColors } = useLanguageColorsContext();
   const {
@@ -61,64 +56,11 @@ const Scene = ({ onDataLoaded, onLoadingChange }) => {
   const orbitControlsRef = useRef();
 
   const languageData = data?.languageData || {};
-  const { languageCodes, languageLineages, speakerData, typologicalFeatures } =
-    useMemo(() => getSortingData(languageData), [languageData]);
-
-  const layoutEngine = useMemo(() => new LayoutEngine(), []);
   const {
     positions: formattedPositions,
-    sortedLanguages: sortedLanguageCodes,
-  } = useMemo(
-    () =>
-      layoutEngine.calculateLayout(
-        {
-          languageData,
-          languageLineages,
-          lineageTree: lineages,
-          speakerData,
-          typologicalFeatures,
-        },
-        config,
-      ),
-    [
-      layoutEngine,
-      languageData,
-      languageLineages,
-      speakerData,
-      typologicalFeatures,
-      sortBy,
-      sphereRadius,
-      labelContent,
-      isReverse,
-      isBlackboard,
-      locale,
-      isLocaleReady,
-      spiralRatio,
-      spiralAxis,
-    ],
-  );
-
-  const groups = useMemo(
-    () =>
-      groupLanguages({
-        sortedLanguageCodes,
-        sortBy,
-        languageData,
-        languageLineages,
-        labelContent,
-        isReverse,
-      }),
-    [
-      sortedLanguageCodes,
-      sortBy,
-      languageData,
-      languageLineages,
-      labelContent,
-      isReverse,
-      locale,
-      isLocaleReady,
-    ],
-  );
+    sortedLanguageCodes,
+    groups,
+  } = useLayout();
 
   const languageFilterStatus = useMemo(
     () =>
@@ -234,7 +176,7 @@ const Scene = ({ onDataLoaded, onLoadingChange }) => {
         languageCode={meshaLanguageCode}
         position={meshaPosition}
         isMyMesha={isMyMesha}
-        renderOrder={languageCodes.length - 1}
+        renderOrder={sortedLanguageCodes.length - 1}
         looksAround={true}
         spin={selectedLanguage ? spinMeshaZoomed : spinMeshaInitial}
         isMotionReduced={isMotionReduced}
