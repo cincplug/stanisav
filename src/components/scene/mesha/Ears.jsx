@@ -48,17 +48,22 @@ const Ears = ({ earMaterial, morphologyScore }) => {
       turns: earTurns / morphologyScore,
     });
 
-    meshRef.current.geometry = new ParametricGeometry(
-      staticSurface,
-      segmentsBiggest,
-      segmentsBiggest,
-    );
-
-    meshRef2.current.geometry = new ParametricGeometry(
-      staticSurface,
-      segmentsBiggest,
-      segmentsBiggest,
-    );
+    if (meshRef.current) {
+      meshRef.current.geometry.dispose();
+      meshRef.current.geometry = new ParametricGeometry(
+        staticSurface,
+        segmentsBiggest,
+        segmentsBiggest,
+      );
+    }
+    if (meshRef2.current) {
+      meshRef2.current.geometry.dispose();
+      meshRef2.current.geometry = new ParametricGeometry(
+        staticSurface,
+        segmentsBiggest,
+        segmentsBiggest,
+      );
+    }
   });
 
   return (
