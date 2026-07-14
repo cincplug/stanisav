@@ -1,161 +1,161 @@
 {
   "controls": {
     "showMore": {
-      "label": "Show more"
+      "label": "Vis mere"
     },
     "isIdCardVisible": {
-      "label": "ID card"
+      "label": "ID-kort"
     },
     "isAutoplay": {
-      "label": "Autoplay"
+      "label": "Automatisk afspilning"
     },
     "isMyMesha": {
-      "label": "I am Mesha"
+      "label": "Jeg er Mesha"
     },
     "isReverse": {
-      "label": "Reverse order"
+      "label": "Omvendt rækkefølge"
     },
     "labelContent": {
-      "label": "Display",
+      "label": "Visning",
       "options": {
-        "isoCode": "ISO codes",
-        "name": "Names in English",
-        "nativeName": "Native names"
+        "isoCode": "ISO-koder",
+        "name": "Navne på dansk",
+        "nativeName": "Navne på originalsprog"
       }
     },
     "labelSize": {
-      "label": "Label size"
+      "label": "Etiketstørrelse"
     },
     "sortBy": {
-      "label": "Sorting",
+      "label": "Sortering",
       "options": {
-        "alphabetically": "Alphabetical order",
-        "caseCount": "Case count",
-        "evidentiality": "Evidentiality",
-        "family": "Language family",
-        "maxConsonantClusterSize": "Consonant clusters",
-        "morphology": "Morphology",
-        "nounClassCount": "Noun classes",
-        "phonemeCount": "Phoneme count",
-        "speakers": "Speakers' number",
-        "tonality": "Tonality",
-        "verbAspect": "Verb aspect",
-        "wordOrder": "Word order",
-        "wordOrderFlexibility": "Word order flexibility",
-        "scripts": "Scripts"
+        "alphabetically": "Alfabetisk rækkefølge",
+        "caseCount": "Antal kasus",
+        "evidentiality": "Evidentialitet",
+        "family": "Sprogfamilie",
+        "maxConsonantClusterSize": "Konsonantklynger",
+        "morphology": "Morfologi",
+        "nounClassCount": "Antal substantivklasser",
+        "phonemeCount": "Antal fonemer",
+        "speakers": "Antal talere",
+        "tonality": "Tonalitet",
+        "verbAspect": "Verbal aspekt",
+        "wordOrder": "Ordstilling",
+        "wordOrderFlexibility": "Fleksibilitet i ordstilling",
+        "scripts": "Skriftsystemer"
       }
     },
     "isBlackboard": {
-      "label": "Blackboard"
+      "label": "Tavle"
     }
   },
   "filters": {
-    "all": "All",
-    "allowMultipleChoices": "Allow multiple choices",
-    "results": "Filter results ({count})",
-    "title": "Filter by"
+    "all": "Alle",
+    "allowMultipleChoices": "Tillad flere valg",
+    "results": "Filtrer resultater ({count})",
+    "title": "Filtrer efter"
   },
   "linguistic": {
     "caseCount": {
-      "name": "Case count"
+      "name": "Antal kasus"
     },
     "evidentiality": {
-      "name": "Evidentiality",
+      "name": "Evidentialitet",
       "values": {
         "complex": {
-          "description": "Four or more evidential distinctions or evidentiality fused with tense/aspect.",
-          "label": "Complex"
+          "description": "Fire eller flere evidentiale skel, eller evidentialitet smeltet sammen med tempus/aspekt.",
+          "label": "Kompleks"
         },
         "moderate": {
-          "description": "Three-way distinction (e.g., direct, reportative, inferential).",
-          "label": "Moderate"
+          "description": "Skelnen mellem tre former (f.eks. direkte, refererende, inferentiel).",
+          "label": "Moderat"
         },
         "none": {
-          "description": "No grammatical marking of information source.",
-          "label": "None"
+          "description": "Ingen grammatisk markering af informationskilde.",
+          "label": "Ingen"
         },
         "optional": {
-          "description": "Evidential-like markers exist but are not obligatory.",
-          "label": "Optional"
+          "description": "Evidentiale-lignende markører findes, men er ikke obligatoriske.",
+          "label": "Valgfri"
         },
         "simple": {
-          "description": "Two-way distinction (typically direct vs. indirect/reportative).",
-          "label": "Simple"
+          "description": "Skelnen mellem to former (typisk direkte over for indirekte/refererende).",
+          "label": "Simpel"
         }
       }
     },
     "family": {
-      "name": "Language family"
+      "name": "Sprogfamilie"
     },
     "maxConsonantClusterSize": {
-      "name": "Max consonants in a cluster"
+      "name": "Maks. antal konsonanter i en klynge"
     },
     "morphology": {
-      "name": "Morphology",
+      "name": "Morfologi",
       "values": {
         "agglutinative": {
-          "description": "Words are built by stacking affixes one after another, where each affix carries exactly one meaning. The pieces stay clearly recognizable, like building blocks snapped together.",
-          "label": "Agglutinative"
+          "description": "Ord bygges ved at stable affikser efter hinanden, hvor hvert affiks bærer præcis én betydning. Delene forbliver tydeligt genkendelige, som byggeklodser sat sammen.",
+          "label": "Agglutinerende"
         },
         "fusional": {
-          "description": "Words change their form through endings and prefixes that bundle multiple grammatical meanings at once. A single ending might express gender, number, and case simultaneously, making the pieces hard to pull apart.",
-          "label": "Fusional"
+          "description": "Ord ændrer form gennem endelser og forstavelser, der bundter flere grammatiske betydninger på én gang. En enkelt endelse kan udtrykke køn, tal og kasus samtidig, hvilket gør delene svære at adskille.",
+          "label": "Fusionerende"
         },
         "introflexive": {
-          "description": "Grammar is built into the word from the inside: a root of consonants carries the core meaning, while different vowel patterns woven through it create new words. For example, the Arabic root k-t-b relates to writing, and kataba, kitāb, and kātib all come from it.",
-          "label": "Introflexive"
+          "description": "Grammatikken er indbygget i ordet indefra: en rod af konsonanter bærer kernebetydningen, mens forskellige vokalmønstre vævet igennem den skaber nye ord. For eksempel relaterer den arabiske rod k-t-b sig til at skrive, og kataba, kitāb og kātib stammer alle derfra.",
+          "label": "Introflektiv"
         },
         "isolating": {
-          "description": "Words typically consist of single morphemes and don't change their form. Grammar is expressed through word order and separate function words rather than endings or prefixes.",
-          "label": "Isolating"
+          "description": "Ord består typisk af enkelte morfemer og ændrer ikke form. Grammatik udtrykkes gennem ordstilling og separate funktionsord frem for endelser eller forstavelser.",
+          "label": "Isolerende"
         },
         "polysynthetic": {
-          "description": "A single word can express what other languages would say in a whole sentence, by fusing the verb, subject, object, and other elements together. Common in indigenous languages of the Americas and the Arctic.",
-          "label": "Polysynthetic"
+          "description": "Et enkelt ord kan udtrykke det, andre sprog ville sige i en hel sætning, ved at smelte verbum, subjekt, objekt og andre led sammen. Almindeligt i oprindelige sprog i Amerika og Arktis.",
+          "label": "Polysyntetisk"
         }
       }
     },
     "nounClassCount": {
-      "name": "Noun classes / genders"
+      "name": "Substantivklasser / køn"
     },
     "phonemeCount": {
-      "name": "Phoneme count"
+      "name": "Antal fonemer"
     },
     "scripts": {
-      "name": "Scripts",
+      "name": "Skriftsystemer",
       "values": {
         "Arabic": {
-          "label": "Arabic"
+          "label": "Arabisk"
         },
         "Armenian": {
-          "label": "Armenian"
+          "label": "Armensk"
         },
         "Balinese": {
-          "label": "Balinese"
+          "label": "Balinesisk"
         },
         "Bengali": {
-          "label": "Bengali"
+          "label": "Bengalsk"
         },
         "Canadian Aboriginal Syllabics": {
-          "label": "Canadian Aboriginal Syllabics"
+          "label": "Canadisk aboriginal stavelsesskrift"
         },
         "Cherokee": {
           "label": "Cherokee"
         },
         "Cyrillic": {
-          "label": "Cyrillic"
+          "label": "Kyrillisk"
         },
         "Devanagari": {
           "label": "Devanagari"
         },
         "Ethiopic": {
-          "label": "Ethiopic"
+          "label": "Etiopisk"
         },
         "Georgian": {
-          "label": "Georgian"
+          "label": "Georgisk"
         },
         "Greek": {
-          "label": "Greek"
+          "label": "Græsk"
         },
         "Gujarati": {
           "label": "Gujarati"
@@ -170,13 +170,13 @@
           "label": "Hangul"
         },
         "Hebrew": {
-          "label": "Hebrew"
+          "label": "Hebraisk"
         },
         "Hiragana": {
           "label": "Hiragana"
         },
         "Javanese": {
-          "label": "Javanese"
+          "label": "Javanesisk"
         },
         "Kannada": {
           "label": "Kannada"
@@ -188,10 +188,10 @@
           "label": "Khmer"
         },
         "Lao": {
-          "label": "Lao"
+          "label": "Laotisk"
         },
         "Latin": {
-          "label": "Latin"
+          "label": "Latinsk"
         },
         "Lepcha": {
           "label": "Lepcha"
@@ -203,7 +203,7 @@
           "label": "Meitei Mayek"
         },
         "Mongolian": {
-          "label": "Mongolian"
+          "label": "Mongolsk"
         },
         "Myanmar": {
           "label": "Myanmar"
@@ -218,7 +218,7 @@
           "label": "Ol Chiki"
         },
         "Sinhala": {
-          "label": "Sinhala"
+          "label": "Singalesisk"
         },
         "Sorang Sompeng": {
           "label": "Sorang Sompeng"
@@ -233,7 +233,7 @@
           "label": "Thai"
         },
         "Tibetan": {
-          "label": "Tibetan"
+          "label": "Tibetansk"
         },
         "Tirhuta": {
           "label": "Tirhuta"
@@ -247,125 +247,125 @@
       }
     },
     "tonality": {
-      "name": "Tonality",
+      "name": "Tonalitet",
       "values": {
         "complex-tonal": {
-          "description": "Pitch patterns significantly affect word meaning.",
-          "label": "Complex tonal"
+          "description": "Toneforløb påvirker ordbetydningen betydeligt.",
+          "label": "Komplekst tonesprog"
         },
         "non-tonal": {
-          "description": "Pitch changes don't affect word meaning.",
-          "label": "Non-tonal"
+          "description": "Toneændringer påvirker ikke ordbetydningen.",
+          "label": "Ikke-tonesprog"
         },
         "pitch-accent": {
-          "description": "It uses pitch accent, where certain syllables are emphasized with pitch changes.",
-          "label": "Pitch-accent"
+          "description": "Det bruger toneaccent, hvor bestemte stavelser fremhæves med toneændringer.",
+          "label": "Toneaccent"
         },
         "simple-tonal": {
-          "description": "Pitch changes moderately affect word meaning.",
-          "label": "Simple tonal"
+          "description": "Toneændringer påvirker ordbetydningen i moderat grad.",
+          "label": "Simpelt tonesprog"
         }
       }
     },
     "verbAspect": {
-      "name": "Verb aspect",
+      "name": "Verbal aspekt",
       "values": {
         "binary": {
-          "description": "Two-way systematic distinction (perfective/imperfective).",
-          "label": "Binary"
+          "description": "Systematisk skelnen mellem to former (perfektiv/imperfektiv).",
+          "label": "Binær"
         },
         "complex": {
-          "description": "Multiple aspect categories with rich morphological marking.",
-          "label": "Complex"
+          "description": "Flere aspektkategorier med rig morfologisk markering.",
+          "label": "Kompleks"
         },
         "minimal": {
-          "description": "No or very limited grammatical aspect marking.",
+          "description": "Ingen eller meget begrænset grammatisk aspektmarkering.",
           "label": "Minimal"
         },
         "simple": {
-          "description": "Basic aspectual distinctions (e.g., progressive, perfect).",
-          "label": "Simple"
+          "description": "Grundlæggende aspektuelle skel (f.eks. progressiv, perfektum).",
+          "label": "Simpel"
         }
       }
     },
     "wordOrder": {
-      "name": "Word order",
+      "name": "Ordstilling",
       "values": {
         "SOV": {
-          "description": "Subject-Object-Verb",
+          "description": "Subjekt-Objekt-Verbum",
           "label": "SOV"
         },
         "SVO": {
-          "description": "Subject-Verb-Object",
+          "description": "Subjekt-Verbum-Objekt",
           "label": "SVO"
         },
         "VOS": {
-          "description": "Verb-Object-Subject",
+          "description": "Verbum-Objekt-Subjekt",
           "label": "VOS"
         },
         "VSO": {
-          "description": "Verb-Subject-Object",
+          "description": "Verbum-Subjekt-Objekt",
           "label": "VSO"
         }
       }
     },
     "wordOrderFlexibility": {
-      "name": "Word order flexibility",
+      "name": "Fleksibilitet i ordstilling",
       "values": {
         "flexible": {
-          "description": "Various word arrangements are allowed for stylistic purposes.",
-          "label": "Flexible"
+          "description": "Forskellige ordarrangementer er tilladt af stilistiske årsager.",
+          "label": "Fleksibel"
         },
         "rigid": {
-          "description": "Words have fixed grammatical positions.",
+          "description": "Ord har faste grammatiske placeringer.",
           "label": "Rigid"
         },
         "semi-flexible": {
-          "description": "Some variation of word order is allowed for emphasis.",
-          "label": "Semi-flexible"
+          "description": "En vis variation i ordstilling er tilladt for at lægge vægt på noget.",
+          "label": "Semi-fleksibel"
         }
       }
     }
   },
   "menu": {
-    "close": "Close menu",
-    "open": "Open menu",
-    "languageSelector": "App language",
-    "isVisual": "Visual",
-    "reset": "Reset",
-    "back": "Back"
+    "close": "Luk menu",
+    "open": "Åbn menu",
+    "languageSelector": "Appsprog",
+    "isVisual": "Visuel",
+    "reset": "Nulstil",
+    "back": "Tilbage"
   },
   "playlist": {
-    "controls": "Playlist controls",
-    "goToBeginning": "Go to beginning (Home key)",
-    "next": "Next track (Right arrow)",
+    "controls": "Afspilningsliste-kontroller",
+    "goToBeginning": "Gå til begyndelsen (Home-tast)",
+    "next": "Næste spor (Højre pil)",
     "pause": "Pause",
-    "play": "Play",
+    "play": "Afspil",
     "stop": "Stop",
-    "previous": "Previous track (Left arrow)",
-    "progress": "{current} of {total}",
-    "toggleLoop": "Toggle loop (L key)"
+    "previous": "Forrige spor (Venstre pil)",
+    "progress": "{current} af {total}",
+    "toggleLoop": "Slå gentagelse til/fra (L-tast)"
   },
   "search": {
-    "clear": "Clear search",
-    "label": "Search",
-    "noResults": "No languages found matching \"{term}\"",
-    "results": "Search results ({count})",
-    "threshold": "Type at least {threshold} characters to search...",
-    "viewAll": "View all"
+    "clear": "Ryd søgning",
+    "label": "Søg",
+    "noResults": "Ingen sprog fundet, der matcher \"{term}\"",
+    "results": "Søgeresultater ({count})",
+    "threshold": "Skriv mindst {threshold} tegn for at søge...",
+    "viewAll": "Vis alle"
   },
   "tabs": {
-    "controls": "Controls",
-    "filters": "Filters",
-    "languages": "Languages",
-    "search": "Search"
+    "controls": "Kontroller",
+    "filters": "Filtre",
+    "languages": "Sprog",
+    "search": "Søg"
   },
   "overlay": {
-    "slogan": "The more languages you know, the more people you are worth.",
-    "emptyFilter": "No languages for that filter combination. You probably selected too many filters."
+    "slogan": "Jo flere sprog du kender, jo mere er du værd.",
+    "emptyFilter": "Ingen sprog for den filterkombination. Du har sandsynligvis valgt for mange filtre."
   },
   "idCard": {
-    "sourceVideo": "Source video",
-    "opensInNewTab": "opens in new tab"
+    "sourceVideo": "Kildevideo",
+    "opensInNewTab": "åbner i ny fane"
   }
 }
