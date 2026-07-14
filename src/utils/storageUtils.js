@@ -1,22 +1,22 @@
-// Reads and parses the persisted config from localStorage.
+// Reads and parses the persisted config from sessionStorage.
 // Returns null if unavailable, unset, or unparseable.
 export const readStoredConfig = (storageKey) => {
   if (typeof window === "undefined") return null;
   try {
-    const rawStoredConfig = window.localStorage.getItem(storageKey);
+    const rawStoredConfig = window.sessionStorage.getItem(storageKey);
     return rawStoredConfig ? JSON.parse(rawStoredConfig) : null;
   } catch {
     return null;
   }
 };
 
-// Writes the config to localStorage. Fails silently (e.g. private browsing quota).
+// Writes the config to sessionStorage. Fails silently (e.g. private browsing quota).
 export const writeStoredConfig = (storageKey, config) => {
   if (typeof window === "undefined") return;
   try {
-    window.localStorage.setItem(storageKey, JSON.stringify(config));
+    window.sessionStorage.setItem(storageKey, JSON.stringify(config));
   } catch {
-    // localStorage may be unavailable - fail silently
+    // sessionStorage may be unavailable - fail silently
   }
 };
 

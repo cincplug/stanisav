@@ -39,7 +39,7 @@ export const ConfigProvider = ({ children }) => {
       : defaultValues;
   });
 
-  // Persists the current config to localStorage whenever it changes,
+  // Persists the current config to sessionStorage whenever it changes,
   // so values survive a page refresh.
   useEffect(() => {
     writeStoredConfig(configStorageKey, groupedConfig);
