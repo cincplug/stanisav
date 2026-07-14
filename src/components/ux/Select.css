@@ -45,17 +45,17 @@
     outline: var(--outline-default);
     outline-offset: 1px;
   }
-}
 
-.select-native.select-native-compact {
-  padding-inline-end: var(--gap);
-}
+  &.select-native-compact {
+    padding-inline-end: var(--gap);
+  }
 
-.select-native.select-native-icon-only {
-  color: transparent;
-  text-shadow: none;
-}
+  &.select-native-icon-only {
+    color: transparent;
+    text-shadow: none;
 
-.select-native.select-native-icon-only option {
-  color: var(--color-4);
+    option {
+      color: var(--color-4);
+    }
+  }
 }
