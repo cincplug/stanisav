@@ -5,8 +5,8 @@ export const createAudioSurface = ({
   radius,
   maxDeformation,
   verticalVariation,
-  twirl = 0,
-  turns = 0,
+  twirl,
+  turns,
 }) => {
   const frequencyBands = 32;
 
@@ -33,7 +33,7 @@ export const createAudioSurface = ({
       const x0 = x;
       const y0 = y;
 
-      x = x0 * cos - y0 * sin;
+      x = x0 * cos - y0 * sin * turns;
       y = x0 * sin + y0 * cos;
 
       const currentRadius = Math.sqrt(x * x + y * y);

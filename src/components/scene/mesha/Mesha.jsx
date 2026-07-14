@@ -300,7 +300,7 @@ const Mesha = ({
         />
 
         <Nose
-          position={[0, eyeY - eyeSize, eyeZ + eyeSize]}
+          position={[0, eyeY - eyeSize, eyeZ]}
           scale={noseSize}
           color={color}
           wordOrder={wordOrder}

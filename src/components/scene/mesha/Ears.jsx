@@ -8,7 +8,7 @@ import { useRef } from "react";
 
 extend({ ParametricGeometry });
 
-const Ears = ({ earMaterial, morphologyScore, isLuka }) => {
+const Ears = ({ earMaterial, morphologyScore }) => {
   const { config } = useConfigContext();
   const {
     earHeight,
@@ -41,31 +41,24 @@ const Ears = ({ earMaterial, morphologyScore, isLuka }) => {
       audioBand: harmonicsData,
       size: earSize,
       bend,
-      maxDeformation: !isLuka
-        ? maxDeformation
-        : maxDeformation * morphologyScore * fireAmount,
+      maxDeformation: maxDeformation * morphologyScore * fireAmount,
       verticalVariation,
-      radius: earSize,
-      twirl: earTwirl,
-      turns: isLuka ? earTurns : earTurns * fireAmount * harmonicsData[6],
+      radius: earSize / morphologyScore,
+      twirl: earTwirl * morphologyScore,
+      turns: earTurns / morphologyScore,
     });
 
-    if (meshRef.current) {
-      meshRef.current.geometry.dispose();
-      meshRef.current.geometry = new ParametricGeometry(
-        staticSurface,
-        segmentsBiggest,
-        segmentsBiggest,
-      );
-    }
-    if (meshRef2.current) {
-      meshRef2.current.geometry.dispose();
-      meshRef2.current.geometry = new ParametricGeometry(
-        staticSurface,
-        segmentsBiggest,
-        segmentsBiggest,
-      );
-    }
+    meshRef.current.geometry = new ParametricGeometry(
+      staticSurface,
+      segmentsBiggest,
+      segmentsBiggest,
+    );
+
+    meshRef2.current.geometry = new ParametricGeometry(
+      staticSurface,
+      segmentsBiggest,
+      segmentsBiggest,
+    );
   });
 
   return (
