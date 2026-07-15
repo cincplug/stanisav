@@ -102,7 +102,6 @@
     "harmonicsMax": 4000,
     "harmonicsMin": 700,
     "amplitudeThreshold": 0.1,
-    "timeRate": 10,
     "decayRate": 0.7,
     "maxDeformation": 1.2,
     "verticalVariation": 0.1,
@@ -179,7 +178,8 @@
     "isIdCardVisible": false,
     "isMenuExpanded": false,
     "isMyMesha": false,
-    "soundSource": ["l", "o-l", "o", "l-o"]
+    "soundSource": ["l", "o-l", "o", "l-o"],
+    "timeRate": 15
   },
   "entrance": {
     "entranceAxis": "z",

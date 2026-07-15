@@ -75,14 +75,17 @@ const Labels = ({
 
   return (
     <>
-      {hasLines && !isBlackboard && !selectedLanguage && (
-        <Lines
-          visibleLabelCodes={visibleLabelCodes}
-          labelRefs={labelRefs}
-          revealRefs={revealRefs}
-          languageColors={languageColors}
-        />
-      )}
+      {hasLines &&
+        !isBlackboard &&
+        !selectedLanguage &&
+        isLabelsSequenceDone && (
+          <Lines
+            visibleLabelCodes={visibleLabelCodes}
+            labelRefs={labelRefs}
+            revealRefs={revealRefs}
+            languageColors={languageColors}
+          />
+        )}
 
       {visibleLabelCodes.map((langCode, index) => {
         const position = formattedPositions[langCode];
