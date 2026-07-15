@@ -1,0 +1,371 @@
+{
+  "controls": {
+    "showMore": {
+      "label": "Show more"
+    },
+    "isIdCardVisible": {
+      "label": "ID card"
+    },
+    "isAutoplay": {
+      "label": "Autoplay"
+    },
+    "isMyMesha": {
+      "label": "Na me be Mesha"
+    },
+    "isReverse": {
+      "label": "Turn di order comot"
+    },
+    "labelContent": {
+      "label": "Wetin go show",
+      "options": {
+        "isoCode": "ISO code dem",
+        "name": "Name dem for Naija (Pidgin)",
+        "nativeName": "Native name dem"
+      }
+    },
+    "labelSize": {
+      "label": "Label size"
+    },
+    "sortBy": {
+      "label": "Arrange am",
+      "options": {
+        "alphabetically": "ABC order",
+        "caseCount": "How many case dem get",
+        "evidentiality": "Evidentiality",
+        "family": "Language family",
+        "maxConsonantClusterSize": "Consonant cluster dem",
+        "morphology": "Morphology",
+        "nounClassCount": "How many noun class dem get",
+        "phonemeCount": "How many phoneme dem get",
+        "speakers": "How many pipo dey speak am",
+        "tonality": "Tone",
+        "verbAspect": "Verb aspect",
+        "wordOrder": "How dem dey arrange word",
+        "wordOrderFlexibility": "How word order fit change",
+        "scripts": "Writing style dem"
+      }
+    },
+    "isBlackboard": {
+      "label": "Blackboard"
+    }
+  },
+  "filters": {
+    "all": "Everything",
+    "allowMultipleChoices": "Make dem fit pick pass one",
+    "results": "Filter result ({count})",
+    "title": "Filter am by"
+  },
+  "linguistic": {
+    "caseCount": {
+      "name": "How many case dem get"
+    },
+    "evidentiality": {
+      "name": "Evidentiality",
+      "values": {
+        "complex": {
+          "description": "Four or pass four evidential type dem, or evidentiality mix well well with tense/aspect.",
+          "label": "Complex"
+        },
+        "moderate": {
+          "description": "Three kind separation (like: direct, wetin dem tell you, wetin you guess).",
+          "label": "Moderate"
+        },
+        "none": {
+          "description": "No grammar mark wey dey show where di gist come from.",
+          "label": "None at all"
+        },
+        "optional": {
+          "description": "Evidential-like mark dey exist, but e no compulsory.",
+          "label": "Optional"
+        },
+        "simple": {
+          "description": "Two kind separation (usually direct against wetin somebody tell you).",
+          "label": "Simple"
+        }
+      }
+    },
+    "family": {
+      "name": "Language family"
+    },
+    "maxConsonantClusterSize": {
+      "name": "How many consonant fit gather join for one cluster"
+    },
+    "morphology": {
+      "name": "Morphology",
+      "values": {
+        "agglutinative": {
+          "description": "Dem dey build word by dey stack affix one after anoda, and each affix get just one meaning. Di parts still dey clear, like building block wey dem snap join.",
+          "label": "Agglutinative"
+        },
+        "fusional": {
+          "description": "Word dey change im form through ending and prefix wey mix plenty grammar meaning togeda for one time. One ending fit show gender, number, and case all at once, so e hard to separate di parts.",
+          "label": "Fusional"
+        },
+        "introflexive": {
+          "description": "Grammar dey enta di word from inside: consonant root dey carry di main meaning, and different vowel pattern wey dey pass through am dey create new word. Like, di Arabik root k-t-b relate to writing, and kataba, kitāb, and kātib all come from am.",
+          "label": "Introflexive"
+        },
+        "isolating": {
+          "description": "Word dem normally get just one morpheme and dem no dey change form. Grammar dey show through how you arrange word and separate function word, no be ending or prefix.",
+          "label": "Isolating"
+        },
+        "polysynthetic": {
+          "description": "One single word fit talk wetin oda language go need whole sentence to talk, by dey join verb, subject, object, and oda tin togeda. E common for indigenous language dem for America and Arctic.",
+          "label": "Polysynthetic"
+        }
+      }
+    },
+    "nounClassCount": {
+      "name": "Noun class / gender dem"
+    },
+    "phonemeCount": {
+      "name": "How many phoneme dem get"
+    },
+    "scripts": {
+      "name": "Writing style dem",
+      "values": {
+        "Arabic": {
+          "label": "Arabik"
+        },
+        "Armenian": {
+          "label": "Armenian"
+        },
+        "Balinese": {
+          "label": "Balinese"
+        },
+        "Bengali": {
+          "label": "Bengali"
+        },
+        "Canadian Aboriginal Syllabics": {
+          "label": "Canadian Aboriginal Syllabics"
+        },
+        "Cherokee": {
+          "label": "Cherokee"
+        },
+        "Cyrillic": {
+          "label": "Cyrillic"
+        },
+        "Devanagari": {
+          "label": "Devanagari"
+        },
+        "Ethiopic": {
+          "label": "Ethiopic"
+        },
+        "Georgian": {
+          "label": "Georgian"
+        },
+        "Greek": {
+          "label": "Grik"
+        },
+        "Gujarati": {
+          "label": "Gujarati"
+        },
+        "Gurmukhi": {
+          "label": "Gurmukhi"
+        },
+        "Han": {
+          "label": "Han"
+        },
+        "Hangul": {
+          "label": "Hangul"
+        },
+        "Hebrew": {
+          "label": "Hebrew"
+        },
+        "Hiragana": {
+          "label": "Hiragana"
+        },
+        "Javanese": {
+          "label": "Javanese"
+        },
+        "Kannada": {
+          "label": "Kannada"
+        },
+        "Katakana": {
+          "label": "Katakana"
+        },
+        "Khmer": {
+          "label": "Khmer"
+        },
+        "Lao": {
+          "label": "Lao"
+        },
+        "Latin": {
+          "label": "Latin"
+        },
+        "Lepcha": {
+          "label": "Lepcha"
+        },
+        "Malayalam": {
+          "label": "Malayalam"
+        },
+        "Meitei Mayek": {
+          "label": "Meitei Mayek"
+        },
+        "Mongolian": {
+          "label": "Mongolian"
+        },
+        "Myanmar": {
+          "label": "Myanmar"
+        },
+        "Newa": {
+          "label": "Newa"
+        },
+        "Odia": {
+          "label": "Odia"
+        },
+        "Ol Chiki": {
+          "label": "Ol Chiki"
+        },
+        "Sinhala": {
+          "label": "Sinhala"
+        },
+        "Sorang Sompeng": {
+          "label": "Sorang Sompeng"
+        },
+        "Tamil": {
+          "label": "Tamil"
+        },
+        "Telugu": {
+          "label": "Telugu"
+        },
+        "Thai": {
+          "label": "Thai"
+        },
+        "Tibetan": {
+          "label": "Tibetan"
+        },
+        "Tirhuta": {
+          "label": "Tirhuta"
+        },
+        "Warang Citi": {
+          "label": "Warang Citi"
+        },
+        "Yi": {
+          "label": "Yi"
+        }
+      }
+    },
+    "tonality": {
+      "name": "Tone",
+      "values": {
+        "complex-tonal": {
+          "description": "Pitch pattern dey affect word meaning well well.",
+          "label": "Heavy tone"
+        },
+        "non-tonal": {
+          "description": "Pitch no dey change word meaning at all.",
+          "label": "No tone"
+        },
+        "pitch-accent": {
+          "description": "E dey use pitch accent, where certain syllable dem dey get emphasis with pitch change.",
+          "label": "Pitch-accent"
+        },
+        "simple-tonal": {
+          "description": "Pitch change dey affect word meaning small small.",
+          "label": "Small tone"
+        }
+      }
+    },
+    "verbAspect": {
+      "name": "Verb aspect",
+      "values": {
+        "binary": {
+          "description": "Two kind systematic separation (perfective/imperfective).",
+          "label": "Binary"
+        },
+        "complex": {
+          "description": "Plenty aspect category dem with rich grammar mark.",
+          "label": "Complex"
+        },
+        "minimal": {
+          "description": "No grammar aspect mark at all, or na very small wey e get.",
+          "label": "Minimal"
+        },
+        "simple": {
+          "description": "Basic aspect separation (like progressive, perfect).",
+          "label": "Simple"
+        }
+      }
+    },
+    "wordOrder": {
+      "name": "How dem dey arrange word",
+      "values": {
+        "SOV": {
+          "description": "Subject-Object-Verb",
+          "label": "SOV"
+        },
+        "SVO": {
+          "description": "Subject-Verb-Object",
+          "label": "SVO"
+        },
+        "VOS": {
+          "description": "Verb-Object-Subject",
+          "label": "VOS"
+        },
+        "VSO": {
+          "description": "Verb-Subject-Object",
+          "label": "VSO"
+        }
+      }
+    },
+    "wordOrderFlexibility": {
+      "name": "How word order fit change",
+      "values": {
+        "flexible": {
+          "description": "Different word arrangement dem dey allowed for style sake.",
+          "label": "E fit change"
+        },
+        "rigid": {
+          "description": "Word dem get fixed grammar position wey no dey change.",
+          "label": "E no dey change"
+        },
+        "semi-flexible": {
+          "description": "Small variation for word order dey allowed to put emphasis for something.",
+          "label": "E fit small change"
+        }
+      }
+    }
+  },
+  "menu": {
+    "close": "Close menu",
+    "open": "Open menu",
+    "languageSelector": "App language",
+    "isVisual": "Visual",
+    "reset": "Reset am",
+    "back": "Go back"
+  },
+  "playlist": {
+    "controls": "Playlist control dem",
+    "goToBeginning": "Go back to start (Home key)",
+    "next": "Next track (Right arrow)",
+    "pause": "Pause",
+    "play": "Play am",
+    "stop": "Stop am",
+    "previous": "Track wey pass (Left arrow)",
+    "progress": "{current} out of {total}",
+    "toggleLoop": "Switch loop on/off (L key)"
+  },
+  "search": {
+    "clear": "Clear di search",
+    "label": "Search",
+    "noResults": "No language wey match \"{term}\"",
+    "results": "Search result dem ({count})",
+    "threshold": "Type at least {threshold} letter make e start to search...",
+    "viewAll": "See everything"
+  },
+  "tabs": {
+    "controls": "Control dem",
+    "filters": "Filter dem",
+    "languages": "Language dem",
+    "search": "Search"
+  },
+  "overlay": {
+    "slogan": "Di more language wey you sabi, na so you dey worth pass.",
+    "emptyFilter": "No language dey for dat filter combination. Na probably you select too many filter."
+  },
+  "idCard": {
+    "sourceVideo": "Where di video come from",
+    "opensInNewTab": "e go open for new tab"
+  }
+}
