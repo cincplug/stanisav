@@ -67,23 +67,18 @@
       "name": "Shaida ta nahawu",
       "values": {
         "complex": {
-          "description": "Nau'ikan shaida huɗu ko fiye, ko shaida da aka haɗa da lokaci/fuska.",
           "label": "Rikitacce"
         },
         "moderate": {
-          "description": "Rarrabuwa ta hanyoyi uku (misali: kai tsaye, rahoto, yanke hukunci).",
           "label": "Matsakaici"
         },
         "none": {
-          "description": "Babu alamar nahawu na tushen bayanai.",
           "label": "Babu"
         },
         "optional": {
-          "description": "Alamomin da suka yi kama da shaida suna nan amma ba tilas ba ne.",
           "label": "Na zaɓi"
         },
         "simple": {
-          "description": "Rarrabuwa ta hanyoyi biyu (yawanci kai tsaye da ba kai tsaye ba/rahoto).",
           "label": "Sauƙi"
         }
       }
@@ -98,23 +93,18 @@
       "name": "Ilimin sifar kalma",
       "values": {
         "agglutinative": {
-          "description": "Ana gina kalmomi ta hanyar ƙara ƙari ɗaya bayan ɗaya, inda kowane ƙari ke ɗauke da ma'ana ɗaya kawai. Sassan suna nan a bayyane kamar tubalan da aka haɗa.",
           "label": "Haɗawa"
         },
         "fusional": {
-          "description": "Kalmomi suna canza sifansu ta hanyar ƙarshe da gaban-magana waɗanda ke haɗa ma'anoni da yawa na nahawu a lokaci guda. Ƙarshewa ɗaya na iya bayyana jinsi, lamba, da shari'a tare, wanda ke sa rarrabuwa ya yi wuya.",
           "label": "Haɗuwa"
         },
         "introflexive": {
-          "description": "Ana gina nahawu daga cikin kalmar: tushe na baƙaƙe yana ɗauke da ma'anar asali, yayin da tsare-tsaren wasali daban-daban da aka saka cikinsa ke ƙirƙirar sabbin kalmomi. Misali, tushen Larabci k-t-b yana da alaƙa da rubutu, kuma kataba, kitāb da kātib duk sun fito daga gare shi.",
           "label": "Canjin ciki"
         },
         "isolating": {
-          "description": "Kalmomi yawanci sun ƙunshi morpheme ɗaya kuma ba sa canza sifansu. Ana bayyana nahawu ta hanyar tsarin kalma da kalmomi na aiki daban-daban maimakon ƙarshe ko gaban-magana.",
           "label": "Rarrabuwa"
         },
         "polysynthetic": {
-          "description": "Kalma ɗaya na iya bayyana abin da wasu yarukan za su faɗa a cikin jimla gaba ɗaya, ta hanyar haɗa fi'ili, mai aikata, abin da ake yi masa, da sauran abubuwa tare. Yafi zama gama-gari a cikin yarukan asali na Amurka da Arctic.",
           "label": "Haɗuwa mai yawa"
         }
       }
@@ -254,19 +244,15 @@
       "name": "Sautin kari",
       "values": {
         "complex-tonal": {
-          "description": "Tsare-tsaren kari suna shafar ma'anar kalma sosai.",
           "label": "Kari rikitacce"
         },
         "non-tonal": {
-          "description": "Canjin murya ba ya shafar ma'anar kalma.",
           "label": "Maras kari"
         },
         "pitch-accent": {
-          "description": "Yana amfani da lafazin murya, inda ake jaddada wasu syllabai ta canjin murya.",
           "label": "Lafazin murya"
         },
         "simple-tonal": {
-          "description": "Canjin murya yana shafar ma'anar kalma a hankali.",
           "label": "Kari sauƙi"
         }
       }
@@ -275,19 +261,15 @@
       "name": "Fuska ta fi'ili",
       "values": {
         "binary": {
-          "description": "Rarrabuwa ta tsari biyu (cikakke/mara cikawa).",
           "label": "Biyu-biyu"
         },
         "complex": {
-          "description": "Nau'ikan fuska da yawa tare da alamomi masu arziki na ilimin sifar kalma.",
           "label": "Rikitacce"
         },
         "minimal": {
-          "description": "Babu ko ƙarancin alamar nahawu na fuska.",
           "label": "Ƙarami"
         },
         "simple": {
-          "description": "Rarrabuwar fuska ta asali (misali: ci gaba, cikakke).",
           "label": "Sauƙi"
         }
       }
@@ -296,19 +278,15 @@
       "name": "Tsarin kalma",
       "values": {
         "SOV": {
-          "description": "Mai aikatawa-Abin da ake yi masa-Fi'ili",
           "label": "SOV"
         },
         "SVO": {
-          "description": "Mai aikatawa-Fi'ili-Abin da ake yi masa",
           "label": "SVO"
         },
         "VOS": {
-          "description": "Fi'ili-Abin da ake yi masa-Mai aikatawa",
           "label": "VOS"
         },
         "VSO": {
-          "description": "Fi'ili-Mai aikatawa-Abin da ake yi masa",
           "label": "VSO"
         }
       }
@@ -317,15 +295,12 @@
       "name": "Sassauci na tsarin kalma",
       "values": {
         "flexible": {
-          "description": "Ana ba da izinin tsare-tsare daban-daban na kalmomi don dalilai na salo.",
           "label": "Mai sassauci"
         },
         "rigid": {
-          "description": "Kalmomi suna da matsayi na nahawu da aka ƙayyade.",
           "label": "Mai tsauri"
         },
         "semi-flexible": {
-          "description": "Ana ba da izinin wani bambanci na tsarin kalma don jaddadawa.",
           "label": "Semi-mai sassauci"
         }
       }

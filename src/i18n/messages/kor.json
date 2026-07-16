@@ -67,23 +67,18 @@
       "name": "증거성",
       "values": {
         "complex": {
-          "description": "네 가지 이상의 증거성 구분, 또는 시제·상과 융합된 증거성.",
           "label": "복잡"
         },
         "moderate": {
-          "description": "세 가지 구분 (예: 직접, 전달, 추론).",
           "label": "중간"
         },
         "none": {
-          "description": "정보 출처에 대한 문법적 표시 없음.",
           "label": "없음"
         },
         "optional": {
-          "description": "증거성 유사 표지가 존재하지만 의무적이지 않음.",
           "label": "선택적"
         },
         "simple": {
-          "description": "두 가지 구분 (일반적으로 직접 대 간접/전달).",
           "label": "단순"
         }
       }
@@ -98,23 +93,18 @@
       "name": "형태론",
       "values": {
         "agglutinative": {
-          "description": "단어는 접사를 하나씩 차례로 붙여 형성되며, 각 접사는 정확히 하나의 의미를 담는다. 각 부분은 맞물린 블록처럼 명확히 구분된다.",
           "label": "교착어"
         },
         "fusional": {
-          "description": "단어는 여러 문법적 의미를 한꺼번에 묶는 어미와 접두사를 통해 형태를 바꾼다. 하나의 어미가 성·수·격을 동시에 나타낼 수 있어 각 부분을 분리하기 어렵다.",
           "label": "굴절어"
         },
         "introflexive": {
-          "description": "문법이 단어 내부에서 구성된다. 자음으로 이루어진 어근이 핵심 의미를 담고, 그 안에 짜인 다양한 모음 패턴이 새로운 단어를 만든다. 예를 들어 아랍어 어근 k-t-b는 쓰기와 관련되며, kataba·kitāb·kātib가 모두 여기서 파생된다.",
           "label": "내부 굴절어"
         },
         "isolating": {
-          "description": "단어는 일반적으로 하나의 형태소로 이루어지며 형태를 바꾸지 않는다. 문법은 어미나 접두사가 아닌 어순과 별도의 기능어로 표현된다.",
           "label": "고립어"
         },
         "polysynthetic": {
-          "description": "하나의 단어가 다른 언어에서 문장 전체로 표현할 내용을 동사·주어·목적어 등을 융합하여 나타낼 수 있다. 아메리카 및 북극 지역의 토착 언어에 많다.",
           "label": "포합어"
         }
       }
@@ -254,19 +244,15 @@
       "name": "성조성",
       "values": {
         "complex-tonal": {
-          "description": "성조 패턴이 단어 의미에 큰 영향을 미침.",
           "label": "복잡 성조"
         },
         "non-tonal": {
-          "description": "음높이 변화가 단어 의미에 영향을 미치지 않음.",
           "label": "비성조"
         },
         "pitch-accent": {
-          "description": "특정 음절이 음높이 변화로 강조되는 고저 악센트를 사용.",
           "label": "고저 악센트"
         },
         "simple-tonal": {
-          "description": "음높이 변화가 단어 의미에 어느 정도 영향을 미침.",
           "label": "단순 성조"
         }
       }
@@ -275,19 +261,15 @@
       "name": "동사상",
       "values": {
         "binary": {
-          "description": "두 가지 체계적 구분 (완료상/미완료상).",
           "label": "이분"
         },
         "complex": {
-          "description": "풍부한 형태론적 표지를 갖춘 다수의 상 범주.",
           "label": "복잡"
         },
         "minimal": {
-          "description": "문법적 상 표지가 없거나 매우 제한적.",
           "label": "최소"
         },
         "simple": {
-          "description": "기본적인 상 구분 (예: 진행상, 완료상).",
           "label": "단순"
         }
       }
@@ -296,19 +278,15 @@
       "name": "어순",
       "values": {
         "SOV": {
-          "description": "주어-목적어-동사",
           "label": "SOV"
         },
         "SVO": {
-          "description": "주어-동사-목적어",
           "label": "SVO"
         },
         "VOS": {
-          "description": "동사-목적어-주어",
           "label": "VOS"
         },
         "VSO": {
-          "description": "동사-주어-목적어",
           "label": "VSO"
         }
       }
@@ -317,15 +295,12 @@
       "name": "어순 유연성",
       "values": {
         "flexible": {
-          "description": "문체적 목적을 위해 다양한 어순 배열이 허용됨.",
           "label": "유연"
         },
         "rigid": {
-          "description": "단어의 문법적 위치가 고정되어 있음.",
           "label": "고정"
         },
         "semi-flexible": {
-          "description": "강조를 위한 일정한 어순 변형이 허용됨.",
           "label": "반유연"
         }
       }

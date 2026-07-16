@@ -67,23 +67,18 @@
       "name": "証拠性",
       "values": {
         "complex": {
-          "description": "4種類以上の証拠性の区別、またはテンス・アスペクトと融合した証拠性。",
           "label": "複雑"
         },
         "moderate": {
-          "description": "3項対立（例：直接・伝聞・推論）。",
           "label": "中程度"
         },
         "none": {
-          "description": "情報源の文法的マーキングなし。",
           "label": "なし"
         },
         "optional": {
-          "description": "証拠性に似たマーカーは存在するが、義務的ではない。",
           "label": "任意"
         },
         "simple": {
-          "description": "2項対立（一般的に直接証拠と間接証拠・伝聞の区別）。",
           "label": "単純"
         }
       }
@@ -98,23 +93,18 @@
       "name": "形態論",
       "values": {
         "agglutinative": {
-          "description": "語は接辞を次々と積み重ねることで形成され、各接辞はひとつの意味のみを担う。各部分は積み木のようにはっきりと識別できる。",
           "label": "膠着語"
         },
         "fusional": {
-          "description": "語は複数の文法的意味を一度に束ねた語尾や接頭辞によって形を変える。ひとつの語尾が性・数・格を同時に表すことがあり、各部分を切り離すことが難しい。",
           "label": "屈折語"
         },
         "introflexive": {
-          "description": "文法は語の内部から構築される。子音からなる語根が核心的な意味を担い、そこに織り込まれる異なる母音パターンが新しい語を生み出す。例えばアラビア語の語根 k-t-b は「書く」に関連し、kataba・kitāb・kātib はすべてそこから派生する。",
           "label": "内屈折語"
         },
         "isolating": {
-          "description": "語は通常ひとつの形態素からなり、形を変えない。文法は語順や独立した機能語によって表され、語尾や接頭辞には依存しない。",
           "label": "孤立語"
         },
         "polysynthetic": {
-          "description": "ひとつの語が、他の言語では文全体で表すような内容を表現できる。動詞・主語・目的語などの要素が融合している。南北アメリカや北極圏の先住民言語に多く見られる。",
           "label": "抱合語"
         }
       }
@@ -254,19 +244,15 @@
       "name": "声調性",
       "values": {
         "complex-tonal": {
-          "description": "ピッチパターンが語の意味に大きく影響する。",
           "label": "複雑な声調"
         },
         "non-tonal": {
-          "description": "音の高低変化が語の意味に影響しない。",
           "label": "非声調"
         },
         "pitch-accent": {
-          "description": "特定の音節がピッチの変化によって強調されるピッチアクセントを持つ。",
           "label": "ピッチアクセント"
         },
         "simple-tonal": {
-          "description": "音の高低変化が語の意味にある程度影響する。",
           "label": "単純な声調"
         }
       }
@@ -275,19 +261,15 @@
       "name": "動詞アスペクト",
       "values": {
         "binary": {
-          "description": "2項対立による体の区別（完結相・非完結相）。",
           "label": "二項対立"
         },
         "complex": {
-          "description": "豊富な形態論的マーキングを伴う複数のアスペクト範疇。",
           "label": "複雑"
         },
         "minimal": {
-          "description": "文法的なアスペクトのマーキングがないか、ほぼない。",
           "label": "最小限"
         },
         "simple": {
-          "description": "基本的なアスペクトの区別（例：進行形・完了形）。",
           "label": "単純"
         }
       }
@@ -296,19 +278,15 @@
       "name": "語順",
       "values": {
         "SOV": {
-          "description": "主語・目的語・動詞",
           "label": "SOV"
         },
         "SVO": {
-          "description": "主語・動詞・目的語",
           "label": "SVO"
         },
         "VOS": {
-          "description": "動詞・目的語・主語",
           "label": "VOS"
         },
         "VSO": {
-          "description": "動詞・主語・目的語",
           "label": "VSO"
         }
       }
@@ -317,15 +295,12 @@
       "name": "語順の柔軟性",
       "values": {
         "flexible": {
-          "description": "文体的な目的のためにさまざまな語の配置が許される。",
           "label": "柔軟"
         },
         "rigid": {
-          "description": "語は固定した文法的位置を持つ。",
           "label": "固定"
         },
         "semi-flexible": {
-          "description": "強調のためにある程度の語順変化が許される。",
           "label": "半固定"
         }
       }

@@ -67,23 +67,18 @@
       "name": "Evidencjalność",
       "values": {
         "complex": {
-          "description": "Cztery lub więcej dystynkcji evidencjalnych albo evidencjalność połączona z czasem/aspektem.",
           "label": "Złożona"
         },
         "moderate": {
-          "description": "Trójstronne rozróżnienie (np. bezpośrednie, relacjonowane, wnioskowane).",
           "label": "Umiarkowana"
         },
         "none": {
-          "description": "Brak gramatycznego oznaczania źródła informacji.",
           "label": "Brak"
         },
         "optional": {
-          "description": "Istnieją markery przypominające evidencjalne, ale nie są obowiązkowe.",
           "label": "Opcjonalna"
         },
         "simple": {
-          "description": "Dwustronne rozróżnienie (typowo bezpośrednie vs. pośrednie/relacjonowane).",
           "label": "Prosta"
         }
       }
@@ -98,23 +93,18 @@
       "name": "Morfologia",
       "values": {
         "agglutinative": {
-          "description": "Słowa tworzy się przez nakładanie przyrostków jeden po drugim, przy czym każdy przyrostek niesie dokładnie jedno znaczenie. Części pozostają wyraźnie rozpoznawalne, jak złączone klocki.",
           "label": "Aglutynacyjna"
         },
         "fusional": {
-          "description": "Słowa zmieniają formę przez końcówki i prefiksy skupiające wiele znaczeń gramatycznych naraz. Jedna końcówka może wyrażać rodzaj, liczbę i przypadek jednocześnie, co utrudnia rozdzielenie poszczególnych elementów.",
           "label": "Fleksyjna"
         },
         "introflexive": {
-          "description": "Gramatyka jest wbudowana wewnątrz słowa: rdzeń spółgłoskowy niesie znaczenie podstawowe, a różne wzorce samogłoskowe wplecione w ten rdzeń tworzą nowe słowa. Na przykład arabski rdzeń k-t-b odnosi się do pisania, a kataba, kitāb i kātib wszystkie z niego pochodzą.",
           "label": "Introfleksyjna"
         },
         "isolating": {
-          "description": "Słowa zazwyczaj składają się z jednego morfemu i nie zmieniają formy. Gramatykę wyraża szyk zdania i osobne wyrazy funkcyjne, a nie końcówki czy prefiksy.",
           "label": "Izolująca"
         },
         "polysynthetic": {
-          "description": "Jedno słowo może wyrazić to, co inne języki powiedziałyby całym zdaniem, łącząc czasownik, podmiot, dopełnienie i inne elementy. Typowe dla rdzennych języków Ameryk i Arktyki.",
           "label": "Polisyntetyczna"
         }
       }
@@ -254,19 +244,15 @@
       "name": "Tonalność",
       "values": {
         "complex-tonal": {
-          "description": "Wzorce tonalne znacząco wpływają na znaczenie słów.",
           "label": "Złożona tonalna"
         },
         "non-tonal": {
-          "description": "Zmiany wysokości tonu nie wpływają na znaczenie słów.",
           "label": "Nietonalna"
         },
         "pitch-accent": {
-          "description": "Używa akcentu tonalnego, gdzie określone sylaby są podkreślane zmianami wysokości tonu.",
           "label": "Akcent tonalny"
         },
         "simple-tonal": {
-          "description": "Zmiany wysokości tonu umiarkowanie wpływają na znaczenie słów.",
           "label": "Prosta tonalna"
         }
       }
@@ -275,19 +261,15 @@
       "name": "Aspekt czasownika",
       "values": {
         "binary": {
-          "description": "Dwustronne systematyczne rozróżnienie (dokonany/niedokonany).",
           "label": "Binarny"
         },
         "complex": {
-          "description": "Wiele kategorii aspektowych z bogatym oznaczaniem morfologicznym.",
           "label": "Złożony"
         },
         "minimal": {
-          "description": "Brak lub bardzo ograniczone gramatyczne oznaczanie aspektu.",
           "label": "Minimalny"
         },
         "simple": {
-          "description": "Podstawowe rozróżnienia aspektowe (np. progresywny, perfektywny).",
           "label": "Prosty"
         }
       }
@@ -296,19 +278,15 @@
       "name": "Szyk zdania",
       "values": {
         "SOV": {
-          "description": "Podmiot-Dopełnienie-Orzeczenie",
           "label": "SOV"
         },
         "SVO": {
-          "description": "Podmiot-Orzeczenie-Dopełnienie",
           "label": "SVO"
         },
         "VOS": {
-          "description": "Orzeczenie-Dopełnienie-Podmiot",
           "label": "VOS"
         },
         "VSO": {
-          "description": "Orzeczenie-Podmiot-Dopełnienie",
           "label": "VSO"
         }
       }
@@ -317,15 +295,12 @@
       "name": "Elastyczność szyku zdania",
       "values": {
         "flexible": {
-          "description": "Różne układy słów są dopuszczalne w celach stylistycznych.",
           "label": "Elastyczny"
         },
         "rigid": {
-          "description": "Słowa mają stałe pozycje gramatyczne.",
           "label": "Sztywny"
         },
         "semi-flexible": {
-          "description": "Pewne warianty szyku są dopuszczalne dla podkreślenia.",
           "label": "Półelastyczny"
         }
       }

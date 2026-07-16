@@ -67,23 +67,18 @@
       "name": "Kanıtsallık",
       "values": {
         "complex": {
-          "description": "Dört veya daha fazla kanıtsallık ayrımı ya da zaman/görünüşle kaynaşmış kanıtsallık.",
           "label": "Karmaşık"
         },
         "moderate": {
-          "description": "Üçlü ayrım (örn. doğrudan, aktarmalı, çıkarımsal).",
           "label": "Orta"
         },
         "none": {
-          "description": "Bilgi kaynağının dilbilgisel işaretlemesi yok.",
           "label": "Yok"
         },
         "optional": {
-          "description": "Kanıtsallığa benzer işaretleyiciler var ancak zorunlu değil.",
           "label": "İsteğe bağlı"
         },
         "simple": {
-          "description": "İkili ayrım (genellikle doğrudan ve dolaylı/aktarmalı).",
           "label": "Basit"
         }
       }
@@ -98,23 +93,18 @@
       "name": "Morfoloji",
       "values": {
         "agglutinative": {
-          "description": "Sözcükler, her birinin tam olarak bir anlam taşıdığı ekler art arda eklenerek oluşturulur. Parçalar, birbirine geçirilmiş yapı taşları gibi açıkça tanınabilir kalır.",
           "label": "Eklemeli"
         },
         "fusional": {
-          "description": "Sözcükler, aynı anda birden fazla dilbilgisel anlam içeren sonekler ve öneklerle biçimlerini değiştirir. Tek bir sonek cinsiyet, sayı ve durumu aynı anda ifade edebilir; bu da parçaları birbirinden ayırmayı güçleştirir.",
           "label": "Bükünlü"
         },
         "introflexive": {
-          "description": "Dilbilgisi sözcüğün içinden kurulur: ünsüzlerden oluşan bir kök temel anlamı taşır; içine dokunan farklı ünlü örüntüleri yeni sözcükler oluşturur. Örneğin Arapçadaki k-t-b kökü yazmaya ilişkindir ve kataba, kitāb ile kātib hepsi buradan gelir.",
           "label": "İçten bükünlü"
         },
         "isolating": {
-          "description": "Sözcükler genellikle tek bir morfemden oluşur ve biçimlerini değiştirmez. Dilbilgisi, sonekler ya da önekler yerine sözcük sırası ve ayrı işlev sözcükleri aracılığıyla ifade edilir.",
           "label": "Yalıtımlı"
         },
         "polysynthetic": {
-          "description": "Tek bir sözcük, diğer dillerin tüm cümlede söyleyeceği şeyi, fiil, özne, nesne ve diğer unsurları bir araya getirerek ifade edebilir. Amerika'nın ve Arktik'in yerli dillerinde yaygındır.",
           "label": "Çok bireşimli"
         }
       }
@@ -254,19 +244,15 @@
       "name": "Tonalite",
       "values": {
         "complex-tonal": {
-          "description": "Ton örüntüleri sözcük anlamını önemli ölçüde etkiler.",
           "label": "Karmaşık tonal"
         },
         "non-tonal": {
-          "description": "Ton değişimleri sözcük anlamını etkilemez.",
           "label": "Tonal olmayan"
         },
         "pitch-accent": {
-          "description": "Belirli hecelerin ton değişimleriyle vurgulandığı perde aksanını kullanır.",
           "label": "Perde aksanı"
         },
         "simple-tonal": {
-          "description": "Ton değişimleri sözcük anlamını orta düzeyde etkiler.",
           "label": "Basit tonal"
         }
       }
@@ -275,19 +261,15 @@
       "name": "Fiil görünüşü",
       "values": {
         "binary": {
-          "description": "İkili sistematik ayrım (tamamlayıcı/tamamlayıcı olmayan).",
           "label": "İkili"
         },
         "complex": {
-          "description": "Zengin biçimbilimsel işaretlemeyle birden fazla görünüş kategorisi.",
           "label": "Karmaşık"
         },
         "minimal": {
-          "description": "Hiç ya da çok sınırlı dilbilgisel görünüş işaretlemesi.",
           "label": "En az"
         },
         "simple": {
-          "description": "Temel görünüş ayrımları (örn. süregelen, tamamlanmış).",
           "label": "Basit"
         }
       }
@@ -296,19 +278,15 @@
       "name": "Sözcük sırası",
       "values": {
         "SOV": {
-          "description": "Özne-Nesne-Yüklem",
           "label": "SOV"
         },
         "SVO": {
-          "description": "Özne-Yüklem-Nesne",
           "label": "SVO"
         },
         "VOS": {
-          "description": "Yüklem-Nesne-Özne",
           "label": "VOS"
         },
         "VSO": {
-          "description": "Yüklem-Özne-Nesne",
           "label": "VSO"
         }
       }
@@ -317,15 +295,12 @@
       "name": "Sözcük sırası esnekliği",
       "values": {
         "flexible": {
-          "description": "Üslupsal amaçlarla çeşitli sözcük dizilişlerine izin verilir.",
           "label": "Esnek"
         },
         "rigid": {
-          "description": "Sözcüklerin sabit dilbilgisel konumları vardır.",
           "label": "Katı"
         },
         "semi-flexible": {
-          "description": "Vurgu amacıyla belirli sözcük sırası değişikliklerine izin verilir.",
           "label": "Yarı esnek"
         }
       }

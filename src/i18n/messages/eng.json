@@ -63,23 +63,18 @@
       "name": "Evidentiality",
       "values": {
         "complex": {
-          "description": "Four or more evidential distinctions or evidentiality fused with tense/aspect.",
           "label": "Complex"
         },
         "moderate": {
-          "description": "Three-way distinction (e.g., direct, reportative, inferential).",
           "label": "Moderate"
         },
         "none": {
-          "description": "No grammatical marking of information source.",
           "label": "None"
         },
         "optional": {
-          "description": "Evidential-like markers exist but are not obligatory.",
           "label": "Optional"
         },
         "simple": {
-          "description": "Two-way distinction (typically direct vs. indirect/reportative).",
           "label": "Simple"
         }
       }
@@ -94,23 +89,18 @@
       "name": "Morphology",
       "values": {
         "agglutinative": {
-          "description": "Words are built by stacking affixes one after another, where each affix carries exactly one meaning. The pieces stay clearly recognizable, like building blocks snapped together.",
           "label": "Agglutinative"
         },
         "fusional": {
-          "description": "Words change their form through endings and prefixes that bundle multiple grammatical meanings at once. A single ending might express gender, number, and case simultaneously, making the pieces hard to pull apart.",
           "label": "Fusional"
         },
         "introflexive": {
-          "description": "Grammar is built into the word from the inside: a root of consonants carries the core meaning, while different vowel patterns woven through it create new words. For example, the Arabic root k-t-b relates to writing, and kataba, kitāb, and kātib all come from it.",
           "label": "Introflexive"
         },
         "isolating": {
-          "description": "Words typically consist of single morphemes and don't change their form. Grammar is expressed through word order and separate function words rather than endings or prefixes.",
           "label": "Isolating"
         },
         "polysynthetic": {
-          "description": "A single word can express what other languages would say in a whole sentence, by fusing the verb, subject, object, and other elements together. Common in indigenous languages of the Americas and the Arctic.",
           "label": "Polysynthetic"
         }
       }
@@ -250,19 +240,15 @@
       "name": "Tonality",
       "values": {
         "complex-tonal": {
-          "description": "Pitch patterns significantly affect word meaning.",
           "label": "Complex tonal"
         },
         "non-tonal": {
-          "description": "Pitch changes don't affect word meaning.",
           "label": "Non-tonal"
         },
         "pitch-accent": {
-          "description": "It uses pitch accent, where certain syllables are emphasized with pitch changes.",
           "label": "Pitch-accent"
         },
         "simple-tonal": {
-          "description": "Pitch changes moderately affect word meaning.",
           "label": "Simple tonal"
         }
       }
@@ -271,19 +257,15 @@
       "name": "Verb aspect",
       "values": {
         "binary": {
-          "description": "Two-way systematic distinction (perfective/imperfective).",
           "label": "Binary"
         },
         "complex": {
-          "description": "Multiple aspect categories with rich morphological marking.",
           "label": "Complex"
         },
         "minimal": {
-          "description": "No or very limited grammatical aspect marking.",
           "label": "Minimal"
         },
         "simple": {
-          "description": "Basic aspectual distinctions (e.g., progressive, perfect).",
           "label": "Simple"
         }
       }
@@ -292,19 +274,15 @@
       "name": "Word order",
       "values": {
         "SOV": {
-          "description": "Subject-Object-Verb",
           "label": "SOV"
         },
         "SVO": {
-          "description": "Subject-Verb-Object",
           "label": "SVO"
         },
         "VOS": {
-          "description": "Verb-Object-Subject",
           "label": "VOS"
         },
         "VSO": {
-          "description": "Verb-Subject-Object",
           "label": "VSO"
         }
       }
@@ -313,15 +291,12 @@
       "name": "Word order flexibility",
       "values": {
         "flexible": {
-          "description": "Various word arrangements are allowed for stylistic purposes.",
           "label": "Flexible"
         },
         "rigid": {
-          "description": "Words have fixed grammatical positions.",
           "label": "Rigid"
         },
         "semi-flexible": {
-          "description": "Some variation of word order is allowed for emphasis.",
           "label": "Semi-flexible"
         }
       }

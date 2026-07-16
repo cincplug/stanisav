@@ -67,23 +67,18 @@
       "name": "Évidentialité",
       "values": {
         "complex": {
-          "description": "Quatre distinctions évidentielles ou plus, ou évidentialité fusionnée avec le temps/l'aspect.",
           "label": "Complexe"
         },
         "moderate": {
-          "description": "Distinction à trois voies (p. ex. directe, rapportée, inférentielle).",
           "label": "Modérée"
         },
         "none": {
-          "description": "Pas de marquage grammatical de la source d'information.",
           "label": "Aucune"
         },
         "optional": {
-          "description": "Des marqueurs similaires aux évidentiels existent mais ne sont pas obligatoires.",
           "label": "Optionnelle"
         },
         "simple": {
-          "description": "Distinction binaire (typiquement directe vs. indirecte/rapportée).",
           "label": "Simple"
         }
       }
@@ -98,23 +93,18 @@
       "name": "Morphologie",
       "values": {
         "agglutinative": {
-          "description": "Les mots se forment en empilant des affixes les uns après les autres, chaque affixe portant exactement un sens. Les parties restent clairement reconnaissables, comme des briques assemblées.",
           "label": "Agglutinante"
         },
         "fusional": {
-          "description": "Les mots changent de forme par des désinences et des préfixes qui regroupent plusieurs sens grammaticaux à la fois. Une seule désinence peut exprimer le genre, le nombre et le cas simultanément, rendant difficile la séparation des parties.",
           "label": "Flexionnelle"
         },
         "introflexive": {
-          "description": "La grammaire est intégrée à l'intérieur du mot : une racine de consonnes porte le sens central, tandis que différents schémas vocaliques tissés à travers elle créent de nouveaux mots. Par exemple, la racine arabe k-t-b est liée à l'écriture, et kataba, kitāb et kātib en dérivent tous.",
           "label": "Introflexive"
         },
         "isolating": {
-          "description": "Les mots se composent généralement d'un seul morphème et ne changent pas de forme. La grammaire s'exprime par l'ordre des mots et des mots fonctionnels séparés, plutôt que par des désinences ou des préfixes.",
           "label": "Isolante"
         },
         "polysynthetic": {
-          "description": "Un seul mot peut exprimer ce que d'autres langues diraient dans une phrase entière, en fusionnant le verbe, le sujet, l'objet et d'autres éléments. Fréquent dans les langues autochtones des Amériques et de l'Arctique.",
           "label": "Polysynthétique"
         }
       }
@@ -254,19 +244,15 @@
       "name": "Tonalité",
       "values": {
         "complex-tonal": {
-          "description": "Les schémas tonals affectent significativement le sens des mots.",
           "label": "Tonale complexe"
         },
         "non-tonal": {
-          "description": "Les changements de hauteur n'affectent pas le sens des mots.",
           "label": "Non tonale"
         },
         "pitch-accent": {
-          "description": "Utilise l'accent tonal, où certaines syllabes sont accentuées par des changements de hauteur.",
           "label": "Accent tonal"
         },
         "simple-tonal": {
-          "description": "Les changements de hauteur affectent modérément le sens des mots.",
           "label": "Tonale simple"
         }
       }
@@ -275,19 +261,15 @@
       "name": "Aspect verbal",
       "values": {
         "binary": {
-          "description": "Distinction systématique binaire (perfectif/imperfectif).",
           "label": "Binaire"
         },
         "complex": {
-          "description": "Plusieurs catégories aspectuelles avec un marquage morphologique riche.",
           "label": "Complexe"
         },
         "minimal": {
-          "description": "Pas ou très peu de marquage grammatical de l'aspect.",
           "label": "Minimal"
         },
         "simple": {
-          "description": "Distinctions aspectuelles de base (p. ex. progressif, parfait).",
           "label": "Simple"
         }
       }
@@ -296,19 +278,15 @@
       "name": "Ordre des mots",
       "values": {
         "SOV": {
-          "description": "Sujet-Objet-Verbe",
           "label": "SOV"
         },
         "SVO": {
-          "description": "Sujet-Verbe-Objet",
           "label": "SVO"
         },
         "VOS": {
-          "description": "Verbe-Objet-Sujet",
           "label": "VOS"
         },
         "VSO": {
-          "description": "Verbe-Sujet-Objet",
           "label": "VSO"
         }
       }
@@ -317,15 +295,12 @@
       "name": "Flexibilité de l'ordre des mots",
       "values": {
         "flexible": {
-          "description": "Différents ordres de mots sont permis à des fins stylistiques.",
           "label": "Flexible"
         },
         "rigid": {
-          "description": "Les mots ont des positions grammaticales fixes.",
           "label": "Rigide"
         },
         "semi-flexible": {
-          "description": "Certaines variations de l'ordre des mots sont permises pour l'emphase.",
           "label": "Semi-flexible"
         }
       }

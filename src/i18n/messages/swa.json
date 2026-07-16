@@ -67,23 +67,18 @@
       "name": "Ushahidi wa kisarufi",
       "values": {
         "complex": {
-          "description": "Tofauti nne au zaidi za ushahidi, au ushahidi uliounganishwa na wakati/kipengele.",
           "label": "Changamano"
         },
         "moderate": {
-          "description": "Tofauti ya pande tatu (mfano: moja kwa moja, ripoti, maelezo).",
           "label": "Ya kati"
         },
         "none": {
-          "description": "Hakuna alama ya kisarufi ya chanzo cha taarifa.",
           "label": "Hakuna"
         },
         "optional": {
-          "description": "Alama zinazofanana na ushahidi zipo lakini si za lazima.",
           "label": "Ya hiari"
         },
         "simple": {
-          "description": "Tofauti ya pande mbili (kawaida moja kwa moja dhidi ya isiyo ya moja kwa moja/ripoti).",
           "label": "Rahisi"
         }
       }
@@ -98,23 +93,18 @@
       "name": "Mofolojia",
       "values": {
         "agglutinative": {
-          "description": "Maneno huundwa kwa kuongeza viambishi kimoja baada ya kingine, ambapo kila kiambishi hubeba maana moja tu. Sehemu hubaki zinazoonekana wazi, kama vipande vilivyounganishwa.",
           "label": "Uongezaji"
         },
         "fusional": {
-          "description": "Maneno hubadilisha umbo lake kupitia viishio na viambishi awali vinavyounganisha maana nyingi za kisarufi kwa wakati mmoja. Kiishio kimoja kinaweza kuonyesha jinsia, idadi, na hali kwa pamoja, na kufanya vigumu kutenganisha sehemu.",
           "label": "Muunganiko"
         },
         "introflexive": {
-          "description": "Sarufi hujengwa ndani ya neno: mzizi wa konsonanti hubeba maana kuu, huku mifumo tofauti ya irabu iliyosukwa ndani yake ikiumba maneno mapya. Kwa mfano, mzizi wa Kiarabu k-t-b unahusiana na uandishi, na kataba, kitāb na kātib wote hutoka humo.",
           "label": "Mabadiliko ya ndani"
         },
         "isolating": {
-          "description": "Maneno kwa kawaida yana mofimu moja tu na hayabadilishi umbo lake. Sarufi huonyeshwa kupitia mpangilio wa maneno na maneno ya kazi tofauti badala ya viishio au viambishi awali.",
           "label": "Utengano"
         },
         "polysynthetic": {
-          "description": "Neno moja linaweza kueleza kile ambacho lugha nyingine zingesema katika sentensi nzima, kwa kuunganisha kitenzi, mtenda, kitendwa, na vipengele vingine pamoja. Kawaida katika lugha za asili za Amerika na Aktiki.",
           "label": "Uunganiko mwingi"
         }
       }
@@ -254,19 +244,15 @@
       "name": "Utonali",
       "values": {
         "complex-tonal": {
-          "description": "Mifumo ya toni huathiri sana maana ya maneno.",
           "label": "Toni changamano"
         },
         "non-tonal": {
-          "description": "Mabadiliko ya sauti hayaathiri maana ya maneno.",
           "label": "Isiyo na toni"
         },
         "pitch-accent": {
-          "description": "Hutumia lafudhi ya sauti, ambapo silabi fulani husisitizwa kwa mabadiliko ya sauti.",
           "label": "Lafudhi ya sauti"
         },
         "simple-tonal": {
-          "description": "Mabadiliko ya sauti huathiri maana ya maneno kwa kiasi.",
           "label": "Toni rahisi"
         }
       }
@@ -275,19 +261,15 @@
       "name": "Kipengele cha kitenzi",
       "values": {
         "binary": {
-          "description": "Tofauti ya kimfumo ya pande mbili (timilifu/kutimilifu).",
           "label": "Ya pande mbili"
         },
         "complex": {
-          "description": "Makundi mengi ya kipengele yenye alama tajiri za kimofolojia.",
           "label": "Changamano"
         },
         "minimal": {
-          "description": "Hakuna au alama chache sana za kisarufi za kipengele.",
           "label": "Kidogo"
         },
         "simple": {
-          "description": "Tofauti za msingi za kipengele (mfano: endeleo, timilifu).",
           "label": "Rahisi"
         }
       }
@@ -296,19 +278,15 @@
       "name": "Mpangilio wa maneno",
       "values": {
         "SOV": {
-          "description": "Mtenda-Kitendwa-Kitenzi",
           "label": "SOV"
         },
         "SVO": {
-          "description": "Mtenda-Kitenzi-Kitendwa",
           "label": "SVO"
         },
         "VOS": {
-          "description": "Kitenzi-Kitendwa-Mtenda",
           "label": "VOS"
         },
         "VSO": {
-          "description": "Kitenzi-Mtenda-Kitendwa",
           "label": "VSO"
         }
       }
@@ -317,15 +295,12 @@
       "name": "Kubadilika kwa mpangilio wa maneno",
       "values": {
         "flexible": {
-          "description": "Mipangilio mbalimbali ya maneno inaruhusiwa kwa madhumuni ya kimtindo.",
           "label": "Inayobadilika"
         },
         "rigid": {
-          "description": "Maneno yana nafasi zake za kisarufi zilizowekwa.",
           "label": "Isiyobadilika"
         },
         "semi-flexible": {
-          "description": "Tofauti fulani ya mpangilio wa maneno inaruhusiwa kwa msisitizo.",
           "label": "Inayobadilika kiasi"
         }
       }

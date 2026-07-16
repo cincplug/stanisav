@@ -67,23 +67,18 @@
       "name": "Tính chứng cứ",
       "values": {
         "complex": {
-          "description": "Bốn phân biệt chứng cứ trở lên, hoặc tính chứng cứ kết hợp với thì/thể.",
           "label": "Phức tạp"
         },
         "moderate": {
-          "description": "Phân biệt ba chiều (ví dụ: trực tiếp, tường thuật, suy luận).",
           "label": "Trung bình"
         },
         "none": {
-          "description": "Không có đánh dấu ngữ pháp cho nguồn thông tin.",
           "label": "Không có"
         },
         "optional": {
-          "description": "Các dấu hiệu tương tự chứng cứ tồn tại nhưng không bắt buộc.",
           "label": "Tùy chọn"
         },
         "simple": {
-          "description": "Phân biệt hai chiều (thường là trực tiếp so với gián tiếp/tường thuật).",
           "label": "Đơn giản"
         }
       }
@@ -98,23 +93,18 @@
       "name": "Hình thái học",
       "values": {
         "agglutinative": {
-          "description": "Từ được tạo thành bằng cách xếp chồng các phụ tố lên nhau, trong đó mỗi phụ tố mang đúng một nghĩa. Các phần vẫn có thể nhận ra rõ ràng, như những khối ghép lại với nhau.",
           "label": "Kết dính"
         },
         "fusional": {
-          "description": "Từ thay đổi hình thức qua các hậu tố và tiền tố gói gọn nhiều nghĩa ngữ pháp cùng một lúc. Một hậu tố có thể diễn đạt giống, số và cách đồng thời, khiến các phần khó tách rời.",
           "label": "Khuất chiết"
         },
         "introflexive": {
-          "description": "Ngữ pháp được xây dựng từ bên trong từ: một gốc phụ âm mang nghĩa cốt lõi, trong khi các mẫu nguyên âm khác nhau được dệt vào đó tạo ra các từ mới. Ví dụ, gốc tiếng Ả Rập k-t-b liên quan đến viết, và kataba, kitāb và kātib đều đến từ đó.",
           "label": "Khuất chiết nội tại"
         },
         "isolating": {
-          "description": "Từ thường bao gồm một hình vị duy nhất và không thay đổi hình thức. Ngữ pháp được thể hiện qua trật tự từ và các từ chức năng riêng biệt thay vì hậu tố hay tiền tố.",
           "label": "Đơn lập"
         },
         "polysynthetic": {
-          "description": "Một từ duy nhất có thể diễn đạt những gì các ngôn ngữ khác phải nói trong cả một câu, bằng cách kết hợp động từ, chủ ngữ, tân ngữ và các yếu tố khác lại với nhau. Phổ biến trong các ngôn ngữ bản địa của châu Mỹ và Bắc Cực.",
           "label": "Tổng hợp đa phức"
         }
       }
@@ -254,19 +244,15 @@
       "name": "Tính thanh điệu",
       "values": {
         "complex-tonal": {
-          "description": "Các mẫu cao độ ảnh hưởng đáng kể đến nghĩa của từ.",
           "label": "Thanh điệu phức tạp"
         },
         "non-tonal": {
-          "description": "Thay đổi cao độ không ảnh hưởng đến nghĩa của từ.",
           "label": "Không có thanh điệu"
         },
         "pitch-accent": {
-          "description": "Sử dụng trọng âm cao độ, trong đó một số âm tiết được nhấn mạnh bằng thay đổi cao độ.",
           "label": "Trọng âm cao độ"
         },
         "simple-tonal": {
-          "description": "Thay đổi cao độ ảnh hưởng vừa phải đến nghĩa của từ.",
           "label": "Thanh điệu đơn giản"
         }
       }
@@ -275,19 +261,15 @@
       "name": "Thể động từ",
       "values": {
         "binary": {
-          "description": "Phân biệt hệ thống hai chiều (hoàn thành/chưa hoàn thành).",
           "label": "Nhị phân"
         },
         "complex": {
-          "description": "Nhiều phạm trù thể với đánh dấu hình thái phong phú.",
           "label": "Phức tạp"
         },
         "minimal": {
-          "description": "Không có hoặc rất ít đánh dấu ngữ pháp về thể.",
           "label": "Tối thiểu"
         },
         "simple": {
-          "description": "Phân biệt thể cơ bản (ví dụ: tiếp diễn, hoàn thành).",
           "label": "Đơn giản"
         }
       }
@@ -296,19 +278,15 @@
       "name": "Trật tự từ",
       "values": {
         "SOV": {
-          "description": "Chủ ngữ-Tân ngữ-Động từ",
           "label": "SOV"
         },
         "SVO": {
-          "description": "Chủ ngữ-Động từ-Tân ngữ",
           "label": "SVO"
         },
         "VOS": {
-          "description": "Động từ-Tân ngữ-Chủ ngữ",
           "label": "VOS"
         },
         "VSO": {
-          "description": "Động từ-Chủ ngữ-Tân ngữ",
           "label": "VSO"
         }
       }
@@ -317,15 +295,12 @@
       "name": "Độ linh hoạt trật tự từ",
       "values": {
         "flexible": {
-          "description": "Nhiều cách sắp xếp từ khác nhau được phép vì mục đích văn phong.",
           "label": "Linh hoạt"
         },
         "rigid": {
-          "description": "Các từ có vị trí ngữ pháp cố định.",
           "label": "Cố định"
         },
         "semi-flexible": {
-          "description": "Một số biến thể trật tự từ được phép để nhấn mạnh.",
           "label": "Nửa linh hoạt"
         }
       }

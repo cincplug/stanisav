@@ -63,23 +63,18 @@
       "name": "Evidentiality",
       "values": {
         "complex": {
-          "description": "Four or pass four evidential type dem, or evidentiality mix well well with tense/aspect.",
           "label": "Complex"
         },
         "moderate": {
-          "description": "Three kind separation (like: direct, wetin dem tell you, wetin you guess).",
           "label": "Moderate"
         },
         "none": {
-          "description": "No grammar mark wey dey show where di gist come from.",
           "label": "None at all"
         },
         "optional": {
-          "description": "Evidential-like mark dey exist, but e no compulsory.",
           "label": "Optional"
         },
         "simple": {
-          "description": "Two kind separation (usually direct against wetin somebody tell you).",
           "label": "Simple"
         }
       }
@@ -94,23 +89,18 @@
       "name": "Morphology",
       "values": {
         "agglutinative": {
-          "description": "Dem dey build word by dey stack affix one after anoda, and each affix get just one meaning. Di parts still dey clear, like building block wey dem snap join.",
           "label": "Agglutinative"
         },
         "fusional": {
-          "description": "Word dey change im form through ending and prefix wey mix plenty grammar meaning togeda for one time. One ending fit show gender, number, and case all at once, so e hard to separate di parts.",
           "label": "Fusional"
         },
         "introflexive": {
-          "description": "Grammar dey enta di word from inside: consonant root dey carry di main meaning, and different vowel pattern wey dey pass through am dey create new word. Like, di Arabik root k-t-b relate to writing, and kataba, kitāb, and kātib all come from am.",
           "label": "Introflexive"
         },
         "isolating": {
-          "description": "Word dem normally get just one morpheme and dem no dey change form. Grammar dey show through how you arrange word and separate function word, no be ending or prefix.",
           "label": "Isolating"
         },
         "polysynthetic": {
-          "description": "One single word fit talk wetin oda language go need whole sentence to talk, by dey join verb, subject, object, and oda tin togeda. E common for indigenous language dem for America and Arctic.",
           "label": "Polysynthetic"
         }
       }
@@ -250,19 +240,15 @@
       "name": "Tone",
       "values": {
         "complex-tonal": {
-          "description": "Pitch pattern dey affect word meaning well well.",
           "label": "Heavy tone"
         },
         "non-tonal": {
-          "description": "Pitch no dey change word meaning at all.",
           "label": "No tone"
         },
         "pitch-accent": {
-          "description": "E dey use pitch accent, where certain syllable dem dey get emphasis with pitch change.",
           "label": "Pitch-accent"
         },
         "simple-tonal": {
-          "description": "Pitch change dey affect word meaning small small.",
           "label": "Small tone"
         }
       }
@@ -271,19 +257,15 @@
       "name": "Verb aspect",
       "values": {
         "binary": {
-          "description": "Two kind systematic separation (perfective/imperfective).",
           "label": "Binary"
         },
         "complex": {
-          "description": "Plenty aspect category dem with rich grammar mark.",
           "label": "Complex"
         },
         "minimal": {
-          "description": "No grammar aspect mark at all, or na very small wey e get.",
           "label": "Minimal"
         },
         "simple": {
-          "description": "Basic aspect separation (like progressive, perfect).",
           "label": "Simple"
         }
       }
@@ -292,19 +274,15 @@
       "name": "How dem dey arrange word",
       "values": {
         "SOV": {
-          "description": "Subject-Object-Verb",
           "label": "SOV"
         },
         "SVO": {
-          "description": "Subject-Verb-Object",
           "label": "SVO"
         },
         "VOS": {
-          "description": "Verb-Object-Subject",
           "label": "VOS"
         },
         "VSO": {
-          "description": "Verb-Subject-Object",
           "label": "VSO"
         }
       }
@@ -313,15 +291,12 @@
       "name": "How word order fit change",
       "values": {
         "flexible": {
-          "description": "Different word arrangement dem dey allowed for style sake.",
           "label": "E fit change"
         },
         "rigid": {
-          "description": "Word dem get fixed grammar position wey no dey change.",
           "label": "E no dey change"
         },
         "semi-flexible": {
-          "description": "Small variation for word order dey allowed to put emphasis for something.",
           "label": "E fit small change"
         }
       }

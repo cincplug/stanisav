@@ -67,23 +67,18 @@
       "name": "Evidencialidade",
       "values": {
         "complex": {
-          "description": "Quatro ou mais distinções evidenciais ou evidencialidade fundida com tempo/aspeto.",
           "label": "Complexa"
         },
         "moderate": {
-          "description": "Distinção tripla (p. ex., direta, reportada, inferencial).",
           "label": "Moderada"
         },
         "none": {
-          "description": "Sem marcação gramatical da fonte de informação.",
           "label": "Nenhuma"
         },
         "optional": {
-          "description": "Existem marcadores semelhantes aos evidenciais mas não são obrigatórios.",
           "label": "Opcional"
         },
         "simple": {
-          "description": "Distinção binária (tipicamente direta vs. indireta/reportada).",
           "label": "Simples"
         }
       }
@@ -98,23 +93,18 @@
       "name": "Morfologia",
       "values": {
         "agglutinative": {
-          "description": "As palavras formam-se empilhando afixos um após outro, onde cada afixo carrega exatamente um significado. As partes permanecem claramente reconhecíveis, como peças encaixadas.",
           "label": "Aglutinante"
         },
         "fusional": {
-          "description": "As palavras mudam de forma através de desinências e prefixos que agrupam vários significados gramaticais ao mesmo tempo. Uma única desinência pode expressar género, número e caso simultaneamente, dificultando a separação das partes.",
           "label": "Flexional"
         },
         "introflexive": {
-          "description": "A gramática está integrada no interior da própria palavra: uma raiz de consoantes carrega o significado central, enquanto diferentes padrões vocálicos entrelaçados nela criam novas palavras. Por exemplo, a raiz árabe k-t-b relaciona-se com a escrita, e kataba, kitāb e kātib derivam todas dela.",
           "label": "Introflexiva"
         },
         "isolating": {
-          "description": "As palavras consistem tipicamente num único morfema e não mudam de forma. A gramática é expressa pela ordem das palavras e por palavras funcionais separadas, e não por desinências ou prefixos.",
           "label": "Isolante"
         },
         "polysynthetic": {
-          "description": "Uma única palavra pode expressar o que outras línguas diriam numa frase inteira, fundindo o verbo, o sujeito, o objeto e outros elementos. Comum nas línguas indígenas das Américas e do Ártico.",
           "label": "Polissintética"
         }
       }
@@ -254,19 +244,15 @@
       "name": "Tonalidade",
       "values": {
         "complex-tonal": {
-          "description": "Os padrões tonais afetam significativamente o significado das palavras.",
           "label": "Tonal complexa"
         },
         "non-tonal": {
-          "description": "As mudanças de tom não afetam o significado das palavras.",
           "label": "Não tonal"
         },
         "pitch-accent": {
-          "description": "Usa acento tonal, onde certas sílabas são enfatizadas com mudanças de tom.",
           "label": "Acento tonal"
         },
         "simple-tonal": {
-          "description": "As mudanças de tom afetam moderadamente o significado das palavras.",
           "label": "Tonal simples"
         }
       }
@@ -275,19 +261,15 @@
       "name": "Aspeto verbal",
       "values": {
         "binary": {
-          "description": "Distinção sistemática binária (perfectivo/imperfectivo).",
           "label": "Binário"
         },
         "complex": {
-          "description": "Várias categorias aspetais com rica marcação morfológica.",
           "label": "Complexo"
         },
         "minimal": {
-          "description": "Sem marcação gramatical do aspeto ou muito limitada.",
           "label": "Mínimo"
         },
         "simple": {
-          "description": "Distinções aspetais básicas (p. ex., progressivo, perfeito).",
           "label": "Simples"
         }
       }
@@ -296,19 +278,15 @@
       "name": "Ordem das palavras",
       "values": {
         "SOV": {
-          "description": "Sujeito-Objeto-Verbo",
           "label": "SOV"
         },
         "SVO": {
-          "description": "Sujeito-Verbo-Objeto",
           "label": "SVO"
         },
         "VOS": {
-          "description": "Verbo-Objeto-Sujeito",
           "label": "VOS"
         },
         "VSO": {
-          "description": "Verbo-Sujeito-Objeto",
           "label": "VSO"
         }
       }
@@ -317,15 +295,12 @@
       "name": "Flexibilidade da ordem das palavras",
       "values": {
         "flexible": {
-          "description": "Diferentes ordens de palavras são permitidas para fins estilísticos.",
           "label": "Flexível"
         },
         "rigid": {
-          "description": "As palavras têm posições gramaticais fixas.",
           "label": "Rígida"
         },
         "semi-flexible": {
-          "description": "Algumas variações da ordem das palavras são permitidas para ênfase.",
           "label": "Semiflexível"
         }
       }

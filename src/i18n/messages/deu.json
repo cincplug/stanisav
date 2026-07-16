@@ -67,23 +67,18 @@
       "name": "Evidentialität",
       "values": {
         "complex": {
-          "description": "Vier oder mehr Evidentialitätsunterscheidungen oder Evidentialität kombiniert mit Tempus/Aspekt.",
           "label": "Komplex"
         },
         "moderate": {
-          "description": "Dreiteilige Unterscheidung (z. B. direkt, reportativ, inferentiell).",
           "label": "Moderat"
         },
         "none": {
-          "description": "Keine grammatikalische Markierung der Informationsquelle.",
           "label": "Keine"
         },
         "optional": {
-          "description": "Evidentialitätsähnliche Marker existieren, sind aber nicht obligatorisch.",
           "label": "Optional"
         },
         "simple": {
-          "description": "Zweiteilige Unterscheidung (typischerweise direkt vs. indirekt/reportativ).",
           "label": "Einfach"
         }
       }
@@ -98,23 +93,18 @@
       "name": "Morphologie",
       "values": {
         "agglutinative": {
-          "description": "Wörter werden durch das Aneinanderreihen von Affixen gebildet, wobei jedes Affix genau eine Bedeutung trägt. Die Teile bleiben klar erkennbar, wie zusammengesteckte Bausteine.",
           "label": "Agglutinierend"
         },
         "fusional": {
-          "description": "Wörter verändern ihre Form durch Endungen und Präfixe, die mehrere grammatikalische Bedeutungen gleichzeitig bündeln. Eine einzelne Endung kann Geschlecht, Zahl und Kasus gleichzeitig ausdrücken, was die Teile schwer trennbar macht.",
           "label": "Flektierend"
         },
         "introflexive": {
-          "description": "Grammatik ist von innen in das Wort eingebaut: Eine Konsonantenwurzel trägt die Kernbedeutung, während verschiedene Vokalmuster neue Wörter erzeugen. Zum Beispiel bezieht sich die arabische Wurzel k-t-b auf das Schreiben, und kataba, kitāb und kātib stammen alle davon ab.",
           "label": "Introflexiv"
         },
         "isolating": {
-          "description": "Wörter bestehen typischerweise aus einzelnen Morphemen und ändern ihre Form nicht. Grammatik wird durch Wortstellung und separate Funktionswörter ausgedrückt, nicht durch Endungen oder Präfixe.",
           "label": "Isolierend"
         },
         "polysynthetic": {
-          "description": "Ein einzelnes Wort kann ausdrücken, was andere Sprachen in einem ganzen Satz sagen würden, indem Verb, Subjekt, Objekt und andere Elemente zusammengefügt werden. Häufig in indigenen Sprachen Amerikas und der Arktis.",
           "label": "Polysynthetisch"
         }
       }
@@ -254,19 +244,15 @@
       "name": "Tonalität",
       "values": {
         "complex-tonal": {
-          "description": "Tonmuster beeinflussen die Wortbedeutung erheblich.",
           "label": "Komplex tonal"
         },
         "non-tonal": {
-          "description": "Tonveränderungen beeinflussen die Wortbedeutung nicht.",
           "label": "Nicht tonal"
         },
         "pitch-accent": {
-          "description": "Die Sprache verwendet Tonhöhenakzent, bei dem bestimmte Silben durch Tonhöhenänderungen betont werden.",
           "label": "Tonhöhenakzent"
         },
         "simple-tonal": {
-          "description": "Tonveränderungen beeinflussen die Wortbedeutung mäßig.",
           "label": "Einfach tonal"
         }
       }
@@ -275,19 +261,15 @@
       "name": "Verbalaspekt",
       "values": {
         "binary": {
-          "description": "Zweiteilige systematische Unterscheidung (perfektiv/imperfektiv).",
           "label": "Binär"
         },
         "complex": {
-          "description": "Mehrere Aspektkategorien mit reicher morphologischer Markierung.",
           "label": "Komplex"
         },
         "minimal": {
-          "description": "Keine oder sehr begrenzte grammatikalische Aspektmarkierung.",
           "label": "Minimal"
         },
         "simple": {
-          "description": "Grundlegende Aspektunterscheidungen (z. B. progressiv, perfekt).",
           "label": "Einfach"
         }
       }
@@ -296,19 +278,15 @@
       "name": "Wortstellung",
       "values": {
         "SOV": {
-          "description": "Subjekt-Objekt-Verb",
           "label": "SOV"
         },
         "SVO": {
-          "description": "Subjekt-Verb-Objekt",
           "label": "SVO"
         },
         "VOS": {
-          "description": "Verb-Objekt-Subjekt",
           "label": "VOS"
         },
         "VSO": {
-          "description": "Verb-Subjekt-Objekt",
           "label": "VSO"
         }
       }
@@ -317,15 +295,12 @@
       "name": "Wortstellungsflexibilität",
       "values": {
         "flexible": {
-          "description": "Verschiedene Wortanordnungen sind aus stilistischen Gründen erlaubt.",
           "label": "Flexibel"
         },
         "rigid": {
-          "description": "Wörter haben feste grammatikalische Positionen.",
           "label": "Starr"
         },
         "semi-flexible": {
-          "description": "Eine gewisse Variation der Wortstellung ist zur Betonung erlaubt.",
           "label": "Semi-flexibel"
         }
       }

@@ -67,23 +67,18 @@
       "name": "Evidensialitas",
       "values": {
         "complex": {
-          "description": "Empat atau lebih perbedaan evidensial, atau evidensialitas yang menyatu dengan kala/aspek.",
           "label": "Kompleks"
         },
         "moderate": {
-          "description": "Perbedaan tiga arah (misalnya langsung, laporan, inferensial).",
           "label": "Sedang"
         },
         "none": {
-          "description": "Tidak ada penanda gramatikal untuk sumber informasi.",
           "label": "Tidak ada"
         },
         "optional": {
-          "description": "Penanda mirip evidensial ada tetapi tidak wajib.",
           "label": "Opsional"
         },
         "simple": {
-          "description": "Perbedaan dua arah (biasanya langsung vs. tidak langsung/laporan).",
           "label": "Sederhana"
         }
       }
@@ -98,23 +93,18 @@
       "name": "Morfologi",
       "values": {
         "agglutinative": {
-          "description": "Kata dibentuk dengan menumpuk imbuhan satu per satu, di mana setiap imbuhan membawa tepat satu makna. Bagian-bagiannya tetap dapat dikenali dengan jelas, seperti balok-balok yang disatukan.",
           "label": "Aglutinasi"
         },
         "fusional": {
-          "description": "Kata mengubah bentuknya melalui akhiran dan prefiks yang sekaligus menggabungkan beberapa makna gramatikal. Satu akhiran bisa mengungkapkan gender, jumlah, dan kasus secara bersamaan, sehingga sulit untuk memisahkan bagian-bagiannya.",
           "label": "Fleksi"
         },
         "introflexive": {
-          "description": "Tata bahasa dibangun dari dalam kata: akar konsonan membawa makna inti, sementara pola vokal berbeda yang disisipkan ke dalamnya membentuk kata-kata baru. Misalnya, akar bahasa Arab k-t-b berkaitan dengan tulisan, dan kataba, kitāb, serta kātib semuanya berasal darinya.",
           "label": "Introfleksi"
         },
         "isolating": {
-          "description": "Kata biasanya terdiri dari satu morfem dan tidak mengubah bentuknya. Tata bahasa dinyatakan melalui urutan kata dan kata fungsi terpisah, bukan melalui akhiran atau prefiks.",
           "label": "Isolasi"
         },
         "polysynthetic": {
-          "description": "Satu kata dapat mengungkapkan apa yang akan dikatakan bahasa lain dalam kalimat penuh, dengan menyatukan verba, subjek, objek, dan unsur-unsur lainnya. Umum ditemukan dalam bahasa-bahasa asli Amerika dan Arktik.",
           "label": "Polisintesis"
         }
       }
@@ -254,19 +244,15 @@
       "name": "Tonalitas",
       "values": {
         "complex-tonal": {
-          "description": "Pola nada sangat mempengaruhi makna kata.",
           "label": "Tonal kompleks"
         },
         "non-tonal": {
-          "description": "Perubahan nada tidak mempengaruhi makna kata.",
           "label": "Non-tonal"
         },
         "pitch-accent": {
-          "description": "Menggunakan aksen nada, di mana suku kata tertentu ditekankan dengan perubahan nada.",
           "label": "Aksen nada"
         },
         "simple-tonal": {
-          "description": "Perubahan nada sedikit mempengaruhi makna kata.",
           "label": "Tonal sederhana"
         }
       }
@@ -275,19 +261,15 @@
       "name": "Aspek verba",
       "values": {
         "binary": {
-          "description": "Perbedaan sistematis dua arah (perfektif/imperfektif).",
           "label": "Biner"
         },
         "complex": {
-          "description": "Beberapa kategori aspek dengan penandaan morfologis yang kaya.",
           "label": "Kompleks"
         },
         "minimal": {
-          "description": "Tidak ada atau sangat sedikit penandaan aspek gramatikal.",
           "label": "Minimal"
         },
         "simple": {
-          "description": "Perbedaan aspek dasar (misalnya progresif, perfek).",
           "label": "Sederhana"
         }
       }
@@ -296,19 +278,15 @@
       "name": "Urutan kata",
       "values": {
         "SOV": {
-          "description": "Subjek-Objek-Verba",
           "label": "SOV"
         },
         "SVO": {
-          "description": "Subjek-Verba-Objek",
           "label": "SVO"
         },
         "VOS": {
-          "description": "Verba-Objek-Subjek",
           "label": "VOS"
         },
         "VSO": {
-          "description": "Verba-Subjek-Objek",
           "label": "VSO"
         }
       }
@@ -317,15 +295,12 @@
       "name": "Fleksibilitas urutan kata",
       "values": {
         "flexible": {
-          "description": "Berbagai susunan kata diizinkan untuk tujuan stilistika.",
           "label": "Fleksibel"
         },
         "rigid": {
-          "description": "Kata-kata memiliki posisi gramatikal yang tetap.",
           "label": "Kaku"
         },
         "semi-flexible": {
-          "description": "Sejumlah variasi urutan kata diizinkan untuk penekanan.",
           "label": "Semi-fleksibel"
         }
       }

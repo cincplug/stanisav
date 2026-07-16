@@ -67,23 +67,18 @@
       "name": "证据性",
       "values": {
         "complex": {
-          "description": "四种或四种以上的证据性区分，或证据性与时态/体融合。",
           "label": "复杂"
         },
         "moderate": {
-          "description": "三元区分（如直接、转述、推断）。",
           "label": "中等"
         },
         "none": {
-          "description": "无信息来源的语法标记。",
           "label": "无"
         },
         "optional": {
-          "description": "存在类证据性标记，但非强制使用。",
           "label": "可选"
         },
         "simple": {
-          "description": "二元区分（通常为直接与间接/转述之分）。",
           "label": "简单"
         }
       }
@@ -98,23 +93,18 @@
       "name": "形态类型",
       "values": {
         "agglutinative": {
-          "description": "单词通过逐一叠加词缀来构成，每个词缀承载恰好一个含义。各部分清晰可辨，如同拼接在一起的积木。",
           "label": "黏着语"
         },
         "fusional": {
-          "description": "单词通过词尾和前缀来改变形式，这些词缀同时表达多种语法含义。一个词尾可能同时表示性、数和格，使各部分难以分离。",
           "label": "屈折语"
         },
         "introflexive": {
-          "description": "语法从词内部构建：一组辅音词根承载核心含义，而贯穿其中的不同元音模式产生新词。例如，阿拉伯语词根 k-t-b 与书写相关，kataba、kitāb 和 kātib 均由此派生。",
           "label": "内屈折语"
         },
         "isolating": {
-          "description": "单词通常由单个语素构成且形式不变。语法通过语序和独立虚词来表达，而非词尾或前缀。",
           "label": "孤立语"
         },
         "polysynthetic": {
-          "description": "一个单词可以表达其他语言需要整句话才能表达的内容，通过将动词、主语、宾语及其他成分融合在一起。常见于美洲和北极地区的原住民语言。",
           "label": "多式综合语"
         }
       }
@@ -254,19 +244,15 @@
       "name": "声调性",
       "values": {
         "complex-tonal": {
-          "description": "声调模式对词义有显著影响。",
           "label": "复杂声调"
         },
         "non-tonal": {
-          "description": "音调变化不影响词义。",
           "label": "非声调"
         },
         "pitch-accent": {
-          "description": "使用音高重音，某些音节通过音调变化加以强调。",
           "label": "音高重音"
         },
         "simple-tonal": {
-          "description": "音调变化对词义有一定影响。",
           "label": "简单声调"
         }
       }
@@ -275,19 +261,15 @@
       "name": "动词体",
       "values": {
         "binary": {
-          "description": "二元系统性区分（完成体/未完成体）。",
           "label": "二元"
         },
         "complex": {
-          "description": "多种体范畴，具有丰富的形态标记。",
           "label": "复杂"
         },
         "minimal": {
-          "description": "无或极少语法体标记。",
           "label": "极简"
         },
         "simple": {
-          "description": "基本体区分（如进行体、完成体）。",
           "label": "简单"
         }
       }
@@ -296,19 +278,15 @@
       "name": "语序",
       "values": {
         "SOV": {
-          "description": "主语-宾语-动词",
           "label": "SOV"
         },
         "SVO": {
-          "description": "主语-动词-宾语",
           "label": "SVO"
         },
         "VOS": {
-          "description": "动词-宾语-主语",
           "label": "VOS"
         },
         "VSO": {
-          "description": "动词-主语-宾语",
           "label": "VSO"
         }
       }
@@ -317,15 +295,12 @@
       "name": "语序灵活性",
       "values": {
         "flexible": {
-          "description": "出于文体目的允许多种词序排列。",
           "label": "灵活"
         },
         "rigid": {
-          "description": "词语具有固定的语法位置。",
           "label": "固定"
         },
         "semi-flexible": {
-          "description": "允许一定程度的语序变化以表达强调。",
           "label": "半灵活"
         }
       }

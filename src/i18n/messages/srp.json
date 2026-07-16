@@ -67,23 +67,18 @@
       "name": "Evidencijalnost",
       "values": {
         "complex": {
-          "description": "Četiri ili više evidencijalnih distinkcija, ili evidencijalnost spojena s vremenom/aspektom.",
           "label": "Složena"
         },
         "moderate": {
-          "description": "Trostruka distinkcija (npr. direktna, preneta, zaključena).",
           "label": "Umerena"
         },
         "none": {
-          "description": "Nema gramatičkog označavanja izvora informacije.",
           "label": "Nema"
         },
         "optional": {
-          "description": "Postoje markeri nalik evidencijalnim, ali nisu obavezni.",
           "label": "Opcionalna"
         },
         "simple": {
-          "description": "Dvostruka distinkcija (tipično direktna nasuprot indirektnoj/prenesenoj).",
           "label": "Prosta"
         }
       }
@@ -98,23 +93,18 @@
       "name": "Morfologija",
       "values": {
         "agglutinative": {
-          "description": "Reči se grade nizanjem nastavaka jedan za drugim, pri čemu svaki nastavak nosi tačno jedno značenje. Delovi ostaju jasno prepoznatljivi, poput spojenih kockica.",
           "label": "Aglutinativna"
         },
         "fusional": {
-          "description": "Reči menjaju oblik kroz nastavke i prefikse koji istovremeno nose više gramatičkih značenja. Jedan nastavak može izražavati rod, broj i padež odjednom, što delove čini teško razdvojivim.",
           "label": "Fleksivna"
         },
         "introflexive": {
-          "description": "Gramatika je ugrađena unutar same reči: koren od suglasnika nosi osnovno značenje, dok različiti vokalni obrasci istkani kroz njega stvaraju nove reči. Na primer, arapski koren k-t-b odnosi se na pisanje, a kataba, kitāb i kātib svi potiču od njega.",
           "label": "Introfleksivna"
         },
         "isolating": {
-          "description": "Reči se obično sastoje od jednog morfema i ne menjaju oblik. Gramatika se izražava redom reči i posebnim funkcijskim rečima, a ne nastavcima ili prefiksima.",
           "label": "Izolativna"
         },
         "polysynthetic": {
-          "description": "Jedna reč može izraziti ono što bi drugi jezici rekli čitavom rečenicom, spajanjem glagola, subjekta, objekta i ostalih elemenata. Karakteristično za autohtone jezike Amerike i Arktika.",
           "label": "Polisintetička"
         }
       }
@@ -254,19 +244,15 @@
       "name": "Tonalnost",
       "values": {
         "complex-tonal": {
-          "description": "Tonski obrasci značajno utiču na značenje reči.",
           "label": "Složeno tonska"
         },
         "non-tonal": {
-          "description": "Promene visine tona ne utiču na značenje reči.",
           "label": "Netonska"
         },
         "pitch-accent": {
-          "description": "Koristi tonski akcenat, gde se određeni slogovi naglašavaju promenama visine tona.",
           "label": "Tonski akcenat"
         },
         "simple-tonal": {
-          "description": "Promene visine tona umereno utiču na značenje reči.",
           "label": "Prosto tonska"
         }
       }
@@ -275,19 +261,15 @@
       "name": "Glagolski vid",
       "values": {
         "binary": {
-          "description": "Dvostruka sistematska distinkcija (svršeni/nesvršeni).",
           "label": "Binarni"
         },
         "complex": {
-          "description": "Više aspektnih kategorija s bogatim morfološkim označavanjem.",
           "label": "Složeni"
         },
         "minimal": {
-          "description": "Nema ili je veoma ograničeno gramatičko označavanje aspekta.",
           "label": "Minimalni"
         },
         "simple": {
-          "description": "Osnovne aspektne distinkcije (npr. progresivni, perfektni).",
           "label": "Prosti"
         }
       }
@@ -296,19 +278,15 @@
       "name": "Red reči",
       "values": {
         "SOV": {
-          "description": "Subjekat-Objekat-Glagol",
           "label": "SOV"
         },
         "SVO": {
-          "description": "Subjekat-Glagol-Objekat",
           "label": "SVO"
         },
         "VOS": {
-          "description": "Glagol-Objekat-Subjekat",
           "label": "VOS"
         },
         "VSO": {
-          "description": "Glagol-Subjekat-Objekat",
           "label": "VSO"
         }
       }
@@ -317,15 +295,12 @@
       "name": "Fleksibilnost reda reči",
       "values": {
         "flexible": {
-          "description": "Različiti rasporedi reči dozvoljeni su u stilske svrhe.",
           "label": "Fleksibilna"
         },
         "rigid": {
-          "description": "Reči imaju fiksne gramatičke pozicije.",
           "label": "Rigidna"
         },
         "semi-flexible": {
-          "description": "Određene varijacije reda reči dozvoljene su radi naglaska.",
           "label": "Polufleksibilna"
         }
       }

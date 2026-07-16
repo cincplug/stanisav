@@ -63,23 +63,18 @@
       "name": "Evidentialitet",
       "values": {
         "complex": {
-          "description": "Fire eller flere evidentiale skel, eller evidentialitet smeltet sammen med tempus/aspekt.",
           "label": "Kompleks"
         },
         "moderate": {
-          "description": "Skelnen mellem tre former (f.eks. direkte, refererende, inferentiel).",
           "label": "Moderat"
         },
         "none": {
-          "description": "Ingen grammatisk markering af informationskilde.",
           "label": "Ingen"
         },
         "optional": {
-          "description": "Evidentiale-lignende markører findes, men er ikke obligatoriske.",
           "label": "Valgfri"
         },
         "simple": {
-          "description": "Skelnen mellem to former (typisk direkte over for indirekte/refererende).",
           "label": "Simpel"
         }
       }
@@ -94,23 +89,18 @@
       "name": "Morfologi",
       "values": {
         "agglutinative": {
-          "description": "Ord bygges ved at stable affikser efter hinanden, hvor hvert affiks bærer præcis én betydning. Delene forbliver tydeligt genkendelige, som byggeklodser sat sammen.",
           "label": "Agglutinerende"
         },
         "fusional": {
-          "description": "Ord ændrer form gennem endelser og forstavelser, der bundter flere grammatiske betydninger på én gang. En enkelt endelse kan udtrykke køn, tal og kasus samtidig, hvilket gør delene svære at adskille.",
           "label": "Fusionerende"
         },
         "introflexive": {
-          "description": "Grammatikken er indbygget i ordet indefra: en rod af konsonanter bærer kernebetydningen, mens forskellige vokalmønstre vævet igennem den skaber nye ord. For eksempel relaterer den arabiske rod k-t-b sig til at skrive, og kataba, kitāb og kātib stammer alle derfra.",
           "label": "Introflektiv"
         },
         "isolating": {
-          "description": "Ord består typisk af enkelte morfemer og ændrer ikke form. Grammatik udtrykkes gennem ordstilling og separate funktionsord frem for endelser eller forstavelser.",
           "label": "Isolerende"
         },
         "polysynthetic": {
-          "description": "Et enkelt ord kan udtrykke det, andre sprog ville sige i en hel sætning, ved at smelte verbum, subjekt, objekt og andre led sammen. Almindeligt i oprindelige sprog i Amerika og Arktis.",
           "label": "Polysyntetisk"
         }
       }
@@ -250,19 +240,15 @@
       "name": "Tonalitet",
       "values": {
         "complex-tonal": {
-          "description": "Toneforløb påvirker ordbetydningen betydeligt.",
           "label": "Komplekst tonesprog"
         },
         "non-tonal": {
-          "description": "Toneændringer påvirker ikke ordbetydningen.",
           "label": "Ikke-tonesprog"
         },
         "pitch-accent": {
-          "description": "Det bruger toneaccent, hvor bestemte stavelser fremhæves med toneændringer.",
           "label": "Toneaccent"
         },
         "simple-tonal": {
-          "description": "Toneændringer påvirker ordbetydningen i moderat grad.",
           "label": "Simpelt tonesprog"
         }
       }
@@ -271,19 +257,15 @@
       "name": "Verbal aspekt",
       "values": {
         "binary": {
-          "description": "Systematisk skelnen mellem to former (perfektiv/imperfektiv).",
           "label": "Binær"
         },
         "complex": {
-          "description": "Flere aspektkategorier med rig morfologisk markering.",
           "label": "Kompleks"
         },
         "minimal": {
-          "description": "Ingen eller meget begrænset grammatisk aspektmarkering.",
           "label": "Minimal"
         },
         "simple": {
-          "description": "Grundlæggende aspektuelle skel (f.eks. progressiv, perfektum).",
           "label": "Simpel"
         }
       }
@@ -292,19 +274,15 @@
       "name": "Ordstilling",
       "values": {
         "SOV": {
-          "description": "Subjekt-Objekt-Verbum",
           "label": "SOV"
         },
         "SVO": {
-          "description": "Subjekt-Verbum-Objekt",
           "label": "SVO"
         },
         "VOS": {
-          "description": "Verbum-Objekt-Subjekt",
           "label": "VOS"
         },
         "VSO": {
-          "description": "Verbum-Subjekt-Objekt",
           "label": "VSO"
         }
       }
@@ -313,15 +291,12 @@
       "name": "Fleksibilitet i ordstilling",
       "values": {
         "flexible": {
-          "description": "Forskellige ordarrangementer er tilladt af stilistiske årsager.",
           "label": "Fleksibel"
         },
         "rigid": {
-          "description": "Ord har faste grammatiske placeringer.",
           "label": "Rigid"
         },
         "semi-flexible": {
-          "description": "En vis variation i ordstilling er tilladt for at lægge vægt på noget.",
           "label": "Semi-fleksibel"
         }
       }
