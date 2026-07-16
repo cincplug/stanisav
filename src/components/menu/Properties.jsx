@@ -39,7 +39,7 @@ const Properties = ({ propertyKey, selectedLanguageValue }) => {
   return (
     <div className="properties">
       <h2 className="properties-title">
-        {t(`linguistic.${propertyKey}.name`) || property.name}
+        {t(`linguistic.${propertyKey}.name`)}
       </h2>
       <dl className="properties-items">
         {meshas.map((mesha) => {

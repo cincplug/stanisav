@@ -143,6 +143,21 @@ export const translate = (key, params) => {
   return interpolate(message, params);
 };
 
+// Like translate(), but returns null when the key is not found instead of the key string itself.
+export const tryTranslate = (key, params) => {
+  const localeMessages = translations();
+  if (!localeMessages) return null;
+
+  let message = getMessageByPath(localeMessages, key);
+  if (message === undefined && currentLocale !== defaultLocale) {
+    message = getMessageByPath(messagesByLocale[defaultLocale], key);
+  }
+
+  if (message === undefined || typeof message !== "string") return null;
+
+  return interpolate(message, params);
+};
+
 export const getLocalizedLanguageName = (languageCode) => {
   const localeLanguageNames = localizedLanguageNames();
   if (!localeLanguageNames) {

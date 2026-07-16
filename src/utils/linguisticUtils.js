@@ -1,6 +1,10 @@
 import lineages from "../config/lineages.json";
 import linguisticConfig from "../config/linguisticConfig.json";
-import { getLocalizedLanguageName, translate } from "../i18n/runtime";
+import {
+  getLocalizedLanguageName,
+  translate,
+  tryTranslate,
+} from "../i18n/runtime";
 import { getFamilyLabel } from "./i18nUtils";
 
 /**
@@ -32,11 +36,7 @@ export const getFeatureLabel = (feature, value) => {
 };
 
 export const getFeatureDescription = (feature, value) => {
-  const featureConfig = linguisticConfig[feature];
-  if (!featureConfig?.values?.[value]?.description) {
-    return null;
-  }
-  return translate(`linguistic.${feature}.values.${value}.description`);
+  return tryTranslate(`linguistic.${feature}.values.${value}.description`);
 };
 
 export const getFeatureScore = (feature, value) => {
@@ -72,7 +72,7 @@ export const getFeatureValuesFromConfig = (feature) => {
 
 export const getNumericFeatures = () => {
   return Object.entries(linguisticConfig)
-    .filter(([_, config]) => config.template)
+    .filter(([_, config]) => config.numeric)
     .map(([key]) => ({
       key,
       label: translate(`linguistic.${key}.name`),
@@ -81,29 +81,28 @@ export const getNumericFeatures = () => {
 
 // Single source of truth for numeric feature detection
 export const isNumericFeature = (feature) => {
-  return linguisticConfig[feature]?.template !== undefined;
+  return linguisticConfig[feature]?.numeric === true;
 };
 
 export const getAllFeatures = () => {
   return Object.entries(linguisticConfig)
-    .filter(([_, config]) => config.values || config.template || config.name)
+    .filter(([_, config]) => config.values || config.numeric)
     .map(([key, config]) => ({
       key,
       label: translate(`linguistic.${key}.name`),
-      isNumeric: config.template !== undefined,
+      isNumeric: config.numeric === true,
       isFamily: key === "family",
     }));
 };
 
 export const isPropertyDescribed = (propertyKey) => {
-  if (
-    !propertyKey ||
-    !linguisticConfig[propertyKey] ||
-    !linguisticConfig[propertyKey].values
-  )
-    return false;
-  const values = linguisticConfig[propertyKey].values;
-  return Object.values(values).some((v) => !!v.description);
+  if (!propertyKey) return false;
+  const valueKeys = getFeatureValuesFromConfig(propertyKey);
+  return valueKeys.some(
+    (value) =>
+      tryTranslate(`linguistic.${propertyKey}.values.${value}.description`) !==
+      null,
+  );
 };
 
 // --- Formatting ---
@@ -159,13 +158,15 @@ export const getLanguageLabel = (languageCode, languageData, labelContent) => {
 };
 
 // Builds the speech balloon text for a clicked face property.
-// Numeric properties show name and number only (no value labels or descriptions exist for them).
+// Numeric properties use a localized template string with the count interpolated.
 // Described properties append the description after the value label.
 export const getPropertyBalloonText = (propertyKey, rawValue) => {
   const propertyName = getFeatureName(propertyKey);
 
   if (isNumericFeature(propertyKey)) {
-    return `${propertyName}: ${formatNumber(rawValue)}`;
+    return translate(`linguistic.${propertyKey}.template`, {
+      count: formatNumber(rawValue),
+    });
   }
 
   const valueLabel = Array.isArray(rawValue)

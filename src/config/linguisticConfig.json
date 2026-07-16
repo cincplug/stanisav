@@ -1,216 +1,99 @@
 {
   "tonality": {
-    "name": "Tonality",
     "values": {
-      "non-tonal": {
-        "label": "Non-tonal",
-        "description": "Pitch changes don't affect word meaning.",
-        "score": 1
-      },
-      "pitch-accent": {
-        "label": "Pitch-accent",
-        "description": "It uses pitch accent, where certain syllables are emphasized with pitch changes.",
-        "score": 2
-      },
-      "simple-tonal": {
-        "label": "Simple tonal",
-        "description": "Pitch changes moderately affect word meaning.",
-        "score": 3
-      },
-      "complex-tonal": {
-        "label": "Complex tonal",
-        "description": "Pitch patterns significantly affect word meaning.",
-        "score": 4
-      }
+      "non-tonal": { "score": 1 },
+      "pitch-accent": { "score": 2 },
+      "simple-tonal": { "score": 3 },
+      "complex-tonal": { "score": 4 }
     }
   },
   "morphology": {
-    "name": "Morphology",
     "values": {
-      "isolating": {
-        "label": "Isolating",
-        "description": "Words typically consist of single morphemes and don't change their form. Grammar is expressed through word order and separate function words rather than endings or prefixes.",
-        "score": 1
-      },
-      "agglutinative": {
-        "label": "Agglutinative",
-        "description": "Words are built by stacking affixes one after another, where each affix carries exactly one meaning. The pieces stay clearly recognizable, like building blocks snapped together.",
-        "score": 2
-      },
-      "introflexive": {
-        "label": "Introflexive",
-        "description": "Grammar is built into the word from the inside: a root of consonants carries the core meaning, while different vowel patterns woven through it create new words. For example, the Arabic root k-t-b relates to writing, and kataba, kitāb, and kātib all come from it.",
-        "score": 3
-      },
-      "fusional": {
-        "label": "Fusional",
-        "description": "Words change their form through endings and prefixes that bundle multiple grammatical meanings at once. A single ending might express gender, number, and case simultaneously, making the pieces hard to pull apart.",
-        "score": 4
-      },
-      "polysynthetic": {
-        "label": "Polysynthetic",
-        "description": "A single word can express what other languages would say in a whole sentence, by fusing the verb, subject, object, and other elements together. Common in indigenous languages of the Americas and the Arctic.",
-        "score": 5
-      }
+      "isolating": { "score": 1 },
+      "agglutinative": { "score": 2 },
+      "introflexive": { "score": 3 },
+      "fusional": { "score": 4 },
+      "polysynthetic": { "score": 5 }
     }
   },
   "wordOrderFlexibility": {
-    "name": "Word order flexibility",
     "values": {
-      "rigid": {
-        "label": "Rigid",
-        "description": "Words have fixed grammatical positions.",
-        "score": 0
-      },
-      "semi-flexible": {
-        "label": "Semi-flexible",
-        "description": "Some variation of word order is allowed for emphasis.",
-        "score": 2
-      },
-      "flexible": {
-        "label": "Flexible",
-        "description": "Various word arrangements are allowed for stylistic purposes.",
-        "score": 5
-      }
+      "rigid": { "score": 0 },
+      "semi-flexible": { "score": 2 },
+      "flexible": { "score": 5 }
     }
   },
   "wordOrder": {
-    "name": "Word order",
     "values": {
-      "SVO": {
-        "label": "SVO",
-        "description": "Subject-Verb-Object"
-      },
-      "SOV": {
-        "label": "SOV",
-        "description": "Subject-Object-Verb"
-      },
-      "VSO": {
-        "label": "VSO",
-        "description": "Verb-Subject-Object"
-      },
-      "VOS": {
-        "label": "VOS",
-        "description": "Verb-Object-Subject"
-      }
+      "SVO": {},
+      "SOV": {},
+      "VSO": {},
+      "VOS": {}
     }
   },
   "verbAspect": {
-    "name": "Verb aspect",
     "values": {
-      "minimal": {
-        "label": "Minimal",
-        "description": "No or very limited grammatical aspect marking.",
-        "score": 1
-      },
-      "simple": {
-        "label": "Simple",
-        "description": "Basic aspectual distinctions (e.g., progressive, perfect).",
-        "score": 2
-      },
-      "binary": {
-        "label": "Binary",
-        "description": "Two-way systematic distinction (perfective/imperfective).",
-        "score": 3
-      },
-      "complex": {
-        "label": "Complex",
-        "description": "Multiple aspect categories with rich morphological marking.",
-        "score": 4
-      }
+      "minimal": { "score": 1 },
+      "simple": { "score": 2 },
+      "binary": { "score": 3 },
+      "complex": { "score": 4 }
     }
   },
   "evidentiality": {
-    "name": "Evidentiality",
     "values": {
-      "none": {
-        "label": "None",
-        "description": "No grammatical marking of information source.",
-        "score": 1
-      },
-      "optional": {
-        "label": "Optional",
-        "description": "Evidential-like markers exist but are not obligatory.",
-        "score": 2
-      },
-      "simple": {
-        "label": "Simple",
-        "description": "Two-way distinction (typically direct vs. indirect/reportative).",
-        "score": 3
-      },
-      "moderate": {
-        "label": "Moderate",
-        "description": "Three-way distinction (e.g., direct, reportative, inferential).",
-        "score": 4
-      },
-      "complex": {
-        "label": "Complex",
-        "description": "Four or more evidential distinctions or evidentiality fused with tense/aspect.",
-        "score": 5
-      }
+      "none": { "score": 1 },
+      "optional": { "score": 2 },
+      "simple": { "score": 3 },
+      "moderate": { "score": 4 },
+      "complex": { "score": 5 }
     }
   },
-  "caseCount": {
-    "name": "Case count",
-    "template": "It has {count} grammatical cases."
-  },
-  "phonemeCount": {
-    "name": "Phoneme count",
-    "template": "It has {count} phonemes (distinct sounds)."
-  },
-  "maxConsonantClusterSize": {
-    "name": "Max consonants in a cluster",
-    "template": "It can have maximally {count} consonants together in one cluster."
-  },
-  "nounClassCount": {
-    "name": "Noun classes / genders",
-    "template": "It has {count} noun classes / genders."
-  },
+  "caseCount": { "numeric": true },
+  "phonemeCount": { "numeric": true },
+  "maxConsonantClusterSize": { "numeric": true },
+  "nounClassCount": { "numeric": true },
   "scripts": {
-    "name": "Scripts",
     "values": {
-      "Arabic": { "label": "Arabic" },
-      "Armenian": { "label": "Armenian" },
-      "Balinese": { "label": "Balinese" },
-      "Bengali": { "label": "Bengali" },
-      "Canadian Aboriginal Syllabics": {
-        "label": "Canadian Aboriginal Syllabics"
-      },
-      "Cherokee": { "label": "Cherokee" },
-      "Cyrillic": { "label": "Cyrillic" },
-      "Devanagari": { "label": "Devanagari" },
-      "Ethiopic": { "label": "Ethiopic" },
-      "Georgian": { "label": "Georgian" },
-      "Greek": { "label": "Greek" },
-      "Gujarati": { "label": "Gujarati" },
-      "Gurmukhi": { "label": "Gurmukhi" },
-      "Han": { "label": "Han" },
-      "Hangul": { "label": "Hangul" },
-      "Hebrew": { "label": "Hebrew" },
-      "Hiragana": { "label": "Hiragana" },
-      "Javanese": { "label": "Javanese" },
-      "Kannada": { "label": "Kannada" },
-      "Katakana": { "label": "Katakana" },
-      "Khmer": { "label": "Khmer" },
-      "Lao": { "label": "Lao" },
-      "Latin": { "label": "Latin" },
-      "Lepcha": { "label": "Lepcha" },
-      "Malayalam": { "label": "Malayalam" },
-      "Meitei Mayek": { "label": "Meitei Mayek" },
-      "Mongolian": { "label": "Mongolian" },
-      "Myanmar": { "label": "Myanmar" },
-      "Newa": { "label": "Newa" },
-      "Odia": { "label": "Odia" },
-      "Ol Chiki": { "label": "Ol Chiki" },
-      "Sinhala": { "label": "Sinhala" },
-      "Sorang Sompeng": { "label": "Sorang Sompeng" },
-      "Tamil": { "label": "Tamil" },
-      "Telugu": { "label": "Telugu" },
-      "Thai": { "label": "Thai" },
-      "Tibetan": { "label": "Tibetan" },
-      "Tirhuta": { "label": "Tirhuta" },
-      "Warang Citi": { "label": "Warang Citi" },
-      "Yi": { "label": "Yi" }
+      "Arabic": {},
+      "Armenian": {},
+      "Balinese": {},
+      "Bengali": {},
+      "Canadian Aboriginal Syllabics": {},
+      "Cherokee": {},
+      "Cyrillic": {},
+      "Devanagari": {},
+      "Ethiopic": {},
+      "Georgian": {},
+      "Greek": {},
+      "Gujarati": {},
+      "Gurmukhi": {},
+      "Han": {},
+      "Hangul": {},
+      "Hebrew": {},
+      "Hiragana": {},
+      "Javanese": {},
+      "Kannada": {},
+      "Katakana": {},
+      "Khmer": {},
+      "Lao": {},
+      "Latin": {},
+      "Lepcha": {},
+      "Malayalam": {},
+      "Meitei Mayek": {},
+      "Mongolian": {},
+      "Myanmar": {},
+      "Newa": {},
+      "Odia": {},
+      "Ol Chiki": {},
+      "Sinhala": {},
+      "Sorang Sompeng": {},
+      "Tamil": {},
+      "Telugu": {},
+      "Thai": {},
+      "Tibetan": {},
+      "Tirhuta": {},
+      "Warang Citi": {},
+      "Yi": {}
     }
   }
 }
