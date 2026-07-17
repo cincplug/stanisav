@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import tabsConfig from "../../config/tabsConfig.json";
 import { useConfigContext } from "../../contexts/ConfigContext";
 import { useI18nContext } from "../../contexts/I18nContext";
@@ -61,6 +61,12 @@ function Menu({
   const handleTabChange = (tabId) => {
     setSelectedTab(tabId);
   };
+
+  // Opinionated design decision
+  useEffect(() => {
+    const isAlphabetical = sortBy === "alphabetically";
+    updateConfigValue("header.isBlackboard", !isAlphabetical);
+  }, [sortBy]);
 
   if (isLoading) {
     return null;
