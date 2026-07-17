@@ -154,8 +154,8 @@
   },
   "header": {
     "sortBy": [
-      "alphabetically",
       "speakers",
+      "alphabetically",
       "family",
       "tonality",
       "morphology",

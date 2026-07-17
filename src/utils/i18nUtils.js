@@ -25,3 +25,6 @@ export const localizeControlConfig = (controlId, config) => ({
 
 export const getFamilyLabel = (familyName) =>
   getLocalizedLineageLabel(familyName);
+
+export const getSortByLabel = (sortBy) =>
+  getControlOptionLabel("sortBy", sortBy);

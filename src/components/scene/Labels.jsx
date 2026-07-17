@@ -2,9 +2,11 @@ import { useEffect, useMemo, useRef } from "react";
 import { useConfigContext } from "../../contexts/ConfigContext";
 import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext";
 import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
+import { getSortByLabel } from "../../utils/i18nUtils";
 import Label from "./Label";
 import LabelsCluster from "./LabelsCluster";
 import Lines from "./Lines";
+import SceneTitle from "./SceneTitle";
 
 const Labels = ({
   groups,
@@ -18,7 +20,9 @@ const Labels = ({
   const { filters, filteredLanguages } = useLanguageSelectionContext();
 
   const { config } = useConfigContext();
-  const { isBlackboard, hasLines } = config;
+  const { isBlackboard, hasLines, sortBy } = config;
+
+  const sortByLabel = getSortByLabel(sortBy);
 
   const hasActiveFilters = Object.keys(filters).length > 0;
 
@@ -86,6 +90,13 @@ const Labels = ({
             languageColors={languageColors}
           />
         )}
+
+      {isBlackboard && (
+        <SceneTitle
+          text={sortByLabel}
+          formattedPositions={formattedPositions}
+        />
+      )}
 
       {visibleLabelCodes.map((langCode, index) => {
         const position = formattedPositions[langCode];
