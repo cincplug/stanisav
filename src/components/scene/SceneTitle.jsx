@@ -14,12 +14,16 @@ const SceneTitle = ({ text, formattedPositions }) => {
 
   return (
     <Title
-      position={[topCenter.x, topCenter.y + boardTitleGap * 2, topCenter.z]}
+      position={[
+        topCenter.x,
+        topCenter.y + (boardTitleGap + labelSize) * 2,
+        topCenter.z,
+      ]}
       text={text}
       fontSize={labelSize * 2}
       color={white}
       anchorY="bottom"
-      anchorX="left"
+      anchorX="center"
     />
   );
 };

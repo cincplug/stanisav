@@ -5,7 +5,7 @@ import LabelsClusterTitle from "./LabelsClusterTitle";
 
 const LabelsCluster = ({ title, languageCodes, formattedPositions }) => {
   const { config } = useConfigContext();
-  const { isBlackboard } = config;
+  const { isBlackboard, clusterBorder, white } = config;
 
   if (!isBlackboard) return null;
 
@@ -19,7 +19,7 @@ const LabelsCluster = ({ title, languageCodes, formattedPositions }) => {
   let rectanglePoints = null;
   const positionsArray = Object.values(languagePositions);
 
-  if (positionsArray.length > 0) {
+  if (clusterBorder && positionsArray.length > 0) {
     const xs = positionsArray.map((p) => p.x);
     const ys = positionsArray.map((p) => p.y);
     const minX = Math.min(...xs);
@@ -39,8 +39,12 @@ const LabelsCluster = ({ title, languageCodes, formattedPositions }) => {
 
   return (
     <>
-      {rectanglePoints && (
-        <Line points={rectanglePoints} color="#373b3f" lineWidth={3} />
+      {clusterBorder && rectanglePoints && (
+        <Line
+          points={rectanglePoints}
+          color={white}
+          lineWidth={clusterBorder}
+        />
       )}
       <LabelsClusterTitle languagePositions={languagePositions} title={title} />
     </>

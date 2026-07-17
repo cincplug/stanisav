@@ -85,41 +85,49 @@ function rotatePointsToFrontFacingAnchor(points) {
   return [...points.slice(bestIndex), ...points.slice(0, bestIndex)];
 }
 
-function estimateLabelWidth(text, cellSize, boardSpacing) {
-  return text.length * cellSize * boardSpacing;
+function estimateLabelWidth(text, labelSize, charWidthRatio, labelPaddingH) {
+  return text.length * labelSize * charWidthRatio + labelPaddingH * labelSize;
 }
 
-function generateVariableWidthGrid(numPoints, labelWidths, cellSize) {
-  const cols = Math.ceil(Math.sqrt(numPoints));
-  const rows = Math.ceil(numPoints / cols);
-  const rowHeight = cellSize;
-  const stagger = cellSize / 2;
-  const points = [];
+function generateFlowLayout(numPoints, labelWidths, rowHeight) {
+  if (numPoints === 0) return { points: [], actualWidth: 0, actualHeight: 0 };
 
-  for (let row = 0; row < rows; row++) {
-    const rowStart = row * cols;
-    const rowEnd = Math.min(rowStart + cols, numPoints);
-    const rowWidths = labelWidths.slice(rowStart, rowEnd);
+  const totalWidth = labelWidths.reduce((s, w) => s + w, 0);
+  const targetRowWidth = totalWidth / Math.ceil(Math.sqrt(numPoints));
 
-    let cursor = 0;
-    const rowXPositions = rowWidths.map((w) => {
-      const x = cursor + w / 2;
-      cursor += w;
-      return x;
-    });
-    const rowTotalWidth = cursor;
-    const rowOffsetX = -rowTotalWidth / 2;
+  const rows = [];
+  let currentRow = [];
+  let currentRowWidth = 0;
 
-    rowWidths.forEach((_, colInRow) => {
-      const x = rowOffsetX + rowXPositions[colInRow];
-      const y =
-        -(row - (rows - 1) / 2) * rowHeight +
-        (colInRow % 2 === 0 ? 0 : -stagger);
-      points.push(new Vector3(x, y, 0));
-    });
+  for (let i = 0; i < numPoints; i++) {
+    const w = labelWidths[i];
+    if (currentRow.length > 0 && currentRowWidth + w > targetRowWidth) {
+      rows.push({ items: currentRow, width: currentRowWidth });
+      currentRow = [{ index: i, width: w }];
+      currentRowWidth = w;
+    } else {
+      currentRow.push({ index: i, width: w });
+      currentRowWidth += w;
+    }
   }
+  if (currentRow.length > 0)
+    rows.push({ items: currentRow, width: currentRowWidth });
 
-  return points;
+  const actualWidth = Math.max(...rows.map((r) => r.width));
+  const actualHeight = rows.length * rowHeight;
+
+  const points = new Array(numPoints);
+  rows.forEach((row, rowIndex) => {
+    let cursor = -row.width / 2;
+    row.items.forEach((item) => {
+      const x = cursor + item.width / 2;
+      const y = -(rowIndex - (rows.length - 1) / 2) * rowHeight;
+      points[item.index] = new Vector3(x, y, 0);
+      cursor += item.width;
+    });
+  });
+
+  return { points, actualWidth, actualHeight };
 }
 
 export function generateRectangularGrid(numPoints, cellSize) {
@@ -222,7 +230,19 @@ function computeBoardPositions(
   languageLineages,
   config,
 ) {
-  const { sortBy, labelContent, boardGap, boardSpacing, sphereRadius } = config;
+  const {
+    sortBy,
+    labelContent,
+    labelSize,
+    charWidthRatio,
+    labelPaddingH,
+    rowHeightRatio,
+    clusterGap,
+    boardWidth,
+  } = config;
+
+  const rowHeight = labelSize * rowHeightRatio;
+  const clusterPadding = labelSize * clusterGap;
 
   const clusters = {};
   sortedLanguageCodes.forEach((code) => {
@@ -238,36 +258,25 @@ function computeBoardPositions(
         )
       : Object.keys(clusters);
 
-  const nodeSpacing = Math.sqrt(
-    (4 * Math.PI * sphereRadius ** 2) / sortedLanguageCodes.length,
-  );
-  const cellSize = nodeSpacing;
-  const clusterPadding = cellSize * boardGap;
-
-  const clusterDims = {};
+  const clusterLayouts = {};
   clusterKeys.forEach((key) => {
-    const n = clusters[key].length;
-    const cols = Math.ceil(Math.sqrt(n));
-    const rows = Math.ceil(n / cols);
-    clusterDims[key] = { cols, rows };
+    const members = clusters[key];
+    const labelWidths = members.map((code) => {
+      const text = getLanguageLabel(code, languageData, labelContent);
+      return estimateLabelWidth(text, labelSize, charWidthRatio, labelPaddingH);
+    });
+    clusterLayouts[key] = generateFlowLayout(
+      members.length,
+      labelWidths,
+      rowHeight,
+    );
   });
 
   const clusterWidths = {};
   const clusterHeights = {};
   clusterKeys.forEach((key) => {
-    const { cols, rows } = clusterDims[key];
-    const members = clusters[key];
-    let maxRowWidth = 0;
-    for (let row = 0; row < rows; row++) {
-      const rowMembers = members.slice(row * cols, (row + 1) * cols);
-      const rowWidth = rowMembers.reduce((sum, code) => {
-        const text = getLanguageLabel(code, languageData, labelContent);
-        return sum + estimateLabelWidth(text, cellSize, boardSpacing);
-      }, 0);
-      if (rowWidth > maxRowWidth) maxRowWidth = rowWidth;
-    }
-    clusterWidths[key] = maxRowWidth;
-    clusterHeights[key] = rows * cellSize;
+    clusterWidths[key] = clusterLayouts[key].actualWidth;
+    clusterHeights[key] = clusterLayouts[key].actualHeight;
   });
 
   const numClusterCols = Math.min(
@@ -288,8 +297,7 @@ function computeBoardPositions(
   );
   const colHeights = clusterColumns.map((col) =>
     col.reduce(
-      (sum, key, i) =>
-        sum + clusterHeights[key] + (i > 0 ? clusterPadding : 0),
+      (sum, key, i) => sum + clusterHeights[key] + (i > 0 ? clusterPadding : 0),
       0,
     ),
   );
@@ -316,19 +324,19 @@ function computeBoardPositions(
     cursorX += colWidth + clusterPadding;
   });
 
+  // Spread clusters horizontally to fill the target board width
+  if (totalWidth > 0 && boardWidth > 0) {
+    const scaleX = boardWidth / totalWidth;
+    clusterKeys.forEach((key) => {
+      clusterOffsets[key].x *= scaleX;
+    });
+  }
+
   const positions = {};
   clusterKeys.forEach((key) => {
     const offset = clusterOffsets[key];
     const members = clusters[key];
-    const labelWidths = members.map((code) => {
-      const text = getLanguageLabel(code, languageData, labelContent);
-      return estimateLabelWidth(text, cellSize, boardSpacing);
-    });
-    const localPoints = generateVariableWidthGrid(
-      members.length,
-      labelWidths,
-      cellSize,
-    );
+    const localPoints = clusterLayouts[key].points;
     members.forEach((code, j) => {
       positions[code] = localPoints[j].clone().add(offset);
     });
@@ -368,7 +376,9 @@ export function calculatePositions({
 
   const positions = {};
   sortedLanguageCodes.forEach((code) => {
-    positions[code] = spherePositions[code].clone().lerp(boardPositions[code], t);
+    positions[code] = spherePositions[code]
+      .clone()
+      .lerp(boardPositions[code], t);
   });
   return positions;
 }

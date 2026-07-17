@@ -10,11 +10,14 @@
     "sphereRadius": 19
   },
   "blackboard": {
-    "boardSpacing": 0.12,
-    "boardGap": 0.7,
     "boardLight": 1.15,
     "boardMargin": 1.1,
-    "boardTitleGap": 0.9
+    "boardTitleGap": 0.74,
+    "charWidthRatio": 0.73,
+    "labelPaddingH": 0.6,
+    "rowHeightRatio": 2.2,
+    "clusterGap": 2,
+    "clusterBorder": 0
   },
   "shader": {
     "ambient": 0.7,
