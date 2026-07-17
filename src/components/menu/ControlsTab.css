@@ -66,15 +66,6 @@
   align-items: center;
 }
 
-.preset-controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--gap);
-  position: sticky;
-  bottom: 0;
-  background: var(--color-1);
-}
-
 .preset-file-input {
   display: none;
 }

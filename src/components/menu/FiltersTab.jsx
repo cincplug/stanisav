@@ -280,9 +280,8 @@ function FiltersTab({ data, languageColors = {} }) {
           );
         })}
       </div>
-      <div className="filters-tab-footer">
+      <fieldset className="filters-tab-footer bottom-sticky">
         <button onClick={handleViewAll} className="view-all-button has-icon">
-          <ZoomDistanceIcon className="icon" />
           {t("search.viewAll")}
         </button>
         <div className="control-item checkbox-control">
@@ -295,7 +294,7 @@ function FiltersTab({ data, languageColors = {} }) {
             <span>{t("filters.allowMultipleChoices")}</span>
           </label>
         </div>
-      </div>
+      </fieldset>
     </div>
   );
 }

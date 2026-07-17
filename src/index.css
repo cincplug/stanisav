@@ -272,3 +272,12 @@ legend {
   padding: var(--gap-double);
   white-space: normal;
 }
+
+.bottom-sticky {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  position: sticky;
+  bottom: 0;
+  background: var(--color-1);
+}

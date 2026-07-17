@@ -72,7 +72,7 @@ const ControlsTab = ({ className }) => {
         <ControlItemGroup key={groupName} groupName={groupName} showFieldset />
       ))}
 
-      <fieldset className="preset-controls">
+      <fieldset className="preset-controls bottom-sticky">
         {isAnyControlChanged && (
           <>
             <button
@@ -110,7 +110,7 @@ const ControlsTab = ({ className }) => {
       </fieldset>
 
       {presetNames.length > 0 && (
-        <fieldset className="preset-list preset-controls">
+        <fieldset className="preset-list">
           <legend>Presets</legend>
           {presetNames.map((presetName) => (
             <button
