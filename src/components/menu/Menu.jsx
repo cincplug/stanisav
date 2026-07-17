@@ -127,7 +127,9 @@ function Menu({
             />
           )}
           <button
-            onClick={() => updateConfigValue("isBlackboard", !isBlackboard)}
+            onClick={() =>
+              updateConfigValue("header.isBlackboard", !isBlackboard)
+            }
             aria-pressed={isBlackboard}
             className={`menu-item ${isBlackboard ? "selected" : ""}`}
             aria-label={t("controls.isBlackboard.label")}
