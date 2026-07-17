@@ -16,7 +16,7 @@ const SceneTitle = ({ text, formattedPositions }) => {
     <Title
       position={[
         topCenter.x,
-        topCenter.y + (boardTitleGap + labelSize) * 2,
+        topCenter.y + boardTitleGap + labelSize * 2,
         topCenter.z,
       ]}
       text={text}

@@ -1,4 +1,33 @@
 {
+  "header": {
+    "sortBy": [
+      "alphabetically",
+      "speakers",
+      "family",
+      "tonality",
+      "morphology",
+      "wordOrder",
+      "wordOrderFlexibility",
+      "evidentiality",
+      "verbAspect",
+      "phonemeCount",
+      "caseCount",
+      "nounClassCount",
+      "maxConsonantClusterSize"
+    ],
+    "labelContent": ["name", "nativeName", "isoCode"],
+    "labelSize": [1, 1.25, 1.5, 1.75],
+    "isReverse": false,
+    "isBlackboard": false
+  },
+  "global": {
+    "isAutoplay": true,
+    "isIdCardVisible": false,
+    "isMenuExpanded": false,
+    "isMyMesha": false,
+    "soundSource": ["l", "o-l", "o", "l-o"],
+    "timeRate": 15
+  },
   "sphere": {
     "spiralAxis": ["y", "x", "z"],
     "spiralRatio": [0.61803, 0.41421, 0.73205, 0.23606, 0.64575, 0.31662],
@@ -154,35 +183,6 @@
     "centerPullRatio": 0.74,
     "lineWidth": 73,
     "lineOpacity": 0.2
-  },
-  "header": {
-    "sortBy": [
-      "speakers",
-      "alphabetically",
-      "family",
-      "tonality",
-      "morphology",
-      "wordOrder",
-      "wordOrderFlexibility",
-      "evidentiality",
-      "verbAspect",
-      "phonemeCount",
-      "caseCount",
-      "nounClassCount",
-      "maxConsonantClusterSize"
-    ],
-    "labelContent": ["name", "nativeName", "isoCode"],
-    "labelSize": [1, 1.25, 1.5, 1.75],
-    "isReverse": false,
-    "isBlackboard": false
-  },
-  "global": {
-    "isAutoplay": true,
-    "isIdCardVisible": false,
-    "isMenuExpanded": false,
-    "isMyMesha": false,
-    "soundSource": ["l", "o-l", "o", "l-o"],
-    "timeRate": 15
   },
   "entrance": {
     "entranceAxis": "z",

@@ -1,6 +1,10 @@
 import lineages from "../config/lineages.json";
 import { getLocalizedLanguageName } from "../i18n/runtime";
-import { getFeatureScore, getLanguageLabel, isNumericFeature } from "./linguisticUtils";
+import {
+  getFeatureScore,
+  getLanguageLabel,
+  isNumericFeature,
+} from "./linguisticUtils";
 
 const collator = new Intl.Collator("und", {
   sensitivity: "base",
@@ -115,6 +119,8 @@ export function sortLanguages({
       case "verbAspect":
       case "nounClassCount":
       case "maxConsonantClusterSize":
+      case "phonemeCount":
+      case "caseCount":
         return allLanguages.sort((a, b) => {
           const featureA = typologicalFeatures[a][sortBy];
           const featureB = typologicalFeatures[b][sortBy];
@@ -129,18 +135,6 @@ export function sortLanguages({
           const cmp = collator.compare(String(featureA), String(featureB));
           if (cmp !== 0) return cmp;
 
-          return collator.compare(
-            getLocalizedLanguageName(a),
-            getLocalizedLanguageName(b),
-          );
-        });
-
-      case "phonemeCount":
-      case "caseCount":
-        return allLanguages.sort((a, b) => {
-          const cmp =
-            typologicalFeatures[b][sortBy] - typologicalFeatures[a][sortBy];
-          if (cmp !== 0) return cmp;
           return collator.compare(
             getLocalizedLanguageName(a),
             getLocalizedLanguageName(b),
