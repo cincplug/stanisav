@@ -1,0 +1,346 @@
+{
+  "controls": {
+    "showMore": {
+      "label": "Visa mer"
+    },
+    "isIdCardVisible": {
+      "label": "ID-kort"
+    },
+    "isAutoplay": {
+      "label": "Automatisk uppspelning"
+    },
+    "isMyMesha": {
+      "label": "Jag är Mesha"
+    },
+    "isReverse": {
+      "label": "Omvänd ordning"
+    },
+    "labelContent": {
+      "label": "Visning",
+      "options": {
+        "isoCode": "ISO-koder",
+        "name": "Namn på svenska",
+        "nativeName": "Namn på originalspråk"
+      }
+    },
+    "labelSize": {
+      "label": "Etikettstorlek"
+    },
+    "sortBy": {
+      "label": "Sortering",
+      "options": {
+        "alphabetically": "Alfabetisk ordning",
+        "caseCount": "Antal kasus",
+        "evidentiality": "Evidentialitet",
+        "family": "Språkfamilj",
+        "maxConsonantClusterSize": "Konsonantkluster",
+        "morphology": "Morfologi",
+        "nounClassCount": "Antal substantivklasser",
+        "phonemeCount": "Antal fonem",
+        "speakers": "Antal talare",
+        "tonality": "Tonalitet",
+        "verbAspect": "Verbalaspekt",
+        "wordOrder": "Ordföljd",
+        "wordOrderFlexibility": "Flexibilitet i ordföljd",
+        "scripts": "Skriftsystem"
+      }
+    },
+    "isBlackboard": {
+      "label": "Svarta tavlan"
+    }
+  },
+  "filters": {
+    "all": "Alla",
+    "allowMultipleChoices": "Tillåt flera val",
+    "results": "Filtrera resultat ({count})",
+    "title": "Filtrera efter"
+  },
+  "linguistic": {
+    "caseCount": {
+      "name": "Antal kasus"
+    },
+    "evidentiality": {
+      "name": "Evidentialitet",
+      "values": {
+        "complex": {
+          "label": "Komplex"
+        },
+        "moderate": {
+          "label": "Måttlig"
+        },
+        "none": {
+          "label": "Ingen"
+        },
+        "optional": {
+          "label": "Valfri"
+        },
+        "simple": {
+          "label": "Enkel"
+        }
+      }
+    },
+    "family": {
+      "name": "Språkfamilj"
+    },
+    "maxConsonantClusterSize": {
+      "name": "Max antal konsonanter i ett kluster"
+    },
+    "morphology": {
+      "name": "Morfologi",
+      "values": {
+        "agglutinative": {
+          "label": "Agglutinerande"
+        },
+        "fusional": {
+          "label": "Fusionerande"
+        },
+        "introflexive": {
+          "label": "Introflexiv"
+        },
+        "isolating": {
+          "label": "Isolerande"
+        },
+        "polysynthetic": {
+          "label": "Polysyntetisk"
+        }
+      }
+    },
+    "nounClassCount": {
+      "name": "Substantivklasser / genus"
+    },
+    "phonemeCount": {
+      "name": "Antal fonem"
+    },
+    "scripts": {
+      "name": "Skriftsystem",
+      "values": {
+        "Arabic": {
+          "label": "Arabiska"
+        },
+        "Armenian": {
+          "label": "Armeniska"
+        },
+        "Balinese": {
+          "label": "Balinesiska"
+        },
+        "Bengali": {
+          "label": "Bengaliska"
+        },
+        "Canadian Aboriginal Syllabics": {
+          "label": "Kanadensisk aboriginsk stavelseskrift"
+        },
+        "Cherokee": {
+          "label": "Cherokee"
+        },
+        "Cyrillic": {
+          "label": "Kyrilliska"
+        },
+        "Devanagari": {
+          "label": "Devanagari"
+        },
+        "Ethiopic": {
+          "label": "Etiopisk"
+        },
+        "Georgian": {
+          "label": "Georgiska"
+        },
+        "Greek": {
+          "label": "Grekiska"
+        },
+        "Gujarati": {
+          "label": "Gujarati"
+        },
+        "Gurmukhi": {
+          "label": "Gurmukhi"
+        },
+        "Han": {
+          "label": "Han"
+        },
+        "Hangul": {
+          "label": "Hangul"
+        },
+        "Hebrew": {
+          "label": "Hebreiska"
+        },
+        "Hiragana": {
+          "label": "Hiragana"
+        },
+        "Javanese": {
+          "label": "Javanesiska"
+        },
+        "Kannada": {
+          "label": "Kannada"
+        },
+        "Katakana": {
+          "label": "Katakana"
+        },
+        "Khmer": {
+          "label": "Khmer"
+        },
+        "Lao": {
+          "label": "Laotiska"
+        },
+        "Latin": {
+          "label": "Latinska"
+        },
+        "Lepcha": {
+          "label": "Lepcha"
+        },
+        "Malayalam": {
+          "label": "Malayalam"
+        },
+        "Meitei Mayek": {
+          "label": "Meitei Mayek"
+        },
+        "Mongolian": {
+          "label": "Mongoliska"
+        },
+        "Myanmar": {
+          "label": "Myanmar"
+        },
+        "Newa": {
+          "label": "Newa"
+        },
+        "Odia": {
+          "label": "Odia"
+        },
+        "Ol Chiki": {
+          "label": "Ol Chiki"
+        },
+        "Sinhala": {
+          "label": "Singalesiska"
+        },
+        "Sorang Sompeng": {
+          "label": "Sorang Sompeng"
+        },
+        "Tamil": {
+          "label": "Tamil"
+        },
+        "Telugu": {
+          "label": "Telugu"
+        },
+        "Thai": {
+          "label": "Thailändska"
+        },
+        "Tibetan": {
+          "label": "Tibetanska"
+        },
+        "Tirhuta": {
+          "label": "Tirhuta"
+        },
+        "Warang Citi": {
+          "label": "Warang Citi"
+        },
+        "Yi": {
+          "label": "Yi"
+        }
+      }
+    },
+    "tonality": {
+      "name": "Tonalitet",
+      "values": {
+        "complex-tonal": {
+          "label": "Komplext tonspråk"
+        },
+        "non-tonal": {
+          "label": "Icke-tonspråk"
+        },
+        "pitch-accent": {
+          "label": "Tonaccent"
+        },
+        "simple-tonal": {
+          "label": "Enkelt tonspråk"
+        }
+      }
+    },
+    "verbAspect": {
+      "name": "Verbalaspekt",
+      "values": {
+        "binary": {
+          "label": "Binär"
+        },
+        "complex": {
+          "label": "Komplex"
+        },
+        "minimal": {
+          "label": "Minimal"
+        },
+        "simple": {
+          "label": "Enkel"
+        }
+      }
+    },
+    "wordOrder": {
+      "name": "Ordföljd",
+      "values": {
+        "SOV": {
+          "label": "SOV"
+        },
+        "SVO": {
+          "label": "SVO"
+        },
+        "VOS": {
+          "label": "VOS"
+        },
+        "VSO": {
+          "label": "VSO"
+        }
+      }
+    },
+    "wordOrderFlexibility": {
+      "name": "Flexibilitet i ordföljd",
+      "values": {
+        "flexible": {
+          "label": "Flexibel"
+        },
+        "rigid": {
+          "label": "Fast"
+        },
+        "semi-flexible": {
+          "label": "Delvis flexibel"
+        }
+      }
+    }
+  },
+  "menu": {
+    "close": "Stäng menyn",
+    "open": "Öppna menyn",
+    "languageSelector": "Appspråk",
+    "isVisual": "Visuell",
+    "reset": "Återställ",
+    "back": "Tillbaka"
+  },
+  "playlist": {
+    "controls": "Spellistekontroller",
+    "goToBeginning": "Gå till början (Home-tangenten)",
+    "next": "Nästa spår (Högerpil)",
+    "pause": "Pausa",
+    "play": "Spela upp",
+    "stop": "Stoppa",
+    "previous": "Föregående spår (Vänsterpil)",
+    "progress": "{current} av {total}",
+    "toggleLoop": "Växla upprepning (L-tangenten)"
+  },
+  "search": {
+    "clear": "Rensa sökning",
+    "label": "Sök",
+    "noResults": "Inga språk hittades som matchar \"{term}\"",
+    "results": "Sökresultat ({count})",
+    "threshold": "Skriv minst {threshold} tecken för att söka...",
+    "viewAll": "Visa alla"
+  },
+  "tabs": {
+    "controls": "Kontroller",
+    "filters": "Filter",
+    "languages": "Språk",
+    "search": "Sök"
+  },
+  "overlay": {
+    "slogan": "Ju fler språk du kan, desto mer är du värd.",
+    "emptyFilter": "Inga språk för den filterkombinationen. Du har förmodligen valt för många filter."
+  },
+  "idCard": {
+    "sourceVideo": "Källvideo",
+    "opensInNewTab": "öppnas i ny flik"
+  }
+}
