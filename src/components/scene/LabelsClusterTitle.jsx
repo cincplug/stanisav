@@ -1,20 +1,13 @@
-import { useMemo } from "react";
 import { useConfigContext } from "../../contexts/ConfigContext";
-import { getClusterTopCenter } from "../../utils/sceneUtils";
 import Title from "./Title";
 
-const LabelsClusterTitle = ({ languagePositions, title }) => {
-  const topCenter = useMemo(
-    () => getClusterTopCenter(languagePositions),
-    [languagePositions],
-  );
-
+const LabelsClusterTitle = ({ position, title }) => {
   const { config } = useConfigContext();
-  const { labelSize, boardTitleGap, white } = config;
+  const { labelSize, white } = config;
 
   return (
     <Title
-      position={[topCenter.x, topCenter.y + boardTitleGap, topCenter.z]}
+      position={position}
       text={title}
       fontSize={labelSize}
       color={white}

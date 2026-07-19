@@ -1,11 +1,13 @@
 import { Line } from "@react-three/drei";
 import { Vector3 } from "three";
 import { useConfigContext } from "../../contexts/ConfigContext";
+import { getClusterTopCenter } from "../../utils/sceneUtils";
 import LabelsClusterTitle from "./LabelsClusterTitle";
 
 const LabelsCluster = ({ title, languageCodes, formattedPositions }) => {
   const { config } = useConfigContext();
-  const { isBlackboard, clusterBorder, white } = config;
+  const { isBlackboard, clusterBorder, white, boardTitleGap, labelSize } =
+    config;
 
   if (!isBlackboard) return null;
 
@@ -16,37 +18,37 @@ const LabelsCluster = ({ title, languageCodes, formattedPositions }) => {
     }
   });
 
-  let rectanglePoints = null;
-  const positionsArray = Object.values(languagePositions);
+  const topCenter = getClusterTopCenter(languagePositions);
+  if (!topCenter) return null;
 
-  if (clusterBorder && positionsArray.length > 0) {
-    const xs = positionsArray.map((p) => p.x);
-    const ys = positionsArray.map((p) => p.y);
-    const minX = Math.min(...xs);
-    const maxX = Math.max(...xs);
-    const minY = Math.min(...ys);
-    const maxY = Math.max(...ys);
-    const z = positionsArray[0].z;
+  const titlePosition = new Vector3(
+    topCenter.x,
+    topCenter.y + boardTitleGap,
+    topCenter.z,
+  );
 
-    rectanglePoints = [
-      new Vector3(minX, minY, z),
-      new Vector3(maxX, minY, z),
-      new Vector3(maxX, maxY, z),
-      new Vector3(minX, maxY, z),
-      new Vector3(minX, minY, z),
-    ];
-  }
+  // Traces a single path from the title through every member, in the same
+  // order the members were provided. This replaces the old bounding-box
+  // rectangle, which used raw member extents and so never lined up with
+  // where the title actually rendered.
+  const memberPoints = languageCodes
+    .map((code) => languagePositions[code])
+    .filter(Boolean)
+    .map(
+      (position) => new Vector3(position.x, position.y - labelSize, position.z),
+    );
+
+  const tracePoints =
+    clusterBorder && memberPoints.length > 0
+      ? [titlePosition, ...memberPoints]
+      : null;
 
   return (
     <>
-      {clusterBorder && rectanglePoints && (
-        <Line
-          points={rectanglePoints}
-          color={white}
-          lineWidth={clusterBorder}
-        />
+      {tracePoints && (
+        <Line points={tracePoints} color={white} lineWidth={clusterBorder} />
       )}
-      <LabelsClusterTitle languagePositions={languagePositions} title={title} />
+      <LabelsClusterTitle position={titlePosition} title={title} />
     </>
   );
 };

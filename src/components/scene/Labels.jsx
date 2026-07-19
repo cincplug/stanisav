@@ -1,8 +1,10 @@
 import { useEffect, useMemo, useRef } from "react";
+import { Vector3 } from "three";
 import { useConfigContext } from "../../contexts/ConfigContext";
 import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext";
 import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
 import { getSortByLabel } from "../../utils/i18nUtils";
+import { getClusterTopCenter } from "../../utils/sceneUtils";
 import Label from "./Label";
 import LabelsCluster from "./LabelsCluster";
 import Lines from "./Lines";
@@ -20,7 +22,7 @@ const Labels = ({
   const { filters, filteredLanguages } = useLanguageSelectionContext();
 
   const { config } = useConfigContext();
-  const { isBlackboard, hasLines, sortBy } = config;
+  const { isBlackboard, hasLines, sortBy, boardTitleGap, labelSize } = config;
 
   const sortByLabel = getSortByLabel(sortBy);
 
@@ -77,6 +79,25 @@ const Labels = ({
     prevVisibleCountRef.current = totalVisibleLabels;
   }, [totalVisibleLabels, isLabelsSequenceDone]);
 
+  // The scene title must be centered on the labels actually on screen, not
+  // on every language in the dataset - otherwise it drifts off-center as
+  // soon as any filter hides part of the sphere/board.
+  const sceneTitlePosition = useMemo(() => {
+    const visiblePositions = {};
+    visibleLabelCodes.forEach((langCode) => {
+      visiblePositions[langCode] = formattedPositions[langCode];
+    });
+
+    const topCenter = getClusterTopCenter(visiblePositions);
+    if (!topCenter) return null;
+
+    return new Vector3(
+      0,
+      topCenter.y + boardTitleGap + labelSize * 2,
+      topCenter.z,
+    );
+  }, [visibleLabelCodes, formattedPositions, boardTitleGap, labelSize]);
+
   return (
     <>
       {hasLines &&
@@ -91,11 +112,8 @@ const Labels = ({
           />
         )}
 
-      {isBlackboard && (
-        <SceneTitle
-          text={sortByLabel}
-          formattedPositions={formattedPositions}
-        />
+      {isBlackboard && sceneTitlePosition && (
+        <SceneTitle text={sortByLabel} position={sceneTitlePosition} />
       )}
 
       {visibleLabelCodes.map((langCode, index) => {

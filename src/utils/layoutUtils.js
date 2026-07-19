@@ -89,7 +89,12 @@ function estimateLabelWidth(text, labelSize, charWidthRatio, labelPaddingH) {
   return text.length * labelSize * charWidthRatio + labelPaddingH * labelSize;
 }
 
-function generateFlowLayout(numPoints, labelWidths, rowHeight) {
+function generateFlowLayout(
+  numPoints,
+  labelWidths,
+  rowHeight,
+  areClusterRowsAlternating,
+) {
   if (numPoints === 0) return { points: [], actualWidth: 0, actualHeight: 0 };
 
   const totalWidth = labelWidths.reduce((s, w) => s + w, 0);
@@ -118,11 +123,18 @@ function generateFlowLayout(numPoints, labelWidths, rowHeight) {
 
   const points = new Array(numPoints);
   rows.forEach((row, rowIndex) => {
+    // Every second row flows right-to-left instead of left-to-right, so the
+    // path from one label to the next stays short and the connecting lines
+    // don't have to snap back across the full row width. Items are still
+    // wrapped into rows the same way; only their x position within the row
+    // is mirrored, so row widths/breakpoints are unaffected.
+    const isRowReversed = areClusterRowsAlternating && rowIndex % 2 === 1;
+
     let cursor = -row.width / 2;
     row.items.forEach((item) => {
       const x = cursor + item.width / 2;
       const y = -(rowIndex - (rows.length - 1) / 2) * rowHeight;
-      points[item.index] = new Vector3(x, y, 0);
+      points[item.index] = new Vector3(isRowReversed ? -x : x, y, 0);
       cursor += item.width;
     });
   });
@@ -239,6 +251,7 @@ function computeBoardPositions(
     rowHeightRatio,
     clusterGap,
     boardWidth,
+    areClusterRowsAlternating,
   } = config;
 
   const rowHeight = labelSize * rowHeightRatio;
@@ -269,6 +282,7 @@ function computeBoardPositions(
       members.length,
       labelWidths,
       rowHeight,
+      areClusterRowsAlternating,
     );
   });
 
@@ -324,13 +338,13 @@ function computeBoardPositions(
     cursorX += colWidth + clusterPadding;
   });
 
-  // Spread clusters horizontally to fill the target board width
-  if (totalWidth > 0 && boardWidth > 0) {
-    const scaleX = boardWidth / totalWidth;
-    clusterKeys.forEach((key) => {
-      clusterOffsets[key].x *= scaleX;
-    });
-  }
+  // Uniformly scale the whole horizontal axis - both the spacing between
+  // clusters (offsets) and each cluster's own width (local points) - so the
+  // board always fits boardWidth without clusters ever overlapping. Scaling
+  // only the offsets kept clusters at full size while pulling their centers
+  // together, so adjacent clusters overlapped whenever the available board
+  // width shrank, e.g. the side menu opening.
+  const scaleX = totalWidth > 0 && boardWidth > 0 ? boardWidth / totalWidth : 1;
 
   const positions = {};
   clusterKeys.forEach((key) => {
@@ -338,7 +352,12 @@ function computeBoardPositions(
     const members = clusters[key];
     const localPoints = clusterLayouts[key].points;
     members.forEach((code, j) => {
-      positions[code] = localPoints[j].clone().add(offset);
+      const localPoint = localPoints[j];
+      positions[code] = new Vector3(
+        (offset.x + localPoint.x) * scaleX,
+        offset.y + localPoint.y,
+        offset.z + localPoint.z,
+      );
     });
   });
 

@@ -46,7 +46,8 @@
     "labelPaddingH": 0.6,
     "rowHeightRatio": 2.2,
     "clusterGap": 2,
-    "clusterBorder": 0
+    "clusterBorder": 1,
+    "areClusterRowsAlternating": true
   },
   "shader": {
     "ambient": 0.7,

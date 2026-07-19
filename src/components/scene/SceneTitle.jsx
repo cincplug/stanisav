@@ -1,24 +1,13 @@
-import { useMemo } from "react";
 import { useConfigContext } from "../../contexts/ConfigContext";
-import { getClusterTopCenter } from "../../utils/sceneUtils";
 import Title from "./Title";
 
-const SceneTitle = ({ text, formattedPositions }) => {
+const SceneTitle = ({ text, position }) => {
   const { config } = useConfigContext();
-  const { labelSize, boardTitleGap, white } = config;
-
-  const topCenter = useMemo(
-    () => getClusterTopCenter(formattedPositions),
-    [formattedPositions],
-  );
+  const { labelSize, white } = config;
 
   return (
     <Title
-      position={[
-        topCenter.x,
-        topCenter.y + boardTitleGap + labelSize * 2,
-        topCenter.z,
-      ]}
+      position={position}
       text={text}
       fontSize={labelSize * 2}
       color={white}

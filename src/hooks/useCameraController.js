@@ -10,7 +10,11 @@ export const useCameraController = ({ languageNodes }) => {
   const { cameraFocusRequest, selectedLanguage } =
     useLanguageSelectionContext();
   const { isMeshaSequenceDone } = useEntranceContext();
-  const { camera, controls: threeControls } = useThree();
+  // `size` is react-three-fiber's reactive canvas size (updated whenever its
+  // internal ResizeObserver fires). Unlike camera.aspect, it's guaranteed to
+  // be current at the moment this hook re-renders, so it's what fitToNodes
+  // should use to compute aspect - see comment on fitToNodes below.
+  const { camera, controls: threeControls, size } = useThree();
   const { config } = useConfigContext();
   const {
     isBlackboard,
@@ -154,9 +158,17 @@ export const useCameraController = ({ languageNodes }) => {
     const halfW = (maxX - minX) / 2;
     const halfH = (maxY - minY) / 2;
 
+    // Aspect is derived from the live canvas size rather than camera.aspect.
+    // camera.aspect is only refreshed by react-three-fiber once its resize
+    // observer reports a change, which lags behind CSS-driven size changes
+    // (e.g. the side menu sliding open/closed). Reading `size` instead keeps
+    // this in sync with the dependency array below, so the fit recomputes
+    // again once the canvas has actually settled at its final size.
+    const aspect = size.width / size.height;
+
     const fovRad = (fov * Math.PI) / 180;
     const halfFovV = fovRad / 2;
-    const halfFovH = Math.atan(Math.tan(halfFovV) * camera.aspect);
+    const halfFovH = Math.atan(Math.tan(halfFovV) * aspect);
 
     const distForWidth = halfW / Math.tan(halfFovH);
     const distForHeight = halfH / Math.tan(halfFovV);
@@ -169,7 +181,7 @@ export const useCameraController = ({ languageNodes }) => {
       center.z + (maxZ - minZ) / 2 + distance,
     );
     startCameraAnimation(targetCameraPosition, center, switchDuration, far);
-  }, [languageNodes, fov, camera, startCameraAnimation]);
+  }, [languageNodes, fov, size, startCameraAnimation]);
 
   // When Mesha's reveal sequence finishes, fly the camera in to his home
   // position at the same speed his spring animation takes to get there
