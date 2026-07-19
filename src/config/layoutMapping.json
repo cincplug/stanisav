@@ -1,18 +1,15 @@
 {
   "blackboard": [
+    "family",
     "tonality",
     "morphology",
     "wordOrder",
     "wordOrderFlexibility",
     "evidentiality",
-    "verbAspect"
-  ],
-  "sphere": [
-    "alphabetically",
-    "speakers",
-    "family",
+    "verbAspect",
     "phonemeCount",
     "caseCount",
     "nounClassCount"
-  ]
+  ],
+  "sphere": ["alphabetically", "speakers"]
 }

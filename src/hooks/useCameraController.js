@@ -26,6 +26,8 @@ export const useCameraController = ({ languageNodes }) => {
     boardMargin,
     sortBy,
     sphereRadius,
+    boardTitleGap,
+    labelSize,
   } = config;
 
   useEffect(() => {
@@ -149,6 +151,16 @@ export const useCameraController = ({ languageNodes }) => {
       if (p.z > maxZ) maxZ = p.z;
     });
 
+    // In board mode the scene title renders above the topmost label (see
+    // Labels.jsx: boardTitleGap + labelSize * 2 above it, then the glyphs
+    // themselves grow upward another ~labelSize * 2 since the title is
+    // bottom-anchored). Without this margin the fit only frames the labels,
+    // so an uneven top cluster column can push the title off the top edge
+    // while the bottom of the frame sits empty.
+    if (isBlackboard) {
+      maxY += boardTitleGap + labelSize * 4;
+    }
+
     const center = new Vector3(
       (minX + maxX) / 2,
       (minY + maxY) / 2,
@@ -181,7 +193,16 @@ export const useCameraController = ({ languageNodes }) => {
       center.z + (maxZ - minZ) / 2 + distance,
     );
     startCameraAnimation(targetCameraPosition, center, switchDuration, far);
-  }, [languageNodes, fov, size, startCameraAnimation]);
+  }, [
+    languageNodes,
+    fov,
+    size,
+    isBlackboard,
+    boardMargin,
+    boardTitleGap,
+    labelSize,
+    startCameraAnimation,
+  ]);
 
   // When Mesha's reveal sequence finishes, fly the camera in to his home
   // position at the same speed his spring animation takes to get there
@@ -191,7 +212,12 @@ export const useCameraController = ({ languageNodes }) => {
     fitToNodes();
   }, [isMeshaSequenceDone]);
 
+  // Skip this refit while a language is selected/zoomed - otherwise a resize
+  // (e.g. the side menu opening or closing) recreates fitToNodes and pulls
+  // the camera back out to the wide "fit everything" shot instead of staying
+  // on the selected language.
   useEffect(() => {
+    if (selectedLanguage) return;
     fitToNodes();
   }, [isBlackboard, sortBy, fitToNodes]);
 

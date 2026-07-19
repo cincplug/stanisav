@@ -236,6 +236,91 @@ function getClusterKey(code, languageData, languageLineages, config) {
   }
 }
 
+// Counts how many contiguous groups are needed to fit `weights`, in order,
+// if no group's total may exceed `maxColumnHeight`.
+function countColumnsNeededForHeight(weights, maxColumnHeight) {
+  let columnCount = 1;
+  let currentColumnHeight = 0;
+  weights.forEach((weight) => {
+    if (
+      currentColumnHeight > 0 &&
+      currentColumnHeight + weight > maxColumnHeight
+    ) {
+      columnCount += 1;
+      currentColumnHeight = weight;
+    } else {
+      currentColumnHeight += weight;
+    }
+  });
+  return columnCount;
+}
+
+// Finds the smallest possible "tallest column" height that still lets
+// `weights` be split, in order, into at most `numClusterCols` groups. This
+// is the standard book/painter's-partition binary search: any column height
+// budget below this minimum would need more than numClusterCols columns to
+// fit everything; any budget above it is looser than necessary.
+function findMinimalMaxColumnHeight(weights, numClusterCols) {
+  let low = Math.max(...weights);
+  let high = weights.reduce((sum, weight) => sum + weight, 0);
+  while (low < high) {
+    const mid = Math.floor((low + high) / 2);
+    if (countColumnsNeededForHeight(weights, mid) <= numClusterCols) {
+      high = mid;
+    } else {
+      low = mid + 1;
+    }
+  }
+  return low;
+}
+
+// Distributes clusterKeys into columns while preserving their given order.
+// A shortest-column heuristic (drop each cluster into whichever column is
+// currently shortest) would balance column heights nicely, but it ignores
+// the meaning of that order - e.g. for sortBy "family", clusterKeys are
+// pre-sorted by lineage path so that related families sit next to each
+// other, and balancing purely by height scatters those families across
+// unrelated columns.
+// A naive sequential fill (advance to the next column once a fixed target
+// height is exceeded) preserves order, but has no cap on the last column:
+// any leftover from earlier columns being slightly under target just piles
+// up there, making it disproportionately tall.
+// Solving for the minimal max-column-height first (see
+// findMinimalMaxColumnHeight) and then doing the same sequential fill with
+// that as the cap keeps clusters that are adjacent in the given order
+// visually adjacent, while guaranteeing no column - including the last one
+// - grows past what's actually necessary to balance the board.
+function distributeClusterKeysIntoColumns(
+  clusterKeys,
+  clusterHeights,
+  clusterPadding,
+  numClusterCols,
+) {
+  const weights = clusterKeys.map(
+    (key) => clusterHeights[key] + clusterPadding,
+  );
+  const maxColumnHeight = findMinimalMaxColumnHeight(weights, numClusterCols);
+
+  const clusterColumns = Array.from({ length: numClusterCols }, () => []);
+  let columnIndex = 0;
+  let currentColumnHeight = 0;
+
+  clusterKeys.forEach((key, i) => {
+    const heightWithPadding = weights[i];
+    if (
+      currentColumnHeight > 0 &&
+      currentColumnHeight + heightWithPadding > maxColumnHeight
+    ) {
+      columnIndex += 1;
+      currentColumnHeight = 0;
+    }
+    clusterColumns[columnIndex].push(key);
+    currentColumnHeight += heightWithPadding;
+  });
+
+  return clusterColumns;
+}
+
 function computeBoardPositions(
   sortedLanguageCodes,
   languageData,
@@ -297,14 +382,12 @@ function computeBoardPositions(
     Math.max(1, Math.round(Math.sqrt(clusterKeys.length))),
     clusterKeys.length,
   );
-  const columnHeights = new Array(numClusterCols).fill(0);
-  const clusterColumns = Array.from({ length: numClusterCols }, () => []);
-
-  clusterKeys.forEach((key) => {
-    const shortestCol = columnHeights.indexOf(Math.min(...columnHeights));
-    clusterColumns[shortestCol].push(key);
-    columnHeights[shortestCol] += clusterHeights[key] + clusterPadding;
-  });
+  const clusterColumns = distributeClusterKeysIntoColumns(
+    clusterKeys,
+    clusterHeights,
+    clusterPadding,
+    numClusterCols,
+  );
 
   const colWidths = clusterColumns.map((col) =>
     col.length > 0 ? Math.max(...col.map((key) => clusterWidths[key])) : 0,
