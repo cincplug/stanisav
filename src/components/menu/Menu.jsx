@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import tabsConfig from "../../config/tabsConfig.json";
+import layoutMapping from "../../config/layoutMapping.json";
 import { useConfigContext } from "../../contexts/ConfigContext";
 import { useI18nContext } from "../../contexts/I18nContext";
 import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext";
@@ -64,8 +65,8 @@ function Menu({
 
   // Opinionated design decision
   useEffect(() => {
-    const isAlphabetical = sortBy === "alphabetically";
-    updateConfigValue("header.isBlackboard", !isAlphabetical);
+    const shouldBeBlackboard = layoutMapping.blackboard.includes(sortBy);
+    updateConfigValue("header.isBlackboard", shouldBeBlackboard);
   }, [sortBy]);
 
   if (isLoading) {
