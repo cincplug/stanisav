@@ -89,7 +89,7 @@
     "eyeZ": 2.5,
     "irisSize": 0.75,
     "isPhoenix": false,
-    "isSurprised": false,
+    "isSurprised": true,
     "meshaSize": 1.4,
     "noseSize": 0.25,
     "noseThickness": 0.4,

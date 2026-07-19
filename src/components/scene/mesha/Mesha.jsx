@@ -293,14 +293,14 @@ const Mesha = ({
 
         <Tongue tongueMaterial={tongueMaterial} />
 
-        <Teeth toothCount={phonemeCount} />
-
         <Nose
           position={[0, eyeY - eyeSize, eyeZ]}
           scale={noseSize}
           color={color}
           wordOrder={wordOrder}
         />
+
+        <Teeth toothCount={phonemeCount} />
 
         {caseCount && (
           <Moustache

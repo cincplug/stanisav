@@ -21,17 +21,22 @@
     margin: 0;
   }
 
-  &.checkbox-control label {
-    margin: 0;
-    justify-content: flex-start;
-    align-items: center;
-    gap: var(--gap-half);
+  &.checkbox-control {
+    grid-column: span 2;
+
+    label {
+      margin: 0;
+      justify-content: flex-start;
+      align-items: center;
+      gap: var(--gap-half);
+    }
   }
 
   &.range-control {
     display: flex;
     flex-direction: column;
     grid-column: span 2;
+
     label {
       justify-content: space-between;
       margin-bottom: var(--gap);
