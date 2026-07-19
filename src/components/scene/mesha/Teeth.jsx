@@ -9,7 +9,7 @@ import { shiftHue } from "../../../utils/colorUtils.js";
 
 extend({ RoundedBoxGeometry });
 
-const Teeth = ({ toothCount, consonantClusterSize }) => {
+const Teeth = ({ toothCount }) => {
   const teethRefs = useRef([]);
   const { audioData } = useAudioData();
   const { config } = useConfigContext();
@@ -38,7 +38,7 @@ const Teeth = ({ toothCount, consonantClusterSize }) => {
 
       return {
         x: Math.cos(angle) * radius,
-        y: Math.cos(indexFromCenter) * toothWaviness * consonantClusterSize,
+        y: Math.cos(indexFromCenter) * toothWaviness,
         z: Math.sin(angle) * radius,
         indexFromCenter,
         halfCount,
