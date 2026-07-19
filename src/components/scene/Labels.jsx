@@ -7,7 +7,7 @@ import { getSortByLabel } from "../../utils/i18nUtils";
 import { getClusterTopCenter } from "../../utils/sceneUtils";
 import Label from "./Label";
 import LabelsCluster from "./LabelsCluster";
-import Lines from "./Lines";
+import Rays from "./Rays";
 import SceneTitle from "./SceneTitle";
 
 const Labels = ({
@@ -22,7 +22,7 @@ const Labels = ({
   const { filters, filteredLanguages } = useLanguageSelectionContext();
 
   const { config } = useConfigContext();
-  const { isBlackboard, hasLines, sortBy, boardTitleGap, labelSize } = config;
+  const { isBlackboard, hasRays, sortBy, boardTitleGap, labelSize } = config;
 
   const sortByLabel = getSortByLabel(sortBy);
 
@@ -100,11 +100,11 @@ const Labels = ({
 
   return (
     <>
-      {hasLines &&
+      {hasRays &&
         !isBlackboard &&
         !selectedLanguage &&
         isLabelsSequenceDone && (
-          <Lines
+          <Rays
             visibleLabelCodes={visibleLabelCodes}
             labelRefs={labelRefs}
             revealRefs={revealRefs}

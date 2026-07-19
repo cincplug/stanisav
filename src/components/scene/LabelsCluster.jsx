@@ -6,7 +6,7 @@ import LabelsClusterTitle from "./LabelsClusterTitle";
 
 const LabelsCluster = ({ title, languageCodes, formattedPositions }) => {
   const { config } = useConfigContext();
-  const { isBlackboard, clusterBorder, white, boardTitleGap, labelSize } =
+  const { isBlackboard, connectorWidth, white, boardTitleGap, labelSize } =
     config;
 
   if (!isBlackboard) return null;
@@ -34,19 +34,17 @@ const LabelsCluster = ({ title, languageCodes, formattedPositions }) => {
   const memberPoints = languageCodes
     .map((code) => languagePositions[code])
     .filter(Boolean)
-    .map(
-      (position) => new Vector3(position.x, position.y - labelSize, position.z),
-    );
+    .map((position) => new Vector3(position.x, position.y - labelSize, 0));
 
   const tracePoints =
-    clusterBorder && memberPoints.length > 0
+    connectorWidth > 0 && memberPoints.length > 0
       ? [titlePosition, ...memberPoints]
       : null;
 
   return (
     <>
       {tracePoints && (
-        <Line points={tracePoints} color={white} lineWidth={clusterBorder} />
+        <Line points={tracePoints} color={white} lineWidth={connectorWidth} />
       )}
       <LabelsClusterTitle position={titlePosition} title={title} />
     </>

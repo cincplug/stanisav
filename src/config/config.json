@@ -30,7 +30,7 @@
   "sphere": {
     "spiralAxis": ["y", "x", "z"],
     "spiralRatio": [0.61803, 0.41421, 0.73205, 0.23606, 0.64575, 0.31662],
-    "hasLines": true,
+    "hasRays": true,
     "isMingling": true,
     "spinSphereInitial": 1.5,
     "spinSphereZoomed": 0.1,
@@ -45,7 +45,7 @@
     "labelPaddingH": 0.6,
     "rowHeightRatio": 2.2,
     "clusterGap": 2,
-    "clusterBorder": 1,
+    "connectorWidth": 1,
     "areClusterRowsAlternating": true
   },
   "shader": {
@@ -179,10 +179,10 @@
     "durationDismiss": 400,
     "durationPerLetter": 30
   },
-  "lines": {
+  "rays": {
     "centerPullRatio": 0.74,
-    "lineWidth": 73,
-    "lineOpacity": 0.2
+    "rayWidth": 73,
+    "rayOpacity": 0.2
   },
   "entrance": {
     "entranceAxis": "z",

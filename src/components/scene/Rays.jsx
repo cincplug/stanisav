@@ -9,14 +9,14 @@ import { useConfigContext } from "../../contexts/ConfigContext";
 import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 
-// Draws one line per label from the label's animated position toward the sphere center.
+// Draws one ray per label from the label's animated position toward the sphere center.
 // Uses LineSegments2 + LineMaterial for configurable screen-space line width.
-// Each line uses its label's outlineColor unless a color override prop is provided.
-// Lines appear alongside their label: hidden lines are pushed off-screen until reveal > 0.
+// Each ray uses its label's outlineColor unless a color override prop is provided.
+// Rays appear alongside their label: hidden rays are pushed off-screen until reveal > 0.
 // During entrance, centerPullRatio springs from its positive config value to its negative.
 // labelRefs: array of { current: Three.js mesh | null }
 // revealRefs: array of { current: number } — reveal scalar in [0, 1]
-const Lines = ({
+const Rays = ({
   visibleLabelCodes,
   labelRefs,
   revealRefs,
@@ -27,8 +27,8 @@ const Lines = ({
 
   const { config } = useConfigContext();
   const {
-    lineOpacity,
-    lineWidth,
+    rayOpacity,
+    rayWidth,
     centerPullRatio,
     entranceDuration,
     currentColor,
@@ -38,7 +38,7 @@ const Lines = ({
   } = config;
   const { isEntranceComplete } = useEntranceContext();
 
-  const countLines = visibleLabelCodes.length;
+  const countRays = visibleLabelCodes.length;
 
   const geometryRef = useRef(null);
   const materialRef = useRef(null);
@@ -73,8 +73,8 @@ const Lines = ({
     const mat = new LineMaterial({
       vertexColors: true,
       transparent: true,
-      opacity: lineOpacity,
-      linewidth: lineWidth,
+      opacity: rayOpacity,
+      linewidth: rayWidth,
       depthTest: false,
       toneMapped: false,
       resolution: [size.width, size.height],
@@ -88,8 +88,8 @@ const Lines = ({
   // Rebuild mesh whenever the set of visible codes changes, tearing down
   // cleanly when there is nothing left to draw
   useEffect(() => {
-    if (countLines > 0) {
-      buildScene(countLines);
+    if (countRays > 0) {
+      buildScene(countRays);
     } else {
       teardownScene();
     }
@@ -105,10 +105,10 @@ const Lines = ({
   // Update material properties directly, without rebuilding geometry
   useEffect(() => {
     if (materialRef.current) {
-      materialRef.current.linewidth = lineWidth;
-      materialRef.current.opacity = lineOpacity;
+      materialRef.current.raywidth = rayWidth;
+      materialRef.current.opacity = rayOpacity;
     }
-  }, [lineWidth, lineOpacity]);
+  }, [rayWidth, rayOpacity]);
 
   const centerPullSpring = useSpring({
     from: { ratio: centerPullRatio },
@@ -127,7 +127,7 @@ const Lines = ({
   const hiddenZ = -far * 2;
 
   useThrottledFrame(({ scene }) => {
-    if (countLines < 1 || !meshRef.current || !geometryRef.current) return;
+    if (countRays < 1 || !meshRef.current || !geometryRef.current) return;
 
     if (!meshRef.current.parent) scene.add(meshRef.current);
 
@@ -135,7 +135,7 @@ const Lines = ({
     const colArray = colorsRef.current;
     const currentRatio = centerPullSpring.ratio.get();
 
-    for (let i = 0; i < countLines; i++) {
+    for (let i = 0; i < countRays; i++) {
       const labelMesh = labelRefs[i]?.current;
       const reveal = revealRefs[i]?.current ?? 0;
       const vertexStart = i * 6;
@@ -160,15 +160,15 @@ const Lines = ({
       posArray[vertexStart + 4] = labelMesh.position.y * (1 - currentRatio);
       posArray[vertexStart + 5] = labelMesh.position.z * (1 - currentRatio);
 
-      const lineColor = color
+      const rayColor = color
         ? fallbackColor
         : new Color(languageColors[visibleLabelCodes[i]] ?? currentColor);
 
       // Label end — language color
-      colArray[vertexStart] = lineColor.r;
-      colArray[vertexStart + 1] = lineColor.g;
-      colArray[vertexStart + 2] = lineColor.b;
-      // Center-pull end — background color, making the line dissolve into the scene
+      colArray[vertexStart] = rayColor.r;
+      colArray[vertexStart + 1] = rayColor.g;
+      colArray[vertexStart + 2] = rayColor.b;
+      // Center-pull end — background color, making the ray dissolve into the scene
       colArray[vertexStart + 3] = centerColor.r;
       colArray[vertexStart + 4] = centerColor.g;
       colArray[vertexStart + 5] = centerColor.b;
@@ -185,4 +185,4 @@ const Lines = ({
   return null;
 };
 
-export default Lines;
+export default Rays;

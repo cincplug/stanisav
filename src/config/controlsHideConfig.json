@@ -3,6 +3,6 @@
   "global": { "isAlwaysHidden": true },
   "segments": { "isAlwaysHidden": true },
   "sphere": { "watchKey": "isBlackboard", "hideWhenValue": true },
-  "lines": { "watchKey": "isBlackboard", "hideWhenValue": true },
+  "rays": { "watchKey": "isBlackboard", "hideWhenValue": true },
   "blackboard": { "watchKey": "isBlackboard", "hideWhenValue": false }
 }

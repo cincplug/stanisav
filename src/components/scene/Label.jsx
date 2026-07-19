@@ -132,7 +132,7 @@ const Label = ({
 
     labelRef.current.quaternion.copy(camera.quaternion);
 
-    // Keep external refs in sync so the Lines sibling can read live position and reveal
+    // Keep external refs in sync so the Rays sibling can read live position and reveal
     if (meshRef) meshRef.current = labelRef.current;
     if (revealRef) revealRef.current = reveal;
 
