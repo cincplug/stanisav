@@ -36,7 +36,6 @@
         "caseCount": "격 수",
         "evidentiality": "증거성",
         "family": "어족",
-        "maxConsonantClusterSize": "자음 클러스터",
         "morphology": "형태론",
         "nounClassCount": "명사 부류",
         "phonemeCount": "음소 수",
@@ -85,9 +84,6 @@
     },
     "family": {
       "name": "어족"
-    },
-    "maxConsonantClusterSize": {
-      "name": "클러스터 내 최대 자음 수"
     },
     "morphology": {
       "name": "형태론",

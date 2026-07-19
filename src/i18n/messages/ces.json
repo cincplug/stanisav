@@ -36,7 +36,6 @@
         "caseCount": "Pády",
         "evidentiality": "Evidencialita",
         "family": "Jazyková rodina",
-        "maxConsonantClusterSize": "Souhláskové shluky",
         "morphology": "Morfologie",
         "nounClassCount": "Jmenné třídy",
         "phonemeCount": "Fonémy",
@@ -85,9 +84,6 @@
     },
     "family": {
       "name": "Jazyková rodina"
-    },
-    "maxConsonantClusterSize": {
-      "name": "Max. souhlásek ve shluku"
     },
     "morphology": {
       "name": "Morfologie",

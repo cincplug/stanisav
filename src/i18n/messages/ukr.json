@@ -36,7 +36,6 @@
         "caseCount": "Відмінки",
         "evidentiality": "Евіденційність",
         "family": "Мовна сім'я",
-        "maxConsonantClusterSize": "Приголосні кластери",
         "morphology": "Морфологія",
         "nounClassCount": "Іменникові класи",
         "phonemeCount": "Фонеми",
@@ -85,9 +84,6 @@
     },
     "family": {
       "name": "Мовна сім'я"
-    },
-    "maxConsonantClusterSize": {
-      "name": "Макс. приголосних у кластері"
     },
     "morphology": {
       "name": "Морфологія",

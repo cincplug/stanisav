@@ -1,13 +1,13 @@
 {
   "controls": {
-    "showMore": {
-      "label": "Visa mer"
+    "isAutoplay": {
+      "label": "Automatisk uppspelning"
+    },
+    "isBlackboard": {
+      "label": "Svarta tavlan"
     },
     "isIdCardVisible": {
       "label": "ID-kort"
-    },
-    "isAutoplay": {
-      "label": "Automatisk uppspelning"
     },
     "isMyMesha": {
       "label": "Jag är Mesha"
@@ -26,6 +26,9 @@
     "labelSize": {
       "label": "Etikettstorlek"
     },
+    "showMore": {
+      "label": "Visa mer"
+    },
     "sortBy": {
       "label": "Sortering",
       "options": {
@@ -33,20 +36,16 @@
         "caseCount": "Antal kasus",
         "evidentiality": "Evidentialitet",
         "family": "Språkfamilj",
-        "maxConsonantClusterSize": "Konsonantkluster",
         "morphology": "Morfologi",
         "nounClassCount": "Antal substantivklasser",
         "phonemeCount": "Antal fonem",
+        "scripts": "Skriftsystem",
         "speakers": "Antal talare",
         "tonality": "Tonalitet",
         "verbAspect": "Verbalaspekt",
         "wordOrder": "Ordföljd",
-        "wordOrderFlexibility": "Flexibilitet i ordföljd",
-        "scripts": "Skriftsystem"
+        "wordOrderFlexibility": "Flexibilitet i ordföljd"
       }
-    },
-    "isBlackboard": {
-      "label": "Svarta tavlan"
     }
   },
   "filters": {
@@ -54,6 +53,10 @@
     "allowMultipleChoices": "Tillåt flera val",
     "results": "Filtrera resultat ({count})",
     "title": "Filtrera efter"
+  },
+  "idCard": {
+    "opensInNewTab": "öppnas i ny flik",
+    "sourceVideo": "Källvideo"
   },
   "linguistic": {
     "caseCount": {
@@ -81,9 +84,6 @@
     },
     "family": {
       "name": "Språkfamilj"
-    },
-    "maxConsonantClusterSize": {
-      "name": "Max antal konsonanter i ett kluster"
     },
     "morphology": {
       "name": "Morfologi",
@@ -303,12 +303,16 @@
     }
   },
   "menu": {
+    "back": "Tillbaka",
     "close": "Stäng menyn",
-    "open": "Öppna menyn",
-    "languageSelector": "Appspråk",
     "isVisual": "Visuell",
-    "reset": "Återställ",
-    "back": "Tillbaka"
+    "languageSelector": "Appspråk",
+    "open": "Öppna menyn",
+    "reset": "Återställ"
+  },
+  "overlay": {
+    "emptyFilter": "Inga språk för den filterkombinationen. Du har förmodligen valt för många filter.",
+    "slogan": "Ju fler språk du kan, desto mer är du värd."
   },
   "playlist": {
     "controls": "Spellistekontroller",
@@ -316,9 +320,9 @@
     "next": "Nästa spår (Högerpil)",
     "pause": "Pausa",
     "play": "Spela upp",
-    "stop": "Stoppa",
     "previous": "Föregående spår (Vänsterpil)",
     "progress": "{current} av {total}",
+    "stop": "Stoppa",
     "toggleLoop": "Växla upprepning (L-tangenten)"
   },
   "search": {
@@ -334,13 +338,5 @@
     "filters": "Filter",
     "languages": "Språk",
     "search": "Sök"
-  },
-  "overlay": {
-    "slogan": "Ju fler språk du kan, desto mer är du värd.",
-    "emptyFilter": "Inga språk för den filterkombinationen. Du har förmodligen valt för många filter."
-  },
-  "idCard": {
-    "sourceVideo": "Källvideo",
-    "opensInNewTab": "öppnas i ny flik"
   }
 }

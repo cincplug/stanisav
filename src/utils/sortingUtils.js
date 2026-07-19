@@ -118,7 +118,6 @@ export function sortLanguages({
       case "evidentiality":
       case "verbAspect":
       case "nounClassCount":
-      case "maxConsonantClusterSize":
       case "phonemeCount":
       case "caseCount":
         return allLanguages.sort((a, b) => {

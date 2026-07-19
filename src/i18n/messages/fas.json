@@ -36,7 +36,6 @@
         "caseCount": "تعداد حالت‌های دستوری",
         "evidentiality": "شواهدنمایی",
         "family": "خانواده زبانی",
-        "maxConsonantClusterSize": "خوشه‌های همخوان",
         "morphology": "ریخت‌شناسی",
         "nounClassCount": "رده‌های اسمی",
         "phonemeCount": "تعداد واج‌ها",
@@ -85,9 +84,6 @@
     },
     "family": {
       "name": "خانواده زبانی"
-    },
-    "maxConsonantClusterSize": {
-      "name": "حداکثر همخوان‌ها در یک خوشه"
     },
     "morphology": {
       "name": "ریخت‌شناسی",

@@ -36,7 +36,6 @@
         "caseCount": "格の数",
         "evidentiality": "証拠性",
         "family": "語族",
-        "maxConsonantClusterSize": "子音クラスター",
         "morphology": "形態論",
         "nounClassCount": "名詞クラス",
         "phonemeCount": "音素数",
@@ -85,9 +84,6 @@
     },
     "family": {
       "name": "語族"
-    },
-    "maxConsonantClusterSize": {
-      "name": "子音クラスターの最大子音数"
     },
     "morphology": {
       "name": "形態論",

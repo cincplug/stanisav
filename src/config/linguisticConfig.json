@@ -50,7 +50,6 @@
   },
   "caseCount": { "numeric": true },
   "phonemeCount": { "numeric": true },
-  "maxConsonantClusterSize": { "numeric": true },
   "nounClassCount": { "numeric": true },
   "scripts": {
     "values": {

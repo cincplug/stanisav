@@ -36,7 +36,6 @@
         "caseCount": "Aantal naamvallen",
         "evidentiality": "Evidentialiteit",
         "family": "Taalfamilie",
-        "maxConsonantClusterSize": "Medeklinkerclusters",
         "morphology": "Morfologie",
         "nounClassCount": "Naamwoordklassen",
         "phonemeCount": "Aantal fonemen",
@@ -85,9 +84,6 @@
     },
     "family": {
       "name": "Taalfamilie"
-    },
-    "maxConsonantClusterSize": {
-      "name": "Maximale medeklinkers in een cluster"
     },
     "morphology": {
       "name": "Morfologie",

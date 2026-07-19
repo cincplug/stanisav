@@ -1,13 +1,13 @@
 {
   "controls": {
-    "showMore": {
-      "label": "Show more"
+    "isAutoplay": {
+      "label": "Autoplay"
+    },
+    "isBlackboard": {
+      "label": "Blackboard"
     },
     "isIdCardVisible": {
       "label": "ID card"
-    },
-    "isAutoplay": {
-      "label": "Autoplay"
     },
     "isMyMesha": {
       "label": "Na me be Mesha"
@@ -26,6 +26,9 @@
     "labelSize": {
       "label": "Label size"
     },
+    "showMore": {
+      "label": "Show more"
+    },
     "sortBy": {
       "label": "Arrange am",
       "options": {
@@ -33,20 +36,16 @@
         "caseCount": "How many case dem get",
         "evidentiality": "Evidentiality",
         "family": "Language family",
-        "maxConsonantClusterSize": "Consonant cluster dem",
         "morphology": "Morphology",
         "nounClassCount": "How many noun class dem get",
         "phonemeCount": "How many phoneme dem get",
+        "scripts": "Writing style dem",
         "speakers": "How many pipo dey speak am",
         "tonality": "Tone",
         "verbAspect": "Verb aspect",
         "wordOrder": "How dem dey arrange word",
-        "wordOrderFlexibility": "How word order fit change",
-        "scripts": "Writing style dem"
+        "wordOrderFlexibility": "How word order fit change"
       }
-    },
-    "isBlackboard": {
-      "label": "Blackboard"
     }
   },
   "filters": {
@@ -54,6 +53,10 @@
     "allowMultipleChoices": "Make dem fit pick pass one",
     "results": "Filter result ({count})",
     "title": "Filter am by"
+  },
+  "idCard": {
+    "opensInNewTab": "e go open for new tab",
+    "sourceVideo": "Where di video come from"
   },
   "linguistic": {
     "caseCount": {
@@ -81,9 +84,6 @@
     },
     "family": {
       "name": "Language family"
-    },
-    "maxConsonantClusterSize": {
-      "name": "How many consonant fit gather join for one cluster"
     },
     "morphology": {
       "name": "Morphology",
@@ -303,12 +303,16 @@
     }
   },
   "menu": {
+    "back": "Go back",
     "close": "Close menu",
-    "open": "Open menu",
-    "languageSelector": "App language",
     "isVisual": "Visual",
-    "reset": "Reset am",
-    "back": "Go back"
+    "languageSelector": "App language",
+    "open": "Open menu",
+    "reset": "Reset am"
+  },
+  "overlay": {
+    "emptyFilter": "No language dey for dat filter combination. Na probably you select too many filter.",
+    "slogan": "Di more language wey you sabi, na so you dey worth pass."
   },
   "playlist": {
     "controls": "Playlist control dem",
@@ -316,9 +320,9 @@
     "next": "Next track (Right arrow)",
     "pause": "Pause",
     "play": "Play am",
-    "stop": "Stop am",
     "previous": "Track wey pass (Left arrow)",
     "progress": "{current} out of {total}",
+    "stop": "Stop am",
     "toggleLoop": "Switch loop on/off (L key)"
   },
   "search": {
@@ -334,13 +338,5 @@
     "filters": "Filter dem",
     "languages": "Language dem",
     "search": "Search"
-  },
-  "overlay": {
-    "slogan": "Di more language wey you sabi, na so you dey worth pass.",
-    "emptyFilter": "No language dey for dat filter combination. Na probably you select too many filter."
-  },
-  "idCard": {
-    "sourceVideo": "Where di video come from",
-    "opensInNewTab": "e go open for new tab"
   }
 }

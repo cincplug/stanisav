@@ -36,7 +36,6 @@
         "caseCount": "வேற்றுமை எண்ணிக்கை",
         "evidentiality": "சான்றுத்தன்மை",
         "family": "மொழிக் குடும்பம்",
-        "maxConsonantClusterSize": "மெய்யெழுத்து கொத்து",
         "morphology": "சொல்லமைப்பியல்",
         "nounClassCount": "பெயர்ச்சொல் வகுப்பு",
         "phonemeCount": "ஒலியன் எண்ணிக்கை",
@@ -85,9 +84,6 @@
     },
     "family": {
       "name": "மொழிக் குடும்பம்"
-    },
-    "maxConsonantClusterSize": {
-      "name": "ஒரு கொத்தில் அதிகபட்ச மெய்யெழுத்துகள்"
     },
     "morphology": {
       "name": "சொல்லமைப்பியல்",

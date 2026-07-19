@@ -147,7 +147,6 @@ const Mesha = ({
     caseCount,
     wordOrder,
     nounClassCount,
-    maxConsonantClusterSize,
     wordOrderFlexibility,
   } = linguisticProperties;
 
@@ -294,10 +293,7 @@ const Mesha = ({
 
         <Tongue tongueMaterial={tongueMaterial} />
 
-        <Teeth
-          toothCount={phonemeCount}
-          consonantClusterSize={maxConsonantClusterSize}
-        />
+        <Teeth toothCount={phonemeCount} />
 
         <Nose
           position={[0, eyeY - eyeSize, eyeZ]}

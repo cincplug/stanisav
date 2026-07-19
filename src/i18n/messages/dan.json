@@ -1,13 +1,13 @@
 {
   "controls": {
-    "showMore": {
-      "label": "Vis mere"
+    "isAutoplay": {
+      "label": "Automatisk afspilning"
+    },
+    "isBlackboard": {
+      "label": "Tavle"
     },
     "isIdCardVisible": {
       "label": "ID-kort"
-    },
-    "isAutoplay": {
-      "label": "Automatisk afspilning"
     },
     "isMyMesha": {
       "label": "Jeg er Mesha"
@@ -26,6 +26,9 @@
     "labelSize": {
       "label": "Etiketstørrelse"
     },
+    "showMore": {
+      "label": "Vis mere"
+    },
     "sortBy": {
       "label": "Sortering",
       "options": {
@@ -33,20 +36,16 @@
         "caseCount": "Antal kasus",
         "evidentiality": "Evidentialitet",
         "family": "Sprogfamilie",
-        "maxConsonantClusterSize": "Konsonantklynger",
         "morphology": "Morfologi",
         "nounClassCount": "Antal substantivklasser",
         "phonemeCount": "Antal fonemer",
+        "scripts": "Skriftsystemer",
         "speakers": "Antal talere",
         "tonality": "Tonalitet",
         "verbAspect": "Verbal aspekt",
         "wordOrder": "Ordstilling",
-        "wordOrderFlexibility": "Fleksibilitet i ordstilling",
-        "scripts": "Skriftsystemer"
+        "wordOrderFlexibility": "Fleksibilitet i ordstilling"
       }
-    },
-    "isBlackboard": {
-      "label": "Tavle"
     }
   },
   "filters": {
@@ -54,6 +53,10 @@
     "allowMultipleChoices": "Tillad flere valg",
     "results": "Filtrer resultater ({count})",
     "title": "Filtrer efter"
+  },
+  "idCard": {
+    "opensInNewTab": "åbner i ny fane",
+    "sourceVideo": "Kildevideo"
   },
   "linguistic": {
     "caseCount": {
@@ -81,9 +84,6 @@
     },
     "family": {
       "name": "Sprogfamilie"
-    },
-    "maxConsonantClusterSize": {
-      "name": "Maks. antal konsonanter i en klynge"
     },
     "morphology": {
       "name": "Morfologi",
@@ -303,12 +303,16 @@
     }
   },
   "menu": {
+    "back": "Tilbage",
     "close": "Luk menu",
-    "open": "Åbn menu",
-    "languageSelector": "Appsprog",
     "isVisual": "Visuel",
-    "reset": "Nulstil",
-    "back": "Tilbage"
+    "languageSelector": "Appsprog",
+    "open": "Åbn menu",
+    "reset": "Nulstil"
+  },
+  "overlay": {
+    "emptyFilter": "Ingen sprog for den filterkombination. Du har sandsynligvis valgt for mange filtre.",
+    "slogan": "Jo flere sprog du kender, jo mere er du værd."
   },
   "playlist": {
     "controls": "Afspilningsliste-kontroller",
@@ -316,9 +320,9 @@
     "next": "Næste spor (Højre pil)",
     "pause": "Pause",
     "play": "Afspil",
-    "stop": "Stop",
     "previous": "Forrige spor (Venstre pil)",
     "progress": "{current} af {total}",
+    "stop": "Stop",
     "toggleLoop": "Slå gentagelse til/fra (L-tast)"
   },
   "search": {
@@ -334,13 +338,5 @@
     "filters": "Filtre",
     "languages": "Sprog",
     "search": "Søg"
-  },
-  "overlay": {
-    "slogan": "Jo flere sprog du kender, jo mere er du værd.",
-    "emptyFilter": "Ingen sprog for den filterkombination. Du har sandsynligvis valgt for mange filtre."
-  },
-  "idCard": {
-    "sourceVideo": "Kildevideo",
-    "opensInNewTab": "åbner i ny fane"
   }
 }

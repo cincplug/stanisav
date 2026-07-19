@@ -33,7 +33,6 @@
         "caseCount": "Case count",
         "evidentiality": "Evidentiality",
         "family": "Language family",
-        "maxConsonantClusterSize": "Consonant clusters",
         "morphology": "Morphology",
         "nounClassCount": "Noun classes",
         "phonemeCount": "Phoneme count",
@@ -81,9 +80,6 @@
     },
     "family": {
       "name": "Language family"
-    },
-    "maxConsonantClusterSize": {
-      "name": "Max consonants in a cluster"
     },
     "morphology": {
       "name": "Morphology",

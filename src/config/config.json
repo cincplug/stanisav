@@ -12,8 +12,7 @@
       "verbAspect",
       "phonemeCount",
       "caseCount",
-      "nounClassCount",
-      "maxConsonantClusterSize"
+      "nounClassCount"
     ],
     "labelContent": ["name", "nativeName", "isoCode"],
     "labelSize": [1, 1.25, 1.5, 1.75],

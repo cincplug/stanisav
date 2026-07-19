@@ -36,7 +36,6 @@
         "caseCount": "عدد الحالات الإعرابية",
         "evidentiality": "الإسناد الدليلي",
         "family": "الفصيلة اللغوية",
-        "maxConsonantClusterSize": "التجمعات الصوتية",
         "morphology": "الصرف",
         "nounClassCount": "فئة الأسماء",
         "phonemeCount": "عدد الفونيمات",
@@ -85,9 +84,6 @@
     },
     "family": {
       "name": "الفصيلة اللغوية"
-    },
-    "maxConsonantClusterSize": {
-      "name": "الحد الأقصى للصوامت في التجمع"
     },
     "morphology": {
       "name": "الصرف",

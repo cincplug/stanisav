@@ -15,7 +15,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Nilotic"
   },
   "acq": {
@@ -34,7 +33,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Semitic"
   },
   "adx": {
@@ -53,7 +51,6 @@
     "verbAspect": "minimal",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Tibetan"
   },
   "afb": {
@@ -72,7 +69,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Semitic"
   },
   "afr": {
@@ -91,7 +87,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "West Germanic"
   },
   "aka": {
@@ -111,7 +106,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Kwa"
   },
   "alb": {
@@ -130,7 +124,6 @@
     "verbAspect": "simple",
     "evidentiality": "moderate",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 4,
     "lineageKey": "Albanian"
   },
   "amh": {
@@ -149,7 +142,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Semitic"
   },
   "apc": {
@@ -168,7 +160,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Semitic"
   },
   "ara": {
@@ -187,7 +178,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Semitic"
   },
   "ary": {
@@ -206,7 +196,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 4,
     "lineageKey": "Semitic"
   },
   "arz": {
@@ -225,7 +214,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Semitic"
   },
   "asm": {
@@ -244,7 +232,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Indo-Aryan"
   },
   "awa": {
@@ -263,7 +250,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Indo-Aryan"
   },
   "aym": {
@@ -282,7 +268,6 @@
     "verbAspect": "simple",
     "evidentiality": "moderate",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Aymaran"
   },
   "aze": {
@@ -301,7 +286,6 @@
     "verbAspect": "minimal",
     "evidentiality": "simple",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Oghuz Turkic"
   },
   "bak": {
@@ -320,7 +304,6 @@
     "verbAspect": "minimal",
     "evidentiality": "simple",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Kipchak Turkic"
   },
   "bal": {
@@ -339,7 +322,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Iranian"
   },
   "bam": {
@@ -358,7 +340,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 1,
     "lineageKey": "Mande"
   },
   "ban": {
@@ -377,7 +358,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Austronesian"
   },
   "bej": {
@@ -396,7 +376,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Cushitic"
   },
   "bel": {
@@ -415,7 +394,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 4,
     "lineageKey": "East Slavic"
   },
   "bem": {
@@ -434,7 +412,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 14,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Bantu"
   },
   "ben": {
@@ -453,7 +430,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Indo-Aryan"
   },
   "bho": {
@@ -472,7 +448,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Indo-Aryan"
   },
   "bik": {
@@ -491,7 +466,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 1,
     "lineageKey": "Philippine"
   },
   "bod": {
@@ -510,7 +484,6 @@
     "verbAspect": "minimal",
     "evidentiality": "complex",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Tibetan"
   },
   "bos": {
@@ -529,7 +502,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 4,
     "lineageKey": "South Slavic"
   },
   "bre": {
@@ -548,7 +520,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Celtic"
   },
   "brh": {
@@ -567,7 +538,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "South Dravidian"
   },
   "bua": {
@@ -586,7 +556,6 @@
     "verbAspect": "minimal",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Mongolic"
   },
   "bul": {
@@ -605,7 +574,6 @@
     "verbAspect": "binary",
     "evidentiality": "simple",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 4,
     "lineageKey": "South Slavic"
   },
   "cak": {
@@ -624,7 +592,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Mayan"
   },
   "cat": {
@@ -643,7 +610,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Romance"
   },
   "ceb": {
@@ -662,7 +628,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Austronesian"
   },
   "ces": {
@@ -681,7 +646,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 4,
     "lineageKey": "West Slavic"
   },
   "chr": {
@@ -700,7 +664,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 1,
     "lineageKey": "Iroquoian"
   },
   "chv": {
@@ -719,7 +682,6 @@
     "verbAspect": "minimal",
     "evidentiality": "simple",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Siberian Turkic"
   },
   "cjy": {
@@ -738,7 +700,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 1,
     "lineageKey": "Sinitic"
   },
   "cmn": {
@@ -758,7 +719,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 1,
     "lineageKey": "Sinitic"
   },
   "cos": {
@@ -777,7 +737,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Romance"
   },
   "cre": {
@@ -796,7 +755,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Algonquian"
   },
   "csb": {
@@ -815,7 +773,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 4,
     "lineageKey": "West Slavic"
   },
   "cym": {
@@ -834,7 +791,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 4,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Celtic"
   },
   "dan": {
@@ -853,7 +809,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "North Germanic"
   },
   "deu": {
@@ -872,7 +827,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 4,
     "lineageKey": "West Germanic"
   },
   "din": {
@@ -891,7 +845,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Nilotic"
   },
   "eng": {
@@ -910,7 +863,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 4,
     "lineageKey": "West Germanic"
   },
   "est": {
@@ -929,7 +881,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Finnic"
   },
   "eus": {
@@ -948,7 +899,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Basque"
   },
   "ewe": {
@@ -967,7 +917,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Kwa"
   },
   "fao": {
@@ -986,7 +935,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 4,
     "lineageKey": "North Germanic"
   },
   "fas": {
@@ -1005,7 +953,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Iranian"
   },
   "fia": {
@@ -1024,7 +971,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Nubian"
   },
   "fij": {
@@ -1043,7 +989,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 1,
     "lineageKey": "Pacific"
   },
   "fin": {
@@ -1062,7 +1007,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Finnic"
   },
   "fra": {
@@ -1081,7 +1025,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Romance"
   },
   "fry": {
@@ -1100,7 +1043,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "West Germanic"
   },
   "ful": {
@@ -1119,7 +1061,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 25,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Niger-Congo"
   },
   "gan": {
@@ -1138,7 +1079,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 1,
     "lineageKey": "Sinitic"
   },
   "gla": {
@@ -1157,7 +1097,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Celtic"
   },
   "gle": {
@@ -1176,7 +1115,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Celtic"
   },
   "glg": {
@@ -1195,7 +1133,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Romance"
   },
   "gre": {
@@ -1214,7 +1151,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Hellenic"
   },
   "grn": {
@@ -1233,7 +1169,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Tupian"
   },
   "guj": {
@@ -1252,7 +1187,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Indo-Aryan"
   },
   "gul": {
@@ -1271,7 +1205,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "English Creole"
   },
   "gyn": {
@@ -1290,7 +1223,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "English Creole"
   },
   "hak": {
@@ -1309,7 +1241,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 1,
     "lineageKey": "Sinitic"
   },
   "hau": {
@@ -1328,7 +1259,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Chadic"
   },
   "haw": {
@@ -1347,7 +1277,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 1,
     "lineageKey": "Pacific"
   },
   "heb": {
@@ -1366,7 +1295,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Semitic"
   },
   "hil": {
@@ -1385,7 +1313,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 1,
     "lineageKey": "Philippine"
   },
   "hin": {
@@ -1404,7 +1331,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Indo-Aryan"
   },
   "hmn": {
@@ -1423,7 +1349,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 1,
     "lineageKey": "Hmong-Mien"
   },
   "hoc": {
@@ -1442,7 +1367,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Munda"
   },
   "hrv": {
@@ -1461,7 +1385,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 4,
     "lineageKey": "South Slavic"
   },
   "hun": {
@@ -1480,7 +1403,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Ugric"
   },
   "hye": {
@@ -1499,7 +1421,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 6,
     "lineageKey": "Armenian"
   },
   "ibo": {
@@ -1518,7 +1439,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 1,
     "lineageKey": "Niger-Congo"
   },
   "iii": {
@@ -1538,7 +1458,6 @@
     "verbAspect": "minimal",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Other Tibeto-Burman"
   },
   "iku": {
@@ -1557,7 +1476,6 @@
     "verbAspect": "complex",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Eskimo-Aleut"
   },
   "ilo": {
@@ -1576,7 +1494,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Philippine"
   },
   "ind": {
@@ -1595,7 +1512,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Austronesian"
   },
   "isl": {
@@ -1614,7 +1530,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "North Germanic"
   },
   "ita": {
@@ -1633,7 +1548,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Romance"
   },
   "jav": {
@@ -1652,7 +1566,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Austronesian"
   },
   "jpn": {
@@ -1671,7 +1584,6 @@
     "verbAspect": "simple",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Japonic"
   },
   "kab": {
@@ -1690,7 +1602,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 4,
     "lineageKey": "Berber"
   },
   "kan": {
@@ -1709,7 +1620,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "South Dravidian"
   },
   "kar": {
@@ -1728,7 +1638,6 @@
     "verbAspect": "minimal",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Karen"
   },
   "kas": {
@@ -1747,7 +1656,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Indo-Aryan"
   },
   "kat": {
@@ -1766,7 +1674,6 @@
     "verbAspect": "complex",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 8,
     "lineageKey": "Kartvelian"
   },
   "kaz": {
@@ -1785,7 +1692,6 @@
     "verbAspect": "minimal",
     "evidentiality": "simple",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Kipchak Turkic"
   },
   "kbd": {
@@ -1804,7 +1710,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 6,
     "lineageKey": "Caucasian"
   },
   "kfa": {
@@ -1823,7 +1728,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "South Dravidian"
   },
   "kha": {
@@ -1842,7 +1746,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Mon-Khmer"
   },
   "khm": {
@@ -1861,7 +1764,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Mon-Khmer"
   },
   "kik": {
@@ -1880,7 +1782,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 15,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Bantu"
   },
   "kin": {
@@ -1899,7 +1800,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 16,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Bantu"
   },
   "kir": {
@@ -1918,7 +1818,6 @@
     "verbAspect": "minimal",
     "evidentiality": "simple",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Kipchak Turkic"
   },
   "kne": {
@@ -1937,7 +1836,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Philippine"
   },
   "knr": {
@@ -1956,7 +1854,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Nilo-Saharan"
   },
   "kok": {
@@ -1975,7 +1872,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Indo-Aryan"
   },
   "kor": {
@@ -1994,7 +1890,6 @@
     "verbAspect": "simple",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Koreanic"
   },
   "kur": {
@@ -2013,7 +1908,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Iranian"
   },
   "lao": {
@@ -2032,7 +1926,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Kra-Dai"
   },
   "lav": {
@@ -2051,7 +1944,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Baltic"
   },
   "lep": {
@@ -2070,7 +1962,6 @@
     "verbAspect": "minimal",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Other Tibeto-Burman"
   },
   "lim": {
@@ -2089,7 +1980,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 4,
     "lineageKey": "West Germanic"
   },
   "lin": {
@@ -2108,7 +1998,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 15,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Bantu"
   },
   "lit": {
@@ -2127,7 +2016,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 4,
     "lineageKey": "Baltic"
   },
   "ltz": {
@@ -2146,7 +2034,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 4,
     "lineageKey": "West Germanic"
   },
   "lua": {
@@ -2165,7 +2052,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 16,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Bantu"
   },
   "lug": {
@@ -2184,7 +2070,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 16,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Bantu"
   },
   "luo": {
@@ -2203,7 +2088,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Nilotic"
   },
   "mag": {
@@ -2222,7 +2106,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Indo-Aryan"
   },
   "mai": {
@@ -2241,7 +2124,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Indo-Aryan"
   },
   "mal": {
@@ -2260,7 +2142,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "South Dravidian"
   },
   "mar": {
@@ -2279,7 +2160,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Indo-Aryan"
   },
   "mas": {
@@ -2298,7 +2178,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Nilotic"
   },
   "min": {
@@ -2317,7 +2196,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Malayo-Polynesian"
   },
   "mkd": {
@@ -2336,7 +2214,6 @@
     "verbAspect": "binary",
     "evidentiality": "simple",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 4,
     "lineageKey": "South Slavic"
   },
   "mlg": {
@@ -2355,7 +2232,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Malayo-Polynesian"
   },
   "mlt": {
@@ -2374,7 +2250,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Semitic"
   },
   "mni": {
@@ -2394,7 +2269,6 @@
     "verbAspect": "minimal",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Other Tibeto-Burman"
   },
   "mnw": {
@@ -2413,7 +2287,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Mon-Khmer"
   },
   "mon": {
@@ -2432,7 +2305,6 @@
     "verbAspect": "minimal",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Mongolic"
   },
   "mri": {
@@ -2451,7 +2323,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 1,
     "lineageKey": "Pacific"
   },
   "msa": {
@@ -2470,7 +2341,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Malayo-Polynesian"
   },
   "mya": {
@@ -2489,7 +2359,6 @@
     "verbAspect": "minimal",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Other Tibeto-Burman"
   },
   "nah": {
@@ -2508,7 +2377,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Uto-Aztecan"
   },
   "nan": {
@@ -2527,7 +2395,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 1,
     "lineageKey": "Sinitic"
   },
   "naq": {
@@ -2547,7 +2414,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 5,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Khoisan"
   },
   "nav": {
@@ -2566,7 +2432,6 @@
     "verbAspect": "complex",
     "evidentiality": "optional",
     "nounClassCount": 4,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Athabaskan"
   },
   "nde": {
@@ -2585,7 +2450,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 15,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Bantu"
   },
   "nep": {
@@ -2604,7 +2468,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Indo-Aryan"
   },
   "new": {
@@ -2624,7 +2487,6 @@
     "verbAspect": "minimal",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Other Tibeto-Burman"
   },
   "nld": {
@@ -2643,7 +2505,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 6,
     "lineageKey": "West Germanic"
   },
   "nor": {
@@ -2662,7 +2523,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "North Germanic"
   },
   "nso": {
@@ -2682,7 +2542,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 15,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Bantu"
   },
   "nup": {
@@ -2701,7 +2560,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 1,
     "lineageKey": "Niger-Congo"
   },
   "nus": {
@@ -2720,7 +2578,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Nilotic"
   },
   "nya": {
@@ -2739,7 +2596,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 16,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Bantu"
   },
   "nyk": {
@@ -2758,7 +2614,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 16,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Bantu"
   },
   "oji": {
@@ -2777,7 +2632,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Algonquian"
   },
   "ori": {
@@ -2796,7 +2650,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Indo-Aryan"
   },
   "orm": {
@@ -2815,7 +2668,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 4,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Cushitic"
   },
   "pag": {
@@ -2834,7 +2686,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Philippine"
   },
   "pam": {
@@ -2853,7 +2704,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Philippine"
   },
   "pan": {
@@ -2872,7 +2722,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Indo-Aryan"
   },
   "pol": {
@@ -2891,7 +2740,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 5,
     "lineageKey": "West Slavic"
   },
   "por": {
@@ -2910,7 +2758,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Romance"
   },
   "pus": {
@@ -2929,7 +2776,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Iranian"
   },
   "pwo": {
@@ -2948,7 +2794,6 @@
     "verbAspect": "minimal",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Karen"
   },
   "quc": {
@@ -2967,7 +2812,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Mayan"
   },
   "que": {
@@ -2986,7 +2830,6 @@
     "verbAspect": "simple",
     "evidentiality": "moderate",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Quechuan"
   },
   "roh": {
@@ -3005,7 +2848,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Romance"
   },
   "rom": {
@@ -3024,7 +2866,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Indo-Aryan"
   },
   "ron": {
@@ -3043,7 +2884,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Romance"
   },
   "run": {
@@ -3062,7 +2902,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 16,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Bantu"
   },
   "rus": {
@@ -3081,7 +2920,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 4,
     "lineageKey": "East Slavic"
   },
   "ryu": {
@@ -3100,7 +2938,6 @@
     "verbAspect": "simple",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Japonic"
   },
   "sag": {
@@ -3119,7 +2956,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 1,
     "lineageKey": "Niger-Congo"
   },
   "sat": {
@@ -3138,7 +2974,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Munda"
   },
   "sce": {
@@ -3158,7 +2993,6 @@
     "verbAspect": "minimal",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Mongolic"
   },
   "sin": {
@@ -3177,7 +3011,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Indo-Aryan"
   },
   "slk": {
@@ -3196,7 +3029,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 4,
     "lineageKey": "West Slavic"
   },
   "slv": {
@@ -3215,7 +3047,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 4,
     "lineageKey": "South Slavic"
   },
   "smo": {
@@ -3234,7 +3065,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 1,
     "lineageKey": "Pacific"
   },
   "sna": {
@@ -3253,7 +3083,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 16,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Bantu"
   },
   "snd": {
@@ -3272,7 +3101,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Indo-Aryan"
   },
   "som": {
@@ -3291,7 +3119,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Cushitic"
   },
   "sot": {
@@ -3310,7 +3137,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 15,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Bantu"
   },
   "spa": {
@@ -3329,7 +3155,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Romance"
   },
   "srb": {
@@ -3348,7 +3173,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Munda"
   },
   "srd": {
@@ -3367,7 +3191,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Sardinian"
   },
   "srp": {
@@ -3386,7 +3209,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 4,
     "lineageKey": "South Slavic"
   },
   "ssw": {
@@ -3405,7 +3227,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 15,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Bantu"
   },
   "suk": {
@@ -3424,7 +3245,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 16,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Bantu"
   },
   "sun": {
@@ -3443,7 +3263,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Austronesian"
   },
   "swa": {
@@ -3462,7 +3281,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 15,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Niger-Congo"
   },
   "swe": {
@@ -3481,7 +3299,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "North Germanic"
   },
   "tam": {
@@ -3500,7 +3317,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "South Dravidian"
   },
   "tat": {
@@ -3519,7 +3335,6 @@
     "verbAspect": "minimal",
     "evidentiality": "simple",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Kipchak Turkic"
   },
   "tcy": {
@@ -3538,7 +3353,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "South Dravidian"
   },
   "tel": {
@@ -3557,7 +3371,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Central Dravidian"
   },
   "tgk": {
@@ -3576,7 +3389,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Iranian"
   },
   "tgl": {
@@ -3595,7 +3407,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Philippine"
   },
   "tha": {
@@ -3614,7 +3425,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Kra-Dai"
   },
   "tir": {
@@ -3633,7 +3443,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Semitic"
   },
   "ton": {
@@ -3652,7 +3461,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 1,
     "lineageKey": "Pacific"
   },
   "tsn": {
@@ -3671,7 +3479,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 15,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Bantu"
   },
   "tuk": {
@@ -3690,7 +3497,6 @@
     "verbAspect": "minimal",
     "evidentiality": "simple",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Oghuz Turkic"
   },
   "tum": {
@@ -3709,7 +3515,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 14,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Bantu"
   },
   "tur": {
@@ -3728,7 +3533,6 @@
     "verbAspect": "minimal",
     "evidentiality": "simple",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Oghuz Turkic"
   },
   "uig": {
@@ -3747,7 +3551,6 @@
     "verbAspect": "minimal",
     "evidentiality": "simple",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Karluk Turkic"
   },
   "ukr": {
@@ -3766,7 +3569,6 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 4,
     "lineageKey": "East Slavic"
   },
   "unr": {
@@ -3785,7 +3587,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Munda"
   },
   "urd": {
@@ -3804,7 +3605,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "Indo-Aryan"
   },
   "uzb": {
@@ -3823,7 +3623,6 @@
     "verbAspect": "minimal",
     "evidentiality": "simple",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Karluk Turkic"
   },
   "ven": {
@@ -3842,7 +3641,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 16,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Bantu"
   },
   "vie": {
@@ -3861,7 +3659,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Mon-Khmer"
   },
   "war": {
@@ -3880,7 +3677,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Philippine"
   },
   "wol": {
@@ -3899,7 +3695,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Atlantic"
   },
   "wuu": {
@@ -3918,7 +3713,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 1,
     "lineageKey": "Sinitic"
   },
   "xal": {
@@ -3937,7 +3731,6 @@
     "verbAspect": "minimal",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Mongolic"
   },
   "xho": {
@@ -3956,7 +3749,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 15,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Bantu"
   },
   "yid": {
@@ -3975,7 +3767,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 4,
     "lineageKey": "West Germanic"
   },
   "yor": {
@@ -3994,7 +3785,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 1,
     "lineageKey": "Niger-Congo"
   },
   "yua": {
@@ -4013,7 +3803,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Mayan"
   },
   "yue": {
@@ -4032,7 +3821,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 1,
     "lineageKey": "Sinitic"
   },
   "zha": {
@@ -4051,7 +3839,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Kra-Dai"
   },
   "zhx": {
@@ -4071,7 +3858,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 1,
     "lineageKey": "Sinitic"
   },
   "zul": {
@@ -4090,7 +3876,6 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 15,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Bantu"
   },
   "jam": {
@@ -4109,7 +3894,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "English Creole"
   },
   "tpi": {
@@ -4128,7 +3912,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "English Creole"
   },
   "pcm": {
@@ -4147,7 +3930,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "English Creole"
   },
   "bis": {
@@ -4166,7 +3948,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "English Creole"
   },
   "srn": {
@@ -4185,7 +3966,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "English Creole"
   },
   "hat": {
@@ -4204,7 +3984,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "French Creole"
   },
   "mfe": {
@@ -4223,7 +4002,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "French Creole"
   },
   "crs": {
@@ -4242,7 +4020,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "French Creole"
   },
   "rcf": {
@@ -4261,7 +4038,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "French Creole"
   },
   "gcr": {
@@ -4280,7 +4056,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "French Creole"
   },
   "acf": {
@@ -4299,7 +4074,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "French Creole"
   },
   "kea": {
@@ -4318,7 +4092,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Portuguese Creole"
   },
   "pap": {
@@ -4337,7 +4110,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Portuguese Creole"
   },
   "cri": {
@@ -4356,7 +4128,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Portuguese Creole"
   },
   "cbk": {
@@ -4375,7 +4146,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Spanish Creole"
   },
   "pln": {
@@ -4394,7 +4164,6 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
     "lineageKey": "Spanish Creole"
   },
   "sco": {
@@ -4413,7 +4182,6 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 3,
     "lineageKey": "West Germanic"
   }
 }
