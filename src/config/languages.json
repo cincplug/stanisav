@@ -206,7 +206,7 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
+    "maxConsonantClusterSize": 4,
     "lineageKey": "Semitic"
   },
   "arz": {
@@ -700,7 +700,7 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
+    "maxConsonantClusterSize": 1,
     "lineageKey": "Iroquoian"
   },
   "chv": {
@@ -738,7 +738,7 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
+    "maxConsonantClusterSize": 1,
     "lineageKey": "Sinitic"
   },
   "cmn": {
@@ -910,7 +910,7 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 3,
+    "maxConsonantClusterSize": 4,
     "lineageKey": "West Germanic"
   },
   "est": {
@@ -1138,7 +1138,7 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
+    "maxConsonantClusterSize": 1,
     "lineageKey": "Sinitic"
   },
   "gla": {
@@ -1195,7 +1195,7 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
+    "maxConsonantClusterSize": 2,
     "lineageKey": "Romance"
   },
   "gre": {
@@ -1309,7 +1309,7 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
+    "maxConsonantClusterSize": 1,
     "lineageKey": "Sinitic"
   },
   "hau": {
@@ -1423,7 +1423,7 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
+    "maxConsonantClusterSize": 1,
     "lineageKey": "Hmong-Mien"
   },
   "hoc": {
@@ -1671,7 +1671,7 @@
     "verbAspect": "simple",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 1,
+    "maxConsonantClusterSize": 2,
     "lineageKey": "Japonic"
   },
   "kab": {
@@ -1690,7 +1690,7 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
+    "maxConsonantClusterSize": 4,
     "lineageKey": "Berber"
   },
   "kan": {
@@ -1766,7 +1766,7 @@
     "verbAspect": "complex",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 6,
+    "maxConsonantClusterSize": 8,
     "lineageKey": "Kartvelian"
   },
   "kaz": {
@@ -1804,7 +1804,7 @@
     "verbAspect": "complex",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 5,
+    "maxConsonantClusterSize": 6,
     "lineageKey": "Caucasian"
   },
   "kfa": {
@@ -1861,7 +1861,7 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
+    "maxConsonantClusterSize": 3,
     "lineageKey": "Mon-Khmer"
   },
   "kik": {
@@ -2527,7 +2527,7 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
+    "maxConsonantClusterSize": 1,
     "lineageKey": "Sinitic"
   },
   "naq": {
@@ -2643,7 +2643,7 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 4,
+    "maxConsonantClusterSize": 6,
     "lineageKey": "West Germanic"
   },
   "nor": {
@@ -2891,7 +2891,7 @@
     "verbAspect": "binary",
     "evidentiality": "none",
     "nounClassCount": 3,
-    "maxConsonantClusterSize": 4,
+    "maxConsonantClusterSize": 5,
     "lineageKey": "West Slavic"
   },
   "por": {
@@ -2910,7 +2910,7 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
+    "maxConsonantClusterSize": 2,
     "lineageKey": "Romance"
   },
   "pus": {
@@ -3100,7 +3100,7 @@
     "verbAspect": "simple",
     "evidentiality": "optional",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 1,
+    "maxConsonantClusterSize": 2,
     "lineageKey": "Japonic"
   },
   "sag": {
@@ -3329,7 +3329,7 @@
     "verbAspect": "simple",
     "evidentiality": "none",
     "nounClassCount": 2,
-    "maxConsonantClusterSize": 3,
+    "maxConsonantClusterSize": 2,
     "lineageKey": "Romance"
   },
   "srb": {
@@ -3918,7 +3918,7 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
+    "maxConsonantClusterSize": 1,
     "lineageKey": "Sinitic"
   },
   "xal": {
@@ -4032,7 +4032,7 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
+    "maxConsonantClusterSize": 1,
     "lineageKey": "Sinitic"
   },
   "zha": {
@@ -4071,7 +4071,7 @@
     "verbAspect": "minimal",
     "evidentiality": "none",
     "nounClassCount": 0,
-    "maxConsonantClusterSize": 2,
+    "maxConsonantClusterSize": 1,
     "lineageKey": "Sinitic"
   },
   "zul": {
