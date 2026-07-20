@@ -22,7 +22,6 @@ const MiniMesha = ({ languageCode }) => {
           languageCode={languageCode}
           position={[0, 0, 100]}
           isMyMesha={false}
-          looksAround
           spin={spin}
         />
       </Canvas>

@@ -36,7 +36,6 @@ const Mesha = ({
   languageCode,
   position,
   isMyMesha,
-  looksAround,
   spin,
   isMotionReduced,
 }) => {
@@ -69,6 +68,7 @@ const Mesha = ({
     earY,
     labelSize,
     spinMeshaInitial,
+    isBlackboard,
   } = config;
 
   const { selectedLanguage } = useLanguageSelectionContext();
@@ -156,6 +156,7 @@ const Mesha = ({
     x: position[0],
     y: position[1] - nudgeIfSelected,
     z: position[2],
+    scale: selectedLanguage || isBlackboard ? 1 : 2,
     config: {
       duration: isEntranceComplete ? switchDuration : entranceDuration,
     },
@@ -185,7 +186,7 @@ const Mesha = ({
   const saltoRotZRef = useRef(0);
 
   useThrottledFrame(({ camera }, delta) => {
-    if (!looksAround || !lookAroundRef.current) return;
+    if (!lookAroundRef.current) return;
 
     const dampTo = (current, target) =>
       MathUtils.damp(current, target, dampLambda, delta);
@@ -194,7 +195,9 @@ const Mesha = ({
       Math.round(value / (Math.PI * 2)) * (Math.PI * 2);
 
     const isBlocked =
-      isAnimating || !isPlaying || wordOrderFlexibility === "rigid";
+      isAnimating ||
+      (!isPlaying && !!selectedLanguage) ||
+      wordOrderFlexibility === "rigid";
 
     if (isBlocked) {
       rotationYRef.current = dampTo(
@@ -275,6 +278,7 @@ const Mesha = ({
       position-x={spring.x}
       position-y={spring.y}
       position-z={spring.z}
+      scale={spring.scale}
     >
       <group ref={lookAroundRef} scale={meshaSize}>
         <Eyes

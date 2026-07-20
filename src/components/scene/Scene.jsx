@@ -175,7 +175,6 @@ const Scene = ({ onDataLoaded, onLoadingChange }) => {
         position={meshaPosition}
         isMyMesha={isMyMesha}
         renderOrder={sortedLanguageCodes.length - 1}
-        looksAround={true}
         spin={selectedLanguage ? spinMeshaZoomed : spinMeshaInitial}
         isMotionReduced={isMotionReduced}
       />
