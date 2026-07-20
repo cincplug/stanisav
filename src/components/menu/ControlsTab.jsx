@@ -77,14 +77,6 @@ const ControlsTab = ({ className }) => {
           <>
             <button
               type="button"
-              className="reset-all-button"
-              onClick={resetAllConfigValues}
-            >
-              <span>Reset to defaults</span>
-            </button>
-
-            <button
-              type="button"
               className="preset-save-button"
               onClick={downloadConfigPreset}
             >
@@ -107,6 +99,13 @@ const ControlsTab = ({ className }) => {
           className="preset-file-input"
           onChange={handleFileInputChange}
         />
+        <button
+          type="button"
+          className="reset-all-button"
+          onClick={resetAllConfigValues}
+        >
+          Reset to defaults
+        </button>
       </fieldset>
 
       {presetNames.length > 0 && (

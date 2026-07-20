@@ -14,6 +14,7 @@ import {
   downloadJsonFile,
   readStoredConfig,
   writeStoredConfig,
+  clearStorage,
 } from "../utils/storageUtils.js";
 import {
   areConfigValuesEqual,
@@ -57,6 +58,7 @@ export const ConfigProvider = ({ children }) => {
   // Restores every config value to its static default, except ignored groups
   // (session/user state, e.g. sort order, menu-expanded), which are left as they are.
   const resetAllConfigValues = useCallback(() => {
+    clearStorage();
     setGroupedConfig((prev) => {
       const baseValues = resolveInitialValues(staticConfig);
       for (const groupName of ignoredGroupNames) {

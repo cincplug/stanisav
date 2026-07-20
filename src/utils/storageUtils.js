@@ -32,3 +32,8 @@ export const downloadJsonFile = (data, fileName) => {
   downloadLink.click();
   URL.revokeObjectURL(objectUrl);
 };
+
+// Clears all storage
+export const clearStorage = () => {
+  window.sessionStorage.clear();
+};
