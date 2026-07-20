@@ -101,7 +101,7 @@
     "saltoAmplitude": 0.785,
     "saltoFrequency": 1.8,
     "saltoPow": 150,
-    "spinMeshaInitial": -0.1,
+    "spinMeshaInitial": -0.5,
     "spinMeshaZoomed": 0.5,
     "tongueHeight": 0.6,
     "tongueLength": 1.1,

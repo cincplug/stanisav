@@ -92,14 +92,6 @@ const Mesha = ({
     };
   }, [isMyMesha]);
 
-  useEffect(() => {
-    if (!selectedLanguage) {
-      saltoRotXRef.current = 0;
-      saltoRotZRef.current = 0;
-      saltoPhaseRef.current = 0;
-    }
-  }, [selectedLanguage]);
-
   const runAssemble = useCallback(() => {
     if (!lookAroundRef.current) return;
 
@@ -127,6 +119,7 @@ const Mesha = ({
   }, []);
 
   const prevIsAnimatingRef = useRef(false);
+
   useEffect(() => {
     if (!isPhoenix) return;
     const wasAnimating = prevIsAnimatingRef.current;
@@ -214,7 +207,7 @@ const Mesha = ({
         (rotationYRef.current + delta * spin) % (Math.PI * 2);
     }
 
-    if (wordOrderFlexibility === "flexible" && !isBlocked) {
+    if (wordOrderFlexibility === "flexible" && !isBlocked && selectedLanguage) {
       if (!wasFlexible) {
         saltoPhaseRef.current = Math.PI;
       }
