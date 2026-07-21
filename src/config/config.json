@@ -24,7 +24,6 @@
     "isIdCardVisible": false,
     "isMenuExpanded": false,
     "isMyMesha": false,
-    "soundSource": ["l", "o-l", "o", "l-o"],
     "timeRate": 15
   },
   "sphere": {
@@ -129,6 +128,7 @@
     "tuftColorStep": 33
   },
   "audioVisualisation": {
+    "soundSource": ["o-l", "l", "o", "l-o"],
     "fundamentalMax": 800,
     "fundamentalMin": 85,
     "harmonicsMax": 4000,
