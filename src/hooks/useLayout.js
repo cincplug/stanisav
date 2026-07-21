@@ -17,16 +17,10 @@ export function useLayout() {
 
   const sortedLanguageCodes = useSortedLanguages();
 
-  const languageData = data?.languageData || {};
+  const languages = data?.languages || {};
 
-  // Derive languageLineages from languageData (needed by calculatePositions and groupLanguages)
-  const languageLineages = useMemo(() => {
-    const result = {};
-    Object.keys(languageData).forEach((code) => {
-      result[code] = languageData[code].lineageKey;
-    });
-    return result;
-  }, [languageData]);
+  // Derive lineages from data (needed by calculatePositions and groupLanguages)
+  const lineages = data?.lineages || {};
 
   // Track viewport size so boardWidth recomputes on window resize
   const [windowSize, setWindowSize] = useState(() => ({
@@ -59,26 +53,26 @@ export function useLayout() {
     if (sortedLanguageCodes.length === 0) return {};
     return calculatePositions({
       sortedLanguageCodes,
-      languageData,
-      languageLineages,
+      languages,
+      lineages,
       config: { ...config, boardWidth },
     });
-  }, [sortedLanguageCodes, languageData, languageLineages, config, boardWidth]);
+  }, [sortedLanguageCodes, languages, lineages, config, boardWidth]);
 
   const groups = useMemo(() => {
     return groupLanguages({
       sortedLanguageCodes,
       sortBy,
-      languageData,
-      languageLineages,
+      languages,
+      lineages,
       labelContent,
       isReverse,
     });
   }, [
     sortedLanguageCodes,
     sortBy,
-    languageData,
-    languageLineages,
+    languages,
+    lineages,
     labelContent,
     isReverse,
   ]);

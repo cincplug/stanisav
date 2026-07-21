@@ -218,21 +218,23 @@ function computeSphereBasePositions(sortedLanguageCodes, config) {
 // Board positions — languages grouped into clusters, laid out on a flat grid
 // ---------------------------------------------------------------------------
 
-function getClusterKey(code, languageData, languageLineages, config) {
+function getClusterKey(code, languages, config) {
   const { sortBy, labelContent, isBlackboard } = config;
+  const lang = languages[code];
+
   switch (sortBy) {
     case "speakers":
       return isBlackboard
-        ? (getSpeakerGroup(languageData[code].speakers)?.title ?? "all")
+        ? (getSpeakerGroup(lang.speakers)?.title ?? "all")
         : "all";
     case "family":
-      return languageLineages[code] ?? "isolate";
+      return lang.lineageKey ?? "isolate";
     case "alphabetically": {
-      const label = getLanguageLabel(code, languageData, labelContent);
+      const label = getLanguageLabel(code, languages, labelContent);
       return Array.from(label.trim())[0]?.toLocaleUpperCase("und");
     }
     default:
-      return String(languageData[code][sortBy]);
+      return String(lang[sortBy]);
   }
 }
 
@@ -321,12 +323,7 @@ function distributeClusterKeysIntoColumns(
   return clusterColumns;
 }
 
-function computeBoardPositions(
-  sortedLanguageCodes,
-  languageData,
-  languageLineages,
-  config,
-) {
+function computeBoardPositions(sortedLanguageCodes, languages, config) {
   const {
     sortBy,
     labelContent,
@@ -344,7 +341,7 @@ function computeBoardPositions(
 
   const clusters = {};
   sortedLanguageCodes.forEach((code) => {
-    const key = getClusterKey(code, languageData, languageLineages, config);
+    const key = getClusterKey(code, languages, config);
     if (!clusters[key]) clusters[key] = [];
     clusters[key].push(code);
   });
@@ -360,7 +357,7 @@ function computeBoardPositions(
   clusterKeys.forEach((key) => {
     const members = clusters[key];
     const labelWidths = members.map((code) => {
-      const text = getLanguageLabel(code, languageData, labelContent);
+      const text = getLanguageLabel(code, languages, labelContent);
       return estimateLabelWidth(text, labelSize, charWidthRatio, labelPaddingH);
     });
     clusterLayouts[key] = generateFlowLayout(
@@ -455,8 +452,8 @@ function computeBoardPositions(
 
 export function calculatePositions({
   sortedLanguageCodes,
-  languageData,
-  languageLineages,
+  languages,
+  lineages,
   config,
 }) {
   if (sortedLanguageCodes.length === 0) return {};
@@ -469,8 +466,7 @@ export function calculatePositions({
   );
   const boardPositions = computeBoardPositions(
     sortedLanguageCodes,
-    languageData,
-    languageLineages,
+    languages,
     config,
   );
 

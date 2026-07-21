@@ -11,7 +11,7 @@ import "./SearchTab.css";
 function SearchResults({
   searchTerm,
   searchResults,
-  languageData,
+  languages,
   languageColors = {},
 }) {
   const threshold = tabsConfig.searchLengthThreshold;
@@ -43,7 +43,7 @@ function SearchResults({
         </legend>
         <ul className="languages-in-group" role="list">
           {searchResults.languages.map((lang) => {
-            const lineageKey = languageData?.[lang.code]?.lineageKey;
+            const lineageKey = languages?.[lang.code]?.lineageKey;
             const localizedLineageLabel = lineageKey
               ? getFamilyLabel(lineageKey)
               : null;
@@ -85,7 +85,7 @@ function SearchResults({
 function SearchTab({
   searchTerm,
   searchResults,
-  languageData,
+  languages,
   languageColors,
   setSearchTerm,
   clearSearch,
@@ -124,7 +124,7 @@ function SearchTab({
       <SearchResults
         searchTerm={searchTerm}
         searchResults={searchResults}
-        languageData={languageData}
+        languages={languages}
         languageColors={languageColors}
       />
     </div>

@@ -26,7 +26,7 @@ export function useSearch(data) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const searchResults = useMemo(() => {
-    if (!data || !data.languageData) {
+    if (!data || !data.languages) {
       return { languages: [] };
     }
 
@@ -39,9 +39,9 @@ export function useSearch(data) {
     }
 
     // Search in language names and native names
-    const matchingLanguages = Object.keys(data.languageData)
+    const matchingLanguages = Object.keys(data.languages)
       .map((code) => {
-        const language = data.languageData[code];
+        const language = data.languages[code];
         const localizedName = getLocalizedLanguageName(code);
 
         // Calculate scores for both name and nativeName

@@ -1,11 +1,11 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
+import { useAppStateContext } from "../../contexts/AppStateContext";
 import { useConfigContext } from "../../contexts/ConfigContext";
 import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext";
 import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
-import { useDataManager } from "../../hooks/useDataManager";
 import { useLayout } from "../../hooks/useLayout";
 import {
   calculateLanguageFilterStatus,
@@ -18,7 +18,7 @@ import Mesha from "./mesha/Mesha";
 import OrbitModifier from "./OrbitModifier";
 import SceneReadyGate from "./SceneReadyGate";
 
-const Scene = ({ onDataLoaded, onLoadingChange }) => {
+const Scene = () => {
   const { filters, selectedLanguage } = useLanguageSelectionContext();
   const { languageColors } = useLanguageColorsContext();
   const {
@@ -29,7 +29,7 @@ const Scene = ({ onDataLoaded, onLoadingChange }) => {
     setIsLabelsSequenceDone,
     mentionedLanguage,
   } = useEntranceContext();
-  const { data, isInitialized } = useDataManager(onDataLoaded, onLoadingChange);
+  const { data } = useAppStateContext();
   const { config } = useConfigContext();
   const {
     cameraX,
@@ -51,7 +51,7 @@ const Scene = ({ onDataLoaded, onLoadingChange }) => {
 
   const orbitControlsRef = useRef();
 
-  const languageData = data?.languageData || {};
+  const languages = data?.languages || {};
   const {
     positions: formattedPositions,
     sortedLanguageCodes,
@@ -62,16 +62,10 @@ const Scene = ({ onDataLoaded, onLoadingChange }) => {
     () =>
       calculateLanguageFilterStatus(
         sortedLanguageCodes,
-        data?.typologicalFeatures,
+        data?.languages,
         filters,
-        data?.languageLineages,
       ),
-    [
-      sortedLanguageCodes,
-      data?.typologicalFeatures,
-      filters,
-      data?.languageLineages,
-    ],
+    [sortedLanguageCodes, data?.languages, filters],
   );
 
   useEffect(() => {
@@ -122,7 +116,7 @@ const Scene = ({ onDataLoaded, onLoadingChange }) => {
     Object.keys(formattedPositions).length > 0 &&
     (shouldShowEmptyMessage || visibleLanguages.length > 0);
 
-  if (!data || !isInitialized || sortedLanguageCodes.length === 0) {
+  if (!data || sortedLanguageCodes.length === 0) {
     return null;
   }
 
@@ -163,7 +157,7 @@ const Scene = ({ onDataLoaded, onLoadingChange }) => {
           formattedPositions={formattedPositions}
           languageFilterStatus={languageFilterStatus}
           languageColors={languageColors}
-          languageData={languageData}
+          languages={languages}
           selectedLanguage={selectedLanguage}
           isLabelsSequenceDone={isLabelsSequenceDone}
           setIsLabelsSequenceDone={setIsLabelsSequenceDone}

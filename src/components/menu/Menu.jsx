@@ -111,7 +111,8 @@ function Menu({
               setSelectedTab={setSelectedTab}
               config={config}
               onControlChange={handleControlChange}
-              languageData={data?.languages || {}}
+              languages={data?.languages || {}}
+              lineages={data?.lineages || {}}
               data={data}
               filters={filters}
               onFiltersChange={onFiltersChange}

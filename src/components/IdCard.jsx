@@ -21,7 +21,6 @@ function IdCard({
   isVisible,
   languageCode,
   language,
-  languageLineages,
   columnCount = 4,
   sampleUrl,
   onSourceVideoClick,
@@ -30,9 +29,9 @@ function IdCard({
   const { locale, t } = useI18nContext();
 
   const lineageTrail = useMemo(() => {
-    const lineageKey = languageLineages?.[languageCode];
+    const lineageKey = language?.lineageKey;
     return getLineageTrail(lineageKey);
-  }, [languageCode, languageLineages]);
+  }, [language?.lineageKey]);
 
   const { selectedProperty } = useLanguageSelectionContext();
 

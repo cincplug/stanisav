@@ -1,5 +1,4 @@
 import { converter, formatHex } from "culori";
-import lineages from "../config/lineages.json";
 
 const toOklch = converter("oklch");
 const oklchToHex = ({ l, c, h }) => formatHex({ mode: "oklch", l, c, h });
@@ -10,8 +9,8 @@ export const shiftHue = (color, shift) => {
 };
 
 export const calculateLanguageColors = (
-  languageData,
-  languageLineages,
+  languages,
+  lineages,
   hue,
   lightness,
   saturation,
@@ -24,7 +23,7 @@ export const calculateLanguageColors = (
   const nodeFirstSeen = new Map();
   const ownLanguageCount = new Map();
   const rootsSet = new Set();
-  const languageCodes = Object.keys(languageData);
+  const languageCodes = Object.keys(languages);
 
   const touchNode = (node, seenIndex) => {
     if (!nodeChildren.has(node)) nodeChildren.set(node, new Set());
@@ -34,7 +33,7 @@ export const calculateLanguageColors = (
   };
 
   languageCodes.forEach((code, seenIndex) => {
-    const lineageKey = languageLineages[code];
+    const lineageKey = languages[code].lineageKey;
     if (!buckets[lineageKey]) buckets[lineageKey] = [];
     buckets[lineageKey].push(code);
     ownLanguageCount.set(
@@ -89,7 +88,7 @@ export const calculateLanguageColors = (
   assignHueRanges(roots, hue, hue + hueCircle);
 
   languageCodes.forEach((code) => {
-    const lineageKey = languageLineages[code];
+    const lineageKey = languages[code].lineageKey;
     const siblings = buckets[lineageKey];
     const index = siblings.indexOf(code);
     const siblingOffset =

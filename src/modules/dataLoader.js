@@ -1,4 +1,5 @@
 import languages from "../config/languages.json";
+import lineages from "../config/lineages.json";
 import linguisticConfig from "../config/linguisticConfig.json";
 
 class DataLoader {
@@ -8,42 +9,19 @@ class DataLoader {
 
   async loadAll() {
     try {
-      this.data = {
-        languages,
-        languageCodes: Object.keys(languages),
-        languageData: {},
-        languageLineages: {},
-        speakerData: {},
-        typologicalFeatures: {},
-        numericFeatureValues: {},
-      };
-
-      const {
-        languageData,
-        languageLineages,
-        speakerData,
-        typologicalFeatures,
-        numericFeatureValues,
-      } = this.data;
-
+      // Validate that all languages have lineageKey
       Object.entries(languages).forEach(([code, langData]) => {
-        const { lineageKey, speakers, ...typology } = langData;
-
-        if (!lineageKey) {
+        if (!langData.lineageKey) {
           throw new Error(`Missing lineageKey in languages.json for '${code}'`);
         }
-
-        languageData[code] = langData;
-        languageLineages[code] = lineageKey;
-        speakerData[code] = speakers;
-        typologicalFeatures[code] = typology;
       });
 
-      // Extract unique values for numeric features
-      this.extractNumericFeatureValues(
-        numericFeatureValues,
-        typologicalFeatures,
-      );
+      this.data = {
+        languages,
+        lineages,
+        languageCodes: Object.keys(languages),
+        numericFeatureValues: this.extractNumericFeatureValues(),
+      };
 
       return this.data;
     } catch (error) {
@@ -55,7 +33,9 @@ class DataLoader {
   /**
    * Extract unique numeric values for features without values property
    */
-  extractNumericFeatureValues(numericFeatureValues, typologicalFeatures) {
+  extractNumericFeatureValues() {
+    const numericFeatureValues = {};
+
     // Identify numeric features from config (those without values object)
     const numericFeatures = Object.entries(linguisticConfig)
       .filter(([_, config]) => !config.values)
@@ -64,15 +44,18 @@ class DataLoader {
     // Collect unique values for each numeric feature
     numericFeatures.forEach((feature) => {
       const uniqueValues = new Set();
-      Object.values(typologicalFeatures).forEach((typology) => {
-        if (typology[feature] !== undefined && typology[feature] !== null) {
-          uniqueValues.add(typology[feature]);
+      Object.values(languages).forEach((lang) => {
+        const value = lang[feature];
+        if (value !== undefined && value !== null) {
+          uniqueValues.add(value);
         }
       });
       numericFeatureValues[feature] = Array.from(uniqueValues).sort(
         (a, b) => a - b,
       );
     });
+
+    return numericFeatureValues;
   }
 
   /**

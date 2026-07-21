@@ -51,7 +51,7 @@ const Label = ({
 
   const labelText = getLanguageLabel(
     languageCode,
-    data.languageData,
+    data.languages,
     labelContent,
   );
 

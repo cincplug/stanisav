@@ -13,18 +13,18 @@ export const LanguageColorsProvider = ({ children }) => {
   const languageColors = useMemo(() => {
     if (!data) return {};
 
-    const { languageData, languageLineages } = data;
+    const { languages, lineages } = data;
 
     return calculateLanguageColors(
-      languageData,
-      languageLineages,
+      languages,
+      lineages,
       hue,
       lightness,
       saturation,
       hueCircle,
       maxHueSpread,
     );
-  }, [data?.languageData, data?.languageLineages, config]);
+  }, [data?.languages, data?.lineages, config]);
 
   return (
     <ColorsContext.Provider value={{ languageColors }}>

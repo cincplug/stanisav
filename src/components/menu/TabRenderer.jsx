@@ -6,7 +6,8 @@ import SearchTab from "./SearchTab";
 
 function TabRenderer({
   selectedTab,
-  languageData,
+  languages,
+  lineages,
   data,
   filters,
   onFiltersChange,
@@ -32,7 +33,8 @@ function TabRenderer({
       {selectedTab === "languages" && (
         <div {...panelProps("languages")}>
           <LanguagesTab
-            languageData={languageData}
+            languages={languages}
+            lineages={lineages}
             isSelected={selectedTab === "languages"}
             languageColors={languageColors}
           />
@@ -57,7 +59,7 @@ function TabRenderer({
             setSearchTerm={setSearchTerm}
             clearSearch={clearSearch}
             searchResults={searchResults}
-            languageData={languageData}
+            languages={languages}
             languageColors={languageColors}
           />
         </div>

@@ -10,19 +10,24 @@ const getFamily = (lineageKey) => {
 };
 
 export const calculateLanguageFilterStatus = (
+  languageCodes,
   languages,
-  typologicalFeatures,
   filters,
-  languageLineages,
 ) => {
   if (Object.keys(filters).length === 0) {
-    return languages.reduce((acc, langCode) => {
+    return languageCodes.reduce((acc, langCode) => {
       acc[langCode] = { isVisible: true };
       return acc;
     }, {});
   }
 
-  return languages.reduce((acc, langCode) => {
+  return languageCodes.reduce((acc, langCode) => {
+    const lang = languages?.[langCode];
+    if (!lang) {
+      acc[langCode] = { isVisible: false };
+      return acc;
+    }
+
     const matchesFilters = Object.entries(filters).every(
       ([feature, values]) => {
         if (!values || !Array.isArray(values) || values.length === 0) {
@@ -30,17 +35,12 @@ export const calculateLanguageFilterStatus = (
         }
 
         if (feature === "family") {
-          const languageLineage = languageLineages?.[langCode];
+          const languageLineage = lang.lineageKey;
           const languageFamily = getFamily(languageLineage);
           return values.includes(languageFamily);
         }
 
-        const features = typologicalFeatures?.[langCode];
-        if (!features) {
-          return false;
-        }
-
-        const featureValue = features[feature];
+        const featureValue = lang[feature];
         if (Array.isArray(featureValue)) {
           return featureValue.some((v) => values.includes(v));
         }

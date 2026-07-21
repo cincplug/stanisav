@@ -14,20 +14,23 @@ export const getFeatureValues = (data, feature) => {
   if (!data) return [];
 
   if (feature === "family") {
-    if (!data.languageLineages) return [];
+    if (!data.languages) return [];
     const families = new Set();
 
-    Object.values(data.languageLineages).forEach((lineageKey) => {
-      families.add(getFamily(lineageKey));
+    Object.values(data.languages).forEach((lang) => {
+      const lineageKey = lang.lineageKey;
+      if (lineageKey) {
+        families.add(getFamily(lineageKey));
+      }
     });
 
     return Array.from(families).sort((a, b) => a.localeCompare(b));
   }
 
-  if (!data.typologicalFeatures) return [];
+  if (!data.languages) return [];
 
   const values = new Set();
-  Object.values(data.typologicalFeatures).forEach((lang) => {
+  Object.values(data.languages).forEach((lang) => {
     const val = lang[feature];
     if (val === undefined || val === null) return;
     if (Array.isArray(val)) {
@@ -42,25 +45,24 @@ export const getFeatureValues = (data, feature) => {
 
 // Filter languages by multiple linguistic criteria
 export const filterLanguagesByFeatures = (data, filters) => {
-  if (!data?.languageData) return [];
+  if (!data?.languages) return [];
 
   const results = [];
-  const languageCodes = Object.keys(data.languageData);
+  const languageCodes = Object.keys(data.languages);
 
   languageCodes.forEach((code) => {
+    const lang = data.languages[code];
+
     const matchesFilters = Object.entries(filters).every(
       ([feature, values]) => {
         if (!Array.isArray(values) || values.length === 0) return true;
 
         if (feature === "family") {
-          const lineageKey = data.languageLineages?.[code];
+          const lineageKey = lang.lineageKey;
           return values.includes(getFamily(lineageKey));
         }
 
-        const features = data.typologicalFeatures?.[code];
-        if (!features) return false;
-
-        const featureValue = features[feature];
+        const featureValue = lang[feature];
         if (Array.isArray(featureValue)) {
           return featureValue.some((v) => values.includes(v));
         }
@@ -72,14 +74,14 @@ export const filterLanguagesByFeatures = (data, filters) => {
     );
 
     if (matchesFilters) {
-      const lineageKey = data.languageLineages?.[code];
+      const lineageKey = lang.lineageKey;
 
       results.push({
         code,
         name: getLocalizedLanguageName(code),
         groupName: lineageKey,
         groupKey: lineageKey,
-        features: data.typologicalFeatures?.[code] || {},
+        features: lang,
       });
     }
   });

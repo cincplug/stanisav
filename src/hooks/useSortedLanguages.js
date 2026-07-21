@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { getSortingData, sortLanguages } from "../utils/sortingUtils";
+import { sortLanguages } from "../utils/sortingUtils";
 import { useAppStateContext } from "../contexts/AppStateContext";
 import { useConfigContext } from "../contexts/ConfigContext";
 import { useI18nContext } from "../contexts/I18nContext";
@@ -24,21 +24,14 @@ export function useSortedLanguages() {
     // Wait until locale data is fully loaded before sorting.
     // locale changes before the data loads (async); isLocaleReady turns true
     // only once setSelectedLocale() resolves and getLocalizedLanguageName() is safe to use.
-    if (!data?.languageData || !isLocaleReady) return [];
+    if (!data?.languages || !isLocaleReady) return [];
 
-    const {
-      languageCodes,
-      languageLineages,
-      speakerData,
-      typologicalFeatures,
-    } = getSortingData(data.languageData);
+    const languages = data.languages;
+    const languageCodes = Object.keys(languages);
 
     return sortLanguages({
       allLanguages: [...languageCodes],
-      languageData: data.languageData,
-      languageLineages,
-      speakerData,
-      typologicalFeatures,
+      languages,
       sortBy,
       labelContent,
       isReverse,

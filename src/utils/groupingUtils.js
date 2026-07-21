@@ -7,11 +7,11 @@ import {
   isNumericFeature,
 } from "./linguisticUtils";
 
-export function buildLanguageTree(languageCodes, languageData) {
+export function buildLanguageTree(languageCodes, languages, lineages) {
   const tree = {};
 
   languageCodes.forEach((langCode) => {
-    const lineageKey = languageData?.[langCode]?.lineageKey;
+    const lineageKey = languages?.[langCode]?.lineageKey;
     if (!lineageKey) return;
 
     // getLineageTrail returns [...ancestors, lineageKey]
@@ -35,15 +35,15 @@ export function buildLanguageTree(languageCodes, languageData) {
 export function groupLanguages({
   sortedLanguageCodes,
   sortBy,
-  languageData,
-  languageLineages,
+  languages,
+  lineages,
   labelContent,
   isReverse,
 }) {
   if (sortBy === "speakers") {
     const result = {};
     sortedLanguageCodes.forEach((langCode) => {
-      const group = getSpeakerGroup(languageData[langCode].speakers);
+      const group = getSpeakerGroup(languages[langCode].speakers);
       if (!group) return;
 
       if (!result[group.title]) {
@@ -64,7 +64,7 @@ export function groupLanguages({
   if (sortBy === "alphabetically") {
     const result = {};
     sortedLanguageCodes.forEach((langCode) => {
-      const label = getLanguageLabel(langCode, languageData, labelContent);
+      const label = getLanguageLabel(langCode, languages, labelContent);
       const firstChar =
         Array.from(label.trim())[0]?.toLocaleUpperCase("und") || "#";
       if (!result[firstChar]) {
@@ -83,7 +83,7 @@ export function groupLanguages({
   if (sortBy === "family") {
     const result = {};
     sortedLanguageCodes.forEach((langCode) => {
-      const lineageKey = languageLineages[langCode];
+      const lineageKey = languages[langCode].lineageKey;
       if (!lineageKey) throw new Error(`Missing lineageKey for '${langCode}'`);
 
       if (!result[lineageKey]) {
@@ -101,7 +101,7 @@ export function groupLanguages({
 
   sortedLanguageCodes.forEach((langCode) => {
     if (linguisticConfig[sortBy]?.values) {
-      const raw = languageData[langCode][sortBy];
+      const raw = languages[langCode][sortBy];
       const keys = Array.isArray(raw) ? raw : [raw];
       keys.forEach((key) => {
         const label = getFeatureLabel(sortBy, key);
@@ -111,7 +111,7 @@ export function groupLanguages({
         result[key].languages.push(langCode);
       });
     } else if (isNumericFeature(sortBy)) {
-      const categoryKey = languageData[langCode][sortBy];
+      const categoryKey = languages[langCode][sortBy];
       if (!result[categoryKey]) {
         result[categoryKey] = {
           title: `${categoryKey}`,

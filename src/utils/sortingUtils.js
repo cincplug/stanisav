@@ -15,14 +15,14 @@ const invariant = (condition, message) => {
   if (!condition) throw new Error(message);
 };
 
-const getLineageKey = (code, languageLineages) => {
-  const lineageKey = languageLineages?.[code];
+const getLineageKey = (code, languages) => {
+  const lineageKey = languages?.[code]?.lineageKey;
   if (!lineageKey) throw new Error(`Missing lineageKey for '${code}'`);
   return lineageKey;
 };
 
-export const getLineagePath = (code, languageLineages) => {
-  const lineageKey = getLineageKey(code, languageLineages);
+export const getLineagePath = (code, languages) => {
+  const lineageKey = getLineageKey(code, languages);
   const ancestors = lineages?.[lineageKey];
   if (!Array.isArray(ancestors)) {
     throw new Error(`Missing lineage in lineages.json for '${lineageKey}'`);
@@ -46,30 +46,9 @@ export const getLineagePathForKey = (lineageKey) => {
   return [...ancestors, lineageKey];
 };
 
-export function getSortingData(languageData) {
-  const languageCodes = Object.keys(languageData);
-  const languageLineages = {};
-  const speakerData = {};
-  const typologicalFeatures = {};
-  languageCodes.forEach((code) => {
-    languageLineages[code] = languageData[code].lineageKey;
-    speakerData[code] = languageData[code].speakers;
-    typologicalFeatures[code] = languageData[code];
-  });
-  return {
-    languageCodes,
-    languageLineages,
-    speakerData,
-    typologicalFeatures,
-  };
-}
-
 export function sortLanguages({
   allLanguages,
-  languageData,
-  languageLineages,
-  speakerData,
-  typologicalFeatures,
+  languages,
   sortBy,
   labelContent,
   isReverse,
@@ -78,8 +57,8 @@ export function sortLanguages({
     switch (sortBy) {
       case "alphabetically":
         return allLanguages.sort((a, b) => {
-          const labelA = getLanguageLabel(a, languageData, labelContent);
-          const labelB = getLanguageLabel(b, languageData, labelContent);
+          const labelA = getLanguageLabel(a, languages, labelContent);
+          const labelB = getLanguageLabel(b, languages, labelContent);
 
           invariant(labelA !== null, `Missing '${labelContent}' for '${a}'`);
           invariant(labelB !== null, `Missing '${labelContent}' for '${b}'`);
@@ -89,7 +68,7 @@ export function sortLanguages({
 
       case "speakers":
         return allLanguages.sort((a, b) => {
-          const cmp = speakerData[a] - speakerData[b];
+          const cmp = languages[a].speakers - languages[b].speakers;
           if (cmp !== 0) return cmp;
           return collator.compare(
             getLocalizedLanguageName(a),
@@ -99,8 +78,8 @@ export function sortLanguages({
 
       case "family":
         return allLanguages.sort((a, b) => {
-          const pathA = getLineagePath(a, languageLineages);
-          const pathB = getLineagePath(b, languageLineages);
+          const pathA = getLineagePath(a, languages);
+          const pathB = getLineagePath(b, languages);
 
           const byPath = comparePath(pathA, pathB);
           if (byPath !== 0) return byPath;
@@ -121,8 +100,8 @@ export function sortLanguages({
       case "phonemeCount":
       case "caseCount":
         return allLanguages.sort((a, b) => {
-          const featureA = typologicalFeatures[a][sortBy];
-          const featureB = typologicalFeatures[b][sortBy];
+          const featureA = languages[a][sortBy];
+          const featureB = languages[b][sortBy];
 
           const scoreA = getFeatureScore(sortBy, featureA);
           const scoreB = getFeatureScore(sortBy, featureB);

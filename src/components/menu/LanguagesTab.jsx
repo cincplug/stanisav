@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useMemo, useRef } from "react";
-import lineages from "../../config/lineages.json";
 import { useConfigContext } from "../../contexts/ConfigContext";
 import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
 import { usePlaylistContext } from "../../contexts/PlaylistContext";
@@ -8,7 +7,12 @@ import { buildLanguageTree, groupLanguages } from "../../utils/groupingUtils";
 import "./LanguagesTab.css";
 import LanguageTree from "./LanguageTree";
 
-function LanguagesTab({ languageData, isSelected, languageColors = {} }) {
+function LanguagesTab({
+  languages,
+  lineages,
+  isSelected,
+  languageColors = {},
+}) {
   const { selectedLanguage } = useLanguageSelectionContext();
   const { startFromLanguage, previewLanguageCode, setPreviewToLanguage } =
     usePlaylistContext();
@@ -22,26 +26,28 @@ function LanguagesTab({ languageData, isSelected, languageColors = {} }) {
 
   const languageTreeData = useMemo(() => {
     if (sortBy === "family") {
-      return buildLanguageTree(sortedLanguageCodes, languageData, lineages);
+      return buildLanguageTree(sortedLanguageCodes, languages, lineages);
     }
     return null;
-  }, [sortedLanguageCodes, sortBy, languageData]);
+  }, [sortedLanguageCodes, sortBy, languages, lineages]);
 
   const groups = useMemo(() => {
-    const languageLineages = {};
-    sortedLanguageCodes.forEach((code) => {
-      languageLineages[code] = languageData[code].lineageKey;
-    });
-
     return groupLanguages({
       sortedLanguageCodes,
       sortBy,
-      languageData,
-      languageLineages,
+      languages,
+      lineages,
       labelContent,
       isReverse,
     });
-  }, [sortedLanguageCodes, sortBy, languageData, labelContent, isReverse]);
+  }, [
+    sortedLanguageCodes,
+    sortBy,
+    languages,
+    lineages,
+    labelContent,
+    isReverse,
+  ]);
 
   useEffect(() => {
     if (
@@ -86,7 +92,7 @@ function LanguagesTab({ languageData, isSelected, languageColors = {} }) {
         {sortBy === "family" ? (
           <LanguageTree
             tree={languageTreeData}
-            languageData={languageData}
+            languagesData={languages}
             labelContent={labelContent}
             selectedLanguage={selectedLanguage}
             previewLanguageCode={previewLanguageCode}
@@ -103,7 +109,7 @@ function LanguagesTab({ languageData, isSelected, languageColors = {} }) {
               )}
               <LanguageTree
                 languages={group.languages}
-                languageData={languageData}
+                languagesData={languages}
                 labelContent={labelContent}
                 selectedLanguage={selectedLanguage}
                 previewLanguageCode={previewLanguageCode}

@@ -165,7 +165,7 @@ function FiltersTab({ data, languageColors = {} }) {
           <div className="languages-list">
             <LanguageTree
               languages={resultLanguageCodes}
-              languageData={data}
+              languagesData={data?.languages || {}}
               labelContent="name"
               selectedLanguage={selectedLanguage}
               buttonRefs={buttonRefs}

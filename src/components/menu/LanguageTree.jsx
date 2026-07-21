@@ -6,7 +6,7 @@ import MiniMesha from "../MiniMesha.jsx";
 const LanguageTree = ({
   tree,
   languages,
-  languageData,
+  languagesData,
   labelContent,
   selectedLanguage,
   previewLanguageCode,
@@ -23,7 +23,7 @@ const LanguageTree = ({
     return (
       <ul className="languages-in-group" role="list">
         {languages.map((langCode) => {
-          const label = getLanguageLabel(langCode, languageData, labelContent);
+          const label = getLanguageLabel(langCode, languagesData, labelContent);
 
           return (
             <li key={langCode}>
@@ -37,7 +37,7 @@ const LanguageTree = ({
                   selectedLanguage === langCode ? "selected" : ""
                 } ${
                   previewLanguageCode === langCode ? "previewed" : ""
-                } ${!languageData[langCode]?.sr ? "todo-item" : ""}`}
+                } ${!languagesData[langCode]?.sr ? "todo-item" : ""}`}
                 onClick={() => onSelectLanguage(langCode)}
                 onFocus={() => onFocusLanguage(langCode)}
               >
@@ -70,7 +70,7 @@ const LanguageTree = ({
 
         <LanguageTree
           languages={node.languages || []}
-          languageData={languageData}
+          languagesData={languagesData}
           labelContent={labelContent}
           selectedLanguage={selectedLanguage}
           previewLanguageCode={previewLanguageCode}
@@ -84,7 +84,7 @@ const LanguageTree = ({
           <div className="lineage-children">
             <LanguageTree
               tree={node.children}
-              languageData={languageData}
+              languagesData={languagesData}
               labelContent={labelContent}
               selectedLanguage={selectedLanguage}
               previewLanguageCode={previewLanguageCode}

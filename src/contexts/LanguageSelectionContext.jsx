@@ -25,7 +25,7 @@ export const LanguageSelectionProvider = ({ children }) => {
   const [cameraFocusRequest, setCameraFocusRequest] = useState(null);
 
   const linguisticProperties = useMemo(
-    () => data?.typologicalFeatures?.[selectedLanguage] ?? null,
+    () => data?.languages?.[selectedLanguage] ?? null,
     [data, selectedLanguage],
   );
 

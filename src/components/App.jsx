@@ -18,9 +18,6 @@ function App() {
     data,
     isSceneReady,
     filters,
-    setData,
-    setIsLoading,
-    setNodes,
     setFilters,
     handleCameraFocus,
   } = useAppStateContext();
@@ -30,7 +27,7 @@ function App() {
   const { selectedLanguage } = useLanguageSelectionContext();
   const { pausePlaylist } = usePlaylistContext();
   const { isIdCardVisible, isMenuExpanded, isBlackboard, labelSize } = config;
-  const { sampleUrl, sub } = data?.languageData[selectedLanguage] || {};
+  const { sampleUrl, sub } = data?.languages[selectedLanguage] || {};
 
   const { languageColors } = useLanguageColorsContext();
 
@@ -64,20 +61,13 @@ function App() {
       />
 
       <div className="scene-area">
-        {!isMeshaMini && (
-          <Scene
-            onDataLoaded={setData}
-            onLoadingChange={setIsLoading}
-            onNodesReady={setNodes}
-          />
-        )}
+        {!isMeshaMini && <Scene />}
 
         {selectedLanguage && !isMobile && (
           <IdCard
             isVisible={isIdCardVisible}
             languageCode={selectedLanguage}
-            language={data?.languageData[selectedLanguage]}
-            languageLineages={data?.languageLineages}
+            language={data?.languages[selectedLanguage]}
             sampleUrl={sampleUrl}
             onSourceVideoClick={pausePlaylist}
             onToggleSubtitle={(nextValue) =>

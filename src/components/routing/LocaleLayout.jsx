@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { Navigate, Outlet, useLocation, useParams } from "react-router-dom";
 import { useI18nContext } from "../../contexts/I18nContext";
+import { useAppStateContext } from "../../contexts/AppStateContext";
+import { useDataManager } from "../../hooks/useDataManager";
 import {
   defaultUrlSlug,
   resolveUrlLocale,
@@ -13,6 +15,9 @@ function LocaleLayout() {
   const { locale } = useParams();
   const location = useLocation();
   const { setLocale } = useI18nContext();
+  const { setData, setIsLoading } = useAppStateContext();
+
+  useDataManager(setData, setIsLoading);
 
   const iso3 = resolveUrlLocale(locale);
   const canonicalSlug = iso3 ? toUrlSlug(iso3) : null;

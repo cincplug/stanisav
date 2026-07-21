@@ -76,7 +76,7 @@ const Mesha = ({
   const { isMeshaSequenceDone, isEntranceComplete, onMeshaSequenceDone } =
     useEntranceContext();
 
-  const linguisticProperties = data?.typologicalFeatures?.[languageCode];
+  const linguisticProperties = data?.languages?.[languageCode];
   const color = languageColors[languageCode];
   const stripesType =
     getFeatureScore("tonality", linguisticProperties?.tonality) - 1;
