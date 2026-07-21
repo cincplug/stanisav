@@ -100,7 +100,11 @@ export default function Playlist() {
       role="group"
       aria-label={t("playlist.controls")}
     >
-      <button onClick={handleStop} aria-label={t("menu.back")}>
+      <button
+        onClick={handleStop}
+        aria-label={t("menu.back")}
+        disabled={!selectedLanguage}
+      >
         <HomeIcon />
       </button>
       <button
