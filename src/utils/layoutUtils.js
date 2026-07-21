@@ -450,12 +450,7 @@ function computeBoardPositions(sortedLanguageCodes, languages, config) {
 // t = 0 → pure sphere layout; t = 1 → pure board (blackboard) layout.
 // ---------------------------------------------------------------------------
 
-export function calculatePositions({
-  sortedLanguageCodes,
-  languages,
-  lineages,
-  config,
-}) {
+export function calculatePositions({ sortedLanguageCodes, languages, config }) {
   if (sortedLanguageCodes.length === 0) return {};
 
   const { isBlackboard } = config;
