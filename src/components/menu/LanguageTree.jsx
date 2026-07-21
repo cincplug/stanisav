@@ -9,8 +9,10 @@ const LanguageTree = ({
   languageData,
   labelContent,
   selectedLanguage,
+  previewLanguageCode,
   buttonRefs,
   onSelectLanguage,
+  onFocusLanguage,
   languageColors,
   depth = 0,
   parentKey = "root",
@@ -33,8 +35,11 @@ const LanguageTree = ({
                 }}
                 className={`language-item-button ${
                   selectedLanguage === langCode ? "selected" : ""
+                } ${
+                  previewLanguageCode === langCode ? "previewed" : ""
                 } ${!languageData[langCode]?.sr ? "todo-item" : ""}`}
                 onClick={() => onSelectLanguage(langCode)}
+                onFocus={() => onFocusLanguage(langCode)}
               >
                 {isMobile && selectedLanguage === langCode && (
                   <MiniMesha languageCode={langCode} />
@@ -68,8 +73,10 @@ const LanguageTree = ({
           languageData={languageData}
           labelContent={labelContent}
           selectedLanguage={selectedLanguage}
+          previewLanguageCode={previewLanguageCode}
           buttonRefs={buttonRefs}
           onSelectLanguage={onSelectLanguage}
+          onFocusLanguage={onFocusLanguage}
           languageColors={languageColors}
         />
 
@@ -80,8 +87,10 @@ const LanguageTree = ({
               languageData={languageData}
               labelContent={labelContent}
               selectedLanguage={selectedLanguage}
+              previewLanguageCode={previewLanguageCode}
               buttonRefs={buttonRefs}
               onSelectLanguage={onSelectLanguage}
+              onFocusLanguage={onFocusLanguage}
               languageColors={languageColors}
               depth={depth + 1}
               parentKey={groupKey}

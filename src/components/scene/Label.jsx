@@ -23,7 +23,12 @@ const Label = ({
   const labelRef = useRef();
   const { data } = useAppStateContext();
   const { selectedLanguage } = useLanguageSelectionContext();
-  const { startFromLanguage, isAnimating } = usePlaylistContext();
+  const { startFromLanguage, isAnimating, previewLanguageCode } =
+    usePlaylistContext();
+
+  // Cursor position from keyboard/tab navigation, shown only where it
+  // differs from the actual selection (isSelected styling takes precedence)
+  const isPreviewed = previewLanguageCode === languageCode;
 
   const { config } = useConfigContext();
   const {
@@ -156,7 +161,7 @@ const Label = ({
       fontWeight="bold"
       anchorX="center"
       anchorY="center"
-      outlineWidth={labelSize / 2}
+      outlineWidth={isPreviewed && !isSelected ? labelSize : labelSize / 2}
       outlineColor={color}
       material={textMaterial}
     >

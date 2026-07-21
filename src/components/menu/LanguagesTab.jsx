@@ -10,7 +10,8 @@ import LanguageTree from "./LanguageTree";
 
 function LanguagesTab({ languageData, isSelected, languageColors = {} }) {
   const { selectedLanguage } = useLanguageSelectionContext();
-  const { startFromLanguage } = usePlaylistContext();
+  const { startFromLanguage, previewLanguageCode, setPreviewToLanguage } =
+    usePlaylistContext();
   const buttonRefs = useRef({});
 
   const { config } = useConfigContext();
@@ -55,6 +56,23 @@ function LanguagesTab({ languageData, isSelected, languageColors = {} }) {
     }
   }, [selectedLanguage, isSelected]);
 
+  // Visual-only sync: scrolls the cursor into view but never steals real
+  // DOM focus, since this can fire without any user action (autoplay) and
+  // stealing focus would be disorienting for keyboard/screen-reader users
+  useEffect(() => {
+    if (
+      isSelected &&
+      previewLanguageCode &&
+      previewLanguageCode !== selectedLanguage &&
+      buttonRefs.current[previewLanguageCode]
+    ) {
+      buttonRefs.current[previewLanguageCode].scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  }, [previewLanguageCode, selectedLanguage, isSelected]);
+
   const onSelectLanguage = useCallback(
     (langCode) => {
       startFromLanguage(langCode);
@@ -71,8 +89,10 @@ function LanguagesTab({ languageData, isSelected, languageColors = {} }) {
             languageData={languageData}
             labelContent={labelContent}
             selectedLanguage={selectedLanguage}
+            previewLanguageCode={previewLanguageCode}
             buttonRefs={buttonRefs}
             onSelectLanguage={onSelectLanguage}
+            onFocusLanguage={setPreviewToLanguage}
             languageColors={languageColors}
           />
         ) : (
@@ -86,8 +106,10 @@ function LanguagesTab({ languageData, isSelected, languageColors = {} }) {
                 languageData={languageData}
                 labelContent={labelContent}
                 selectedLanguage={selectedLanguage}
+                previewLanguageCode={previewLanguageCode}
                 buttonRefs={buttonRefs}
                 onSelectLanguage={onSelectLanguage}
+                onFocusLanguage={setPreviewToLanguage}
                 languageColors={languageColors}
               />
             </fieldset>

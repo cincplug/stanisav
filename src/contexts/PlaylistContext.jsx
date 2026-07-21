@@ -308,13 +308,26 @@ export const PlaylistProvider = ({ children }) => {
     };
   }, [stopCurrentAudio]);
 
+  // Language the cursor currently points to, independent of isPlaying or
+  // selectedLanguage - this is what UI should render as the navigation cursor
+  const previewLanguageCode = useMemo(() => {
+    return sortedLanguageCodes[currentIndex] ?? null;
+  }, [sortedLanguageCodes, currentIndex]);
+
   const getCurrentLanguage = useCallback(() => {
+    return previewLanguageCode;
+  }, [previewLanguageCode]);
+
+  // Moves the cursor to a language without starting playback or changing
+  // selectedLanguage - used when the cursor should follow external focus
+  // (e.g. tabbing through LanguagesTab)
+  const setPreviewToLanguage = useCallback((languageCode) => {
     const codes = playlistRef.current;
-    if (currentIndex >= 0 && currentIndex < codes.length) {
-      return codes[currentIndex];
-    }
-    return null;
-  }, [currentIndex]);
+    const index = codes.indexOf(languageCode);
+    if (index === -1) return;
+    isResumeRef.current = false;
+    setCurrentIndex(index);
+  }, []);
 
   const value = {
     isPlaying,
@@ -322,6 +335,7 @@ export const PlaylistProvider = ({ children }) => {
     audioPhaseIndex,
     isCurrentSampleLuka,
     currentIndex,
+    previewLanguageCode,
     playlistLength: playlistRef.current.length,
     startPlaylist,
     startFromLanguage,
@@ -330,6 +344,7 @@ export const PlaylistProvider = ({ children }) => {
     goToNext,
     goToBegin,
     getCurrentLanguage,
+    setPreviewToLanguage,
     audioRef,
   };
 

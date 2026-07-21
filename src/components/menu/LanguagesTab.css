@@ -37,6 +37,12 @@
       border-width: var(--border-width-thick);
     }
   }
+
+  .previewed:not(.selected) {
+    outline: var(--outline-default);
+    outline-offset: 1px;
+    outline-style: dashed;
+  }
 }
 
 .mini-mesha {
