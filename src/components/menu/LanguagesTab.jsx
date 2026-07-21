@@ -92,7 +92,7 @@ function LanguagesTab({
         {sortBy === "family" ? (
           <LanguageTree
             tree={languageTreeData}
-            languagesData={languages}
+            languages={languages}
             labelContent={labelContent}
             selectedLanguage={selectedLanguage}
             previewLanguageCode={previewLanguageCode}
@@ -108,8 +108,8 @@ function LanguagesTab({
                 <legend className="group-header">{group.title}</legend>
               )}
               <LanguageTree
-                languages={group.languages}
-                languagesData={languages}
+                languageCodes={group.languages}
+                languages={languages}
                 labelContent={labelContent}
                 selectedLanguage={selectedLanguage}
                 previewLanguageCode={previewLanguageCode}

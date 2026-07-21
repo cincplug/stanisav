@@ -5,8 +5,8 @@ import MiniMesha from "../MiniMesha.jsx";
 
 const LanguageTree = ({
   tree,
+  languageCodes,
   languages,
-  languagesData,
   labelContent,
   selectedLanguage,
   previewLanguageCode,
@@ -19,11 +19,11 @@ const LanguageTree = ({
 }) => {
   const isMobile = useMediaQuery();
 
-  if (Array.isArray(languages)) {
+  if (Array.isArray(languageCodes)) {
     return (
       <ul className="languages-in-group" role="list">
-        {languages.map((langCode) => {
-          const label = getLanguageLabel(langCode, languagesData, labelContent);
+        {languageCodes.map((langCode) => {
+          const label = getLanguageLabel(langCode, languages, labelContent);
 
           return (
             <li key={langCode}>
@@ -37,7 +37,7 @@ const LanguageTree = ({
                   selectedLanguage === langCode ? "selected" : ""
                 } ${
                   previewLanguageCode === langCode ? "previewed" : ""
-                } ${!languagesData[langCode]?.sr ? "todo-item" : ""}`}
+                } ${!languages[langCode]?.sr ? "todo-item" : ""}`}
                 onClick={() => onSelectLanguage(langCode)}
                 onFocus={() => onFocusLanguage(langCode)}
               >
@@ -69,8 +69,8 @@ const LanguageTree = ({
         <h3 className="group-header">{getFamilyLabel(lineage)}</h3>
 
         <LanguageTree
-          languages={node.languages || []}
-          languagesData={languagesData}
+          languageCodes={node.languages || []}
+          languages={languages}
           labelContent={labelContent}
           selectedLanguage={selectedLanguage}
           previewLanguageCode={previewLanguageCode}
@@ -84,7 +84,7 @@ const LanguageTree = ({
           <div className="lineage-children">
             <LanguageTree
               tree={node.children}
-              languagesData={languagesData}
+              languages={languages}
               labelContent={labelContent}
               selectedLanguage={selectedLanguage}
               previewLanguageCode={previewLanguageCode}
