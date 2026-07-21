@@ -17,10 +17,10 @@ export function useLayout() {
 
   const sortedLanguageCodes = useSortedLanguages();
 
-  const languages = data?.languages || {};
+  const languages = data?.languages;
 
   // Derive lineages from data (needed by calculatePositions and groupLanguages)
-  const lineages = data?.lineages || {};
+  const lineages = data?.lineages;
 
   // Track viewport size so boardWidth recomputes on window resize
   const [windowSize, setWindowSize] = useState(() => ({

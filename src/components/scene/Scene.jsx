@@ -51,7 +51,7 @@ const Scene = () => {
 
   const orbitControlsRef = useRef();
 
-  const languages = data?.languages || {};
+  const languages = data?.languages;
   const {
     positions: formattedPositions,
     sortedLanguageCodes,

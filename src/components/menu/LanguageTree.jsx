@@ -69,7 +69,7 @@ const LanguageTree = ({
         <h3 className="group-header">{getFamilyLabel(lineage)}</h3>
 
         <LanguageTree
-          languageCodes={node.languages || []}
+          languageCodes={node.languages}
           languages={languages}
           labelContent={labelContent}
           selectedLanguage={selectedLanguage}
@@ -80,7 +80,7 @@ const LanguageTree = ({
           languageColors={languageColors}
         />
 
-        {Object.keys(node.children || {}).length > 0 && (
+        {Object.keys(node.children).length > 0 && (
           <div className="lineage-children">
             <LanguageTree
               tree={node.children}

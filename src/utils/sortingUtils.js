@@ -33,7 +33,7 @@ export const getLineagePath = (code, languages) => {
 export const comparePath = (aPath, bPath) => {
   const len = Math.max(aPath.length, bPath.length);
   for (let i = 0; i < len; i += 1) {
-    const cmp = collator.compare(aPath[i] || "", bPath[i] || "");
+    const cmp = collator.compare(aPath[i], bPath[i]);
     if (cmp !== 0) return cmp;
   }
   return 0;

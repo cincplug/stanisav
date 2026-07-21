@@ -40,7 +40,7 @@ function Menu({
     ({ groupRelativeKey }) => groupRelativeKey === "sortBy",
   );
 
-  const sortByOptions = (sortByControl?.options || []).map((value) => {
+  const sortByOptions = sortByControl.options.map((value) => {
     const i18nKey = `controls.sortBy.options.${value}`;
     const translated = t(i18nKey);
     return {
@@ -111,8 +111,8 @@ function Menu({
               setSelectedTab={setSelectedTab}
               config={config}
               onControlChange={handleControlChange}
-              languages={data?.languages || {}}
-              lineages={data?.lineages || {}}
+              languages={data?.languages}
+              lineages={data?.lineages}
               data={data}
               filters={filters}
               onFiltersChange={onFiltersChange}

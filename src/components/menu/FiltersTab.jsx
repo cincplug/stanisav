@@ -39,7 +39,7 @@ function FiltersTab({ data, languageColors = {} }) {
 
   const handleCheckboxChange = (feature, value, checked) => {
     let newFilters = { ...filters };
-    const currentValues = newFilters[feature] || [];
+    const currentValues = newFilters[feature];
 
     if (value === "all") {
       if (checked) {
@@ -165,7 +165,7 @@ function FiltersTab({ data, languageColors = {} }) {
           <div className="languages-list">
             <LanguageTree
               languageCodes={resultLanguageCodes}
-              languages={data?.languages || {}}
+              languages={data?.languages}
               labelContent="name"
               selectedLanguage={selectedLanguage}
               buttonRefs={buttonRefs}
@@ -186,11 +186,11 @@ function FiltersTab({ data, languageColors = {} }) {
       <div className="filters">
         {features.map(({ key: feature, label, isNumeric }) => {
           const rawValues = isNumeric
-            ? data?.numericFeatureValues?.[feature] || []
+            ? data?.numericFeatureValues?.[feature]
             : getFeatureValues(data, feature);
 
           const values = sortFeatureValues(feature, rawValues);
-          const currentValues = filters[feature] || [];
+          const currentValues = filters[feature];
           const isAllSelected = !(feature in filters);
 
           return (
