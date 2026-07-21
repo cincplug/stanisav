@@ -1,0 +1,9 @@
+.article-body {
+  overflow: auto;
+}
+.article-container {
+  padding: 2rem;
+  background: var(--color-1);
+  min-height: 100vh;
+  color: var(--color-4);
+}
