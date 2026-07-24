@@ -35,11 +35,12 @@ function FiltersTab({ data, languageColors = {} }) {
   const [lastChangedFeature, setLastChangedFeature] = useState(null);
   const buttonRefs = useRef({});
   const fieldsetRefs = useRef({});
+  const resultsRef = useRef(null);
   const { t } = useI18nContext();
 
   const handleCheckboxChange = (feature, value, checked) => {
     let newFilters = { ...filters };
-    const currentValues = newFilters[feature];
+    const currentValues = newFilters[feature] || [];
 
     if (value === "all") {
       if (checked) {
@@ -76,12 +77,11 @@ function FiltersTab({ data, languageColors = {} }) {
   const hasActiveFilters = Object.keys(filters).length > 0;
   const hasEmptyResult = hasActiveFilters && filterResults.length === 0;
 
-  // Scroll to the fieldset of the last-changed feature so both the filter
-  // section and its results below come into view together.
+  // Scroll to the results section when filters are applied
   useEffect(() => {
-    if (!hasActiveFilters || !lastChangedFeature) return;
+    if (!hasActiveFilters) return;
 
-    const el = fieldsetRefs.current[lastChangedFeature];
+    const el = resultsRef.current;
     if (!el) return;
 
     const scrollParent = el.closest(".menu-scroll-area");
@@ -94,15 +94,15 @@ function FiltersTab({ data, languageColors = {} }) {
       ? stickyHeader.getBoundingClientRect().height
       : 0;
 
-    const elTop = el.getBoundingClientRect().top;
-    const parentTop = scrollParent.getBoundingClientRect().top;
-    const currentScroll = scrollParent.scrollTop;
-
-    scrollParent.scrollTo({
-      top: currentScroll + (elTop - parentTop) - stickyOffset,
+    // Use scrollBy to position element relative to sticky header
+    scrollParent.scrollBy({
+      top:
+        el.getBoundingClientRect().top -
+        scrollParent.getBoundingClientRect().top -
+        stickyOffset,
       behavior: "smooth",
     });
-  }, [filterResults, hasActiveFilters, lastChangedFeature]);
+  }, [filterResults, hasActiveFilters]);
 
   const handleViewAll = () => {
     pausePlaylist();
@@ -117,16 +117,18 @@ function FiltersTab({ data, languageColors = {} }) {
   );
 
   const activeFilterSummary = useMemo(() => {
-    return Object.entries(filters)
-      .map(([feature, values]) => {
-        const featureMeta = features.find((f) => f.key === feature);
-        const featureLabel = featureMeta?.label ?? feature;
-        const valueLabels = values.map((v) =>
-          featureMeta?.isNumeric ? v : getFeatureLabel(feature, v),
-        );
-        return `${featureLabel}: ${valueLabels.join(", ")}`;
-      })
-      .join(" · ");
+    return Object.entries(filters).map(([feature, values]) => {
+      const featureMeta = features.find((f) => f.key === feature);
+      const featureLabel = featureMeta?.label ?? feature;
+      const valueLabels = values.map((v) =>
+        featureMeta?.isNumeric ? v : getFeatureLabel(feature, v),
+      );
+      return (
+        <li>
+          {featureLabel}: {valueLabels.join(", ")}
+        </li>
+      );
+    });
   }, [filters, features]);
 
   const resultLanguageCodes = useMemo(
@@ -135,7 +137,7 @@ function FiltersTab({ data, languageColors = {} }) {
   );
 
   const renderResults = () => (
-    <section className="filter-results">
+    <section className="filter-results" ref={resultsRef}>
       {hasEmptyResult ? (
         // role="status" announces the empty state when it appears,
         // and remains readable by navigation since it's not aria-hidden.
@@ -149,9 +151,7 @@ function FiltersTab({ data, languageColors = {} }) {
         </p>
       ) : (
         <>
-          {allowMultipleChoices && (
-            <p className="filter-results-summary">{activeFilterSummary}</p>
-          )}
+          {allowMultipleChoices && <ul>{activeFilterSummary}</ul>}
           {/* role="status" on the heading announces the result count
               automatically when results change, without hiding it from AT. */}
           <h4
@@ -190,7 +190,7 @@ function FiltersTab({ data, languageColors = {} }) {
             : getFeatureValues(data, feature);
 
           const values = sortFeatureValues(feature, rawValues);
-          const currentValues = filters[feature];
+          const currentValues = filters[feature] || [];
           const isAllSelected = !(feature in filters);
 
           return (
