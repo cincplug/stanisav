@@ -1,18 +1,14 @@
 import { useEffect, useMemo, useRef } from "react";
-import { Vector3 } from "three";
 import { useConfigContext } from "../../contexts/ConfigContext";
 import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext";
 import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
-import { getSortByLabel } from "../../utils/i18nUtils";
-import { getClusterTopCenter } from "../../utils/sceneUtils";
 import Label from "./Label";
-import LabelsCluster from "./LabelsCluster";
+import BlackboardAccessories from "./BlackboardAccessories";
 import Rays from "./Rays";
-import SceneTitle from "./SceneTitle";
 
 const Labels = ({
   groups,
-  formattedPositions,
+  positions,
   languageFilterStatus,
   selectedLanguage,
   isLabelsSequenceDone,
@@ -22,16 +18,14 @@ const Labels = ({
   const { filters, filteredLanguages } = useLanguageSelectionContext();
 
   const { config } = useConfigContext();
-  const { isBlackboard, hasRays, sortBy, boardTitleGap, labelSize } = config;
-
-  const sortByLabel = getSortByLabel(sortBy);
+  const { isBlackboard, hasRays } = config;
 
   const hasActiveFilters = Object.keys(filters).length > 0;
 
   const visibleLabelCodes = useMemo(
     () =>
-      Object.keys(formattedPositions).filter((langCode) => {
-        const position = formattedPositions[langCode];
+      Object.keys(positions).filter((langCode) => {
+        const position = positions[langCode];
         const filterStatus = languageFilterStatus[langCode];
         const isFilteredOut =
           hasActiveFilters && !filteredLanguages.has(langCode);
@@ -41,12 +35,7 @@ const Labels = ({
           !isFilteredOut
         );
       }),
-    [
-      formattedPositions,
-      languageFilterStatus,
-      hasActiveFilters,
-      filteredLanguages,
-    ],
+    [positions, languageFilterStatus, hasActiveFilters, filteredLanguages],
   );
 
   const totalVisibleLabels = visibleLabelCodes.length;
@@ -79,25 +68,6 @@ const Labels = ({
     prevVisibleCountRef.current = totalVisibleLabels;
   }, [totalVisibleLabels, isLabelsSequenceDone]);
 
-  // The scene title must be centered on the labels actually on screen, not
-  // on every language in the dataset - otherwise it drifts off-center as
-  // soon as any filter hides part of the sphere/board.
-  const sceneTitlePosition = useMemo(() => {
-    const visiblePositions = {};
-    visibleLabelCodes.forEach((langCode) => {
-      visiblePositions[langCode] = formattedPositions[langCode];
-    });
-
-    const topCenter = getClusterTopCenter(visiblePositions);
-    if (!topCenter) return null;
-
-    return new Vector3(
-      0,
-      topCenter.y + boardTitleGap + labelSize * 2,
-      topCenter.z,
-    );
-  }, [visibleLabelCodes, formattedPositions, boardTitleGap, labelSize]);
-
   return (
     <>
       {hasRays &&
@@ -112,12 +82,8 @@ const Labels = ({
           />
         )}
 
-      {isBlackboard && sceneTitlePosition && (
-        <SceneTitle text={sortByLabel} position={sceneTitlePosition} />
-      )}
-
       {visibleLabelCodes.map((langCode, index) => {
-        const position = formattedPositions[langCode];
+        const position = positions[langCode];
         const revealOrder = totalVisibleLabels - 1 - index;
 
         return (
@@ -135,15 +101,13 @@ const Labels = ({
         );
       })}
 
-      {groups.map((group) => (
-        <LabelsCluster
-          key={group.title ?? "all"}
-          title={group.title}
-          languageCodes={group.languages}
-          formattedPositions={formattedPositions}
-          selectedLanguage={selectedLanguage}
+      {isBlackboard && (
+        <BlackboardAccessories
+          groups={groups}
+          positions={positions}
+          visibleLabelCodes={visibleLabelCodes}
         />
-      ))}
+      )}
     </>
   );
 };

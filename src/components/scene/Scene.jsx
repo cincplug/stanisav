@@ -52,11 +52,7 @@ const Scene = () => {
   const orbitControlsRef = useRef();
 
   const languages = data?.languages;
-  const {
-    positions: formattedPositions,
-    sortedLanguageCodes,
-    groups,
-  } = useLayout();
+  const { positions, sortedLanguageCodes, groups } = useLayout();
 
   const languageFilterStatus = useMemo(
     () =>
@@ -81,7 +77,7 @@ const Scene = () => {
 
   const meshaPosition = useMemo(() => {
     if (meshaLanguageCode) {
-      const pos = formattedPositions[meshaLanguageCode];
+      const pos = positions[meshaLanguageCode];
       const base = [pos.x, pos.y, pos.z];
       const radial = calculateRadialOffset(base);
 
@@ -101,7 +97,7 @@ const Scene = () => {
     }
 
     return [0, 0, sphereRadius / 2];
-  }, [meshaLanguageCode, formattedPositions]);
+  }, [meshaLanguageCode, positions]);
 
   const hasSelectedFilters = Object.keys(filters).length > 0;
   const visibleLanguages = sortedLanguageCodes.filter(
@@ -113,7 +109,7 @@ const Scene = () => {
   const meshaColor = languageColors[meshaLanguageCode];
   const hasDrawableScene =
     Boolean(meshaColor) &&
-    Object.keys(formattedPositions).length > 0 &&
+    Object.keys(positions).length > 0 &&
     (shouldShowEmptyMessage || visibleLanguages.length > 0);
 
   if (!data || sortedLanguageCodes.length === 0) {
@@ -149,12 +145,12 @@ const Scene = () => {
 
       <Light selectedLanguage={selectedLanguage} />
 
-      <Camera languageNodes={formattedPositions} />
+      <Camera languageNodes={positions} />
 
       {!shouldShowEmptyMessage && isMeshaSequenceDone && (
         <Labels
           groups={groups}
-          formattedPositions={formattedPositions}
+          positions={positions}
           languageFilterStatus={languageFilterStatus}
           languageColors={languageColors}
           languages={languages}
