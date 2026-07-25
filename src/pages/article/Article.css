@@ -1,9 +1,27 @@
 .article-body {
   overflow: auto;
 }
+
 .article-container {
-  padding: 2rem;
-  background: var(--color-1);
+  display: grid;
+  grid-template-columns: 1fr min(var(--readable-width), 100%) 1fr;
+  max-width: var(--container-width);
+  margin-inline: auto;
   min-height: 100vh;
+  padding: var(--gap);
+  gap: var(--gap);
   color: var(--color-4);
+}
+
+/* keeps text elements confined to the readable column */
+.article-container > * {
+  grid-column: 2;
+}
+
+.mesha-group {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap-double);
 }

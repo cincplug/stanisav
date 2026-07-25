@@ -272,3 +272,8 @@ legend {
   bottom: 0;
   background: var(--color-1);
 }
+
+.home-link {
+  width: fit-content;
+  text-align: end;
+}
