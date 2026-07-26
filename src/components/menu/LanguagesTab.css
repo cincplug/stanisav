@@ -19,6 +19,10 @@
   padding: 0;
 }
 
+.languages-in-group li:has(.mini-mesha) {
+  flex-basis: 100%;
+}
+
 .language-item-button {
   position: relative;
   color: var(--color-1);
@@ -47,8 +51,8 @@
 
 .mini-mesha {
   width: min-content;
-  box-sizing: border-box;
-  height: var(--mini-mesha-size);
+  max-height: var(--mini-mesha-max-height);
+  margin-inline: auto;
   z-index: 1;
 }
 

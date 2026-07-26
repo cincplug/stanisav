@@ -42,7 +42,7 @@
   --border-input: var(--border-width-thin) solid var(--color-4);
   --clear-button-size: var(--icon-size-s);
   --tooltip-tail-size: 1rem;
-  --mini-mesha-size: 10rem;
+  --mini-mesha-max-height: 7rem;
   --transition: 0.5s ease;
 }
 
