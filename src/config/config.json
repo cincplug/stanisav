@@ -63,8 +63,7 @@
     "zoomedLightDistance": 111,
     "defaultLightIntensity": 20,
     "zoomedLightIntensity": 64,
-    "lightDecay": 0.4,
-    "ambientLight": 0.1
+    "lightDecay": 0.4
   },
   "mesha": {
     "assembleRate": 50,

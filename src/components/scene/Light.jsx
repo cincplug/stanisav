@@ -15,7 +15,6 @@ const Light = ({ selectedLanguage }) => {
     defaultLightIntensity,
     zoomedLightIntensity,
     lightDecay,
-    ambientLight,
     boardLight,
     cameraZ,
     isMotionReduced,
@@ -69,16 +68,13 @@ const Light = ({ selectedLanguage }) => {
   });
 
   return (
-    <>
-      <ambientLight color={lightColor} intensity={ambientLight}></ambientLight>
-      <a.pointLight
-        ref={lightRef}
-        intensity={animatedIntensity}
-        decay={lightDecay}
-        distance={animatedDistance}
-        color={lightColor}
-      />
-    </>
+    <a.pointLight
+      ref={lightRef}
+      intensity={animatedIntensity}
+      decay={lightDecay}
+      distance={animatedDistance}
+      color={lightColor}
+    />
   );
 };
 
