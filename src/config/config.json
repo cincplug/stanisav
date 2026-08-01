@@ -117,7 +117,7 @@
     "toothThicknessCorner": 0.3,
     "toothY": 0.3,
     "toothZ": 1.1,
-    "toothWaviness": 0.05,
+    "toothWaviness": -0.12,
     "toothSpin": 9.4,
     "toothColorStep": 11,
     "tuftSize": 0.31,
@@ -186,8 +186,8 @@
   },
   "entrance": {
     "entranceAxis": ["z", "x", "y"],
-    "entranceDuration": 15000,
-    "labelRevealDuration": 800,
+    "entranceDuration": 7000,
+    "labelRevealDuration": 200,
     "startLabelOffset": 1.2
   },
   "segments": {
