@@ -13,7 +13,8 @@ const Moustache = ({ tuftCount, color, y, z, stepDeg }) => {
   const tuftDataRef = useRef([]);
 
   const { config } = useConfigContext();
-  const { eyeZ, eyeX, tuftSize, tuftSpacing, tuftColorStep } = config;
+  const { eyeZ, eyeX, tuftSize, tuftSpacing, tuftColorStep, tuftProtrusion } =
+    config;
 
   const tuftSurface = useMemo(
     () => createTuftShape(tuftSize, tuftCount),
@@ -35,7 +36,7 @@ const Moustache = ({ tuftCount, color, y, z, stepDeg }) => {
         key: `moustache-${i}`,
         x: baseX - i * spacing,
         y,
-        z,
+        z: eyeZ + t * tuftProtrusion,
         rotationRad,
         scale,
       };
