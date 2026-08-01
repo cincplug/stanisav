@@ -75,10 +75,22 @@ const Scene = () => {
     [selectedLanguage, mentionedLanguage, sortedLanguageCodes],
   );
 
+  const meshaPositionLanguageCode = useMemo(
+    () => selectedLanguage || sortedLanguageCodes[0],
+    [selectedLanguage, sortedLanguageCodes],
+  );
+
   const meshaPosition = useMemo(() => {
-    if (meshaLanguageCode) {
-      const pos = positions[meshaLanguageCode];
-      const base = [pos.x, pos.y, pos.z];
+    const meshaPositionData = meshaPositionLanguageCode
+      ? positions[meshaPositionLanguageCode]
+      : null;
+
+    if (meshaPositionData) {
+      const base = [
+        meshaPositionData.x,
+        meshaPositionData.y,
+        meshaPositionData.z,
+      ];
       const radial = calculateRadialOffset(base);
 
       if (isBlackboard) {
@@ -96,8 +108,8 @@ const Scene = () => {
       ];
     }
 
-    return [0, 0, sphereRadius / 2];
-  }, [meshaLanguageCode, positions]);
+    return [0, 0, sphereRadius * 2];
+  }, [meshaPositionLanguageCode, positions]);
 
   const hasSelectedFilters = Object.keys(filters).length > 0;
   const visibleLanguages = sortedLanguageCodes.filter(
