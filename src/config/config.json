@@ -123,6 +123,7 @@
     "tuftSize": 0.31,
     "tuftSpacing": 5.2,
     "tuftY": 1.4,
+    "tuftProtrusion": 0.7,
     "tuftHueShift": 120,
     "tuftColorStep": 33
   },
@@ -181,12 +182,12 @@
   "rays": {
     "centerPullRatio": 0.74,
     "rayWidth": 73,
-    "rayOpacity": 0.2
+    "rayOpacity": 0.07
   },
   "entrance": {
-    "entranceAxis": "z",
-    "entranceDuration": 3000,
-    "labelRevealDuration": 200,
+    "entranceAxis": ["z", "x", "y"],
+    "entranceDuration": 15000,
+    "labelRevealDuration": 800,
     "startLabelOffset": 1.2
   },
   "segments": {

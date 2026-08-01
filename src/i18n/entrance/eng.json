@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "message": "Some languages have big eyes",
+    "language": "que"
+  },
+  {
+    "message": "Others have a lot of eyebrows",
+    "language": "run"
+  },
+  {
+    "message": "There are some with a real big moustache",
+    "language": "fin"
+  },
+  {
+    "message": "Or with a lot of teeth",
+    "language": "kbd"
+  },
+  {
+    "message": "And they all have different morphology",
+    "language": "heb"
+  },
+  {
+    "message": "And different word order",
+    "language": "vie"
+  },
+  {
+    "message": "And all kinds of things that make them confusing",
+    "language": "jpn"
+  },
+  {
+    "message": "But I am designed to visually reflect all that",
+    "language": "nld"
+  },
+  {
+    "message": "So maybe that helps you get a better picture about languages",
+    "language": "mkd"
+  }
+]
