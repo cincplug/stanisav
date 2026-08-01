@@ -60,7 +60,7 @@
   },
   "light": {
     "defaultLightDistance": 174,
-    "zoomedLightDistance": 111,
+    "zoomedLightDistance": 109,
     "defaultLightIntensity": 20,
     "zoomedLightIntensity": 64,
     "lightDecay": 0.4
@@ -123,7 +123,7 @@
     "tuftSize": 0.31,
     "tuftSpacing": 5.2,
     "tuftY": 1.4,
-    "tuftProtrusion": 0.7,
+    "tuftProtrusion": 0.5,
     "tuftHueShift": 120,
     "tuftColorStep": 33
   },

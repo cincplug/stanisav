@@ -65,7 +65,6 @@ const Mesha = ({
     eyeY,
     eyeSize,
     noseSize,
-    earY,
     labelSize,
     spinMeshaInitial,
     isBlackboard,
@@ -170,9 +169,6 @@ const Mesha = ({
   const eyebrowColor = shiftHue(color, -tuftHueShift);
 
   const rotationYRef = useRef(0);
-  const earYRef = useRef(eyeY);
-  const earScaleXRef = useRef(1);
-  const earScaleYRef = useRef(1);
   const saltoPhaseRef = useRef(0);
   const prevWordOrderFlexibilityRef = useRef("");
   const saltoRotXRef = useRef(0);
@@ -228,9 +224,6 @@ const Mesha = ({
         Math.pow(Math.abs(cosPhase), saltoPow) *
         saltoAmplitude *
         Math.PI;
-
-      earScaleYRef.current = saltoRotXRef.current + 1;
-      earScaleXRef.current = saltoRotZRef.current + 1;
     } else {
       if (!isSurprised) {
         saltoRotXRef.current = dampTo(
@@ -241,8 +234,6 @@ const Mesha = ({
           saltoRotZRef.current,
           nearestFullRotation(saltoRotZRef.current),
         );
-        earScaleYRef.current = dampTo(earScaleYRef.current, 1);
-        earScaleXRef.current = dampTo(earScaleXRef.current, 1);
       }
 
       if (wasFlexible) {
@@ -251,9 +242,6 @@ const Mesha = ({
     }
 
     lookAroundRef.current.quaternion.copy(camera.quaternion);
-
-    const targetEarY = selectedLanguage && !isAnimating ? earY : eyeY;
-    earYRef.current = dampTo(earYRef.current, targetEarY);
 
     scratchEuler.set(
       saltoRotXRef.current,
