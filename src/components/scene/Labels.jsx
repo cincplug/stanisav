@@ -70,17 +70,14 @@ const Labels = ({
 
   return (
     <>
-      {hasRays &&
-        !isBlackboard &&
-        !selectedLanguage &&
-        isLabelsSequenceDone && (
-          <Rays
-            visibleLabelCodes={visibleLabelCodes}
-            labelRefs={labelRefs}
-            revealRefs={revealRefs}
-            languageColors={languageColors}
-          />
-        )}
+      {hasRays && !isBlackboard && !selectedLanguage && (
+        <Rays
+          visibleLabelCodes={visibleLabelCodes}
+          labelRefs={labelRefs}
+          revealRefs={revealRefs}
+          languageColors={languageColors}
+        />
+      )}
 
       {visibleLabelCodes.map((langCode, index) => {
         const position = positions[langCode];
