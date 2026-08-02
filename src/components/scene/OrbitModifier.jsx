@@ -14,7 +14,7 @@ export default function OrbitModifier({
   isEnabled,
   orbitAngleRef,
 }) {
-  const baseAzimuthalAngleRef = useRef(null);
+  const previousAzimuthalAngleRef = useRef(null);
 
   useThrottledFrame((_, delta) => {
     if (!isEnabled || !orbitControlsRef.current) return;
@@ -35,25 +35,32 @@ export default function OrbitModifier({
       // No damping involved on this path (camera is moved directly),
       // so manual accumulation stays accurate here
       if (orbitAngleRef) {
-        orbitAngleRef.current =
-          (orbitAngleRef.current + angleStep) % FULL_TURN_RADIANS;
+        orbitAngleRef.current = orbitAngleRef.current + angleStep;
       }
     } else {
       const controls = orbitControlsRef.current;
 
       controls.setAzimuthalAngle(controls.getAzimuthalAngle() + speed * delta);
 
-      // Damping means the controls haven't actually reached the angle we
-      // just requested. Read the real, current angle instead of trusting
-      // our own requested step, so Mesha's compensation never outpaces
-      // the camera's true (damped) motion
+      // getAzimuthalAngle() is wrapped to [-PI, PI] by three.js, so it
+      // jumps once per full orbit. Accumulate the small per-frame delta
+      // instead of an absolute difference, unwrapping that delta if it
+      // looks like it crossed the wrap boundary, so orbitAngleRef stays
+      // continuous and Mesha's damped compensation never has to chase
+      // a sudden target jump
       if (orbitAngleRef) {
-        const actualAzimuthalAngle = controls.getAzimuthalAngle();
-        if (baseAzimuthalAngleRef.current === null) {
-          baseAzimuthalAngleRef.current = actualAzimuthalAngle;
+        const currentAzimuthalAngle = controls.getAzimuthalAngle();
+        if (previousAzimuthalAngleRef.current === null) {
+          previousAzimuthalAngleRef.current = currentAzimuthalAngle;
         }
-        orbitAngleRef.current =
-          actualAzimuthalAngle - baseAzimuthalAngleRef.current;
+
+        let angleDelta =
+          currentAzimuthalAngle - previousAzimuthalAngleRef.current;
+        if (angleDelta > Math.PI) angleDelta -= FULL_TURN_RADIANS;
+        if (angleDelta < -Math.PI) angleDelta += FULL_TURN_RADIANS;
+
+        orbitAngleRef.current = orbitAngleRef.current + angleDelta;
+        previousAzimuthalAngleRef.current = currentAzimuthalAngle;
       }
     }
   });

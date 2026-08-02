@@ -38,6 +38,7 @@ export const useShaderMaterial = (baseColor, accentColor, stripesType) => {
       fragmentShader: tonalityFragmentShader,
       side: 2,
       transparent: shaderOpacity < 1,
+      depthWrite: false,
     }),
     [
       baseColorObj,
