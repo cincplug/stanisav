@@ -39,6 +39,7 @@ const Mesha = ({
   spin,
   isMotionReduced,
   orbitAngleRef,
+  renderOrder,
 }) => {
   const groupRef = useRef();
   const lookAroundRef = useRef();
@@ -107,6 +108,7 @@ const Mesha = ({
     const timers = meshes.map((mesh, i) =>
       setTimeout(() => {
         mesh.visible = true;
+        mesh.renderOrder = renderOrder;
         if (i === meshes.length - 1) onMeshaSequenceDone();
       }, i * assembleRate),
     );

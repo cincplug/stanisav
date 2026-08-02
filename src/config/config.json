@@ -27,12 +27,11 @@
     "timeRate": 15
   },
   "sphere": {
+    "sphereSpin": 1.5,
     "spiralAxis": ["y", "x", "z"],
     "spiralRatio": [0.61803, 0.41421, 0.73205, 0.23606, 0.64575, 0.31662],
     "hasRays": true,
     "isMingling": true,
-    "sphereSpinInitial": 1.5,
-    "sphereSpinZoomed": 0.1,
     "labelOffset": 5,
     "sphereRadius": 19
   },

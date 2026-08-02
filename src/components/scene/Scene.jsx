@@ -42,9 +42,8 @@ const Scene = () => {
     labelOffset,
     isBlackboard,
     labelSize,
-    sphereSpinInitial,
-    sphereSpinZoomed,
-    spinMeshaZoomed,
+    sphereSpin,
+    meshaSpin,
   } = config;
 
   const orbitControlsRef = useRef();
@@ -150,7 +149,7 @@ const Scene = () => {
       <OrbitModifier
         orbitControlsRef={orbitControlsRef}
         spiralAxis={spiralAxis}
-        speed={selectedLanguage ? sphereSpinZoomed : sphereSpinInitial}
+        speed={selectedLanguage ? 0 : sphereSpin}
         isEnabled={!isBlackboard && isMeshaSequenceDone}
         orbitAngleRef={orbitAngleRef}
       />
@@ -176,9 +175,10 @@ const Scene = () => {
         languageCode={meshaLanguageCode}
         position={meshaPosition}
         isMyMesha={isMyMesha}
-        spin={selectedLanguage ? spinMeshaZoomed : 0}
+        spin={selectedLanguage ? meshaSpin : 0}
         isMotionReduced={isMotionReduced}
         orbitAngleRef={orbitAngleRef}
+        renderOrder={languages.length}
       />
     </Canvas>
   );
