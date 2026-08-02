@@ -10,6 +10,7 @@ import { useLayout } from "../../hooks/useLayout";
 import {
   calculateLanguageFilterStatus,
   calculateRadialOffset,
+  calculateWideShotScale,
 } from "../../utils/sceneUtils";
 import Camera from "./Camera";
 import Labels from "./Labels";
@@ -44,6 +45,9 @@ const Scene = () => {
     labelSize,
     sphereSpin,
     meshaSpin,
+    sphereRadius,
+    zoomDistance,
+    fov,
   } = config;
 
   const orbitControlsRef = useRef();
@@ -108,6 +112,11 @@ const Scene = () => {
 
     return [0, 0, 0];
   }, [meshaPositionLanguageCode, positions]);
+
+  const meshaWideScale = useMemo(
+    () => calculateWideShotScale(sphereRadius, zoomDistance, fov),
+    [sphereRadius, zoomDistance, fov],
+  );
 
   const hasSelectedFilters = Object.keys(filters).length > 0;
   const visibleLanguages = sortedLanguageCodes.filter(
@@ -179,6 +188,7 @@ const Scene = () => {
         isMotionReduced={isMotionReduced}
         orbitAngleRef={orbitAngleRef}
         renderOrder={languages.length}
+        wideScale={meshaWideScale}
       />
     </Canvas>
   );

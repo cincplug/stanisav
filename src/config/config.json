@@ -62,7 +62,7 @@
     "zoomedLightDistance": 109,
     "defaultLightIntensity": 20,
     "zoomedLightIntensity": 64,
-    "lightDecay": 0.4
+    "lightDecay": 0.5
   },
   "mesha": {
     "meshaSize": 1.4,

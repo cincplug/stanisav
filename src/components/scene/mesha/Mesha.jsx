@@ -40,6 +40,7 @@ const Mesha = ({
   isMotionReduced,
   orbitAngleRef,
   renderOrder,
+  wideScale,
 }) => {
   const groupRef = useRef();
   const lookAroundRef = useRef();
@@ -151,7 +152,7 @@ const Mesha = ({
     x: position[0],
     y: position[1] - nudgeIfSelected,
     z: position[2],
-    scale: selectedLanguage || isBlackboard ? 1 : 2,
+    scale: selectedLanguage || isBlackboard ? 1 : wideScale,
     config: {
       duration: isEntranceComplete ? switchDuration : entranceDuration,
     },
