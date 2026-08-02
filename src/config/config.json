@@ -31,8 +31,8 @@
     "spiralRatio": [0.61803, 0.41421, 0.73205, 0.23606, 0.64575, 0.31662],
     "hasRays": true,
     "isMingling": true,
-    "spinSphereInitial": 1.5,
-    "spinSphereZoomed": 0.1,
+    "sphereSpinInitial": 1.5,
+    "sphereSpinZoomed": 0.1,
     "labelOffset": 5,
     "sphereRadius": 19
   },
@@ -66,6 +66,8 @@
     "lightDecay": 0.4
   },
   "mesha": {
+    "meshaSize": 1.4,
+    "meshaSpin": 0.5,
     "assembleRate": 50,
     "blinkDuration": 0.2,
     "earDepth": 4.5,
@@ -87,8 +89,6 @@
     "eyeZ": 2.5,
     "irisSize": 0.75,
     "isPhoenix": false,
-    "isSurprised": true,
-    "meshaSize": 1.4,
     "noseSize": 0.25,
     "noseThickness": 0.4,
     "noseSliceAngle": 60,
@@ -99,8 +99,6 @@
     "saltoAmplitude": 0.785,
     "saltoFrequency": 1.8,
     "saltoPow": 150,
-    "spinMeshaInitial": -0.5,
-    "spinMeshaZoomed": 0.5,
     "tongueHeight": 0.6,
     "tongueLength": 1.1,
     "tongueSize": 4.5,

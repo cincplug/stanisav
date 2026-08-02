@@ -40,16 +40,15 @@ const Scene = () => {
     isMyMesha,
     spiralAxis,
     labelOffset,
-    sphereRadius,
     isBlackboard,
     labelSize,
-    spinSphereInitial,
-    spinSphereZoomed,
-    spinMeshaInitial,
+    sphereSpinInitial,
+    sphereSpinZoomed,
     spinMeshaZoomed,
   } = config;
 
   const orbitControlsRef = useRef();
+  const orbitAngleRef = useRef(0);
 
   const languages = data?.languages;
   const { positions, sortedLanguageCodes, groups } = useLayout();
@@ -108,7 +107,7 @@ const Scene = () => {
       ];
     }
 
-    return [0, 0, sphereRadius * 2];
+    return [0, 0, 0];
   }, [meshaPositionLanguageCode, positions]);
 
   const hasSelectedFilters = Object.keys(filters).length > 0;
@@ -151,8 +150,9 @@ const Scene = () => {
       <OrbitModifier
         orbitControlsRef={orbitControlsRef}
         spiralAxis={spiralAxis}
-        speed={selectedLanguage ? spinSphereZoomed : spinSphereInitial}
+        speed={selectedLanguage ? sphereSpinZoomed : sphereSpinInitial}
         isEnabled={!isBlackboard && isMeshaSequenceDone}
+        orbitAngleRef={orbitAngleRef}
       />
 
       <Light selectedLanguage={selectedLanguage} />
@@ -176,9 +176,9 @@ const Scene = () => {
         languageCode={meshaLanguageCode}
         position={meshaPosition}
         isMyMesha={isMyMesha}
-        renderOrder={sortedLanguageCodes.length - 1}
-        spin={selectedLanguage ? spinMeshaZoomed : spinMeshaInitial}
+        spin={selectedLanguage ? spinMeshaZoomed : 0}
         isMotionReduced={isMotionReduced}
+        orbitAngleRef={orbitAngleRef}
       />
     </Canvas>
   );

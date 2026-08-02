@@ -38,9 +38,11 @@ const Mesha = ({
   isMyMesha,
   spin,
   isMotionReduced,
+  orbitAngleRef,
 }) => {
   const groupRef = useRef();
   const lookAroundRef = useRef();
+  const orbitCompensationRef = useRef();
 
   const { data } = useAppStateContext();
   const { languageColors } = useLanguageColorsContext();
@@ -51,7 +53,6 @@ const Mesha = ({
     switchDuration,
     assembleRate,
     isPhoenix,
-    isSurprised,
     skinHueShift,
     tuftHueShift,
     tuftY,
@@ -66,8 +67,8 @@ const Mesha = ({
     eyeSize,
     noseSize,
     labelSize,
-    spinMeshaInitial,
     isBlackboard,
+    spiralAxis,
   } = config;
 
   const { selectedLanguage } = useLanguageSelectionContext();
@@ -170,9 +171,9 @@ const Mesha = ({
 
   const rotationYRef = useRef(0);
   const saltoPhaseRef = useRef(0);
-  const prevWordOrderFlexibilityRef = useRef("");
   const saltoRotXRef = useRef(0);
   const saltoRotZRef = useRef(0);
+  const orbitCompensationAngleRef = useRef(0);
 
   useThrottledFrame(({ camera }, delta) => {
     if (!lookAroundRef.current) return;
@@ -180,65 +181,64 @@ const Mesha = ({
     const dampTo = (current, target) =>
       MathUtils.damp(current, target, dampLambda, delta);
 
+    if (orbitCompensationRef.current) {
+      const targetOrbitAngle = selectedLanguage
+        ? 0
+        : (orbitAngleRef?.current ?? 0);
+
+      orbitCompensationAngleRef.current = dampTo(
+        orbitCompensationAngleRef.current,
+        targetOrbitAngle,
+      );
+
+      if (spiralAxis === "z") {
+        orbitCompensationRef.current.rotation.z =
+          orbitCompensationAngleRef.current;
+        orbitCompensationRef.current.rotation.y = 0;
+      } else {
+        orbitCompensationRef.current.rotation.y =
+          orbitCompensationAngleRef.current;
+        orbitCompensationRef.current.rotation.z = 0;
+      }
+    }
+
     const nearestFullRotation = (value) =>
       Math.round(value / (Math.PI * 2)) * (Math.PI * 2);
 
     const isBlocked =
-      isAnimating ||
-      (!isPlaying && !!selectedLanguage) ||
-      wordOrderFlexibility === "rigid";
+      isAnimating || !isEntranceComplete || (!isPlaying && !!selectedLanguage);
 
     if (isBlocked) {
       rotationYRef.current = dampTo(
         rotationYRef.current,
-        nearestFullRotation(rotationYRef.current) + spinMeshaInitial,
+        nearestFullRotation(rotationYRef.current),
       );
     }
-
-    const wasFlexible = prevWordOrderFlexibilityRef.current === "flexible";
-    prevWordOrderFlexibilityRef.current = wordOrderFlexibility;
 
     if (!isBlocked) {
       rotationYRef.current =
         (rotationYRef.current + delta * spin) % (Math.PI * 2);
     }
 
-    if (wordOrderFlexibility === "flexible" && !isBlocked && selectedLanguage) {
-      if (!wasFlexible) {
-        saltoPhaseRef.current = Math.PI;
-      }
-
+    if (!isBlocked && selectedLanguage) {
       saltoPhaseRef.current =
         (saltoPhaseRef.current + delta * spin * saltoFrequency) % (Math.PI * 2);
 
       const shiftedPhase = saltoPhaseRef.current - Math.PI;
       const sinPhase = Math.sin(shiftedPhase);
       const cosPhase = Math.cos(shiftedPhase);
-      saltoRotXRef.current =
-        Math.sign(cosPhase) *
-        Math.pow(Math.abs(sinPhase), saltoPow) *
-        saltoAmplitude *
-        Math.PI;
-      saltoRotZRef.current =
-        Math.sign(sinPhase) *
-        Math.pow(Math.abs(cosPhase), saltoPow) *
-        saltoAmplitude *
-        Math.PI;
-    } else {
-      if (!isSurprised) {
-        saltoRotXRef.current = dampTo(
-          saltoRotXRef.current,
-          nearestFullRotation(saltoRotXRef.current),
-        );
-        saltoRotZRef.current = dampTo(
-          saltoRotZRef.current,
-          nearestFullRotation(saltoRotZRef.current),
-        );
-      }
-
-      if (wasFlexible) {
-        saltoPhaseRef.current = 0;
-      }
+      if (wordOrderFlexibility !== "rigid")
+        saltoRotXRef.current =
+          Math.sign(cosPhase) *
+          Math.pow(Math.abs(sinPhase), saltoPow) *
+          saltoAmplitude *
+          Math.PI;
+      if (wordOrderFlexibility === "flexible")
+        saltoRotZRef.current =
+          Math.sign(sinPhase) *
+          Math.pow(Math.abs(cosPhase), saltoPow) *
+          saltoAmplitude *
+          Math.PI;
     }
 
     lookAroundRef.current.quaternion.copy(camera.quaternion);
@@ -254,69 +254,71 @@ const Mesha = ({
   });
 
   return (
-    <a.group
-      ref={groupRef}
-      position-x={spring.x}
-      position-y={spring.y}
-      position-z={spring.z}
-      scale={spring.scale}
-    >
-      <group ref={lookAroundRef} scale={meshaSize}>
-        <Eyes
-          irisColor={color}
-          eyelidColor={skinColor}
-          evidentiality={scores.evidentiality}
-          verbAspect={scores.verbAspect}
-          isoCode={selectedLanguage}
-        />
-
-        <Ears
-          earMaterial={skinMaterial}
-          morphologyScore={scores.morphology}
-          isLuka={isCurrentSampleLuka}
-        />
-
-        <Tongue tongueMaterial={tongueMaterial} />
-
-        <Nose
-          position={[0, eyeY - eyeSize, eyeZ]}
-          scale={noseSize}
-          color={color}
-          wordOrder={wordOrder}
-        />
-
-        <Teeth toothCount={phonemeCount} />
-
-        {caseCount && (
-          <Moustache
-            tuftCount={caseCount}
-            color={tuftColor}
-            y={tuftY}
-            z={eyeZ}
-            stepDeg={6}
+    <group ref={orbitCompensationRef}>
+      <a.group
+        ref={groupRef}
+        position-x={spring.x}
+        position-y={spring.y}
+        position-z={spring.z}
+        scale={spring.scale}
+      >
+        <group ref={lookAroundRef} scale={meshaSize}>
+          <Eyes
+            irisColor={color}
+            eyelidColor={skinColor}
+            evidentiality={scores.evidentiality}
+            verbAspect={scores.verbAspect}
+            isoCode={selectedLanguage}
           />
-        )}
 
-        {nounClassCount && (
-          <Moustache
-            tuftCount={nounClassCount}
-            color={eyebrowColor}
-            y={eyebrowY}
-            z={eyeZ}
-            stepDeg={12}
+          <Ears
+            earMaterial={skinMaterial}
+            morphologyScore={scores.morphology}
+            isLuka={isCurrentSampleLuka}
           />
-        )}
 
-        <Balloon
-          position={selectedLanguage ? "top" : "top-right"}
-          anchorOffset={
-            selectedLanguage
-              ? [0, eyeY + eyeSize * 2, eyeZ]
-              : [0, eyeY + eyeSize * 2, eyeZ]
-          }
-        />
-      </group>
-    </a.group>
+          <Tongue tongueMaterial={tongueMaterial} />
+
+          <Nose
+            position={[0, eyeY - eyeSize, eyeZ]}
+            scale={noseSize}
+            color={color}
+            wordOrder={wordOrder}
+          />
+
+          <Teeth toothCount={phonemeCount} />
+
+          {caseCount && (
+            <Moustache
+              tuftCount={caseCount}
+              color={tuftColor}
+              y={tuftY}
+              z={eyeZ}
+              stepDeg={6}
+            />
+          )}
+
+          {nounClassCount && (
+            <Moustache
+              tuftCount={nounClassCount}
+              color={eyebrowColor}
+              y={eyebrowY}
+              z={eyeZ}
+              stepDeg={12}
+            />
+          )}
+
+          <Balloon
+            position={selectedLanguage ? "top" : "top-right"}
+            anchorOffset={
+              selectedLanguage
+                ? [0, eyeY + eyeSize * 2, eyeZ]
+                : [0, eyeY + eyeSize * 2, eyeZ]
+            }
+          />
+        </group>
+      </a.group>
+    </group>
   );
 };
 
