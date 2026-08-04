@@ -70,7 +70,7 @@ const Labels = ({
 
   return (
     <>
-      {hasRays && !isBlackboard && !selectedLanguage && (
+      {hasRays && isLabelsSequenceDone && (
         <Rays
           visibleLabelCodes={visibleLabelCodes}
           labelRefs={labelRefs}

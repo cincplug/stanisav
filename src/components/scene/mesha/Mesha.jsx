@@ -208,8 +208,7 @@ const Mesha = ({
     const nearestFullRotation = (value) =>
       Math.round(value / (Math.PI * 2)) * (Math.PI * 2);
 
-    const isBlocked =
-      isAnimating || !isEntranceComplete || (!isPlaying && !!selectedLanguage);
+    const isBlocked = !isEntranceComplete || (!isPlaying && !!selectedLanguage);
 
     if (isBlocked) {
       rotationYRef.current = dampTo(
@@ -218,12 +217,9 @@ const Mesha = ({
       );
     }
 
-    if (!isBlocked) {
+    if (!isBlocked && selectedLanguage) {
       rotationYRef.current =
         (rotationYRef.current + delta * spin) % (Math.PI * 2);
-    }
-
-    if (!isBlocked && selectedLanguage) {
       saltoPhaseRef.current =
         (saltoPhaseRef.current + delta * spin * saltoFrequency) % (Math.PI * 2);
 

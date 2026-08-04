@@ -13,7 +13,7 @@ import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 // Uses LineSegments2 + LineMaterial for configurable screen-space line width.
 // Each ray uses its label's outlineColor unless a color override prop is provided.
 // Rays appear alongside their label: hidden rays are pushed off-screen until reveal > 0.
-// During entrance, centerPullRatio springs from its positive config value to its negative.
+// During entrance, rayCentricity springs from its positive config value to its negative.
 // labelRefs: array of { current: Three.js mesh | null }
 // revealRefs: array of { current: number } — reveal scalar in [0, 1]
 const Rays = ({
@@ -29,7 +29,7 @@ const Rays = ({
   const {
     rayOpacity,
     rayWidth,
-    centerPullRatio,
+    rayCentricity,
     entranceDuration,
     currentColor,
     bgColor,
@@ -111,8 +111,8 @@ const Rays = ({
   }, [rayWidth, rayOpacity]);
 
   const centerPullSpring = useSpring({
-    from: { ratio: centerPullRatio },
-    to: { ratio: -centerPullRatio },
+    from: { ratio: rayCentricity },
+    to: { ratio: -rayCentricity },
     config: {
       duration: isEntranceComplete ? switchDuration : entranceDuration,
       easing: easings.easeInOutCubic,
