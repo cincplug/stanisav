@@ -227,15 +227,16 @@ const Mesha = ({
       const sinPhase = Math.sin(shiftedPhase);
       const cosPhase = Math.cos(shiftedPhase);
       if (wordOrderFlexibility !== "rigid")
-        saltoRotXRef.current =
-          Math.sign(cosPhase) *
-          Math.pow(Math.abs(sinPhase), saltoPow) *
-          saltoAmplitude *
-          Math.PI;
-      if (wordOrderFlexibility === "flexible")
         saltoRotZRef.current =
           Math.sign(sinPhase) *
           Math.pow(Math.abs(cosPhase), saltoPow) *
+          saltoAmplitude *
+          Math.PI;
+
+      if (wordOrderFlexibility === "flexible")
+        saltoRotXRef.current =
+          Math.sign(cosPhase) *
+          Math.pow(Math.abs(sinPhase), saltoPow) *
           saltoAmplitude *
           Math.PI;
     }
