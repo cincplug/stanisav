@@ -19,6 +19,7 @@ const Label = ({
   totalVisibleLabels,
   meshRef,
   revealRef,
+  onRevealComplete,
 }) => {
   const labelRef = useRef();
   const { data } = useAppStateContext();
@@ -87,6 +88,12 @@ const Label = ({
     delay,
     config: revealConfig,
     immediate: isMotionReduced,
+    // Reports back to Labels the moment this label's own entrance finishes,
+    // so Labels can tell when the whole staggered group has finished
+    // revealing without guessing at a fixed duration
+    onRest: () => {
+      onRevealComplete?.(languageCode);
+    },
   });
 
   // Selection offset spring (push toward camera when selected)

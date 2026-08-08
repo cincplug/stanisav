@@ -28,6 +28,7 @@ const Scene = () => {
     isEntranceComplete,
     isLabelsSequenceDone,
     setIsLabelsSequenceDone,
+    isBalloonSequenceDone,
     mentionedLanguage,
   } = useEntranceContext();
   const { data } = useAppStateContext();
@@ -155,24 +156,26 @@ const Scene = () => {
 
       <Camera languagePositions={languagePositions} />
 
-      {!shouldShowEmptyMessage && isStanisavSequenceDone && (
-        <Labels
-          groups={groups}
-          languagePositions={languagePositions}
-          languageFilterStatus={languageFilterStatus}
-          languageColors={languageColors}
-          languages={languages}
-          selectedLanguage={selectedLanguage}
-          isLabelsSequenceDone={isLabelsSequenceDone}
-          setIsLabelsSequenceDone={setIsLabelsSequenceDone}
-        />
-      )}
+      {!shouldShowEmptyMessage &&
+        isStanisavSequenceDone &&
+        isBalloonSequenceDone && (
+          <Labels
+            groups={groups}
+            languagePositions={languagePositions}
+            languageFilterStatus={languageFilterStatus}
+            languageColors={languageColors}
+            languages={languages}
+            selectedLanguage={selectedLanguage}
+            isLabelsSequenceDone={isLabelsSequenceDone}
+            setIsLabelsSequenceDone={setIsLabelsSequenceDone}
+          />
+        )}
 
       <Stanisav
         languageCode={stanisavLanguageCode}
         position={stanisavPosition}
         isMyStanisav={isMyStanisav}
-        spin={selectedLanguage ? stanisavSpin : 0}
+        spin={stanisavSpin}
         isMotionReduced={isMotionReduced}
         orbitAngleRef={orbitAngleRef}
         renderOrder={languages.length}

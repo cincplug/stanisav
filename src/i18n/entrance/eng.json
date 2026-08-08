@@ -20,23 +20,14 @@
     "language": "vie"
   },
   {
-    "message": "And they mingle with each other",
-    "language": "heb"
-  },
-  {
-    "message": "And they are confusing in every way",
-    "language": "jpn"
-  },
-  {
-    "message": "But here you can hear them!",
-    "language": "srp"
-  },
-  {
-    "message": "And you can see their differences visually!",
+    "message": "But here you can hear them, and see their differences",
     "language": "ces"
   },
   {
-    "message": "And maybe you even learn something about them!",
+    "message": "And that's one way learn something about languages",
     "language": "nld"
+  },
+  {
+    "message": "Or at least about these 232"
   }
 ]

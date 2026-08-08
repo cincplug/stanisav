@@ -7,7 +7,6 @@ import {
   useState,
 } from "react";
 import { getEntranceSteps } from "../i18n/runtime";
-import { useAppStateContext } from "./AppStateContext";
 import { useConfigContext } from "./ConfigContext";
 
 const EntranceContext = createContext(null);
@@ -27,7 +26,6 @@ export const EntranceProvider = ({ children }) => {
     tension,
     friction,
   } = config;
-  const { isSceneReady } = useAppStateContext();
 
   const isSequenceCancelledRef = useRef(false);
 
@@ -88,16 +86,6 @@ export const EntranceProvider = ({ children }) => {
       isSequenceCancelledRef.current = true;
     };
   }, []);
-
-  useEffect(() => {
-    if (!isSceneReady || !isStanisavSequenceDone || isLabelsSequenceDone)
-      return;
-    const timer = setTimeout(
-      () => setIsLabelsSequenceDone(true),
-      entranceDuration,
-    );
-    return () => clearTimeout(timer);
-  }, [isSceneReady, isLabelsSequenceDone, isStanisavSequenceDone]);
 
   const skipSequence = () => {
     isSequenceCancelledRef.current = true;

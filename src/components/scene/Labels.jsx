@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useCallback, useMemo, useRef } from "react";
 import { useConfigContext } from "../../contexts/ConfigContext";
 import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext";
 import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
@@ -49,6 +49,7 @@ const Labels = ({
 
   const labelRefsRef = useRef([]);
   const revealRefsRef = useRef([]);
+  const revealedLanguageCodesRef = useRef(new Set());
   const prevCodesKeyRef = useRef("");
   if (prevCodesKeyRef.current !== visibleCodesKey) {
     prevCodesKeyRef.current = visibleCodesKey;
@@ -58,20 +59,25 @@ const Labels = ({
     revealRefsRef.current = Array.from({ length: totalVisibleLabels }, () => ({
       current: 0,
     }));
+    // New set of labels is about to animate in, so past completions no
+    // longer apply
+    revealedLanguageCodesRef.current = new Set();
   }
   const labelRefs = labelRefsRef.current;
   const revealRefs = revealRefsRef.current;
 
-  const prevVisibleCountRef = useRef(totalVisibleLabels);
-  useEffect(() => {
-    if (
-      !isLabelsSequenceDone &&
-      prevVisibleCountRef.current !== totalVisibleLabels
-    ) {
-      setIsLabelsSequenceDone(true);
-    }
-    prevVisibleCountRef.current = totalVisibleLabels;
-  }, [totalVisibleLabels, isLabelsSequenceDone]);
+  const handleLabelRevealComplete = useCallback(
+    (languageCode) => {
+      revealedLanguageCodesRef.current.add(languageCode);
+      if (
+        !isLabelsSequenceDone &&
+        revealedLanguageCodesRef.current.size >= totalVisibleLabels
+      ) {
+        setIsLabelsSequenceDone(true);
+      }
+    },
+    [isLabelsSequenceDone, setIsLabelsSequenceDone, totalVisibleLabels],
+  );
 
   return (
     <>
@@ -103,6 +109,7 @@ const Labels = ({
             totalVisibleLabels={totalVisibleLabels}
             meshRef={labelRefs[index]}
             revealRef={revealRefs[index]}
+            onRevealComplete={handleLabelRevealComplete}
           />
         );
       })}
