@@ -1,7 +1,7 @@
 {
   "name": "stanisav",
   "version": "1.0.0",
-  "description": "3D Language Galaxy Visualization",
+  "description": "3D linguistic visualization character",
   "main": "index.html",
   "type": "module",
   "scripts": {
