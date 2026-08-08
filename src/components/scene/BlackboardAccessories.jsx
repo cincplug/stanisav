@@ -5,7 +5,11 @@ import { getSortByLabel } from "../../utils/i18nUtils";
 import { getClusterTopCenter } from "../../utils/sceneUtils";
 import Title from "./Title";
 
-const BlackboardAccessories = ({ groups, positions, visibleLabelCodes }) => {
+const BlackboardAccessories = ({
+  groups,
+  languagePositions,
+  visibleLabelCodes,
+}) => {
   const { config } = useConfigContext();
   const { connectorWidth, white, boardTitleGap, labelSize, sortBy } = config;
 
@@ -16,8 +20,8 @@ const BlackboardAccessories = ({ groups, positions, visibleLabelCodes }) => {
   // soon as any filter hides part of the sphere/board.
   const visiblePositions = Object.fromEntries(
     visibleLabelCodes
-      .filter((code) => positions[code])
-      .map((code) => [code, positions[code]]),
+      .filter((code) => languagePositions[code])
+      .map((code) => [code, languagePositions[code]]),
   );
 
   const sceneTopCenter = getClusterTopCenter(visiblePositions);
@@ -45,8 +49,8 @@ const BlackboardAccessories = ({ groups, positions, visibleLabelCodes }) => {
 
         const groupedPositions = Object.fromEntries(
           languageCodes
-            .filter((code) => positions[code])
-            .map((code) => [code, positions[code]]),
+            .filter((code) => languagePositions[code])
+            .map((code) => [code, languagePositions[code]]),
         );
 
         const topCenter = getClusterTopCenter(groupedPositions);

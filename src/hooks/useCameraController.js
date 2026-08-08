@@ -6,14 +6,15 @@ import { useEntranceContext } from "../contexts/EntranceContext";
 import { useLanguageSelectionContext } from "../contexts/LanguageSelectionContext";
 import { useThrottledFrame } from "./useThrottledFrame";
 
-export const useCameraController = ({ languageNodes }) => {
+export const useCameraController = ({ languagePositions }) => {
   const { cameraFocusRequest, selectedLanguage } =
     useLanguageSelectionContext();
   const { isStanisavSequenceDone } = useEntranceContext();
   // `size` is react-three-fiber's reactive canvas size (updated whenever its
   // internal ResizeObserver fires). Unlike camera.aspect, it's guaranteed to
-  // be current at the moment this hook re-renders, so it's what fitToNodes
-  // should use to compute aspect - see comment on fitToNodes below.
+  // be current at the moment this hook re-renders, so it's what
+  // fitToLanguagePositions should use to compute aspect - see comment on
+  // fitToLanguagePositions below.
   const { camera, controls: threeControls, size } = useThree();
   const { config } = useConfigContext();
   const {
@@ -109,12 +110,16 @@ export const useCameraController = ({ languageNodes }) => {
 
   const focusOnLanguage = useCallback(
     (languageCode) => {
-      const node = languageNodes[languageCode];
-      if (!node) return;
+      const languagePosition = languagePositions[languageCode];
+      if (!languagePosition) return;
 
-      const languagePosition = new Vector3(node.x, node.y, node.z);
+      const languagePositionVector = new Vector3(
+        languagePosition.x,
+        languagePosition.y,
+        languagePosition.z,
+      );
       const targetCameraPosition = calculateCameraPosition(
-        languagePosition,
+        languagePositionVector,
         zoomDistance,
         isBlackboard,
       );
@@ -123,17 +128,17 @@ export const useCameraController = ({ languageNodes }) => {
 
       startCameraAnimation(
         targetCameraPosition,
-        languagePosition,
+        languagePositionVector,
         switchDuration,
         targetFar,
       );
     },
-    [languageNodes, zoomDistance, isBlackboard, startCameraAnimation],
+    [languagePositions, zoomDistance, isBlackboard, startCameraAnimation],
   );
 
-  const fitToNodes = useCallback(() => {
-    const positions = Object.values(languageNodes);
-    if (positions.length === 0) return;
+  const fitToLanguagePositions = useCallback(() => {
+    const languagePositionValues = Object.values(languagePositions);
+    if (languagePositionValues.length === 0) return;
 
     let minX = Infinity,
       maxX = -Infinity;
@@ -142,13 +147,13 @@ export const useCameraController = ({ languageNodes }) => {
     let minZ = Infinity,
       maxZ = -Infinity;
 
-    positions.forEach((p) => {
-      if (p.x < minX) minX = p.x;
-      if (p.x > maxX) maxX = p.x;
-      if (p.y < minY) minY = p.y;
-      if (p.y > maxY) maxY = p.y;
-      if (p.z < minZ) minZ = p.z;
-      if (p.z > maxZ) maxZ = p.z;
+    languagePositionValues.forEach((languagePosition) => {
+      if (languagePosition.x < minX) minX = languagePosition.x;
+      if (languagePosition.x > maxX) maxX = languagePosition.x;
+      if (languagePosition.y < minY) minY = languagePosition.y;
+      if (languagePosition.y > maxY) maxY = languagePosition.y;
+      if (languagePosition.z < minZ) minZ = languagePosition.z;
+      if (languagePosition.z > maxZ) maxZ = languagePosition.z;
     });
 
     // In board mode the scene title renders above the topmost label (see
@@ -194,7 +199,7 @@ export const useCameraController = ({ languageNodes }) => {
     );
     startCameraAnimation(targetCameraPosition, center, switchDuration, far);
   }, [
-    languageNodes,
+    languagePositions,
     fov,
     size,
     isBlackboard,
@@ -209,43 +214,47 @@ export const useCameraController = ({ languageNodes }) => {
   useEffect(() => {
     if (!isStanisavSequenceDone) return;
     if (selectedLanguage) return;
-    fitToNodes();
+    fitToLanguagePositions();
   }, [isStanisavSequenceDone]);
 
   // Skip this refit while a language is selected/zoomed - otherwise a resize
-  // (e.g. the side menu opening or closing) recreates fitToNodes and pulls
-  // the camera back out to the wide "fit everything" shot instead of staying
-  // on the selected language.
+  // (e.g. the side menu opening or closing) recreates fitToLanguagePositions
+  // and pulls the camera back out to the wide "fit everything" shot instead
+  // of staying on the selected language.
   useEffect(() => {
     if (selectedLanguage) return;
-    fitToNodes();
-  }, [isBlackboard, sortBy, fitToNodes]);
+    fitToLanguagePositions();
+  }, [isBlackboard, sortBy, fitToLanguagePositions]);
 
   // cameraFocusRequest handles fitAll, triggered by stop button and view-all
   useEffect(() => {
-    if (!cameraFocusRequest || !languageNodes) return;
+    if (!cameraFocusRequest || !languagePositions) return;
     if (cameraFocusRequest.type === "fitAll") {
-      fitToNodes();
+      fitToLanguagePositions();
     }
-  }, [cameraFocusRequest, languageNodes, fitToNodes]);
+  }, [cameraFocusRequest, languagePositions, fitToLanguagePositions]);
 
   useEffect(() => {
-    if (!selectedLanguage || !languageNodes) return;
+    if (!selectedLanguage || !languagePositions) return;
     focusOnLanguage(selectedLanguage);
-  }, [selectedLanguage, languageNodes, focusOnLanguage]);
+  }, [selectedLanguage, languagePositions, focusOnLanguage]);
 };
 
-const calculateCameraPosition = (nodePosition, zoomDistance, isBlackboard) => {
+const calculateCameraPosition = (
+  languagePosition,
+  zoomDistance,
+  isBlackboard,
+) => {
   if (isBlackboard) {
     return new Vector3(
-      nodePosition.x,
-      nodePosition.y,
-      nodePosition.z + zoomDistance,
+      languagePosition.x,
+      languagePosition.y,
+      languagePosition.z + zoomDistance,
     );
   }
 
-  const directionFromCenter = nodePosition.clone().normalize();
-  return nodePosition
+  const directionFromCenter = languagePosition.clone().normalize();
+  return languagePosition
     .clone()
     .add(directionFromCenter.multiplyScalar(zoomDistance));
 };

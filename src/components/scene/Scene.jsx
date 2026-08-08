@@ -9,7 +9,7 @@ import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionCon
 import { useLayout } from "../../hooks/useLayout";
 import {
   calculateLanguageFilterStatus,
-  calculateRadialOffset,
+  calculateStanisavPosition,
   calculateWideShotScale,
 } from "../../utils/sceneUtils";
 import Camera from "./Camera";
@@ -54,7 +54,7 @@ const Scene = () => {
   const orbitAngleRef = useRef(0);
 
   const languages = data?.languages;
-  const { positions, sortedLanguageCodes, groups } = useLayout();
+  const { languagePositions, sortedLanguageCodes, groups } = useLayout();
 
   const languageFilterStatus = useMemo(
     () =>
@@ -77,41 +77,29 @@ const Scene = () => {
     [selectedLanguage, mentionedLanguage, sortedLanguageCodes],
   );
 
-  const stanisavPositionLanguageCode = useMemo(
-    () => selectedLanguage || sortedLanguageCodes[0],
-    [selectedLanguage, sortedLanguageCodes],
-  );
+  const selectedLanguagePosition = selectedLanguage
+    ? languagePositions[selectedLanguage]
+    : null;
 
   const stanisavPosition = useMemo(() => {
-    const stanisavPositionData = stanisavPositionLanguageCode
-      ? positions[stanisavPositionLanguageCode]
-      : null;
-
-    if (stanisavPositionData) {
-      const base = [
-        stanisavPositionData.x,
-        stanisavPositionData.y,
-        stanisavPositionData.z,
-      ];
-      const radial = calculateRadialOffset(base);
-
-      if (isBlackboard) {
-        return [
-          base[0],
-          base[1] + radial[1] + labelSize,
-          base[2] + radial[2] + labelOffset,
-        ];
-      }
-
-      return [
-        base[0] + radial[0] * labelOffset,
-        base[1] + radial[1] * labelOffset + labelSize,
-        base[2] + radial[2] * labelOffset,
-      ];
+    // With nothing selected, Stanisav sits at his fixed home position
+    // instead of being attached to any particular language node.
+    if (!selectedLanguage) {
+      return [0, 0, 0];
     }
 
-    return [0, 0, 0];
-  }, [stanisavPositionLanguageCode, positions]);
+    return calculateStanisavPosition(selectedLanguagePosition, {
+      isBlackboard,
+      labelOffset,
+      labelSize,
+    });
+  }, [
+    selectedLanguage,
+    selectedLanguagePosition,
+    isBlackboard,
+    labelOffset,
+    labelSize,
+  ]);
 
   const stanisavWideScale = useMemo(
     () => calculateWideShotScale(sphereRadius, zoomDistance, fov),
@@ -128,7 +116,7 @@ const Scene = () => {
   const stanisavColor = languageColors[stanisavLanguageCode];
   const hasDrawableScene =
     Boolean(stanisavColor) &&
-    Object.keys(positions).length > 0 &&
+    Object.keys(languagePositions).length > 0 &&
     (shouldShowEmptyMessage || visibleLanguages.length > 0);
 
   if (!data || sortedLanguageCodes.length === 0) {
@@ -165,12 +153,12 @@ const Scene = () => {
 
       <Light selectedLanguage={selectedLanguage} />
 
-      <Camera languageNodes={positions} />
+      <Camera languagePositions={languagePositions} />
 
       {!shouldShowEmptyMessage && isStanisavSequenceDone && (
         <Labels
           groups={groups}
-          positions={positions}
+          languagePositions={languagePositions}
           languageFilterStatus={languageFilterStatus}
           languageColors={languageColors}
           languages={languages}

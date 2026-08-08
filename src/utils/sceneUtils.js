@@ -97,3 +97,34 @@ export const calculateWideShotScale = (sphereRadius, zoomDistance, fov) => {
   const wideShotDistance = sphereRadius / Math.tan(halfFovRadians);
   return wideShotDistance / zoomDistance;
 };
+
+// Computes Stanisav's world-space position from a language node, offset
+// outward from it so he doesn't overlap the node's own label. Falls back to
+// the origin when no node is available (e.g. before language data loads).
+export const calculateStanisavPosition = (
+  languagePosition,
+  { isBlackboard, labelOffset, labelSize },
+) => {
+  if (!languagePosition) return [0, 0, 0];
+
+  const basePosition = [
+    languagePosition.x,
+    languagePosition.y,
+    languagePosition.z,
+  ];
+  const radialOffset = calculateRadialOffset(basePosition);
+
+  if (isBlackboard) {
+    return [
+      basePosition[0],
+      basePosition[1] + radialOffset[1] + labelSize,
+      basePosition[2] + radialOffset[2] + labelOffset,
+    ];
+  }
+
+  return [
+    basePosition[0] + radialOffset[0] * labelOffset,
+    basePosition[1] + radialOffset[1] * labelOffset + labelSize,
+    basePosition[2] + radialOffset[2] * labelOffset,
+  ];
+};

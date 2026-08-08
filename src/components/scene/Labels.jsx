@@ -8,7 +8,7 @@ import Rays from "./Rays";
 
 const Labels = ({
   groups,
-  positions,
+  languagePositions,
   languageFilterStatus,
   selectedLanguage,
   isLabelsSequenceDone,
@@ -24,18 +24,23 @@ const Labels = ({
 
   const visibleLabelCodes = useMemo(
     () =>
-      Object.keys(positions).filter((langCode) => {
-        const position = positions[langCode];
+      Object.keys(languagePositions).filter((langCode) => {
+        const languagePosition = languagePositions[langCode];
         const filterStatus = languageFilterStatus[langCode];
         const isFilteredOut =
           hasActiveFilters && !filteredLanguages.has(langCode);
         return (
-          Boolean(position) &&
+          Boolean(languagePosition) &&
           Boolean(filterStatus?.isVisible) &&
           !isFilteredOut
         );
       }),
-    [positions, languageFilterStatus, hasActiveFilters, filteredLanguages],
+    [
+      languagePositions,
+      languageFilterStatus,
+      hasActiveFilters,
+      filteredLanguages,
+    ],
   );
 
   const totalVisibleLabels = visibleLabelCodes.length;
@@ -80,14 +85,18 @@ const Labels = ({
       )}
 
       {visibleLabelCodes.map((langCode, index) => {
-        const position = positions[langCode];
+        const languagePosition = languagePositions[langCode];
         const revealOrder = totalVisibleLabels - 1 - index;
 
         return (
           <Label
             key={langCode}
             languageCode={langCode}
-            position={[position.x, position.y, position.z]}
+            position={[
+              languagePosition.x,
+              languagePosition.y,
+              languagePosition.z,
+            ]}
             isSelected={selectedLanguage === langCode}
             color={languageColors[langCode]}
             revealOrder={revealOrder}
@@ -101,7 +110,7 @@ const Labels = ({
       {isBlackboard && (
         <BlackboardAccessories
           groups={groups}
-          positions={positions}
+          languagePositions={languagePositions}
           visibleLabelCodes={visibleLabelCodes}
         />
       )}

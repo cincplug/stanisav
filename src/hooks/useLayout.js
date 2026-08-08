@@ -49,7 +49,7 @@ export function useLayout() {
     return 2 * cameraZ * Math.tan(fovRad / 2) * aspect;
   }, [windowSize, isMenuExpanded, cameraZ, fov]);
 
-  const positions = useMemo(() => {
+  const languagePositions = useMemo(() => {
     if (sortedLanguageCodes.length === 0) return {};
     return calculatePositions({
       sortedLanguageCodes,
@@ -77,5 +77,5 @@ export function useLayout() {
     isReverse,
   ]);
 
-  return { positions, sortedLanguageCodes, groups };
+  return { languagePositions, sortedLanguageCodes, groups };
 }
