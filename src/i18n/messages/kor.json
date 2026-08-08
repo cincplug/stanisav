@@ -9,8 +9,8 @@
     "isIdCardVisible": {
       "label": "신분증"
     },
-    "isMyMesha": {
-      "label": "나는 Mesha입니다"
+    "isMyStanisav": {
+      "label": "나는 Stanisav입니다"
     },
     "isReverse": {
       "label": "역순 정렬"

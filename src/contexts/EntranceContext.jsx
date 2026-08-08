@@ -31,7 +31,7 @@ export const EntranceProvider = ({ children }) => {
 
   const isSequenceCancelledRef = useRef(false);
 
-  const [isMeshaSequenceDone, setIsMeshaSequenceDone] = useState(false);
+  const [isStanisavSequenceDone, setIsStanisavSequenceDone] = useState(false);
   const [isLabelsSequenceDone, setIsLabelsSequenceDone] = useState(false);
   const [isBalloonSequenceDone, setIsBalloonSequenceDone] = useState(false);
   const [mentionedLanguage, setMentionedLanguage] = useState(null);
@@ -73,10 +73,10 @@ export const EntranceProvider = ({ children }) => {
     }
   };
 
-  // Called by Mesha when all meshes have been revealed one by one
-  const onMeshaSequenceDone = useCallback(() => {
+  // Called by Stanisav when all meshes have been revealed one by one
+  const onStanisavSequenceDone = useCallback(() => {
     if (isSequenceCancelledRef.current) return;
-    setIsMeshaSequenceDone(true);
+    setIsStanisavSequenceDone(true);
     runBalloonSequence();
   }, []);
 
@@ -90,17 +90,18 @@ export const EntranceProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if (!isSceneReady || !isMeshaSequenceDone || isLabelsSequenceDone) return;
+    if (!isSceneReady || !isStanisavSequenceDone || isLabelsSequenceDone)
+      return;
     const timer = setTimeout(
       () => setIsLabelsSequenceDone(true),
       entranceDuration,
     );
     return () => clearTimeout(timer);
-  }, [isSceneReady, isLabelsSequenceDone, isMeshaSequenceDone]);
+  }, [isSceneReady, isLabelsSequenceDone, isStanisavSequenceDone]);
 
   const skipSequence = () => {
     isSequenceCancelledRef.current = true;
-    setIsMeshaSequenceDone(true);
+    setIsStanisavSequenceDone(true);
     setIsLabelsSequenceDone(true);
     setIsBalloonSequenceDone(true);
     setEntranceBalloonText("");
@@ -134,7 +135,7 @@ export const EntranceProvider = ({ children }) => {
     <EntranceContext.Provider
       value={{
         entranceSteps,
-        isMeshaSequenceDone,
+        isStanisavSequenceDone,
         isLabelsSequenceDone,
         isBalloonSequenceDone,
         isEntranceComplete,
@@ -142,7 +143,7 @@ export const EntranceProvider = ({ children }) => {
         entranceBalloonText,
         setEntranceBalloonText,
         getLabelSpringProps,
-        onMeshaSequenceDone,
+        onStanisavSequenceDone,
         skipSequence,
         setIsLabelsSequenceDone,
       }}

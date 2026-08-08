@@ -23,7 +23,7 @@
     "isAutoplay": true,
     "isIdCardVisible": false,
     "isMenuExpanded": false,
-    "isMyMesha": false,
+    "isMyStanisav": false,
     "timeRate": 15
   },
   "sphere": {
@@ -67,9 +67,9 @@
     "zoomedLightIntensity": 64,
     "lightDecay": 0.4
   },
-  "mesha": {
-    "meshaSize": 1.4,
-    "meshaSpin": 0.5,
+  "stanisav": {
+    "stanisavSize": 1.4,
+    "stanisavSpin": 0.5,
     "assembleRate": 50,
     "blinkDuration": 0.2,
     "earDepth": 4.5,

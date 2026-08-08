@@ -18,7 +18,7 @@ const PlaylistContext = createContext(null);
 export const PlaylistProvider = ({ children }) => {
   const { isSceneReady } = useAppStateContext();
   const { config } = useConfigContext();
-  const { isMyMesha, isAutoplay, soundSource, switchDuration } = config;
+  const { isMyStanisav, isAutoplay, soundSource, switchDuration } = config;
   const {
     filteredLanguages,
     filters,
@@ -42,7 +42,7 @@ export const PlaylistProvider = ({ children }) => {
   const delayTimeoutRef = useRef(null);
   const animatingTimeoutRef = useRef(null);
   const isAutoplayRef = useRef(isAutoplay);
-  // True when replaying the same language index (resume/MyMesha return),
+  // True when replaying the same language index (resume/MyStanisav return),
   // false on every actual language change; controls whether startDelay is applied
   const isResumeRef = useRef(false);
 
@@ -181,7 +181,7 @@ export const PlaylistProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if (isMyMesha) {
+    if (isMyStanisav) {
       setIsPlaying(false);
       setIsCurrentSampleLuka(false);
       userPausedRef.current = false;
@@ -190,12 +190,12 @@ export const PlaylistProvider = ({ children }) => {
     }
 
     if (
-      !isMyMesha &&
+      !isMyStanisav &&
       selectedLanguage &&
       !isPlaying &&
       !userPausedRef.current
     ) {
-      // Returning to the same language after MyMesha: resume without switch delay
+      // Returning to the same language after MyStanisav: resume without switch delay
       isResumeRef.current = true;
       setIsPlaying(true);
       setPlaylistSession((s) => s + 1);
@@ -291,7 +291,7 @@ export const PlaylistProvider = ({ children }) => {
     currentIndex,
     playlistSession,
     isSceneReady,
-    isMyMesha,
+    isMyStanisav,
     soundSource,
     switchDuration,
     stopCurrentAudio,

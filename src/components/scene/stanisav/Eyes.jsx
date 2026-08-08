@@ -90,8 +90,8 @@ const Eye = ({
     white,
   } = config;
 
-  // Eyes remain closed (lid down) until Mesha's mesh reveal sequence finishes
-  const { isMeshaSequenceDone } = useEntranceContext();
+  // Eyes remain closed (lid down) until Stanisav's mesh reveal sequence finishes
+  const { isStanisavSequenceDone } = useEntranceContext();
 
   const irisScale = eyeSize * irisSize;
   const pupilScale = eyeSize * pupilSize;
@@ -109,7 +109,7 @@ const Eye = ({
       const elapsed = time - state.startTime;
       const progress = elapsed / blinkDuration;
 
-      if (!isMeshaSequenceDone) {
+      if (!isStanisavSequenceDone) {
         if (!state.isBlinking) {
           state.isBlinking = true;
           state.startTime = time;

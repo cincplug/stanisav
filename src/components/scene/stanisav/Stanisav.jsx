@@ -32,10 +32,10 @@ extend({ TextGeometry });
 const scratchEuler = new Euler();
 const scratchQuat = new Quaternion();
 
-const Mesha = ({
+const Stanisav = ({
   languageCode,
   position,
-  isMyMesha,
+  isMyStanisav,
   spin,
   isMotionReduced,
   orbitAngleRef,
@@ -63,7 +63,7 @@ const Mesha = ({
     saltoFrequency,
     saltoPow,
     dampLambda,
-    meshaSize,
+    stanisavSize,
     eyeZ,
     eyeY,
     eyeSize,
@@ -75,7 +75,7 @@ const Mesha = ({
 
   const { selectedLanguage } = useLanguageSelectionContext();
 
-  const { isMeshaSequenceDone, isEntranceComplete, onMeshaSequenceDone } =
+  const { isStanisavSequenceDone, isEntranceComplete, onStanisavSequenceDone } =
     useEntranceContext();
 
   const linguisticProperties = data?.languages?.[languageCode];
@@ -84,7 +84,7 @@ const Mesha = ({
     getFeatureScore("tonality", linguisticProperties?.tonality) - 1;
 
   useEffect(() => {
-    if (isMyMesha) {
+    if (isMyStanisav) {
       microphoneService.startCapture();
     } else {
       microphoneService.stopCapture();
@@ -92,7 +92,7 @@ const Mesha = ({
     return () => {
       microphoneService.stopCapture();
     };
-  }, [isMyMesha]);
+  }, [isMyStanisav]);
 
   const runAssemble = useCallback(() => {
     if (!lookAroundRef.current) return;
@@ -110,7 +110,7 @@ const Mesha = ({
       setTimeout(() => {
         mesh.visible = true;
         mesh.renderOrder = renderOrder;
-        if (i === meshes.length - 1) onMeshaSequenceDone();
+        if (i === meshes.length - 1) onStanisavSequenceDone();
       }, i * assembleRate),
     );
 
@@ -156,7 +156,7 @@ const Mesha = ({
     config: {
       duration: isEntranceComplete ? switchDuration : entranceDuration,
     },
-    immediate: isMotionReduced || !isMeshaSequenceDone,
+    immediate: isMotionReduced || !isStanisavSequenceDone,
   });
 
   const skinColor = shiftHue(color, skinHueShift);
@@ -262,7 +262,7 @@ const Mesha = ({
         position-z={spring.z}
         scale={spring.scale}
       >
-        <group ref={lookAroundRef} scale={meshaSize}>
+        <group ref={lookAroundRef} scale={stanisavSize}>
           <Eyes
             irisColor={color}
             eyelidColor={skinColor}
@@ -322,4 +322,4 @@ const Mesha = ({
   );
 };
 
-export default Mesha;
+export default Stanisav;

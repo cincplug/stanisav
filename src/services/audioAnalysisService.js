@@ -58,7 +58,7 @@ class AudioAnalysisService {
   // connects the element to the analyser, and starts/stops analysis alongside
   // the element's own play/pause/ended/error events. Safe to call multiple
   // times on the same element; subsequent calls are no-ops.
-  // config must include mesha and voiceRange groups
+  // config must include stanisav and voiceRange groups
   async setupVisualization(audioElement, config) {
     if (!audioElement || this.connectedAudioElements.has(audioElement)) {
       return;
@@ -92,7 +92,7 @@ class AudioAnalysisService {
     }
   }
 
-  // config must include { mesha: { timeRate, amplitudeThreshold, decayRate }, voiceRange: { ... } }
+  // config must include { stanisav: { timeRate, amplitudeThreshold, decayRate }, voiceRange: { ... } }
   startAnalysis(config) {
     if (this.isAnalyzing) {
       return;

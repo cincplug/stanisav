@@ -1,7 +1,7 @@
 import { useMediaQuery } from "../../hooks/useMediaQuery.js";
 import { getFamilyLabel } from "../../utils/i18nUtils";
 import { getLanguageLabel } from "../../utils/linguisticUtils";
-import MiniMesha from "../MiniMesha.jsx";
+import MiniStanisav from "../MiniStanisav.jsx";
 
 const LanguageTree = ({
   tree,
@@ -42,7 +42,7 @@ const LanguageTree = ({
                 onFocus={() => onFocusLanguage(langCode)}
               >
                 {isMobile && selectedLanguage === langCode && (
-                  <MiniMesha languageCode={langCode} />
+                  <MiniStanisav languageCode={langCode} />
                 )}
                 {label}
               </button>

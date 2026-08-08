@@ -35,7 +35,7 @@ function App() {
     document.documentElement.style.setProperty("--label-size-scale", labelSize);
   }, [labelSize]);
 
-  const isMeshaMini = isMobile && !!selectedLanguage && isMenuExpanded;
+  const isStanisavMini = isMobile && !!selectedLanguage && isMenuExpanded;
 
   return (
     <div
@@ -61,7 +61,7 @@ function App() {
       />
 
       <div className="scene-area">
-        {!isMeshaMini && <Scene />}
+        {!isStanisavMini && <Scene />}
 
         {selectedLanguage && !isMobile && (
           <IdCard

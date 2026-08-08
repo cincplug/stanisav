@@ -1,14 +1,14 @@
 import { Canvas } from "@react-three/fiber";
 import { useConfigContext } from "../contexts/ConfigContext.jsx";
-import Mesha from "./scene/mesha/Mesha.jsx";
+import Stanisav from "./scene/stanisav/Stanisav.jsx";
 
-const MiniMesha = ({ languageCode }) => {
+const MiniStanisav = ({ languageCode }) => {
   const { config } = useConfigContext();
   const { cameraX, cameraY, cameraZ, fov, near, far, bgColor } = config;
   const spin = 1;
 
   return (
-    <div className="mini-mesha">
+    <div className="mini-stanisav">
       <Canvas
         camera={{
           position: [cameraX, cameraY, cameraZ],
@@ -18,10 +18,10 @@ const MiniMesha = ({ languageCode }) => {
         }}
         gl={{ antialias: true, clearColor: bgColor, alpha: true }}
       >
-        <Mesha
+        <Stanisav
           languageCode={languageCode}
           position={[0, 0, 100]}
-          isMyMesha={false}
+          isMyStanisav={false}
           spin={spin}
         />
       </Canvas>
@@ -29,4 +29,4 @@ const MiniMesha = ({ languageCode }) => {
   );
 };
 
-export default MiniMesha;
+export default MiniStanisav;

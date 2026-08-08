@@ -139,7 +139,7 @@ export const ConfigProvider = ({ children }) => {
   );
 
   // Flat config is derived from groupedConfig so it always stays in sync.
-  // Consumers can destructure any key directly: const { meshaSize, cameraX } = config
+  // Consumers can destructure any key directly: const { stanisavSize, cameraX } = config
   const config = flattenConfig(groupedConfig);
 
   return (

@@ -9,7 +9,7 @@ import { useThrottledFrame } from "./useThrottledFrame";
 export const useCameraController = ({ languageNodes }) => {
   const { cameraFocusRequest, selectedLanguage } =
     useLanguageSelectionContext();
-  const { isMeshaSequenceDone } = useEntranceContext();
+  const { isStanisavSequenceDone } = useEntranceContext();
   // `size` is react-three-fiber's reactive canvas size (updated whenever its
   // internal ResizeObserver fires). Unlike camera.aspect, it's guaranteed to
   // be current at the moment this hook re-renders, so it's what fitToNodes
@@ -204,13 +204,13 @@ export const useCameraController = ({ languageNodes }) => {
     startCameraAnimation,
   ]);
 
-  // When Mesha's reveal sequence finishes, fly the camera in to his home
+  // When Stanisav's reveal sequence finishes, fly the camera in to his home
   // position at the same speed his spring animation takes to get there
   useEffect(() => {
-    if (!isMeshaSequenceDone) return;
+    if (!isStanisavSequenceDone) return;
     if (selectedLanguage) return;
     fitToNodes();
-  }, [isMeshaSequenceDone]);
+  }, [isStanisavSequenceDone]);
 
   // Skip this refit while a language is selected/zoomed - otherwise a resize
   // (e.g. the side menu opening or closing) recreates fitToNodes and pulls

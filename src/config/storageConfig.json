@@ -1,5 +1,5 @@
 {
-  "configStorageKey": "meshaConfig",
-  "presetDownloadFileName": "mesha-preset.json",
+  "configStorageKey": "stanisavConfig",
+  "presetDownloadFileName": "stanisav-preset.json",
   "presetNames": []
 }

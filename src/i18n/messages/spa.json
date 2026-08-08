@@ -9,8 +9,8 @@
     "isIdCardVisible": {
       "label": "Documento de identidad"
     },
-    "isMyMesha": {
-      "label": "Soy Mesha"
+    "isMyStanisav": {
+      "label": "Soy Stanisav"
     },
     "isReverse": {
       "label": "Orden inverso"

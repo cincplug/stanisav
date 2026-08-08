@@ -12,7 +12,7 @@ const Properties = ({ propertyKey, selectedLanguageValue }) => {
   // Refs for scrolling
   const itemRefs = useRef({});
 
-  const meshas = variants.map(([variantKey]) => {
+  const stanisavs = variants.map(([variantKey]) => {
     const label = t(`linguistic.${propertyKey}.values.${variantKey}.label`);
     const description = t(
       `linguistic.${propertyKey}.values.${variantKey}.description`,
@@ -42,22 +42,22 @@ const Properties = ({ propertyKey, selectedLanguageValue }) => {
         {t(`linguistic.${propertyKey}.name`)}
       </h2>
       <dl className="properties-items">
-        {meshas.map((mesha) => {
+        {stanisavs.map((stanisav) => {
           const isCurrent =
             selectedLanguageValue !== undefined &&
-            mesha.variantKey === selectedLanguageValue;
+            stanisav.variantKey === selectedLanguageValue;
           return (
             <div
               className="properties-item"
-              key={mesha.key}
+              key={stanisav.key}
               aria-current={isCurrent ? "true" : undefined}
               ref={(el) => {
-                if (isCurrent) itemRefs.current[mesha.variantKey] = el;
+                if (isCurrent) itemRefs.current[stanisav.variantKey] = el;
               }}
               tabIndex={isCurrent ? -1 : undefined}
             >
-              <dt className="properties-label">{mesha.label}</dt>
-              <dd className="properties-description">{mesha.description}</dd>
+              <dt className="properties-label">{stanisav.label}</dt>
+              <dd className="properties-description">{stanisav.description}</dd>
             </div>
           );
         })}

@@ -19,7 +19,7 @@
   padding: 0;
 }
 
-.languages-in-group li:has(.mini-mesha) {
+.languages-in-group li:has(.mini-stanisav) {
   flex-basis: 100%;
 }
 
@@ -49,9 +49,9 @@
   }
 }
 
-.mini-mesha {
+.mini-stanisav {
   width: min-content;
-  max-height: var(--mini-mesha-max-height);
+  max-height: var(--mini-stanisav-max-height);
   margin-inline: auto;
   z-index: 1;
 }

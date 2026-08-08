@@ -15,7 +15,7 @@ import {
 import Camera from "./Camera";
 import Labels from "./Labels";
 import Light from "./Light";
-import Mesha from "./mesha/Mesha";
+import Stanisav from "./stanisav/Stanisav";
 import OrbitModifier from "./OrbitModifier";
 import SceneReadyGate from "./SceneReadyGate";
 
@@ -23,7 +23,7 @@ const Scene = () => {
   const { filters, selectedLanguage } = useLanguageSelectionContext();
   const { languageColors } = useLanguageColorsContext();
   const {
-    isMeshaSequenceDone,
+    isStanisavSequenceDone,
     skipSequence,
     isEntranceComplete,
     isLabelsSequenceDone,
@@ -38,13 +38,13 @@ const Scene = () => {
     cameraZ,
     bgColor,
     isMotionReduced,
-    isMyMesha,
+    isMyStanisav,
     spiralAxis,
     labelOffset,
     isBlackboard,
     labelSize,
     sphereSpin,
-    meshaSpin,
+    stanisavSpin,
     sphereRadius,
     zoomDistance,
     fov,
@@ -72,26 +72,26 @@ const Scene = () => {
     }
   }, [selectedLanguage, isBlackboard]);
 
-  const meshaLanguageCode = useMemo(
+  const stanisavLanguageCode = useMemo(
     () => selectedLanguage || mentionedLanguage || sortedLanguageCodes[0],
     [selectedLanguage, mentionedLanguage, sortedLanguageCodes],
   );
 
-  const meshaPositionLanguageCode = useMemo(
+  const stanisavPositionLanguageCode = useMemo(
     () => selectedLanguage || sortedLanguageCodes[0],
     [selectedLanguage, sortedLanguageCodes],
   );
 
-  const meshaPosition = useMemo(() => {
-    const meshaPositionData = meshaPositionLanguageCode
-      ? positions[meshaPositionLanguageCode]
+  const stanisavPosition = useMemo(() => {
+    const stanisavPositionData = stanisavPositionLanguageCode
+      ? positions[stanisavPositionLanguageCode]
       : null;
 
-    if (meshaPositionData) {
+    if (stanisavPositionData) {
       const base = [
-        meshaPositionData.x,
-        meshaPositionData.y,
-        meshaPositionData.z,
+        stanisavPositionData.x,
+        stanisavPositionData.y,
+        stanisavPositionData.z,
       ];
       const radial = calculateRadialOffset(base);
 
@@ -111,9 +111,9 @@ const Scene = () => {
     }
 
     return [0, 0, 0];
-  }, [meshaPositionLanguageCode, positions]);
+  }, [stanisavPositionLanguageCode, positions]);
 
-  const meshaWideScale = useMemo(
+  const stanisavWideScale = useMemo(
     () => calculateWideShotScale(sphereRadius, zoomDistance, fov),
     [sphereRadius, zoomDistance, fov],
   );
@@ -125,9 +125,9 @@ const Scene = () => {
   const shouldShowEmptyMessage =
     hasSelectedFilters && visibleLanguages.length === 0;
 
-  const meshaColor = languageColors[meshaLanguageCode];
+  const stanisavColor = languageColors[stanisavLanguageCode];
   const hasDrawableScene =
-    Boolean(meshaColor) &&
+    Boolean(stanisavColor) &&
     Object.keys(positions).length > 0 &&
     (shouldShowEmptyMessage || visibleLanguages.length > 0);
 
@@ -159,7 +159,7 @@ const Scene = () => {
         orbitControlsRef={orbitControlsRef}
         spiralAxis={spiralAxis}
         speed={selectedLanguage ? 0 : sphereSpin}
-        isEnabled={!isBlackboard && isMeshaSequenceDone}
+        isEnabled={!isBlackboard && isStanisavSequenceDone}
         orbitAngleRef={orbitAngleRef}
       />
 
@@ -167,7 +167,7 @@ const Scene = () => {
 
       <Camera languageNodes={positions} />
 
-      {!shouldShowEmptyMessage && isMeshaSequenceDone && (
+      {!shouldShowEmptyMessage && isStanisavSequenceDone && (
         <Labels
           groups={groups}
           positions={positions}
@@ -180,15 +180,15 @@ const Scene = () => {
         />
       )}
 
-      <Mesha
-        languageCode={meshaLanguageCode}
-        position={meshaPosition}
-        isMyMesha={isMyMesha}
-        spin={selectedLanguage ? meshaSpin : 0}
+      <Stanisav
+        languageCode={stanisavLanguageCode}
+        position={stanisavPosition}
+        isMyStanisav={isMyStanisav}
+        spin={selectedLanguage ? stanisavSpin : 0}
         isMotionReduced={isMotionReduced}
         orbitAngleRef={orbitAngleRef}
         renderOrder={languages.length}
-        wideScale={meshaWideScale}
+        wideScale={stanisavWideScale}
       />
     </Canvas>
   );

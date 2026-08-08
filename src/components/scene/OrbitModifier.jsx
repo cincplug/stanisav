@@ -46,7 +46,7 @@ export default function OrbitModifier({
       // jumps once per full orbit. Accumulate the small per-frame delta
       // instead of an absolute difference, unwrapping that delta if it
       // looks like it crossed the wrap boundary, so orbitAngleRef stays
-      // continuous and Mesha's damped compensation never has to chase
+      // continuous and Stanisav's damped compensation never has to chase
       // a sudden target jump
       if (orbitAngleRef) {
         const currentAzimuthalAngle = controls.getAzimuthalAngle();
