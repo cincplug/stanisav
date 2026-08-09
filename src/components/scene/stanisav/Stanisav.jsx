@@ -65,8 +65,6 @@ const Stanisav = ({
     eyeY,
     eyeSize,
     noseSize,
-    labelSize,
-    isBlackboard,
   } = config;
 
   const { selectedLanguage } = useLanguageSelectionContext();
@@ -141,13 +139,11 @@ const Stanisav = ({
     wordOrderFlexibility,
   } = linguisticProperties;
 
-  const nudgeIfSelected = selectedLanguage ? labelSize / 2 : 0;
-
   const spring = useSpring({
     x: position[0],
-    y: position[1] - nudgeIfSelected,
+    y: position[1],
     z: position[2],
-    scale: selectedLanguage || isBlackboard ? 1 : wideScale,
+    scale: selectedLanguage ? 1 : wideScale,
     config: {
       duration: isEntranceComplete ? switchDuration : entranceDuration,
     },

@@ -163,7 +163,7 @@ export const useCameraController = ({ languagePositions }) => {
     // so an uneven top cluster column can push the title off the top edge
     // while the bottom of the frame sits empty.
     if (isBlackboard) {
-      maxY += boardTitleGap + labelSize * 4;
+      maxY += boardTitleGap + labelSize * 2;
     }
 
     const center = new Vector3(

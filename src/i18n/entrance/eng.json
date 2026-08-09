@@ -1,34 +1,49 @@
 [
   {
-    "message": "Some languages have big eyes",
+    "message": "Some languages have evidentiality",
     "language": "que"
   },
   {
-    "message": "Others have a lot of eyebrows",
+    "message": "Others have a lot of genders",
     "nounClassCount": 14
   },
   {
-    "message": "Or a really big moustache",
+    "message": "Or a declension with lot of cases",
     "nounClassCount": 0,
     "caseCount": 12
   },
   {
-    "message": "Or with a lot of teeth",
-    "language": "kbd"
+    "message": "Or they have a lot of different sounds",
+    "nounClassCount": 0,
+    "caseCount": 0,
+    "phonemeCount": 50
   },
   {
-    "message": "They have different shape",
-    "language": "vie"
+    "message": "Or isolating morphology",
+    "nounClassCount": 0,
+    "caseCount": 0,
+    "phonemeCount": 30,
+    "morphology": "isolating"
   },
   {
-    "message": "But here you can hear them, and see their differences",
-    "language": "ces"
+    "message": "Or agglutinative morphology",
+    "nounClassCount": 0,
+    "caseCount": 0,
+    "phonemeCount": 30,
+    "morphology": "agglutinative"
   },
   {
-    "message": "And that's one way learn something about languages",
-    "language": "nld"
+    "message": "Or fusional",
+    "nounClassCount": 0,
+    "caseCount": 0,
+    "phonemeCount": 30,
+    "morphology": "fusional"
   },
   {
-    "message": "Or at least about these 232"
+    "message": "Or even polysynthetic",
+    "nounClassCount": 0,
+    "caseCount": 0,
+    "phonemeCount": 30,
+    "morphology": "polysynthetic"
   }
 ]
