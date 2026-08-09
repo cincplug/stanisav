@@ -4,7 +4,6 @@ import { useCallback, useEffect, useRef } from "react";
 import { Euler, MathUtils, Mesh, Quaternion } from "three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
-import { useAppStateContext } from "../../../contexts/AppStateContext.jsx";
 import { useConfigContext } from "../../../contexts/ConfigContext.jsx";
 import { useEntranceContext } from "../../../contexts/EntranceContext.jsx";
 import { useLanguageColorsContext } from "../../../contexts/LanguageColorsContext.jsx";
@@ -34,6 +33,7 @@ const scratchQuat = new Quaternion();
 
 const Stanisav = ({
   languageCode,
+  linguisticProperties,
   position,
   isMyStanisav,
   spin,
@@ -46,7 +46,6 @@ const Stanisav = ({
   const lookAroundRef = useRef();
   const orbitCompensationRef = useRef();
 
-  const { data } = useAppStateContext();
   const { languageColors } = useLanguageColorsContext();
   const { isAnimating, isPlaying, isCurrentSampleLuka } = usePlaylistContext();
   const { config } = useConfigContext();
@@ -78,7 +77,6 @@ const Stanisav = ({
   const { isStanisavSequenceDone, isEntranceComplete, onStanisavSequenceDone } =
     useEntranceContext();
 
-  const linguisticProperties = data?.languages?.[languageCode];
   const color = languageColors[languageCode];
   const stripesType =
     getFeatureScore("tonality", linguisticProperties?.tonality) - 1;

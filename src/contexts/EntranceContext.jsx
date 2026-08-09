@@ -7,11 +7,18 @@ import {
   useState,
 } from "react";
 import { getEntranceSteps } from "../i18n/runtime";
+import linguisticConfig from "../config/linguisticConfig.json";
+import {
+  extractPropertyOverrides,
+  hasPropertyOverrides,
+} from "../utils/entranceUtils";
 import { useConfigContext } from "./ConfigContext";
 
 const EntranceContext = createContext(null);
 
 const entranceSteps = getEntranceSteps();
+
+const stanisavShapePropertyNames = Object.keys(linguisticConfig);
 
 export const EntranceProvider = ({ children }) => {
   const { config } = useConfigContext();
@@ -33,6 +40,9 @@ export const EntranceProvider = ({ children }) => {
   const [isLabelsSequenceDone, setIsLabelsSequenceDone] = useState(false);
   const [isBalloonSequenceDone, setIsBalloonSequenceDone] = useState(false);
   const [mentionedLanguage, setMentionedLanguage] = useState(null);
+  const [mentionedPropertyOverrides, setMentionedPropertyOverrides] = useState(
+    {},
+  );
   const [entranceBalloonText, setEntranceBalloonText] = useState("");
 
   const isEntranceComplete = isLabelsSequenceDone && isBalloonSequenceDone;
@@ -56,8 +66,22 @@ export const EntranceProvider = ({ children }) => {
       if (isSequenceCancelledRef.current) return;
       const step = entranceSteps[i];
       const isLast = i === entranceSteps.length - 1;
+
+      const propertyOverrides = extractPropertyOverrides(
+        step,
+        stanisavShapePropertyNames,
+      );
+      const isNewShapeMentioned =
+        Boolean(step.language) || hasPropertyOverrides(propertyOverrides);
+
+      // A step with neither a language nor loose properties leaves
+      // Stanisav in whatever shape the previous step left him.
+      if (isNewShapeMentioned) {
+        if (step.language) setMentionedLanguage(step.language);
+        setMentionedPropertyOverrides(propertyOverrides);
+      }
+
       setEntranceBalloonText(step.message);
-      setMentionedLanguage(step.language ?? null);
       await wait(
         isLast
           ? calculateBalloonFullDuration(step.message)
@@ -67,6 +91,7 @@ export const EntranceProvider = ({ children }) => {
     if (!isSequenceCancelledRef.current) {
       setEntranceBalloonText("");
       setMentionedLanguage(null);
+      setMentionedPropertyOverrides({});
       setIsBalloonSequenceDone(true);
     }
   };
@@ -80,7 +105,11 @@ export const EntranceProvider = ({ children }) => {
 
   useEffect(() => {
     if (entranceSteps.length === 0) return;
-    setMentionedLanguage(entranceSteps[0].language);
+    const firstStep = entranceSteps[0];
+    setMentionedLanguage(firstStep.language);
+    setMentionedPropertyOverrides(
+      extractPropertyOverrides(firstStep, stanisavShapePropertyNames),
+    );
     isSequenceCancelledRef.current = false;
     return () => {
       isSequenceCancelledRef.current = true;
@@ -94,6 +123,7 @@ export const EntranceProvider = ({ children }) => {
     setIsBalloonSequenceDone(true);
     setEntranceBalloonText("");
     setMentionedLanguage(null);
+    setMentionedPropertyOverrides({});
   };
 
   const getLabelSpringProps = (
@@ -128,6 +158,7 @@ export const EntranceProvider = ({ children }) => {
         isBalloonSequenceDone,
         isEntranceComplete,
         mentionedLanguage,
+        mentionedPropertyOverrides,
         entranceBalloonText,
         setEntranceBalloonText,
         getLabelSpringProps,

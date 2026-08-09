@@ -7,6 +7,7 @@ import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext";
 import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
 import { useLayout } from "../../hooks/useLayout";
+import { resolveLinguisticProperties } from "../../utils/entranceUtils";
 import {
   calculateLanguageFilterStatus,
   calculateStanisavPosition,
@@ -30,6 +31,7 @@ const Scene = () => {
     setIsLabelsSequenceDone,
     isBalloonSequenceDone,
     mentionedLanguage,
+    mentionedPropertyOverrides,
   } = useEntranceContext();
   const { data } = useAppStateContext();
   const { config } = useConfigContext();
@@ -76,6 +78,17 @@ const Scene = () => {
   const stanisavLanguageCode = useMemo(
     () => selectedLanguage || mentionedLanguage || sortedLanguageCodes[0],
     [selectedLanguage, mentionedLanguage, sortedLanguageCodes],
+  );
+
+  const stanisavBaseLinguisticProperties = languages?.[stanisavLanguageCode];
+
+  const stanisavLinguisticProperties = useMemo(
+    () =>
+      resolveLinguisticProperties(
+        stanisavBaseLinguisticProperties,
+        mentionedPropertyOverrides,
+      ),
+    [stanisavBaseLinguisticProperties, mentionedPropertyOverrides],
   );
 
   const selectedLanguagePosition = selectedLanguage
@@ -173,6 +186,7 @@ const Scene = () => {
 
       <Stanisav
         languageCode={stanisavLanguageCode}
+        linguisticProperties={stanisavLinguisticProperties}
         position={stanisavPosition}
         isMyStanisav={isMyStanisav}
         spin={stanisavSpin}
