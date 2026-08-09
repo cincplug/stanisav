@@ -5,11 +5,12 @@
   },
   {
     "message": "Others have a lot of eyebrows",
-    "language": "lug"
+    "nounClassCount": 14
   },
   {
-    "message": "There are some with a real big moustache",
-    "language": "fin"
+    "message": "Or a really big moustache",
+    "nounClassCount": 0,
+    "caseCount": 12
   },
   {
     "message": "Or with a lot of teeth",

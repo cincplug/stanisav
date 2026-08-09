@@ -38,13 +38,11 @@ const Stanisav = ({
   isMyStanisav,
   spin,
   isMotionReduced,
-  orbitAngleRef,
   renderOrder,
   wideScale,
 }) => {
   const groupRef = useRef();
   const lookAroundRef = useRef();
-  const orbitCompensationRef = useRef();
 
   const { languageColors } = useLanguageColorsContext();
   const { isAnimating, isPlaying, isCurrentSampleLuka } = usePlaylistContext();
@@ -69,7 +67,6 @@ const Stanisav = ({
     noseSize,
     labelSize,
     isBlackboard,
-    spiralAxis,
   } = config;
 
   const { selectedLanguage } = useLanguageSelectionContext();
@@ -174,7 +171,6 @@ const Stanisav = ({
   const saltoPhaseRef = useRef(0);
   const saltoRotXRef = useRef(0);
   const saltoRotZRef = useRef(0);
-  const orbitCompensationAngleRef = useRef(0);
 
   useThrottledFrame(({ camera }, delta) => {
     if (!lookAroundRef.current) return;
@@ -182,40 +178,19 @@ const Stanisav = ({
     const dampTo = (current, target) =>
       MathUtils.damp(current, target, dampLambda, delta);
 
-    if (orbitCompensationRef.current) {
-      const targetOrbitAngle = selectedLanguage
-        ? 0
-        : (orbitAngleRef?.current ?? 0);
-
-      orbitCompensationAngleRef.current = dampTo(
-        orbitCompensationAngleRef.current,
-        targetOrbitAngle,
-      );
-
-      if (spiralAxis === "z") {
-        orbitCompensationRef.current.rotation.z =
-          orbitCompensationAngleRef.current;
-        orbitCompensationRef.current.rotation.y = 0;
-      } else {
-        orbitCompensationRef.current.rotation.y =
-          orbitCompensationAngleRef.current;
-        orbitCompensationRef.current.rotation.z = 0;
-      }
-    }
-
     const nearestFullRotation = (value) =>
       Math.round(value / (Math.PI * 2)) * (Math.PI * 2);
 
-    const isBlocked = !isEntranceComplete || (!isPlaying && !!selectedLanguage);
+    // Only meaningful while a language is selected: playback paused means
+    // the spin settles back to upright instead of continuing to spin.
+    const isSpinPaused = selectedLanguage && !isPlaying;
 
-    if (isBlocked) {
+    if (isSpinPaused) {
       rotationYRef.current = dampTo(
         rotationYRef.current,
         nearestFullRotation(rotationYRef.current),
       );
-    }
-
-    if (!isBlocked && selectedLanguage) {
+    } else if (selectedLanguage) {
       rotationYRef.current =
         (rotationYRef.current + delta * spin) % (Math.PI * 2);
       saltoPhaseRef.current =
@@ -237,6 +212,9 @@ const Stanisav = ({
           Math.pow(Math.abs(sinPhase), saltoPow) *
           saltoAmplitude *
           Math.PI;
+    } else {
+      rotationYRef.current =
+        (rotationYRef.current + delta * spin) % (Math.PI * 2);
     }
 
     lookAroundRef.current.quaternion.copy(camera.quaternion);
@@ -252,71 +230,69 @@ const Stanisav = ({
   });
 
   return (
-    <group ref={orbitCompensationRef}>
-      <a.group
-        ref={groupRef}
-        position-x={spring.x}
-        position-y={spring.y}
-        position-z={spring.z}
-        scale={spring.scale}
-      >
-        <group ref={lookAroundRef} scale={stanisavSize}>
-          <Eyes
-            irisColor={color}
-            eyelidColor={skinColor}
-            evidentiality={scores.evidentiality}
-            verbAspect={scores.verbAspect}
-            isoCode={selectedLanguage}
+    <a.group
+      ref={groupRef}
+      position-x={spring.x}
+      position-y={spring.y}
+      position-z={spring.z}
+      scale={spring.scale}
+    >
+      <group ref={lookAroundRef} scale={stanisavSize}>
+        <Eyes
+          irisColor={color}
+          eyelidColor={skinColor}
+          evidentiality={scores.evidentiality}
+          verbAspect={scores.verbAspect}
+          isoCode={selectedLanguage}
+        />
+
+        <Ears
+          earMaterial={skinMaterial}
+          morphologyScore={scores.morphology}
+          isLuka={isCurrentSampleLuka}
+        />
+
+        <Tongue tongueMaterial={tongueMaterial} />
+
+        <Nose
+          position={[0, eyeY - eyeSize, eyeZ]}
+          scale={noseSize}
+          color={color}
+          wordOrder={wordOrder}
+        />
+
+        <Teeth toothCount={phonemeCount} />
+
+        {caseCount && (
+          <Moustache
+            tuftCount={caseCount}
+            color={tuftColor}
+            y={tuftY}
+            z={eyeZ}
+            stepDeg={6}
           />
+        )}
 
-          <Ears
-            earMaterial={skinMaterial}
-            morphologyScore={scores.morphology}
-            isLuka={isCurrentSampleLuka}
+        {nounClassCount && (
+          <Moustache
+            tuftCount={nounClassCount}
+            color={eyebrowColor}
+            y={eyebrowY}
+            z={eyeZ}
+            stepDeg={12}
           />
+        )}
 
-          <Tongue tongueMaterial={tongueMaterial} />
-
-          <Nose
-            position={[0, eyeY - eyeSize, eyeZ]}
-            scale={noseSize}
-            color={color}
-            wordOrder={wordOrder}
-          />
-
-          <Teeth toothCount={phonemeCount} />
-
-          {caseCount && (
-            <Moustache
-              tuftCount={caseCount}
-              color={tuftColor}
-              y={tuftY}
-              z={eyeZ}
-              stepDeg={6}
-            />
-          )}
-
-          {nounClassCount && (
-            <Moustache
-              tuftCount={nounClassCount}
-              color={eyebrowColor}
-              y={eyebrowY}
-              z={eyeZ}
-              stepDeg={12}
-            />
-          )}
-
-          <Balloon
-            position={selectedLanguage ? "top" : "top-right"}
-            anchorOffset={
-              selectedLanguage
-                ? [0, eyeY + eyeSize * 2, eyeZ]
-                : [0, eyeY + eyeSize * 2, eyeZ]
-            }
-          />
-        </group>
-      </a.group>
-    </group>
+        <Balloon
+          position={selectedLanguage ? "top" : "top-right"}
+          anchorOffset={
+            selectedLanguage
+              ? [0, eyeY + eyeSize * 2, eyeZ]
+              : [0, eyeY + eyeSize * 2, eyeZ]
+          }
+        />
+      </group>
+    </a.group>
   );
 };
 

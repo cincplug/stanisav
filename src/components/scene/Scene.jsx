@@ -54,7 +54,6 @@ const Scene = () => {
   } = config;
 
   const orbitControlsRef = useRef();
-  const orbitAngleRef = useRef(0);
 
   const languages = data?.languages;
   const { languagePositions, sortedLanguageCodes, groups } = useLayout();
@@ -161,8 +160,7 @@ const Scene = () => {
         orbitControlsRef={orbitControlsRef}
         spiralAxis={spiralAxis}
         speed={selectedLanguage ? 0 : sphereSpin}
-        isEnabled={!isBlackboard && isStanisavSequenceDone}
-        orbitAngleRef={orbitAngleRef}
+        isEnabled={!isBlackboard}
       />
 
       <Light selectedLanguage={selectedLanguage} />
@@ -191,7 +189,6 @@ const Scene = () => {
         isMyStanisav={isMyStanisav}
         spin={stanisavSpin}
         isMotionReduced={isMotionReduced}
-        orbitAngleRef={orbitAngleRef}
         renderOrder={languages.length}
         wideScale={stanisavWideScale}
       />

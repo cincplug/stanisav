@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { Quaternion, Vector3 } from "three";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 
@@ -12,10 +11,7 @@ export default function OrbitModifier({
   spiralAxis,
   speed,
   isEnabled,
-  orbitAngleRef,
 }) {
-  const previousAzimuthalAngleRef = useRef(null);
-
   useThrottledFrame((_, delta) => {
     if (!isEnabled || !orbitControlsRef.current) return;
 
@@ -34,34 +30,10 @@ export default function OrbitModifier({
 
       // No damping involved on this path (camera is moved directly),
       // so manual accumulation stays accurate here
-      if (orbitAngleRef) {
-        orbitAngleRef.current = orbitAngleRef.current + angleStep;
-      }
     } else {
       const controls = orbitControlsRef.current;
 
       controls.setAzimuthalAngle(controls.getAzimuthalAngle() + speed * delta);
-
-      // getAzimuthalAngle() is wrapped to [-PI, PI] by three.js, so it
-      // jumps once per full orbit. Accumulate the small per-frame delta
-      // instead of an absolute difference, unwrapping that delta if it
-      // looks like it crossed the wrap boundary, so orbitAngleRef stays
-      // continuous and Stanisav's damped compensation never has to chase
-      // a sudden target jump
-      if (orbitAngleRef) {
-        const currentAzimuthalAngle = controls.getAzimuthalAngle();
-        if (previousAzimuthalAngleRef.current === null) {
-          previousAzimuthalAngleRef.current = currentAzimuthalAngle;
-        }
-
-        let angleDelta =
-          currentAzimuthalAngle - previousAzimuthalAngleRef.current;
-        if (angleDelta > Math.PI) angleDelta -= FULL_TURN_RADIANS;
-        if (angleDelta < -Math.PI) angleDelta += FULL_TURN_RADIANS;
-
-        orbitAngleRef.current = orbitAngleRef.current + angleDelta;
-        previousAzimuthalAngleRef.current = currentAzimuthalAngle;
-      }
     }
   });
 
