@@ -1,49 +1,68 @@
 [
   {
-    "message": "Some languages have evidentiality",
+    "message": "I am Stanisav, a visualisation of a language",
     "language": "que"
   },
   {
-    "message": "Others have a lot of genders",
+    "message": "I change my shape according to the language that I represent"
+  },
+  {
+    "message": "The more genders it has, the more eyebrows I have",
     "nounClassCount": 14
   },
   {
-    "message": "Or a declension with lot of cases",
+    "message": "The more cases, the bigger moustache",
     "nounClassCount": 0,
     "caseCount": 12
   },
   {
-    "message": "Or they have a lot of different sounds",
+    "message": "The more sounds, the more teeth",
     "nounClassCount": 0,
     "caseCount": 0,
     "phonemeCount": 50
   },
   {
-    "message": "Or isolating morphology",
+    "message": "Here is how an isolating language can look like",
     "nounClassCount": 0,
     "caseCount": 0,
     "phonemeCount": 30,
     "morphology": "isolating"
   },
   {
-    "message": "Or agglutinative morphology",
+    "message": "This would be an agglutinative language",
     "nounClassCount": 0,
     "caseCount": 0,
     "phonemeCount": 30,
     "morphology": "agglutinative"
   },
   {
-    "message": "Or fusional",
+    "message": "Here's a fusional one",
     "nounClassCount": 0,
     "caseCount": 0,
     "phonemeCount": 30,
     "morphology": "fusional"
   },
   {
-    "message": "Or even polysynthetic",
+    "message": "Here's polysynthetic, and so on",
     "nounClassCount": 0,
     "caseCount": 0,
     "phonemeCount": 30,
     "morphology": "polysynthetic"
+  },
+  {
+    "message": "So here you can see how languages look like",
+    "language": "cre"
+  },
+  {
+    "message": "Hear how they sound",
+    "language": "mkd"
+  },
+  {
+    "message": "And learn something about them",
+    "language": "ces"
+  },
+  {
+    "message": "Or at least about these 232",
+    "language": "nld"
   }
 ]
