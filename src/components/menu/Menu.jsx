@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import tabsConfig from "../../config/tabsConfig.json";
 import layoutMapping from "../../config/layoutMapping.json";
 import { useConfigContext } from "../../contexts/ConfigContext";
+import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useI18nContext } from "../../contexts/I18nContext";
 import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
@@ -30,6 +31,7 @@ function Menu({
   onFiltersChange,
 }) {
   const { config, updateConfigValue, getConfigGroup } = useConfigContext();
+  const { skipSequence } = useEntranceContext();
   const { languageColors } = useLanguageColorsContext();
   const { t, isRtl } = useI18nContext();
   const [selectedTab, setSelectedTab] = useState(tabsConfig.defaultTab);
@@ -61,6 +63,16 @@ function Menu({
 
   const handleTabChange = (tabId) => {
     setSelectedTab(tabId);
+  };
+
+  const handleSortByChange = (value) => {
+    updateConfigValue("header.sortBy", value);
+    skipSequence();
+  };
+
+  const handleIsBlackboardClick = () => {
+    updateConfigValue("header.isBlackboard", !isBlackboard);
+    skipSequence();
   };
 
   // Opinionated design decision
@@ -128,16 +140,14 @@ function Menu({
             <Select
               options={sortByOptions}
               value={selectedSortBy}
-              onChange={(value) => updateConfigValue("header.sortBy", value)}
+              onChange={handleSortByChange}
               label={t("controls.sortBy.label")}
               isCompact
               icon={<SortIcon />}
             />
           )}
           <button
-            onClick={() =>
-              updateConfigValue("header.isBlackboard", !isBlackboard)
-            }
+            onClick={handleIsBlackboardClick}
             aria-pressed={isBlackboard}
             className={`menu-item ${isBlackboard ? "selected" : ""}`}
             aria-label={t("controls.isBlackboard.label")}
