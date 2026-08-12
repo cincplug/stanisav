@@ -18,7 +18,7 @@ const Labels = ({
   const { filters, filteredLanguages } = useLanguageSelectionContext();
 
   const { config } = useConfigContext();
-  const { isBlackboard, hasRays } = config;
+  const { isBlackboard, hasRaysWhenZoomed, hasRaysWhenNotZoomed } = config;
 
   const hasActiveFilters = Object.keys(filters).length > 0;
 
@@ -79,9 +79,13 @@ const Labels = ({
     [isLabelsSequenceDone, setIsLabelsSequenceDone, totalVisibleLabels],
   );
 
+  const shouldShowRays =
+    (!!selectedLanguage && hasRaysWhenZoomed) ||
+    (!selectedLanguage && hasRaysWhenNotZoomed);
+
   return (
     <>
-      {hasRays && isLabelsSequenceDone && (
+      {shouldShowRays && isLabelsSequenceDone && (
         <Rays
           visibleLabelCodes={visibleLabelCodes}
           labelRefs={labelRefs}

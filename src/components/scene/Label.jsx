@@ -36,7 +36,7 @@ const Label = ({
     labelContent,
     labelSize,
     isBlackboard,
-    isMingling,
+    isMinglingWhenNotZoomed,
     labelOffset,
     isMotionReduced,
     labelTextColor,
@@ -148,7 +148,7 @@ const Label = ({
     if (meshRef) meshRef.current = labelRef.current;
     if (revealRef) revealRef.current = reveal;
 
-    if (!selectedLanguage && isMingling && !isAnimating) {
+    if (!selectedLanguage && isMinglingWhenNotZoomed && !isAnimating) {
       mingleRef.current += delta;
       if (mingleRef.current >= totalVisibleLabels) mingleRef.current = 0;
 
