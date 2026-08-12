@@ -32,12 +32,7 @@
     "spiralRatio": [0.61803, 0.41421, 0.73205, 0.23606, 0.64575, 0.31662],
     "labelOffset": 5,
     "sphereRadius": 19,
-    "isMinglingWhenNotZoomed": true,
-    "hasRaysWhenZoomed": false,
-    "hasRaysWhenNotZoomed": true,
-    "rayWidth": 73,
-    "rayOpacity": 0.07,
-    "rayCentricity": 0.74
+    "isMinglingWhenNotZoomed": true
   },
   "blackboard": {
     "boardLight": 1.25,
@@ -49,24 +44,6 @@
     "clusterGap": 2,
     "connectorWidth": 1,
     "areClusterRowsAlternating": true
-  },
-  "shader": {
-    "ambient": 0.7,
-    "lightingDiffuse": 0.5,
-    "lightingMax": 1.2,
-    "lightingMin": 0.7,
-    "ringCount": 12,
-    "ringSpeed": 1.2,
-    "shadeChecker": 1.22,
-    "shadeStripe": 2,
-    "shaderOpacity": 0.9
-  },
-  "light": {
-    "defaultLightDistance": 174,
-    "zoomedLightDistance": 109,
-    "defaultLightIntensity": 20,
-    "zoomedLightIntensity": 64,
-    "lightDecay": 0.4
   },
   "stanisav": {
     "stanisavSize": 1.4,
@@ -140,6 +117,25 @@
     "verticalVariation": 0.1,
     "fireAmount": 3.2
   },
+  "shader": {
+    "ambient": 0.7,
+    "lightingDiffuse": 0.5,
+    "lightingMax": 1.2,
+    "lightingMin": 0.7,
+    "ringCount": 12,
+    "ringSpeed": 1.2,
+    "shadeChecker": 1.22,
+    "shadeStripe": 2,
+    "shaderOpacity": 0.9
+  },
+  "light": {
+    "defaultLightDistance": 174,
+    "zoomedLightDistance": 109,
+    "defaultLightIntensity": 20,
+    "zoomedLightIntensity": 64,
+    "lightDecay": 0.4
+  },
+
   "colors": {
     "bgColor": "#171b1f",
     "currentColor": "#50a7ff",
@@ -150,7 +146,7 @@
     "invertsSelected": false,
     "invertsUnselected": true,
     "emissiveness": 0.3,
-    "hue": 100,
+    "hue": 174,
     "hueCircle": 360,
     "lightness": 0.8,
     "saturation": 0.2,
@@ -187,6 +183,13 @@
     "entranceDuration": 7000,
     "labelRevealDuration": 200,
     "startLabelOffset": 1.2
+  },
+  "rays": {
+    "hasRaysWhenZoomed": false,
+    "hasRaysWhenNotZoomed": true,
+    "rayWidth": 73,
+    "rayOpacity": 0.07,
+    "rayCentricity": 0.74
   },
   "segments": {
     "segmentsSmall": 8,
