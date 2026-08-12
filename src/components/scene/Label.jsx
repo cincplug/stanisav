@@ -40,6 +40,8 @@ const Label = ({
     labelOffset,
     isMotionReduced,
     labelTextColor,
+    invertsSelected,
+    invertsUnselected,
   } = config;
 
   const handleClick = useCallback(
@@ -110,11 +112,36 @@ const Label = ({
   const textMaterial = useMemo(
     () =>
       new MeshStandardMaterial({
-        color: labelTextColor,
+        color: isSelected
+          ? invertsSelected
+            ? color
+            : labelTextColor
+          : invertsUnselected
+            ? color
+            : labelTextColor,
         depthTest: !!selectedLanguage,
         transparent: true,
       }),
-    [selectedLanguage],
+    [
+      selectedLanguage,
+      isSelected,
+      invertsSelected,
+      invertsUnselected,
+      color,
+      labelTextColor,
+    ],
+  );
+
+  const outlineColor = useMemo(
+    () =>
+      isSelected
+        ? invertsSelected
+          ? labelTextColor
+          : color
+        : invertsUnselected
+          ? labelTextColor
+          : color,
+    [isSelected, invertsSelected, invertsUnselected, color, labelTextColor],
   );
 
   useThrottledFrame(({ camera }, delta) => {
@@ -169,7 +196,7 @@ const Label = ({
       anchorX="center"
       anchorY="middle"
       outlineWidth={isPreviewed && !isSelected ? labelSize : labelSize / 2}
-      outlineColor={color}
+      outlineColor={outlineColor}
       material={textMaterial}
     >
       {labelText}
