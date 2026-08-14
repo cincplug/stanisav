@@ -1,10 +1,46 @@
 [
   {
-    "message": "It's not a bug",
+    "message": "This is how English language looks like",
     "language": "eng"
   },
   {
-    "message": "It's a language",
+    "message": "And this would be German, it has some genders and declension",
+    "language": "deu"
+  },
+  {
+    "message": "And here's Hungarian, big declension and it's agglutinative",
+    "language": "hun"
+  },
+  {
+    "message": "And here is Swahili, also agglutinative and lot of genders",
+    "language": "swa"
+  },
+  {
+    "message": "And here's Vietnamese, it is tonal and isolating",
+    "language": "vie"
+  },
+  {
+    "message": "And here's Japanese, agglutinative with pitch accent",
+    "language": "jpn"
+  },
+  {
+    "message": "And here's polysynthetic Cherokee",
+    "language": "chr"
+  },
+  {
+    "message": "Here is Irish, it has more phonemes than many others",
+    "language": "gle"
+  },
+  {
+    "message": "And Tibetan has evidentiality",
+    "language": "bod"
+  },
+  {
+    "message": "So we tried to draw them all according to what they have",
+    "language": "ach"
+  },
+  {
+    "message": "I mean not all but these 232",
     "language": "ach"
   }
 ]
