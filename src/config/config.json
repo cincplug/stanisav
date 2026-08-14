@@ -64,6 +64,7 @@
     "eyelidHeight": 0.5,
     "eyelidWidth": 0.8,
     "eyeSize": 0.22,
+    "eyeWhiteRatio": 0.87,
     "eyeX": 0.7,
     "eyeY": 2.1,
     "eyeZ": 2.5,

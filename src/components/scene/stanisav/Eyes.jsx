@@ -81,6 +81,7 @@ const Eye = ({
     eyelidWidth,
     eyelidHeight,
     eyelidDepth,
+    eyeWhiteRatio,
     irisSize,
     pupilSize,
     pupilMetalness,
@@ -158,7 +159,7 @@ const Eye = ({
       </mesh>
 
       {/* white */}
-      <mesh>
+      <mesh scale={[1 / eyeWhiteRatio, eyeWhiteRatio, 1]}>
         <sphereGeometry args={[eyeSize, segmentsMid, segmentsMid]} />
         <shaderMaterial args={[whiteMaterial]} />
       </mesh>
