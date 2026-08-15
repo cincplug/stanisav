@@ -79,15 +79,15 @@ const Scene = () => {
     [selectedLanguage, mentionedLanguage, sortedLanguageCodes],
   );
 
-  const stanisavBaseLinguisticProperties = languages?.[stanisavLanguageCode];
+  const stanisavBaseProperties = languages?.[stanisavLanguageCode];
 
-  const stanisavLinguisticProperties = useMemo(
+  const stanisavImposedProperties = useMemo(
     () =>
       resolveLinguisticProperties(
-        stanisavBaseLinguisticProperties,
+        stanisavBaseProperties,
         mentionedPropertyOverrides,
       ),
-    [stanisavBaseLinguisticProperties, mentionedPropertyOverrides],
+    [stanisavBaseProperties, mentionedPropertyOverrides],
   );
 
   const selectedLanguagePosition = selectedLanguage
@@ -184,7 +184,7 @@ const Scene = () => {
 
       <Stanisav
         languageCode={stanisavLanguageCode}
-        linguisticProperties={stanisavLinguisticProperties}
+        imposedProperties={stanisavImposedProperties}
         position={stanisavPosition}
         isMyStanisav={isMyStanisav}
         spin={stanisavSpin}

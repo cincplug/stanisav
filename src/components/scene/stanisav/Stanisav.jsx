@@ -1,9 +1,10 @@
 import { a, useSpring } from "@react-spring/three";
 import { extend } from "@react-three/fiber";
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef } from "react";
 import { Euler, MathUtils, Mesh, Quaternion } from "three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
+import { useAppStateContext } from "../../../contexts/AppStateContext.jsx";
 import { useConfigContext } from "../../../contexts/ConfigContext.jsx";
 import { useEntranceContext } from "../../../contexts/EntranceContext.jsx";
 import { useLanguageColorsContext } from "../../../contexts/LanguageColorsContext.jsx";
@@ -33,7 +34,7 @@ const scratchQuat = new Quaternion();
 
 const Stanisav = ({
   languageCode,
-  linguisticProperties,
+  imposedProperties,
   position,
   isMyStanisav,
   spin,
@@ -68,6 +69,13 @@ const Stanisav = ({
   } = config;
 
   const { selectedLanguage } = useLanguageSelectionContext();
+  const { data } = useAppStateContext();
+
+  const linguisticProperties = useMemo(() => {
+    if (imposedProperties) return imposedProperties;
+
+    return data?.languages?.[languageCode];
+  }, [imposedProperties, data.languages]);
 
   const { isStanisavSequenceDone, isEntranceComplete, onStanisavSequenceDone } =
     useEntranceContext();
