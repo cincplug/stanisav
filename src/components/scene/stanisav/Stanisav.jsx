@@ -185,9 +185,8 @@ const Stanisav = ({
     const nearestFullRotation = (value) =>
       Math.round(value / (Math.PI * 2)) * (Math.PI * 2);
 
-    // Only meaningful while a language is selected: playback paused means
-    // the spin settles back to upright instead of continuing to spin.
-    const isSpinPaused = selectedLanguage && !isPlaying;
+    const isSpinPaused =
+      !isEntranceComplete || (selectedLanguage && !isPlaying);
 
     if (isSpinPaused) {
       rotationYRef.current = dampTo(
@@ -286,15 +285,6 @@ const Stanisav = ({
             stepDeg={12}
           />
         )}
-
-        <Balloon
-          position={selectedLanguage ? "top" : "top-right"}
-          anchorOffset={
-            selectedLanguage
-              ? [0, eyeY + eyeSize * 2, eyeZ]
-              : [0, eyeY + eyeSize * 2, eyeZ]
-          }
-        />
       </group>
     </a.group>
   );

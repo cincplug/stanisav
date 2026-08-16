@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { articleSectionIdPrefix } from "../pages/Article/Article.config.js";
+import { articleSectionIdPrefix } from "../pages/article/Article.config.js";
 
 // Tracks which language code's section is currently closest to the
 // viewport center and returns that code, updating as the user scrolls.
