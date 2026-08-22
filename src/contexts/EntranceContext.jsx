@@ -7,6 +7,7 @@ import {
   useState,
 } from "react";
 import { getEntranceSteps } from "../i18n/runtime";
+import { useI18nContext } from "./I18nContext";
 import linguisticConfig from "../config/linguisticConfig.json";
 import {
   extractPropertyOverrides,
@@ -15,13 +16,13 @@ import {
 import { useConfigContext } from "./ConfigContext";
 
 const EntranceContext = createContext(null);
-
-const entranceSteps = getEntranceSteps();
-
 const stanisavShapePropertyNames = Object.keys(linguisticConfig);
 
 export const EntranceProvider = ({ children }) => {
   const { config } = useConfigContext();
+  const { isLocaleReady } = useI18nContext();
+
+  const entranceSteps = isLocaleReady ? getEntranceSteps() : [];
 
   const {
     entranceDuration,
@@ -101,7 +102,7 @@ export const EntranceProvider = ({ children }) => {
     if (isSequenceCancelledRef.current) return;
     setIsStanisavSequenceDone(true);
     runBalloonSequence();
-  }, []);
+  }, [runBalloonSequence]);
 
   useEffect(() => {
     if (entranceSteps.length === 0) return;
