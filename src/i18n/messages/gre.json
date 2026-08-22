@@ -1,0 +1,211 @@
+{
+  "controls": {
+    "showMore": {
+      "label": "Περισσότερα"
+    },
+    "isIdCardVisible": {
+      "label": "Ταυτότητα"
+    },
+    "isAutoplay": {
+      "label": "Αυτόματη αναπαραγωγή"
+    },
+    "isReverse": {
+      "label": "Αντίστροφη σειρά"
+    },
+    "labelContent": {
+      "label": "Προβολή",
+      "options": {
+        "isoCode": "Κωδικοί ISO",
+        "name": "Ονόματα στα Αγγλικά",
+        "nativeName": "Ονόματα στη μητρική γλώσσα"
+      }
+    },
+    "labelSize": {
+      "label": "Μέγεθος ετικέτας"
+    },
+    "sortBy": {
+      "label": "Ταξινόμηση",
+      "options": {
+        "alphabetically": "Αλφαβητική σειρά",
+        "caseCount": "Αριθμός πτώσεων",
+        "evidentiality": "Ευιδεντικότητα",
+        "family": "Γλωσσική οικογένεια",
+        "morphology": "Μορφολογία",
+        "nounClassCount": "Ονοματικές κλάσεις",
+        "phonemeCount": "Αριθμός φωνημάτων",
+        "speakers": "Αριθμός ομιλητών",
+        "tonality": "Τονικότητα",
+        "verbAspect": "Ρηματική όψη",
+        "wordOrder": "Σειρά λέξεων",
+        "wordOrderFlexibility": "Ευελιξία σειράς λέξεων"
+      }
+    },
+    "isBlackboard": {
+      "label": "Πίνακας"
+    }
+  },
+  "filters": {
+    "all": "Όλα",
+    "allowMultipleChoices": "Επιτρέπονται πολλαπλές επιλογές",
+    "results": "Αποτελέσματα φίλτρου ({count})",
+    "title": "Φιλτράρισμα κατά"
+  },
+  "linguistic": {
+    "caseCount": {
+      "name": "Αριθμός πτώσεων"
+    },
+    "evidentiality": {
+      "name": "Ευιδεντικότητα",
+      "values": {
+        "complex": {
+          "label": "Σύνθετη"
+        },
+        "moderate": {
+          "label": "Μέτρια"
+        },
+        "none": {
+          "label": "Καμία"
+        },
+        "optional": {
+          "label": "Προαιρετική"
+        },
+        "simple": {
+          "label": "Απλή"
+        }
+      }
+    },
+    "family": {
+      "name": "Γλωσσική οικογένεια"
+    },
+    "morphology": {
+      "name": "Μορφολογία",
+      "values": {
+        "agglutinative": {
+          "label": "Συγκολλητική"
+        },
+        "fusional": {
+          "label": "Κλιτική"
+        },
+        "introflexive": {
+          "label": "Εσωκλιτική"
+        },
+        "isolating": {
+          "label": "Μονοσυλλαβική"
+        },
+        "polysynthetic": {
+          "label": "Πολυσυνθετική"
+        }
+      }
+    },
+    "nounClassCount": {
+      "name": "Ονοματικές κλάσεις / γένη"
+    },
+    "phonemeCount": {
+      "name": "Αριθμός φωνημάτων"
+    },
+    "tonality": {
+      "name": "Τονικότητα",
+      "values": {
+        "complex-tonal": {
+          "label": "Σύνθετα τονική"
+        },
+        "non-tonal": {
+          "label": "Μη τονική"
+        },
+        "pitch-accent": {
+          "label": "Τονικού ύψους"
+        },
+        "simple-tonal": {
+          "label": "Απλά τονική"
+        }
+      }
+    },
+    "verbAspect": {
+      "name": "Ρηματική όψη",
+      "values": {
+        "binary": {
+          "label": "Δυαδική"
+        },
+        "complex": {
+          "label": "Σύνθετη"
+        },
+        "minimal": {
+          "label": "Ελάχιστη"
+        },
+        "simple": {
+          "label": "Απλή"
+        }
+      }
+    },
+    "wordOrder": {
+      "name": "Σειρά λέξεων",
+      "values": {
+        "SOV": {
+          "label": "ΥΑΡ"
+        },
+        "SVO": {
+          "label": "ΥΡΑ"
+        },
+        "VOS": {
+          "label": "ΡΑΥ"
+        },
+        "VSO": {
+          "label": "ΡΥΑ"
+        }
+      }
+    },
+    "wordOrderFlexibility": {
+      "name": "Ευελιξία σειράς λέξεων",
+      "values": {
+        "flexible": {
+          "label": "Ευέλικτη"
+        },
+        "rigid": {
+          "label": "Αυστηρή"
+        },
+        "semi-flexible": {
+          "label": "Ημι-ευέλικτη"
+        }
+      }
+    }
+  },
+  "menu": {
+    "close": "Κλείσιμο μενού",
+    "open": "Άνοιγμα μενού",
+    "languageSelector": "Γλώσσα εφαρμογής",
+    "reset": "Επαναφορά"
+  },
+  "playlist": {
+    "controls": "Στοιχεία ελέγχου λίστας αναπαραγωγής",
+    "goToBeginning": "Μετάβαση στην αρχή (πλήκτρο Home)",
+    "next": "Επόμενο κομμάτι (πλήκτρο δεξί βέλος)",
+    "pause": "Παύση",
+    "play": "Αναπαραγωγή",
+    "stop": "Διακοπή",
+    "previous": "Προηγούμενο κομμάτι (πλήκτρο αριστερό βέλος)",
+    "progress": "{current} από {total}",
+    "toggleLoop": "Εναλλαγή επανάληψης (πλήκτρο L)"
+  },
+  "search": {
+    "clear": "Καθαρισμός αναζήτησης",
+    "label": "Αναζήτηση",
+    "noResults": "Δεν βρέθηκαν γλώσσες που να ταιριάζουν με \"{term}\"",
+    "results": "Αποτελέσματα αναζήτησης ({count})",
+    "threshold": "Πληκτρολογήστε τουλάχιστον {threshold} χαρακτήρες για αναζήτηση...",
+    "viewAll": "Προβολή όλων"
+  },
+  "tabs": {
+    "controls": "Στοιχεία ελέγχου",
+    "filters": "Φίλτρα",
+    "languages": "Γλώσσες",
+    "search": "Αναζήτηση"
+  },
+  "overlay": {
+    "slogan": "Όσες περισσότερες γλώσσες ξέρεις, τόσο περισσότερο αξίζεις.",
+    "emptyFilter": "Δεν υπάρχουν γλώσσες για αυτόν τον συνδυασμό φίλτρων. Πιθανώς επιλέξατε πάρα πολλά φίλτρα."
+  },
+  "idCard": {
+    "sourceVideo": "Πηγαίο βίντεο",
+    "opensInNewTab": "ανοίγει σε νέα καρτέλα"
+  }
+}
