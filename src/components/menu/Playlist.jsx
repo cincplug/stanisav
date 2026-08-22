@@ -66,6 +66,7 @@ export default function Playlist() {
           goToBegin();
           break;
         case "s":
+        case "Escape":
           if (isOnInteractiveElement) break;
           e.preventDefault();
           handleStop();
