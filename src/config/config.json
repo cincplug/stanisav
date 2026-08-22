@@ -110,7 +110,7 @@
     "tuftColorStep": 33
   },
   "audioVisualisation": {
-    "soundSource": ["o-l", "l", "o", "l-o"],
+    "soundSource": ["l-o", "o-l", "l", "o"],
     "fundamentalMax": 800,
     "fundamentalMin": 85,
     "harmonicsMax": 4000,
