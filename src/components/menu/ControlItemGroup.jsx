@@ -59,10 +59,14 @@ function ControlItemGroup({ groupName, showFieldset = false }) {
     />
   ));
 
+  const { config } = useConfigContext();
+  const { usesCamelCase } = config;
+  const legend = usesCamelCase ? groupName : formatCamelCase(groupName);
+
   if (showFieldset) {
     return (
       <fieldset className="control-group">
-        <legend>{formatCamelCase(groupName)}</legend>
+        <legend>{legend}</legend>
         <div className="controls-grid">{items}</div>
       </fieldset>
     );

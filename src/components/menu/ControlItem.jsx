@@ -2,7 +2,8 @@ import { resolveControlBounds } from "../../utils/configUtils";
 import { formatCamelCase } from "../../utils/stringUtils.js";
 import { RefreshIcon } from "../Icons.jsx";
 import Range from "../ux/Range.jsx";
-import Select from "../ux/Select";
+import Select from "../ux/Select.jsx";
+import { useConfigContext } from "../../contexts/ConfigContext.jsx";
 
 // control shape: { dotKey, type, label, options, value, isChanged }
 // type and options are inferred upstream by inferControlType
@@ -14,7 +15,9 @@ const ControlItem = ({
   controlIndex = 0,
 }) => {
   const { dotKey, type, label: rawLabel, options, value, isChanged } = control;
-  const label = formatCamelCase(rawLabel);
+  const { config } = useConfigContext();
+  const { usesCamelCase } = config;
+  const label = usesCamelCase ? rawLabel : formatCamelCase(rawLabel);
 
   const handleChange = (newValue) => {
     const processedValue = type === "range" ? parseFloat(newValue) : newValue;

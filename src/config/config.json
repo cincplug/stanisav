@@ -1,4 +1,7 @@
 {
+  "controls": {
+    "usesCamelCase": true
+  },
   "header": {
     "sortBy": [
       "alphabetically",

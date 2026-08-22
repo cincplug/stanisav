@@ -68,6 +68,10 @@ const ControlsTab = ({ className }) => {
 
   return (
     <div className={`control-section ${className}`}>
+      <p>
+        Sorry, this section is not just in English but also in camelCase. That's
+        because it's generated from config
+      </p>
       {visibleGroupNames.map((groupName) => (
         <ControlItemGroup key={groupName} groupName={groupName} showFieldset />
       ))}
