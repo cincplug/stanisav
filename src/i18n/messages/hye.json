@@ -1,0 +1,211 @@
+{
+  "controls": {
+    "showMore": {
+      "label": "Ցույց տալ ավելին"
+    },
+    "isIdCardVisible": {
+      "label": "Ինքնության քարտ"
+    },
+    "isAutoplay": {
+      "label": "Ինքնաշխատ նվագարկում"
+    },
+    "isReverse": {
+      "label": "Հակառակ հերթականություն"
+    },
+    "labelContent": {
+      "label": "Ցուցադրում",
+      "options": {
+        "isoCode": "ISO կոդեր",
+        "name": "Անուններ անգլերենով",
+        "nativeName": "Անուններ մայրենի լեզվով"
+      }
+    },
+    "labelSize": {
+      "label": "Պիտակի չափ"
+    },
+    "sortBy": {
+      "label": "Դասավորում",
+      "options": {
+        "alphabetically": "Այբբենական կարգով",
+        "caseCount": "Հոլովների քանակ",
+        "evidentiality": "Ապացուցելիության կարգ",
+        "family": "Լեզվաընտանիք",
+        "morphology": "Ձևաբանություն",
+        "nounClassCount": "Գոյականի դասեր",
+        "phonemeCount": "Հնչույթների քանակ",
+        "speakers": "Խոսողների թիվ",
+        "tonality": "Տոնայնություն",
+        "verbAspect": "Բայի կերպ",
+        "wordOrder": "Բառակարգ",
+        "wordOrderFlexibility": "Բառակարգի ճկունություն"
+      }
+    },
+    "isBlackboard": {
+      "label": "Գրատախտակ"
+    }
+  },
+  "filters": {
+    "all": "Բոլորը",
+    "allowMultipleChoices": "Թույլատրել բազմակի ընտրություն",
+    "results": "Զտման արդյունքներ ({count})",
+    "title": "Զտել ըստ"
+  },
+  "linguistic": {
+    "caseCount": {
+      "name": "Հոլովների քանակ"
+    },
+    "evidentiality": {
+      "name": "Ապացուցելիության կարգ",
+      "values": {
+        "complex": {
+          "label": "Բարդ"
+        },
+        "moderate": {
+          "label": "Չափավոր"
+        },
+        "none": {
+          "label": "Բացակայում է"
+        },
+        "optional": {
+          "label": "Ընտրովի"
+        },
+        "simple": {
+          "label": "Պարզ"
+        }
+      }
+    },
+    "family": {
+      "name": "Լեզվաընտանիք"
+    },
+    "morphology": {
+      "name": "Ձևաբանություն",
+      "values": {
+        "agglutinative": {
+          "label": "Կցական"
+        },
+        "fusional": {
+          "label": "Միաձուլական"
+        },
+        "introflexive": {
+          "label": "Ներքին հոլովման"
+        },
+        "isolating": {
+          "label": "Մեկուսացնող"
+        },
+        "polysynthetic": {
+          "label": "Բազմասինթետիկ"
+        }
+      }
+    },
+    "nounClassCount": {
+      "name": "Գոյականի դասեր / սեռեր"
+    },
+    "phonemeCount": {
+      "name": "Հնչույթների քանակ"
+    },
+    "tonality": {
+      "name": "Տոնայնություն",
+      "values": {
+        "complex-tonal": {
+          "label": "Բարդ տոնային"
+        },
+        "non-tonal": {
+          "label": "Ոչ տոնային"
+        },
+        "pitch-accent": {
+          "label": "Հնչերանգային շեշտ"
+        },
+        "simple-tonal": {
+          "label": "Պարզ տոնային"
+        }
+      }
+    },
+    "verbAspect": {
+      "name": "Բայի կերպ",
+      "values": {
+        "binary": {
+          "label": "Երկուական"
+        },
+        "complex": {
+          "label": "Բարդ"
+        },
+        "minimal": {
+          "label": "Նվազագույն"
+        },
+        "simple": {
+          "label": "Պարզ"
+        }
+      }
+    },
+    "wordOrder": {
+      "name": "Բառակարգ",
+      "values": {
+        "SOV": {
+          "label": "SOV"
+        },
+        "SVO": {
+          "label": "SVO"
+        },
+        "VOS": {
+          "label": "VOS"
+        },
+        "VSO": {
+          "label": "VSO"
+        }
+      }
+    },
+    "wordOrderFlexibility": {
+      "name": "Բառակարգի ճկունություն",
+      "values": {
+        "flexible": {
+          "label": "Ճկուն"
+        },
+        "rigid": {
+          "label": "Կոշտ"
+        },
+        "semi-flexible": {
+          "label": "Կիսաճկուն"
+        }
+      }
+    }
+  },
+  "menu": {
+    "close": "Փակել մենյուն",
+    "open": "Բացել մենյուն",
+    "languageSelector": "Հավելվածի լեզու",
+    "reset": "Վերականգնել"
+  },
+  "playlist": {
+    "controls": "Նվագացանկի կառավարում",
+    "goToBeginning": "Անցնել սկիզբ (Home ստեղն)",
+    "next": "Հաջորդ ձայնագրություն (աջ սլաք)",
+    "pause": "Դադար",
+    "play": "Նվագարկել",
+    "stop": "Կանգնեցնել",
+    "previous": "Նախորդ ձայնագրություն (ձախ սլաք)",
+    "progress": "{current}-ը {total}-ից",
+    "toggleLoop": "Փոխարկել կրկնությունը (L ստեղն)"
+  },
+  "search": {
+    "clear": "Մաքրել որոնումը",
+    "label": "Որոնում",
+    "noResults": "Ոչ մի լեզու չի գտնվել \"{term}\" արտահայտության համար",
+    "results": "Որոնման արդյունքներ ({count})",
+    "threshold": "Մուտքագրեք առնվազն {threshold} նիշ՝ որոնելու համար...",
+    "viewAll": "Դիտել բոլորը"
+  },
+  "tabs": {
+    "controls": "Կառավարում",
+    "filters": "Զտիչներ",
+    "languages": "Լեզուներ",
+    "search": "Որոնում"
+  },
+  "overlay": {
+    "slogan": "Որքան շատ լեզուներ գիտես, այնքան ավելի արժեքավոր ես",
+    "emptyFilter": "Այս զտիչների համակցությանը համապատասխանող լեզուներ չկան։ Հավանաբար չափազանց շատ զտիչներ եք ընտրել։"
+  },
+  "idCard": {
+    "sourceVideo": "Սկզբնաղբյուր տեսանյութ",
+    "opensInNewTab": "բացվում է նոր ներդիրում"
+  }
+}
