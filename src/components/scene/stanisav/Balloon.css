@@ -1,8 +1,8 @@
 .speech-balloon {
   display: inline-flex;
   align-items: center;
-  max-width: var(--panel-width);
-  min-width: calc(var(--panel-width) / 2);
+  max-width: var(--balloon-width);
+  min-width: calc(var(--balloon-width) / 2);
   pointer-events: none;
   text-wrap: balance;
 

@@ -17,6 +17,7 @@
 
   /* Layout */
   --panel-width: 375px;
+  --balloon-width: 480px;
   --readable-width: 600px;
   --container-width: 1200px;
   --gap: 0.5rem;

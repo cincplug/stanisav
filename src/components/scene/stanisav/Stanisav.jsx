@@ -77,8 +77,12 @@ const Stanisav = ({
     return data?.languages?.[languageCode];
   }, [imposedProperties, data.languages]);
 
-  const { isStanisavSequenceDone, isEntranceComplete, onStanisavSequenceDone } =
-    useEntranceContext();
+  const {
+    isStanisavSequenceDone,
+    isBalloonSequenceDone,
+    isEntranceComplete,
+    onStanisavSequenceDone,
+  } = useEntranceContext();
 
   const color = languageColors[languageCode];
   const stripesType =
@@ -185,7 +189,8 @@ const Stanisav = ({
     const nearestFullRotation = (value) =>
       Math.round(value / (Math.PI * 2)) * (Math.PI * 2);
 
-    const isSpinPaused = selectedLanguage && !isPlaying;
+    const isSpinPaused =
+      !isBalloonSequenceDone || (selectedLanguage && !isPlaying);
 
     if (isSpinPaused) {
       rotationYRef.current = dampTo(
