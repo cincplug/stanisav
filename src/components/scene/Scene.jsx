@@ -17,7 +17,6 @@ import Camera from "./Camera";
 import Labels from "./Labels";
 import Light from "./Light";
 import Stanisav from "./stanisav/Stanisav";
-import Balloon from "./stanisav/Balloon";
 import OrbitModifier from "./OrbitModifier";
 import SceneReadyGate from "./SceneReadyGate";
 
@@ -192,11 +191,6 @@ const Scene = () => {
         isMotionReduced={isMotionReduced}
         renderOrder={languages.length}
         wideScale={stanisavWideScale}
-      />
-
-      <Balloon
-        position={selectedLanguage ? "top" : "top"}
-        anchorOffset={[0, sphereRadius / 2, 0]}
       />
     </Canvas>
   );

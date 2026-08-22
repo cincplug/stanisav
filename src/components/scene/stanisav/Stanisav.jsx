@@ -77,12 +77,8 @@ const Stanisav = ({
     return data?.languages?.[languageCode];
   }, [imposedProperties, data.languages]);
 
-  const {
-    isStanisavSequenceDone,
-    isBalloonSequenceDone,
-    isEntranceComplete,
-    onStanisavSequenceDone,
-  } = useEntranceContext();
+  const { isStanisavSequenceDone, isEntranceComplete, onStanisavSequenceDone } =
+    useEntranceContext();
 
   const color = languageColors[languageCode];
   const stripesType =
@@ -189,8 +185,7 @@ const Stanisav = ({
     const nearestFullRotation = (value) =>
       Math.round(value / (Math.PI * 2)) * (Math.PI * 2);
 
-    const isSpinPaused =
-      !isBalloonSequenceDone || (selectedLanguage && !isPlaying);
+    const isSpinPaused = selectedLanguage && !isPlaying;
 
     if (isSpinPaused) {
       rotationYRef.current = dampTo(
@@ -289,6 +284,10 @@ const Stanisav = ({
             stepDeg={12}
           />
         )}
+        <Balloon
+          position={"top-right"}
+          anchorOffset={[0, eyeY + eyeSize * 2, eyeZ]}
+        />
       </group>
     </a.group>
   );

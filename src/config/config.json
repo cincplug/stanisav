@@ -178,8 +178,8 @@
   "speechBalloon": {
     "defaultPosition": "top-right",
     "durationBase": 1500,
-    "durationDismiss": 400,
-    "durationPerLetter": 30
+    "durationDismiss": 700,
+    "durationPerLetter": 40
   },
   "entrance": {
     "entranceAxis": ["z", "x", "y"],
