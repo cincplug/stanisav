@@ -185,8 +185,7 @@ const Stanisav = ({
     const nearestFullRotation = (value) =>
       Math.round(value / (Math.PI * 2)) * (Math.PI * 2);
 
-    const isSpinPaused =
-      !isEntranceComplete || (selectedLanguage && !isPlaying);
+    const isSpinPaused = selectedLanguage && !isPlaying;
 
     if (isSpinPaused) {
       rotationYRef.current = dampTo(
