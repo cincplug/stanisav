@@ -1,0 +1,211 @@
+{
+  "controls": {
+    "showMore": {
+      "label": "הצג עוד"
+    },
+    "isIdCardVisible": {
+      "label": "כרטיס זהות"
+    },
+    "isAutoplay": {
+      "label": "הפעלה אוטומטית"
+    },
+    "isReverse": {
+      "label": "סדר הפוך"
+    },
+    "labelContent": {
+      "label": "תצוגה",
+      "options": {
+        "isoCode": "קודי ISO",
+        "name": "שמות באנגלית",
+        "nativeName": "שמות בשפת המקור"
+      }
+    },
+    "labelSize": {
+      "label": "גודל תווית"
+    },
+    "sortBy": {
+      "label": "מיון",
+      "options": {
+        "alphabetically": "סדר אלפביתי",
+        "caseCount": "מספר יחסות",
+        "evidentiality": "אוידנציאליות",
+        "family": "משפחת שפות",
+        "morphology": "מורפולוגיה",
+        "nounClassCount": "מחלקות שם עצם",
+        "phonemeCount": "מספר פונמות",
+        "speakers": "מספר דוברים",
+        "tonality": "טונאליות",
+        "verbAspect": "היבט פועל",
+        "wordOrder": "סדר מילים",
+        "wordOrderFlexibility": "גמישות סדר מילים"
+      }
+    },
+    "isBlackboard": {
+      "label": "לוח"
+    }
+  },
+  "filters": {
+    "all": "הכול",
+    "allowMultipleChoices": "אפשר בחירות מרובות",
+    "results": "תוצאות סינון ({count})",
+    "title": "סנן לפי"
+  },
+  "linguistic": {
+    "caseCount": {
+      "name": "מספר יחסות"
+    },
+    "evidentiality": {
+      "name": "אוידנציאליות",
+      "values": {
+        "complex": {
+          "label": "מורכבת"
+        },
+        "moderate": {
+          "label": "בינונית"
+        },
+        "none": {
+          "label": "ללא"
+        },
+        "optional": {
+          "label": "אופציונלית"
+        },
+        "simple": {
+          "label": "פשוטה"
+        }
+      }
+    },
+    "family": {
+      "name": "משפחת שפות"
+    },
+    "morphology": {
+      "name": "מורפולוגיה",
+      "values": {
+        "agglutinative": {
+          "label": "אגלוטינטיבית"
+        },
+        "fusional": {
+          "label": "היתוכית"
+        },
+        "introflexive": {
+          "label": "אינטרופלקטיבית"
+        },
+        "isolating": {
+          "label": "בידודית"
+        },
+        "polysynthetic": {
+          "label": "פוליסינתטית"
+        }
+      }
+    },
+    "nounClassCount": {
+      "name": "מחלקות שם עצם / מגדרים"
+    },
+    "phonemeCount": {
+      "name": "מספר פונמות"
+    },
+    "tonality": {
+      "name": "טונאליות",
+      "values": {
+        "complex-tonal": {
+          "label": "טונאלית מורכבת"
+        },
+        "non-tonal": {
+          "label": "לא טונאלית"
+        },
+        "pitch-accent": {
+          "label": "הטעמת גובה"
+        },
+        "simple-tonal": {
+          "label": "טונאלית פשוטה"
+        }
+      }
+    },
+    "verbAspect": {
+      "name": "היבט פועל",
+      "values": {
+        "binary": {
+          "label": "בינארי"
+        },
+        "complex": {
+          "label": "מורכב"
+        },
+        "minimal": {
+          "label": "מינימלי"
+        },
+        "simple": {
+          "label": "פשוט"
+        }
+      }
+    },
+    "wordOrder": {
+      "name": "סדר מילים",
+      "values": {
+        "SOV": {
+          "label": "נ-מ-פ"
+        },
+        "SVO": {
+          "label": "נ-פ-מ"
+        },
+        "VOS": {
+          "label": "פ-מ-נ"
+        },
+        "VSO": {
+          "label": "פ-נ-מ"
+        }
+      }
+    },
+    "wordOrderFlexibility": {
+      "name": "גמישות סדר מילים",
+      "values": {
+        "flexible": {
+          "label": "גמישה"
+        },
+        "rigid": {
+          "label": "קשיחה"
+        },
+        "semi-flexible": {
+          "label": "חצי-גמישה"
+        }
+      }
+    }
+  },
+  "menu": {
+    "close": "סגור תפריט",
+    "open": "פתח תפריט",
+    "languageSelector": "שפת האפליקציה",
+    "reset": "איפוס"
+  },
+  "playlist": {
+    "controls": "בקרות רשימת השמעה",
+    "goToBeginning": "מעבר להתחלה (מקש Home)",
+    "next": "הטראק הבא (חץ ימינה)",
+    "pause": "השהה",
+    "play": "נגן",
+    "stop": "עצור",
+    "previous": "הטראק הקודם (חץ שמאלה)",
+    "progress": "{current} מתוך {total}",
+    "toggleLoop": "החלף מצב לולאה (מקש L)"
+  },
+  "search": {
+    "clear": "נקה חיפוש",
+    "label": "חיפוש",
+    "noResults": "לא נמצאו שפות התואמות ל-\"{term}\"",
+    "results": "תוצאות חיפוש ({count})",
+    "threshold": "הקלד לפחות {threshold} תווים כדי לחפש...",
+    "viewAll": "הצג הכול"
+  },
+  "tabs": {
+    "controls": "בקרות",
+    "filters": "מסננים",
+    "languages": "שפות",
+    "search": "חיפוש"
+  },
+  "overlay": {
+    "slogan": "ככל שאתה יודע יותר שפות, כך אתה שווה יותר.",
+    "emptyFilter": "אין שפות התואמות לצירוף הסינון הזה. כנראה בחרת יותר מדי מסננים."
+  },
+  "idCard": {
+    "sourceVideo": "סרטון מקור",
+    "opensInNewTab": "נפתח בכרטיסייה חדשה"
+  }
+}
