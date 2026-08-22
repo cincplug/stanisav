@@ -39,7 +39,6 @@
         "morphology": "形态类型",
         "nounClassCount": "名词类别",
         "phonemeCount": "音素数量",
-        "scripts": "文字",
         "speakers": "使用人数",
         "tonality": "声调性",
         "verbAspect": "动词体",
@@ -110,131 +109,6 @@
     },
     "phonemeCount": {
       "name": "音素数量"
-    },
-    "scripts": {
-      "name": "文字",
-      "values": {
-        "Arabic": {
-          "label": "阿拉伯文"
-        },
-        "Armenian": {
-          "label": "亚美尼亚文"
-        },
-        "Balinese": {
-          "label": "巴厘文"
-        },
-        "Bengali": {
-          "label": "孟加拉文"
-        },
-        "Canadian Aboriginal Syllabics": {
-          "label": "加拿大原住民音节文字"
-        },
-        "Cherokee": {
-          "label": "切罗基文"
-        },
-        "Cyrillic": {
-          "label": "西里尔文"
-        },
-        "Devanagari": {
-          "label": "天城文"
-        },
-        "Ethiopic": {
-          "label": "埃塞俄比亚文"
-        },
-        "Georgian": {
-          "label": "格鲁吉亚文"
-        },
-        "Greek": {
-          "label": "希腊文"
-        },
-        "Gujarati": {
-          "label": "古吉拉特文"
-        },
-        "Gurmukhi": {
-          "label": "果鲁穆奇文"
-        },
-        "Han": {
-          "label": "汉字"
-        },
-        "Hangul": {
-          "label": "谚文"
-        },
-        "Hebrew": {
-          "label": "希伯来文"
-        },
-        "Hiragana": {
-          "label": "平假名"
-        },
-        "Javanese": {
-          "label": "爪哇文"
-        },
-        "Kannada": {
-          "label": "卡纳达文"
-        },
-        "Katakana": {
-          "label": "片假名"
-        },
-        "Khmer": {
-          "label": "高棉文"
-        },
-        "Lao": {
-          "label": "老挝文"
-        },
-        "Latin": {
-          "label": "拉丁文"
-        },
-        "Lepcha": {
-          "label": "雷布查文"
-        },
-        "Malayalam": {
-          "label": "马拉雅拉姆文"
-        },
-        "Meitei Mayek": {
-          "label": "曼尼普尔文"
-        },
-        "Mongolian": {
-          "label": "蒙古文"
-        },
-        "Myanmar": {
-          "label": "缅甸文"
-        },
-        "Newa": {
-          "label": "内瓦文"
-        },
-        "Odia": {
-          "label": "奥里亚文"
-        },
-        "Ol Chiki": {
-          "label": "桑塔利文"
-        },
-        "Sinhala": {
-          "label": "僧伽罗文"
-        },
-        "Sorang Sompeng": {
-          "label": "索朗桑朋文"
-        },
-        "Tamil": {
-          "label": "泰米尔文"
-        },
-        "Telugu": {
-          "label": "泰卢固文"
-        },
-        "Thai": {
-          "label": "泰文"
-        },
-        "Tibetan": {
-          "label": "藏文"
-        },
-        "Tirhuta": {
-          "label": "提尔胡塔文"
-        },
-        "Warang Citi": {
-          "label": "瓦兰齐蒂文"
-        },
-        "Yi": {
-          "label": "彝文"
-        }
-      }
     },
     "tonality": {
       "name": "声调性",

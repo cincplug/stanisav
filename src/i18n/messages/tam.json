@@ -39,7 +39,6 @@
         "morphology": "சொல்லமைப்பியல்",
         "nounClassCount": "பெயர்ச்சொல் வகுப்பு",
         "phonemeCount": "ஒலியன் எண்ணிக்கை",
-        "scripts": "எழுத்து முறைகள்",
         "speakers": "பேசுவோர் எண்ணிக்கை",
         "tonality": "இசைத்தன்மை",
         "verbAspect": "வினைத் தன்மை",
@@ -110,131 +109,6 @@
     },
     "phonemeCount": {
       "name": "ஒலியன் எண்ணிக்கை"
-    },
-    "scripts": {
-      "name": "நூல்கள்",
-      "values": {
-        "Arabic": {
-          "label": "அரபி"
-        },
-        "Armenian": {
-          "label": "ஆர்மேனியன்"
-        },
-        "Balinese": {
-          "label": "பாலினீஸ்"
-        },
-        "Bengali": {
-          "label": "வங்காளி"
-        },
-        "Canadian Aboriginal Syllabics": {
-          "label": "கனடிய பழங்குடி எழுத்துக்கள்"
-        },
-        "Cherokee": {
-          "label": "செரோகி"
-        },
-        "Cyrillic": {
-          "label": "சிரிலிக்"
-        },
-        "Devanagari": {
-          "label": "தேவநாகரி"
-        },
-        "Ethiopic": {
-          "label": "எத்தியோப்பிக்"
-        },
-        "Georgian": {
-          "label": "ஜார்ஜியன்"
-        },
-        "Greek": {
-          "label": "கிரேக்கம்"
-        },
-        "Gujarati": {
-          "label": "குஜராத்தி"
-        },
-        "Gurmukhi": {
-          "label": "குர்முகி"
-        },
-        "Han": {
-          "label": "ஹான்"
-        },
-        "Hangul": {
-          "label": "ஹங்குல்"
-        },
-        "Hebrew": {
-          "label": "எபிரேயம்"
-        },
-        "Hiragana": {
-          "label": "ஹிரகானா"
-        },
-        "Javanese": {
-          "label": "ஜாவானீஸ்"
-        },
-        "Kannada": {
-          "label": "கன்னடம்"
-        },
-        "Katakana": {
-          "label": "கடகானா"
-        },
-        "Khmer": {
-          "label": "கமர்"
-        },
-        "Lao": {
-          "label": "லாவோ"
-        },
-        "Latin": {
-          "label": "லத்தீன்"
-        },
-        "Lepcha": {
-          "label": "லெப்சா"
-        },
-        "Malayalam": {
-          "label": "மலையாளம்"
-        },
-        "Meitei Mayek": {
-          "label": "மெய்தெய் மாயேக்"
-        },
-        "Mongolian": {
-          "label": "மங்கோலியன்"
-        },
-        "Myanmar": {
-          "label": "மியான்மர்"
-        },
-        "Newa": {
-          "label": "நேவா"
-        },
-        "Odia": {
-          "label": "ஒடியா"
-        },
-        "Ol Chiki": {
-          "label": "ஓல் சிக்கி"
-        },
-        "Sinhala": {
-          "label": "சிங்களம்"
-        },
-        "Sorang Sompeng": {
-          "label": "சோரங் சொம்பெங்"
-        },
-        "Tamil": {
-          "label": "தமிழ்"
-        },
-        "Telugu": {
-          "label": "தெலுங்கு"
-        },
-        "Thai": {
-          "label": "தாய்"
-        },
-        "Tibetan": {
-          "label": "திபெத்தியன்"
-        },
-        "Tirhuta": {
-          "label": "திர்ஹுதா"
-        },
-        "Warang Citi": {
-          "label": "வாரங் சிட்டி"
-        },
-        "Yi": {
-          "label": "யி"
-        }
-      }
     },
     "tonality": {
       "name": "இசைத்தன்மை",

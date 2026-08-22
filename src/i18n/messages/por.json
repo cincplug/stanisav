@@ -39,7 +39,6 @@
         "morphology": "Morfologia",
         "nounClassCount": "Classes nominais",
         "phonemeCount": "Número de fonemas",
-        "scripts": "Escritas",
         "speakers": "Número de falantes",
         "tonality": "Tonalidade",
         "verbAspect": "Aspeto verbal",
@@ -110,131 +109,6 @@
     },
     "phonemeCount": {
       "name": "Número de fonemas"
-    },
-    "scripts": {
-      "name": "Escritas",
-      "values": {
-        "Arabic": {
-          "label": "Árabe"
-        },
-        "Armenian": {
-          "label": "Armênio"
-        },
-        "Balinese": {
-          "label": "Balinês"
-        },
-        "Bengali": {
-          "label": "Bengali"
-        },
-        "Canadian Aboriginal Syllabics": {
-          "label": "Silabários aborígenes canadenses"
-        },
-        "Cherokee": {
-          "label": "Cherokee"
-        },
-        "Cyrillic": {
-          "label": "Cirílico"
-        },
-        "Devanagari": {
-          "label": "Devanágari"
-        },
-        "Ethiopic": {
-          "label": "Etíope"
-        },
-        "Georgian": {
-          "label": "Georgiano"
-        },
-        "Greek": {
-          "label": "Grego"
-        },
-        "Gujarati": {
-          "label": "Guzerate"
-        },
-        "Gurmukhi": {
-          "label": "Gurmukhi"
-        },
-        "Han": {
-          "label": "Han"
-        },
-        "Hangul": {
-          "label": "Hangul"
-        },
-        "Hebrew": {
-          "label": "Hebraico"
-        },
-        "Hiragana": {
-          "label": "Hiragana"
-        },
-        "Javanese": {
-          "label": "Javanês"
-        },
-        "Kannada": {
-          "label": "Canarim"
-        },
-        "Katakana": {
-          "label": "Katakana"
-        },
-        "Khmer": {
-          "label": "Khmer"
-        },
-        "Lao": {
-          "label": "Lao"
-        },
-        "Latin": {
-          "label": "Latino"
-        },
-        "Lepcha": {
-          "label": "Lepcha"
-        },
-        "Malayalam": {
-          "label": "Malaiala"
-        },
-        "Meitei Mayek": {
-          "label": "Meitei Mayek"
-        },
-        "Mongolian": {
-          "label": "Mongol"
-        },
-        "Myanmar": {
-          "label": "Birmanês"
-        },
-        "Newa": {
-          "label": "Newa"
-        },
-        "Odia": {
-          "label": "Odia"
-        },
-        "Ol Chiki": {
-          "label": "Ol Chiki"
-        },
-        "Sinhala": {
-          "label": "Cingalês"
-        },
-        "Sorang Sompeng": {
-          "label": "Sorang Sompeng"
-        },
-        "Tamil": {
-          "label": "Tâmil"
-        },
-        "Telugu": {
-          "label": "Telugu"
-        },
-        "Thai": {
-          "label": "Tailandês"
-        },
-        "Tibetan": {
-          "label": "Tibetano"
-        },
-        "Tirhuta": {
-          "label": "Tirhuta"
-        },
-        "Warang Citi": {
-          "label": "Warang Citi"
-        },
-        "Yi": {
-          "label": "Yi"
-        }
-      }
     },
     "tonality": {
       "name": "Tonalidade",

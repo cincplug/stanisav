@@ -39,7 +39,6 @@
         "morphology": "Morfologija",
         "nounClassCount": "Imeničke klase",
         "phonemeCount": "Broj fonema",
-        "scripts": "Pisma",
         "speakers": "Broj govornika",
         "tonality": "Tonalnost",
         "verbAspect": "Glagolski vid",
@@ -110,131 +109,6 @@
     },
     "phonemeCount": {
       "name": "Broj fonema"
-    },
-    "scripts": {
-      "name": "Pisma",
-      "values": {
-        "Arabic": {
-          "label": "Arapsko"
-        },
-        "Armenian": {
-          "label": "Jermensko"
-        },
-        "Balinese": {
-          "label": "Balijsko"
-        },
-        "Bengali": {
-          "label": "Bengalsko"
-        },
-        "Canadian Aboriginal Syllabics": {
-          "label": "Kanadsko slogovno pismo"
-        },
-        "Cherokee": {
-          "label": "Cherokijsko"
-        },
-        "Cyrillic": {
-          "label": "Ćirilica"
-        },
-        "Devanagari": {
-          "label": "Devanagari"
-        },
-        "Ethiopic": {
-          "label": "Etiopsko"
-        },
-        "Georgian": {
-          "label": "Gruzijsko"
-        },
-        "Greek": {
-          "label": "Grčko"
-        },
-        "Gujarati": {
-          "label": "Gudžaratsko"
-        },
-        "Gurmukhi": {
-          "label": "Gurmuki"
-        },
-        "Han": {
-          "label": "Kinesko"
-        },
-        "Hangul": {
-          "label": "Hangul"
-        },
-        "Hebrew": {
-          "label": "Hebrejsko"
-        },
-        "Hiragana": {
-          "label": "Hiragana"
-        },
-        "Javanese": {
-          "label": "Javansko"
-        },
-        "Kannada": {
-          "label": "Kanada"
-        },
-        "Katakana": {
-          "label": "Katakana"
-        },
-        "Khmer": {
-          "label": "Kmersko"
-        },
-        "Lao": {
-          "label": "Laosko"
-        },
-        "Latin": {
-          "label": "Latinica"
-        },
-        "Lepcha": {
-          "label": "Lepča"
-        },
-        "Malayalam": {
-          "label": "Malajalamsko"
-        },
-        "Meitei Mayek": {
-          "label": "Mejtej Majek"
-        },
-        "Mongolian": {
-          "label": "Mongolsko"
-        },
-        "Myanmar": {
-          "label": "Mjanmarsko"
-        },
-        "Newa": {
-          "label": "Neva"
-        },
-        "Odia": {
-          "label": "Odija"
-        },
-        "Ol Chiki": {
-          "label": "Ol Čiki"
-        },
-        "Sinhala": {
-          "label": "Sinhalsko"
-        },
-        "Sorang Sompeng": {
-          "label": "Sorang Sompeng"
-        },
-        "Tamil": {
-          "label": "Tamilsko"
-        },
-        "Telugu": {
-          "label": "Telugu"
-        },
-        "Thai": {
-          "label": "Tajsko"
-        },
-        "Tibetan": {
-          "label": "Tibetansko"
-        },
-        "Tirhuta": {
-          "label": "Tirhuta"
-        },
-        "Warang Citi": {
-          "label": "Varang Siti"
-        },
-        "Yi": {
-          "label": "Ji"
-        }
-      }
     },
     "tonality": {
       "name": "Tonalnost",

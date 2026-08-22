@@ -39,7 +39,6 @@
         "morphology": "الصرف",
         "nounClassCount": "فئة الأسماء",
         "phonemeCount": "عدد الفونيمات",
-        "scripts": "أنظمة الكتابة",
         "speakers": "عدد المتحدثين",
         "tonality": "النبرية",
         "verbAspect": "جهة الفعل",
@@ -110,131 +109,6 @@
     },
     "phonemeCount": {
       "name": "عدد الفونيمات"
-    },
-    "scripts": {
-      "name": "أنظمة الكتابة",
-      "values": {
-        "Arabic": {
-          "label": "عربي"
-        },
-        "Armenian": {
-          "label": "أرمني"
-        },
-        "Balinese": {
-          "label": "بالي"
-        },
-        "Bengali": {
-          "label": "بنغالي"
-        },
-        "Canadian Aboriginal Syllabics": {
-          "label": "المقاطع الكندية الأصلية"
-        },
-        "Cherokee": {
-          "label": "شيروكي"
-        },
-        "Cyrillic": {
-          "label": "سيريلي"
-        },
-        "Devanagari": {
-          "label": "ديفاناغاري"
-        },
-        "Ethiopic": {
-          "label": "إثيوبي"
-        },
-        "Georgian": {
-          "label": "جورجي"
-        },
-        "Greek": {
-          "label": "يوناني"
-        },
-        "Gujarati": {
-          "label": "غوجاراتي"
-        },
-        "Gurmukhi": {
-          "label": "غورموخي"
-        },
-        "Han": {
-          "label": "هان"
-        },
-        "Hangul": {
-          "label": "هانغول"
-        },
-        "Hebrew": {
-          "label": "عبري"
-        },
-        "Hiragana": {
-          "label": "هيراغانا"
-        },
-        "Javanese": {
-          "label": "جاوي"
-        },
-        "Kannada": {
-          "label": "كانادا"
-        },
-        "Katakana": {
-          "label": "كاتاكانا"
-        },
-        "Khmer": {
-          "label": "خميري"
-        },
-        "Lao": {
-          "label": "لاوي"
-        },
-        "Latin": {
-          "label": "لاتيني"
-        },
-        "Lepcha": {
-          "label": "ليبتشا"
-        },
-        "Malayalam": {
-          "label": "ماليالام"
-        },
-        "Meitei Mayek": {
-          "label": "ميتي ماييك"
-        },
-        "Mongolian": {
-          "label": "منغولي"
-        },
-        "Myanmar": {
-          "label": "ميانمار"
-        },
-        "Newa": {
-          "label": "نيوا"
-        },
-        "Odia": {
-          "label": "أوديا"
-        },
-        "Ol Chiki": {
-          "label": "أول تشيكي"
-        },
-        "Sinhala": {
-          "label": "سنهالي"
-        },
-        "Sorang Sompeng": {
-          "label": "سورانغ سومبينغ"
-        },
-        "Tamil": {
-          "label": "تاميلي"
-        },
-        "Telugu": {
-          "label": "تيلوغو"
-        },
-        "Thai": {
-          "label": "تايلندي"
-        },
-        "Tibetan": {
-          "label": "تبتي"
-        },
-        "Tirhuta": {
-          "label": "تيرهوتا"
-        },
-        "Warang Citi": {
-          "label": "وارانغ سيتي"
-        },
-        "Yi": {
-          "label": "يي"
-        }
-      }
     },
     "tonality": {
       "name": "النبرية",
