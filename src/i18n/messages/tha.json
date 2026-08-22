@@ -1,0 +1,211 @@
+{
+  "controls": {
+    "showMore": {
+      "label": "แสดงเพิ่มเติม"
+    },
+    "isIdCardVisible": {
+      "label": "บัตรประจำตัว"
+    },
+    "isAutoplay": {
+      "label": "เล่นอัตโนมัติ"
+    },
+    "isReverse": {
+      "label": "ลำดับย้อนกลับ"
+    },
+    "labelContent": {
+      "label": "การแสดงผล",
+      "options": {
+        "isoCode": "รหัส ISO",
+        "name": "ชื่อภาษาอังกฤษ",
+        "nativeName": "ชื่อในภาษาต้นฉบับ"
+      }
+    },
+    "labelSize": {
+      "label": "ขนาดป้ายกำกับ"
+    },
+    "sortBy": {
+      "label": "การจัดเรียง",
+      "options": {
+        "alphabetically": "ตามลำดับตัวอักษร",
+        "caseCount": "จำนวนการก",
+        "evidentiality": "ความเป็นหลักฐาน",
+        "family": "ตระกูลภาษา",
+        "morphology": "สัณฐานวิทยา",
+        "nounClassCount": "ประเภทคำนาม",
+        "phonemeCount": "จำนวนหน่วยเสียง",
+        "speakers": "จำนวนผู้พูด",
+        "tonality": "ระบบวรรณยุกต์",
+        "verbAspect": "การณ์ลักษณะของกริยา",
+        "wordOrder": "ลำดับคำ",
+        "wordOrderFlexibility": "ความยืดหยุ่นของลำดับคำ"
+      }
+    },
+    "isBlackboard": {
+      "label": "กระดานดำ"
+    }
+  },
+  "filters": {
+    "all": "ทั้งหมด",
+    "allowMultipleChoices": "อนุญาตให้เลือกได้หลายรายการ",
+    "results": "ผลการกรอง ({count})",
+    "title": "กรองตาม"
+  },
+  "linguistic": {
+    "caseCount": {
+      "name": "จำนวนการก"
+    },
+    "evidentiality": {
+      "name": "ความเป็นหลักฐาน",
+      "values": {
+        "complex": {
+          "label": "ซับซ้อน"
+        },
+        "moderate": {
+          "label": "ปานกลาง"
+        },
+        "none": {
+          "label": "ไม่มี"
+        },
+        "optional": {
+          "label": "ไม่บังคับ"
+        },
+        "simple": {
+          "label": "ธรรมดา"
+        }
+      }
+    },
+    "family": {
+      "name": "ตระกูลภาษา"
+    },
+    "morphology": {
+      "name": "สัณฐานวิทยา",
+      "values": {
+        "agglutinative": {
+          "label": "แบบเกาะติด"
+        },
+        "fusional": {
+          "label": "แบบหลอมรวม"
+        },
+        "introflexive": {
+          "label": "แบบเปลี่ยนภายใน"
+        },
+        "isolating": {
+          "label": "แบบโดดเดี่ยว"
+        },
+        "polysynthetic": {
+          "label": "แบบรวมคำซับซ้อน"
+        }
+      }
+    },
+    "nounClassCount": {
+      "name": "ประเภทคำนาม / เพศคำนาม"
+    },
+    "phonemeCount": {
+      "name": "จำนวนหน่วยเสียง"
+    },
+    "tonality": {
+      "name": "ระบบวรรณยุกต์",
+      "values": {
+        "complex-tonal": {
+          "label": "วรรณยุกต์ซับซ้อน"
+        },
+        "non-tonal": {
+          "label": "ไม่มีวรรณยุกต์"
+        },
+        "pitch-accent": {
+          "label": "เน้นเสียงสูงต่ำ"
+        },
+        "simple-tonal": {
+          "label": "วรรณยุกต์ธรรมดา"
+        }
+      }
+    },
+    "verbAspect": {
+      "name": "การณ์ลักษณะของกริยา",
+      "values": {
+        "binary": {
+          "label": "แบบสองระดับ"
+        },
+        "complex": {
+          "label": "ซับซ้อน"
+        },
+        "minimal": {
+          "label": "น้อยที่สุด"
+        },
+        "simple": {
+          "label": "ธรรมดา"
+        }
+      }
+    },
+    "wordOrder": {
+      "name": "ลำดับคำ",
+      "values": {
+        "SOV": {
+          "label": "SOV"
+        },
+        "SVO": {
+          "label": "SVO"
+        },
+        "VOS": {
+          "label": "VOS"
+        },
+        "VSO": {
+          "label": "VSO"
+        }
+      }
+    },
+    "wordOrderFlexibility": {
+      "name": "ความยืดหยุ่นของลำดับคำ",
+      "values": {
+        "flexible": {
+          "label": "ยืดหยุ่น"
+        },
+        "rigid": {
+          "label": "ตายตัว"
+        },
+        "semi-flexible": {
+          "label": "ยืดหยุ่นบางส่วน"
+        }
+      }
+    }
+  },
+  "menu": {
+    "close": "ปิดเมนู",
+    "open": "เปิดเมนู",
+    "languageSelector": "ภาษาของแอป",
+    "reset": "รีเซ็ต"
+  },
+  "playlist": {
+    "controls": "ตัวควบคุมรายการเล่น",
+    "goToBeginning": "ไปที่จุดเริ่มต้น (ปุ่ม Home)",
+    "next": "แทร็กถัดไป (ลูกศรขวา)",
+    "pause": "หยุดชั่วคราว",
+    "play": "เล่น",
+    "stop": "หยุด",
+    "previous": "แทร็กก่อนหน้า (ลูกศรซ้าย)",
+    "progress": "{current} จาก {total}",
+    "toggleLoop": "สลับโหมดวนซ้ำ (ปุ่ม L)"
+  },
+  "search": {
+    "clear": "ล้างการค้นหา",
+    "label": "ค้นหา",
+    "noResults": "ไม่พบภาษาที่ตรงกับ \"{term}\"",
+    "results": "ผลการค้นหา ({count})",
+    "threshold": "พิมพ์อย่างน้อย {threshold} ตัวอักษรเพื่อค้นหา...",
+    "viewAll": "ดูทั้งหมด"
+  },
+  "tabs": {
+    "controls": "ตัวควบคุม",
+    "filters": "ตัวกรอง",
+    "languages": "ภาษา",
+    "search": "ค้นหา"
+  },
+  "overlay": {
+    "slogan": "ยิ่งรู้หลายภาษามากเท่าไร คุณก็ยิ่งมีค่ามากเท่านั้น",
+    "emptyFilter": "ไม่มีภาษาที่ตรงกับชุดตัวกรองนี้ คุณอาจเลือกตัวกรองมากเกินไป"
+  },
+  "idCard": {
+    "sourceVideo": "วิดีโอต้นฉบับ",
+    "opensInNewTab": "เปิดในแท็บใหม่"
+  }
+}
