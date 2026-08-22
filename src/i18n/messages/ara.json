@@ -9,9 +9,6 @@
     "isIdCardVisible": {
       "label": "بطاقة الهوية"
     },
-    "isMyStanisav": {
-      "label": "أنا Stanisav"
-    },
     "isReverse": {
       "label": "ترتيب عكسي"
     },
@@ -178,7 +175,6 @@
   },
   "menu": {
     "close": "إغلاق القائمة",
-    "isVisual": "مرئي",
     "languageSelector": "لغة التطبيق",
     "open": "فتح القائمة",
     "reset": "إعادة ضبط"

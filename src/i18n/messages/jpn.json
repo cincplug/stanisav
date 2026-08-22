@@ -9,9 +9,6 @@
     "isIdCardVisible": {
       "label": "身分証明書"
     },
-    "isMyStanisav": {
-      "label": "私はStanisav"
-    },
     "isReverse": {
       "label": "逆順"
     },
@@ -178,7 +175,6 @@
   },
   "menu": {
     "close": "メニューを閉じる",
-    "isVisual": "ビジュアル",
     "languageSelector": "アプリの言語",
     "open": "メニューを開く",
     "reset": "リセット"

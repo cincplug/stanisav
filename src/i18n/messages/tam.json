@@ -9,9 +9,6 @@
     "isIdCardVisible": {
       "label": "அடையாள அட்டை"
     },
-    "isMyStanisav": {
-      "label": "நான் Stanisav"
-    },
     "isReverse": {
       "label": "தலைகீழ் வரிசை"
     },
@@ -178,7 +175,6 @@
   },
   "menu": {
     "close": "பட்டியலை மூடு",
-    "isVisual": "காட்சி",
     "languageSelector": "அப்பிளிக்கேஷன் மொழி",
     "open": "பட்டியலை திற",
     "reset": "மீட்டமை"

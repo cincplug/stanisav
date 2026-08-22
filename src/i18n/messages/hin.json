@@ -9,9 +9,6 @@
     "isIdCardVisible": {
       "label": "पहचान पत्र"
     },
-    "isMyStanisav": {
-      "label": "मैं Stanisav हूँ"
-    },
     "isReverse": {
       "label": "उल्टा क्रम"
     },
@@ -178,7 +175,6 @@
   },
   "menu": {
     "close": "मेनू बंद करें",
-    "isVisual": "दृश्य",
     "languageSelector": "ऐप की भाषा",
     "open": "मेनू खोलें",
     "reset": "रीसेट करें"

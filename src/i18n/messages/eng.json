@@ -9,9 +9,6 @@
     "isAutoplay": {
       "label": "Autoplay"
     },
-    "isMyStanisav": {
-      "label": "I am Stanisav"
-    },
     "isReverse": {
       "label": "Reverse order"
     },
@@ -176,9 +173,7 @@
     "close": "Close menu",
     "open": "Open menu",
     "languageSelector": "App language",
-    "isVisual": "Visual",
-    "reset": "Reset",
-    "back": "Back"
+    "reset": "Reset"
   },
   "playlist": {
     "controls": "Playlist controls",

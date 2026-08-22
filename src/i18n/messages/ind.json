@@ -9,9 +9,6 @@
     "isIdCardVisible": {
       "label": "KTP"
     },
-    "isMyStanisav": {
-      "label": "Saya adalah Stanisav"
-    },
     "isReverse": {
       "label": "Urutan terbalik"
     },
@@ -178,7 +175,6 @@
   },
   "menu": {
     "close": "Tutup menu",
-    "isVisual": "Visual",
     "languageSelector": "Bahasa aplikasi",
     "open": "Buka menu",
     "reset": "Setel ulang"

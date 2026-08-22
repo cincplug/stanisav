@@ -9,9 +9,6 @@
     "isIdCardVisible": {
       "label": "Identiteitskaart"
     },
-    "isMyStanisav": {
-      "label": "Ik ben Stanisav"
-    },
     "isReverse": {
       "label": "Omgekeerde volgorde"
     },
@@ -178,7 +175,6 @@
   },
   "menu": {
     "close": "Menu sluiten",
-    "isVisual": "Visueel",
     "languageSelector": "App-taal",
     "open": "Menu openen",
     "reset": "Resetten"

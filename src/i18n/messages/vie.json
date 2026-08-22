@@ -9,9 +9,6 @@
     "isIdCardVisible": {
       "label": "Chứng minh nhân dân"
     },
-    "isMyStanisav": {
-      "label": "Tôi là Stanisav"
-    },
     "isReverse": {
       "label": "Thứ tự ngược"
     },
@@ -178,7 +175,6 @@
   },
   "menu": {
     "close": "Đóng menu",
-    "isVisual": "Trực quan",
     "languageSelector": "Ngôn ngữ ứng dụng",
     "open": "Mở menu",
     "reset": "Đặt lại"

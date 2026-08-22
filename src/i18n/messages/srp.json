@@ -1,7 +1,7 @@
 {
   "controls": {
     "isAutoplay": {
-      "label": "Automatska reprodukcija"
+      "label": "Autoplej"
     },
     "isBlackboard": {
       "label": "Tabla"
@@ -9,14 +9,11 @@
     "isIdCardVisible": {
       "label": "Lična karta"
     },
-    "isMyStanisav": {
-      "label": "Ja sam Stanisav"
-    },
     "isReverse": {
-      "label": "Obrnuti redosled"
+      "label": "Obrnutim redom"
     },
     "labelContent": {
-      "label": "Prikaz",
+      "label": "Etikete",
       "options": {
         "isoCode": "ISO kodovi",
         "name": "Hrvatska imena",
@@ -24,10 +21,10 @@
       }
     },
     "labelSize": {
-      "label": "Veličina oznake"
+      "label": "Veličina"
     },
     "showMore": {
-      "label": "Prikaži više"
+      "label": "Još"
     },
     "sortBy": {
       "label": "Sortiranje",
@@ -37,7 +34,7 @@
         "evidentiality": "Evidencijalnost",
         "family": "Jezička porodica",
         "morphology": "Morfologija",
-        "nounClassCount": "Imeničke klase",
+        "nounClassCount": "Broj rodova",
         "phonemeCount": "Broj fonema",
         "speakers": "Broj govornika",
         "tonality": "Tonalnost",
@@ -105,7 +102,7 @@
       }
     },
     "nounClassCount": {
-      "name": "Imeničke klase / rodovi"
+      "name": "Broj rodova"
     },
     "phonemeCount": {
       "name": "Broj fonema"
@@ -178,18 +175,17 @@
   },
   "menu": {
     "close": "Zatvori meni",
-    "isVisual": "Визуелно",
     "languageSelector": "Jezik aplikacije",
     "open": "Otvori meni",
     "reset": "Resetuj"
   },
   "overlay": {
     "emptyFilter": "Nema jezika za tu kombinaciju filtera. Verovatno si izabrao/la previše filtera.",
-    "slogan": "Koliko jezika znaš, toliko puta vrediš kao čovek."
+    "slogan": "Koliko jezika znaš, toliko ljudi vrediš."
   },
   "playlist": {
-    "controls": "Kontrole plejliste",
-    "goToBeginning": "Na početak (taster Home)",
+    "controls": "Plejlista",
+    "goToBeginning": "Na početak (dugme Home)",
     "next": "Sledeća numera (strelica desno)",
     "pause": "Čekaj",
     "play": "Sviraj",
@@ -201,7 +197,7 @@
   "search": {
     "clear": "Obriši pretragu",
     "label": "Pretraga",
-    "noResults": "Nije pronađen nijedan jezik koji odgovara \"{term}\"",
+    "noResults": "Nismo našli nijedan jezik koji odgovara \"{term}\"",
     "results": "Rezultati pretrage ({count})",
     "threshold": "Unesite najmanje {threshold} znaka za pretragu...",
     "viewAll": "Prikaži sve"

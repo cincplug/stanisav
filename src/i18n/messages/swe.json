@@ -9,9 +9,6 @@
     "isIdCardVisible": {
       "label": "ID-kort"
     },
-    "isMyStanisav": {
-      "label": "Jag är Stanisav"
-    },
     "isReverse": {
       "label": "Omvänd ordning"
     },
@@ -177,9 +174,7 @@
     }
   },
   "menu": {
-    "back": "Tillbaka",
     "close": "Stäng menyn",
-    "isVisual": "Visuell",
     "languageSelector": "Appspråk",
     "open": "Öppna menyn",
     "reset": "Återställ"

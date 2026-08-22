@@ -9,9 +9,6 @@
     "isIdCardVisible": {
       "label": "Personalausweis"
     },
-    "isMyStanisav": {
-      "label": "Ich bin Stanisav"
-    },
     "isReverse": {
       "label": "Umgekehrte Reihenfolge"
     },
@@ -178,7 +175,6 @@
   },
   "menu": {
     "close": "Menü schließen",
-    "isVisual": "Visuell",
     "languageSelector": "App-Sprache",
     "open": "Menü öffnen",
     "reset": "Zurücksetzen"

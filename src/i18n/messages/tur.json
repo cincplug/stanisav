@@ -9,9 +9,6 @@
     "isIdCardVisible": {
       "label": "Kimlik kartı"
     },
-    "isMyStanisav": {
-      "label": "Ben Stanisav'yım"
-    },
     "isReverse": {
       "label": "Ters sıra"
     },
@@ -178,7 +175,6 @@
   },
   "menu": {
     "close": "Menüyü kapat",
-    "isVisual": "Görsel",
     "languageSelector": "Uygulama dili",
     "open": "Menüyü aç",
     "reset": "Sıfırla"

@@ -9,9 +9,6 @@
     "isIdCardVisible": {
       "label": "Katin shaida"
     },
-    "isMyStanisav": {
-      "label": "Ni ne Stanisav"
-    },
     "isReverse": {
       "label": "Tsarin baya"
     },
@@ -178,7 +175,6 @@
   },
   "menu": {
     "close": "Rufe menu",
-    "isVisual": "Na gani",
     "languageSelector": "Harshe na manhaja",
     "open": "Buɗe menu",
     "reset": "Sake saiti"

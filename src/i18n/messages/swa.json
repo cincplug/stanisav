@@ -9,9 +9,6 @@
     "isIdCardVisible": {
       "label": "Kitambulisho"
     },
-    "isMyStanisav": {
-      "label": "Mimi ni Stanisav"
-    },
     "isReverse": {
       "label": "Mpangilio wa nyuma"
     },
@@ -178,7 +175,6 @@
   },
   "menu": {
     "close": "Funga menyu",
-    "isVisual": "Ya kuona",
     "languageSelector": "Lugha ya programu",
     "open": "Fungua menyu",
     "reset": "Weka upya"

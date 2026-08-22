@@ -9,9 +9,6 @@
     "isIdCardVisible": {
       "label": "Dowód osobisty"
     },
-    "isMyStanisav": {
-      "label": "Jestem Meszą"
-    },
     "isReverse": {
       "label": "Odwróć kolejność"
     },
@@ -178,7 +175,6 @@
   },
   "menu": {
     "close": "Zamknij menu",
-    "isVisual": "Wizualny",
     "languageSelector": "Język aplikacji",
     "open": "Otwórz menu",
     "reset": "Resetuj"

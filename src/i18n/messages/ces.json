@@ -9,9 +9,6 @@
     "isIdCardVisible": {
       "label": "Občanka"
     },
-    "isMyStanisav": {
-      "label": "Jsem Stanisav"
-    },
     "isReverse": {
       "label": "Obrácené pořadí"
     },
@@ -178,7 +175,6 @@
   },
   "menu": {
     "close": "Zavřít nabídku",
-    "isVisual": "Vizuální",
     "languageSelector": "Jazyk aplikace",
     "open": "Otevřít nabídku",
     "reset": "Resetovat"

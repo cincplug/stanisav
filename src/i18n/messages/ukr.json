@@ -9,9 +9,6 @@
     "isIdCardVisible": {
       "label": "Посвідчення особи"
     },
-    "isMyStanisav": {
-      "label": "Я — Меша"
-    },
     "isReverse": {
       "label": "Зворотний порядок"
     },
@@ -178,7 +175,6 @@
   },
   "menu": {
     "close": "Закрити меню",
-    "isVisual": "Візуальний",
     "languageSelector": "Мова застосунку",
     "open": "Відкрити меню",
     "reset": "Скинути"

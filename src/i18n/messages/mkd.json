@@ -9,9 +9,6 @@
     "isIdCardVisible": {
       "label": "Лична карта"
     },
-    "isMyStanisav": {
-      "label": "Јас сум Меша"
-    },
     "isReverse": {
       "label": "Обратен редослед"
     },
@@ -24,10 +21,10 @@
       }
     },
     "labelSize": {
-      "label": "Големина на ознаката"
+      "label": "Големина"
     },
     "showMore": {
-      "label": "Прикажи повеќе"
+      "label": "Повеќе"
     },
     "sortBy": {
       "label": "Подредување",
@@ -178,8 +175,7 @@
   },
   "menu": {
     "close": "Затвори мени",
-    "isVisual": "Визуелно",
-    "languageSelector": "Јазик на апликацијата",
+    "languageSelector": "Јазик",
     "open": "Отвори мени",
     "reset": "Ресетирај"
   },

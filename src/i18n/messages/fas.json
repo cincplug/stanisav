@@ -9,9 +9,6 @@
     "isIdCardVisible": {
       "label": "کارت شناسایی"
     },
-    "isMyStanisav": {
-      "label": "من Stanisav هستم"
-    },
     "isReverse": {
       "label": "ترتیب معکوس"
     },
@@ -178,7 +175,6 @@
   },
   "menu": {
     "close": "بستن منو",
-    "isVisual": "بصری",
     "languageSelector": "زبان برنامه",
     "open": "باز کردن منو",
     "reset": "بازنشانی"

@@ -9,9 +9,6 @@
     "isIdCardVisible": {
       "label": "ID card"
     },
-    "isMyStanisav": {
-      "label": "Na me be Stanisav"
-    },
     "isReverse": {
       "label": "Turn di order comot"
     },
@@ -177,9 +174,7 @@
     }
   },
   "menu": {
-    "back": "Go back",
     "close": "Close menu",
-    "isVisual": "Visual",
     "languageSelector": "App language",
     "open": "Open menu",
     "reset": "Reset am"

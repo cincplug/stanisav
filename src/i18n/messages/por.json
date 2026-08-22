@@ -9,9 +9,6 @@
     "isIdCardVisible": {
       "label": "Cartão de Identidade"
     },
-    "isMyStanisav": {
-      "label": "Sou Stanisav"
-    },
     "isReverse": {
       "label": "Ordem inversa"
     },
@@ -178,7 +175,6 @@
   },
   "menu": {
     "close": "Fechar menu",
-    "isVisual": "Visual",
     "languageSelector": "Idioma do aplicativo",
     "open": "Abrir menu",
     "reset": "Redefinir"

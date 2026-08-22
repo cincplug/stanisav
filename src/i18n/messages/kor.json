@@ -9,9 +9,6 @@
     "isIdCardVisible": {
       "label": "신분증"
     },
-    "isMyStanisav": {
-      "label": "나는 Stanisav입니다"
-    },
     "isReverse": {
       "label": "역순 정렬"
     },
@@ -178,7 +175,6 @@
   },
   "menu": {
     "close": "메뉴 닫기",
-    "isVisual": "비주얼",
     "languageSelector": "앱 언어",
     "open": "메뉴 열기",
     "reset": "초기화"
