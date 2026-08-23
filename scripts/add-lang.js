@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename);
 
 const i18nDir = path.resolve(__dirname, "../src/i18n");
 
-const folders = ["messages", "language-names", "lineage-labels"];
+const folders = ["messages", "language-names", "lineage-labels", "entrance"];
 
 const args = process.argv.slice(2);
 if (args.length === 0) {
