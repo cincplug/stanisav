@@ -9,6 +9,7 @@ import {
 import { getEntranceSteps } from "../i18n/runtime";
 import { useI18nContext } from "./I18nContext";
 import linguisticConfig from "../config/linguisticConfig.json";
+import entranceShowcaseConfig from "../config/entranceShowcaseConfig.json";
 import {
   extractPropertyOverrides,
   hasPropertyOverrides,
@@ -17,6 +18,8 @@ import { useConfigContext } from "./ConfigContext";
 
 const EntranceContext = createContext(null);
 const stanisavShapePropertyNames = Object.keys(linguisticConfig);
+const { introStepCount, showcaseStepDuration, showcaseSteps } =
+  entranceShowcaseConfig;
 
 export const EntranceProvider = ({ children }) => {
   const { config } = useConfigContext();
@@ -40,13 +43,15 @@ export const EntranceProvider = ({ children }) => {
   const [isStanisavSequenceDone, setIsStanisavSequenceDone] = useState(false);
   const [isLabelsSequenceDone, setIsLabelsSequenceDone] = useState(false);
   const [isBalloonSequenceDone, setIsBalloonSequenceDone] = useState(false);
+  const [isShowcaseSequenceDone, setIsShowcaseSequenceDone] = useState(false);
   const [mentionedLanguage, setMentionedLanguage] = useState(null);
   const [mentionedPropertyOverrides, setMentionedPropertyOverrides] = useState(
     {},
   );
   const [entranceBalloonText, setEntranceBalloonText] = useState("");
 
-  const isEntranceComplete = isLabelsSequenceDone && isBalloonSequenceDone;
+  const isEntranceComplete =
+    isLabelsSequenceDone && isBalloonSequenceDone && isShowcaseSequenceDone;
 
   const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -62,11 +67,16 @@ export const EntranceProvider = ({ children }) => {
   const calculateBalloonFullDuration = (message) =>
     calculateBalloonDisplayDuration(message) + durationDismiss;
 
+  // Only the first few i18n entrance messages actually play — this keeps the
+  // spoken intro short so the label reveal and shape showcase (below) can
+  // start promptly instead of waiting on however many messages exist.
+  const introSteps = entranceSteps.slice(0, introStepCount);
+
   const runBalloonSequence = async () => {
-    for (let i = 0; i < entranceSteps.length; i++) {
+    for (let i = 0; i < introSteps.length; i++) {
       if (isSequenceCancelledRef.current) return;
-      const step = entranceSteps[i];
-      const isLast = i === entranceSteps.length - 1;
+      const step = introSteps[i];
+      const isLast = i === introSteps.length - 1;
 
       const propertyOverrides = extractPropertyOverrides(
         step,
@@ -94,6 +104,27 @@ export const EntranceProvider = ({ children }) => {
       setMentionedLanguage(null);
       setMentionedPropertyOverrides({});
       setIsBalloonSequenceDone(true);
+      // Fire-and-forget: runs alongside the label reveal, not blocking it.
+      runShowcaseSequence();
+    }
+  };
+
+  // Purely visual, text-free follow-up to the spoken intro: cycles Stanisav
+  // through a config-driven sequence of shape-property waypoints so the
+  // "he can look like any language" idea reads clearly without needing any
+  // translated text. One-timer, same cadence idea as onStanisavSequenceDone's
+  // mesh-reveal assembly.
+  const runShowcaseSequence = async () => {
+    for (const step of showcaseSteps) {
+      if (isSequenceCancelledRef.current) return;
+      setMentionedPropertyOverrides(
+        extractPropertyOverrides(step, stanisavShapePropertyNames),
+      );
+      await wait(showcaseStepDuration);
+    }
+    if (!isSequenceCancelledRef.current) {
+      setMentionedPropertyOverrides({});
+      setIsShowcaseSequenceDone(true);
     }
   };
 
@@ -122,6 +153,7 @@ export const EntranceProvider = ({ children }) => {
     setIsStanisavSequenceDone(true);
     setIsLabelsSequenceDone(true);
     setIsBalloonSequenceDone(true);
+    setIsShowcaseSequenceDone(true);
     setEntranceBalloonText("");
     setMentionedLanguage(null);
     setMentionedPropertyOverrides({});
@@ -157,6 +189,7 @@ export const EntranceProvider = ({ children }) => {
         isStanisavSequenceDone,
         isLabelsSequenceDone,
         isBalloonSequenceDone,
+        isShowcaseSequenceDone,
         isEntranceComplete,
         mentionedLanguage,
         mentionedPropertyOverrides,
