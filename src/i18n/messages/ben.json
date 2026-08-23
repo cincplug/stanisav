@@ -1,0 +1,211 @@
+{
+  "controls": {
+    "showMore": {
+      "label": "আরও দেখান"
+    },
+    "isIdCardVisible": {
+      "label": "পরিচয়পত্র"
+    },
+    "isAutoplay": {
+      "label": "স্বয়ংক্রিয় প্লে"
+    },
+    "isReverse": {
+      "label": "বিপরীত ক্রম"
+    },
+    "labelContent": {
+      "label": "প্রদর্শন",
+      "options": {
+        "isoCode": "ISO কোড",
+        "name": "ইংরেজিতে নাম",
+        "nativeName": "মাতৃভাষায় নাম"
+      }
+    },
+    "labelSize": {
+      "label": "লেবেলের আকার"
+    },
+    "sortBy": {
+      "label": "সাজানো",
+      "options": {
+        "alphabetically": "বর্ণানুক্রমে",
+        "caseCount": "কারক সংখ্যা",
+        "evidentiality": "প্রমাণসূচকতা",
+        "family": "ভাষা পরিবার",
+        "morphology": "রূপতত্ত্ব",
+        "nounClassCount": "বিশেষ্য শ্রেণি",
+        "phonemeCount": "ধ্বনিমূল সংখ্যা",
+        "speakers": "বক্তার সংখ্যা",
+        "tonality": "স্বরসঙ্গতি",
+        "verbAspect": "ক্রিয়ার প্রকার",
+        "wordOrder": "শব্দক্রম",
+        "wordOrderFlexibility": "শব্দক্রমের নমনীয়তা"
+      }
+    },
+    "isBlackboard": {
+      "label": "ব্ল্যাকবোর্ড"
+    }
+  },
+  "filters": {
+    "all": "সব",
+    "allowMultipleChoices": "একাধিক নির্বাচনের অনুমতি দিন",
+    "results": "ফিল্টার ফলাফল ({count})",
+    "title": "ফিল্টার করুন"
+  },
+  "linguistic": {
+    "caseCount": {
+      "name": "কারক সংখ্যা"
+    },
+    "evidentiality": {
+      "name": "প্রমাণসূচকতা",
+      "values": {
+        "complex": {
+          "label": "জটিল"
+        },
+        "moderate": {
+          "label": "মাঝারি"
+        },
+        "none": {
+          "label": "নেই"
+        },
+        "optional": {
+          "label": "ঐচ্ছিক"
+        },
+        "simple": {
+          "label": "সরল"
+        }
+      }
+    },
+    "family": {
+      "name": "ভাষা পরিবার"
+    },
+    "morphology": {
+      "name": "রূপতত্ত্ব",
+      "values": {
+        "agglutinative": {
+          "label": "সংশ্লেষণাত্মক"
+        },
+        "fusional": {
+          "label": "মিশ্রণাত্মক"
+        },
+        "introflexive": {
+          "label": "অন্তর্মুখী বিভক্তিযুক্ত"
+        },
+        "isolating": {
+          "label": "বিচ্ছিন্নমূলক"
+        },
+        "polysynthetic": {
+          "label": "বহুসংশ্লেষণাত্মক"
+        }
+      }
+    },
+    "nounClassCount": {
+      "name": "বিশেষ্য শ্রেণি / লিঙ্গ"
+    },
+    "phonemeCount": {
+      "name": "ধ্বনিমূল সংখ্যা"
+    },
+    "tonality": {
+      "name": "স্বরসঙ্গতি",
+      "values": {
+        "complex-tonal": {
+          "label": "জটিল স্বরসঙ্গতি"
+        },
+        "non-tonal": {
+          "label": "স্বরসঙ্গতিহীন"
+        },
+        "pitch-accent": {
+          "label": "পিচ-অ্যাকসেন্ট"
+        },
+        "simple-tonal": {
+          "label": "সরল স্বরসঙ্গতি"
+        }
+      }
+    },
+    "verbAspect": {
+      "name": "ক্রিয়ার প্রকার",
+      "values": {
+        "binary": {
+          "label": "দ্বৈত"
+        },
+        "complex": {
+          "label": "জটিল"
+        },
+        "minimal": {
+          "label": "ন্যূনতম"
+        },
+        "simple": {
+          "label": "সরল"
+        }
+      }
+    },
+    "wordOrder": {
+      "name": "শব্দক্রম",
+      "values": {
+        "SOV": {
+          "label": "SOV"
+        },
+        "SVO": {
+          "label": "SVO"
+        },
+        "VOS": {
+          "label": "VOS"
+        },
+        "VSO": {
+          "label": "VSO"
+        }
+      }
+    },
+    "wordOrderFlexibility": {
+      "name": "শব্দক্রমের নমনীয়তা",
+      "values": {
+        "flexible": {
+          "label": "নমনীয়"
+        },
+        "rigid": {
+          "label": "কঠোর"
+        },
+        "semi-flexible": {
+          "label": "আংশিক নমনীয়"
+        }
+      }
+    }
+  },
+  "menu": {
+    "close": "মেনু বন্ধ করুন",
+    "open": "মেনু খুলুন",
+    "languageSelector": "অ্যাপের ভাষা",
+    "reset": "পুনরায় সেট করুন"
+  },
+  "playlist": {
+    "controls": "প্লেলিস্ট নিয়ন্ত্রণ",
+    "goToBeginning": "শুরুতে যান (Home কী)",
+    "next": "পরবর্তী ট্র্যাক (ডান তীর)",
+    "pause": "বিরতি",
+    "play": "চালান",
+    "stop": "থামান",
+    "previous": "পূর্ববর্তী ট্র্যাক (বাম তীর)",
+    "progress": "{total}-এর মধ্যে {current}",
+    "toggleLoop": "লুপ টগল করুন (L কী)"
+  },
+  "search": {
+    "clear": "অনুসন্ধান মুছুন",
+    "label": "অনুসন্ধান",
+    "noResults": "\"{term}\"-এর সাথে মিলে এমন কোনো ভাষা পাওয়া যায়নি",
+    "results": "অনুসন্ধান ফলাফল ({count})",
+    "threshold": "অনুসন্ধান করতে অন্তত {threshold}টি অক্ষর লিখুন...",
+    "viewAll": "সব দেখুন"
+  },
+  "tabs": {
+    "controls": "নিয়ন্ত্রণ",
+    "filters": "ফিল্টার",
+    "languages": "ভাষা",
+    "search": "অনুসন্ধান"
+  },
+  "overlay": {
+    "slogan": "যত বেশি ভাষা জানবেন, ততই বেশি মূল্যবান আপনি",
+    "emptyFilter": "এই ফিল্টার সমন্বয়ের জন্য কোনো ভাষা নেই। সম্ভবত আপনি অনেক বেশি ফিল্টার নির্বাচন করেছেন।"
+  },
+  "idCard": {
+    "sourceVideo": "মূল ভিডিও",
+    "opensInNewTab": "নতুন ট্যাবে খোলে"
+  }
+}
