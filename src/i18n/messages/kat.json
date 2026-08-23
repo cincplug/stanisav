@@ -1,0 +1,211 @@
+{
+  "controls": {
+    "showMore": {
+      "label": "მეტის ჩვენება"
+    },
+    "isIdCardVisible": {
+      "label": "პირადობის ბარათი"
+    },
+    "isAutoplay": {
+      "label": "ავტომატური დაკვრა"
+    },
+    "isReverse": {
+      "label": "შებრუნებული თანმიმდევრობა"
+    },
+    "labelContent": {
+      "label": "ჩვენება",
+      "options": {
+        "isoCode": "ISO კოდები",
+        "name": "სახელები ინგლისურად",
+        "nativeName": "სახელები მშობლიურ ენაზე"
+      }
+    },
+    "labelSize": {
+      "label": "ჭდის ზომა"
+    },
+    "sortBy": {
+      "label": "დალაგება",
+      "options": {
+        "alphabetically": "ანბანური თანმიმდევრობით",
+        "caseCount": "ბრუნვების რაოდენობა",
+        "evidentiality": "ევიდენციალობა",
+        "family": "ენათა ოჯახი",
+        "morphology": "მორფოლოგია",
+        "nounClassCount": "არსებითი სახელის კლასები",
+        "phonemeCount": "ფონემების რაოდენობა",
+        "speakers": "მოსაუბრეთა რაოდენობა",
+        "tonality": "ტონალურობა",
+        "verbAspect": "ზმნის ასპექტი",
+        "wordOrder": "სიტყვათწყობა",
+        "wordOrderFlexibility": "სიტყვათწყობის მოქნილობა"
+      }
+    },
+    "isBlackboard": {
+      "label": "დაფა"
+    }
+  },
+  "filters": {
+    "all": "ყველა",
+    "allowMultipleChoices": "მრავალჯერადი არჩევის დაშვება",
+    "results": "გაფილტვრის შედეგები ({count})",
+    "title": "გაფილტვრა"
+  },
+  "linguistic": {
+    "caseCount": {
+      "name": "ბრუნვების რაოდენობა"
+    },
+    "evidentiality": {
+      "name": "ევიდენციალობა",
+      "values": {
+        "complex": {
+          "label": "რთული"
+        },
+        "moderate": {
+          "label": "საშუალო"
+        },
+        "none": {
+          "label": "არცერთი"
+        },
+        "optional": {
+          "label": "არასავალდებულო"
+        },
+        "simple": {
+          "label": "მარტივი"
+        }
+      }
+    },
+    "family": {
+      "name": "ენათა ოჯახი"
+    },
+    "morphology": {
+      "name": "მორფოლოგია",
+      "values": {
+        "agglutinative": {
+          "label": "აგლუტინაციური"
+        },
+        "fusional": {
+          "label": "ფლექსიური"
+        },
+        "introflexive": {
+          "label": "შინაგანი ფლექსიის"
+        },
+        "isolating": {
+          "label": "იზოლირებული"
+        },
+        "polysynthetic": {
+          "label": "პოლისინთეზური"
+        }
+      }
+    },
+    "nounClassCount": {
+      "name": "არსებითი სახელის კლასები / სქესები"
+    },
+    "phonemeCount": {
+      "name": "ფონემების რაოდენობა"
+    },
+    "tonality": {
+      "name": "ტონალურობა",
+      "values": {
+        "complex-tonal": {
+          "label": "რთული ტონალური"
+        },
+        "non-tonal": {
+          "label": "არატონალური"
+        },
+        "pitch-accent": {
+          "label": "სიმაღლური მახვილი"
+        },
+        "simple-tonal": {
+          "label": "მარტივი ტონალური"
+        }
+      }
+    },
+    "verbAspect": {
+      "name": "ზმნის ასპექტი",
+      "values": {
+        "binary": {
+          "label": "ორობითი"
+        },
+        "complex": {
+          "label": "რთული"
+        },
+        "minimal": {
+          "label": "მინიმალური"
+        },
+        "simple": {
+          "label": "მარტივი"
+        }
+      }
+    },
+    "wordOrder": {
+      "name": "სიტყვათწყობა",
+      "values": {
+        "SOV": {
+          "label": "SOV"
+        },
+        "SVO": {
+          "label": "SVO"
+        },
+        "VOS": {
+          "label": "VOS"
+        },
+        "VSO": {
+          "label": "VSO"
+        }
+      }
+    },
+    "wordOrderFlexibility": {
+      "name": "სიტყვათწყობის მოქნილობა",
+      "values": {
+        "flexible": {
+          "label": "მოქნილი"
+        },
+        "rigid": {
+          "label": "მკაცრი"
+        },
+        "semi-flexible": {
+          "label": "ნახევრად მოქნილი"
+        }
+      }
+    }
+  },
+  "menu": {
+    "close": "მენიუს დახურვა",
+    "open": "მენიუს გახსნა",
+    "languageSelector": "აპლიკაციის ენა",
+    "reset": "გადატვირთვა"
+  },
+  "playlist": {
+    "controls": "დაკვრის სიის მართვა",
+    "goToBeginning": "დასაწყისში გადასვლა (Home ღილაკი)",
+    "next": "შემდეგი ჩანაწერი (მარჯვენა ისარი)",
+    "pause": "პაუზა",
+    "play": "დაკვრა",
+    "stop": "გაჩერება",
+    "previous": "წინა ჩანაწერი (მარცხენა ისარი)",
+    "progress": "{current} / {total}",
+    "toggleLoop": "მარყუჟის გადართვა (L ღილაკი)"
+  },
+  "search": {
+    "clear": "ძიების გასუფთავება",
+    "label": "ძიება",
+    "noResults": "\"{term}\"-ის შესაბამისი ენა ვერ მოიძებნა",
+    "results": "ძიების შედეგები ({count})",
+    "threshold": "საძიებლად აკრიფეთ მინიმუმ {threshold} სიმბოლო...",
+    "viewAll": "ყველას ნახვა"
+  },
+  "tabs": {
+    "controls": "მართვა",
+    "filters": "ფილტრები",
+    "languages": "ენები",
+    "search": "ძიება"
+  },
+  "overlay": {
+    "slogan": "რაც უფრო მეტ ენას იცნობთ, მით უფრო ღირებული ხართ",
+    "emptyFilter": "ამ ფილტრების კომბინაციისთვის ენა ვერ მოიძებნა. ალბათ ძალიან ბევრი ფილტრი აირჩიეთ"
+  },
+  "idCard": {
+    "sourceVideo": "წყარო ვიდეო",
+    "opensInNewTab": "იხსნება ახალ ჩანართში"
+  }
+}
