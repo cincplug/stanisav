@@ -1,0 +1,211 @@
+{
+  "controls": {
+    "showMore": {
+      "label": "Prikaži več"
+    },
+    "isIdCardVisible": {
+      "label": "Osebna izkaznica"
+    },
+    "isAutoplay": {
+      "label": "Samodejno predvajanje"
+    },
+    "isReverse": {
+      "label": "Obrnjen vrstni red"
+    },
+    "labelContent": {
+      "label": "Prikaz",
+      "options": {
+        "isoCode": "ISO kode",
+        "name": "Imena v angleščini",
+        "nativeName": "Imena v maternem jeziku"
+      }
+    },
+    "labelSize": {
+      "label": "Velikost oznake"
+    },
+    "sortBy": {
+      "label": "Razvrščanje",
+      "options": {
+        "alphabetically": "Po abecedi",
+        "caseCount": "Število sklonov",
+        "evidentiality": "Evidencialnost",
+        "family": "Jezikovna družina",
+        "morphology": "Morfologija",
+        "nounClassCount": "Samostalniški razredi",
+        "phonemeCount": "Število fonemov",
+        "speakers": "Število govorcev",
+        "tonality": "Tonalnost",
+        "verbAspect": "Glagolski vid",
+        "wordOrder": "Besedni red",
+        "wordOrderFlexibility": "Prilagodljivost besednega reda"
+      }
+    },
+    "isBlackboard": {
+      "label": "Tabla"
+    }
+  },
+  "filters": {
+    "all": "Vse",
+    "allowMultipleChoices": "Dovoli več izbir",
+    "results": "Rezultati filtriranja ({count})",
+    "title": "Filtriraj po"
+  },
+  "linguistic": {
+    "caseCount": {
+      "name": "Število sklonov"
+    },
+    "evidentiality": {
+      "name": "Evidencialnost",
+      "values": {
+        "complex": {
+          "label": "Zapleteno"
+        },
+        "moderate": {
+          "label": "Zmerno"
+        },
+        "none": {
+          "label": "Brez"
+        },
+        "optional": {
+          "label": "Neobvezno"
+        },
+        "simple": {
+          "label": "Preprosto"
+        }
+      }
+    },
+    "family": {
+      "name": "Jezikovna družina"
+    },
+    "morphology": {
+      "name": "Morfologija",
+      "values": {
+        "agglutinative": {
+          "label": "Aglutinativna"
+        },
+        "fusional": {
+          "label": "Fleksijska"
+        },
+        "introflexive": {
+          "label": "Notranje fleksijska"
+        },
+        "isolating": {
+          "label": "Izolirna"
+        },
+        "polysynthetic": {
+          "label": "Polisintetična"
+        }
+      }
+    },
+    "nounClassCount": {
+      "name": "Samostalniški razredi / spoli"
+    },
+    "phonemeCount": {
+      "name": "Število fonemov"
+    },
+    "tonality": {
+      "name": "Tonalnost",
+      "values": {
+        "complex-tonal": {
+          "label": "Zapleteno tonalna"
+        },
+        "non-tonal": {
+          "label": "Netonalna"
+        },
+        "pitch-accent": {
+          "label": "Tonemski naglas"
+        },
+        "simple-tonal": {
+          "label": "Preprosto tonalna"
+        }
+      }
+    },
+    "verbAspect": {
+      "name": "Glagolski vid",
+      "values": {
+        "binary": {
+          "label": "Dvojni"
+        },
+        "complex": {
+          "label": "Zapleten"
+        },
+        "minimal": {
+          "label": "Minimalen"
+        },
+        "simple": {
+          "label": "Preprost"
+        }
+      }
+    },
+    "wordOrder": {
+      "name": "Besedni red",
+      "values": {
+        "SOV": {
+          "label": "SOV"
+        },
+        "SVO": {
+          "label": "SVO"
+        },
+        "VOS": {
+          "label": "VOS"
+        },
+        "VSO": {
+          "label": "VSO"
+        }
+      }
+    },
+    "wordOrderFlexibility": {
+      "name": "Prilagodljivost besednega reda",
+      "values": {
+        "flexible": {
+          "label": "Prilagodljiv"
+        },
+        "rigid": {
+          "label": "Tog"
+        },
+        "semi-flexible": {
+          "label": "Delno prilagodljiv"
+        }
+      }
+    }
+  },
+  "menu": {
+    "close": "Zapri meni",
+    "open": "Odpri meni",
+    "languageSelector": "Jezik aplikacije",
+    "reset": "Ponastavi"
+  },
+  "playlist": {
+    "controls": "Nadzor predvajalnega seznama",
+    "goToBeginning": "Skoči na začetek (tipka Home)",
+    "next": "Naslednja skladba (desna puščica)",
+    "pause": "Premor",
+    "play": "Predvajaj",
+    "stop": "Ustavi",
+    "previous": "Prejšnja skladba (leva puščica)",
+    "progress": "{current} od {total}",
+    "toggleLoop": "Preklopi ponavljanje (tipka L)"
+  },
+  "search": {
+    "clear": "Počisti iskanje",
+    "label": "Iskanje",
+    "noResults": "Ni najdenih jezikov, ki bi ustrezali \"{term}\"",
+    "results": "Rezultati iskanja ({count})",
+    "threshold": "Vnesite vsaj {threshold} znakov za iskanje ...",
+    "viewAll": "Prikaži vse"
+  },
+  "tabs": {
+    "controls": "Nadzor",
+    "filters": "Filtri",
+    "languages": "Jeziki",
+    "search": "Iskanje"
+  },
+  "overlay": {
+    "slogan": "Več jezikov znaš, več veljaš",
+    "emptyFilter": "Za to kombinacijo filtrov ni jezikov. Verjetno ste izbrali preveč filtrov."
+  },
+  "idCard": {
+    "sourceVideo": "Izvorni video",
+    "opensInNewTab": "odpre se v novem zavihku"
+  }
+}
