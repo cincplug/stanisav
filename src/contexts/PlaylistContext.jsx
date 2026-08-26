@@ -8,7 +8,6 @@ import {
   useState,
 } from "react";
 import { playAudioSequence } from "../services/audioPlaybackService";
-import { useAppStateContext } from "./AppStateContext";
 import { useConfigContext } from "./ConfigContext";
 import { useLanguageSelectionContext } from "./LanguageSelectionContext";
 import { useSortedLanguages } from "../hooks/useSortedLanguages";
@@ -16,7 +15,6 @@ import { useSortedLanguages } from "../hooks/useSortedLanguages";
 const PlaylistContext = createContext(null);
 
 export const PlaylistProvider = ({ children }) => {
-  const { isSceneReady } = useAppStateContext();
   const { config } = useConfigContext();
   const { isMyStanisav, isAutoplay, soundSource, switchDuration } = config;
   const {
@@ -201,7 +199,7 @@ export const PlaylistProvider = ({ children }) => {
       setPlaylistSession((s) => s + 1);
     }
 
-    if (!isPlaying || !isSceneReady) return;
+    if (!isPlaying) return;
 
     const codes = playlistRef.current;
     if (codes.length === 0 || currentIndex >= codes.length) {
@@ -290,7 +288,6 @@ export const PlaylistProvider = ({ children }) => {
     isPlaying,
     currentIndex,
     playlistSession,
-    isSceneReady,
     isMyStanisav,
     soundSource,
     switchDuration,

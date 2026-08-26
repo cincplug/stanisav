@@ -13,14 +13,8 @@ import { useMediaQuery } from "../hooks/useMediaQuery.js";
 
 function App() {
   const { isRtl } = useI18nContext();
-  const {
-    isLoading,
-    data,
-    isSceneReady,
-    filters,
-    setFilters,
-    handleCameraFocus,
-  } = useAppStateContext();
+  const { isLoading, data, filters, setFilters, handleCameraFocus } =
+    useAppStateContext();
 
   const isMobile = useMediaQuery();
   const { config, updateConfigValue } = useConfigContext();
@@ -46,7 +40,6 @@ function App() {
         onControlChange={updateConfigValue}
         data={data}
         isLoading={isLoading}
-        isSceneReady={isSceneReady}
         onCameraFocus={handleCameraFocus}
         isExpanded={isMenuExpanded}
         onToggleMenu={() =>
