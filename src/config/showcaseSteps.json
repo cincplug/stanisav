@@ -1,0 +1,153 @@
+[
+  {
+    "phonemeCount": 14,
+    "caseCount": 0,
+    "nounClassCount": 0,
+    "tonality": "complex-tonal",
+    "morphology": "isolating",
+    "evidentiality": "none",
+    "verbAspect": "minimal",
+    "wordOrder": "SVO",
+    "wordOrderFlexibility": "rigid"
+  },
+  {
+    "phonemeCount": 17
+  },
+  {
+    "phonemeCount": 19
+  },
+  {
+    "phonemeCount": 21
+  },
+  {
+    "phonemeCount": 23
+  },
+  {
+    "phonemeCount": 25
+  },
+  {
+    "phonemeCount": 27
+  },
+  {
+    "phonemeCount": 29
+  },
+  {
+    "phonemeCount": 31
+  },
+  {
+    "phonemeCount": 33
+  },
+  {
+    "morphology": "agglutinative"
+  },
+  {
+    "caseCount": 1
+  },
+  {
+    "caseCount": 2
+  },
+  {
+    "caseCount": 3
+  },
+  {
+    "caseCount": 4
+  },
+  {
+    "caseCount": 7
+  },
+  {
+    "caseCount": 10
+  },
+  {
+    "caseCount": 16
+  },
+  {
+    "caseCount": 12,
+    "nounClassCount": 1
+  },
+  {
+    "caseCount": 7,
+    "nounClassCount": 2
+  },
+  {
+    "caseCount": 2,
+    "nounClassCount": 3
+  },
+  {
+    "nounClassCount": 4,
+    "tonality": "pitch-accent"
+  },
+  {
+    "nounClassCount": 7
+  },
+  {
+    "nounClassCount": 10,
+    "morphology": "introflexive"
+  },
+  {
+    "nounClassCount": 16
+  },
+  {
+    "wordOrder": "SVO"
+  },
+  {
+    "wordOrder": "SOV"
+  },
+  {
+    "wordOrder": "VSO"
+  },
+  {
+    "wordOrder": "VOS"
+  },
+  {
+    "wordOrder": "OVS"
+  },
+  {
+    "wordOrder": "OSV"
+  },
+  {
+    "tonality": "non-tonal"
+  },
+  {
+    "morphology": "fusional"
+  },
+  {
+    "verbAspect": "simple"
+  },
+  {
+    "verbAspect": "binary"
+  },
+  {
+    "verbAspect": "complex"
+  },
+  {
+    "verbAspect": "binary"
+  },
+  {
+    "verbAspect": "simple"
+  },
+  {
+    "morphology": "polysynthetic"
+  },
+  {
+    "evidentiality": "optional"
+  },
+  {
+    "evidentiality": "simple"
+  },
+  {
+    "evidentiality": "moderate"
+  },
+  {
+    "evidentiality": "complex"
+  },
+  {
+    "evidentiality": "moderate"
+  },
+  {
+    "evidentiality": "simple"
+  },
+  {
+    "evidentiality": "optional"
+  }
+]

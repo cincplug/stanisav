@@ -51,7 +51,7 @@
   "stanisav": {
     "stanisavSize": 1.4,
     "stanisavSpin": 0.5,
-    "assembleRate": 50,
+    "assembleRate": 30,
     "blinkDuration": 0.2,
     "earDepth": 4.5,
     "earHeight": 1.1,
@@ -179,7 +179,7 @@
     "defaultPosition": "top-right",
     "durationBase": 1500,
     "durationDismiss": 700,
-    "durationPerLetter": 40
+    "durationPerLetter": 35
   },
   "entrance": {
     "entranceAxis": ["z", "x", "y"],

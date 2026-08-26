@@ -9,7 +9,7 @@ import {
 import { getEntranceSteps } from "../i18n/runtime";
 import { useI18nContext } from "./I18nContext";
 import linguisticConfig from "../config/linguisticConfig.json";
-import entranceShowcaseConfig from "../config/entranceShowcaseConfig.json";
+import showcaseSteps from "../config/showcaseSteps.json";
 import {
   extractPropertyOverrides,
   hasPropertyOverrides,
@@ -18,8 +18,6 @@ import { useConfigContext } from "./ConfigContext";
 
 const EntranceContext = createContext(null);
 const stanisavShapePropertyNames = Object.keys(linguisticConfig);
-const { introStepCount, showcaseStepDuration, showcaseSteps } =
-  entranceShowcaseConfig;
 
 export const EntranceProvider = ({ children }) => {
   const { config } = useConfigContext();
@@ -36,6 +34,7 @@ export const EntranceProvider = ({ children }) => {
     durationDismiss,
     tension,
     friction,
+    assembleRate,
   } = config;
 
   const isSequenceCancelledRef = useRef(false);
@@ -67,16 +66,11 @@ export const EntranceProvider = ({ children }) => {
   const calculateBalloonFullDuration = (message) =>
     calculateBalloonDisplayDuration(message) + durationDismiss;
 
-  // Only the first few i18n entrance messages actually play — this keeps the
-  // spoken intro short so the label reveal and shape showcase (below) can
-  // start promptly instead of waiting on however many messages exist.
-  const introSteps = entranceSteps.slice(0, introStepCount);
-
   const runBalloonSequence = async () => {
-    for (let i = 0; i < introSteps.length; i++) {
+    for (let i = 0; i < entranceSteps.length; i++) {
       if (isSequenceCancelledRef.current) return;
-      const step = introSteps[i];
-      const isLast = i === introSteps.length - 1;
+      const step = entranceSteps[i];
+      const isLast = i === entranceSteps.length - 1;
 
       const propertyOverrides = extractPropertyOverrides(
         step,
@@ -104,8 +98,6 @@ export const EntranceProvider = ({ children }) => {
       setMentionedLanguage(null);
       setMentionedPropertyOverrides({});
       setIsBalloonSequenceDone(true);
-      // Fire-and-forget: runs alongside the label reveal, not blocking it.
-      runShowcaseSequence();
     }
   };
 
@@ -120,7 +112,7 @@ export const EntranceProvider = ({ children }) => {
       setMentionedPropertyOverrides(
         extractPropertyOverrides(step, stanisavShapePropertyNames),
       );
-      await wait(showcaseStepDuration);
+      await wait(assembleRate);
     }
     if (!isSequenceCancelledRef.current) {
       setMentionedPropertyOverrides({});
@@ -132,6 +124,7 @@ export const EntranceProvider = ({ children }) => {
   const onStanisavSequenceDone = useCallback(() => {
     if (isSequenceCancelledRef.current) return;
     setIsStanisavSequenceDone(true);
+    runShowcaseSequence();
     runBalloonSequence();
   }, [runBalloonSequence]);
 
