@@ -1,4 +1,4 @@
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Text } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useEffect, useMemo, useRef } from "react";
 import { useAppStateContext } from "../../contexts/AppStateContext";
@@ -137,6 +137,9 @@ const Scene = () => {
       gl={{ antialias: true, clearColor: bgColor }}
     >
       <color attach="background" args={[bgColor]} />
+
+      {/* Does nothing, just loads font so the whole scene wouldn't disappear because of drei */}
+      <Text font="/fonts/RobotoSlab-SemiBold.ttf" />
 
       <OrbitControls
         ref={orbitControlsRef}
