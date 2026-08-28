@@ -1,14 +1,27 @@
 [
   {
-    "phonemeCount": 14,
-    "caseCount": 0,
-    "nounClassCount": 0,
-    "tonality": "complex-tonal",
-    "morphology": "isolating",
-    "evidentiality": "none",
-    "verbAspect": "minimal",
-    "wordOrder": "SVO",
-    "wordOrderFlexibility": "rigid"
+    "morphology": "isolating"
+  },
+  {
+    "evidentiality": "optional"
+  },
+  {
+    "evidentiality": "simple"
+  },
+  {
+    "evidentiality": "moderate"
+  },
+  {
+    "evidentiality": "complex"
+  },
+  {
+    "evidentiality": "moderate"
+  },
+  {
+    "evidentiality": "simple"
+  },
+  {
+    "evidentiality": "optional"
   },
   {
     "phonemeCount": 17
@@ -94,6 +107,9 @@
     "wordOrder": "SOV"
   },
   {
+    "morphology": "polysynthetic"
+  },
+  {
     "wordOrder": "VSO"
   },
   {
@@ -125,29 +141,5 @@
   },
   {
     "verbAspect": "simple"
-  },
-  {
-    "morphology": "polysynthetic"
-  },
-  {
-    "evidentiality": "optional"
-  },
-  {
-    "evidentiality": "simple"
-  },
-  {
-    "evidentiality": "moderate"
-  },
-  {
-    "evidentiality": "complex"
-  },
-  {
-    "evidentiality": "moderate"
-  },
-  {
-    "evidentiality": "simple"
-  },
-  {
-    "evidentiality": "optional"
   }
 ]
