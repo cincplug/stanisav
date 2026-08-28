@@ -1,8 +1,10 @@
 [
   {
-    "morphology": "isolating"
+    "evidentiality": "none",
+    "phonemeCount": 17
   },
   {
+    "morphology": "none",
     "evidentiality": "optional"
   },
   {
@@ -24,13 +26,25 @@
     "evidentiality": "optional"
   },
   {
+    "morphology": "isolating"
+  },
+  {
     "phonemeCount": 17
+  },
+  {
+    "phonemeCount": 18
   },
   {
     "phonemeCount": 19
   },
   {
+    "phonemeCount": 20
+  },
+  {
     "phonemeCount": 21
+  },
+  {
+    "phonemeCount": 22
   },
   {
     "phonemeCount": 23

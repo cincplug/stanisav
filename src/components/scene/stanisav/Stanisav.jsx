@@ -74,7 +74,7 @@ const Stanisav = ({
     return data?.languages?.[languageCode];
   }, [imposedProperties, data.languages]);
 
-  const { isEntranceComplete, isBalloonSequenceDone } = useEntranceContext();
+  const { isEntranceComplete } = useEntranceContext();
 
   const color = languageColors[languageCode];
   const stripesType =
@@ -145,7 +145,7 @@ const Stanisav = ({
       Math.round(value / (Math.PI * 2)) * (Math.PI * 2);
 
     const isSpinPaused =
-      !isBalloonSequenceDone || (selectedLanguage && !isPlaying);
+      !isEntranceComplete || (selectedLanguage && !isPlaying);
 
     if (isSpinPaused) {
       rotationYRef.current = dampTo(
@@ -208,11 +208,13 @@ const Stanisav = ({
           isoCode={selectedLanguage}
         />
 
-        <Ears
-          earMaterial={skinMaterial}
-          morphologyScore={scores.morphology}
-          isLuka={isCurrentSampleLuka}
-        />
+        {scores.morphology && (
+          <Ears
+            earMaterial={skinMaterial}
+            morphologyScore={scores.morphology}
+            isLuka={isCurrentSampleLuka}
+          />
+        )}
 
         <Tongue tongueMaterial={tongueMaterial} />
 

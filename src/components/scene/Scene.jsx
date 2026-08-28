@@ -27,7 +27,7 @@ const Scene = () => {
     isEntranceComplete,
     isLabelsSequenceDone,
     setIsLabelsSequenceDone,
-    isBalloonSequenceDone,
+    isShowcaseSequenceDone,
     mentionedLanguage,
     mentionedPropertyOverrides,
   } = useEntranceContext();
@@ -160,7 +160,7 @@ const Scene = () => {
 
       <Camera languagePositions={languagePositions} />
 
-      {!shouldShowEmptyMessage && isBalloonSequenceDone && (
+      {!shouldShowEmptyMessage && isShowcaseSequenceDone && (
         <Labels
           groups={groups}
           languagePositions={languagePositions}
