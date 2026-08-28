@@ -109,11 +109,15 @@ export const EntranceProvider = ({ children }) => {
   const runShowcaseSequence = async () => {
     for (const step of showcaseSteps) {
       if (isSequenceCancelledRef.current) return;
-      setMentionedPropertyOverrides(
-        extractPropertyOverrides(step, stanisavShapePropertyNames),
-      );
+
+      setMentionedPropertyOverrides((previousOverrides) => ({
+        ...previousOverrides,
+        ...extractPropertyOverrides(step, stanisavShapePropertyNames),
+      }));
+
       await wait(assembleRate);
     }
+
     if (!isSequenceCancelledRef.current) {
       setMentionedPropertyOverrides({});
       setIsShowcaseSequenceDone(true);
