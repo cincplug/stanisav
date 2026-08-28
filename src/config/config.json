@@ -1,6 +1,7 @@
 {
   "controls": {
-    "usesCamelCase": true
+    "usesCamelCase": true,
+    "remembersSettings": false
   },
   "header": {
     "sortBy": [

@@ -35,6 +35,10 @@ export const ConfigProvider = ({ children }) => {
   const [groupedConfig, setGroupedConfig] = useState(() => {
     const defaultValues = resolveInitialValues(staticConfig);
     const storedConfig = readStoredConfig(configStorageKey);
+    if (!storedConfig.controls.remembersSettings) {
+      return defaultValues;
+    }
+
     return storedConfig
       ? mergeStoredConfig(defaultValues, storedConfig)
       : defaultValues;
