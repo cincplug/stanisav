@@ -1,11 +1,4 @@
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { getEntranceSteps } from "../i18n/runtime";
 import { useI18nContext } from "./I18nContext";
 import linguisticConfig from "../config/linguisticConfig.json";
@@ -39,7 +32,6 @@ export const EntranceProvider = ({ children }) => {
 
   const isSequenceCancelledRef = useRef(false);
 
-  const [isStanisavSequenceDone, setIsStanisavSequenceDone] = useState(false);
   const [isLabelsSequenceDone, setIsLabelsSequenceDone] = useState(false);
   const [isBalloonSequenceDone, setIsBalloonSequenceDone] = useState(false);
   const [isShowcaseSequenceDone, setIsShowcaseSequenceDone] = useState(false);
@@ -101,11 +93,6 @@ export const EntranceProvider = ({ children }) => {
     }
   };
 
-  // Purely visual, text-free follow-up to the spoken intro: cycles Stanisav
-  // through a config-driven sequence of shape-property waypoints so the
-  // "he can look like any language" idea reads clearly without needing any
-  // translated text. One-timer, same cadence idea as onStanisavSequenceDone's
-  // mesh-reveal assembly.
   const runShowcaseSequence = async () => {
     for (const step of showcaseSteps) {
       if (isSequenceCancelledRef.current) return;
@@ -124,13 +111,13 @@ export const EntranceProvider = ({ children }) => {
     }
   };
 
-  // Called by Stanisav when all meshes have been revealed one by one
-  const onStanisavSequenceDone = useCallback(() => {
-    if (isSequenceCancelledRef.current) return;
-    setIsStanisavSequenceDone(true);
+  useEffect(() => {
     runShowcaseSequence();
-    runBalloonSequence();
-  }, [runBalloonSequence]);
+  }, []);
+
+  useEffect(() => {
+    if (isShowcaseSequenceDone) runBalloonSequence();
+  }, [isShowcaseSequenceDone]);
 
   useEffect(() => {
     if (entranceSteps.length === 0) return;
@@ -147,7 +134,6 @@ export const EntranceProvider = ({ children }) => {
 
   const skipSequence = () => {
     isSequenceCancelledRef.current = true;
-    setIsStanisavSequenceDone(true);
     setIsLabelsSequenceDone(true);
     setIsBalloonSequenceDone(true);
     setIsShowcaseSequenceDone(true);
@@ -183,7 +169,6 @@ export const EntranceProvider = ({ children }) => {
     <EntranceContext.Provider
       value={{
         entranceSteps,
-        isStanisavSequenceDone,
         isLabelsSequenceDone,
         isBalloonSequenceDone,
         isShowcaseSequenceDone,
@@ -193,7 +178,6 @@ export const EntranceProvider = ({ children }) => {
         entranceBalloonText,
         setEntranceBalloonText,
         getLabelSpringProps,
-        onStanisavSequenceDone,
         skipSequence,
         setIsLabelsSequenceDone,
       }}

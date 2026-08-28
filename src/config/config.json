@@ -51,7 +51,7 @@
   "stanisav": {
     "stanisavSize": 1.4,
     "stanisavSpin": 0.5,
-    "assembleRate": 30,
+    "assembleRate": 50,
     "blinkDuration": 0.2,
     "earDepth": 4.5,
     "earHeight": 1.1,
@@ -72,7 +72,6 @@
     "eyeY": 2.1,
     "eyeZ": 2.5,
     "irisSize": 0.75,
-    "isPhoenix": false,
     "noseSize": 0.25,
     "noseThickness": 0.4,
     "noseSliceAngle": 60,

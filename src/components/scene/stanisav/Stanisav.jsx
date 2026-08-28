@@ -1,6 +1,6 @@
 import { a, useSpring } from "@react-spring/three";
 import { extend } from "@react-three/fiber";
-import { useCallback, useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { Euler, MathUtils, Mesh, Quaternion } from "three";
 import { ParametricGeometry } from "three/examples/jsm/geometries/ParametricGeometry";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
@@ -39,20 +39,17 @@ const Stanisav = ({
   isMyStanisav,
   spin,
   isMotionReduced,
-  renderOrder,
   wideScale,
 }) => {
   const groupRef = useRef();
   const lookAroundRef = useRef();
 
   const { languageColors } = useLanguageColorsContext();
-  const { isAnimating, isPlaying, isCurrentSampleLuka } = usePlaylistContext();
+  const { isPlaying, isCurrentSampleLuka } = usePlaylistContext();
   const { config } = useConfigContext();
   const {
     entranceDuration,
     switchDuration,
-    assembleRate,
-    isPhoenix,
     skinHueShift,
     tuftHueShift,
     tuftY,
@@ -77,12 +74,7 @@ const Stanisav = ({
     return data?.languages?.[languageCode];
   }, [imposedProperties, data.languages]);
 
-  const {
-    isStanisavSequenceDone,
-    isEntranceComplete,
-    isShowcaseSequenceDone,
-    onStanisavSequenceDone,
-  } = useEntranceContext();
+  const { isEntranceComplete, isShowcaseSequenceDone } = useEntranceContext();
 
   const color = languageColors[languageCode];
   const stripesType =
@@ -98,43 +90,6 @@ const Stanisav = ({
       microphoneService.stopCapture();
     };
   }, [isMyStanisav]);
-
-  const runAssemble = useCallback(() => {
-    if (!lookAroundRef.current) return;
-
-    const meshes = [];
-    lookAroundRef.current.traverse((object) => {
-      if (object instanceof Mesh) meshes.push(object);
-    });
-
-    meshes.forEach((mesh) => {
-      mesh.visible = false;
-    });
-
-    const timers = meshes.map((mesh, i) =>
-      setTimeout(() => {
-        mesh.visible = true;
-        mesh.renderOrder = renderOrder;
-        if (i === meshes.length - 1) onStanisavSequenceDone();
-      }, i * assembleRate),
-    );
-
-    return () => timers.forEach(clearTimeout);
-  }, []);
-
-  useEffect(() => {
-    runAssemble();
-  }, []);
-
-  const prevIsAnimatingRef = useRef(false);
-
-  useEffect(() => {
-    if (!isPhoenix) return;
-    const wasAnimating = prevIsAnimatingRef.current;
-    prevIsAnimatingRef.current = isAnimating;
-
-    if (!wasAnimating && isAnimating) runAssemble();
-  }, [isAnimating]);
 
   const scores = getFeatureScoreList(linguisticProperties, [
     "wordOrderFlexibility",
@@ -159,7 +114,7 @@ const Stanisav = ({
     config: {
       duration: isEntranceComplete ? switchDuration : entranceDuration,
     },
-    immediate: isMotionReduced || !isStanisavSequenceDone,
+    immediate: isMotionReduced,
   });
 
   const skinColor = shiftHue(color, skinHueShift);

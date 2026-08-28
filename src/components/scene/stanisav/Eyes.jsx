@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import blinkTimings from "../../../config/blinkTimings.json";
 import { useConfigContext } from "../../../contexts/ConfigContext.jsx";
-import { useEntranceContext } from "../../../contexts/EntranceContext.jsx";
 import { usePlaylistContext } from "../../../contexts/PlaylistContext.jsx";
 import { useShaderMaterial } from "../../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../../hooks/useThrottledFrame.js";
@@ -92,7 +91,6 @@ const Eye = ({
   } = config;
 
   // Eyes remain closed (lid down) until Stanisav's mesh reveal sequence finishes
-  const { isStanisavSequenceDone } = useEntranceContext();
 
   const irisScale = eyeSize * irisSize;
   const pupilScale = eyeSize * pupilSize;
@@ -109,14 +107,6 @@ const Eye = ({
     if (state.isBlinking) {
       const elapsed = time - state.startTime;
       const progress = elapsed / blinkDuration;
-
-      if (!isStanisavSequenceDone) {
-        if (!state.isBlinking) {
-          state.isBlinking = true;
-          state.startTime = time;
-        }
-        return;
-      }
 
       if (progress >= 1) {
         state.isBlinking = false;

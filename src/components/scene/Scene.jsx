@@ -23,7 +23,6 @@ const Scene = () => {
   const { filters, selectedLanguage } = useLanguageSelectionContext();
   const { languageColors } = useLanguageColorsContext();
   const {
-    isStanisavSequenceDone,
     skipSequence,
     isEntranceComplete,
     isLabelsSequenceDone,
@@ -161,20 +160,18 @@ const Scene = () => {
 
       <Camera languagePositions={languagePositions} />
 
-      {!shouldShowEmptyMessage &&
-        isStanisavSequenceDone &&
-        isBalloonSequenceDone && (
-          <Labels
-            groups={groups}
-            languagePositions={languagePositions}
-            languageFilterStatus={languageFilterStatus}
-            languageColors={languageColors}
-            languages={languages}
-            selectedLanguage={selectedLanguage}
-            isLabelsSequenceDone={isLabelsSequenceDone}
-            setIsLabelsSequenceDone={setIsLabelsSequenceDone}
-          />
-        )}
+      {!shouldShowEmptyMessage && isBalloonSequenceDone && (
+        <Labels
+          groups={groups}
+          languagePositions={languagePositions}
+          languageFilterStatus={languageFilterStatus}
+          languageColors={languageColors}
+          languages={languages}
+          selectedLanguage={selectedLanguage}
+          isLabelsSequenceDone={isLabelsSequenceDone}
+          setIsLabelsSequenceDone={setIsLabelsSequenceDone}
+        />
+      )}
 
       <Stanisav
         languageCode={stanisavLanguageCode}

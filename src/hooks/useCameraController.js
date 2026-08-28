@@ -2,14 +2,12 @@ import { useThree } from "@react-three/fiber";
 import { useCallback, useEffect, useRef } from "react";
 import { Vector3 } from "three";
 import { useConfigContext } from "../contexts/ConfigContext";
-import { useEntranceContext } from "../contexts/EntranceContext";
 import { useLanguageSelectionContext } from "../contexts/LanguageSelectionContext";
 import { useThrottledFrame } from "./useThrottledFrame";
 
 export const useCameraController = ({ languagePositions }) => {
   const { cameraFocusRequest, selectedLanguage } =
     useLanguageSelectionContext();
-  const { isStanisavSequenceDone } = useEntranceContext();
   // `size` is react-three-fiber's reactive canvas size (updated whenever its
   // internal ResizeObserver fires). Unlike camera.aspect, it's guaranteed to
   // be current at the moment this hook re-renders, so it's what
@@ -212,10 +210,9 @@ export const useCameraController = ({ languagePositions }) => {
   // When Stanisav's reveal sequence finishes, fly the camera in to his home
   // position at the same speed his spring animation takes to get there
   useEffect(() => {
-    if (!isStanisavSequenceDone) return;
     if (selectedLanguage) return;
     fitToLanguagePositions();
-  }, [isStanisavSequenceDone]);
+  }, []);
 
   // Skip this refit while a language is selected/zoomed - otherwise a resize
   // (e.g. the side menu opening or closing) recreates fitToLanguagePositions
