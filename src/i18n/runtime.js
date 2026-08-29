@@ -4,6 +4,12 @@ const languageNameLoaders = import.meta.glob("./language-names/*.json");
 const lineageLabelLoaders = import.meta.glob("./lineage-labels/*.json");
 const entranceStepLoaders = import.meta.glob("./entrance/*.json");
 
+// Kavian name files are optional per locale (e.g. "./language-names/nld-kav.json").
+// Unlike the loaders above, most locales will never have one.
+const kavianLanguageNameLoaders = import.meta.glob(
+  "./language-names/*-kav.json",
+);
+
 // Eagerly load the default locale so the app renders immediately
 import defaultEntranceSteps from "./entrance/eng.json";
 import defaultLanguageNames from "./language-names/eng.json";
@@ -16,11 +22,32 @@ const extractCode = (path) => path.match(/\/(\w+)\.json$/)[1];
 export const getSupportedLocales = () =>
   Array.from(Object.keys(messageLoaders).map(extractCode));
 
+// Locale codes that have a "<locale>-kav.json" file, derived the same way
+const extractKavianCode = (path) => path.match(/\/(\w+)-kav\.json$/)[1];
+
+const kavianSupportedLocales = new Set(
+  Object.keys(kavianLanguageNameLoaders).map(extractKavianCode),
+);
+
+// True if this locale has its own kavian names file (e.g. "nld", not "eng").
+// Locales without one simply fall back to the default locale's kavian names.
+const hasKavianNames = (locale) =>
+  kavianSupportedLocales.has(normalizeLocaleCode(locale));
+
 // Caches for loaded locale data
 const messagesByLocale = { eng: defaultMessages };
 const languageNamesByLocale = { eng: defaultLanguageNames };
 const lineageLabelsByLocale = { eng: defaultLineageLabels };
 const entranceStepsByLocale = { eng: defaultEntranceSteps };
+const kavianLanguageNamesByLocale = {};
+
+// Loads kavian names for this locale if a file for it exists; otherwise a no-op.
+const loadKavianLanguageNames = async (locale) => {
+  if (kavianLanguageNamesByLocale[locale] || !hasKavianNames(locale)) return;
+  const kavianNames =
+    await kavianLanguageNameLoaders[`./language-names/${locale}-kav.json`]();
+  kavianLanguageNamesByLocale[locale] = kavianNames.default;
+};
 
 const loadLocaleData = async (locale) => {
   if (messagesByLocale[locale]) return;
@@ -36,6 +63,11 @@ const loadLocaleData = async (locale) => {
       entranceLoader
         ? entranceLoader()
         : Promise.resolve({ default: defaultEntranceSteps }),
+      // Optional; resolves immediately when this locale has no kavian names.
+      // The default-locale load guarantees a fallback source is always ready
+      // for getLocalizedKavianLanguageName, and is a no-op once cached.
+      loadKavianLanguageNames(locale),
+      loadKavianLanguageNames(defaultLocale),
     ]);
 
   messagesByLocale[locale] = messages.default;
@@ -98,6 +130,8 @@ const interpolate = (message, params = {}) =>
 
 const translations = () => messagesByLocale[currentLocale];
 const localizedLanguageNames = () => languageNamesByLocale[currentLocale];
+const localizedKavianLanguageNames = () =>
+  kavianLanguageNamesByLocale[currentLocale];
 const localizedLineageLabels = () => lineageLabelsByLocale[currentLocale];
 const localizedEntranceSteps = () =>
   entranceStepsByLocale[currentLocale] ?? entranceStepsByLocale[defaultLocale];
@@ -174,6 +208,25 @@ export const getLocalizedLanguageName = (languageCode) => {
   }
 
   return languageName;
+};
+
+export const getLocalizedKavianLanguageName = (languageCode) => {
+  const normalizedCode = String(languageCode).toLowerCase();
+
+  const localeKavianNames = localizedKavianLanguageNames();
+  const kavianName = localeKavianNames?.[normalizedCode];
+  if (kavianName) return kavianName;
+
+  // Silent fallback: this locale has no kavian file at all, or has one but
+  // is missing this particular language — either way, use the default
+  // locale's kavian name instead of surfacing a gap to the user.
+  const fallbackKavianNames = kavianLanguageNamesByLocale[defaultLocale];
+  const fallbackKavianName = fallbackKavianNames?.[normalizedCode];
+  if (fallbackKavianName) return fallbackKavianName;
+
+  throw new Error(
+    `Missing kavian name '${normalizedCode}' for locale '${currentLocale}' and fallback '${defaultLocale}'`,
+  );
 };
 
 export const getLocalizedLineageLabel = (lineageName) => {

@@ -18,7 +18,7 @@
       "caseCount",
       "nounClassCount"
     ],
-    "labelContent": ["name", "nativeName", "isoCode"],
+    "labelContent": ["name", "nativeName", "isoCode", "kavianName"],
     "labelSize": [1, 1.25, 1.5, 1.75],
     "isReverse": false,
     "isBlackboard": false

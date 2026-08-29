@@ -1,6 +1,7 @@
 import lineages from "../config/lineages.json";
 import linguisticConfig from "../config/linguisticConfig.json";
 import {
+  getLocalizedKavianLanguageName,
   getLocalizedLanguageName,
   translate,
   tryTranslate,
@@ -143,6 +144,8 @@ export const getLanguageLabel = (languageCode, languageData, labelContent) => {
   switch (labelContent) {
     case "name":
       return getLocalizedLanguageName(languageCode);
+    case "kavianName":
+      return getLocalizedKavianLanguageName(languageCode);
     case "nativeName": {
       const nativeName = languageData?.[languageCode]?.nativeName;
       if (!nativeName) {
