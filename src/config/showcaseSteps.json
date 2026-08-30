@@ -1,4 +1,5 @@
 [
+  {},
   {
     "evidentiality": "none",
     "phonemeCount": 17
@@ -93,23 +94,25 @@
     "nounClassCount": 1
   },
   {
-    "caseCount": 7,
+    "caseCount": 10,
     "nounClassCount": 2
   },
   {
-    "caseCount": 2,
-    "nounClassCount": 3
+    "caseCount": 8,
+    "nounClassCount": 3,
+    "morphology": "introflexive"
   },
   {
+    "caseCount": 6,
     "nounClassCount": 4,
     "tonality": "pitch-accent"
   },
   {
+    "caseCount": 3,
     "nounClassCount": 7
   },
   {
-    "nounClassCount": 10,
-    "morphology": "introflexive"
+    "nounClassCount": 10
   },
   {
     "nounClassCount": 16
@@ -118,7 +121,8 @@
     "wordOrder": "SVO"
   },
   {
-    "wordOrder": "SOV"
+    "wordOrder": "SOV",
+    "morphology": "fusional"
   },
   {
     "morphology": "polysynthetic"
