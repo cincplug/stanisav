@@ -24,12 +24,10 @@ const Label = ({
   const labelRef = useRef();
   const { data } = useAppStateContext();
   const { selectedLanguage } = useLanguageSelectionContext();
-  const { startFromLanguage, isAnimating, previewLanguageCode } =
-    usePlaylistContext();
+  const { startFromLanguage, isAnimating } = usePlaylistContext();
 
   // Cursor position from keyboard/tab navigation, shown only where it
   // differs from the actual selection (isSelected styling takes precedence)
-  const isPreviewed = previewLanguageCode === languageCode;
 
   const { config } = useConfigContext();
   const {
@@ -188,14 +186,13 @@ const Label = ({
 
   return (
     <Text
-      font="/fonts/RobotoSlab-SemiBold.ttf"
+      font="/fonts/RobotoSlab-Regular.ttf"
       onClick={handleClick}
       ref={labelRef}
       fontSize={labelSize}
-      fontWeight="bold"
       anchorX="center"
       anchorY="middle"
-      outlineWidth={isPreviewed && !isSelected ? labelSize : labelSize / 2}
+      outlineWidth={labelSize / 2}
       outlineColor={outlineColor}
       material={textMaterial}
     >

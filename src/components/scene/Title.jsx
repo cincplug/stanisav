@@ -9,9 +9,8 @@ const Title = ({
   ...rest
 }) => (
   <Text
-    font="/fonts/RobotoSlab-SemiBold.ttf"
+    font="/fonts/RobotoSlab-Regular.ttf"
     fontSize={fontSize}
-    fontWeight="bold"
     anchorX={anchorX}
     anchorY={anchorY}
     color={color}

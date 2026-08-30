@@ -147,7 +147,7 @@ const Scene = () => {
       <color attach="background" args={[bgColor]} />
 
       {/* Does nothing, just loads font so the whole scene wouldn't disappear because of drei */}
-      <Text font="/fonts/RobotoSlab-SemiBold.ttf" />
+      <Text font="/fonts/RobotoSlab-Regular.ttf" />
 
       <OrbitControls
         ref={orbitControlsRef}
