@@ -18,6 +18,7 @@ import Labels from "./Labels";
 import Light from "./Light";
 import Stanisav from "./stanisav/Stanisav";
 import OrbitModifier from "./OrbitModifier";
+import SceneReadyGate from "./SceneReadyGate";
 
 const Scene = () => {
   const { filters, selectedLanguage } = useLanguageSelectionContext();
@@ -124,6 +125,12 @@ const Scene = () => {
   const shouldShowEmptyMessage =
     hasSelectedFilters && visibleLanguages.length === 0;
 
+  const stanisavColor = languageColors[stanisavLanguageCode];
+  const hasDrawableScene =
+    Boolean(stanisavColor) &&
+    Object.keys(languagePositions).length > 0 &&
+    (shouldShowEmptyMessage || visibleLanguages.length > 0);
+
   if (!data || sortedLanguageCodes.length === 0) {
     return null;
   }
@@ -135,6 +142,8 @@ const Scene = () => {
       camera={{ position: [cameraX, cameraY, cameraZ] }}
       gl={{ antialias: true, clearColor: bgColor }}
     >
+      <SceneReadyGate hasDrawableScene={hasDrawableScene} />
+
       <color attach="background" args={[bgColor]} />
 
       {/* Does nothing, just loads font so the whole scene wouldn't disappear because of drei */}

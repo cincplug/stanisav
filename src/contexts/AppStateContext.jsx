@@ -5,6 +5,7 @@ const AppStateContext = createContext(null);
 export const AppStateProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
+  const [isSceneReady, setIsSceneReady] = useState(false);
   const [, setNodes] = useState(null);
   const [cameraFocusRequest, setCameraFocusRequest] = useState(null);
 
@@ -15,8 +16,10 @@ export const AppStateProvider = ({ children }) => {
   const value = {
     isLoading,
     data,
+    isSceneReady,
     cameraFocusRequest,
     setData,
+    setIsSceneReady,
     setIsLoading,
     setNodes,
     handleCameraFocus,
