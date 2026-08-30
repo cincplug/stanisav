@@ -4,7 +4,7 @@
   left: 0;
   background: var(--color-1);
   color: var(--color-4);
-  padding: var(--gap-double);
+  padding: var(--gap);
   box-sizing: border-box;
   border-top: var(--border);
   width: 100%;
@@ -27,7 +27,6 @@
   grid-template-columns: max-content 1fr max-content;
   align-items: start;
   gap: var(--gap);
-  margin-bottom: var(--gap);
   padding: 0 var(--gap-triple) 0 var(--gap);
 
   html.rtl & {
@@ -49,24 +48,17 @@ html.rtl .id-card-close-button {
 .id-card-title {
   grid-column: 1;
   margin: 0;
-  font-size: var(--font-size-l);
+  font-size: var(--font-size-m);
   text-align: start;
   color: var(--color-4);
   font-weight: normal;
 }
 
-.id-card-breadcrumb-wrap {
-  grid-column: 2;
-  display: flex;
-  justify-content: center;
-  min-width: 0;
-}
-
 .id-card-breadcrumb {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: var(--gap-half);
+  padding: var(--gap);
   color: var(--color-4);
   font-weight: normal;
   min-width: 0;
@@ -82,7 +74,8 @@ html.rtl .id-card-close-button {
 .id-card-columns {
   min-width: 0;
   width: 100%;
-  margin: 0 auto;
+  margin: var(--gap) auto 0;
+  border-top: var(--border);
 }
 
 .id-card-list {
@@ -108,7 +101,7 @@ html.rtl .id-card-close-button {
 .id-card-property-row {
   display: flex;
   align-items: center;
-  padding: var(--gap);
+  padding: var(--gap-half) var(--gap);
 }
 
 .id-card-property-label {
@@ -152,11 +145,8 @@ html.rtl .id-card-close-button {
 }
 
 .id-card-source-video {
-  white-space: nowrap;
-  position: relative;
-  bottom: var(--gap-half);
-  right: var(--gap-double);
   color: var(--color-focus);
+  padding-inline-end: var(--gap);
 }
 
 .id-card-actions {
@@ -165,12 +155,6 @@ html.rtl .id-card-close-button {
   display: inline-flex;
   align-items: center;
   gap: var(--gap-half);
-}
-
-.id-card-close-button {
-  position: absolute;
-  top: var(--gap);
-  right: var(--gap);
 }
 
 .id-card-title,
@@ -187,6 +171,10 @@ html.rtl .id-card-close-button {
   border: var(--border);
   background: var(--color-1);
   padding: var(--gap);
+}
+
+.id-card-expand {
+  transform: rotate(180deg);
 }
 
 .subtitle {

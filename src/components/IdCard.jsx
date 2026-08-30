@@ -14,7 +14,7 @@ import {
   isPropertyDescribed,
 } from "../utils/linguisticUtils";
 import "./IdCard.css";
-import { CloseIcon } from "./Icons";
+import { CloseIcon, ExpandIcon } from "./Icons";
 import Tooltip from "./ux/Tooltip";
 
 function IdCard({
@@ -91,17 +91,6 @@ function IdCard({
     return null;
   }
 
-  if (!isVisible) {
-    return (
-      <button
-        className="id-card id-card-trigger"
-        onClick={() => onToggleSubtitle?.(true)}
-      >
-        {t("controls.isIdCardVisible.label")}
-      </button>
-    );
-  }
-
   return (
     <aside
       className="id-card"
@@ -110,35 +99,12 @@ function IdCard({
         "--id-card-max-columns": normalizedColumnCount,
       }}
     >
-      <button
-        ref={closeButtonRef}
-        className="close-button id-card-close-button"
-        onClick={() => onToggleSubtitle?.(false)}
-        aria-label={t("controls.isIdCardVisible.label")}
-      >
-        <CloseIcon />
-      </button>
-
       <div className="id-card-header">
         <h2 className="id-card-title">
           {localizedLanguageName} <span className="sign">(</span>
           {language.nativeName}
           <span className="sign">)</span>
         </h2>
-
-        {lineageTrail.length > 0 && (
-          <div className="id-card-breadcrumb-wrap">
-            <div className="id-card-breadcrumb" role="list">
-              {lineageTrail.map((lineageItem, index) => (
-                <span key={lineageItem} className="id-card-breadcrumb-item">
-                  {index > 0 && <span className="sign">→</span>}
-                  <span>{getFamilyLabel(lineageItem)}</span>
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
-
         <div className="id-card-actions">
           {sampleUrl && (
             <a
@@ -155,43 +121,67 @@ function IdCard({
         </div>
       </div>
 
-      <div className="id-card-columns">
-        <dl className="id-card-list" role="list">
-          {properties.map((property) => {
-            const canSelect = isPropertyDescribed(property.key);
-            const isSelected = selectedProperty === property.key;
-            return (
-              <div
-                key={property.key}
-                className={`id-card-property-row${isSelected ? " selected" : ""}`}
-                role="group"
-                aria-label={property.label}
-              >
-                <dt className="id-card-property-label">{property.label}:</dt>
-                <dd className="id-card-property-value">{property.value}</dd>
-                <span className="id-card-property-info-cell">
-                  {canSelect && (
-                    <Tooltip
-                      id={`idcard-${property.key}`}
-                      label={property.label}
-                      position="top"
-                      className="info-link"
-                      triggerRef={(el) => {
-                        tooltipButtonRefs.current[property.key] = el;
-                      }}
-                    >
-                      {getFeatureDescription(
-                        property.key,
-                        language[property.key],
-                      )}
-                    </Tooltip>
-                  )}
-                </span>
-              </div>
-            );
-          })}
-        </dl>
-      </div>
+      <button
+        ref={closeButtonRef}
+        className="close-button id-card-close-button"
+        onClick={() => onToggleSubtitle?.(!isVisible)}
+        aria-label={t("controls.isIdCardVisible.label")}
+      >
+        {isVisible ? <CloseIcon /> : <ExpandIcon className="id-card-expand" />}
+      </button>
+
+      {isVisible && (
+        <div className="id-card-columns">
+          {lineageTrail.length > 0 && (
+            <div className="id-card-breadcrumb" role="list">
+              <dt>{t("controls.sortBy.options.family")}:</dt>
+              <dd>
+                {lineageTrail.map((lineageItem, index) => (
+                  <span key={lineageItem} className="id-card-breadcrumb-item">
+                    {index > 0 && <span className="sign">→</span>}
+                    <span>{getFamilyLabel(lineageItem)}</span>
+                  </span>
+                ))}
+              </dd>
+            </div>
+          )}
+          <dl className="id-card-list" role="list">
+            {properties.map((property) => {
+              const canSelect = isPropertyDescribed(property.key);
+              const isSelected = selectedProperty === property.key;
+              return (
+                <div
+                  key={property.key}
+                  className={`id-card-property-row${isSelected ? " selected" : ""}`}
+                  role="group"
+                  aria-label={property.label}
+                >
+                  <dt className="id-card-property-label">{property.label}:</dt>
+                  <dd className="id-card-property-value">{property.value}</dd>
+                  <span className="id-card-property-info-cell">
+                    {canSelect && (
+                      <Tooltip
+                        id={`idcard-${property.key}`}
+                        label={property.label}
+                        position="top"
+                        className="info-link"
+                        triggerRef={(el) => {
+                          tooltipButtonRefs.current[property.key] = el;
+                        }}
+                      >
+                        {getFeatureDescription(
+                          property.key,
+                          language[property.key],
+                        )}
+                      </Tooltip>
+                    )}
+                  </span>
+                </div>
+              );
+            })}
+          </dl>
+        </div>
+      )}
     </aside>
   );
 }
