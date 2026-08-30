@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
-import { setSelectedLocale, translate } from "../i18n/runtime";
+import { setSelectedLocale, translate, defaultLocale } from "../i18n/runtime";
 
 const I18nContext = createContext(null);
 
@@ -7,7 +7,7 @@ const I18nContext = createContext(null);
 const RTL_LOCALES = new Set(["ara", "heb", "fas", "urd"]); // Arabic, Hebrew, Persian, Urdu
 
 export const I18nProvider = ({ children }) => {
-  const [locale, setLocale] = useState("eng");
+  const [locale, setLocale] = useState(defaultLocale);
   const [isLocaleReady, setIsLocaleReady] = useState(true);
 
   const [isRtl, setIsRtl] = useState(RTL_LOCALES.has(locale));

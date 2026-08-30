@@ -17,7 +17,8 @@
       "options": {
         "isoCode": "ISO codes",
         "name": "Names in English",
-        "nativeName": "Native names"
+        "nativeName": "Native names",
+        "kavianName": "Kavski"
       }
     },
     "labelSize": {

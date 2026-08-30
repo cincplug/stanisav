@@ -10,7 +10,15 @@ const kavianLanguageNameLoaders = import.meta.glob(
   "./language-names/*-kav.json",
 );
 
-// Eagerly load the default locale so the app renders immediately
+// THE single source of truth for which locale is the built-in default/fallback.
+// Everything below that CAN be derived from this constant, is — but Vite import
+// specifiers must be static string literals, so the four eager imports right
+// below still have to spell it out by hand. Change this constant AND those
+// four paths together, or the DEV-only assertion further down will catch it.
+export const defaultLocale = "eng";
+
+// Eagerly load the default locale so the app renders immediately.
+// These four paths MUST literally match defaultLocale above.
 import defaultEntranceSteps from "./entrance/eng.json";
 import defaultLanguageNames from "./language-names/eng.json";
 import defaultLineageLabels from "./lineage-labels/eng.json";
@@ -34,12 +42,26 @@ const kavianSupportedLocales = new Set(
 const hasKavianNames = (locale) =>
   kavianSupportedLocales.has(normalizeLocaleCode(locale));
 
-// Caches for loaded locale data
-const messagesByLocale = { eng: defaultMessages };
-const languageNamesByLocale = { eng: defaultLanguageNames };
-const lineageLabelsByLocale = { eng: defaultLineageLabels };
-const entranceStepsByLocale = { eng: defaultEntranceSteps };
+// Caches for loaded locale data. Every key here is defaultLocale, not the
+// literal "eng" — this is the one part of the eager-load setup that already
+// had no reason to hardcode it.
+const messagesByLocale = { [defaultLocale]: defaultMessages };
+const languageNamesByLocale = { [defaultLocale]: defaultLanguageNames };
+const lineageLabelsByLocale = { [defaultLocale]: defaultLineageLabels };
+const entranceStepsByLocale = { [defaultLocale]: defaultEntranceSteps };
 const kavianLanguageNamesByLocale = {};
+
+// DEV-only tripwire: if defaultLocale above ever changes without updating the
+// four eager import paths to match, fail loudly at startup — instead of a
+// "Missing locale" error three components deep, with no clue why.
+if (import.meta.env?.DEV && defaultLocale !== "eng") {
+  throw new Error(
+    `runtime.js: defaultLocale is set to '${defaultLocale}', but the four ` +
+      `eager imports above (entrance/eng.json, language-names/eng.json, ` +
+      `lineage-labels/eng.json, messages/eng.json) still literally say ` +
+      `'eng'. Update those four import paths to '${defaultLocale}.json' too.`,
+  );
+}
 
 // Loads kavian names for this locale if a file for it exists; otherwise a no-op.
 const loadKavianLanguageNames = async (locale) => {
@@ -50,6 +72,15 @@ const loadKavianLanguageNames = async (locale) => {
 };
 
 const loadLocaleData = async (locale) => {
+  // Kavian data is never part of the eager eng bundle above (unlike messages,
+  // language names, etc.), so it needs its own load regardless of whether the
+  // rest of this locale's data was already eagerly bundled. Both calls are
+  // no-ops once cached, so this is cheap even when it runs on every call.
+  await Promise.all([
+    loadKavianLanguageNames(locale),
+    loadKavianLanguageNames(defaultLocale),
+  ]);
+
   if (messagesByLocale[locale]) return;
 
   const entranceLoader = entranceStepLoaders[`./entrance/${locale}.json`];
@@ -63,11 +94,6 @@ const loadLocaleData = async (locale) => {
       entranceLoader
         ? entranceLoader()
         : Promise.resolve({ default: defaultEntranceSteps }),
-      // Optional; resolves immediately when this locale has no kavian names.
-      // The default-locale load guarantees a fallback source is always ready
-      // for getLocalizedKavianLanguageName, and is a no-op once cached.
-      loadKavianLanguageNames(locale),
-      loadKavianLanguageNames(defaultLocale),
     ]);
 
   messagesByLocale[locale] = messages.default;
@@ -75,8 +101,6 @@ const loadLocaleData = async (locale) => {
   lineageLabelsByLocale[locale] = lineageLabels.default;
   entranceStepsByLocale[locale] = entranceSteps.default;
 };
-
-export const defaultLocale = "eng";
 
 // Derive URL slug ↔ ISO 639-3 mappings dynamically via Intl.Locale
 const supportedLocalesArr = getSupportedLocales();
