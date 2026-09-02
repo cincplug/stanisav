@@ -111,7 +111,6 @@ button,
   }
 }
 
-a,
 button,
 input,
 select,
@@ -274,7 +273,9 @@ legend {
   background: var(--color-1);
 }
 
-.home-link {
-  width: fit-content;
-  text-align: end;
+.article-link {
+  position: absolute;
+  bottom: var(--gap-double);
+  text-align: center;
+  width: 100%;
 }

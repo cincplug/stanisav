@@ -33,7 +33,7 @@ const StickyStanisav = ({ languageCode, describedById }) => {
       >
         <Stanisav
           languageCode={languageCode}
-          position={[0, -2, 105]}
+          position={[0, -3, 102]}
           isMyStanisav={false}
           spin={stanisavSpin}
         />

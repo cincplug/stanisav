@@ -10,7 +10,6 @@ import { LanguageColorsProvider } from "./contexts/LanguageColorsContext.jsx";
 import { LanguageSelectionProvider } from "./contexts/LanguageSelectionContext";
 import { PlaylistProvider } from "./contexts/PlaylistContext";
 import Article from "./pages/article/Article.jsx";
-import SourceVideoGallery from "./pages/source-video-gallery/SourceVideoGallery.jsx";
 
 import LocaleLayout from "./components/routing/LocaleLayout.jsx";
 import { defaultUrlSlug } from "./i18n/runtime";
@@ -33,10 +32,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                       />
                       <Route path=":locale" element={<LocaleLayout />}>
                         <Route index element={<App />} />
-                        <Route
-                          path="source-video-gallery"
-                          element={<SourceVideoGallery />}
-                        />
                         <Route path="article" element={<Article />} />
                       </Route>
                       <Route

@@ -4,24 +4,14 @@
 
 .article-container {
   display: grid;
-  grid-template-columns: 1fr min(var(--readable-width), 100%) 1fr;
-  max-width: var(--container-width);
+  max-width: var(--readable-width);
   margin-inline: auto;
-  min-height: 100vh;
   padding: var(--gap);
   gap: var(--gap);
   color: var(--color-4);
 }
 
-/* keeps text elements confined to the readable column */
-.article-container > * {
-  grid-column: 2;
-}
-
 .sticky-stanisav {
-  position: sticky;
   width: 100%;
-  height: 300px;
-  top: var(--gap);
-  background: var(--color-1);
+  height: 50vh;
 }
