@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./App.css";
 import IdCard from "./IdCard.jsx";
 import Menu from "./menu/Menu.jsx";
@@ -69,6 +70,12 @@ function App() {
             sub={sub}
             languageColor={languageColors[selectedLanguage]}
           />
+        )}
+
+        {!selectedLanguage && (
+          <Link className="article-link" to={`article`}>
+            Who's this?
+          </Link>
         )}
       </div>
     </div>

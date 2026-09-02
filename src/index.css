@@ -272,3 +272,10 @@ legend {
   bottom: 0;
   background: var(--color-1);
 }
+
+.article-link {
+  position: absolute;
+  bottom: var(--gap-double);
+  text-align: center;
+  width: 100%;
+}
