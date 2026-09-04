@@ -276,6 +276,8 @@ legend {
 .article-link {
   position: absolute;
   bottom: var(--gap-double);
-  text-align: center;
   width: 100%;
+  text-align: center;
+  font-size: var(--font-size-xl);
+  color: var(--color-4);
 }

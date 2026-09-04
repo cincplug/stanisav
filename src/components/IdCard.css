@@ -23,9 +23,9 @@
 
 .id-card-header {
   position: relative;
-  display: grid;
-  grid-template-columns: max-content 1fr max-content;
-  align-items: start;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   gap: var(--gap);
   padding: 0 var(--gap-triple) 0 var(--gap);
 
@@ -46,10 +46,8 @@ html.rtl .id-card-close-button {
 }
 
 .id-card-title {
-  grid-column: 1;
   margin: 0;
-  font-size: var(--font-size-m);
-  text-align: start;
+  font-size: var(--font-size-xl);
   color: var(--color-4);
   font-weight: normal;
 }
