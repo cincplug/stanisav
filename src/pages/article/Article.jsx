@@ -6,6 +6,7 @@ import { useI18nContext } from "../../contexts/I18nContext";
 import readme from "../../../README.md?raw";
 import "../../index.css";
 import "./Article.css";
+import { ChevronIcon } from "../../components/Icons";
 
 const Article = () => {
   // URL slug (e.g. "nl"), used only to build the back-to-main-page link
@@ -23,6 +24,7 @@ const Article = () => {
   return (
     <>
       <Link to={`/${urlLocale}`} title="Back to main page">
+        <ChevronIcon className="home-link" />
         <StickyStanisav languageCode={iso3Locale} />
       </Link>
       <div className="article-container">

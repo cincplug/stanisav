@@ -1,5 +1,5 @@
 import { cloneElement, isValidElement } from "react";
-import { ExpandIcon } from "../Icons";
+import { ChevronIcon } from "../Icons";
 import "./Select.css";
 
 /**
@@ -62,7 +62,7 @@ export default function Select({
         ))}
       </select>
       {overlayIcon}
-      {!isCompact && !icon && <ExpandIcon className="expand-icon" />}
+      {!isCompact && !icon && <ChevronIcon className="expand-icon" />}
     </div>
   );
 }

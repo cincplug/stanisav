@@ -152,7 +152,7 @@ export function LoopIcon({ selected, ...props }) {
   );
 }
 
-export const ExpandIcon = (props) => (
+export const ChevronIcon = (props) => (
   <svg
     width={iconSize}
     height={iconSize}
@@ -161,7 +161,7 @@ export const ExpandIcon = (props) => (
     {...props}
   >
     <path
-      d="M5 10L12 16L19 10"
+      d="M5 10L12 19L19 10"
       stroke={iconColor}
       strokeWidth={strokeWidth}
       strokeLinecap="round"

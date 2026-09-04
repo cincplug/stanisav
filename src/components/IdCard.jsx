@@ -14,7 +14,7 @@ import {
   isPropertyDescribed,
 } from "../utils/linguisticUtils";
 import "./IdCard.css";
-import { CloseIcon, ExpandIcon } from "./Icons";
+import { CloseIcon, ChevronIcon } from "./Icons";
 import Tooltip from "./ux/Tooltip";
 
 function IdCard({
@@ -124,7 +124,7 @@ function IdCard({
         onClick={() => onToggleSubtitle?.(!isVisible)}
         aria-label={t("controls.isIdCardVisible.label")}
       >
-        {isVisible ? <CloseIcon /> : <ExpandIcon className="id-card-expand" />}
+        {isVisible ? <CloseIcon /> : <ChevronIcon className="id-card-expand" />}
       </button>
 
       {isVisible && (
