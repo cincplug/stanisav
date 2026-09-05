@@ -11,7 +11,7 @@ const CAPTURE_EVENT = "keydown";
 
 const MiniStanisav = ({
   languageCode,
-  position = [0, 0, 100],
+  position = [0, 0, 97],
   captureEnabled = IS_CAPTURE_ENABLED,
 }) => {
   const { config } = useConfigContext();
@@ -30,7 +30,6 @@ const MiniStanisav = ({
     if (!captureEnabled) return undefined;
 
     const handleEvent = (event) => {
-      if (event.key !== "/") return;
       event.preventDefault();
       const canvas = wrapperRef.current?.querySelector("canvas");
       saveCanvasAsPng(canvas, { prefix: "stanisav" });

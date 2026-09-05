@@ -25,7 +25,7 @@ const Article = () => {
     <>
       <Link to={`/${urlLocale}`} title="Back to main page">
         <ChevronIcon className="home-link" />
-        <MiniStanisav languageCode={iso3Locale} position={[0, -3, 104]} />
+        <MiniStanisav languageCode={iso3Locale} position={[0, -2, 108]} />
       </Link>
       <div className="article-container">
         <Markdown>{readme}</Markdown>
