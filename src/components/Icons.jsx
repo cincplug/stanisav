@@ -161,7 +161,7 @@ export const ChevronIcon = (props) => (
     {...props}
   >
     <path
-      d="M5 10L12 19L19 10"
+      d="M5 10L12 17L19 10"
       stroke={iconColor}
       strokeWidth={strokeWidth}
       strokeLinecap="round"

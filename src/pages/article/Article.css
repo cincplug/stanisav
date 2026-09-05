@@ -17,6 +17,6 @@
 }
 
 .home-link {
-  padding: var(--gap);
-  transform: rotate(90deg);
+  padding: var(--gap-double) var(--gap);
+  transform: rotate(90deg) scale(1.2);
 }
