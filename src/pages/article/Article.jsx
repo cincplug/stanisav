@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import Markdown from "react-markdown";
-import StickyStanisav from "../../components/StickyStanisav";
 import { useI18nContext } from "../../contexts/I18nContext";
 import readme from "../../../README.md?raw";
 import "../../index.css";
 import "./Article.css";
 import { ChevronIcon } from "../../components/Icons";
+import MiniStanisav from "../../components/MiniStanisav";
 
 const Article = () => {
   // URL slug (e.g. "nl"), used only to build the back-to-main-page link
@@ -25,7 +25,7 @@ const Article = () => {
     <>
       <Link to={`/${urlLocale}`} title="Back to main page">
         <ChevronIcon className="home-link" />
-        <StickyStanisav languageCode={iso3Locale} />
+        <MiniStanisav languageCode={iso3Locale} position={[0, -3, 104]} />
       </Link>
       <div className="article-container">
         <Markdown>{readme}</Markdown>

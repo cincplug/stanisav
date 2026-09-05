@@ -43,7 +43,8 @@
   --border-input: var(--border-width-thin) solid var(--color-4);
   --clear-button-size: var(--icon-size-s);
   --tooltip-tail-size: 1rem;
-  --mini-stanisav-max-height: 7rem;
+  --mini-stanisav-button-height: 20rem;
+  --mini-stanisav-height: 25rem;
   --transition: 0.5s ease;
 }
 

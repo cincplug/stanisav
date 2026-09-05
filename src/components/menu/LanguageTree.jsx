@@ -24,6 +24,7 @@ const LanguageTree = ({
       <ul className="languages-in-group" role="list">
         {languageCodes.map((langCode) => {
           const label = getLanguageLabel(langCode, languages, labelContent);
+          const hasMiniStanisav = isMobile && selectedLanguage === langCode;
 
           return (
             <li key={langCode}>
@@ -35,16 +36,15 @@ const LanguageTree = ({
                 }}
                 className={`language-item-button ${
                   selectedLanguage === langCode ? "selected" : ""
-                } ${
-                  previewLanguageCode === langCode ? "previewed" : ""
-                } ${!languages[langCode]?.sr ? "todo-item" : ""}`}
+                } ${previewLanguageCode === langCode ? "previewed" : ""} ${
+                  !languages[langCode]?.sr ? "todo-item" : ""
+                } ${hasMiniStanisav ? "has-mini-stanisav" : ""}
+                  `}
                 onClick={() => onSelectLanguage(langCode)}
                 onFocus={() => onFocusLanguage(langCode)}
               >
-                {isMobile && selectedLanguage === langCode && (
-                  <MiniStanisav languageCode={langCode} />
-                )}
                 {label}
+                {hasMiniStanisav && <MiniStanisav languageCode={langCode} />}
               </button>
             </li>
           );

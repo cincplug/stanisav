@@ -8,6 +8,7 @@ import {
   hasPropertyOverrides,
 } from "../utils/entranceUtils";
 import { useConfigContext } from "./ConfigContext";
+import { useAppStateContext } from "./AppStateContext";
 
 const EntranceContext = createContext(null);
 const stanisavShapePropertyNames = Object.keys(linguisticConfig);
@@ -15,6 +16,7 @@ const stanisavShapePropertyNames = Object.keys(linguisticConfig);
 export const EntranceProvider = ({ children }) => {
   const { config } = useConfigContext();
   const { isLocaleReady } = useI18nContext();
+  const { isMiniStanisav } = useAppStateContext();
 
   const entranceSteps = isLocaleReady ? getEntranceSteps() : [];
 
@@ -141,6 +143,12 @@ export const EntranceProvider = ({ children }) => {
     setMentionedLanguage(null);
     setMentionedPropertyOverrides({});
   };
+
+  useEffect(() => {
+    if (isMiniStanisav) {
+      skipSequence();
+    }
+  }, [isMiniStanisav]);
 
   const getLabelSpringProps = (
     finalPosition,

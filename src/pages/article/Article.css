@@ -11,11 +11,6 @@
   color: var(--color-4);
 }
 
-.sticky-stanisav {
-  width: 100%;
-  height: 50vh;
-}
-
 .home-link {
   padding: var(--gap-double) var(--gap);
   transform: rotate(90deg) scale(1.2);
