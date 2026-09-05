@@ -44,14 +44,15 @@ export default defineConfig({
         navigateFallbackDenylist: [/^\/audio\//],
         runtimeCaching: [
           {
-            // Cache each language sample the first time it's played, so
-            // already-heard languages keep working offline afterwards.
+            // Grow the offline sample stash progressively as users listen online.
+            // We intentionally keep this bounded to avoid a huge install while still
+            // letting frequently-heard samples stay available offline afterwards.
             urlPattern: ({ url }) => url.pathname.startsWith("/audio/samples/"),
-            handler: "CacheFirst",
+            handler: "StaleWhileRevalidate",
             options: {
               cacheName: "audio-samples",
               expiration: {
-                maxEntries: 200,
+                maxEntries: 500,
                 maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
               },
               cacheableResponse: {
