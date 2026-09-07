@@ -293,24 +293,6 @@ export const SortIcon = (props) => (
   </svg>
 );
 
-export const spiralRatioIcon = (props) => (
-  <svg
-    width={iconSize}
-    height={iconSize}
-    viewBox={viewBox}
-    fill="none"
-    {...props}
-  >
-    <path
-      d="M2 12 Q6 4 10 12 Q14 20 18 12 Q20 8 22 12"
-      stroke={iconColor}
-      strokeWidth={strokeWidth}
-      strokeLinecap="round"
-      fill="none"
-    />
-  </svg>
-);
-
 export const LightIcon = (props) => (
   <svg
     width={iconSize}
@@ -436,3 +418,37 @@ export const RefreshIcon = (props) => (
     <path d="M12 1.5 a10.5 10.5 0 1 0 9.5 6 h-2.48 A8.25 8.25 0 1 1 12 3.75 V0 l4.5 4 -4.5 3 V2 A9 9 0 0 1 12 1.5Z" />
   </svg>
 );
+
+export const SelfieIcon = (props) => (
+  <svg
+    width={iconSize}
+    height={iconSize}
+    viewBox={viewBox}
+    fill="none"
+    {...props}
+  >
+    {/* Camera body */}
+    <rect
+      x="4"
+      y="7"
+      width="16"
+      height="12"
+      rx="2"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+    />
+
+    {/* Viewfinder / shutter bump */}
+    <rect x="8" y="5" width="4" height="2" rx="1" fill="currentColor" />
+
+    {/* Lens */}
+    <circle
+      cx="12"
+      cy="13"
+      r="3.5"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+    />
+  </svg>
+);
+``;

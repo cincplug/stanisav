@@ -107,7 +107,8 @@
     "tuftY": 1.4,
     "tuftProtrusion": 0.5,
     "tuftHueShift": 120,
-    "tuftColorStep": 33
+    "tuftColorStep": 33,
+    "canMakeSelfies": false
   },
   "audioVisualisation": {
     "soundSource": ["l-o", "o-l", "l", "o"],
