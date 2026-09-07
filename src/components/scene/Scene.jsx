@@ -45,8 +45,8 @@ const Scene = () => {
     labelOffset,
     isBlackboard,
     labelSize,
-    sphereSpin,
-    stanisavSpin,
+    sphereSpinSpeed,
+    stanisavSpinSpeed,
     sphereRadius,
     zoomDistance,
     fov,
@@ -161,7 +161,7 @@ const Scene = () => {
       <OrbitModifier
         orbitControlsRef={orbitControlsRef}
         spiralAxis={spiralAxis}
-        speed={selectedLanguage ? 0 : sphereSpin}
+        speed={selectedLanguage ? 0 : sphereSpinSpeed}
         isEnabled={!isBlackboard}
       />
 
@@ -187,7 +187,7 @@ const Scene = () => {
         imposedProperties={stanisavImposedProperties}
         position={stanisavPosition}
         isMyStanisav={isMyStanisav}
-        spin={stanisavSpin}
+        spinSpeed={stanisavSpinSpeed}
         isMotionReduced={isMotionReduced}
         renderOrder={languages.length}
         wideScale={stanisavWideScale}

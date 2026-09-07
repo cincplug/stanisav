@@ -31,7 +31,7 @@
     "timeRate": 15
   },
   "sphere": {
-    "sphereSpin": 1.5,
+    "sphereSpinSpeed": 1.5,
     "spiralAxis": ["y", "x", "z"],
     "spiralRatio": [0.61803, 0.41421, 0.73205, 0.23606, 0.64575, 0.31662],
     "labelOffset": 5,
@@ -51,7 +51,7 @@
   },
   "stanisav": {
     "stanisavSize": 1.4,
-    "stanisavSpin": 0.5,
+    "stanisavSpinSpeed": 0.5,
     "assembleRate": 50,
     "blinkDuration": 0.2,
     "earDepth": 4.5,

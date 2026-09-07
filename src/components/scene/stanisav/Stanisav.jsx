@@ -37,7 +37,7 @@ const Stanisav = ({
   imposedProperties,
   position,
   isMyStanisav,
-  spin,
+  spinSpeed,
   isMotionReduced,
   wideScale,
 }) => {
@@ -154,9 +154,10 @@ const Stanisav = ({
       );
     } else if (selectedLanguage) {
       rotationYRef.current =
-        (rotationYRef.current + delta * spin) % (Math.PI * 2);
+        (rotationYRef.current + delta * spinSpeed) % (Math.PI * 2);
       saltoPhaseRef.current =
-        (saltoPhaseRef.current + delta * spin * saltoFrequency) % (Math.PI * 2);
+        (saltoPhaseRef.current + delta * spinSpeed * saltoFrequency) %
+        (Math.PI * 2);
 
       const shiftedPhase = saltoPhaseRef.current - Math.PI;
       const sinPhase = Math.sin(shiftedPhase);
@@ -176,7 +177,7 @@ const Stanisav = ({
           Math.PI;
     } else {
       rotationYRef.current =
-        (rotationYRef.current + delta * spin) % (Math.PI * 2);
+        (rotationYRef.current + delta * spinSpeed) % (Math.PI * 2);
     }
 
     lookAroundRef.current.quaternion.copy(camera.quaternion);

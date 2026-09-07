@@ -17,7 +17,7 @@ const MiniStanisav = ({ languageCode, position = [0, 0, 97] }) => {
     near,
     far,
     bgColor,
-    stanisavSpin,
+    stanisavSpinSpeed,
     canMakeSelfies,
   } = config;
   const wrapperRef = useRef(null);
@@ -53,7 +53,7 @@ const MiniStanisav = ({ languageCode, position = [0, 0, 97] }) => {
           languageCode={languageCode}
           position={position}
           isMyStanisav={false}
-          spin={stanisavSpin}
+          spinSpeed={stanisavSpinSpeed}
         />
       </Canvas>
       {canMakeSelfies && (
