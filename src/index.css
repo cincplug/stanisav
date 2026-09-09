@@ -297,13 +297,13 @@ legend {
     display: block;
     object-fit: contain;
   }
+}
 
-  .selfie-button {
-    position: absolute;
-    top: calc(-2 * var(--gap-double));
-    right: var(--gap);
-    background: none;
-    border: none;
-    padding: 0;
-  }
+.selfie-button {
+  position: absolute;
+  top: var(--gap);
+  right: var(--gap);
+  background: none;
+  border: none;
+  padding: 0;
 }

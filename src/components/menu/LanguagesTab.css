@@ -12,18 +12,21 @@
   list-style: none;
   margin: 0;
   padding: 0;
-}
 
-.languages-in-group li {
-  margin: 0;
-  padding: 0;
-}
+  li {
+    margin: 0;
+    padding: 0;
+    &:has(.mini-stanisav) {
+      flex-basis: 100%;
+      height: var(--mini-stanisav-button-height);
+      overflow: hidden;
+      position: relative;
+    }
+  }
 
-.languages-in-group li:has(.mini-stanisav) {
-  flex-basis: 100%;
-  height: var(--mini-stanisav-button-height);
-  overflow: hidden;
-  position: relative;
+  .selfie-button {
+    top: calc(-2 * var(--gap-double));
+  }
 }
 
 .language-item-button {
