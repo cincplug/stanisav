@@ -25,22 +25,26 @@ const LanguageTree = ({
         {languageCodes.map((langCode) => {
           const label = getLanguageLabel(langCode, languages, labelContent);
           const hasMiniStanisav = isMobile && selectedLanguage === langCode;
+          const isSelected = selectedLanguage === langCode;
 
           return (
             <li key={langCode}>
               <button
                 ref={(el) => (buttonRefs.current[langCode] = el)}
-                style={{
-                  background: languageColors[langCode],
-                  borderColor: languageColors[langCode],
-                }}
+                style={
+                  isSelected
+                    ? null
+                    : {
+                        background: languageColors[langCode],
+                        borderColor: languageColors[langCode],
+                      }
+                }
                 className={`language-item-button ${
-                  selectedLanguage === langCode ? "selected" : ""
-                } ${previewLanguageCode === langCode ? "previewed" : ""} ${
-                  !languages[langCode]?.sr ? "todo-item" : ""
-                }`}
+                  isSelected ? "selected" : ""
+                } ${previewLanguageCode === langCode ? "previewed" : ""}`}
                 onClick={() => onSelectLanguage(langCode)}
                 onFocus={() => onFocusLanguage(langCode)}
+                aria-current={isSelected ? "true" : undefined}
               >
                 {label}
               </button>

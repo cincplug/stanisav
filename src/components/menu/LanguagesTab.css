@@ -16,16 +16,22 @@
   li {
     margin: 0;
     padding: 0;
+
     &:has(.mini-stanisav) {
       flex-basis: 100%;
       height: var(--mini-stanisav-button-height);
       overflow: hidden;
       position: relative;
+
+      .language-item-button {
+        background: none;
+      }
     }
   }
 
   .selfie-button {
     top: calc(-2 * var(--gap-double));
+    right: var(--gap);
   }
 }
 
@@ -38,7 +44,7 @@
 
   &.selected {
     width: 100%;
-    background: none !important;
+    background: none;
     color: var(--color-4);
     pointer-events: none;
   }

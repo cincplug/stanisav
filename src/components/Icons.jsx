@@ -415,7 +415,7 @@ export const RefreshIcon = (props) => (
     {...props}
   >
     {/* Thick ring with a triangular notch forming the arrowhead */}
-    <path d="M12 1.5 a10.5 10.5 0 1 0 9.5 6 h-2.48 A8.25 8.25 0 1 1 12 3.75 V0 l4.5 4 -4.5 3 V2 A9 9 0 0 1 12 1.5Z" />
+    <path d="M12 4a8 8 0 1 0 7.2 11.5l-1.9-.8A6 6 0 1 1 12 6v3l4-3.5L12 2v2Z" />
   </svg>
 );
 
