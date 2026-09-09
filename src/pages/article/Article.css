@@ -9,6 +9,10 @@
   padding: var(--gap);
   gap: var(--gap);
   color: var(--color-4);
+
+  img {
+    max-width: 100%;
+  }
 }
 
 .home-link {

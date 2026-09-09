@@ -8,7 +8,6 @@ Every language is different. They can be isolating, agglutinative, fusional or p
 
 These properties are visualised by Stanisav by mapping them to physical properties of his face.
 
-- Morphology → shape of his face
 - Tonality → pattern on his tongue
 - Word order → arcs on his nose, from outermost to innermost:
   1.  C-shape → subject
@@ -21,8 +20,16 @@ These properties are visualised by Stanisav by mapping them to physical properti
 - Number of phonemes → number of teeth
 - Number of noun classes / genders → number of eyebrows
 - Number of declension cases → number of tufts in his moustache
+  ![Homepage](/illustrations/evidentiality.png)
 - Evidentiality → size of his eyes
+  ![Homepage](/illustrations/verb-aspect.png)
 - Verb aspect → width of his eyelids
+- Morphology → shape of his face
+  ![Homepage](/illustrations/morphology-1.png)
+  ![Homepage](/illustrations/morphology-2.png)
+  ![Homepage](/illustrations/morphology-3.png)
+  ![Homepage](/illustrations/morphology-4.png)
+  ![Homepage](/illustrations/morphology-5.png)
 
 ## Where does he live?
 
