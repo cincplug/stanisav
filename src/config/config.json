@@ -108,7 +108,7 @@
     "tuftProtrusion": 0.5,
     "tuftHueShift": 120,
     "tuftColorStep": 33,
-    "canMakeSelfies": false
+    "canMakeSelfies": true
   },
   "audioVisualisation": {
     "soundSource": ["l-o", "o-l", "l", "o"],

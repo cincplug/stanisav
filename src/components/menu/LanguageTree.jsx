@@ -38,14 +38,13 @@ const LanguageTree = ({
                   selectedLanguage === langCode ? "selected" : ""
                 } ${previewLanguageCode === langCode ? "previewed" : ""} ${
                   !languages[langCode]?.sr ? "todo-item" : ""
-                } ${hasMiniStanisav ? "has-mini-stanisav" : ""}
-                  `}
+                }`}
                 onClick={() => onSelectLanguage(langCode)}
                 onFocus={() => onFocusLanguage(langCode)}
               >
                 {label}
-                {hasMiniStanisav && <MiniStanisav languageCode={langCode} />}
               </button>
+              {hasMiniStanisav && <MiniStanisav languageCode={langCode} />}
             </li>
           );
         })}

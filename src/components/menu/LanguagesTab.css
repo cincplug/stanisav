@@ -21,6 +21,9 @@
 
 .languages-in-group li:has(.mini-stanisav) {
   flex-basis: 100%;
+  height: var(--mini-stanisav-button-height);
+  overflow: hidden;
+  position: relative;
 }
 
 .language-item-button {
@@ -32,19 +35,9 @@
 
   &.selected {
     width: 100%;
-    background: var(--color-current) !important;
+    background: none !important;
     color: var(--color-4);
-    @media (max-width: 640px) {
-      border-style: solid;
-      background: var(--color-1) !important;
-      font-size: var(--font-size-l);
-      border-width: var(--border-width-thick);
-    }
-  }
-
-  &.has-mini-stanisav {
-    height: var(--mini-stanisav-button-height);
-    overflow: hidden;
+    pointer-events: none;
   }
 
   .previewed:not(.selected) {

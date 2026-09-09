@@ -12,6 +12,12 @@
 }
 
 .home-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.home-link-icon {
   padding: var(--gap-double) var(--gap);
   transform: rotate(90deg) scale(1.2);
 }
