@@ -20,16 +20,16 @@ These properties are visualised by Stanisav by mapping them to physical properti
 - Number of phonemes → number of teeth
 - Number of noun classes / genders → number of eyebrows
 - Number of declension cases → number of tufts in his moustache
-  ![Homepage](/illustrations/evidentiality.png)
+  ![Evidentiality](public/illustrations/evidentiality.png)
 - Evidentiality → size of his eyes
-  ![Homepage](/illustrations/verb-aspect.png)
+  ![Verb aspect](public/illustrations/verb-aspect.png)
 - Verb aspect → width of his eyelids
 - Morphology → shape of his face
-  ![Homepage](/illustrations/morphology-1.png)
-  ![Homepage](/illustrations/morphology-2.png)
-  ![Homepage](/illustrations/morphology-3.png)
-  ![Homepage](/illustrations/morphology-4.png)
-  ![Homepage](/illustrations/morphology-5.png)
+  ![Isolating morphology](public/illustrations/morphology-1.png)
+  ![Agglutinative morphology](public/illustrations/morphology-2.png)
+  ![Introflexive morphology](public/illustrations/morphology-3.png)
+  ![Fusional morphology](public/illustrations/morphology-4.png)
+  ![Polysynthetic morphology](public/illustrations/morphology-5.png)
 
 ## Where does he live?
 

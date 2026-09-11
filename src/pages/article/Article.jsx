@@ -8,6 +8,10 @@ import "./Article.css";
 import { ChevronIcon } from "../../components/Icons";
 import MiniStanisav from "../../components/MiniStanisav";
 
+const ArticleImage = ({ src, alt, ...props }) => (
+  <img src={src?.replace(/^public\//, "/")} alt={alt} {...props} />
+);
+
 const Article = () => {
   // URL slug (e.g. "nl"), used only to build the back-to-main-page link
   const { locale: urlLocale } = useParams();
@@ -34,7 +38,7 @@ const Article = () => {
         </Link>
       </div>
       <div className="article-container">
-        <Markdown>{readme}</Markdown>
+        <Markdown components={{ img: ArticleImage }}>{readme}</Markdown>
       </div>
     </>
   );
