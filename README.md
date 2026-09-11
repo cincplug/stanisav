@@ -19,17 +19,13 @@ These properties are visualised by Stanisav by mapping them to physical properti
   3.  flexible → makes salto's around Z and X axes
 - Number of phonemes → number of teeth
 - Number of noun classes / genders → number of eyebrows
-- Number of declension cases → number of tufts in his moustache
-  ![Evidentiality](public/illustrations/evidentiality.png)
-- Evidentiality → size of his eyes
-  ![Verb aspect](public/illustrations/verb-aspect.png)
 - Verb aspect → width of his eyelids
+  ![Verb aspect](public/illustrations/verb-aspect.png)
+- Evidentiality → size of his eyes
+  ![Evidentiality](public/illustrations/evidentiality.png)
 - Morphology → shape of his face
   ![Isolating morphology](public/illustrations/morphology-1.png)
-  ![Agglutinative morphology](public/illustrations/morphology-2.png)
-  ![Introflexive morphology](public/illustrations/morphology-3.png)
-  ![Fusional morphology](public/illustrations/morphology-4.png)
-  ![Polysynthetic morphology](public/illustrations/morphology-5.png)
+- Number of declension cases → number of tufts in his moustache
 
 ## Where does he live?
 

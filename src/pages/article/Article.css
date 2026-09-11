@@ -3,7 +3,6 @@
 }
 
 .article-container {
-  display: grid;
   max-width: var(--readable-width);
   margin-inline: auto;
   padding: var(--gap);
