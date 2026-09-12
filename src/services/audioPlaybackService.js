@@ -13,6 +13,7 @@ export async function playAudioTrack(audio, audioUrl, config) {
       if (isTrackSettled) return;
       isTrackSettled = true;
       audio.removeEventListener("ended", handleTrackEnded);
+
       fn();
     };
 
@@ -21,6 +22,7 @@ export async function playAudioTrack(audio, audioUrl, config) {
     audio.pause();
     audio.removeEventListener("ended", handleTrackEnded);
     audio.preload = "auto";
+    audio.crossOrigin = "anonymous";
     audio.src = audioUrl;
     audio.volume = AUDIO_VOLUME;
     audio.load();

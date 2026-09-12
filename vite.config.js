@@ -7,8 +7,6 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: "autoUpdate",
-      // Audio samples are large and only needed for languages the visitor
-      // actually plays, so they're cached at runtime instead of precached.
       includeAssets: ["favicon.png", "fonts/*.ttf", "icons/*.png"],
       /* eslint-disable camelcase -- these are the Web App Manifest spec's field names */
       manifest: {
@@ -37,30 +35,18 @@ export default defineConfig({
       },
       /* eslint-enable camelcase */
       workbox: {
-        // Only precache the app shell (JS/CSS/fonts/config); never precache
-        // the audio/samples folder, which is downloaded per-language on demand.
+        // Only precache the app shell (JS/CSS/fonts/config). Audio samples are
+        // intentionally left with no runtimeCaching route at all: <audio>
+        // elements issue Range requests, which come back as 206 Partial
+        // Content and can never be written into Cache Storage, so any
+        // caching strategy here would keep hitting the same limitation.
+        // With no matching route, the service worker never intercepts these
+        // requests and they stream straight from the network, same as a
+        // non-PWA app.
         globPatterns: ["**/*.{js,css,html,ttf,svg,png,ico}"],
         globIgnores: ["audio/**"],
         navigateFallbackDenylist: [/^\/audio\//],
         runtimeCaching: [
-          {
-            // Grow the offline sample stash progressively as users listen online.
-            // We intentionally keep this bounded to avoid a huge install while still
-            // letting frequently-heard samples stay available offline afterwards.
-            urlPattern: ({ url }) => url.pathname.startsWith("/audio/samples/"),
-            handler: "StaleWhileRevalidate",
-            options: {
-              cacheName: "audio-samples",
-              expiration: {
-                maxEntries: 500,
-                maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
-              },
-              cacheableResponse: {
-                statuses: [0, 200],
-              },
-              rangeRequests: true,
-            },
-          },
           {
             urlPattern: ({ url }) => url.pathname.startsWith("/fonts/"),
             handler: "CacheFirst",
@@ -89,9 +75,6 @@ export default defineConfig({
     sourcemap: true,
     rollupOptions: {
       output: {
-        // Split heavy, rarely-changing vendor libs into their own chunks so
-        // browsers (and the PWA precache) can cache them independently of
-        // app code that changes on every deploy.
         manualChunks: {
           three: ["three"],
           r3f: [
@@ -110,7 +93,6 @@ export default defineConfig({
       "@js": "/js",
     },
   },
-  // Handle legacy JS modules
   optimizeDeps: {
     include: ["three"],
   },

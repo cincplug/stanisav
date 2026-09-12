@@ -20,6 +20,7 @@ class AudioAnalysisService {
 
   async initializeAudioContext() {
     if (this.audioContext && this.audioContext.state !== "closed") {
+      await this.resumeAudioContext();
       return;
     }
 
@@ -32,9 +33,27 @@ class AudioAnalysisService {
       const bufferLength = this.analyser.frequencyBinCount;
       this.dataArray = new Uint8Array(bufferLength);
       this.frequencyData = new Float32Array(bufferLength);
+
+      await this.resumeAudioContext();
     } catch (error) {
       console.error("Failed to initialize audio context:", error);
       throw error;
+    }
+  }
+
+  // WebKit creates AudioContexts in a "suspended" state and never auto-resumes them,
+  // unlike Chrome/Firefox which resume automatically once a connected media
+  // element starts playing. Without this call, sources stay silent forever
+  // even though the underlying <audio> element keeps advancing normally.
+  async resumeAudioContext() {
+    if (!this.audioContext) return;
+
+    if (this.audioContext.state === "suspended") {
+      try {
+        await this.audioContext.resume();
+      } catch (error) {
+        console.error("Failed to resume audio context:", error);
+      }
     }
   }
 
@@ -98,6 +117,7 @@ class AudioAnalysisService {
       return;
     }
 
+    this.resumeAudioContext();
     this.analysisConfig = config;
     this.isAnalyzing = true;
     this.analyzeAudio();
@@ -109,11 +129,6 @@ class AudioAnalysisService {
       cancelAnimationFrame(this.animationFrameId);
       this.animationFrameId = null;
     }
-
-    // this.notifyCallbacks({
-    //   fundamentalData: this.fundamentalData,
-    //   harmonicsData: this.harmonicsData,
-    // });
   }
 
   analyzeAudio() {
