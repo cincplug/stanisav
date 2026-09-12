@@ -8,24 +8,39 @@ Every language is different. They can be isolating, agglutinative, fusional or p
 
 These properties are visualised by Stanisav by mapping them to physical properties of his face.
 
-- Tonality → pattern on his tongue
-- Word order → arcs on his nose, from outermost to innermost:
-  1.  C-shape → subject
-  2.  U-shape → verb
-  3.  O-shape → object
-- Word order flexibility → how much he jumps around:
-  1.  rigid → only spins around Y axis
-  2.  semi-flexible → makes salto's around Z axis
-  3.  flexible → makes salto's around Z and X axes
-- Number of phonemes → number of teeth
-- Number of noun classes / genders → number of eyebrows
-- Verb aspect → width of his eyelids
-  ![Verb aspect](public/illustrations/verb-aspect.png)
-- Evidentiality → size of his eyes
-  ![Evidentiality](public/illustrations/evidentiality.png)
-- Morphology → shape of his face
-  ![Isolating morphology](public/illustrations/morphology-1.png)
-- Number of declension cases → number of tufts in his moustache
+![Genders](public/illustrations/gender-count.png)
+Number of noun classes / genders → number of eyebrows
+
+![Verb aspect](public/illustrations/verb-aspect.png)
+Verb aspect → width of his eyelids
+
+![Evidentiality](public/illustrations/evidentiality.png)
+Evidentiality → size of his eyes
+
+![Word order](public/illustrations/word-order.png)
+Word order → arcs on his nose, from outermost to innermost:
+
+1.  C-shape → subject
+2.  U-shape → verb
+3.  O-shape → objectxx
+
+![Isolating morphology](public/illustrations/morphology-1.png)
+Morphology → shape of his face
+
+![Declension](public/illustrations/case-count.png)
+Number of declension cases → number of tufts in his moustache
+
+![Tonality](public/illustrations/tonality.png)
+Tonality → pattern on his tongue
+
+![Phonemes](public/illustrations/phoneme-count.png)
+Number of phonemes → number of teeth
+
+Word order flexibility → how much he jumps around:
+
+1.  rigid → only spins around Y axis
+2.  semi-flexible → makes salto's around Z axis
+3.  flexible → makes salto's around Z and X axes
 
 ## Where does he live?
 
