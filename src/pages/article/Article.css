@@ -5,7 +5,6 @@
 .article-container {
   max-width: var(--readable-width);
   margin-inline: auto;
-  padding: var(--gap);
   gap: var(--gap);
   color: var(--color-4);
 
