@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Markdown from "react-markdown";
+import { useAppStateContext } from "../../contexts/AppStateContext";
 import { useI18nContext } from "../../contexts/I18nContext";
 import readme from "../../../README.md?raw";
 import "../../index.css";
@@ -17,6 +18,10 @@ const Article = () => {
   const { locale: urlLocale } = useParams();
   // ISO 639-3 code (e.g. "nld"), used to pick Stanisav's facial features
   const { locale: iso3Locale } = useI18nContext();
+  const { data } = useAppStateContext();
+  const languages = Object.keys(data?.languages || {});
+
+  const [stanisavLocale, setStanisavLocale] = useState(iso3Locale);
 
   useEffect(() => {
     document.body.classList.add("article-body");
@@ -25,10 +30,20 @@ const Article = () => {
     };
   }, []);
 
+  const getNextStanisav = () => {
+    if (!languages || languages.length === 0) return;
+    const currentIndex = languages.indexOf(stanisavLocale);
+    const nextIndex =
+      currentIndex === -1 ? 0 : (currentIndex + 1) % languages.length;
+    setStanisavLocale(languages[nextIndex]);
+  };
+
   return (
     <>
       <div className="home-link-wrapper">
-        <MiniStanisav languageCode={iso3Locale} position={[0, -2, 108]} />
+        <div onClick={getNextStanisav}>
+          <MiniStanisav languageCode={stanisavLocale} position={[0, -2, 108]} />
+        </div>
         <Link
           to={`/${urlLocale}`}
           title="Back to main page"

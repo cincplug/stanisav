@@ -72,7 +72,7 @@ const Stanisav = ({
     if (imposedProperties) return imposedProperties;
 
     return data?.languages?.[languageCode];
-  }, [imposedProperties, data.languages]);
+  }, [imposedProperties, data.languages, languageCode]);
 
   const { isBalloonSequenceDone, isEntranceComplete } = useEntranceContext();
 
