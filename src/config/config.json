@@ -56,7 +56,7 @@
     "blinkDuration": 0.2,
     "earDepth": 4.5,
     "earHeight": 1.1,
-    "earSize": 1.1,
+    "earSize": 0.9,
     "earWidth": 0.2,
     "earX": 2.5,
     "earY": 0.5,
@@ -99,9 +99,9 @@
     "toothThicknessCorner": 0.3,
     "toothY": 0.3,
     "toothZ": 1.1,
-    "toothWaviness": -0.12,
+    "toothWaviness": -0.22,
     "toothSpin": 9.4,
-    "toothColorStep": 11,
+    "toothColorStep": 31,
     "tuftSize": 0.31,
     "tuftSpacing": 5.2,
     "tuftY": 1.4,
@@ -117,7 +117,7 @@
     "harmonicsMax": 4000,
     "harmonicsMin": 700,
     "amplitudeThreshold": 0.1,
-    "decayRate": 0.7,
+    "decayRate": 0.4,
     "maxDeformation": 1.2,
     "verticalVariation": 0.1,
     "fireAmount": 3.2
@@ -131,7 +131,7 @@
     "ringSpeed": 1.2,
     "shadeChecker": 1.22,
     "shadeStripe": 2,
-    "shaderOpacity": 0.9
+    "shaderOpacity": 0.8
   },
   "light": {
     "defaultLightDistance": 174,
