@@ -14,7 +14,7 @@ export const createAudioSurface = ({
     const z = (u - 0.5) * size;
     const taper = Math.sin(u * Math.PI);
 
-    const angle = (v - 0.5) * Math.PI;
+    const angle = v * Math.PI;
 
     const xFlat = (v - 0.5) * size * taper;
     const xCircle = Math.cos(angle) * radius * taper;

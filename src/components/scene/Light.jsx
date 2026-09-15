@@ -2,14 +2,17 @@ import { a, useSpring } from "@react-spring/three";
 import { useThree } from "@react-three/fiber";
 import { useRef } from "react";
 import { useConfigContext } from "../../contexts/ConfigContext";
+import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame";
 
 const Light = ({ selectedLanguage }) => {
   const { camera, controls: threeControls } = useThree();
   const { config } = useConfigContext();
+  const { isEntranceComplete } = useEntranceContext();
   const {
     lightColor,
     entranceDuration,
+    switchDuration,
     defaultLightDistance,
     zoomedLightDistance,
     defaultLightIntensity,
@@ -18,7 +21,6 @@ const Light = ({ selectedLanguage }) => {
     boardLight,
     cameraZ,
     isMotionReduced,
-    isEntranceComplete,
     tension,
     friction,
     isBlackboard,
@@ -29,7 +31,7 @@ const Light = ({ selectedLanguage }) => {
     from: { entranceProgress: 1 / 2 },
     to: { entranceProgress: 1 },
     config: {
-      duration: isEntranceComplete ? 0 : entranceDuration,
+      duration: isEntranceComplete ? switchDuration : entranceDuration,
     },
     immediate: isMotionReduced,
   });
