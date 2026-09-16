@@ -1,4 +1,5 @@
 import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 import { useEffect, useRef } from "react";
 import { useConfigContext } from "../contexts/ConfigContext.jsx";
 import { useAppStateContext } from "../contexts/AppStateContext.jsx";
@@ -6,7 +7,11 @@ import { saveCanvasAsPng } from "../utils/miniStanisavCapture.js";
 import Stanisav from "./scene/stanisav/Stanisav.jsx";
 import { SelfieIcon } from "./Icons.jsx";
 
-const MiniStanisav = ({ languageCode, position = [0, 0, 97] }) => {
+const MiniStanisav = ({
+  languageCode,
+  position = [0, 0, 97],
+  customSpinSpeed,
+}) => {
   const { config } = useConfigContext();
   const { registerMiniStanisav } = useAppStateContext();
   const {
@@ -53,7 +58,7 @@ const MiniStanisav = ({ languageCode, position = [0, 0, 97] }) => {
           languageCode={languageCode}
           position={position}
           isMyStanisav={false}
-          spinSpeed={stanisavSpinSpeed}
+          spinSpeed={customSpinSpeed || stanisavSpinSpeed}
         />
       </Canvas>
       {canMakeSelfies && (

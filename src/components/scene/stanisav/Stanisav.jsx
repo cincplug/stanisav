@@ -175,9 +175,6 @@ const Stanisav = ({
           Math.pow(Math.abs(sinPhase), saltoPow) *
           saltoAmplitude *
           Math.PI;
-    } else {
-      rotationYRef.current =
-        (rotationYRef.current + delta * spinSpeed) % (Math.PI * 2);
     }
 
     lookAroundRef.current.quaternion.copy(camera.quaternion);

@@ -42,7 +42,11 @@ const Article = () => {
     <>
       <div className="home-link-wrapper">
         <div onClick={getNextStanisav}>
-          <MiniStanisav languageCode={stanisavLocale} position={[0, -2, 108]} />
+          <MiniStanisav
+            languageCode={stanisavLocale}
+            position={[0, -2, 106]}
+            customSpinSpeed={0}
+          />
         </div>
         <Link
           to={`/${urlLocale}`}
