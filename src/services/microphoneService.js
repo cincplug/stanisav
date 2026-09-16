@@ -16,9 +16,12 @@ class MicrophoneService {
   /**
    * Request microphone access and start capturing
    */
-  async startCapture() {
+  async startCapture(analysisConfig) {
     if (this.isCapturing) {
       console.log("Microphone already capturing");
+      if (analysisConfig) {
+        audioAnalysisService.setConfig(analysisConfig);
+      }
       return { success: true };
     }
 
@@ -47,7 +50,7 @@ class MicrophoneService {
       }
 
       // Start analysis
-      audioAnalysisService.startAnalysis();
+      audioAnalysisService.startAnalysis(analysisConfig);
       this.isCapturing = true;
 
       console.log("Microphone capture started");

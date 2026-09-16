@@ -82,14 +82,14 @@ const Stanisav = ({
 
   useEffect(() => {
     if (isMyStanisav) {
-      microphoneService.startCapture();
+      microphoneService.startCapture(config);
     } else {
       microphoneService.stopCapture();
     }
     return () => {
       microphoneService.stopCapture();
     };
-  }, [isMyStanisav]);
+  }, [isMyStanisav, config]);
 
   const scores = getFeatureScoreList(linguisticProperties, [
     "wordOrderFlexibility",

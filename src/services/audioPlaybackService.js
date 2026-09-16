@@ -1,11 +1,10 @@
+import audioAnalysisService from "./audioAnalysisService.js";
+
 const AUDIO_VOLUME = 0.5;
 const READY_TIMEOUT_DURATION = 3500;
 const READY_THRESHOLD = 2; // HAVE_CURRENT_DATA
 
 export async function playAudioTrack(audio, audioUrl, config) {
-  const { default: audioAnalysisService } =
-    await import("./audioAnalysisService.js");
-
   return new Promise((resolveTrack, rejectTrack) => {
     let isTrackSettled = false;
 

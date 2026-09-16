@@ -7,7 +7,9 @@ import {
   useRef,
   useState,
 } from "react";
+import audioAnalysisService from "../services/audioAnalysisService";
 import { playAudioSequence } from "../services/audioPlaybackService";
+import { getLanguageAudioUrls } from "../services/audioUrlResolverService";
 import { useAppStateContext } from "./AppStateContext";
 import { useConfigContext } from "./ConfigContext";
 import { useLanguageSelectionContext } from "./LanguageSelectionContext";
@@ -45,6 +47,10 @@ export const PlaylistProvider = ({ children }) => {
   // True when replaying the same language index (resume/MyStanisav return),
   // false on every actual language change; controls whether startDelay is applied
   const isResumeRef = useRef(false);
+
+  useEffect(() => {
+    audioAnalysisService.setConfig(config);
+  }, [config]);
 
   // Get sorted language codes - accounts for current locale
   const allSortedLanguageCodes = useSortedLanguages();
@@ -232,8 +238,6 @@ export const PlaylistProvider = ({ children }) => {
         delayTimeoutRef.current = null;
 
         try {
-          const { getLanguageAudioUrls } =
-            await import("../services/audioUrlResolverService");
           const audioUrls = await getLanguageAudioUrls(code, soundSource);
 
           if (audioUrls.length === 0) {

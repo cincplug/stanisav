@@ -9,13 +9,14 @@ class AudioAnalysisService {
     this.isAnalyzing = false;
     this.callbacks = new Set();
     this.deltaAccumulator = 0;
+    this.lastFrameTime = null;
     this.animationFrameId = null;
     this.connectedAudioElements = new Set();
 
-    this.fundamentalData = defaultAudioData.fundamentalData;
-    this.harmonicsData = defaultAudioData.harmonicsData;
+    this.fundamentalData = [...defaultAudioData.fundamentalData];
+    this.harmonicsData = [...defaultAudioData.harmonicsData];
 
-    this.analysisConfig = null;
+    this.analysisConfig = {};
   }
 
   async initializeAudioContext() {
@@ -77,8 +78,11 @@ class AudioAnalysisService {
   // connects the element to the analyser, and starts/stops analysis alongside
   // the element's own play/pause/ended/error events. Safe to call multiple
   // times on the same element; subsequent calls are no-ops.
-  // config must include stanisav and voiceRange groups
-  async setupVisualization(audioElement, config) {
+  async setupVisualization(audioElement, analysisConfig) {
+    if (analysisConfig) {
+      this.setConfig(analysisConfig);
+    }
+
     if (!audioElement || this.connectedAudioElements.has(audioElement)) {
       return;
     }
@@ -89,7 +93,7 @@ class AudioAnalysisService {
       this.connectedAudioElements.add(audioElement);
 
       audioElement.addEventListener("play", () => {
-        this.startAnalysis(config);
+        this.startAnalysis();
       });
 
       audioElement.addEventListener("pause", () => {
@@ -111,14 +115,26 @@ class AudioAnalysisService {
     }
   }
 
-  // config must include { stanisav: { timeRate, amplitudeThreshold, decayRate }, voiceRange: { ... } }
-  startAnalysis(config) {
+  // Accepts an audio analysis config containing:
+  // timeRate, fundamentalMin, fundamentalMax, harmonicsMin, harmonicsMax, amplitudeThreshold, decayRate
+  setConfig(config) {
+    if (!config) return;
+
+    this.analysisConfig = config;
+  }
+
+  startAnalysis(analysisConfig) {
+    if (analysisConfig) {
+      this.setConfig(analysisConfig);
+    }
+
     if (this.isAnalyzing) {
       return;
     }
 
     this.resumeAudioContext();
-    this.analysisConfig = config;
+    this.lastFrameTime = performance.now();
+    this.deltaAccumulator = 0;
     this.isAnalyzing = true;
     this.analyzeAudio();
   }
@@ -234,7 +250,7 @@ class AudioAnalysisService {
     this.analyser = null;
     this.dataArray = null;
     this.frequencyData = null;
-    this.analysisConfig = null;
+    this.analysisConfig = {};
   }
 }
 
