@@ -21,12 +21,9 @@ export const tonalityFragmentShader = /* glsl */ `
   uniform int uStripesType;
   uniform float uAccentOpacity;
   uniform float uOpacity;
-  uniform float uAmbient;
-  uniform float uLightingMin;
-  uniform float uLightingMax;
-  uniform float uLightingDiffuse;
-  uniform float uShadeChecker;
-  uniform float uShadeStripe;
+  uniform float uShaderLight;
+  uniform float uShaderBase;
+  uniform float uShaderStripe;
   varying vec2 vUv;
   varying vec3 vNormal;
   varying vec3 vPosition;
@@ -69,16 +66,16 @@ export const tonalityFragmentShader = /* glsl */ `
     float diffuse2 = max(dot(normal, light2), 0.0);
     float diffuse3 = max(dot(normal, light3), 0.0);
 
-    float lighting = uAmbient + (diffuse1 + diffuse2 + diffuse3) * uLightingDiffuse;
-    lighting = clamp(lighting, uLightingMin, uLightingMax);
+    float lighting = uShaderLight + (diffuse1 + diffuse2 + diffuse3) * uShaderLight;
+    lighting = clamp(lighting, uShaderLight, uShaderLight * 2.0);
 
     // Radial gradient: uBaseColor at center, darker shade at edges
     float distFromCenter = length(vUv - 0.5) * 2.0;
-    vec3 edgeColor = uBaseColor * uShadeChecker;
+    vec3 edgeColor = uBaseColor * uShaderBase;
     vec3 gradientColor = mix(uBaseColor, edgeColor, distFromCenter);
 
     vec3 litColor = gradientColor * lighting;
-    vec3 litLighterColor = litColor * uShadeStripe;
+    vec3 litLighterColor = litColor * uShaderStripe;
 
     float stripeMask = getStripeMask(vUv, uStripesType);
     vec3 color = mix(litColor, litLighterColor, stripeMask);

@@ -6,15 +6,7 @@ import { useThrottledFrame } from "./useThrottledFrame";
 
 export const useShaderMaterial = (baseColor, accentColor, stripesType) => {
   const { config } = useConfigContext();
-  const {
-    ambient,
-    lightingMin,
-    lightingMax,
-    lightingDiffuse,
-    shadeChecker,
-    shadeStripe,
-    shaderOpacity,
-  } = config;
+  const { shaderLight, shaderBase, shaderStripe, shaderOpacity } = config;
 
   const baseColorObj = useMemo(() => new Color(baseColor), [baseColor]);
   const accentColorObj = useMemo(() => new Color(accentColor), [accentColor]);
@@ -27,12 +19,9 @@ export const useShaderMaterial = (baseColor, accentColor, stripesType) => {
         uStripesType: { value: stripesType },
         uAccentOpacity: { value: 1.0 },
         uOpacity: { value: shaderOpacity },
-        uAmbient: { value: ambient },
-        uLightingMin: { value: lightingMin },
-        uLightingMax: { value: lightingMax },
-        uLightingDiffuse: { value: lightingDiffuse },
-        uShadeChecker: { value: shadeChecker },
-        uShadeStripe: { value: shadeStripe },
+        uShaderLight: { value: shaderLight },
+        uShaderBase: { value: shaderBase },
+        uShaderStripe: { value: shaderStripe },
       },
       vertexShader: meshVertexShader,
       fragmentShader: tonalityFragmentShader,
@@ -44,33 +33,19 @@ export const useShaderMaterial = (baseColor, accentColor, stripesType) => {
       baseColorObj,
       accentColorObj,
       stripesType,
-      ambient,
-      lightingMin,
-      lightingMax,
-      lightingDiffuse,
-      shadeChecker,
-      shadeStripe,
+      shaderLight,
+      shaderBase,
+      shaderStripe,
     ],
   );
 
   useThrottledFrame(() => {
-    const {
-      ambient,
-      lightingMin,
-      lightingMax,
-      lightingDiffuse,
-      shadeChecker,
-      shadeStripe,
-      shaderOpacity,
-    } = config;
+    const { shaderLight, shaderBase, shaderStripe, shaderOpacity } = config;
 
-    material.uniforms.uAmbient.value = ambient;
-    material.uniforms.uLightingMin.value = lightingMin;
-    material.uniforms.uLightingMax.value = lightingMax;
-    material.uniforms.uLightingDiffuse.value = lightingDiffuse;
+    material.uniforms.uShaderLight.value = shaderLight;
     material.uniforms.uOpacity.value = shaderOpacity;
-    material.uniforms.uShadeChecker.value = shadeChecker;
-    material.uniforms.uShadeStripe.value = shadeStripe;
+    material.uniforms.uShaderBase.value = shaderBase;
+    material.uniforms.uShaderStripe.value = shaderStripe;
   });
 
   return material;

@@ -123,14 +123,9 @@
     "fireAmount": 3.2
   },
   "shader": {
-    "ambient": 0.7,
-    "lightingDiffuse": 0.5,
-    "lightingMax": 1.2,
-    "lightingMin": 0.7,
-    "ringCount": 12,
-    "ringSpeed": 1.2,
-    "shadeChecker": 1.22,
-    "shadeStripe": 2,
+    "shaderLight": 0.6,
+    "shaderBase": 1.22,
+    "shaderStripe": 2,
     "shaderOpacity": 0.8
   },
   "light": {
