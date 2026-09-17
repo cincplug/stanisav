@@ -41,8 +41,11 @@ const Stanisav = ({
   isMotionReduced,
   wideScale,
 }) => {
-  const groupRef = useRef();
-  const lookAroundRef = useRef();
+  const lookAroundGroupRef = useRef();
+  const lookAroundAngleRef = useRef(0);
+  const saltoPhaseRef = useRef(0);
+  const saltoXRef = useRef(0);
+  const saltoZRef = useRef(0);
 
   const { languageColors } = useLanguageColorsContext();
   const { isPlaying, isCurrentSampleLuka } = usePlaylistContext();
@@ -130,13 +133,8 @@ const Stanisav = ({
   const tuftColor = shiftHue(color, tuftHueShift);
   const eyebrowColor = shiftHue(color, -tuftHueShift);
 
-  const rotationYRef = useRef(0);
-  const saltoPhaseRef = useRef(0);
-  const saltoRotXRef = useRef(0);
-  const saltoRotZRef = useRef(0);
-
   useThrottledFrame(({ camera }, delta) => {
-    if (!lookAroundRef.current) return;
+    if (!lookAroundGroupRef.current) return;
 
     const dampTo = (current, target) =>
       MathUtils.damp(current, target, dampLambda, delta);
@@ -148,13 +146,13 @@ const Stanisav = ({
       !isBalloonSequenceDone || (selectedLanguage && !isPlaying);
 
     if (isSpinPaused) {
-      rotationYRef.current = dampTo(
-        rotationYRef.current,
-        nearestFullRotation(rotationYRef.current),
+      lookAroundAngleRef.current = dampTo(
+        lookAroundAngleRef.current,
+        nearestFullRotation(lookAroundAngleRef.current),
       );
     } else if (selectedLanguage) {
-      rotationYRef.current =
-        (rotationYRef.current + delta * spinSpeed) % (Math.PI * 2);
+      lookAroundAngleRef.current =
+        (lookAroundAngleRef.current + delta * spinSpeed) % (Math.PI * 2);
       saltoPhaseRef.current =
         (saltoPhaseRef.current + delta * spinSpeed * saltoFrequency) %
         (Math.PI * 2);
@@ -163,41 +161,40 @@ const Stanisav = ({
       const sinPhase = Math.sin(shiftedPhase);
       const cosPhase = Math.cos(shiftedPhase);
       if (wordOrderFlexibility !== "rigid")
-        saltoRotZRef.current =
+        saltoZRef.current =
           Math.sign(sinPhase) *
           Math.pow(Math.abs(cosPhase), saltoPow) *
           saltoAmplitude *
           Math.PI;
 
       if (wordOrderFlexibility === "flexible")
-        saltoRotXRef.current =
+        saltoXRef.current =
           Math.sign(cosPhase) *
           Math.pow(Math.abs(sinPhase), saltoPow) *
           saltoAmplitude *
           Math.PI;
     }
 
-    lookAroundRef.current.quaternion.copy(camera.quaternion);
+    lookAroundGroupRef.current.quaternion.copy(camera.quaternion);
 
     scratchEuler.set(
-      saltoRotXRef.current,
-      rotationYRef.current,
-      saltoRotZRef.current,
+      saltoXRef.current,
+      lookAroundAngleRef.current,
+      saltoZRef.current,
       "YXZ",
     );
     scratchQuat.setFromEuler(scratchEuler);
-    lookAroundRef.current.quaternion.multiply(scratchQuat);
+    lookAroundGroupRef.current.quaternion.multiply(scratchQuat);
   });
 
   return (
     <a.group
-      ref={groupRef}
       position-x={spring.x}
       position-y={spring.y}
       position-z={spring.z}
       scale={spring.scale}
     >
-      <group ref={lookAroundRef} scale={stanisavSize}>
+      <group ref={lookAroundGroupRef} scale={stanisavSize}>
         <Eyes
           irisColor={color}
           eyelidColor={skinColor}
