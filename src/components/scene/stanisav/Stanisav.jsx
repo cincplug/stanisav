@@ -40,6 +40,7 @@ const Stanisav = ({
   spinSpeed,
   isMotionReduced,
   wideScale,
+  isMini,
 }) => {
   const lookAroundGroupRef = useRef();
   const lookAroundAngleRef = useRef(0);
@@ -77,7 +78,7 @@ const Stanisav = ({
     return data?.languages?.[languageCode];
   }, [imposedProperties, data.languages, languageCode]);
 
-  const { isBalloonSequenceDone, isEntranceComplete } = useEntranceContext();
+  const { isEntranceComplete } = useEntranceContext();
 
   const color = languageColors[languageCode];
   const stripesType =
@@ -142,8 +143,7 @@ const Stanisav = ({
     const nearestFullRotation = (value) =>
       Math.round(value / (Math.PI * 2)) * (Math.PI * 2);
 
-    const isSpinPaused =
-      !isBalloonSequenceDone || (selectedLanguage && !isPlaying);
+    const isSpinPaused = selectedLanguage && !isPlaying;
 
     if (isSpinPaused) {
       lookAroundAngleRef.current = dampTo(
@@ -203,7 +203,7 @@ const Stanisav = ({
           isoCode={selectedLanguage}
         />
 
-        {scores.morphology && (
+        {(isMini || selectedLanguage) && (
           <Ears
             earMaterial={skinMaterial}
             morphologyScore={scores.morphology}
@@ -214,7 +214,7 @@ const Stanisav = ({
         <Tongue tongueMaterial={tongueMaterial} />
 
         <Nose
-          position={[0, eyeY - eyeSize, eyeZ]}
+          position={[0, 0, eyeZ]}
           scale={noseSize}
           color={color}
           wordOrder={wordOrder}

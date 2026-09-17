@@ -48,7 +48,9 @@ const LanguageTree = ({
               >
                 {label}
               </button>
-              {hasMiniStanisav && <MiniStanisav languageCode={langCode} />}
+              {hasMiniStanisav && (
+                <MiniStanisav languageCode={langCode} position={[0, 2, 94]} />
+              )}
             </li>
           );
         })}

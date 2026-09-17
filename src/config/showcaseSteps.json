@@ -5,7 +5,6 @@
     "phonemeCount": 17
   },
   {
-    "morphology": "none",
     "evidentiality": "optional"
   },
   {
@@ -25,9 +24,6 @@
   },
   {
     "evidentiality": "optional"
-  },
-  {
-    "morphology": "isolating"
   },
   {
     "phonemeCount": 17
@@ -51,6 +47,9 @@
     "phonemeCount": 23
   },
   {
+    "phonemeCount": 24
+  },
+  {
     "phonemeCount": 25
   },
   {
@@ -64,9 +63,6 @@
   },
   {
     "phonemeCount": 33
-  },
-  {
-    "morphology": "agglutinative"
   },
   {
     "caseCount": 1
@@ -99,8 +95,7 @@
   },
   {
     "caseCount": 8,
-    "nounClassCount": 3,
-    "morphology": "introflexive"
+    "nounClassCount": 3
   },
   {
     "caseCount": 6,
@@ -121,11 +116,7 @@
     "wordOrder": "SVO"
   },
   {
-    "wordOrder": "SOV",
-    "morphology": "fusional"
-  },
-  {
-    "morphology": "polysynthetic"
+    "wordOrder": "SOV"
   },
   {
     "wordOrder": "VSO"
@@ -141,9 +132,6 @@
   },
   {
     "tonality": "non-tonal"
-  },
-  {
-    "morphology": "fusional"
   },
   {
     "verbAspect": "simple"

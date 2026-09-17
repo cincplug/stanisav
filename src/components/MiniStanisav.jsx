@@ -9,7 +9,7 @@ import { SelfieIcon } from "./Icons.jsx";
 
 const MiniStanisav = ({
   languageCode,
-  position = [0, 0, 97],
+  position = [0, 0, 100],
   customSpinSpeed,
 }) => {
   const { config } = useConfigContext();
@@ -59,6 +59,7 @@ const MiniStanisav = ({
           position={position}
           isMyStanisav={false}
           spinSpeed={customSpinSpeed || stanisavSpinSpeed}
+          isMini
         />
       </Canvas>
       {canMakeSelfies && (

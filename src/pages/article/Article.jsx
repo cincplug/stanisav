@@ -44,7 +44,7 @@ const Article = () => {
         <div onClick={getNextStanisav}>
           <MiniStanisav
             languageCode={stanisavLocale}
-            position={[0, -2, 106]}
+            position={[0, 0, 102]}
             customSpinSpeed={0}
           />
         </div>
