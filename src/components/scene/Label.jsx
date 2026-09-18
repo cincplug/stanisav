@@ -1,14 +1,38 @@
 import { useSpring } from "@react-spring/three";
-import { Text } from "@react-three/drei";
+import { Text, useTexture } from "@react-three/drei";
 import { useCallback, useMemo, useRef } from "react";
-import { MeshStandardMaterial, Vector3 } from "three";
+import { MeshStandardMaterial, SRGBColorSpace, Vector3 } from "three";
 import { useAppStateContext } from "../../contexts/AppStateContext.jsx";
 import { useConfigContext } from "../../contexts/ConfigContext.jsx";
 import { useEntranceContext } from "../../contexts/EntranceContext.jsx";
 import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext.jsx";
 import { usePlaylistContext } from "../../contexts/PlaylistContext.jsx";
 import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
+import { getLanguageSelfieUrl } from "../../utils/languageSelfieUtils.js";
 import { getLanguageLabel } from "../../utils/linguisticUtils.js";
+
+const SelfieLabel = ({ languageCode, labelSize, depthTest }) => {
+  const { selectedLanguage } = useLanguageSelectionContext();
+  if (selectedLanguage === languageCode) return null;
+
+  const texture = useTexture(getLanguageSelfieUrl(languageCode));
+  texture.colorSpace = SRGBColorSpace;
+
+  const aspectRatio = texture.image.width / texture.image.height;
+  const height = labelSize * 2;
+
+  return (
+    <sprite scale={[height * aspectRatio, height, 1]}>
+      <spriteMaterial
+        map={texture}
+        transparent
+        depthTest={depthTest}
+        depthWrite={false}
+        toneMapped={false}
+      />
+    </sprite>
+  );
+};
 
 const Label = ({
   languageCode,
@@ -69,6 +93,8 @@ const Label = ({
     revealOrder,
     totalVisibleLabels,
   );
+
+  const showsSceneSelfies = labelContent === "selfie";
 
   const entranceStartRef = useRef(null);
   if (entranceStartRef.current === null) {
@@ -185,19 +211,27 @@ const Label = ({
   });
 
   return (
-    <Text
-      font="/fonts/RobotoSlab-Regular.ttf"
-      onClick={handleClick}
-      ref={labelRef}
-      fontSize={labelSize}
-      anchorX="center"
-      anchorY="middle"
-      outlineWidth={labelSize / 2}
-      outlineColor={outlineColor}
-      material={textMaterial}
-    >
-      {labelText}
-    </Text>
+    <group ref={labelRef} onClick={handleClick}>
+      {showsSceneSelfies ? (
+        <SelfieLabel
+          languageCode={languageCode}
+          labelSize={labelSize}
+          depthTest={!!selectedLanguage}
+        />
+      ) : (
+        <Text
+          font="/fonts/RobotoSlab-Regular.ttf"
+          fontSize={labelSize}
+          anchorX="center"
+          anchorY="middle"
+          outlineWidth={labelSize / 2}
+          outlineColor={outlineColor}
+          material={textMaterial}
+        >
+          {labelText}
+        </Text>
+      )}
+    </group>
   );
 };
 

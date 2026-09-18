@@ -11,6 +11,8 @@ const MiniStanisav = ({
   languageCode,
   position = [0, 0, 100],
   customSpinSpeed,
+  className = "mini-stanisav",
+  hasSelfieButton,
 }) => {
   const { config } = useConfigContext();
   const { registerMiniStanisav } = useAppStateContext();
@@ -38,7 +40,7 @@ const MiniStanisav = ({
   };
 
   return (
-    <div ref={wrapperRef} className="mini-stanisav">
+    <div ref={wrapperRef} className={className}>
       <Canvas
         dpr={canMakeSelfies ? [1, 2] : [1, 1]}
         camera={{
@@ -62,7 +64,7 @@ const MiniStanisav = ({
           isMini
         />
       </Canvas>
-      {canMakeSelfies && (
+      {canMakeSelfies && hasSelfieButton && (
         <button className="selfie-button" onClick={handleSelfieClick}>
           <SelfieIcon />
         </button>

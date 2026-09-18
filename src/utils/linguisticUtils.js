@@ -143,6 +143,7 @@ export const getLanguagePropertyValue = (
 export const getLanguageLabel = (languageCode, languageData, labelContent) => {
   switch (labelContent) {
     case "name":
+    case "selfie":
       return getLocalizedLanguageName(languageCode);
     case "kavianName":
       return getLocalizedKavianLanguageName(languageCode);

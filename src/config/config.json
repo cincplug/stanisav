@@ -18,7 +18,7 @@
       "caseCount",
       "nounClassCount"
     ],
-    "labelContent": ["name", "nativeName", "isoCode", "kavianName"],
+    "labelContent": ["selfie", "name", "nativeName", "isoCode", "kavianName"],
     "labelSize": [1, 1.25, 1.5, 1.75],
     "isReverse": false,
     "isBlackboard": false
@@ -108,7 +108,7 @@
     "tuftProtrusion": 0.2,
     "tuftHueShift": 120,
     "tuftColorStep": 33,
-    "canMakeSelfies": true
+    "canMakeSelfies": false
   },
   "audioVisualisation": {
     "soundSource": ["l-o", "o-l", "l", "o"],

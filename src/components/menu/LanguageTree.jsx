@@ -1,5 +1,5 @@
-import { useMediaQuery } from "../../hooks/useMediaQuery.js";
 import { getFamilyLabel } from "../../utils/i18nUtils";
+import { getLanguageSelfieUrl } from "../../utils/languageSelfieUtils.js";
 import { getLanguageLabel } from "../../utils/linguisticUtils";
 import MiniStanisav from "../MiniStanisav.jsx";
 
@@ -16,16 +16,39 @@ const LanguageTree = ({
   languageColors,
   depth = 0,
   parentKey = "root",
+  isMobile,
 }) => {
-  const isMobile = useMediaQuery();
-
   if (Array.isArray(languageCodes)) {
     return (
       <ul className="languages-in-group" role="list">
         {languageCodes.map((langCode) => {
           const label = getLanguageLabel(langCode, languages, labelContent);
-          const hasMiniStanisav = isMobile && selectedLanguage === langCode;
           const isSelected = selectedLanguage === langCode;
+          const colorProperty = isMobile ? "color" : "backgroundColor";
+
+          const Selfie = () => {
+            if (!isMobile) return null;
+            if (isSelected)
+              return (
+                <MiniStanisav
+                  className="language-selfie"
+                  hasSelfieButton={false}
+                  languageCode={langCode}
+                  position={[0, 0, 100]}
+                />
+              );
+            return (
+              <img
+                className="language-selfie"
+                src={getLanguageSelfieUrl(langCode)}
+                alt=""
+                loading="lazy"
+                onError={(event) => {
+                  event.currentTarget.hidden = true;
+                }}
+              />
+            );
+          };
 
           return (
             <li key={langCode}>
@@ -35,8 +58,7 @@ const LanguageTree = ({
                   isSelected
                     ? null
                     : {
-                        background: languageColors[langCode],
-                        borderColor: languageColors[langCode],
+                        [colorProperty]: languageColors[langCode],
                       }
                 }
                 className={`language-item-button ${
@@ -46,11 +68,9 @@ const LanguageTree = ({
                 onFocus={() => onFocusLanguage(langCode)}
                 aria-current={isSelected ? "true" : undefined}
               >
+                <Selfie />
                 {label}
               </button>
-              {hasMiniStanisav && (
-                <MiniStanisav languageCode={langCode} position={[0, 2, 94]} />
-              )}
             </li>
           );
         })}

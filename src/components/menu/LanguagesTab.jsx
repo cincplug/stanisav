@@ -3,6 +3,7 @@ import { useConfigContext } from "../../contexts/ConfigContext";
 import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
 import { usePlaylistContext } from "../../contexts/PlaylistContext";
 import { useSortedLanguages } from "../../hooks/useSortedLanguages";
+import { useMediaQuery } from "../../hooks/useMediaQuery.js";
 import { buildLanguageTree, groupLanguages } from "../../utils/groupingUtils";
 import "./LanguagesTab.css";
 import LanguageTree from "./LanguageTree";
@@ -13,6 +14,7 @@ function LanguagesTab({
   isSelected,
   languageColors = {},
 }) {
+  const isMobile = useMediaQuery();
   const { selectedLanguage } = useLanguageSelectionContext();
   const { startFromLanguage, previewLanguageCode, setPreviewToLanguage } =
     usePlaylistContext();
@@ -88,7 +90,7 @@ function LanguagesTab({
 
   return (
     <div className="control-section">
-      <div className="languages-list">
+      <div className={`languages-list ${!isMobile ? "compact" : "wrapped"}`}>
         {sortBy === "family" ? (
           <LanguageTree
             tree={languageTreeData}
@@ -100,6 +102,7 @@ function LanguagesTab({
             onSelectLanguage={onSelectLanguage}
             onFocusLanguage={setPreviewToLanguage}
             languageColors={languageColors}
+            isMobile={isMobile}
           />
         ) : (
           groups.map((group, index) => (
@@ -117,6 +120,7 @@ function LanguagesTab({
                 onSelectLanguage={onSelectLanguage}
                 onFocusLanguage={setPreviewToLanguage}
                 languageColors={languageColors}
+                isMobile={isMobile}
               />
             </fieldset>
           ))

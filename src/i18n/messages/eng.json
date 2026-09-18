@@ -15,6 +15,7 @@
     "labelContent": {
       "label": "Display",
       "options": {
+        "selfie": "Selfies",
         "isoCode": "ISO codes",
         "name": "Names in English",
         "nativeName": "Native names",
