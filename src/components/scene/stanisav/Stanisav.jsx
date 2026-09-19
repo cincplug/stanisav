@@ -40,7 +40,6 @@ const Stanisav = ({
   spinSpeed,
   isMotionReduced,
   wideScale,
-  isMini,
 }) => {
   const lookAroundGroupRef = useRef();
   const lookAroundAngleRef = useRef(0);
@@ -203,13 +202,11 @@ const Stanisav = ({
           isoCode={selectedLanguage}
         />
 
-        {(isMini || selectedLanguage) && (
-          <Ears
-            earMaterial={skinMaterial}
-            morphologyScore={scores.morphology}
-            isLuka={isCurrentSampleLuka}
-          />
-        )}
+        <Ears
+          earMaterial={skinMaterial}
+          morphologyScore={scores.morphology}
+          isLuka={isCurrentSampleLuka}
+        />
 
         <Tongue tongueMaterial={tongueMaterial} />
 

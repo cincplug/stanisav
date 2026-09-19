@@ -9,7 +9,6 @@
   },
   "morphology": {
     "values": {
-      "none": { "score": 0 },
       "isolating": { "score": 1 },
       "agglutinative": { "score": 2 },
       "introflexive": { "score": 3 },

@@ -2,6 +2,7 @@
   {},
   {
     "evidentiality": "none",
+    "morphology": "agglutinative",
     "phonemeCount": 17
   },
   {
@@ -20,7 +21,8 @@
     "evidentiality": "moderate"
   },
   {
-    "evidentiality": "simple"
+    "evidentiality": "simple",
+    "morphology": "isolating"
   },
   {
     "evidentiality": "optional"
@@ -50,7 +52,8 @@
     "phonemeCount": 24
   },
   {
-    "phonemeCount": 25
+    "phonemeCount": 25,
+    "morphology": "agglutinative"
   },
   {
     "phonemeCount": 27
@@ -68,7 +71,8 @@
     "caseCount": 1
   },
   {
-    "caseCount": 2
+    "caseCount": 2,
+    "morphology": "introflexive"
   },
   {
     "caseCount": 3
@@ -87,7 +91,8 @@
   },
   {
     "caseCount": 12,
-    "nounClassCount": 1
+    "nounClassCount": 1,
+    "morphology": "fusional"
   },
   {
     "caseCount": 10,
@@ -107,10 +112,20 @@
     "nounClassCount": 7
   },
   {
-    "nounClassCount": 10
+    "nounClassCount": 8
   },
   {
-    "nounClassCount": 16
+    "nounClassCount": 9
+  },
+  {
+    "nounClassCount": 12
+  },
+  {
+    "nounClassCount": 14
+  },
+  {
+    "nounClassCount": 16,
+    "morphology": "polysynthetic"
   },
   {
     "wordOrder": "SVO"
