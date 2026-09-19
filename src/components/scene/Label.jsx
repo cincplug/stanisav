@@ -16,32 +16,6 @@ import { useThrottledFrame } from "../../hooks/useThrottledFrame.js";
 import { getLanguageSelfieUrl } from "../../utils/languageSelfieUtils.js";
 import { getLanguageLabel } from "../../utils/linguisticUtils.js";
 
-const SelfieLabel = ({ languageCode, labelSize, depthTest }) => {
-  const { selectedLanguage } = useLanguageSelectionContext();
-  if (selectedLanguage === languageCode) return null;
-
-  const texture = useTexture(getLanguageSelfieUrl(languageCode));
-  texture.colorSpace = SRGBColorSpace;
-
-  const aspectRatio = texture.image.width / texture.image.height;
-  const height = labelSize * 2;
-
-  return (
-    <mesh scale={[height * aspectRatio, height, 1]}>
-      <planeGeometry args={[1, 1]} />
-      <meshStandardMaterial
-        map={texture}
-        transparent
-        depthTest={depthTest}
-        depthWrite={false}
-        alphaTest={0.01}
-        side={DoubleSide}
-        toneMapped={false}
-      />
-    </mesh>
-  );
-};
-
 const Label = ({
   languageCode,
   position,
@@ -240,6 +214,32 @@ const Label = ({
         </Text>
       )}
     </group>
+  );
+};
+
+const SelfieLabel = ({ languageCode, labelSize, depthTest }) => {
+  const { selectedLanguage } = useLanguageSelectionContext();
+  if (selectedLanguage === languageCode) return null;
+
+  const texture = useTexture(getLanguageSelfieUrl(languageCode));
+  texture.colorSpace = SRGBColorSpace;
+
+  const aspectRatio = texture.image.width / texture.image.height;
+  const height = labelSize * 2;
+
+  return (
+    <mesh scale={[height * aspectRatio, height, 1]}>
+      <planeGeometry args={[1, 1]} />
+      <meshStandardMaterial
+        map={texture}
+        transparent
+        depthTest={depthTest}
+        depthWrite={false}
+        alphaTest={0.01}
+        side={DoubleSide}
+        toneMapped={false}
+      />
+    </mesh>
   );
 };
 
