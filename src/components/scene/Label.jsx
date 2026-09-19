@@ -1,7 +1,12 @@
 import { useSpring } from "@react-spring/three";
 import { Text, useTexture } from "@react-three/drei";
 import { useCallback, useMemo, useRef } from "react";
-import { MeshStandardMaterial, SRGBColorSpace, Vector3 } from "three";
+import {
+  DoubleSide,
+  MeshStandardMaterial,
+  SRGBColorSpace,
+  Vector3,
+} from "three";
 import { useAppStateContext } from "../../contexts/AppStateContext.jsx";
 import { useConfigContext } from "../../contexts/ConfigContext.jsx";
 import { useEntranceContext } from "../../contexts/EntranceContext.jsx";
@@ -22,15 +27,18 @@ const SelfieLabel = ({ languageCode, labelSize, depthTest }) => {
   const height = labelSize * 2;
 
   return (
-    <sprite scale={[height * aspectRatio, height, 1]}>
-      <spriteMaterial
+    <mesh scale={[height * aspectRatio, height, 1]}>
+      <planeGeometry args={[1, 1]} />
+      <meshStandardMaterial
         map={texture}
         transparent
         depthTest={depthTest}
         depthWrite={false}
+        alphaTest={0.01}
+        side={DoubleSide}
         toneMapped={false}
       />
-    </sprite>
+    </mesh>
   );
 };
 
