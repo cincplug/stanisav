@@ -97,7 +97,7 @@
     "toothThicknessCentral": 0.1,
     "toothLengthCorner": 0.4,
     "toothThicknessCorner": 0.3,
-    "toothY": -1.4,
+    "toothY": -0.7,
     "toothZ": 1.6,
     "toothWaviness": -0.22,
     "toothSpin": 9.4,
@@ -106,7 +106,7 @@
     "tuftSpacing": 3.6,
     "tuftY": -1.7,
     "tuftProtrusion": 0.2,
-    "tuftHueShift": 120,
+    "tuftHueShift": 270,
     "tuftColorStep": 33,
     "canMakeSelfies": false
   },
