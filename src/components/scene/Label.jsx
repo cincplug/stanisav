@@ -46,6 +46,7 @@ const Label = ({
     labelTextColor,
     invertsSelected,
     invertsUnselected,
+    alwaysShowsStanisav,
   } = config;
 
   const handleClick = useCallback(
@@ -197,6 +198,9 @@ const Label = ({
           languageCode={languageCode}
           labelSize={labelSize * 2}
           depthTest={!!selectedLanguage}
+          isAnimating={isAnimating}
+          isSelected={isSelected}
+          alwaysShowsStanisav={alwaysShowsStanisav}
         />
       ) : (
         <Text
@@ -215,9 +219,15 @@ const Label = ({
   );
 };
 
-const SelfieLabel = ({ languageCode, labelSize, depthTest }) => {
-  const { selectedLanguage } = useLanguageSelectionContext();
-  if (selectedLanguage === languageCode) return null;
+const SelfieLabel = ({
+  languageCode,
+  labelSize,
+  depthTest,
+  isAnimating,
+  isSelected,
+  alwaysShowsStanisav,
+}) => {
+  if (isSelected && (!isAnimating || alwaysShowsStanisav)) return null;
 
   const texture = useTexture(getLanguageSelfieUrl(languageCode));
   texture.colorSpace = SRGBColorSpace;

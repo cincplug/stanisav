@@ -40,7 +40,7 @@
     "sphereSpinSpeed": 1.5,
     "spiralAxis": ["y", "x", "z"],
     "spiralRatio": [0.61803, 0.41421, 0.73205, 0.23606, 0.64575, 0.31662],
-    "labelOffset": 5,
+    "labelOffset": 3,
     "sphereRadius": 19,
     "isMinglingWhenNotZoomed": true
   },
@@ -56,6 +56,7 @@
     "areClusterRowsAlternating": true
   },
   "stanisav": {
+    "alwaysShowsStanisav": false,
     "stanisavSize": 1.4,
     "stanisavSpinSpeed": 0.5,
     "assembleRate": 50,
@@ -184,7 +185,6 @@
     "durationPerLetter": 35
   },
   "entrance": {
-    "givesSpeechAtEntrance": false,
     "entranceAxis": ["z", "x", "y"],
     "entranceDuration": 7000,
     "labelRevealDuration": 400,

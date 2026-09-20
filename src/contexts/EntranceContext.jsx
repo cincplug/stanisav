@@ -21,7 +21,7 @@ export const EntranceProvider = ({ children }) => {
   const entranceSteps = isLocaleReady ? getEntranceSteps() : [];
 
   const {
-    givesSpeechAtEntrance,
+    alwaysShowsStanisav,
     entranceDuration,
     labelRevealDuration,
     startLabelOffset,
@@ -115,7 +115,7 @@ export const EntranceProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if (givesSpeechAtEntrance) {
+    if (alwaysShowsStanisav) {
       runShowcaseSequence();
     }
   }, []);
