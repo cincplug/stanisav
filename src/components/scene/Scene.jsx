@@ -41,6 +41,7 @@ const Scene = () => {
     bgColor,
     isMotionReduced,
     isMyStanisav,
+    givesSpeechAtEntrance,
     spiralAxis,
     labelOffset,
     isBlackboard,
@@ -131,6 +132,12 @@ const Scene = () => {
     Object.keys(languagePositions).length > 0 &&
     (shouldShowEmptyMessage || visibleLanguages.length > 0);
 
+  const shouldShowLabels =
+    !shouldShowEmptyMessage &&
+    (isShowcaseSequenceDone || !givesSpeechAtEntrance);
+
+  const shouldShowStanisav = selectedLanguage || givesSpeechAtEntrance;
+
   if (!data || sortedLanguageCodes.length === 0) {
     return null;
   }
@@ -169,7 +176,7 @@ const Scene = () => {
 
       <Camera languagePositions={languagePositions} />
 
-      {!shouldShowEmptyMessage && isShowcaseSequenceDone && (
+      {shouldShowLabels && (
         <Labels
           groups={groups}
           languagePositions={languagePositions}
@@ -182,16 +189,18 @@ const Scene = () => {
         />
       )}
 
-      <Stanisav
-        languageCode={stanisavLanguageCode}
-        imposedProperties={stanisavImposedProperties}
-        position={stanisavPosition}
-        isMyStanisav={isMyStanisav}
-        spinSpeed={stanisavSpinSpeed}
-        isMotionReduced={isMotionReduced}
-        renderOrder={languages.length}
-        wideScale={stanisavWideScale}
-      />
+      {shouldShowStanisav && (
+        <Stanisav
+          languageCode={stanisavLanguageCode}
+          imposedProperties={stanisavImposedProperties}
+          position={stanisavPosition}
+          isMyStanisav={isMyStanisav}
+          spinSpeed={stanisavSpinSpeed}
+          isMotionReduced={isMotionReduced}
+          renderOrder={languages.length}
+          wideScale={stanisavWideScale}
+        />
+      )}
     </Canvas>
   );
 };

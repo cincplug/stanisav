@@ -85,7 +85,7 @@ const Labels = ({
 
   return (
     <>
-      {shouldShowRays && isLabelsSequenceDone && (
+      {shouldShowRays && (
         <Rays
           visibleLabelCodes={visibleLabelCodes}
           labelRefs={labelRefs}

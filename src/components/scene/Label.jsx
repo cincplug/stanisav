@@ -76,8 +76,6 @@ const Label = ({
     totalVisibleLabels,
   );
 
-  const showsSceneSelfies = labelContent === "selfie";
-
   const entranceStartRef = useRef(null);
   if (entranceStartRef.current === null) {
     entranceStartRef.current = startPosition;
@@ -194,10 +192,10 @@ const Label = ({
 
   return (
     <group ref={labelRef} onClick={handleClick}>
-      {showsSceneSelfies ? (
+      {labelContent === "selfie" ? (
         <SelfieLabel
           languageCode={languageCode}
-          labelSize={labelSize}
+          labelSize={labelSize * 2}
           depthTest={!!selectedLanguage}
         />
       ) : (

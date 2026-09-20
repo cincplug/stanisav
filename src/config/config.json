@@ -178,10 +178,11 @@
     "durationPerLetter": 35
   },
   "entrance": {
+    "givesSpeechAtEntrance": false,
     "entranceAxis": ["z", "x", "y"],
     "entranceDuration": 7000,
-    "labelRevealDuration": 200,
-    "startLabelOffset": 1.2
+    "labelRevealDuration": 400,
+    "startLabelOffset": 1
   },
   "rays": {
     "hasRaysWhenZoomed": false,
