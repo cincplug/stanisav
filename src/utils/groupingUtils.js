@@ -37,7 +37,7 @@ export function groupLanguages({
   sortBy,
   languages,
   lineages,
-  labelContent,
+  languageDisplay,
   isReverse,
 }) {
   if (sortBy === "speakers") {
@@ -64,7 +64,7 @@ export function groupLanguages({
   if (sortBy === "alphabetically") {
     const result = {};
     sortedLanguageCodes.forEach((langCode) => {
-      const label = getLanguageLabel(langCode, languages, labelContent);
+      const label = getLanguageLabel(langCode, languages, languageDisplay);
       const firstChar =
         Array.from(label.trim())[0]?.toLocaleUpperCase("und") || "#";
       if (!result[firstChar]) {

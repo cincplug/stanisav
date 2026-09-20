@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "Reverse order"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "Display",
       "options": {
         "selfie": "Selfies",

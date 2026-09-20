@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "ลำดับย้อนกลับ"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "การแสดงผล",
       "options": {
         "isoCode": "รหัส ISO",

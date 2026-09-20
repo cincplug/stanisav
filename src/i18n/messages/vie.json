@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "Thứ tự ngược"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "Hiển thị",
       "options": {
         "isoCode": "Mã ISO",

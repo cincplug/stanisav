@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "Omvendt rækkefølge"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "Visning",
       "options": {
         "isoCode": "ISO-koder",

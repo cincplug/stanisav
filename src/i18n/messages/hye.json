@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "Հակառակ հերթականություն"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "Ցուցադրում",
       "options": {
         "isoCode": "ISO կոդեր",

@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "Obrácené pořadí"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "Zobrazení",
       "options": {
         "isoCode": "ISO kódy",

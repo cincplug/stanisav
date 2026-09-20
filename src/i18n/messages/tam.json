@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "தலைகீழ் வரிசை"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "காட்சி",
       "options": {
         "isoCode": "ISO குறியீடுகள்",

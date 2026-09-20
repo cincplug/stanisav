@@ -140,8 +140,12 @@ export const getLanguagePropertyValue = (
 
 // --- Language display (merged from linguisticUtils) ---
 
-export const getLanguageLabel = (languageCode, languageData, labelContent) => {
-  switch (labelContent) {
+export const getLanguageLabel = (
+  languageCode,
+  languageData,
+  languageDisplay,
+) => {
+  switch (languageDisplay) {
     case "name":
     case "selfie":
       return getLocalizedLanguageName(languageCode);
@@ -157,7 +161,7 @@ export const getLanguageLabel = (languageCode, languageData, labelContent) => {
     case "isoCode":
       return languageCode;
     default:
-      throw new Error(`Unsupported labelContent '${labelContent}'`);
+      throw new Error(`Unsupported languageDisplay '${languageDisplay}'`);
   }
 };
 

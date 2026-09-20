@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "Обратен редослед"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "Приказ",
       "options": {
         "isoCode": "ISO кодови",

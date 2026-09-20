@@ -18,7 +18,13 @@
       "caseCount",
       "nounClassCount"
     ],
-    "labelContent": ["selfie", "name", "nativeName", "isoCode", "kavianName"],
+    "languageDisplay": [
+      "selfie",
+      "name",
+      "nativeName",
+      "isoCode",
+      "kavianName"
+    ],
     "labelSize": [1, 1.25, 1.5, 1.75],
     "isReverse": false,
     "isBlackboard": false

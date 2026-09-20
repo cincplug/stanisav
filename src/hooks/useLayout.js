@@ -12,7 +12,7 @@ const PANEL_BREAKPOINT_PX = 640;
 export function useLayout() {
   const { data } = useAppStateContext();
   const { config } = useConfigContext();
-  const { sortBy, labelContent, isReverse, isMenuExpanded, cameraZ, fov } =
+  const { sortBy, languageDisplay, isReverse, isMenuExpanded, cameraZ, fov } =
     config;
 
   const sortedLanguageCodes = useSortedLanguages();
@@ -65,7 +65,7 @@ export function useLayout() {
       sortBy,
       languages,
       lineages,
-      labelContent,
+      languageDisplay,
       isReverse,
     });
   }, [
@@ -73,7 +73,7 @@ export function useLayout() {
     sortBy,
     languages,
     lineages,
-    labelContent,
+    languageDisplay,
     isReverse,
   ]);
 

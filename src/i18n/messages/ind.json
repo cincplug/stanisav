@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "Urutan terbalik"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "Tampilan",
       "options": {
         "isoCode": "Kode ISO",

@@ -18,7 +18,7 @@ export function useSortedLanguages() {
   const { data } = useAppStateContext();
   const { config } = useConfigContext();
   const { locale, isLocaleReady } = useI18nContext();
-  const { sortBy, labelContent, isReverse } = config;
+  const { sortBy, languageDisplay, isReverse } = config;
 
   const sortedLanguageCodes = useMemo(() => {
     // Wait until locale data is fully loaded before sorting.
@@ -33,13 +33,13 @@ export function useSortedLanguages() {
       allLanguages: [...languageCodes],
       languages,
       sortBy,
-      labelContent,
+      languageDisplay,
       isReverse,
     });
   }, [
     data,
     sortBy,
-    labelContent,
+    languageDisplay,
     isReverse,
     locale,
     isLocaleReady, // Re-sort once locale data is actually loaded

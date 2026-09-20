@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "Αντίστροφη σειρά"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "Προβολή",
       "options": {
         "isoCode": "Κωδικοί ISO",

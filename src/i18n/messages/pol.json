@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "Odwróć kolejność"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "Wyświetlanie",
       "options": {
         "isoCode": "Kody ISO",

@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "Ters sıra"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "Görüntüle",
       "options": {
         "isoCode": "ISO kodları",

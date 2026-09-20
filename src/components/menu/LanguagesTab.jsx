@@ -21,7 +21,7 @@ function LanguagesTab({
   const buttonRefs = useRef({});
 
   const { config } = useConfigContext();
-  const { sortBy, labelContent, isReverse } = config;
+  const { sortBy, languageDisplay, isReverse } = config;
 
   // Use the centralized hook for sorted language codes
   const sortedLanguageCodes = useSortedLanguages();
@@ -39,7 +39,7 @@ function LanguagesTab({
       sortBy,
       languages,
       lineages,
-      labelContent,
+      languageDisplay,
       isReverse,
     });
   }, [
@@ -47,7 +47,7 @@ function LanguagesTab({
     sortBy,
     languages,
     lineages,
-    labelContent,
+    languageDisplay,
     isReverse,
   ]);
 
@@ -95,7 +95,7 @@ function LanguagesTab({
           <LanguageTree
             tree={languageTreeData}
             languages={languages}
-            labelContent={labelContent}
+            languageDisplay={languageDisplay}
             selectedLanguage={selectedLanguage}
             previewLanguageCode={previewLanguageCode}
             buttonRefs={buttonRefs}
@@ -113,7 +113,7 @@ function LanguagesTab({
               <LanguageTree
                 languageCodes={group.languages}
                 languages={languages}
-                labelContent={labelContent}
+                languageDisplay={languageDisplay}
                 selectedLanguage={selectedLanguage}
                 previewLanguageCode={previewLanguageCode}
                 buttonRefs={buttonRefs}

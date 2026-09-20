@@ -50,18 +50,18 @@ export function sortLanguages({
   allLanguages,
   languages,
   sortBy,
-  labelContent,
+  languageDisplay,
   isReverse,
 }) {
   const sorted = (() => {
     switch (sortBy) {
       case "alphabetically":
         return allLanguages.sort((a, b) => {
-          const labelA = getLanguageLabel(a, languages, labelContent);
-          const labelB = getLanguageLabel(b, languages, labelContent);
+          const labelA = getLanguageLabel(a, languages, languageDisplay);
+          const labelB = getLanguageLabel(b, languages, languageDisplay);
 
-          invariant(labelA !== null, `Missing '${labelContent}' for '${a}'`);
-          invariant(labelB !== null, `Missing '${labelContent}' for '${b}'`);
+          invariant(labelA !== null, `Missing '${languageDisplay}' for '${a}'`);
+          invariant(labelB !== null, `Missing '${languageDisplay}' for '${b}'`);
 
           return collator.compare(String(labelA), String(labelB));
         });

@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "סדר הפוך"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "תצוגה",
       "options": {
         "isoCode": "קודי ISO",

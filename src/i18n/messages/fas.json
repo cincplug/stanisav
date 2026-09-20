@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "ترتیب معکوس"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "نمایش",
       "options": {
         "isoCode": "کدهای ISO",

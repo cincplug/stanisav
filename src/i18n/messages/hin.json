@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "उल्टा क्रम"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "प्रदर्शन",
       "options": {
         "isoCode": "ISO कोड",

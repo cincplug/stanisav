@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "Obrnutim redom"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "Etikete",
       "options": {
         "isoCode": "ISO kodovi",

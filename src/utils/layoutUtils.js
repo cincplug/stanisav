@@ -219,7 +219,7 @@ function computeSphereBasePositions(sortedLanguageCodes, config) {
 // ---------------------------------------------------------------------------
 
 function getClusterKey(code, languages, config) {
-  const { sortBy, labelContent, isBlackboard } = config;
+  const { sortBy, languageDisplay, isBlackboard } = config;
   const lang = languages[code];
 
   switch (sortBy) {
@@ -230,7 +230,7 @@ function getClusterKey(code, languages, config) {
     case "family":
       return lang.lineageKey ?? "isolate";
     case "alphabetically": {
-      const label = getLanguageLabel(code, languages, labelContent);
+      const label = getLanguageLabel(code, languages, languageDisplay);
       return Array.from(label.trim())[0]?.toLocaleUpperCase("und");
     }
     default:
@@ -326,7 +326,7 @@ function distributeClusterKeysIntoColumns(
 function computeBoardPositions(sortedLanguageCodes, languages, config) {
   const {
     sortBy,
-    labelContent,
+    languageDisplay,
     labelSize,
     charWidthRatio,
     labelPaddingH,
@@ -357,7 +357,7 @@ function computeBoardPositions(sortedLanguageCodes, languages, config) {
   clusterKeys.forEach((key) => {
     const members = clusters[key];
     const labelWidths = members.map((code) => {
-      const text = getLanguageLabel(code, languages, labelContent);
+      const text = getLanguageLabel(code, languages, languageDisplay);
       return estimateLabelWidth(text, labelSize, charWidthRatio, labelPaddingH);
     });
     clusterLayouts[key] = generateFlowLayout(

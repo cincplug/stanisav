@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "Turn di order comot"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "Wetin go show",
       "options": {
         "isoCode": "ISO code dem",

@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "Зворотний порядок"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "Відображення",
       "options": {
         "isoCode": "Коди ISO",

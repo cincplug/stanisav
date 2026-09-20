@@ -37,7 +37,7 @@ const Label = ({
 
   const { config } = useConfigContext();
   const {
-    labelContent,
+    languageDisplay,
     labelSize,
     isBlackboard,
     isMinglingWhenNotZoomed,
@@ -59,7 +59,7 @@ const Label = ({
   const labelText = getLanguageLabel(
     languageCode,
     data.languages,
-    labelContent,
+    languageDisplay,
   );
 
   const { getLabelSpringProps } = useEntranceContext();
@@ -192,7 +192,7 @@ const Label = ({
 
   return (
     <group ref={labelRef} onClick={handleClick}>
-      {labelContent === "selfie" ? (
+      {languageDisplay === "selfie" ? (
         <SelfieLabel
           languageCode={languageCode}
           labelSize={labelSize * 2}

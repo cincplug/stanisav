@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "Obrnjen vrstni red"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "Prikaz",
       "options": {
         "isoCode": "ISO kode",

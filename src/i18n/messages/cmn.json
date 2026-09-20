@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "倒序排列"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "显示内容",
       "options": {
         "isoCode": "ISO 代码",

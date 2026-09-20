@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "Omgekeerde volgorde"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "Weergave",
       "options": {
         "isoCode": "ISO-codes",

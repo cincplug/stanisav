@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "შებრუნებული თანმიმდევრობა"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "ჩვენება",
       "options": {
         "isoCode": "ISO კოდები",

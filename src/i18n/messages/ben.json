@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "বিপরীত ক্রম"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "প্রদর্শন",
       "options": {
         "isoCode": "ISO কোড",

@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "ترتيب عكسي"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "العرض",
       "options": {
         "isoCode": "رموز ISO",

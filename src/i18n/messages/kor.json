@@ -12,7 +12,7 @@
     "isReverse": {
       "label": "역순 정렬"
     },
-    "labelContent": {
+    "languageDisplay": {
       "label": "표시 내용",
       "options": {
         "isoCode": "ISO 코드",

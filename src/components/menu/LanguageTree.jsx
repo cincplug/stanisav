@@ -7,7 +7,7 @@ const LanguageTree = ({
   tree,
   languageCodes,
   languages,
-  labelContent,
+  languageDisplay,
   selectedLanguage,
   previewLanguageCode,
   buttonRefs,
@@ -22,7 +22,7 @@ const LanguageTree = ({
     return (
       <ul className="languages-in-group" role="list">
         {languageCodes.map((langCode) => {
-          const label = getLanguageLabel(langCode, languages, labelContent);
+          const label = getLanguageLabel(langCode, languages, languageDisplay);
           const isSelected = selectedLanguage === langCode;
           const colorProperty = isMobile ? "color" : "backgroundColor";
 
@@ -96,7 +96,7 @@ const LanguageTree = ({
         <LanguageTree
           languageCodes={node.languages}
           languages={languages}
-          labelContent={labelContent}
+          languageDisplay={languageDisplay}
           selectedLanguage={selectedLanguage}
           previewLanguageCode={previewLanguageCode}
           buttonRefs={buttonRefs}
@@ -110,7 +110,7 @@ const LanguageTree = ({
             <LanguageTree
               tree={node.children}
               languages={languages}
-              labelContent={labelContent}
+              languageDisplay={languageDisplay}
               selectedLanguage={selectedLanguage}
               previewLanguageCode={previewLanguageCode}
               buttonRefs={buttonRefs}
