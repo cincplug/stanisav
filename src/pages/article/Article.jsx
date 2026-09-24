@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import Markdown from "react-markdown";
 import { useAppStateContext } from "../../contexts/AppStateContext";
 import { useI18nContext } from "../../contexts/I18nContext";
+import { useSelfieCapture } from "../../hooks/useSelfieCapture";
 import readme from "../../../README.md?raw";
 import "../../index.css";
 import "./Article.css";
@@ -22,6 +23,17 @@ const Article = () => {
   const languages = Object.keys(data?.languages || {});
 
   const [stanisavLocale, setStanisavLocale] = useState(iso3Locale);
+
+  const [searchParams] = useSearchParams();
+  // With ?capture=1, scripts/capture-selfies.js drives this page headlessly.
+  const isCaptureMode = searchParams.get("capture") === "1";
+
+  useSelfieCapture({
+    isEnabled: isCaptureMode,
+    languageCode: stanisavLocale,
+    languages,
+    setLanguageCode: setStanisavLocale,
+  });
 
   useEffect(() => {
     document.body.classList.add("article-body");
@@ -46,6 +58,7 @@ const Article = () => {
             languageCode={stanisavLocale}
             position={[0, 0, 102]}
             customSpinSpeed={0}
+            forcesHighQualityCapture={isCaptureMode}
           />
         </div>
         <Link

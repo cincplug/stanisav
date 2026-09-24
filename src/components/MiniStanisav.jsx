@@ -13,6 +13,10 @@ const MiniStanisav = ({
   customSpinSpeed,
   className = "mini-stanisav",
   hasSelfieButton,
+  // Forces a preserved, high-DPR framebuffer regardless of the user's
+  // canMakeSelfies setting, so scripts/capture-selfies.js always gets a
+  // readable, high-quality capture via canvas.toDataURL().
+  forcesHighQualityCapture = false,
 }) => {
   const { config } = useConfigContext();
   const { registerMiniStanisav } = useAppStateContext();
@@ -27,6 +31,7 @@ const MiniStanisav = ({
     stanisavSpinSpeed,
     canMakeSelfies,
   } = config;
+  const hasHighQualityBuffer = canMakeSelfies || forcesHighQualityCapture;
   const wrapperRef = useRef(null);
 
   useEffect(() => {
@@ -42,7 +47,7 @@ const MiniStanisav = ({
   return (
     <div ref={wrapperRef} className={className}>
       <Canvas
-        dpr={canMakeSelfies ? [1, 2] : [1, 1]}
+        dpr={hasHighQualityBuffer ? [1, 2] : [1, 1]}
         camera={{
           position: [cameraX, cameraY, cameraZ],
           fov,
@@ -51,7 +56,7 @@ const MiniStanisav = ({
         }}
         gl={{
           antialias: true,
-          preserveDrawingBuffer: canMakeSelfies,
+          preserveDrawingBuffer: hasHighQualityBuffer,
           clearColor: bgColor,
           alpha: true,
         }}
