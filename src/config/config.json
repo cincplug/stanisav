@@ -38,11 +38,11 @@
   },
   "sphere": {
     "sphereSpinSpeed": 1.5,
-    "spiralAxis": ["y", "x", "z"],
-    "spiralRatio": [0.61803, 0.41421, 0.73205, 0.23606, 0.64575, 0.31662],
     "labelOffset": 3,
     "sphereRadius": 19,
-    "isMinglingWhenNotZoomed": true
+    "isMinglingWhenNotZoomed": true,
+    "spiralAxis": ["y", "x", "z"],
+    "spiralRatio": [0.61803, 0.41421, 0.73205, 0.23606, 0.64575, 0.31662]
   },
   "blackboard": {
     "boardLight": 1.25,
@@ -166,14 +166,14 @@
     "far": 2000,
     "fov": 30,
     "near": 0.1,
-    "switchDuration": 1200,
+    "switchDuration": 1000,
     "zoomDistance": 27
   },
   "motion": {
     "isMotionReduced": false,
-    "dampLambda": 12,
+    "dampLambda": 16,
     "friction": 64,
-    "tension": 100
+    "tension": 32
   },
   "popover": {
     "defaultPosition": "top"
