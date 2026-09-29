@@ -30,7 +30,7 @@ const Label = ({
   const labelRef = useRef();
   const { data } = useAppStateContext();
   const { selectedLanguage } = useLanguageSelectionContext();
-  const { startFromLanguage, isAnimating } = usePlaylistContext();
+  const { startFromLanguage } = usePlaylistContext();
 
   // Cursor position from keyboard/tab navigation, shown only where it
   // differs from the actual selection (isSelected styling takes precedence)
@@ -46,7 +46,6 @@ const Label = ({
     labelTextColor,
     invertsSelected,
     invertsUnselected,
-    alwaysShowsStanisav,
   } = config;
 
   const handleClick = useCallback(
@@ -180,7 +179,7 @@ const Label = ({
     if (meshRef) meshRef.current = labelRef.current;
     if (revealRef) revealRef.current = reveal;
 
-    if (!selectedLanguage && isMinglingWhenNotZoomed && !isAnimating) {
+    if (!selectedLanguage && isMinglingWhenNotZoomed) {
       mingleRef.current += delta;
       if (mingleRef.current >= totalVisibleLabels) mingleRef.current = 0;
 
@@ -198,9 +197,7 @@ const Label = ({
           languageCode={languageCode}
           labelSize={labelSize * 2}
           depthTest={!!selectedLanguage}
-          isAnimating={isAnimating}
           isSelected={isSelected}
-          alwaysShowsStanisav={alwaysShowsStanisav}
         />
       ) : (
         <Text
@@ -219,15 +216,8 @@ const Label = ({
   );
 };
 
-const SelfieLabel = ({
-  languageCode,
-  labelSize,
-  depthTest,
-  isAnimating,
-  isSelected,
-  alwaysShowsStanisav,
-}) => {
-  if (isSelected && (!isAnimating || alwaysShowsStanisav)) return null;
+const SelfieLabel = ({ languageCode, labelSize, depthTest, isSelected }) => {
+  if (isSelected) return null;
 
   const texture = useTexture(getLanguageSelfieUrl(languageCode));
   texture.colorSpace = SRGBColorSpace;

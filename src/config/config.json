@@ -56,7 +56,6 @@
     "areClusterRowsAlternating": true
   },
   "stanisav": {
-    "alwaysShowsStanisav": false,
     "stanisavSize": 1.4,
     "stanisavSpinSpeed": 0.5,
     "assembleRate": 50,

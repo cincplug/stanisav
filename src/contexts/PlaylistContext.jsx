@@ -32,7 +32,6 @@ export const PlaylistProvider = ({ children }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [playlistSession, setPlaylistSession] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
   // Index of the audio URL currently playing within the sequence for a language:
   // 0 = first sample (original or luka depending on soundSource), 1 = second sample
   const [audioPhaseIndex, setAudioPhaseIndex] = useState(0);
@@ -218,13 +217,6 @@ export const PlaylistProvider = ({ children }) => {
     const code = codes[currentIndex];
     if (selectedLanguage !== code) {
       setSelectedLanguage(code);
-      if (animatingTimeoutRef.current)
-        clearTimeout(animatingTimeoutRef.current);
-      setIsAnimating(true);
-      animatingTimeoutRef.current = setTimeout(() => {
-        setIsAnimating(false);
-        animatingTimeoutRef.current = null;
-      }, switchDuration);
     }
 
     let isEffectActive = true;
@@ -335,7 +327,6 @@ export const PlaylistProvider = ({ children }) => {
 
   const value = {
     isPlaying,
-    isAnimating,
     audioPhaseIndex,
     isCurrentSampleLuka,
     currentIndex,

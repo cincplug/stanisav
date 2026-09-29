@@ -6,7 +6,6 @@ import { useConfigContext } from "../../contexts/ConfigContext";
 import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext";
 import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
-import { usePlaylistContext } from "../../contexts/PlaylistContext";
 import { useLayout } from "../../hooks/useLayout";
 import { resolveLinguisticProperties } from "../../utils/entranceUtils";
 import {
@@ -29,12 +28,10 @@ const Scene = () => {
     isEntranceComplete,
     isLabelsSequenceDone,
     setIsLabelsSequenceDone,
-    isShowcaseSequenceDone,
     mentionedLanguage,
     mentionedPropertyOverrides,
   } = useEntranceContext();
   const { data } = useAppStateContext();
-  const { isAnimating } = usePlaylistContext();
   const { config } = useConfigContext();
   const {
     cameraX,
@@ -43,7 +40,6 @@ const Scene = () => {
     bgColor,
     isMotionReduced,
     isMyStanisav,
-    alwaysShowsStanisav,
     spiralAxis,
     labelOffset,
     isBlackboard,
@@ -134,12 +130,7 @@ const Scene = () => {
     Object.keys(languagePositions).length > 0 &&
     (shouldShowEmptyMessage || visibleLanguages.length > 0);
 
-  const shouldShowLabels =
-    !shouldShowEmptyMessage && (isShowcaseSequenceDone || !alwaysShowsStanisav);
-
-  const shouldShowStanisav =
-    (!selectedLanguage && alwaysShowsStanisav) ||
-    (selectedLanguage && (alwaysShowsStanisav || !isAnimating));
+  const shouldShowLabels = !shouldShowEmptyMessage;
 
   if (!data || sortedLanguageCodes.length === 0) {
     return null;
@@ -192,7 +183,7 @@ const Scene = () => {
         />
       )}
 
-      {shouldShowStanisav && (
+      {selectedLanguage && (
         <Stanisav
           languageCode={stanisavLanguageCode}
           imposedProperties={stanisavImposedProperties}
