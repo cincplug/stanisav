@@ -34,7 +34,7 @@ const LanguageTree = ({
                   className="language-selfie"
                   hasSelfieButton={false}
                   languageCode={langCode}
-                  position={[0, 0, 100]}
+                  position={[0, 0, 104]}
                 />
               );
             return (
@@ -69,7 +69,7 @@ const LanguageTree = ({
                 aria-current={isSelected ? "true" : undefined}
               >
                 <Selfie />
-                {label}
+                <span className="label-text">{label}</span>
               </button>
             </li>
           );

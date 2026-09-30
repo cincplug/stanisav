@@ -19,7 +19,7 @@
 
     &:has(.mini-stanisav) {
       flex-basis: 100%;
-      height: var(--mini-stanisav-button-height);
+      height: var(--mini-stanisav-height);
       overflow: hidden;
       position: relative;
 
@@ -42,13 +42,15 @@
   width: fit-content;
 
   .languages-list.wrapped & {
+    max-height: var(--mini-stanisav-height);
     display: flex;
+    justify-content: space-evenly;
     align-items: center;
     gap: var(--gap-half);
     background-color: var(--color-1);
     border: var(--border);
     width: calc(
-      var(--panel-width) - var(--gap-double) * 2 - var(--border-width-thick) * 2
+      var(--panel-width) - var(--gap-double) - var(--border-width-thick) * 2
     );
     padding: 0;
     text-align: left;
@@ -60,6 +62,10 @@
     background: none;
     color: var(--color-4);
     pointer-events: none;
+
+    .language-selfie {
+      z-index: 1;
+    }
   }
 
   .previewed:not(.selected) {
@@ -70,9 +76,9 @@
 }
 
 .language-selfie {
-  width: 50%;
-  width: calc(var(--panel-width) / 2);
-  object-fit: cover;
+  max-width: calc(var(--panel-width) / 2);
+  height: auto;
+  margin-inline-end: var(--gap);
 }
 
 .lineage-group.nested {

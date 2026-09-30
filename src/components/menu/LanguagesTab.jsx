@@ -55,7 +55,8 @@ function LanguagesTab({
     if (
       isSelected &&
       selectedLanguage &&
-      buttonRefs.current[selectedLanguage]
+      buttonRefs.current[selectedLanguage] &&
+      !isMobile
     ) {
       buttonRefs.current[selectedLanguage].scrollIntoView({
         behavior: "smooth",
@@ -72,7 +73,8 @@ function LanguagesTab({
       isSelected &&
       previewLanguageCode &&
       previewLanguageCode !== selectedLanguage &&
-      buttonRefs.current[previewLanguageCode]
+      buttonRefs.current[previewLanguageCode] &&
+      !isMobile
     ) {
       buttonRefs.current[previewLanguageCode].scrollIntoView({
         behavior: "smooth",
