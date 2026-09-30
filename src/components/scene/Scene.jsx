@@ -26,8 +26,7 @@ const Scene = () => {
   const {
     skipSequence,
     isEntranceComplete,
-    isLabelsSequenceDone,
-    setIsLabelsSequenceDone,
+    setIsEntranceComplete,
     mentionedLanguage,
     mentionedPropertyOverrides,
   } = useEntranceContext();
@@ -178,8 +177,8 @@ const Scene = () => {
           languageColors={languageColors}
           languages={languages}
           selectedLanguage={selectedLanguage}
-          isLabelsSequenceDone={isLabelsSequenceDone}
-          setIsLabelsSequenceDone={setIsLabelsSequenceDone}
+          isEntranceComplete={isEntranceComplete}
+          setIsEntranceComplete={setIsEntranceComplete}
         />
       )}
 

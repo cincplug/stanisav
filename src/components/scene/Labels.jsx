@@ -11,8 +11,8 @@ const Labels = ({
   languagePositions,
   languageFilterStatus,
   selectedLanguage,
-  isLabelsSequenceDone,
-  setIsLabelsSequenceDone,
+  isEntranceComplete,
+  setIsEntranceComplete,
 }) => {
   const { languageColors } = useLanguageColorsContext();
   const { filters, filteredLanguages } = useLanguageSelectionContext();
@@ -70,13 +70,13 @@ const Labels = ({
     (languageCode) => {
       revealedLanguageCodesRef.current.add(languageCode);
       if (
-        !isLabelsSequenceDone &&
+        !isEntranceComplete &&
         revealedLanguageCodesRef.current.size >= totalVisibleLabels
       ) {
-        setIsLabelsSequenceDone(true);
+        setIsEntranceComplete(true);
       }
     },
-    [isLabelsSequenceDone, setIsLabelsSequenceDone, totalVisibleLabels],
+    [isEntranceComplete, setIsEntranceComplete, totalVisibleLabels],
   );
 
   const shouldShowRays =

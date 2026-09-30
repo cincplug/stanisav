@@ -21,8 +21,6 @@ const Light = ({ selectedLanguage }) => {
     boardLight,
     cameraZ,
     isMotionReduced,
-    tension,
-    friction,
     isBlackboard,
   } = config;
 
@@ -43,7 +41,7 @@ const Light = ({ selectedLanguage }) => {
     animatedIntensity: selectedLanguage
       ? zoomedLightIntensity
       : defaultLightIntensity,
-    config: { tension, friction },
+    config: { duration: switchDuration },
   });
 
   useThrottledFrame(() => {

@@ -23,9 +23,7 @@ export const EntranceProvider = ({ children }) => {
 
   const isSequenceCancelledRef = useRef(false);
 
-  const [isLabelsSequenceDone, setIsLabelsSequenceDone] = useState(false);
-
-  const isEntranceComplete = isLabelsSequenceDone;
+  const [isEntranceComplete, setIsEntranceComplete] = useState(false);
 
   const toInnerStartPosition = ([x, y, z]) => [
     x * startLabelOffset,
@@ -35,7 +33,7 @@ export const EntranceProvider = ({ children }) => {
 
   const skipSequence = () => {
     isSequenceCancelledRef.current = true;
-    setIsLabelsSequenceDone(true);
+    setIsEntranceComplete(true);
   };
 
   useEffect(() => {
@@ -71,11 +69,10 @@ export const EntranceProvider = ({ children }) => {
     <EntranceContext.Provider
       value={{
         entranceSteps,
-        isLabelsSequenceDone,
         isEntranceComplete,
         getLabelSpringProps,
         skipSequence,
-        setIsLabelsSequenceDone,
+        setIsEntranceComplete,
       }}
     >
       {children}
