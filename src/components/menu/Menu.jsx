@@ -15,6 +15,7 @@ import {
   CloseIcon,
   BlackboardIcon,
   SortIcon,
+  EyeIcon,
 } from "../Icons";
 import Playlist from "./Playlist";
 import TabNavigation from "./TabNavigation";
@@ -36,24 +37,31 @@ function Menu({
   const { t, isRtl } = useI18nContext();
   const [selectedTab, setSelectedTab] = useState(tabsConfig.defaultTab);
   const isMobile = useMediaQuery("(max-width: 640px)");
-  const { isBlackboard, sortBy } = config;
+  const { isBlackboard, sortBy, languageDisplay } = config;
 
-  const sortByControl = getConfigGroup("header").find(
-    ({ groupRelativeKey }) => groupRelativeKey === "sortBy",
-  );
-
-  const sortByOptions = sortByControl.options.map((value) => {
-    const i18nKey = `controls.sortBy.options.${value}`;
-    const translated = t(i18nKey);
-    return {
-      value,
-      label: translated !== i18nKey ? translated : String(value),
-    };
-  });
+  const headerControls = getConfigGroup("header");
+  const getOptions = (key) =>
+    headerControls
+      .find(({ groupRelativeKey }) => groupRelativeKey === key)
+      .options.map((value) => {
+        const i18nKey = `controls.${key}.options.${value}`;
+        const translated = t(i18nKey);
+        return {
+          value,
+          label: translated !== i18nKey ? translated : String(value),
+        };
+      });
+  const sortByOptions = getOptions("sortBy");
+  const languageDisplayOptions = getOptions("languageDisplay");
 
   const selectedSortBy =
     sortByOptions.find(({ value }) => value === sortBy)?.value ||
     sortByOptions[0]?.value ||
+    "";
+  const selectedLanguageDisplay =
+    languageDisplayOptions.find(({ value }) => value === languageDisplay)
+      ?.value ||
+    languageDisplayOptions[0]?.value ||
     "";
 
   const handleControlChange = (dotKey, value) => {
@@ -65,8 +73,8 @@ function Menu({
     setSelectedTab(tabId);
   };
 
-  const handleSortByChange = (value) => {
-    updateConfigValue("header.sortBy", value);
+  const handleCompactControlChange = (key, value) => {
+    updateConfigValue(`header.${key}`, value);
     skipSequence();
   };
 
@@ -140,10 +148,22 @@ function Menu({
             <Select
               options={sortByOptions}
               value={selectedSortBy}
-              onChange={handleSortByChange}
+              onChange={(value) => handleCompactControlChange("sortBy", value)}
               label={t("controls.sortBy.label")}
               isCompact
               icon={<SortIcon />}
+            />
+          )}
+          {languageDisplayOptions.length > 0 && (
+            <Select
+              options={languageDisplayOptions}
+              value={selectedLanguageDisplay}
+              onChange={(value) =>
+                handleCompactControlChange("languageDisplay", value)
+              }
+              label={t("controls.languageDisplay.label")}
+              isCompact
+              icon={<EyeIcon />}
             />
           )}
           <button

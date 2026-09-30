@@ -451,4 +451,19 @@ export const SelfieIcon = (props) => (
     />
   </svg>
 );
-``;
+
+export const EyeIcon = (props) => (
+  <svg
+    width={iconSize}
+    height={iconSize}
+    viewBox={viewBox}
+    fill="none"
+    {...props}
+  >
+    <path
+      d="M2 12C4.5 7 8 5 12 5S19.5 7 22 12C19.5 17 16 19 12 19S4.5 17 2 12ZM12 8.5a3.5 3.5 0 1 0 0 7a3.5 3.5 0 1 0 0-7Z"
+      fill={iconColor}
+      fillRule="evenodd"
+    />
+  </svg>
+);
