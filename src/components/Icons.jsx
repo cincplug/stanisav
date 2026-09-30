@@ -1,7 +1,7 @@
 const iconColor = "var(--color-4)";
 const iconSize = 24;
 const viewBox = `0 0 ${iconSize} ${iconSize}`;
-const strokeWidth = "var(--border-width-thin)";
+const strokeWidth = 2;
 
 export const HomeIcon = (props) => (
   <svg
@@ -99,8 +99,8 @@ export const PrevIcon = (props) => (
     fill="none"
     {...props}
   >
-    <polygon points="18,5 10,12 18,19" fill={iconColor} />
-    <polygon points="14,5 6,12 14,19" fill={iconColor} />
+    <polygon points="16,5 8,12 16,19" fill={iconColor} />
+    <polygon points="12,5 4,12 12,19" fill={iconColor} />
   </svg>
 );
 
@@ -112,8 +112,8 @@ export const NextIcon = (props) => (
     fill="none"
     {...props}
   >
-    <polygon points="6,5 14,12 6,19" fill={iconColor} />
-    <polygon points="10,5 18,12 10,19" fill={iconColor} />
+    <polygon points="8,5 16,12 8,19" fill={iconColor} />
+    <polygon points="12,5 20,12 12,19" fill={iconColor} />
   </svg>
 );
 
@@ -226,10 +226,10 @@ export const BlackboardIcon = (props) => (
     fill="none"
     {...props}
   >
-    <rect x="4" y="4" width="7" height="7" stroke={iconColor} />
-    <rect x="4" y="14" width="7" height="6" stroke={iconColor} />
-    <rect x="14" y="4" width="7" height="4" stroke={iconColor} />
-    <rect x="14" y="11" width="7" height="9" stroke={iconColor} />
+    <rect x="4" y="4" width="7" height="7" fill={iconColor} />
+    <rect x="4" y="14" width="7" height="6" fill={iconColor} />
+    <rect x="14" y="4" width="7" height="4" fill={iconColor} />
+    <rect x="14" y="11" width="7" height="9" fill={iconColor} />
   </svg>
 );
 
@@ -262,13 +262,13 @@ export const SortIcon = (props) => (
       x1="8"
       y1="20"
       x2="8"
-      y2="4"
+      y2="5"
       stroke={iconColor}
       strokeWidth={strokeWidth}
       strokeLinecap="round"
     />
     <polygon
-      points="8,4 5,8 11,8"
+      points="8,5 6,8 10,8"
       fill={iconColor}
       stroke={iconColor}
       strokeWidth={strokeWidth}
@@ -277,7 +277,7 @@ export const SortIcon = (props) => (
     {/* Down arrow on the right */}
     <line
       x1="16"
-      y1="4"
+      y1="5"
       x2="16"
       y2="20"
       stroke={iconColor}
@@ -285,7 +285,7 @@ export const SortIcon = (props) => (
       strokeLinecap="round"
     />
     <polygon
-      points="16,20 13,16 19,16"
+      points="16,20 14,17 18,17"
       fill={iconColor}
       stroke={iconColor}
       strokeWidth={strokeWidth}
