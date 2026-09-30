@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import tabsConfig from "../../config/tabsConfig.json";
-import layoutMapping from "../../config/layoutMapping.json";
+import studentsSortByOptions from "../../config/studentsSortByOptions.json";
 import { useConfigContext } from "../../contexts/ConfigContext";
 import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useI18nContext } from "../../contexts/I18nContext";
@@ -85,8 +85,10 @@ function Menu({
 
   // Opinionated design decision
   useEffect(() => {
-    const shouldBeBlackboard = layoutMapping.blackboard.includes(sortBy);
-    updateConfigValue("header.isBlackboard", shouldBeBlackboard);
+    const isUserProbablyStudent = studentsSortByOptions.includes(sortBy);
+    updateConfigValue("header.isBlackboard", isUserProbablyStudent);
+    if (isUserProbablyStudent)
+      updateConfigValue("header.languageDisplay", "name");
   }, [sortBy]);
 
   if (isLoading) {
