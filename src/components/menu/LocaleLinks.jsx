@@ -1,6 +1,7 @@
 import languages from "../../config/languages.json";
 import { useI18nContext } from "../../contexts/I18nContext";
 import { getSupportedLocales, toUrlSlug } from "../../i18n/runtime";
+import { GlobeIcon } from "../Icons";
 import Select from "../ux/Select";
 
 export default function LocaleLinks({ isCompact = false }) {
@@ -11,7 +12,7 @@ export default function LocaleLinks({ isCompact = false }) {
     .sort()
     .map((code) => ({
       value: toUrlSlug(code),
-      label: isCompact ? toUrlSlug(code) : languages[code]?.nativeName,
+      label: languages[code]?.nativeName,
       code,
     }));
 
@@ -25,6 +26,7 @@ export default function LocaleLinks({ isCompact = false }) {
       onChange={handleChange}
       label={t("menu.languageSelector")}
       isCompact={isCompact}
+      icon={isCompact ? <GlobeIcon /> : null}
     />
   );
 }
