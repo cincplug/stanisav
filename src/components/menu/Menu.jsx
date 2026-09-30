@@ -9,14 +9,7 @@ import { useMediaQuery } from "../../hooks/useMediaQuery";
 import ControlItemGroup from "./ControlItemGroup";
 import LocaleLinks from "./LocaleLinks";
 import "./Menu.css";
-import {
-  HomeIcon,
-  BurgerIcon,
-  CloseIcon,
-  BlackboardIcon,
-  SortIcon,
-  EyeIcon,
-} from "../Icons";
+import { BurgerIcon, CloseIcon, SortIcon, EyeIcon } from "../Icons";
 import Playlist from "./Playlist";
 import TabNavigation from "./TabNavigation";
 import TabRenderer from "./TabRenderer";
@@ -37,7 +30,7 @@ function Menu({
   const { t, isRtl } = useI18nContext();
   const [selectedTab, setSelectedTab] = useState(tabsConfig.defaultTab);
   const isMobile = useMediaQuery("(max-width: 640px)");
-  const { isBlackboard, sortBy, languageDisplay } = config;
+  const { sortBy, languageDisplay } = config;
 
   const headerControls = getConfigGroup("header");
   const getOptions = (key) =>
@@ -75,11 +68,6 @@ function Menu({
 
   const handleCompactControlChange = (key, value) => {
     updateConfigValue(`header.${key}`, value);
-    skipSequence();
-  };
-
-  const handleIsBlackboardClick = () => {
-    updateConfigValue("header.isBlackboard", !isBlackboard);
     skipSequence();
   };
 
@@ -168,14 +156,6 @@ function Menu({
               icon={<EyeIcon />}
             />
           )}
-          <button
-            onClick={handleIsBlackboardClick}
-            aria-pressed={isBlackboard}
-            className={`menu-item ${isBlackboard ? "selected" : ""}`}
-            aria-label={t("controls.isBlackboard.label")}
-          >
-            <BlackboardIcon />
-          </button>
           <button
             id="menu-open"
             onClick={() => onToggleMenu(true)}
