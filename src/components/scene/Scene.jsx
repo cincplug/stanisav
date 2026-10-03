@@ -6,6 +6,7 @@ import { useConfigContext } from "../../contexts/ConfigContext";
 import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext";
 import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
+import { usePlaylistContext } from "../../contexts/PlaylistContext";
 import { useLayout } from "../../hooks/useLayout";
 import { resolveLinguisticProperties } from "../../utils/entranceUtils";
 import {
@@ -22,6 +23,7 @@ import SceneReadyGate from "./SceneReadyGate";
 const Scene = () => {
   const { filters, selectedLanguage } = useLanguageSelectionContext();
   const { languageColors } = useLanguageColorsContext();
+  const { isTransitioning } = usePlaylistContext();
   const {
     skipSequence,
     isEntranceComplete,
@@ -44,6 +46,7 @@ const Scene = () => {
     labelSize,
     sphereSpinSpeed,
     stanisavSpinSpeed,
+    languageDisplay,
   } = config;
 
   const orbitControlsRef = useRef();
@@ -122,6 +125,10 @@ const Scene = () => {
 
   const shouldShowLabels = !shouldShowEmptyMessage;
 
+  const shouldShowStanisav =
+    (languageDisplay !== "selfie" && !!selectedLanguage) ||
+    (languageDisplay === "selfie" && !!selectedLanguage && !isTransitioning);
+
   if (!data || sortedLanguageCodes.length === 0) {
     return null;
   }
@@ -173,7 +180,7 @@ const Scene = () => {
         />
       )}
 
-      {selectedLanguage && (
+      {shouldShowStanisav && (
         <Stanisav
           languageCode={stanisavLanguageCode}
           imposedProperties={stanisavImposedProperties}

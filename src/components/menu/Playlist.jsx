@@ -16,14 +16,20 @@ import "./Playlist.css";
 export default function Playlist() {
   const { t } = useI18nContext();
   const { selectedLanguage, viewAllLanguages } = useLanguageSelectionContext();
-  const { startPlaylist, pausePlaylist, goToPrev, goToNext, goToBegin } =
-    usePlaylistContext();
+  const {
+    isPlaying,
+    startPlaylist,
+    pausePlaylist,
+    goToPrev,
+    goToNext,
+    goToBegin,
+  } = usePlaylistContext();
 
   const { config, updateConfigValue } = useConfigContext();
   const { isAutoplay } = config;
   const playButtonRef = useRef(null);
   const isPlaylistActive = Boolean(selectedLanguage);
-  const isPauseButton = isPlaylistActive;
+  const shouldPauseAudio = isPlaying;
 
   const handleStop = () => {
     pausePlaylist();
@@ -46,11 +52,11 @@ export default function Playlist() {
       switch (e.key) {
         case " ":
           e.preventDefault();
-          isPauseButton ? pausePlaylist() : startPlaylist();
+          shouldPauseAudio ? pausePlaylist() : startPlaylist();
           break;
         case "k":
           if (isOnInteractiveElement) break;
-          isPauseButton ? pausePlaylist() : startPlaylist();
+          shouldPauseAudio ? pausePlaylist() : startPlaylist();
           break;
         case "ArrowLeft":
           if (isOnInteractiveElement) break;
@@ -83,7 +89,7 @@ export default function Playlist() {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [
-    isPauseButton,
+    shouldPauseAudio,
     isAutoplay,
     pausePlaylist,
     startPlaylist,
@@ -96,8 +102,8 @@ export default function Playlist() {
 
   const toggleLoop = () => updateConfigValue("global.isAutoplay", !isAutoplay);
 
-  const playLabel = isPauseButton ? t("playlist.pause") : t("playlist.play");
-  const playIcon = isPauseButton ? <PauseIcon /> : <PlayIcon />;
+  const playLabel = shouldPauseAudio ? t("playlist.pause") : t("playlist.play");
+  const playIcon = isPlaylistActive ? <PauseIcon /> : <PlayIcon />;
 
   return (
     <div
@@ -122,9 +128,9 @@ export default function Playlist() {
       <button
         ref={playButtonRef}
         className="playlist-main"
-        onClick={isPauseButton ? pausePlaylist : startPlaylist}
+        onClick={shouldPauseAudio ? pausePlaylist : startPlaylist}
         aria-label={playLabel}
-        aria-pressed={isPauseButton}
+        aria-pressed={shouldPauseAudio}
       >
         {playIcon}
       </button>

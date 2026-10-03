@@ -25,6 +25,7 @@ import Nose from "./Nose.jsx";
 import Teeth from "./Teeth.jsx";
 import Tongue from "./Tongue.jsx";
 import Balloon from "./Balloon.jsx";
+import { SelfieLabel } from "../Label.jsx";
 
 extend({ ParametricGeometry });
 extend({ TextGeometry });

@@ -115,7 +115,7 @@ export const PlaylistProvider = ({ children }) => {
     const codes = playlistRef.current;
     if (codes.length === 0) return;
     hasPlaylistStartedRef.current = true;
-    isResumeRef.current = false;
+    isResumeRef.current = true;
     setIsPlaying(false);
     setPlaylistSession((s) => s + 1);
     userPausedRef.current = false;
@@ -132,7 +132,7 @@ export const PlaylistProvider = ({ children }) => {
       const index = codes.indexOf(languageCode);
       if (index === -1) return;
       hasPlaylistStartedRef.current = true;
-      isResumeRef.current = false;
+      isResumeRef.current = true;
       setCurrentIndex(index);
       userPausedRef.current = false;
       setIsPlaying(false);
@@ -143,6 +143,7 @@ export const PlaylistProvider = ({ children }) => {
 
   const pausePlaylist = useCallback(() => {
     hasPlaylistStartedRef.current = false;
+    isResumeRef.current = false;
     setIsPlaying(false);
     setIsCurrentSampleLuka(false);
     userPausedRef.current = true;
@@ -347,8 +348,15 @@ export const PlaylistProvider = ({ children }) => {
     setCurrentIndex(index);
   }, []);
 
+  const isTransitioning =
+    Boolean(selectedLanguage) &&
+    !isPlaying &&
+    hasPlaylistStartedRef.current &&
+    !userPausedRef.current;
+
   const value = {
     isPlaying,
+    isTransitioning,
     audioPhaseIndex,
     isCurrentSampleLuka,
     currentIndex,
