@@ -39,7 +39,6 @@ const Stanisav = ({
   isMyStanisav,
   spinSpeed,
   isMotionReduced,
-  wideScale,
 }) => {
   const lookAroundGroupRef = useRef();
   const lookAroundAngleRef = useRef(0);
@@ -113,7 +112,6 @@ const Stanisav = ({
     x: position[0],
     y: position[1],
     z: position[2],
-    scale: selectedLanguage ? 1 : wideScale,
     config: {
       duration: isEntranceComplete ? switchDuration : entranceDuration,
     },
@@ -187,12 +185,7 @@ const Stanisav = ({
   });
 
   return (
-    <a.group
-      position-x={spring.x}
-      position-y={spring.y}
-      position-z={spring.z}
-      scale={spring.scale}
-    >
+    <a.group position-x={spring.x} position-y={spring.y} position-z={spring.z}>
       <group ref={lookAroundGroupRef} scale={stanisavSize}>
         <Eyes
           irisColor={color}

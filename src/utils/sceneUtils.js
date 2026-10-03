@@ -88,16 +88,6 @@ export const getClusterTopCenter = (positions) => {
   return new Vector3(sumX / pts.length, maxY, avgZ);
 };
 
-// Approximates how far the "fit everything" wide camera shot sits from the
-// sphere's center, using its nominal radius and vertical field of view.
-// Used to scale Stanisav so his apparent screen size matches between the wide
-// shot and a zoomed-in language, without a hand-tuned magic number.
-export const calculateWideShotScale = (sphereRadius, zoomDistance, fov) => {
-  const halfFovRadians = (fov * Math.PI) / 180 / 2;
-  const wideShotDistance = sphereRadius / Math.tan(halfFovRadians);
-  return wideShotDistance / zoomDistance;
-};
-
 // Computes Stanisav's world-space position from a language node, offset
 // outward from it so he doesn't overlap the node's own label. Falls back to
 // the origin when no node is available (e.g. before language data loads).

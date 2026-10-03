@@ -217,7 +217,8 @@ const Label = ({
 };
 
 const SelfieLabel = ({ languageCode, labelSize, depthTest, isSelected }) => {
-  if (isSelected) return null;
+  const { isPlaying } = usePlaylistContext();
+  if (isSelected && isPlaying) return null;
 
   const texture = useTexture(getLanguageSelfieUrl(languageCode));
   texture.colorSpace = SRGBColorSpace;

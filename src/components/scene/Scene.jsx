@@ -11,7 +11,6 @@ import { resolveLinguisticProperties } from "../../utils/entranceUtils";
 import {
   calculateLanguageFilterStatus,
   calculateStanisavPosition,
-  calculateWideShotScale,
 } from "../../utils/sceneUtils";
 import Camera from "./Camera";
 import Labels from "./Labels";
@@ -45,9 +44,6 @@ const Scene = () => {
     labelSize,
     sphereSpinSpeed,
     stanisavSpinSpeed,
-    sphereRadius,
-    zoomDistance,
-    fov,
   } = config;
 
   const orbitControlsRef = useRef();
@@ -110,11 +106,6 @@ const Scene = () => {
     labelOffset,
     labelSize,
   ]);
-
-  const stanisavWideScale = useMemo(
-    () => calculateWideShotScale(sphereRadius, zoomDistance, fov),
-    [sphereRadius, zoomDistance, fov],
-  );
 
   const hasSelectedFilters = Object.keys(filters).length > 0;
   const visibleLanguages = sortedLanguageCodes.filter(
@@ -191,7 +182,6 @@ const Scene = () => {
           spinSpeed={stanisavSpinSpeed}
           isMotionReduced={isMotionReduced}
           renderOrder={languages.length}
-          wideScale={stanisavWideScale}
         />
       )}
     </Canvas>
