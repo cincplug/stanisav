@@ -16,18 +16,20 @@ import "./Playlist.css";
 export default function Playlist() {
   const { t } = useI18nContext();
   const { selectedLanguage, viewAllLanguages } = useLanguageSelectionContext();
-  const {
-    isPlaying,
-    startPlaylist,
-    pausePlaylist,
-    goToPrev,
-    goToNext,
-    goToBegin,
-  } = usePlaylistContext();
+  const { startPlaylist, pausePlaylist, goToPrev, goToNext, goToBegin } =
+    usePlaylistContext();
 
   const { config, updateConfigValue } = useConfigContext();
   const { isAutoplay } = config;
   const playButtonRef = useRef(null);
+  const isPlaylistActive = Boolean(selectedLanguage);
+  const isPauseButton = isPlaylistActive;
+
+  const handleStop = () => {
+    pausePlaylist();
+    viewAllLanguages();
+    playButtonRef.current?.focus();
+  };
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -44,11 +46,11 @@ export default function Playlist() {
       switch (e.key) {
         case " ":
           e.preventDefault();
-          isPlaying ? pausePlaylist() : startPlaylist();
+          isPauseButton ? pausePlaylist() : startPlaylist();
           break;
         case "k":
           if (isOnInteractiveElement) break;
-          isPlaying ? pausePlaylist() : startPlaylist();
+          isPauseButton ? pausePlaylist() : startPlaylist();
           break;
         case "ArrowLeft":
           if (isOnInteractiveElement) break;
@@ -80,20 +82,22 @@ export default function Playlist() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isPlaying, isAutoplay]);
+  }, [
+    isPauseButton,
+    isAutoplay,
+    pausePlaylist,
+    startPlaylist,
+    goToPrev,
+    goToNext,
+    goToBegin,
+    handleStop,
+    updateConfigValue,
+  ]);
 
   const toggleLoop = () => updateConfigValue("global.isAutoplay", !isAutoplay);
 
-  const handleStop = () => {
-    pausePlaylist();
-    viewAllLanguages();
-    // Restore focus to the play button so keyboard users aren't left stranded
-    // when the stop button disappears from the DOM
-    playButtonRef.current?.focus();
-  };
-
-  const playLabel = isPlaying ? t("playlist.pause") : t("playlist.play");
-  const playIcon = isPlaying ? <PauseIcon /> : <PlayIcon />;
+  const playLabel = isPauseButton ? t("playlist.pause") : t("playlist.play");
+  const playIcon = isPauseButton ? <PauseIcon /> : <PlayIcon />;
 
   return (
     <div
@@ -118,9 +122,9 @@ export default function Playlist() {
       <button
         ref={playButtonRef}
         className="playlist-main"
-        onClick={isPlaying ? pausePlaylist : startPlaylist}
+        onClick={isPauseButton ? pausePlaylist : startPlaylist}
         aria-label={playLabel}
-        aria-pressed={isPlaying}
+        aria-pressed={isPauseButton}
       >
         {playIcon}
       </button>
