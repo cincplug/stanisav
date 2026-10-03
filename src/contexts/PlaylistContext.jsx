@@ -42,10 +42,14 @@ export const PlaylistProvider = ({ children }) => {
   const audioRef = useRef(null);
   const delayTimeoutRef = useRef(null);
   const animatingTimeoutRef = useRef(null);
+  const hasPlaylistStartedRef = useRef(false);
   const isAutoplayRef = useRef(isAutoplay);
   // True when replaying the same language index (resume/MyStanisav return),
   // false on every actual language change; controls whether startDelay is applied
   const isResumeRef = useRef(false);
+  // Only resume playback after leaving MyStanisav, not whenever any language
+  // is selected while the playlist is already paused.
+  const shouldResumeAfterMyStanisavRef = useRef(false);
 
   useEffect(() => {
     audioAnalysisService.setConfig(config);
@@ -110,8 +114,9 @@ export const PlaylistProvider = ({ children }) => {
     unlockAudio();
     const codes = playlistRef.current;
     if (codes.length === 0) return;
+    hasPlaylistStartedRef.current = true;
     isResumeRef.current = false;
-    setIsPlaying(true);
+    setIsPlaying(false);
     setPlaylistSession((s) => s + 1);
     userPausedRef.current = false;
     if (currentIndex >= codes.length || currentIndex < 0) {
@@ -126,15 +131,18 @@ export const PlaylistProvider = ({ children }) => {
       if (codes.length === 0) return;
       const index = codes.indexOf(languageCode);
       if (index === -1) return;
+      hasPlaylistStartedRef.current = true;
       isResumeRef.current = false;
       setCurrentIndex(index);
-      setIsPlaying(true);
+      userPausedRef.current = false;
+      setIsPlaying(false);
       setPlaylistSession((s) => s + 1);
     },
     [unlockAudio],
   );
 
   const pausePlaylist = useCallback(() => {
+    hasPlaylistStartedRef.current = false;
     setIsPlaying(false);
     setIsCurrentSampleLuka(false);
     userPausedRef.current = true;
@@ -168,6 +176,7 @@ export const PlaylistProvider = ({ children }) => {
       setCurrentIndex((index) => {
         const nextIndex = index + 1;
         if (nextIndex >= codes.length) {
+          hasPlaylistStartedRef.current = false;
           setIsPlaying(false);
           setIsCurrentSampleLuka(false);
           userPausedRef.current = true;
@@ -179,6 +188,7 @@ export const PlaylistProvider = ({ children }) => {
         return nextIndex;
       });
     } else {
+      hasPlaylistStartedRef.current = false;
       setIsPlaying(false);
       setIsCurrentSampleLuka(false);
       userPausedRef.current = true;
@@ -187,6 +197,8 @@ export const PlaylistProvider = ({ children }) => {
 
   useEffect(() => {
     if (isMyStanisav) {
+      hasPlaylistStartedRef.current = false;
+      shouldResumeAfterMyStanisavRef.current = true;
       setIsPlaying(false);
       setIsCurrentSampleLuka(false);
       userPausedRef.current = false;
@@ -195,18 +207,20 @@ export const PlaylistProvider = ({ children }) => {
     }
 
     if (
-      !isMyStanisav &&
+      shouldResumeAfterMyStanisavRef.current &&
       selectedLanguage &&
       !isPlaying &&
       !userPausedRef.current
     ) {
       // Returning to the same language after MyStanisav: resume without switch delay
+      hasPlaylistStartedRef.current = true;
+      shouldResumeAfterMyStanisavRef.current = false;
       isResumeRef.current = true;
       setIsPlaying(true);
       setPlaylistSession((s) => s + 1);
     }
 
-    if (!isPlaying || !isSceneReady) return;
+    if (!hasPlaylistStartedRef.current || !isSceneReady) return;
 
     const codes = playlistRef.current;
     if (codes.length === 0 || currentIndex >= codes.length) {
@@ -226,6 +240,11 @@ export const PlaylistProvider = ({ children }) => {
 
       const startDelay = isResumeRef.current ? 0 : switchDuration;
 
+      // The playlist can be active while the cursor is moving to the next language,
+      // but the sample itself is not yet playing. Keep the playing flag aligned
+      // to the actual audio playback window only.
+      setIsPlaying(false);
+
       delayTimeoutRef.current = setTimeout(async () => {
         delayTimeoutRef.current = null;
 
@@ -235,6 +254,7 @@ export const PlaylistProvider = ({ children }) => {
           if (audioUrls.length === 0) {
             console.warn(`No audio available for language: ${code}`);
             setIsCurrentSampleLuka(false);
+            setIsPlaying(false);
             handleAudioEnded();
             return;
           }
@@ -244,6 +264,8 @@ export const PlaylistProvider = ({ children }) => {
             audio = new Audio();
             audioRef.current = audio;
           }
+
+          setIsPlaying(true);
 
           await playAudioSequence({
             audio,
@@ -263,6 +285,7 @@ export const PlaylistProvider = ({ children }) => {
         } catch (error) {
           console.error("Error playing language audio:", error);
           setIsCurrentSampleLuka(false);
+          setIsPlaying(false);
           if (isEffectActive) {
             handleAudioEnded();
           }
@@ -283,7 +306,6 @@ export const PlaylistProvider = ({ children }) => {
       }
     };
   }, [
-    isPlaying,
     currentIndex,
     playlistSession,
     isSceneReady,
