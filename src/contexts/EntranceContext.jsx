@@ -17,11 +17,11 @@ export const EntranceProvider = ({ children }) => {
     entranceDuration,
     labelRevealDuration,
     startLabelOffset,
-    tension,
-    friction,
+    switchDuration,
   } = config;
 
   const isSequenceCancelledRef = useRef(false);
+  const previousConfigRef = useRef(config);
 
   const [isEntranceComplete, setIsEntranceComplete] = useState(false);
 
@@ -42,6 +42,18 @@ export const EntranceProvider = ({ children }) => {
     }
   }, [isMiniStanisav]);
 
+  useEffect(() => {
+    const previousConfig = previousConfigRef.current;
+    previousConfigRef.current = config;
+    if (
+      Object.keys(config).some(
+        (key) => !Object.is(config[key], previousConfig[key]),
+      )
+    ) {
+      skipSequence();
+    }
+  }, [config]);
+
   const getLabelSpringProps = (
     finalPosition,
     isBlackboard,
@@ -58,9 +70,9 @@ export const EntranceProvider = ({ children }) => {
       startPosition: toInnerStartPosition(finalPosition),
       finalPosition,
       delay,
-      positionConfig: isEntranceComplete
-        ? { tension, friction }
-        : { duration: entranceDuration },
+      positionConfig: {
+        duration: isEntranceComplete ? switchDuration : entranceDuration,
+      },
       revealConfig: { duration: labelRevealDuration },
     };
   };
