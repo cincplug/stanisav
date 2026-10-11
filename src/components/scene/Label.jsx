@@ -229,10 +229,9 @@ export const SelfieLabel = ({
   texture.colorSpace = SRGBColorSpace;
 
   const aspectRatio = texture.image.width / texture.image.height;
-  const height = labelSize * 2;
 
   return (
-    <mesh scale={[height * aspectRatio, height, 1]}>
+    <mesh scale={[labelSize * aspectRatio, labelSize, 1]}>
       <planeGeometry args={[1, 1]} />
       <meshStandardMaterial
         map={texture}
