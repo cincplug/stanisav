@@ -25,13 +25,22 @@ const spiralAxisConfig = {
 // Geometry primitives
 // ---------------------------------------------------------------------------
 
-function generateFibonacciSphere(numPoints, radius, spiralRatio, buildPoint) {
+function generateFibonacciSphere(
+  numPoints,
+  radius,
+  spiralRatio,
+  buildPoint,
+  isFullSphere,
+) {
   const points = [];
   const notNecessarilyGoldenRatio = Math.sqrt(spiralRatio) + 1;
   const angleIncrement = Math.PI * 2 * notNecessarilyGoldenRatio;
   for (let i = 0; i < numPoints; i++) {
     const t = i / numPoints;
-    const inclination = Math.acos(1 - 2 * t);
+    const j = 1 - 2 * t;
+    const inclination = isFullSphere
+      ? Math.acos(j)
+      : (Math.cos(j) + Math.acos(j)) / 2;
     const azimuth = angleIncrement * i;
     const sin = radius * Math.sin(inclination);
     const cos = radius * Math.cos(inclination);
@@ -189,7 +198,8 @@ export function reorderBySpatialProximity(points, options = {}) {
 // ---------------------------------------------------------------------------
 
 function computeSphereBasePositions(sortedLanguageCodes, config) {
-  const { spiralRatio, spiralAxis, entranceAxis, sphereRadius } = config;
+  const { spiralRatio, spiralAxis, entranceAxis, sphereRadius, isFullSphere } =
+    config;
 
   const { buildPoint } = spiralAxisConfig[spiralAxis] ?? spiralAxisConfig.y;
   const { poleOf: entrancePoleOf, equatorialOf: entranceEquatorialOf } =
@@ -200,6 +210,7 @@ function computeSphereBasePositions(sortedLanguageCodes, config) {
     sphereRadius,
     spiralRatio,
     buildPoint,
+    isFullSphere,
   );
   const angularPoints = sortSpherePointsByAngle(rawPoints, {
     poleOf: entrancePoleOf,
