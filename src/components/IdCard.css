@@ -120,11 +120,8 @@ html.rtl .id-card-close-button {
 }
 
 .id-card-actions {
-  grid-column: 3;
-  justify-self: end;
-  display: inline-flex;
-  align-items: center;
-  gap: var(--gap-half);
+  position: absolute;
+  left: var(--gap);
 }
 
 .id-card-title,
