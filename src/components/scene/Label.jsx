@@ -238,7 +238,6 @@ export const SelfieLabel = ({
         transparent
         depthTest={depthTest}
         depthWrite={false}
-        alphaTest={0.01}
         side={DoubleSide}
         toneMapped={false}
       />
