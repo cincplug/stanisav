@@ -21,6 +21,10 @@ registerSW({
 
 // react-markdown + the README aren't needed on the main page, only /article
 const Article = lazy(() => import("./pages/article/Article.jsx"));
+const Capture =
+  import.meta.env.DEV && import.meta.env.MODE === "capture"
+    ? lazy(() => import("./pages/capture/Capture.jsx"))
+    : null;
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -33,6 +37,16 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                 <PlaylistProvider>
                   <BrowserRouter>
                     <Routes>
+                      {Capture && (
+                        <Route
+                          path="/__capture"
+                          element={
+                            <Suspense fallback={null}>
+                              <Capture />
+                            </Suspense>
+                          }
+                        />
+                      )}
                       <Route
                         path="/"
                         element={<Navigate to={`/${defaultUrlSlug}`} replace />}

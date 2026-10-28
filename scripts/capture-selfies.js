@@ -73,10 +73,14 @@ async function main() {
   const outputHeight = getOutputHeight();
   const onlyCodes = getOnlyCodes();
 
-  const server = await createServer({ root: rootDir, server: { port: 0 } });
+  const server = await createServer({
+    root: rootDir,
+    mode: "capture",
+    server: { host: "127.0.0.1", port: 0, open: false },
+  });
   await server.listen();
   const address = server.httpServer.address();
-  const baseUrl = `http://localhost:${address.port}`;
+  const baseUrl = `http://127.0.0.1:${address.port}`;
 
   const browser = await chromium.launch();
   const page = await browser.newPage({
@@ -88,7 +92,7 @@ async function main() {
   });
 
   try {
-    await page.goto(`${baseUrl}/en/article?capture=1`, {
+    await page.goto(`${baseUrl}/__capture`, {
       waitUntil: "networkidle",
     });
     await page.waitForFunction(
