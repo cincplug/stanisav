@@ -55,6 +55,16 @@ export const PlaylistProvider = ({ children }) => {
     audioAnalysisService.setConfig(config);
   }, [config]);
 
+  // Pay the AudioContext construction cost up front instead of during the
+  // first camera move after a language is selected
+  useEffect(() => {
+    try {
+      audioAnalysisService.createAudioContext();
+    } catch (error) {
+      console.warn("Audio context warm-up failed:", error);
+    }
+  }, []);
+
   // Get sorted language codes - accounts for current locale
   const allSortedLanguageCodes = useSortedLanguages();
 

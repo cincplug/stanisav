@@ -19,6 +19,21 @@ class AudioAnalysisService {
     this.analysisConfig = {};
   }
 
+  // Constructing an AudioContext can block the main thread for hundreds of
+  // ms, so this is split out to be callable ahead of the first playback.
+  createAudioContext() {
+    if (this.audioContext && this.audioContext.state !== "closed") return;
+
+    this.audioContext = new (
+      window.AudioContext || window.webkitAudioContext
+    )();
+    this.analyser = this.audioContext.createAnalyser();
+
+    const bufferLength = this.analyser.frequencyBinCount;
+    this.dataArray = new Uint8Array(bufferLength);
+    this.frequencyData = new Float32Array(bufferLength);
+  }
+
   async initializeAudioContext() {
     if (this.audioContext && this.audioContext.state !== "closed") {
       await this.resumeAudioContext();
@@ -26,15 +41,7 @@ class AudioAnalysisService {
     }
 
     try {
-      this.audioContext = new (
-        window.AudioContext || window.webkitAudioContext
-      )();
-      this.analyser = this.audioContext.createAnalyser();
-
-      const bufferLength = this.analyser.frequencyBinCount;
-      this.dataArray = new Uint8Array(bufferLength);
-      this.frequencyData = new Float32Array(bufferLength);
-
+      this.createAudioContext();
       await this.resumeAudioContext();
     } catch (error) {
       console.error("Failed to initialize audio context:", error);
