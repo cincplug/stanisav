@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { registerSW } from "virtual:pwa-register";
 import App from "./components/App.jsx";
 import { AppStateProvider } from "./contexts/AppStateContext";
 import { ConfigProvider } from "./contexts/ConfigContext.jsx";
@@ -13,6 +14,10 @@ import { PlaylistProvider } from "./contexts/PlaylistContext";
 import LocaleLayout from "./components/routing/LocaleLayout.jsx";
 import { defaultUrlSlug } from "./i18n/runtime";
 import "./index.css";
+
+registerSW({
+  immediate: true,
+});
 
 // react-markdown + the README aren't needed on the main page, only /article
 const Article = lazy(() => import("./pages/article/Article.jsx"));

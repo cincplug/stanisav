@@ -1,8 +1,22 @@
 {
   "headers": [
     {
-      "source": "/(.*).m3u",
-      "headers": [{ "key": "Content-Type", "value": "audio/x-mpegurl" }]
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ],
   "rewrites": [{ "source": "/(.*)", "destination": "/" }]

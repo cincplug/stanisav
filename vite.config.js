@@ -35,26 +35,20 @@ export default defineConfig({
       },
       /* eslint-enable camelcase */
       workbox: {
-        // Only precache the app shell (JS/CSS/fonts/config). Audio samples are
-        // intentionally left with no runtimeCaching route at all: <audio>
-        // elements issue Range requests, which come back as 206 Partial
-        // Content and can never be written into Cache Storage, so any
-        // caching strategy here would keep hitting the same limitation.
-        // With no matching route, the service worker never intercepts these
-        // requests and they stream straight from the network, same as a
-        // non-PWA app.
-        globPatterns: ["**/*.{js,css,html,ttf,svg,png,ico}"],
-        globIgnores: ["audio/**"],
-        navigateFallbackDenylist: [/^\/audio\//],
+        // Audio and selfies use the HTTP cache, not the service worker cache.
+        globPatterns: ["**/*.{js,css,ttf,svg,png,ico}"],
+        globIgnores: ["audio/**", "selfies/**"],
+        navigateFallback: null,
         runtimeCaching: [
           {
-            urlPattern: ({ url }) => url.pathname.startsWith("/fonts/"),
-            handler: "CacheFirst",
+            urlPattern: ({ request, url }) =>
+              request.mode === "navigate" &&
+              !url.pathname.startsWith("/audio/"),
+            handler: "NetworkFirst",
             options: {
-              cacheName: "fonts",
+              cacheName: "pages",
               expiration: {
-                maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 365,
+                maxEntries: 20,
               },
             },
           },
