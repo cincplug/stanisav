@@ -149,7 +149,7 @@
     "toothColor": "#ffeedd",
     "white": "#e7ebef",
     "invertsSelected": false,
-    "invertsUnselected": true,
+    "invertsUnselected": false,
     "emissiveness": 0.3,
     "hue": 174,
     "hueCircle": 360,

@@ -125,10 +125,6 @@ const Scene = () => {
 
   const shouldShowLabels = !shouldShowEmptyMessage;
 
-  const shouldShowStanisav =
-    (languageDisplay !== "selfie" && !!selectedLanguage) ||
-    (languageDisplay === "selfie" && !!selectedLanguage && !isTransitioning);
-
   if (!data || sortedLanguageCodes.length === 0) {
     return null;
   }
@@ -180,7 +176,7 @@ const Scene = () => {
         />
       )}
 
-      {shouldShowStanisav && (
+      {selectedLanguage && (
         <Stanisav
           languageCode={stanisavLanguageCode}
           imposedProperties={stanisavImposedProperties}

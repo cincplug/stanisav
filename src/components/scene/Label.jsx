@@ -192,7 +192,7 @@ const Label = ({
 
   return (
     <group ref={labelRef} onClick={handleClick}>
-      {languageDisplay === "selfie" ? (
+      {languageDisplay === "selfie" && !isSelected ? (
         <SelfieLabel
           languageCode={languageCode}
           labelSize={labelSize * 2}
