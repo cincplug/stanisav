@@ -1,8 +1,10 @@
+import { useProgress } from "@react-three/drei";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./App.css";
 import IdCard from "./IdCard.jsx";
 import Menu from "./menu/Menu.jsx";
+import Overlay from "./Overlay.jsx";
 import Scene from "./scene/Scene.jsx";
 import { useAppStateContext } from "../contexts/AppStateContext.jsx";
 import { useConfigContext } from "../contexts/ConfigContext.jsx";
@@ -13,6 +15,7 @@ import { usePlaylistContext } from "../contexts/PlaylistContext.jsx";
 import { useMediaQuery } from "../hooks/useMediaQuery.js";
 
 function App() {
+  const { active: isAssetLoading } = useProgress();
   const { isRtl } = useI18nContext();
   const { isLoading, data, filters, setFilters, handleCameraFocus } =
     useAppStateContext();
@@ -31,10 +34,11 @@ function App() {
   }, [labelSize]);
 
   const isStanisavMini = isMobile && !!selectedLanguage && isMenuExpanded;
+  const shouldShowLoader = isLoading || isAssetLoading;
 
   return (
     <div
-      className={`app-container${isRtl ? " rtl" : ""} ${isLoading ? "loading" : ""} ${isMenuExpanded ? "menu-expanded" : ""}`}
+      className={`app-container${isRtl ? " rtl" : ""} ${shouldShowLoader ? "loading" : ""} ${isMenuExpanded ? "menu-expanded" : ""}`}
     >
       <Menu
         config={config}
@@ -78,6 +82,7 @@ function App() {
           </Link>
         )}
       </div>
+      {shouldShowLoader && <Overlay />}
     </div>
   );
 }

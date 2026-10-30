@@ -1,8 +1,6 @@
-import { useI18nContext } from "../contexts/I18nContext";
 import "./Overlay.css";
 
 const Overlay = ({ variant = "loading" }) => {
-  const { t } = useI18nContext();
   const isLoading = variant === "loading";
 
   return (
@@ -16,7 +14,7 @@ const Overlay = ({ variant = "loading" }) => {
               cy="25"
               r="20"
               fill="none"
-              stroke="currentColor"
+              stroke="white"
               strokeWidth="2"
               strokeLinecap="round"
               strokeDasharray="31.416"
@@ -24,9 +22,6 @@ const Overlay = ({ variant = "loading" }) => {
             />
           </svg>
         )}
-        <h1 className="loading-text">
-          {isLoading && <>{t("overlay.slogan")}</>}
-        </h1>
       </div>
     </div>
   );
