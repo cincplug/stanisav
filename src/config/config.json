@@ -34,6 +34,7 @@
     "isIdCardVisible": false,
     "isMenuExpanded": false,
     "isMyStanisav": false,
+    "canMakeSelfies": false,
     "timeRate": 15
   },
   "sphere": {
@@ -76,11 +77,11 @@
     "eyelidWidth": 0.8,
     "eyeSize": 0.22,
     "eyeWhiteRatio": 0.87,
-    "eyeX": 0.7,
+    "eyeX": 0.9,
     "eyeY": 0,
     "eyeZ": 3.1,
     "irisSize": 0.75,
-    "noseSize": 0.25,
+    "noseSize": 0.37,
     "noseThickness": 0.4,
     "noseSliceAngle": 60,
     "nosePadding": 0.1,
@@ -113,8 +114,7 @@
     "tuftY": -1.7,
     "tuftProtrusion": 0.2,
     "tuftHueShift": 270,
-    "tuftColorStep": 33,
-    "canMakeSelfies": false
+    "tuftColorStep": 33
   },
   "audioVisualisation": {
     "soundSource": ["l-o", "o-l", "l", "o"],
@@ -129,8 +129,8 @@
     "fireAmount": 3.2
   },
   "shader": {
-    "shaderLight": 0.6,
-    "shaderBase": 1.22,
+    "shaderLight": 0.9,
+    "shaderBase": 0.74,
     "shaderStripe": 2,
     "shaderOpacity": 0.8
   },

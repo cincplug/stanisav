@@ -9,7 +9,7 @@ const ROLE_ARC = {
   O: { isFullCircle: true, gapAngle: 0 },
 };
 
-const Nose = ({ position, scale, wordOrder, color }) => {
+const Nose = ({ position, scale, wordOrder, uglyFlagColors, color }) => {
   const groupRef = useRef();
 
   const { config } = useConfigContext();
@@ -33,7 +33,8 @@ const Nose = ({ position, scale, wordOrder, color }) => {
   const radii = [outerRadius, middleRadius, innerRadius];
 
   const roles = wordOrder.split("");
-  const colors = { S: white, V: color, O: labelTextColor };
+  const eyeColors = [white, color, labelTextColor];
+  const colors = uglyFlagColors || eyeColors;
 
   const rings = roles.map((role, i) => {
     const { isFullCircle, gapAngle } = ROLE_ARC[role] ?? ROLE_ARC.O;
@@ -43,7 +44,7 @@ const Nose = ({ position, scale, wordOrder, color }) => {
       arc,
       rotZ,
       torusR: radii[i],
-      material: useShaderMaterial(colors[role]),
+      material: useShaderMaterial(colors[i]),
     };
   });
 

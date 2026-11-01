@@ -12,6 +12,7 @@ import { useLanguageSelectionContext } from "../../../contexts/LanguageSelection
 import { usePlaylistContext } from "../../../contexts/PlaylistContext.jsx";
 import { useShaderMaterial } from "../../../hooks/useShaderMaterial.js";
 import { useThrottledFrame } from "../../../hooks/useThrottledFrame.js";
+import uglyFlagColors from "../../../config/uglyFlagColors.json";
 import microphoneService from "../../../services/microphoneService.js";
 import { shiftHue } from "../../../utils/colorUtils.js";
 import {
@@ -80,6 +81,18 @@ const Stanisav = ({
   const { isEntranceComplete } = useEntranceContext();
 
   const color = languageColors[languageCode];
+
+  const noseUglyFlagColors = useMemo(() => {
+    const selectedUglyFlagColors = uglyFlagColors[languageCode];
+    if (!selectedUglyFlagColors) return null;
+
+    const palette = selectedUglyFlagColors.slice(0, 3);
+
+    if (palette.length === 2) return [palette[0], palette[1], palette[0]];
+
+    return palette;
+  }, [languageCode]);
+
   const stripesType =
     getFeatureScore("tonality", linguisticProperties?.tonality) - 1;
 
@@ -209,6 +222,7 @@ const Stanisav = ({
           scale={noseSize}
           color={color}
           wordOrder={wordOrder}
+          uglyFlagColors={noseUglyFlagColors}
         />
 
         <Teeth toothCount={phonemeCount} />
