@@ -190,6 +190,8 @@ const Label = ({
     }
   });
 
+  const textY = languageDisplay === "selfie" ? -labelSize : 0;
+
   return (
     <group ref={labelRef} onClick={handleClick}>
       {languageDisplay === "selfie" && !isSelected ? (
@@ -201,6 +203,7 @@ const Label = ({
         />
       ) : (
         <Text
+          position-y={textY}
           font="/fonts/RobotoSlab-Regular.ttf"
           fontSize={labelSize}
           anchorX="center"
