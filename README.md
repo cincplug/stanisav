@@ -44,9 +44,11 @@ Word order flexibility → how much he jumps around:
 
 ## Where does he live?
 
-He lives on a planet made of languages instead of countries. No ground, no oceans, no borders. Languages are distributed evenly, regardless of their speakers count. They have generative colors, independent of national flags. You can sort them and filter them by various linguistic criteria.
+He lives on a planet made of languages instead of countries. No ground, no oceans, no borders. Languages are distributed evenly, regardless of their speakers count. They have generative colors, independent of national flags. The only exception is the nose, where I did eventually apply colors like you would see on national flags or football dresses, but even that I did grudgingly, as a sort of a compromise, because most people would expect that kind of colors.
 
 Click on any language: Stanisav will get its facial features, you will hear its sample, by its native speaker and also by Stanisav's designer. Stanisav will animate following the audio visualisation, and if language has more flexible word order, Stanisav will also jump around a little.
+
+You can sort languages and filter them by various linguistic criteria. That way you see various relationships in their own context, which in turn helps understanding them better.
 
 ## Who made him?
 
