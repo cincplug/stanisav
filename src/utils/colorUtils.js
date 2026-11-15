@@ -3,9 +3,33 @@ import { converter, formatHex } from "culori";
 const toOklch = converter("oklch");
 const oklchToHex = ({ l, c, h }) => formatHex({ mode: "oklch", l, c, h });
 
+export const normalizeSceneColor = (color) => {
+  const parsed = toOklch(color);
+  if (!parsed || !Number.isFinite(parsed.h) || !Number.isFinite(parsed.l)) {
+    return color;
+  }
+
+  const hue = ((parsed.h % 360) + 360) % 360;
+  const isBlueShade = hue >= 180 && hue <= 300;
+
+  if (!isBlueShade) return color;
+
+  const lightnessBoost = Math.max(0, 0.5 - parsed.l);
+  return oklchToHex({
+    l: Math.min(1, parsed.l + lightnessBoost),
+    c: parsed.c,
+    h: hue,
+  });
+};
+
 export const shiftHue = (color, shift) => {
   const parsed = toOklch(color);
-  return oklchToHex({ l: parsed.l, c: parsed.c, h: parsed.h + shift });
+  const shiftedColor = oklchToHex({
+    l: parsed.l,
+    c: parsed.c,
+    h: parsed.h + shift,
+  });
+  return normalizeSceneColor(shiftedColor);
 };
 
 export const calculateLanguageColors = (

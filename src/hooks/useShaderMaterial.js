@@ -2,14 +2,30 @@ import { useMemo } from "react";
 import { Color } from "three";
 import { useConfigContext } from "../contexts/ConfigContext";
 import { meshVertexShader, tonalityFragmentShader } from "../shaders/shader";
+import { normalizeSceneColor } from "../utils/colorUtils.js";
 import { useThrottledFrame } from "./useThrottledFrame";
 
 export const useShaderMaterial = (baseColor, accentColor, stripesType) => {
   const { config } = useConfigContext();
   const { shaderLight, shaderBase, shaderStripe, shaderOpacity } = config;
 
-  const baseColorObj = useMemo(() => new Color(baseColor), [baseColor]);
-  const accentColorObj = useMemo(() => new Color(accentColor), [accentColor]);
+  const normalizedBaseColor = useMemo(
+    () => normalizeSceneColor(baseColor),
+    [baseColor],
+  );
+  const normalizedAccentColor = useMemo(
+    () => normalizeSceneColor(accentColor),
+    [accentColor],
+  );
+
+  const baseColorObj = useMemo(
+    () => new Color(normalizedBaseColor),
+    [normalizedBaseColor],
+  );
+  const accentColorObj = useMemo(
+    () => new Color(normalizedAccentColor),
+    [normalizedAccentColor],
+  );
 
   const material = useMemo(
     () => ({
