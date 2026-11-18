@@ -100,9 +100,7 @@ function IdCard({
       }}
     >
       <div className="id-card-header">
-        <div>{languageCode}</div>
         <h2 className="id-card-title">{localizedLanguageName}</h2>
-        <div>{language.nativeName}</div>
         <div className="id-card-actions">
           {sampleUrl && (
             <a

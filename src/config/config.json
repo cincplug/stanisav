@@ -39,7 +39,7 @@
   },
   "sphere": {
     "sphereSpinSpeed": 1.5,
-    "labelOffset": 4,
+    "labelOffset": 3,
     "sphereRadius": 19,
     "isMinglingWhenNotZoomed": true,
     "isFullSphere": false,

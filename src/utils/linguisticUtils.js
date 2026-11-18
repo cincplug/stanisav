@@ -147,11 +147,11 @@ export const getLanguageLabel = (
 ) => {
   switch (languageDisplay) {
     case "name":
-    case "selfie":
       return getLocalizedLanguageName(languageCode);
     case "kavianName":
       return getLocalizedKavianLanguageName(languageCode);
-    case "nativeName": {
+    case "nativeName":
+    case "selfie": {
       const nativeName = languageData?.[languageCode]?.nativeName;
       if (!nativeName) {
         throw new Error(`Missing nativeName for '${languageCode}'`);
