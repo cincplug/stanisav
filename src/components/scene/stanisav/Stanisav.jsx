@@ -233,7 +233,7 @@ const Stanisav = ({
             color={tuftColor}
             y={tuftY}
             z={eyeZ}
-            stepDeg={6}
+            stepDeg={3}
           />
         )}
 
@@ -243,7 +243,7 @@ const Stanisav = ({
             color={eyebrowColor}
             y={eyebrowY}
             z={eyeZ}
-            stepDeg={12}
+            stepDeg={6}
           />
         )}
         <Balloon

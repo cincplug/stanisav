@@ -23,10 +23,11 @@ const Moustache = ({ tuftCount, color, y, z, stepDeg }) => {
 
   const tuftsWithRotation = useMemo(() => {
     if (!tuftCount) return [];
-    const spacing = (eyeX / tuftCount) * tuftSpacing;
+    const spacing = (eyeX * tuftSpacing) / Math.PI;
     const totalWidth = spacing * (tuftCount - 1);
     const baseX = totalWidth / 2;
     const centerIndex = (tuftCount - 1) / 2;
+    const zRadius = tuftCount * tuftProtrusion;
     const result = Array.from({ length: tuftCount }, (_, i) => {
       const offsetFromCenter = Math.abs(i - centerIndex);
       const t = centerIndex === 0 ? 0 : offsetFromCenter / centerIndex;
@@ -36,14 +37,24 @@ const Moustache = ({ tuftCount, color, y, z, stepDeg }) => {
         key: `moustache-${i}`,
         x: baseX - i * spacing,
         y,
-        z: eyeZ + t * tuftProtrusion,
+        z: eyeZ + Math.cos((t * Math.PI) / 2) * zRadius,
         rotationRad,
         scale,
       };
     });
     tuftDataRef.current = result;
     return result;
-  }, [tuftCount, tuftSpacing, eyeX, eyeZ, y, z]);
+  }, [
+    tuftCount,
+    tuftSpacing,
+    eyeX,
+    eyeZ,
+    tuftProtrusion,
+    tuftSize,
+    stepDeg,
+    y,
+    z,
+  ]);
 
   if (!tuftsWithRotation.length) return null;
 
