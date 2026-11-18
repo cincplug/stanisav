@@ -2,18 +2,16 @@ import { useState, useEffect } from "react";
 import tabsConfig from "../../config/tabsConfig.json";
 import studentsSortByOptions from "../../config/studentsSortByOptions.json";
 import { useConfigContext } from "../../contexts/ConfigContext";
-import { useEntranceContext } from "../../contexts/EntranceContext";
 import { useI18nContext } from "../../contexts/I18nContext";
 import { useLanguageColorsContext } from "../../contexts/LanguageColorsContext";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import ControlItemGroup from "./ControlItemGroup";
 import LocaleLinks from "./LocaleLinks";
 import "./Menu.css";
-import { BurgerIcon, CloseIcon, SortIcon, EyeIcon } from "../Icons";
+import { BurgerIcon, CloseIcon } from "../Icons";
 import Playlist from "./Playlist";
 import TabNavigation from "./TabNavigation";
 import TabRenderer from "./TabRenderer";
-import Select from "../ux/Select";
 
 function Menu({
   onControlChange,
@@ -24,38 +22,12 @@ function Menu({
   filters,
   onFiltersChange,
 }) {
-  const { config, updateConfigValue, getConfigGroup } = useConfigContext();
-  const { skipSequence } = useEntranceContext();
+  const { config, updateConfigValue } = useConfigContext();
   const { languageColors } = useLanguageColorsContext();
   const { t, isRtl } = useI18nContext();
   const [selectedTab, setSelectedTab] = useState(tabsConfig.defaultTab);
   const isMobile = useMediaQuery("(max-width: 640px)");
-  const { sortBy, languageDisplay } = config;
-
-  const headerControls = getConfigGroup("header");
-  const getOptions = (key) =>
-    headerControls
-      .find(({ groupRelativeKey }) => groupRelativeKey === key)
-      .options.map((value) => {
-        const i18nKey = `controls.${key}.options.${value}`;
-        const translated = t(i18nKey);
-        return {
-          value,
-          label: translated !== i18nKey ? translated : String(value),
-        };
-      });
-  const sortByOptions = getOptions("sortBy");
-  const languageDisplayOptions = getOptions("languageDisplay");
-
-  const selectedSortBy =
-    sortByOptions.find(({ value }) => value === sortBy)?.value ||
-    sortByOptions[0]?.value ||
-    "";
-  const selectedLanguageDisplay =
-    languageDisplayOptions.find(({ value }) => value === languageDisplay)
-      ?.value ||
-    languageDisplayOptions[0]?.value ||
-    "";
+  const { sortBy } = config;
 
   const handleControlChange = (dotKey, value) => {
     onControlChange(dotKey, value);
@@ -64,11 +36,6 @@ function Menu({
 
   const handleTabChange = (tabId) => {
     setSelectedTab(tabId);
-  };
-
-  const handleCompactControlChange = (key, value) => {
-    updateConfigValue(`header.${key}`, value);
-    skipSequence();
   };
 
   // Opinionated design decision
@@ -134,28 +101,6 @@ function Menu({
         <div className={`menu compact${isRtl ? " rtl" : ""}`}>
           <Playlist />
           <LocaleLinks isCompact />
-          {sortByOptions.length > 0 && (
-            <Select
-              options={sortByOptions}
-              value={selectedSortBy}
-              onChange={(value) => handleCompactControlChange("sortBy", value)}
-              label={t("controls.sortBy.label")}
-              isCompact
-              icon={<SortIcon />}
-            />
-          )}
-          {languageDisplayOptions.length > 0 && (
-            <Select
-              options={languageDisplayOptions}
-              value={selectedLanguageDisplay}
-              onChange={(value) =>
-                handleCompactControlChange("languageDisplay", value)
-              }
-              label={t("controls.languageDisplay.label")}
-              isCompact
-              icon={<EyeIcon />}
-            />
-          )}
           <button
             id="menu-open"
             onClick={() => onToggleMenu(true)}
