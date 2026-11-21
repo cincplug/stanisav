@@ -5,13 +5,13 @@ const audioUrlCache = new Map();
 // "l" (luka only), "o" (original only).
 export async function getLanguageAudioUrls(languageCode, soundSource) {
   const suffixesBySoundSource = {
-    "o-l": ["", "-luka"],
-    "l-o": ["-luka", ""],
-    l: ["-luka"],
-    o: [""],
+    "original + luka": ["", "-luka"],
+    "luka + original": ["-luka", ""],
+    luka: ["-luka"],
+    original: [""],
   };
 
-  const suffixes = suffixesBySoundSource[soundSource] ?? [""];
+  const suffixes = suffixesBySoundSource[soundSource];
 
   const audioUrls = await Promise.all(
     suffixes.map((suffix) => resolveAudioUrl(languageCode, suffix)),

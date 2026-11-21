@@ -69,8 +69,9 @@ const ControlsTab = ({ className }) => {
   return (
     <div className={`control-section ${className}`}>
       <p>
-        Sorry, this section is not just in English but also in camelCase. That's
-        because it's generated from config
+        Sorry, this section is always in English and also in camelCase, because
+        it's generated from config and I can't spend time translating each time
+        I add a new control.
       </p>
       {visibleGroupNames.map((groupName) => (
         <ControlItemGroup key={groupName} groupName={groupName} showFieldset />

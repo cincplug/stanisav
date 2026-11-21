@@ -1,5 +1,6 @@
 {
   "controls": {
+    "soundSource": ["luka", "original", "luka + original", "original + luka"],
     "usesCamelCase": true,
     "remembersSettings": false
   },
@@ -117,7 +118,6 @@
     "tuftColorStep": 33
   },
   "audioVisualisation": {
-    "soundSource": ["l-o", "o-l", "l", "o"],
     "fundamentalMax": 800,
     "fundamentalMin": 85,
     "harmonicsMax": 4000,
