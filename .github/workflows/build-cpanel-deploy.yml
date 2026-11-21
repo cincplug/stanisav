@@ -1,0 +1,64 @@
+name: Build cPanel deployment branch
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
+      - name: Prepare cPanel deployment branch
+        shell: bash
+        run: |
+          set -e
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          rm -rf "$RUNNER_TEMP/cpanel-deploy"
+
+          if git ls-remote --exit-code --heads origin cpanel-deploy >/dev/null 2>&1; then
+            git worktree add "$RUNNER_TEMP/cpanel-deploy" origin/cpanel-deploy
+          else
+            git worktree add --detach "$RUNNER_TEMP/cpanel-deploy"
+          fi
+
+          cd "$RUNNER_TEMP/cpanel-deploy"
+          git checkout -B cpanel-deploy
+          git rm -rf --ignore-unmatch . >/dev/null
+
+          mkdir -p dist
+          cp -R "$GITHUB_WORKSPACE/dist/." dist/
+          cp "$GITHUB_WORKSPACE/.cpanel.yml" .cpanel.yml
+
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "Deployment branch already contains this build."
+          else
+            git commit -m "Deploy ${GITHUB_SHA}"
+            git push origin cpanel-deploy
+          fi

@@ -28,3 +28,8 @@ coverage/
 # Temporary folders
 tmp/
 temp/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
