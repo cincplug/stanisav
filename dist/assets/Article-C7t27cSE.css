@@ -1,0 +1,1 @@
+.article-body{overflow:auto}.article-container{max-width:var(--readable-width);margin-inline:auto;gap:var(--gap);color:var(--color-4)}.article-container img{display:block;max-width:100%;max-height:var(--panel-width);margin:0 auto}.home-link{position:absolute;top:0;left:0}.home-link-icon{padding:var(--gap-double) var(--gap);transform:rotate(90deg) scale(1.2)}

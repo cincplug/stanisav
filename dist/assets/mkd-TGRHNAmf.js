@@ -1,0 +1,2 @@
+const e=[{message:"Јас сум Станисав, „зборувам“ 232 јазици и го менувам мојот изглед за да ги одразам нивните јазични карактеристики."}];export{e as default};
+//# sourceMappingURL=mkd-TGRHNAmf.js.map

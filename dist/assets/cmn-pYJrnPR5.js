@@ -1,0 +1,2 @@
+const e=[{message:"我是斯坦尼萨夫，我能“说”232种语言，并且会根据语言特征改变自己的外貌。"}];export{e as default};
+//# sourceMappingURL=cmn-pYJrnPR5.js.map

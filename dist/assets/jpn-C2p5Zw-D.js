@@ -1,0 +1,2 @@
+const e=[{message:"私はスタニサフです。232の言語を「話」し、それぞれの言語の特徴を反映するように外見を変えます。"}];export{e as default};
+//# sourceMappingURL=jpn-C2p5Zw-D.js.map

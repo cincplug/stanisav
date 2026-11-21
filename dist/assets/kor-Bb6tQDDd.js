@@ -1,0 +1,2 @@
+const e=[{message:"저는 스타니사브입니다. 232개 언어를 구사할 수 있고, 각 언어의 특징에 맞춰 외모를 바꿉니다."}];export{e as default};
+//# sourceMappingURL=kor-Bb6tQDDd.js.map
