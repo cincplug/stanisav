@@ -61,7 +61,7 @@ function App() {
       <div className="scene-area">
         {!isStanisavMini && <Scene />}
 
-        {selectedLanguage && !isMobile && (
+        {selectedLanguage && (
           <IdCard
             isVisible={isIdCardVisible}
             languageCode={selectedLanguage}
