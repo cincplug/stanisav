@@ -1,7 +1,6 @@
 import { getFamilyLabel } from "../../utils/i18nUtils";
-import { getLanguageSelfieUrl } from "../../utils/languageSelfieUtils.js";
 import { getLanguageLabel } from "../../utils/linguisticUtils";
-import MiniStanisav from "../MiniStanisav.jsx";
+import Selfie from "./Selfie.jsx";
 
 const LanguageTree = ({
   tree,
@@ -26,30 +25,6 @@ const LanguageTree = ({
           const isSelected = selectedLanguage === langCode;
           const colorProperty = isMobile ? "color" : "backgroundColor";
 
-          const Selfie = () => {
-            if (!isMobile) return null;
-            if (isSelected)
-              return (
-                <MiniStanisav
-                  className="language-selfie"
-                  hasSelfieButton={false}
-                  languageCode={langCode}
-                  position={[0, 0, 104]}
-                />
-              );
-            return (
-              <img
-                className="language-selfie"
-                src={getLanguageSelfieUrl(langCode)}
-                alt=""
-                loading="lazy"
-                onError={(event) => {
-                  event.currentTarget.hidden = true;
-                }}
-              />
-            );
-          };
-
           return (
             <li key={langCode}>
               <button
@@ -68,7 +43,9 @@ const LanguageTree = ({
                 onFocus={() => onFocusLanguage(langCode)}
                 aria-current={isSelected ? "true" : undefined}
               >
-                <Selfie />
+                {isMobile && (
+                  <Selfie langCode={langCode} isSelected={isSelected} />
+                )}
                 <span className="label-text">{label}</span>
               </button>
             </li>
@@ -103,6 +80,7 @@ const LanguageTree = ({
           onSelectLanguage={onSelectLanguage}
           onFocusLanguage={onFocusLanguage}
           languageColors={languageColors}
+          isMobile={isMobile}
         />
 
         {Object.keys(node.children).length > 0 && (
@@ -117,6 +95,7 @@ const LanguageTree = ({
               onSelectLanguage={onSelectLanguage}
               onFocusLanguage={onFocusLanguage}
               languageColors={languageColors}
+              isMobile={isMobile}
               depth={depth + 1}
               parentKey={groupKey}
             />
