@@ -18,6 +18,7 @@
     "dev": "vite",
     "dev:legacy": "npm run lint:fix && npm run serve",
     "preview": "vite preview",
+    "package:dist": "npm run build && node scripts/package-dist.js",
     "clean": "rm -rf dist/*",
     "mp3": "node scripts/mp3.js",
     "audio:analyze": "node scripts/analyze-audio.js",
