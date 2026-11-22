@@ -54,11 +54,19 @@ export function sortLanguages({
   isReverse,
 }) {
   const sorted = (() => {
+    const isSelfie = languageDisplay === "selfie";
+
     switch (sortBy) {
       case "alphabetically":
         return allLanguages.sort((a, b) => {
-          const labelA = getLanguageLabel(a, languages, languageDisplay);
-          const labelB = getLanguageLabel(b, languages, languageDisplay);
+          // A selfie label shows a native name, but alphabetical sorting follows
+          // the current locale rather than changing every selfie locale.
+          const labelA = isSelfie
+            ? getLocalizedLanguageName(a)
+            : getLanguageLabel(a, languages, languageDisplay);
+          const labelB = isSelfie
+            ? getLocalizedLanguageName(b)
+            : getLanguageLabel(b, languages, languageDisplay);
 
           invariant(labelA !== null, `Missing '${languageDisplay}' for '${a}'`);
           invariant(labelB !== null, `Missing '${languageDisplay}' for '${b}'`);
