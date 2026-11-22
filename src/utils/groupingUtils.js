@@ -1,4 +1,5 @@
 import linguisticConfig from "../config/linguisticConfig.json";
+import { getLocalizedLanguageName } from "../i18n/runtime";
 import { getFamilyLabel } from "./i18nUtils";
 import {
   getFeatureLabel,
@@ -7,7 +8,7 @@ import {
   isNumericFeature,
 } from "./linguisticUtils";
 
-export function buildLanguageTree(languageCodes, languages, lineages) {
+export function buildLanguageTree(languageCodes, languages, _lineages) {
   const tree = {};
 
   languageCodes.forEach((langCode) => {
@@ -36,7 +37,7 @@ export function groupLanguages({
   sortedLanguageCodes,
   sortBy,
   languages,
-  lineages,
+  _lineages,
   languageDisplay,
   isReverse,
 }) {
@@ -64,7 +65,10 @@ export function groupLanguages({
   if (sortBy === "alphabetically") {
     const result = {};
     sortedLanguageCodes.forEach((langCode) => {
-      const label = getLanguageLabel(langCode, languages, languageDisplay);
+      const label =
+        languageDisplay === "selfie"
+          ? getLocalizedLanguageName(langCode)
+          : getLanguageLabel(langCode, languages, languageDisplay);
       const firstChar =
         Array.from(label.trim())[0]?.toLocaleUpperCase("und") || "#";
       if (!result[firstChar]) {

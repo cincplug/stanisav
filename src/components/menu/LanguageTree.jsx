@@ -1,4 +1,5 @@
 import { getFamilyLabel } from "../../utils/i18nUtils";
+import { getLocalizedLanguageName } from "../../i18n/runtime";
 import { getLanguageLabel } from "../../utils/linguisticUtils";
 import Selfie from "./Selfie.jsx";
 
@@ -21,7 +22,10 @@ const LanguageTree = ({
     return (
       <ul className="languages-in-group" role="list">
         {languageCodes.map((langCode) => {
-          const label = getLanguageLabel(langCode, languages, languageDisplay);
+          const label =
+            languageDisplay === "selfie"
+              ? getLocalizedLanguageName(langCode)
+              : getLanguageLabel(langCode, languages, languageDisplay);
           const isSelected = selectedLanguage === langCode;
           const colorProperty = isMobile ? "color" : "backgroundColor";
 
