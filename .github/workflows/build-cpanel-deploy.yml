@@ -1,9 +1,7 @@
 name: Build cPanel deployment branch
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -53,6 +51,7 @@ jobs:
           mkdir -p dist
           cp -R "$GITHUB_WORKSPACE/dist/." dist/
           cp "$GITHUB_WORKSPACE/.cpanel.yml" .cpanel.yml
+          cp "$GITHUB_WORKSPACE/vercel.json" vercel.json
 
           git add -A
 
