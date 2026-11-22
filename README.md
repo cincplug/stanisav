@@ -1,6 +1,6 @@
-## Who's this?
+## Who's Stanisav?
 
-This is Stanisav, an animated 3D character who physically visualizes the linguistic properties of languages.
+He is an animated 3D character who physically visualizes the linguistic properties of languages.
 
 ## How does he do it?
 

@@ -78,7 +78,7 @@ function App() {
 
         {!selectedLanguage && (
           <Link className="article-link" to={`article`}>
-            Who's this?
+            Who's Stanisav?
           </Link>
         )}
       </div>
