@@ -33,3 +33,11 @@
     order: -1;
   }
 }
+
+.scene-playlist-bottom {
+  position: absolute;
+  bottom: var(--gap-double);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}

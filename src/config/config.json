@@ -36,7 +36,8 @@
     "isMenuExpanded": false,
     "isMyStanisav": false,
     "canMakeSelfies": false,
-    "timeRate": 15
+    "timeRate": 15,
+    "playlistHideTimeout": 2500
   },
   "sphere": {
     "sphereSpinSpeed": 1.5,

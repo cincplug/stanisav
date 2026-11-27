@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./App.css";
 import IdCard from "./IdCard.jsx";
 import Menu from "./menu/Menu.jsx";
+import Playlist from "./menu/Playlist.jsx";
 import Overlay from "./Overlay.jsx";
 import Scene from "./scene/Scene.jsx";
 import { useAppStateContext } from "../contexts/AppStateContext.jsx";
@@ -60,6 +61,12 @@ function App() {
 
       <div className="scene-area">
         {!isStanisavMini && <Scene />}
+
+        {!selectedLanguage && (
+          <div className="scene-playlist-bottom">
+            <Playlist />
+          </div>
+        )}
 
         {selectedLanguage && (
           <IdCard

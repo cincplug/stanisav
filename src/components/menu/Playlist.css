@@ -5,14 +5,13 @@ html.rtl .playlist-controls .next-icon {
 }
 
 .playlist-controls {
-  top: var(--gap-double);
-  left: var(--gap-double);
-  right: auto;
   padding: var(--gap-half);
   display: flex;
   gap: var(--gap);
   align-items: center;
-  transition: gap var(--transition);
+  transition:
+    gap var(--transition),
+    opacity var(--transition);
 
   &.not-zoomed {
     gap: 0;
@@ -22,6 +21,10 @@ html.rtl .playlist-controls .next-icon {
       padding: 0;
     }
   }
+}
+
+.playlist-controls.zoomed {
+  gap: var(--gap-double);
 }
 
 .playlist-controls button {
@@ -35,6 +38,22 @@ html.rtl .playlist-controls .next-icon {
   transform: scale(1.1);
 }
 
+.playlist-controls.zoomed button {
+  width: var(--icon-size-xl);
+  height: var(--icon-size-xl);
+  max-width: none;
+  box-sizing: border-box;
+  aspect-ratio: 1;
+}
+
+.playlist-controls.not-zoomed .playlist-main {
+  width: var(--icon-size-xl);
+  height: var(--icon-size-xl);
+  max-width: none;
+  box-sizing: border-box;
+  aspect-ratio: 1;
+}
+
 .playlist-main {
   background: var(--color-red);
 }
@@ -46,4 +65,13 @@ html.rtl .playlist-controls .next-icon {
 .playlist-progress {
   min-width: fit-content;
   text-align: center;
+}
+
+.playlist-controls.is-idle {
+  opacity: 0;
+}
+
+.playlist-controls.is-idle:hover,
+.playlist-controls.is-idle:focus-within {
+  opacity: 1;
 }

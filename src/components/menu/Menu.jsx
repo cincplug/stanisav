@@ -9,7 +9,6 @@ import ControlItemGroup from "./ControlItemGroup";
 import LocaleLinks from "./LocaleLinks";
 import "./Menu.css";
 import { BurgerIcon, CloseIcon } from "../Icons";
-import Playlist from "./Playlist";
 import TabNavigation from "./TabNavigation";
 import TabRenderer from "./TabRenderer";
 
@@ -73,7 +72,6 @@ function Menu({
             >
               <CloseIcon />
             </button>
-            <Playlist />
             {!isMobile && renderHeaderControls()}
           </div>
 
@@ -99,7 +97,6 @@ function Menu({
         </div>
       ) : (
         <div className={`menu compact${isRtl ? " rtl" : ""}`}>
-          <Playlist />
           <LocaleLinks isCompact />
           <button
             id="menu-open"

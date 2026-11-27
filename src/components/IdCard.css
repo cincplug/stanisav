@@ -21,17 +21,20 @@
   }
 }
 
+.id-card-playlist-controls {
+  position: absolute;
+  bottom: calc(100% + var(--gap-double));
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .id-card-header {
   position: relative;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   gap: var(--gap);
-  padding: 0 var(--gap-triple) 0 var(--gap);
-
-  html.rtl & {
-    padding: 0 var(--gap-double) 0 var(--gap-triple);
-  }
+  padding: 0 var(--gap-triple);
 }
 
 .id-card-close-button {

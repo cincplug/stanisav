@@ -66,19 +66,6 @@
     position: absolute;
     align-items: center;
     gap: var(--gap);
-
-    .playlist-controls {
-      padding: 0;
-
-      &.zoomed button {
-        padding: var(--gap-reduced);
-      }
-
-      button {
-        width: var(--icon-size-l);
-        height: var(--icon-size-l);
-      }
-    }
   }
 }
 
@@ -93,7 +80,7 @@
 
 .menu-wrapper {
   position: relative;
-  z-index: 1;
+  z-index: 3;
 
   @media (max-width: 640px) {
     width: 100%;

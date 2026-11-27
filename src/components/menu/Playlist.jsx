@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useConfigContext } from "../../contexts/ConfigContext";
 import { useI18nContext } from "../../contexts/I18nContext";
 import { useLanguageSelectionContext } from "../../contexts/LanguageSelectionContext";
@@ -26,16 +26,66 @@ export default function Playlist() {
   } = usePlaylistContext();
 
   const { config, updateConfigValue } = useConfigContext();
-  const { isAutoplay } = config;
+  const { isAutoplay, playlistHideTimeout } = config;
   const playButtonRef = useRef(null);
+  const controlsRef = useRef(null);
   const isPlaylistActive = Boolean(selectedLanguage);
   const shouldPauseAudio = isPlaying;
+  const [areControlsIdle, setAreControlsIdle] = useState(false);
+
+  useEffect(() => {
+    const canHoverWithMouse = window.matchMedia(
+      "(hover: hover) and (pointer: fine)",
+    ).matches;
+
+    if (!isPlaylistActive || !canHoverWithMouse) {
+      setAreControlsIdle(false);
+      return;
+    }
+
+    let hideTimeout;
+    const hideAfterInactivity = () => {
+      window.clearTimeout(hideTimeout);
+      hideTimeout = window.setTimeout(() => {
+        if (!controlsRef.current?.matches(":hover")) {
+          setAreControlsIdle(true);
+        }
+      }, playlistHideTimeout);
+    };
+    const handlePointerMove = (event) => {
+      if (event.pointerType !== "mouse") return;
+      setAreControlsIdle(false);
+      if (controlsRef.current?.matches(":hover")) {
+        window.clearTimeout(hideTimeout);
+        return;
+      }
+      hideAfterInactivity();
+    };
+
+    hideAfterInactivity();
+    window.addEventListener("pointermove", handlePointerMove);
+
+    return () => {
+      window.clearTimeout(hideTimeout);
+      window.removeEventListener("pointermove", handlePointerMove);
+    };
+  }, [isPlaylistActive]);
 
   const handleStop = () => {
     pausePlaylist();
     viewAllLanguages();
     playButtonRef.current?.focus();
   };
+
+  const handlePrevious = useCallback(() => {
+    goToPrev();
+    if (isPlaylistActive && !isPlaying) startPlaylist();
+  }, [goToPrev, isPlaylistActive, isPlaying, startPlaylist]);
+
+  const handleNext = useCallback(() => {
+    goToNext();
+    if (isPlaylistActive && !isPlaying) startPlaylist();
+  }, [goToNext, isPlaylistActive, isPlaying, startPlaylist]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -61,12 +111,12 @@ export default function Playlist() {
         case "ArrowLeft":
           if (isOnInteractiveElement) break;
           e.preventDefault();
-          goToPrev();
+          handlePrevious();
           break;
         case "ArrowRight":
           if (isOnInteractiveElement) break;
           e.preventDefault();
-          goToNext();
+          handleNext();
           break;
         case "Home":
           if (isOnInteractiveElement) break;
@@ -95,6 +145,10 @@ export default function Playlist() {
     startPlaylist,
     goToPrev,
     goToNext,
+    isPlaylistActive,
+    isPlaying,
+    handlePrevious,
+    handleNext,
     goToBegin,
     handleStop,
     updateConfigValue,
@@ -103,11 +157,12 @@ export default function Playlist() {
   const toggleLoop = () => updateConfigValue("global.isAutoplay", !isAutoplay);
 
   const playLabel = shouldPauseAudio ? t("playlist.pause") : t("playlist.play");
-  const playIcon = isPlaylistActive ? <PauseIcon /> : <PlayIcon />;
+  const playIcon = shouldPauseAudio ? <PauseIcon /> : <PlayIcon />;
 
   return (
     <div
-      className={`playlist-controls ${selectedLanguage ? "zoomed" : "not-zoomed"}`}
+      ref={controlsRef}
+      className={`playlist-controls ${selectedLanguage ? "zoomed" : "not-zoomed"}${areControlsIdle ? " is-idle" : ""}`}
       role="group"
       aria-label={t("playlist.controls")}
     >
@@ -119,7 +174,7 @@ export default function Playlist() {
         <HomeIcon />
       </button>
       <button
-        onClick={goToPrev}
+        onClick={handlePrevious}
         aria-label={t("playlist.previous")}
         disabled={!selectedLanguage}
       >
@@ -135,7 +190,7 @@ export default function Playlist() {
         {playIcon}
       </button>
       <button
-        onClick={goToNext}
+        onClick={handleNext}
         aria-label={t("playlist.next")}
         disabled={!selectedLanguage}
       >

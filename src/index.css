@@ -25,6 +25,7 @@
   --gap-triple: calc(var(--gap) * 3);
   --gap-half: calc(var(--gap) / 2);
   --gap-reduced: calc(var(--gap) / 3 * 2);
+  --icon-size-xl: 3rem;
   --icon-size-l: 2rem;
   --icon-size-m: 1.5rem;
   --icon-size-s: 1rem;

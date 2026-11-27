@@ -3,6 +3,7 @@ import { useI18nContext } from "../contexts/I18nContext";
 import { useLanguageSelectionContext } from "../contexts/LanguageSelectionContext";
 import { getLocalizedLanguageName } from "../i18n/runtime";
 import { getFamilyLabel } from "../utils/i18nUtils";
+import Playlist from "./menu/Playlist.jsx";
 import {
   formatNumber,
   formatSpeakers,
@@ -99,6 +100,10 @@ function IdCard({
         "--id-card-max-columns": normalizedColumnCount,
       }}
     >
+      <div className="id-card-playlist-controls">
+        <Playlist />
+      </div>
+
       <div className="id-card-header">
         <h2 className="id-card-title">{localizedLanguageName}</h2>
         <div className="id-card-actions">
